@@ -1,0 +1,1761 @@
+{
+  "version": 1,
+  "no_business_tests": [
+    "AGENTS.md",
+    "README.md",
+    "WORKSPACE.md",
+    "archive/**",
+    "coordination/**",
+    "design/**",
+    "requirements/**",
+    "reviews/**",
+    "theory/history/**",
+    "trade_system/theory_paper_v2/v3.3.2/DEVELOPMENT_PLAN.md",
+    ".agents/skills/v340-strategic-trader/**"
+  ],
+  "targets": {
+    "focused-runner-contract": {
+      "owner": "tools/run_focused_tests.py",
+      "trigger_paths": [
+        "tools/run_focused_tests.py",
+        "tests/targets.json",
+        "tests/test_run_focused_tests.py",
+        "tests/README.md"
+      ],
+      "selectors": [
+        "tests.test_run_focused_tests.FocusedTestRunnerTests.test_catalog_rejects_duplicate_keys_wildcards_and_unknown_selectors",
+        "tests.test_run_focused_tests.FocusedTestRunnerTests.test_changed_paths_map_targets_and_docs_can_plan_zero",
+        "tests.test_run_focused_tests.FocusedTestRunnerTests.test_plan_deduplicates_shared_exact_test_ids",
+        "tests.test_run_focused_tests.FocusedTestRunnerTests.test_repository_catalog_is_valid_and_marks_slow_targets_manual",
+        "tests.test_run_focused_tests.FocusedTestRunnerTests.test_run_uses_exact_selectors_and_reports_budget_without_widening",
+        "tests.test_run_focused_tests.FocusedTestRunnerTests.test_unmapped_change_fails_before_runner"
+      ],
+      "budget_seconds": 5,
+      "use_when": "修改单点 runner、目标清单或其使用说明时运行。",
+      "forbidden_uses": [
+        "不能证明任何业务模块正确，也不能替代 owning target。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "legacy-wide-tool-contract": {
+      "owner": "tools/run_theory_tests.py",
+      "trigger_paths": [
+        "tools/run_theory_tests.py",
+        "tests/test_run_theory_tests.py"
+      ],
+      "selectors": [
+        "tests.test_run_theory_tests.TheoryTestRunnerTests.test_bounded_runner_runs_the_full_theory_suite_once_and_uses_last_summary",
+        "tests.test_run_theory_tests.TheoryTestRunnerTests.test_cache_tamper_is_rejected_without_rerunning",
+        "tests.test_run_theory_tests.TheoryTestRunnerTests.test_code_identity_key_has_no_run_identity_and_invalidates_on_inputs",
+        "tests.test_run_theory_tests.TheoryTestRunnerTests.test_discovery_count_mismatch_cannot_be_cached_as_pass",
+        "tests.test_run_theory_tests.TheoryTestRunnerTests.test_each_cache_status_has_a_strict_exit_code_invariant",
+        "tests.test_run_theory_tests.TheoryTestRunnerTests.test_existing_lock_stops_duplicate_execution",
+        "tests.test_run_theory_tests.TheoryTestRunnerTests.test_legacy_qualification_writer_is_retired_before_runtime_access",
+        "tests.test_run_theory_tests.TheoryTestRunnerTests.test_nul_status_accepts_the_unicode_allowlist_without_git_quoting",
+        "tests.test_run_theory_tests.TheoryTestRunnerTests.test_resigned_cache_still_cannot_claim_pass_with_wrong_count",
+        "tests.test_run_theory_tests.TheoryTestRunnerTests.test_static_plan_is_the_old_union_with_each_test_id_once",
+        "tests.test_run_theory_tests.TheoryTestRunnerTests.test_unchanged_code_reuses_disk_cache_without_second_suite_execution",
+        "tests.test_run_theory_tests.TheoryTestRunnerTests.test_unchanged_failed_result_is_not_retried",
+        "tests.test_run_theory_tests.TheoryTestRunnerTests.test_workspace_drift_during_execution_cannot_be_cached_as_pass"
+      ],
+      "budget_seconds": 15,
+      "use_when": "只在旧宽测试工具或其本地缓存合同变化时运行；它本身不会启动宽套件。",
+      "forbidden_uses": [
+        "不能据此运行 legacy-wide，不能作为 qualification evidence。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "fixture-cache-contract": {
+      "owner": "tests/test_theory_paper_v2_v32_agent_lifecycle.py",
+      "trigger_paths": [
+        "tests/test_theory_paper_v2_v32_agent_lifecycle.py",
+        "tests/test_theory_paper_v2_v32_agent_semantic_compiler.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_agent_lifecycle.V32AgentLifecycleFixtureCacheTests.test_common_packets_are_cached_by_profile_and_return_isolated_clones",
+        "tests.test_theory_paper_v2_v32_agent_semantic_compiler.V32AgentSemanticFixtureCacheTests.test_default_fixture_is_cached_and_cloned_while_variants_build_fresh"
+      ],
+      "budget_seconds": 2,
+      "use_when": "修改 Agent 测试 fixture 构造、缓存键或克隆边界时先运行。",
+      "forbidden_uses": [
+        "只证明 fixture 隔离，不能证明 lifecycle 或 compiler 业务语义。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "缓存形状或业务 packet 字段变化"
+        ],
+        "to": [
+          "v32-lifecycle-core",
+          "v32-semantic-compiler"
+        ]
+      }
+    },
+    "v32-current-authority": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/authority/v32_current_research.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/infrastructure/authority/v32_current_research.py",
+        "tests/test_theory_paper_v2_v32_current_research_authority.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_current_research_authority.V32CurrentResearchAuthorityTests.test_full_loader_returns_only_exact_five_documents_and_is_read_only",
+        "tests.test_theory_paper_v2_v32_current_research_authority.V32CurrentResearchAuthorityTests.test_runtime_exact_path_set_and_physical_sha_are_enforced",
+        "tests.test_theory_paper_v2_v32_current_research_authority.V32CurrentResearchAuthorityTests.test_symlink_wrong_run_qualification_profile_and_v31_schema_fail"
+      ],
+      "budget_seconds": 15,
+      "use_when": "修改 current-authority loader、路径或 Git fixture 恢复逻辑时运行。",
+      "forbidden_uses": [
+        "不能作为资格收据，也不能证明全部历史 checkout 可在线重放。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "三个代表性合同暴露跨文档影响"
+        ],
+        "to": []
+      }
+    },
+    "v32-authority-lifecycle-core": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/authority/v32_authority_lifecycle.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/infrastructure/authority/v32_authority_lifecycle.py",
+        "trade_system/theory_paper_v2/presentation/v32_qualification_composition.py",
+        "tests/test_theory_paper_v2_v32_authority_lifecycle.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_authority_lifecycle.V32QualificationCompositionClockTests.test_new_phase_a_route_retires_before_clock_replay_or_write",
+        "tests.test_theory_paper_v2_v32_authority_lifecycle.V32AuthorityLifecycleTests.test_phase_a_entry_replays_an_existing_runtime_without_new_clock",
+        "tests.test_theory_paper_v2_v32_authority_lifecycle.V32AuthorityLifecycleTests.test_phase_b_recovers_after_retirement_before_target_tail"
+      ],
+      "budget_seconds": 15,
+      "use_when": "修改旧 qualification 退役入口、已有 runtime 重放或 Phase-B 恢复时运行。",
+      "forbidden_uses": [
+        "不能恢复已退役的新 qualification 写路线，也不能代替完整历史 checkout。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "修改 secure bundle 或进程级恢复原语"
+        ],
+        "to": []
+      }
+    },
+    "v311-successor-envelope-core": {
+      "owner": "trade_system/theory_paper_v2/domain/governance/v311_successor_authority_envelope_v2.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/governance/v311_successor_authority_envelope_v2.py",
+        "tests/test_theory_paper_v2_v311_successor_authority_envelope_v2.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v311_successor_authority_envelope_v2.V311SuccessorAuthorityEnvelopeV2Tests.test_envelope_reconstruction_enforces_two_run_lineage",
+        "tests.test_theory_paper_v2_v311_successor_authority_envelope_v2.V311SuccessorAuthorityEnvelopeV2Tests.test_projection_rejects_missing_target",
+        "tests.test_theory_paper_v2_v311_successor_authority_envelope_v2.V311SuccessorAuthorityEnvelopeV2Tests.test_supervisor_policy_is_exact_and_permission_expansion_is_rejected"
+      ],
+      "budget_seconds": 5,
+      "use_when": "修改 V3.11 successor envelope、双 run 谱系或 target 投影边界时运行。",
+      "forbidden_uses": [
+        "不得恢复依赖当前 checkout 旧根路径的历史实仓 replay；严格历史重放应使用冻结提交。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v32-lifecycle-core": {
+      "owner": "trade_system/theory_paper_v2/domain/v32_agent_lifecycle.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/v32_agent_lifecycle.py",
+        "tests/test_theory_paper_v2_v32_agent_lifecycle.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_agent_lifecycle.V32AgentLifecycleTests.test_commit_is_first_object_to_bind_final_plan_and_schedule",
+        "tests.test_theory_paper_v2_v32_agent_lifecycle.V32AgentLifecycleTests.test_each_agent_stage_is_one_terminal_exact_utf8_delivery",
+        "tests.test_theory_paper_v2_v32_agent_lifecycle.V32AgentLifecycleTests.test_proposal_packet_has_exact_predecision_support_and_no_current_outputs",
+        "tests.test_theory_paper_v2_v32_agent_lifecycle.V32AgentLifecycleTests.test_selection_packet_has_compiled_state_not_final_plan_or_schedule"
+      ],
+      "budget_seconds": 20,
+      "use_when": "修改 proposal、delivery、selection 或 commit 生命周期合同时运行。",
+      "forbidden_uses": [
+        "不能证明 Agent 分析质量、市场预测或 transport 可用。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "变更同时跨越编译或 acceptance 边界"
+        ],
+        "to": [
+          "v32-semantic-compiler",
+          "v32-cycle-acceptance-e2e"
+        ]
+      }
+    },
+    "v32-lifecycle-memo": {
+      "owner": "trade_system/theory_paper_v2/domain/v32_agent_lifecycle.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/v32_agent_lifecycle.py",
+        "tests/test_theory_paper_v2_v32_agent_lifecycle.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_agent_lifecycle.V32AgentLifecycleMemoTests.test_lifecycle_memo_async_child_cannot_reuse_parent_scope",
+        "tests.test_theory_paper_v2_v32_agent_lifecycle.V32AgentLifecycleMemoTests.test_lifecycle_memo_concurrent_tasks_have_independent_stores",
+        "tests.test_theory_paper_v2_v32_agent_lifecycle.V32AgentLifecycleMemoTests.test_lifecycle_memo_is_scope_local_content_bound_and_failures_are_not_cached",
+        "tests.test_theory_paper_v2_v32_agent_lifecycle.V32AgentLifecycleMemoTests.test_lifecycle_memo_key_and_verifier_share_one_strict_snapshot"
+      ],
+      "budget_seconds": 10,
+      "use_when": "仅在 lifecycle memo 的内容键、scope、async/task 隔离或失败缓存语义变化时人工运行。",
+      "forbidden_uses": [
+        "不得因普通 packet 字段变化运行；不能替代 lifecycle core。"
+      ],
+      "manual_only": true,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v32-semantic-compiler": {
+      "owner": "trade_system/theory_paper_v2/application/v32_agent_semantic_compiler.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/application/v32_agent_semantic_compiler.py",
+        "tests/test_theory_paper_v2_v32_agent_semantic_compiler.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_agent_semantic_compiler.V32AgentSemanticCompilerTests.test_final_plan_is_exact_selected_variant_and_binds_consumption",
+        "tests.test_theory_paper_v2_v32_agent_semantic_compiler.V32AgentSemanticCompilerTests.test_two_stage_round_trip_binds_exact_bytes_and_consumptions"
+      ],
+      "budget_seconds": 30,
+      "use_when": "修改 proposal/selection 编译、消费绑定或最终计划选择时运行。",
+      "forbidden_uses": [
+        "不能证明模型输出质量、收益或完整 Cycle 可接受。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "编译输出改变 acceptance 输入"
+        ],
+        "to": [
+          "v32-cycle-acceptance-e2e"
+        ]
+      }
+    },
+    "v32-semantic-selection-boundaries": {
+      "owner": "trade_system/theory_paper_v2/application/v32_agent_semantic_compiler.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/application/v32_agent_semantic_compiler.py",
+        "tests/test_theory_paper_v2_v32_agent_semantic_compiler.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_agent_semantic_compiler.V32AgentSemanticCompilerTests.test_selection_cannot_supply_rank_plan_weight_or_risk",
+        "tests.test_theory_paper_v2_v32_agent_semantic_compiler.V32AgentSemanticCompilerTests.test_selection_reason_is_derived_only_from_sealed_refs",
+        "tests.test_theory_paper_v2_v32_agent_semantic_compiler.V32AgentSemanticCompilerTests.test_wait_selection_round_trip_with_no_eligible_risk_candidates"
+      ],
+      "budget_seconds": 40,
+      "use_when": "仅在 WAIT 推导、selection 所有权或密封引用重建规则变化时人工运行。",
+      "forbidden_uses": [
+        "不得因普通 proposal 字段变化运行；不能证明交易信号有效。"
+      ],
+      "manual_only": true,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v32-target-wake-core": {
+      "owner": "trade_system/theory_paper_v2/presentation/v32_target_wake_composition.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/presentation/v32_target_wake_composition.py",
+        "tests/test_theory_paper_v2_v32_target_wake_composition.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_target_wake_composition.V32TargetWakeCompositionTests.test_target_claim_integrates_real_supervisor_outcome_and_mailbox",
+        "tests.test_theory_paper_v2_v32_target_wake_composition.V32TargetWakeCompositionTests.test_target_delivery_response_loss_replays_first_delivery_bytes",
+        "tests.test_theory_paper_v2_v32_target_wake_composition.V32TargetWakeCompositionTests.test_target_wake_replays_lost_claim_envelope_accepted_by_submit"
+      ],
+      "budget_seconds": 30,
+      "use_when": "修改 target claim、delivery response-loss 或 wake replay 接线时运行。",
+      "forbidden_uses": [
+        "不能跨 wake 复用 lifecycle memo，也不能证明外部 Agent transport 可用。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "permit 时序或 owning binding 规则变化"
+        ],
+        "to": [
+          "v32-target-wake-boundaries"
+        ]
+      }
+    },
+    "v32-target-wake-boundaries": {
+      "owner": "trade_system/theory_paper_v2/presentation/v32_target_wake_composition.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/presentation/v32_target_wake_composition.py",
+        "tests/test_theory_paper_v2_v32_target_wake_composition.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_target_wake_composition.V32TargetWakeCompositionTests.test_real_claim_rejects_non_owning_dynamic_input_binding",
+        "tests.test_theory_paper_v2_v32_target_wake_composition.V32TargetWakeCompositionTests.test_real_claim_rejects_packet_decision_stale_to_active_permit"
+      ],
+      "budget_seconds": 20,
+      "use_when": "仅在 active permit 时序或 dynamic input 所有权边界变化时人工运行。",
+      "forbidden_uses": [
+        "不得因普通 mailbox 或呈现字段变化运行。"
+      ],
+      "manual_only": true,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v32-qualification-materializer-core": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/authority/v32_qualification_materializer.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/infrastructure/authority/v32_qualification_materializer.py",
+        "tests/test_theory_paper_v2_v32_qualification_materializer.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_qualification_materializer.V32QualificationMaterializerEndToEndTests.test_materializer_failure_uses_entered_phase_and_hint_includes_action_evaluation",
+        "tests.test_theory_paper_v2_v32_qualification_materializer.V32QualificationMaterializerEndToEndTests.test_qualification_material_burst_stops_at_agent_boundary",
+        "tests.test_theory_paper_v2_v32_qualification_materializer.V32QualificationMaterializerEndToEndTests.test_qualification_material_burst_stops_at_probe_boundary"
+      ],
+      "budget_seconds": 5,
+      "use_when": "修改 material burst、Agent/Probe 停止边界或 materializer 失败分类时运行。",
+      "forbidden_uses": [
+        "不能证明完整双 Agent 生命周期、公开 source replay 或最终 probe。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "同时跨越 source、双 Agent 和 probe"
+        ],
+        "to": [
+          "v32-qualification-materializer-e2e"
+        ]
+      }
+    },
+    "v32-qualification-materializer-e2e": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/authority/v32_qualification_materializer.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/infrastructure/authority/v32_qualification_materializer.py",
+        "trade_system/theory_paper_v2/presentation/v32_qualification_composition.py",
+        "tests/test_theory_paper_v2_v32_qualification_materializer.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_qualification_materializer.V32QualificationMaterializerEndToEndTests.test_public_replay_two_external_agent_stages_final_plan_and_dedicated_probe"
+      ],
+      "budget_seconds": 240,
+      "use_when": "仅在 source replay、proposal、selection、final plan 与 dedicated probe 的跨层合同共同变化时人工运行。",
+      "forbidden_uses": [
+        "不得作为普通 materializer 修改的默认门；局部 PASS 不代表真实外部服务或市场能力。"
+      ],
+      "manual_only": true,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v32-analysis-material": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/v32_analysis_material_adapter.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/infrastructure/v32_analysis_material_adapter.py",
+        "tests/test_theory_paper_v2_v32_analysis_material_adapter.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_analysis_material_adapter.V32AnalysisMaterialAdapterTests.test_mailbox_reader_returns_complete_original_without_claiming",
+        "tests.test_theory_paper_v2_v32_analysis_material_adapter.V32AnalysisMaterialAdapterTests.test_oversize_inline_fails_before_compaction_or_any_mailbox_write",
+        "tests.test_theory_paper_v2_v32_analysis_material_adapter.V32AnalysisMaterialAdapterTests.test_real_shaped_public_bundle_builds_complete_timeframe_and_proposal"
+      ],
+      "budget_seconds": 30,
+      "use_when": "修改材料 adapter、容量判断或 mailbox reader 时运行。",
+      "forbidden_uses": [
+        "不能证明外部数据实际可得或 Agent transport 可靠。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "adapter 输出改变完整 Cycle 输入"
+        ],
+        "to": [
+          "v32-cycle-acceptance-e2e"
+        ]
+      }
+    },
+    "v32-market-graph-delta": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/v32_public_market_graph_projection.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/infrastructure/v32_public_market_graph_projection.py",
+        "tests/test_theory_paper_v2_v32_public_market_graph_projection.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_public_market_graph_projection.V32PublicMarketGraphProjectionTests.test_cycle16_uses_bounded_delta_closure_without_full_history_rebuild"
+      ],
+      "budget_seconds": 10,
+      "use_when": "修改增量市场图、delta closure 或其 fixture 时运行。",
+      "forbidden_uses": [
+        "不能证明长历史 replay 性能或市场数据完整。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "累计历史或 replay 算法变化"
+        ],
+        "to": [
+          "v32-market-graph-replay"
+        ]
+      }
+    },
+    "v32-legacy-postcommit-reader": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/authority/v32_postcommit_regression.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/infrastructure/authority/v32_postcommit_regression.py",
+        "tests/test_theory_paper_v2_v32_postcommit_regression.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_postcommit_regression.V32PostCommitRegressionTests.test_legacy_aggregate_still_requires_its_historical_two_receipts",
+        "tests.test_theory_paper_v2_v32_postcommit_regression.V32PostCommitRegressionTests.test_legacy_writer_is_retired_before_runtime_access",
+        "tests.test_theory_paper_v2_v32_postcommit_regression.V32PostCommitRegressionTests.test_physical_receipt_drift_breaks_aggregate_replay"
+      ],
+      "budget_seconds": 5,
+      "use_when": "修改历史 postcommit reader、retired writer 或物理篡改检查时运行。",
+      "forbidden_uses": [
+        "不能启动旧双 suite，也不能生成新 qualification evidence。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "bounded 子进程实现变化"
+        ],
+        "to": [
+          "v32-process-bounds-integration"
+        ]
+      }
+    },
+    "v32-process-bounds-integration": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/authority/v32_postcommit_regression.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/infrastructure/authority/v32_postcommit_regression.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_postcommit_regression.V32PostCommitRegressionTests.test_bounded_runner_allows_normal_dual_pipe_eof",
+        "tests.test_theory_paper_v2_v32_postcommit_regression.V32PostCommitRegressionTests.test_bounded_runner_interrupt_preserves_captured_prefix",
+        "tests.test_theory_paper_v2_v32_postcommit_regression.V32PostCommitRegressionTests.test_bounded_runner_kills_background_descendant_holding_pipes",
+        "tests.test_theory_paper_v2_v32_postcommit_regression.V32PostCommitRegressionTests.test_bounded_runner_terminates_at_physical_output_limit",
+        "tests.test_theory_paper_v2_v32_postcommit_regression.V32PostCommitRegressionTests.test_bounded_runner_times_out_after_direct_child_closes_both_pipes"
+      ],
+      "budget_seconds": 10,
+      "use_when": "仅在真实子进程、超时、输出上限或进程组清理变化时人工运行。",
+      "forbidden_uses": [
+        "不得因普通 reader 或业务修改运行；不能升级为宽 suite。"
+      ],
+      "manual_only": true,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v32-cycle-acceptance-e2e": {
+      "owner": "trade_system/theory_paper_v2/application/v32_cycle_acceptance.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/application/v32_cycle_acceptance.py",
+        "trade_system/theory_paper_v2/application/v32_agent_semantic_compiler.py",
+        "trade_system/theory_paper_v2/domain/v32_agent_lifecycle.py",
+        "tests/test_theory_paper_v2_v32_cycle_acceptance.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_cycle_acceptance.V32CycleAcceptanceTests.test_full_cycle_replays_and_accepts_exactly_once"
+      ],
+      "budget_seconds": 20,
+      "use_when": "仅在 lifecycle、compiler 与 acceptance 的跨层字节合同同时变化时人工运行一次。",
+      "forbidden_uses": [
+        "不得作为普通修改默认门；通过不代表市场有效或可交易。"
+      ],
+      "manual_only": true,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v32-market-graph-replay": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/v32_public_market_graph_projection.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/infrastructure/v32_public_market_graph_projection.py",
+        "tests/test_theory_paper_v2_v32_public_market_graph_projection.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v32_public_market_graph_projection.V32PublicMarketGraphProjectionTests.test_complete_cycle16_projection_and_registry_stay_below_120_seconds"
+      ],
+      "budget_seconds": 60,
+      "use_when": "仅在累计历史、完整 replay 或性能算法变化时人工运行。",
+      "forbidden_uses": [
+        "不得因普通 graph 字段变化运行；不能证明实时市场性能。"
+      ],
+      "manual_only": true,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "market-cycle-contracts": {
+      "owner": "trade_system/theory_paper_v2/domain/market_cycle/contracts.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/__init__.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/analysis.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/contracts.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/evidence.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/review.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/theory.py",
+        "tests/test_theory_paper_v2_market_cycle_contracts.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_market_cycle_contracts.MarketCycleContractTest.test_current_identity_request_snapshot_and_refs_round_trip",
+        "tests.test_theory_paper_v2_market_cycle_contracts.MarketCycleContractTest.test_agent_actions_position_geometry_and_text_are_never_rewritten",
+        "tests.test_theory_paper_v2_market_cycle_contracts.MarketCycleContractTest.test_optional_projection_gaps_are_unknown_not_contract_failures",
+        "tests.test_theory_paper_v2_market_cycle_contracts.MarketCycleContractTest.test_prospective_artifacts_and_sha_bindings_fail_closed",
+        "tests.test_theory_paper_v2_market_cycle_contracts.MarketCycleContractTest.test_unknown_projection_typed_missing_and_agent_review_round_trip",
+        "tests.test_theory_paper_v2_market_cycle_contracts.MarketCycleContractTest.test_observed_outcome_requires_sealed_raw_and_tolerance",
+        "tests.test_theory_paper_v2_market_cycle_contracts.MarketCycleContractTest.test_run_state_is_application_owned_and_transitions_only_forward",
+        "tests.test_theory_paper_v2_market_cycle_contracts.MarketCycleContractTest.test_verified_memory_is_bounded_provenance_bound_and_empty_is_unknown",
+        "tests.test_theory_paper_v2_market_cycle_contracts.MarketCycleContractTest.test_non_authoritative_96x15m_calculation_is_exact_and_95_is_unknown"
+      ],
+      "budget_seconds": 5,
+      "use_when": "修改 Agent 决策原文、可选 UNKNOWN projection、五工件复制绑定、有界记忆或非权威多周期计算合同时运行。",
+      "forbidden_uses": [
+        "不能证明公开数据可达、Agent 质量、市场有效或可交易。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "合同同时改变 repository 或完整 cycle 边界"
+        ],
+        "to": [
+          "market-cycle-repository",
+          "market-cycle-core-e2e"
+        ]
+      }
+    },
+    "market-cycle-evidence": {
+      "owner": "trade_system/theory_paper_v2/domain/market_cycle/evidence.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/evidence.py",
+        "tests/test_theory_paper_v2_market_cycle_evidence.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_market_cycle_evidence.MarketCycleEvidenceContractTest.test_policy_freezes_four_gates_and_only_allowed_statuses",
+        "tests.test_theory_paper_v2_market_cycle_evidence.MarketCycleEvidenceContractTest.test_v332_policy_requires_explicit_revision_bound_identity",
+        "tests.test_theory_paper_v2_market_cycle_evidence.MarketCycleEvidenceContractTest.test_speed_pass_uses_frozen_cold_and_delta_targets",
+        "tests.test_theory_paper_v2_market_cycle_evidence.MarketCycleEvidenceContractTest.test_speed_keeps_failures_in_denominator_and_missing_unknown",
+        "tests.test_theory_paper_v2_market_cycle_evidence.MarketCycleEvidenceContractTest.test_event_fast_remains_unknown_without_a_frozen_budget",
+        "tests.test_theory_paper_v2_market_cycle_evidence.MarketCycleEvidenceContractTest.test_total_speed_without_stage_timing_or_scale_stays_unknown",
+        "tests.test_theory_paper_v2_market_cycle_evidence.MarketCycleEvidenceContractTest.test_coverage_pass_requires_two_complete_nonoverlapping_seven_day_windows",
+        "tests.test_theory_paper_v2_market_cycle_evidence.MarketCycleEvidenceContractTest.test_coverage_explicit_failure_is_known_but_absent_data_stays_unknown",
+        "tests.test_theory_paper_v2_market_cycle_evidence.MarketCycleEvidenceContractTest.test_coverage_distinguishes_source_insufficient_and_unobservable",
+        "tests.test_theory_paper_v2_market_cycle_evidence.MarketCycleEvidenceContractTest.test_prediction_requires_same_pit_five_arms_and_untouched_confirmation",
+        "tests.test_theory_paper_v2_market_cycle_evidence.MarketCycleEvidenceContractTest.test_prediction_missing_future_is_unknown_and_no_increment_is_explicit",
+        "tests.test_theory_paper_v2_market_cycle_evidence.MarketCycleEvidenceContractTest.test_position_requires_all_four_single_dimension_reference_pairs",
+        "tests.test_theory_paper_v2_market_cycle_evidence.MarketCycleEvidenceContractTest.test_position_no_reference_increment_never_becomes_execution_evidence",
+        "tests.test_theory_paper_v2_market_cycle_evidence.MarketCycleEvidenceContractTest.test_float_elapsed_and_non_boolean_coverage_are_rejected"
+      ],
+      "budget_seconds": 5,
+      "use_when": "修改 U-SPEED、U-COVERAGE、U-PREDICTION 或 U-POSITION 的纯证据合同时运行。",
+      "forbidden_uses": [
+        "通过只证明结构化 summary 的有界判定，不解除任何实际市场 UNKNOWN。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "market-cycle-repository": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/market_cycle/repository.py",
+      "trigger_paths": [
+        "theory/CURRENT.md",
+        "theory/versions/v3.3.1/01_MARKET_COGNITION.md",
+        "theory/versions/v3.3.1/02_DYNAMIC_POSITION_MANAGEMENT.md",
+        "theory/versions/v3.3.1/03_HYPOTHESIS_SYSTEM.md",
+        "theory/versions/v3.3.1/04_EXECUTION_AND_AGENT.md",
+        "theory/versions/v3.3.1/05_RISK_AND_BOUNDARIES.md",
+        "theory/versions/v3.3.1/06_HISTORY_FAILURES_AND_CHANGES.md",
+        "theory/versions/v3.3.1/07_NEW_MECHANISMS_AND_RESOLVED_ISSUES.md",
+        "theory/versions/v3.3.1/MANIFEST.json",
+        "theory/versions/v3.3.1/README.md",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/clock.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/controller_state.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/repository.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/runtime.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/theory_package.py",
+        "trade_system/theory_paper_v2/domain/contracts/canonical.py",
+        "trade_system/theory_paper_v2/v32_durable_json.py",
+        "tests/test_theory_paper_v2_market_cycle_repository.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_market_cycle_repository.TheoryPackageLoaderTests.test_loads_readme_and_seven_separately_named_verified_fragments",
+        "tests.test_theory_paper_v2_market_cycle_repository.TheoryPackageLoaderTests.test_rejects_manifest_raw_byte_drift_before_document_loading",
+        "tests.test_theory_paper_v2_market_cycle_repository.TheoryPackageLoaderTests.test_rejects_document_raw_byte_drift",
+        "tests.test_theory_paper_v2_market_cycle_repository.TheoryPackageLoaderTests.test_rejects_unlisted_markdown",
+        "tests.test_theory_paper_v2_market_cycle_repository.TheoryPackageLoaderTests.test_rejects_symlinked_document",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_missing_status_and_reads_do_not_create_repository_paths",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_create_freezes_request_and_revision_zero_idempotently",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_create_is_invisible_before_publish_and_new_request_can_retry",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_published_cycle_rejects_a_different_request",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_transition_writes_one_canonical_artifact_ref_and_cas_state",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_transition_rejects_missing_nested_input_raw_capture_before_intent",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_recovery_rejects_pending_snapshot_when_nested_raw_capture_is_missing",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_corrupt_nested_input_raw_capture_blocks_load_and_continuation",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_transition_rejects_missing_nested_observed_outcome_raw_capture",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_status_and_load_do_not_apply_a_durable_pending_intent",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_recovery_finishes_artifact_and_history_left_before_head_cas",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_stale_expected_state_cannot_overwrite_artifact_or_head",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_different_bytes_cannot_replace_an_interrupted_create_only_artifact",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_illegal_transition_is_rejected_before_any_artifact_write",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_cycle_lock_is_reentrant_and_excludes_a_second_thread",
+        "tests.test_theory_paper_v2_market_cycle_repository.FileCycleRepositoryTests.test_all_five_business_artifacts_use_one_create_only_path_each",
+        "tests.test_theory_paper_v2_market_cycle_repository.MarketCycleRuntimeBoundaryTests.test_run_manifest_requires_exact_frozen_theory_code_and_contract_identity",
+        "tests.test_theory_paper_v2_market_cycle_repository.MarketCycleRuntimeBoundaryTests.test_implementation_identity_includes_durable_and_canonical_safety_dependencies",
+        "tests.test_theory_paper_v2_market_cycle_repository.MarketCycleRuntimeBoundaryTests.test_open_binding_blocks_identity_drift_missing_binding_and_copied_cycle",
+        "tests.test_theory_paper_v2_market_cycle_repository.MarketCycleRuntimeBoundaryTests.test_closed_run_allows_bound_reads_but_blocks_all_active_and_recovery_entries",
+        "tests.test_theory_paper_v2_market_cycle_repository.MarketCycleRuntimeBoundaryTests.test_memory_descriptor_is_all_or_nothing_verified_and_absence_is_unknown",
+        "tests.test_theory_paper_v2_market_cycle_repository.ControllerStateTests.test_controller_state_persists_earliest_wake_dispatch_recovery_and_safe_paths"
+      ],
+      "budget_seconds": 10,
+      "use_when": "修改冻结理论 loader、repository、run manifest/binding/关闭态只读、有界记忆、Daily/Decision/Review durable Worker dispatch、CAS 或恢复逻辑时运行。",
+      "forbidden_uses": [
+        "不能证明网络、市场 outcome 或跨机器文件系统语义。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "repository 与完整 cycle 编排共同改变"
+        ],
+        "to": [
+          "market-cycle-core-e2e"
+        ]
+      }
+    },
+    "market-cycle-public-data": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/market_data/okx_snapshot.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/okx_outcome.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/__init__.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/optional_context.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/okx_derivatives.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/okx_microstructure.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/okx_snapshot.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/okx_transport.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/raw_capture.py",
+        "tests/test_theory_paper_v2_market_cycle_market_data.py",
+        "tests/test_theory_paper_v2_market_cycle_optional_data.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleMarketDataTests.test_baseline_issues_exact_four_public_requests_in_raw_first_order",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleMarketDataTests.test_semantic_failure_occurs_only_after_that_response_is_sealed",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleMarketDataTests.test_observation_directly_seals_under_the_domain_input_contract",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleMarketDataTests.test_instrument_identity_and_mark_identity_fail_closed",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleMarketDataTests.test_unclosed_future_or_discontinuous_candles_are_never_admitted",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleMarketDataTests.test_provider_future_time_and_no_retry_transport_failure_fail_closed",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleMarketDataTests.test_redirect_and_transient_http_bodies_are_sealed_before_rejection",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleMarketDataTests.test_file_raw_store_publishes_body_and_summary_write_once",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleMarketDataTests.test_restart_replays_sealed_response_without_a_second_request",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleMarketDataTests.test_crash_after_durable_claim_restarts_without_clock_or_network",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleMarketDataTests.test_durable_attempt_binding_drift_fails_before_clock_or_network",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleMarketDataTests.test_recovery_request_binding_mismatch_fails_without_network",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleMarketDataTests.test_sink_without_reader_keeps_the_in_process_one_attempt_guard",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleOutcomeTests.test_v332_outcome_seals_ordered_closed_15m_path_without_intrabar_guess",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleOutcomeTests.test_v332_path_excludes_bar_opened_before_agent_decision",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleOutcomeTests.test_v332_outcome_path_semantic_tamper_fails_after_raw_seal",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleOutcomeTests.test_v332_path_transport_failure_does_not_erase_observed_endpoint",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleOutcomeTests.test_v332_mark_missing_still_captures_ordered_path",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleOutcomeTests.test_before_and_after_window_make_no_request_or_substitution",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleOutcomeTests.test_replay_only_outcome_never_opens_public_network",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleOutcomeTests.test_parameterized_instrument_uses_one_same_measure_mark_request",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleOutcomeTests.test_restart_replays_sealed_outcome_before_reading_late_clock",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleOutcomeTests.test_empty_or_transport_unavailable_is_terminal_typed_missing",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleOutcomeTests.test_response_that_completes_outside_window_is_not_substituted",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleOutcomeTests.test_provider_datum_outside_tolerance_is_typed_missing",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleOutcomeTests.test_wrong_outcome_instrument_is_structural_not_replaced",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleOutcomeTests.test_outcome_scope_is_frozen_to_mark_price",
+        "tests.test_theory_paper_v2_market_cycle_market_data.MarketCycleDependencyBoundaryTests.test_new_market_data_slice_has_no_legacy_qualification_or_target_import",
+        "tests.test_theory_paper_v2_market_cycle_optional_data.MarketCycleOptionalDataTests.test_legacy_profile_keeps_exact_four_request_behavior",
+        "tests.test_theory_paper_v2_market_cycle_optional_data.MarketCycleOptionalDataTests.test_new_profile_issues_eight_raw_first_requests_and_seals_four_values",
+        "tests.test_theory_paper_v2_market_cycle_optional_data.MarketCycleOptionalDataTests.test_each_optional_transport_failure_is_unknown_and_core_continues",
+        "tests.test_theory_paper_v2_market_cycle_optional_data.MarketCycleOptionalDataTests.test_each_optional_parser_failure_is_unknown_after_raw_seal",
+        "tests.test_theory_paper_v2_market_cycle_optional_data.MarketCycleOptionalDataTests.test_optional_identity_and_future_provider_time_fail_closed",
+        "tests.test_theory_paper_v2_market_cycle_optional_data.MarketCycleOptionalDataTests.test_optional_endpoint_queries_are_fixed_and_no_broader_shape_is_accepted"
+      ],
+      "budget_seconds": 10,
+      "use_when": "修改公开 OKX 四项 Baseline、首批可选 REST 数据、raw-first、durable attempt 或 mark outcome 时运行；全部使用注入响应。",
+      "forbidden_uses": [
+        "不能联网，不能证明 OKX 当前可达、连续覆盖或市场有效。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "数据 DTO 同时改变五工件输入"
+        ],
+        "to": [
+          "market-cycle-contracts",
+          "market-cycle-core-e2e"
+        ]
+      }
+    },
+    "v332-data-contracts": {
+      "owner": "trade_system/theory_paper_v2/domain/market_cycle/data.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/data.py",
+        "trade_system/theory_paper_v2/application/market_cycle/data_profiles.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/source_catalog.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/replay.py",
+        "tests/test_theory_paper_v2_v332_data_contracts.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_data_contracts.V332DataContractTests.test_instrument_identity_reuses_existing_artifact_ref",
+        "tests.test_theory_paper_v2_v332_data_contracts.V332DataContractTests.test_instrument_effective_time_cannot_follow_discovery",
+        "tests.test_theory_paper_v2_v332_data_contracts.V332DataContractTests.test_capture_ref_binds_time_request_and_raw_artifact",
+        "tests.test_theory_paper_v2_v332_data_contracts.V332DataContractTests.test_typed_unknown_cannot_be_zero",
+        "tests.test_theory_paper_v2_v332_data_contracts.V332DataContractTests.test_source_catalog_freezes_time_window_and_claim_ceiling",
+        "tests.test_theory_paper_v2_v332_data_contracts.V332DataContractTests.test_profile_lookup_has_no_implicit_btc_fallback",
+        "tests.test_theory_paper_v2_v332_data_contracts.V332DataContractTests.test_raw_only_result_is_explicitly_incomplete"
+      ],
+      "budget_seconds": 10,
+      "use_when": "修改 V3.3.2 asset profile、PIT/unit/raw binding、typed UNKNOWN 或 sealed replay 合同时运行。",
+      "forbidden_uses": [
+        "不能证明公开网络当前可达、连续覆盖或市场有效。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "数据投影同时改变 InputSnapshot"
+        ],
+        "to": [
+          "v332-hype-data",
+          "market-cycle-contracts"
+        ]
+      }
+    },
+    "v332-hype-data": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/market_data/okx_profiles.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/application/market_cycle/data_profiles.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/runtime.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/okx_profiles.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/okx_snapshot.py",
+        "trade_system/theory_paper_v2/presentation/market_cycle.py",
+        "tests/test_theory_paper_v2_v332_hype_data.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_hype_data.V332HypeDataTests.test_sealed_hype_core_admits_raw_bound_slice_and_pure_projection",
+        "tests.test_theory_paper_v2_v332_hype_data.V332HypeDataTests.test_missing_optional_data_remains_typed_unknown_not_zero",
+        "tests.test_theory_paper_v2_v332_hype_data.V332HypeDataTests.test_instrument_identity_mismatch_fails_closed",
+        "tests.test_theory_paper_v2_v332_hype_data.V332HypeDataTests.test_mark_instrument_mismatch_fails_closed",
+        "tests.test_theory_paper_v2_v332_hype_data.V332HypeDataTests.test_unconfirmed_candle_is_not_admitted_as_closed",
+        "tests.test_theory_paper_v2_v332_hype_data.V332HypeDataTests.test_future_provider_datum_is_rejected",
+        "tests.test_theory_paper_v2_v332_hype_data.V332HypeDataTests.test_cutoff_before_available_at_is_pit_violation",
+        "tests.test_theory_paper_v2_v332_hype_data.V332HypeDataTests.test_old_core_at_later_cutoff_is_stale",
+        "tests.test_theory_paper_v2_v332_hype_data.V332HypeDataTests.test_raw_sha_and_available_at_are_bound_to_sealed_store",
+        "tests.test_theory_paper_v2_v332_hype_data.V332HypeDataTests.test_replay_is_deterministic",
+        "tests.test_theory_paper_v2_v332_hype_data.V332HypeDataTests.test_raw_only_partial_capture_set_is_incomplete_without_network",
+        "tests.test_theory_paper_v2_v332_hype_data.V332HypeDataTests.test_thin_market_data_adapter_keeps_explicit_hype_identity",
+        "tests.test_theory_paper_v2_v332_hype_data.V332HypeDataTests.test_public_collection_requires_explicit_adapter_and_replays_primary_raw",
+        "tests.test_theory_paper_v2_v332_hype_data.V332HypeDataTests.test_existing_input_snapshot_creator_accepts_v332_hype_slice"
+      ],
+      "budget_seconds": 15,
+      "use_when": "修改 HYPE/OKX 离线准入、确定性 replay 或到既有 InputSnapshot 的投影时运行。",
+      "forbidden_uses": [
+        "只使用注入或已封存 raw；不能证明实时可用或交易质量。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-attention": {
+      "owner": "trade_system/theory_paper_v2/application/market_cycle/attention.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/attention.py",
+        "trade_system/theory_paper_v2/application/market_cycle/attention.py",
+        "trade_system/theory_paper_v2/application/market_cycle/agent_session.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/attention_repository.py",
+        "tests/test_theory_paper_v2_v332_attention.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_attention.V332AttentionCheckpointTests.test_checkpoint_append_replay_and_exact_idempotency",
+        "tests.test_theory_paper_v2_v332_attention.V332AttentionCheckpointTests.test_new_checkpoint_explicitly_supersedes_previous",
+        "tests.test_theory_paper_v2_v332_attention.V332AttentionCheckpointTests.test_generation_plus_one_recovers_same_logical_goal",
+        "tests.test_theory_paper_v2_v332_attention.V332AttentionCheckpointTests.test_assets_have_isolated_streams_and_symbol_bindings",
+        "tests.test_theory_paper_v2_v332_attention.V332AttentionCheckpointTests.test_checkpoint_identity_time_and_mutation_fail_closed",
+        "tests.test_theory_paper_v2_v332_attention.V332AttentionCheckpointTests.test_repository_compare_and_swap_rejects_stale_writer",
+        "tests.test_theory_paper_v2_v332_attention.V332AttentionCheckpointTests.test_supervisor_wake_surface_and_events_are_absent"
+      ],
+      "budget_seconds": 15,
+      "use_when": "修改长期 Goal 身份、自定检查点、恢复、CAS 或跨资产隔离时运行。",
+      "forbidden_uses": [
+        "checkpoint 不负责唤醒、批准或判断市场条件。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-goal-delivery": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/market_cycle/goal_identity.py",
+      "trigger_paths": [
+        "trade_system/cli.py",
+        "trade_system/theory_paper_v2/application/market_cycle/service.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/codex_mailbox.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/goal_identity.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/runtime.py",
+        "trade_system/theory_paper_v2/presentation/market_cycle.py",
+        "tests/test_theory_paper_v2_v332_goal_delivery.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_goal_delivery.V332GoalIdentityTest.test_public_delivery_has_no_identity_or_worker_control_arguments",
+        "tests.test_theory_paper_v2_v332_goal_delivery.V332GoalIdentityTest.test_identity_is_derived_only_from_current_codex_thread",
+        "tests.test_theory_paper_v2_v332_goal_delivery.V332GoalIdentityTest.test_continuity_cli_routes_create_without_caller_time",
+        "tests.test_theory_paper_v2_v332_goal_delivery.V332GoalIdentityTest.test_capability_cli_preserves_legacy_create_defaults",
+        "tests.test_theory_paper_v2_v332_goal_delivery.V332GoalIdentityTest.test_registry_gate_requires_the_exact_current_goal",
+        "tests.test_theory_paper_v2_v332_goal_delivery.V332GoalDeliveryRoutingTest.test_v332_decision_and_review_bypass_worker_admission",
+        "tests.test_theory_paper_v2_v332_goal_delivery.V332GoalDeliveryRoutingTest.test_worker_delivery_and_worker_expiry_are_not_v332_goal_controls",
+        "tests.test_theory_paper_v2_v332_goal_delivery.V332GoalDeliveryRoutingTest.test_all_v332_decision_worker_control_routes_are_forbidden",
+        "tests.test_theory_paper_v2_v332_goal_delivery.V332GoalCycleServiceTest.test_direct_delivery_methods_use_goal_transport_only",
+        "tests.test_theory_paper_v2_v332_goal_delivery.V332GoalCycleServiceTest.test_v332_sealed_deliveries_advance_without_worker_completion"
+      ],
+      "budget_seconds": 10,
+      "use_when": "修改 V3.3.2 顶层 Goal 身份、Decision/Review 直达交付或旧 Worker 控制面退出时运行。",
+      "forbidden_uses": [
+        "只证明本地身份与路由合同；不证明宿主定时恢复、交易质量或盈利。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-paper-ledger": {
+      "owner": "trade_system/theory_paper_v2/application/market_cycle/paper.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/application/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_ledger.py",
+        "tests/test_theory_paper_v2_v332_paper_ledger.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_market_fill_is_replayable_idempotent_and_cost_explicit",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_cycle_bound_command_round_trips_and_legacy_replay_fails_closed",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_version_and_agent_account_isolation_fail_closed",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_limit_partial_fill_then_cancel_records_exact_history",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_reduce_only_rejects_absent_or_oversized_position",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_reduce_fill_releases_margin_and_records_realized_pnl",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_market_without_observable_size_is_unresolved_not_filled",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_fill_that_exceeds_isolated_collateral_is_unresolved",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_unordered_bar_that_touches_stop_and_target_does_not_choose_path",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_command_shape_and_ledger_tamper_are_rejected",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_market_cursor_is_durable_and_duplicate_or_regressive_slice_is_rejected",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_one_slice_shares_side_liquidity_and_market_remainder_is_terminal",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_legal_reduce_can_close_into_explicit_collateral_deficit",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_command_time_and_agent_generation_are_monotone",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_command_and_market_require_current_sealed_authority",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_ioc_limit_expires_on_first_eligible_slice_and_limit_cost_is_taker",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_ioc_impact_protection_expires_instead_of_becoming_unresolved",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_gtc_explicit_expiry_remains_distinct_from_limit_protection",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_modeled_impact_never_executes_beyond_agent_limit",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_system_position_notional_cap_is_enforced_on_actual_fill",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_competing_reduce_orders_terminalize_after_position_is_consumed",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_cost_model_without_amount_source_rejects_modeled_or_observed_status",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_linear_perp_account_requires_verified_raw_bound_instrument_spec",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_sourced_funding_is_effective_time_bound_idempotent_and_completes_carry",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_positive_funding_rate_credits_the_bound_short_position",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_same_funding_economic_event_with_new_id_is_not_deducted_twice",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_unknown_funding_stays_null_and_cannot_change_cash",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_carry_contract_rejects_inconsistent_na_and_out_of_window_effective_time",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_linear_perp_funding_cannot_be_marked_not_applicable_or_replayed",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_complete_carry_window_with_initial_gap_fails_before_ledger_append",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_funding_coverage_segments_must_touch_and_preserve_open_start",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_replay_rejects_order_identity_that_conflicts_with_account",
+        "tests.test_theory_paper_v2_v332_paper_ledger.V332PaperLedgerTests.test_instrument_spec_multiplier_drives_notional_margin_and_pnl"
+      ],
+      "budget_seconds": 15,
+      "use_when": "修改纸面命令、订单、成本、fill、仓位、保证金、append/replay 或对账时运行。",
+      "forbidden_uses": [
+        "纸面 fill 不能冒充真实成交、流动性、收益或交易授权。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-position-path": {
+      "owner": "trade_system/theory_paper_v2/application/market_cycle/position.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/application/market_cycle/position.py",
+        "tests/test_theory_paper_v2_v332_position_path.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_position_path.V332StaticPositionPathTests.test_ordered_path_produces_bar_envelope_first_touch_and_static_endpoint",
+        "tests.test_theory_paper_v2_v332_position_path.V332StaticPositionPathTests.test_same_post_entry_bar_stop_and_target_never_guesses_order",
+        "tests.test_theory_paper_v2_v332_position_path.V332StaticPositionPathTests.test_entry_and_exit_touch_in_entry_bar_is_unresolved",
+        "tests.test_theory_paper_v2_v332_position_path.V332StaticPositionPathTests.test_entry_touch_in_expiry_crossing_bar_is_unresolved",
+        "tests.test_theory_paper_v2_v332_position_path.V332StaticPositionPathTests.test_missing_path_is_censored_and_semantic_tamper_raises"
+      ],
+      "budget_seconds": 5,
+      "use_when": "修改顺序闭合路径上的静态不变仓基准、MAE/MFE、首次触达或路径删失语义时运行。",
+      "forbidden_uses": [
+        "理想化静态基准不可冒充同成交同成本的实际策略对照，也不证明收益。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-paper-binding": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_authority.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/application/market_cycle/agent_session.py",
+        "trade_system/theory_paper_v2/application/market_cycle/attention.py",
+        "trade_system/theory_paper_v2/application/market_cycle/data_profiles.py",
+        "trade_system/theory_paper_v2/application/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_authority.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/repository.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/okx_profiles.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/paper_evidence.py",
+        "tests/test_theory_paper_v2_v332_paper_binding.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_paper_binding.V332PaperDecisionAuthorityBindingTests.test_current_generation_and_exact_sealed_decision_are_verified",
+        "tests.test_theory_paper_v2_v332_paper_binding.V332PaperDecisionAuthorityBindingTests.test_command_cannot_borrow_a_matching_digest_from_another_cycle",
+        "tests.test_theory_paper_v2_v332_paper_binding.V332PaperDecisionAuthorityBindingTests.test_constant_unbound_and_stale_generation_decisions_fail_closed",
+        "tests.test_theory_paper_v2_v332_paper_binding.V332PaperMarketEvidenceBindingTests.test_exact_order_book_slice_is_derived_and_fabricated_quote_is_rejected",
+        "tests.test_theory_paper_v2_v332_paper_binding.V332PaperMarketEvidenceBindingTests.test_core_only_slice_yields_non_executable_bar_not_a_fabricated_quote",
+        "tests.test_theory_paper_v2_v332_paper_binding.V332PaperMarketEvidenceBindingTests.test_instrument_spec_is_raw_bound_and_forged_multiplier_is_rejected",
+        "tests.test_theory_paper_v2_v332_paper_binding.V332PaperMarketEvidenceBindingTests.test_instrument_missing_contract_value_fails_before_spec_derivation",
+        "tests.test_theory_paper_v2_v332_paper_binding.V332PaperMarketEvidenceBindingTests.test_observed_funding_requires_exact_same_cycle_rate_and_mark_evidence",
+        "tests.test_theory_paper_v2_v332_paper_binding.V332PaperMarketEvidenceBindingTests.test_funding_history_without_timestamp_matched_mark_fails_closed",
+        "tests.test_theory_paper_v2_v332_paper_binding.V332PaperMarketEvidenceBindingTests.test_one_matched_funding_row_cannot_claim_complete_multirow_window"
+      ],
+      "budget_seconds": 15,
+      "use_when": "修改当前 Agent/封存决策到 paper command，或 admitted asset slice 到 paper market evidence 的只读绑定时运行。",
+      "forbidden_uses": [
+        "只证明离线事实绑定；不能证明 Agent 判断、真实成交或外部交易权限。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-workbench-read-models": {
+      "owner": "trade_system/theory_paper_v2/application/market_cycle/read_models.py",
+      "trigger_paths": [
+        "pyproject.toml",
+        "setup.py",
+        "trade_system/theory_paper_v2/application/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/application/market_cycle/read_models.py",
+        "trade_system/theory_paper_v2/application/market_cycle/paper_valuation.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/projections.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/paper_evidence.py",
+        "trade_system/theory_paper_v2/presentation/market_workbench.py",
+        "tests/test_theory_paper_v2_v332_hype_data.py",
+        "tests/test_theory_paper_v2_v332_workbench.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_workbench.V332WorkbenchTests.test_six_view_snapshot_is_rebuildable_and_does_not_append_facts",
+        "tests.test_theory_paper_v2_v332_workbench.V332WorkbenchTests.test_cli_rebuilds_data_coverage_from_primary_sealed_raw",
+        "tests.test_theory_paper_v2_v332_workbench.V332WorkbenchTests.test_admitted_data_mark_enters_valuation_through_public_evidence_port",
+        "tests.test_theory_paper_v2_v332_workbench.V332WorkbenchTests.test_cost_effect_reports_embedded_execution_cost_without_double_deduction",
+        "tests.test_theory_paper_v2_v332_workbench.V332WorkbenchTests.test_portfolio_drawdown_is_unknown_when_account_marks_are_unsynchronized"
+      ],
+      "budget_seconds": 10,
+      "use_when": "修改六个只读工作台视图、projection 重建或 JSON 展示时运行。",
+      "forbidden_uses": [
+        "投影不是事实 owner，不能写注意力、账户、订单或市场决定。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-paper-valuation": {
+      "owner": "trade_system/theory_paper_v2/application/market_cycle/paper_valuation.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/application/market_cycle/paper_valuation.py",
+        "trade_system/theory_paper_v2/application/market_cycle/read_models.py",
+        "tests/test_theory_paper_v2_v332_paper_valuation.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_paper_valuation.V332PaperValuationTests.test_linear_projection_replays_known_marks_and_keeps_unknown_carry_open",
+        "tests.test_theory_paper_v2_v332_paper_valuation.V332PaperValuationTests.test_complete_carry_exposes_complete_equity_without_double_deduction",
+        "tests.test_theory_paper_v2_v332_paper_valuation.V332PaperValuationTests.test_cash_spot_equity_is_cash_plus_marked_inventory",
+        "tests.test_theory_paper_v2_v332_paper_valuation.V332PaperValuationTests.test_signed_short_pnl_and_absolute_gross_exposure_are_separate",
+        "tests.test_theory_paper_v2_v332_paper_valuation.V332PaperValuationTests.test_missing_mark_returns_typed_unknown_instead_of_using_last_or_mid",
+        "tests.test_theory_paper_v2_v332_paper_valuation.V332PaperValuationTests.test_unordered_or_conflicting_path_never_creates_favorable_drawdown",
+        "tests.test_theory_paper_v2_v332_paper_valuation.V332PaperValuationTests.test_invalid_partial_liquidation_or_carry_parameters_fail_closed",
+        "tests.test_theory_paper_v2_v332_paper_valuation.V332PaperValuationTests.test_account_history_prevents_future_position_from_leaking_into_prior_drawdown",
+        "tests.test_theory_paper_v2_v332_paper_valuation.V332PaperValuationTests.test_complete_carry_label_does_not_cover_a_later_mark_without_window_evidence",
+        "tests.test_theory_paper_v2_v332_paper_valuation.V332PaperValuationTests.test_drawdown_requires_account_history_after_the_open_version"
+      ],
+      "budget_seconds": 10,
+      "use_when": "修改未实现盈亏、净值、杠杆、观测点回撤、成本覆盖或清算缓冲只读估值时运行。",
+      "forbidden_uses": [
+        "MARK 点估值和显式风险参数不能冒充连续路径、交易所强平规则、真实成本或收益。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-operational-evaluation": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/market_cycle/operational_evaluation.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/contracts.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/evaluation.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/evidence.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/theory.py",
+        "trade_system/theory_paper_v2/application/market_cycle/evaluation.py",
+        "trade_system/theory_paper_v2/application/market_cycle/data_profiles.py",
+        "trade_system/theory_paper_v2/application/market_cycle/source.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/operational_evaluation.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/operational_evaluation_store.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/okx_outcome.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/repository.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/runtime.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/okx_profiles.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/okx_transport.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/raw_capture.py",
+        "trade_system/theory_paper_v2/presentation/market_cycle.py",
+        "tests/test_theory_paper_v2_market_cycle_core.py",
+        "tests/test_theory_paper_v2_v332_offline_e2e.py",
+        "tests/test_theory_paper_v2_v332_operational_evaluation.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_operational_evaluation.V332OperationalEvaluationTests.test_typed_missing_rebuild_is_byte_identical_and_never_invents_direction",
+        "tests.test_theory_paper_v2_v332_operational_evaluation.V332OperationalEvaluationTests.test_observed_endpoint_is_replayed_from_exact_raw_before_reporting_displacement",
+        "tests.test_theory_paper_v2_v332_operational_evaluation.V332OperationalEvaluationTests.test_operational_replay_always_binds_agent_delivery_as_path_start",
+        "tests.test_theory_paper_v2_v332_operational_evaluation.V332OperationalEvaluationTests.test_decision_time_raw_cannot_support_a_forged_observed_endpoint",
+        "tests.test_theory_paper_v2_v332_operational_evaluation.V332OperationalEvaluationTests.test_runtime_run_binding_drift_fails_before_facts_are_built",
+        "tests.test_theory_paper_v2_v332_operational_evaluation.V332OperationalEvaluationTests.test_create_once_package_is_idempotent_and_rejects_different_facts",
+        "tests.test_theory_paper_v2_v332_operational_evaluation.V332OperationalEvaluationTests.test_cli_evaluate_writes_and_returns_the_saved_package",
+        "tests.test_theory_paper_v2_market_cycle_core.MarketCycleCoreTest.test_three_readable_agent_text_formats_round_trip_verbatim"
+      ],
+      "budget_seconds": 15,
+      "use_when": "修改 V3.3.2 runtime/run-binding、五工件或输入/Outcome raw 语义重放的 E0 operational facts 时运行。",
+      "forbidden_uses": [
+        "终点位移不能被解释为预测命中；E0 不纳入 paper/attention 效果、盈利或真实执行。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-sndk-identity": {
+      "owner": "trade_system/theory_paper_v2/domain/market_cycle/instruments.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/instruments.py",
+        "tests/test_theory_paper_v2_v332_sndk_identity.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_sndk_identity.V332SndkIdentityTests.test_three_market_surfaces_remain_distinct",
+        "tests.test_theory_paper_v2_v332_sndk_identity.V332SndkIdentityTests.test_okx_perpetual_does_not_inherit_backed_identity",
+        "tests.test_theory_paper_v2_v332_sndk_identity.V332SndkIdentityTests.test_unobserved_okx_state_is_unknown_not_absent"
+      ],
+      "budget_seconds": 5,
+      "use_when": "修改 SNDK underlying、SNDKx token/spot 与 OKX derivative 的身份关系时运行。",
+      "forbidden_uses": [
+        "不得把经济代理、同名代码或可达端点当成同一产品身份。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-offline-e2e": {
+      "owner": "tests/test_theory_paper_v2_v332_offline_e2e.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/contracts.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/theory.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/data.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/attention.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/application/market_cycle/analysis.py",
+        "trade_system/theory_paper_v2/application/market_cycle/data_profiles.py",
+        "trade_system/theory_paper_v2/application/market_cycle/review.py",
+        "trade_system/theory_paper_v2/application/market_cycle/attention.py",
+        "trade_system/theory_paper_v2/application/market_cycle/agent_session.py",
+        "trade_system/theory_paper_v2/application/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/application/market_cycle/paper_valuation.py",
+        "trade_system/theory_paper_v2/application/market_cycle/read_models.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/runtime.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/theory_package.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/attention_repository.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/codex_mailbox.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/okx_outcome.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_ledger.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_authority.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/projections.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/okx_profiles.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/paper_evidence.py",
+        "tests/test_theory_paper_v2_v332_hype_data.py",
+        "tests/test_theory_paper_v2_v332_paper_binding.py",
+        "tests/test_theory_paper_v2_v332_offline_e2e.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_offline_e2e.V332OfflineEndToEndTests.test_v332_outcome_review_keeps_nine_document_theory_identity",
+        "tests.test_theory_paper_v2_v332_offline_e2e.V332OfflineEndToEndTests.test_hype_data_two_agents_admission_gated_accounts_and_workbench_replay"
+      ],
+      "budget_seconds": 30,
+      "use_when": "V3.3.2 数据、双 Agent、隔离账户或工作台跨层合同共同变化后，只运行这一条离线闭环。",
+      "forbidden_uses": [
+        "不联网、不运行真实 Agent、不证明预测、收益、长期调度或真实成交。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-experiment-runtime": {
+      "owner": "trade_system/theory_paper_v2/domain/market_cycle/experiment.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/experiment.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/runtime.py",
+        "trade_system/theory_paper_v2/presentation/market_cycle.py",
+        "tests/test_theory_paper_v2_v332_experiment_runtime.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_experiment_runtime.V332ExperimentPolicyTests.test_policy_is_canonical_digest_bound_and_forbids_external_authority",
+        "tests.test_theory_paper_v2_v332_experiment_runtime.V332ExperimentPolicyTests.test_continuity_phase_requires_exactly_24_hours",
+        "tests.test_theory_paper_v2_v332_experiment_runtime.V332RunInitializationTests.test_fresh_run_binds_policy_and_public_collection_authority",
+        "tests.test_theory_paper_v2_v332_experiment_runtime.V332RunInitializationTests.test_policy_without_public_authority_cannot_enable_collector",
+        "tests.test_theory_paper_v2_v332_experiment_runtime.V332RunInitializationTests.test_cli_initializes_only_from_canonical_policy_without_network",
+        "tests.test_theory_paper_v2_v332_experiment_runtime.V332GoalCycleAdmissionTests.test_goal_cycle_rechecks_trusted_latest_and_exact_retry_skips_clock",
+        "tests.test_theory_paper_v2_v332_experiment_runtime.V332RunClosureTests.test_capability_close_is_reentrant_and_freezes_without_terminal_cycle",
+        "tests.test_theory_paper_v2_v332_experiment_runtime.V332RunClosureTests.test_only_explicit_close_recovers_marker_written_manifest_open",
+        "tests.test_theory_paper_v2_v332_experiment_runtime.V332RunClosureTests.test_continuity_close_rejects_before_full_86400_seconds",
+        "tests.test_theory_paper_v2_v332_experiment_runtime.V332RunClosureTests.test_capability_close_rejects_active_assessor_without_marker"
+      ],
+      "budget_seconds": 15,
+      "use_when": "修改 V3.3.2 实验政策、运行身份、初始化或公开采集授权门时运行。",
+      "forbidden_uses": [
+        "只证明合同与本地初始化，不证明前向市场或长期连续性。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-worker-materialization": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/market_cycle/controller_state.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/controller_state.py",
+        "trade_system/theory_paper_v2/v32_durable_json.py",
+        "tests/test_theory_paper_v2_v332_worker_materialization.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_worker_materialization.WorkerMaterializationTests.test_task_is_derived_and_repeated_materialization_is_byte_identical",
+        "tests.test_theory_paper_v2_v332_worker_materialization.WorkerMaterializationTests.test_existing_task_without_controller_receipt_is_rejected",
+        "tests.test_theory_paper_v2_v332_worker_materialization.WorkerMaterializationTests.test_daily_deep_deadline_is_truncated_to_request_hard_stop",
+        "tests.test_theory_paper_v2_v332_worker_materialization.WorkerMaterializationTests.test_named_legacy_experiment_identity_gets_deterministic_task_digest",
+        "tests.test_theory_paper_v2_v332_worker_materialization.WorkerMaterializationTests.test_caller_has_no_identity_deadline_or_write_boundary_parameters",
+        "tests.test_theory_paper_v2_v332_worker_materialization.WorkerMaterializationTests.test_paper_action_is_not_a_controller_worker"
+      ],
+      "budget_seconds": 10,
+      "use_when": "修改 Worker task 生产物化、可信时钟或写入边界时运行。",
+      "forbidden_uses": [
+        "不证明真实 Agent 已被派发或完成。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-paper-decision-context": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_context.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/application/market_cycle/analysis.py",
+        "trade_system/theory_paper_v2/application/market_cycle/ports.py",
+        "trade_system/theory_paper_v2/application/market_cycle/service.py",
+        "trade_system/theory_paper_v2/application/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/application/market_cycle/data_profiles.py",
+        "trade_system/theory_paper_v2/application/market_cycle/paper_valuation.py",
+        "trade_system/theory_paper_v2/application/market_cycle/read_models.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_context.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_ledger.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/repository.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/codex_mailbox.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/runtime.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/paper_evidence.py",
+        "tests/test_theory_paper_v2_v332_paper_context.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_paper_context.V332PaperDecisionContextTests.test_unopened_account_is_explicit_and_digest_bound",
+        "tests.test_theory_paper_v2_v332_paper_context.V332PaperDecisionContextTests.test_opened_account_context_replays_frozen_prefix_after_later_event",
+        "tests.test_theory_paper_v2_v332_paper_context.V332PaperDecisionContextTests.test_flat_account_does_not_replay_terminal_intent_text",
+        "tests.test_theory_paper_v2_v332_paper_context.V332PaperDecisionContextTests.test_review_context_uses_outcome_fact_cutoff_and_decision_snapshot_mark",
+        "tests.test_theory_paper_v2_v332_paper_context.V332PaperDecisionContextTests.test_episode_projection_counts_only_current_open_orders",
+        "tests.test_theory_paper_v2_v332_paper_context.V332PaperDecisionContextTests.test_latest_complete_decision_and_review_are_included_verbatim",
+        "tests.test_theory_paper_v2_v332_paper_context.V332PaperDecisionContextTests.test_newer_complete_review_reference_is_not_hidden_by_older_intent",
+        "tests.test_theory_paper_v2_v332_paper_context.V332PaperDecisionContextTests.test_future_complete_review_is_excluded_by_current_pit_cutoff"
+      ],
+      "budget_seconds": 15,
+      "use_when": "修改 Agent 决策包中的纸面账户、仓位、历史意图或前缀重放时运行。",
+      "forbidden_uses": [
+        "上下文存在不证明 Agent 的动态管理有效。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-paper-agent-io": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_intent_mailbox.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/application/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_context.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_intent_mailbox.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_authority.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_ledger.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/repository.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/runtime.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_runtime.py",
+        "tests/test_theory_paper_v2_v332_execution_intent.py",
+        "tests/test_theory_paper_v2_v332_paper_action_output_contracts.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_execution_intent.V332PaperExecutionIntentTests.test_write_once_agent_intent_gets_one_trusted_receipt_time",
+        "tests.test_theory_paper_v2_v332_execution_intent.V332PaperExecutionIntentTests.test_intent_binds_every_command_field_and_transition_semantics",
+        "tests.test_theory_paper_v2_v332_execution_intent.V332PaperExecutionIntentTests.test_intent_required_service_rejects_direct_command_and_replays_intent",
+        "tests.test_theory_paper_v2_v332_execution_intent.V332PaperExecutionIntentTests.test_non_executable_wait_is_persisted_without_order_or_fill",
+        "tests.test_theory_paper_v2_v332_execution_intent.V332PaperExecutionIntentTests.test_readable_text_fields_reject_json_objects",
+        "tests.test_theory_paper_v2_v332_execution_intent.V332PaperExecutionIntentTests.test_bracket_13_round_trip_rejects_invalid_geometry_and_preserves_12",
+        "tests.test_theory_paper_v2_v332_execution_intent.V332PaperExecutionIntentTests.test_bracket_entry_activates_exits_then_stop_cancels_targets",
+        "tests.test_theory_paper_v2_v332_execution_intent.V332PaperExecutionIntentTests.test_zero_fill_bracket_expiry_cancels_held_exits",
+        "tests.test_theory_paper_v2_v332_execution_intent.V332PaperExecutionIntentTests.test_later_same_episode_intent_links_root_without_new_sample",
+        "tests.test_theory_paper_v2_v332_paper_action_output_contracts.V332PaperActionOutputContractTests.test_fresh_execution_request_publishes_13_command_and_bracket_contract",
+        "tests.test_theory_paper_v2_v332_paper_action_output_contracts.V332PaperActionOutputContractTests.test_mailbox_recomputes_and_rejects_a_tampered_output_contract"
+      ],
+      "budget_seconds": 15,
+      "use_when": "修改 Agent authored paper intent sidecar、可信接收或 durable WAIT 时运行。",
+      "forbidden_uses": [
+        "不评价交易方向、收益或唤醒时机质量。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-paper-runtime": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_runtime.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/experiment.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/application/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/application/market_cycle/attention.py",
+        "trade_system/theory_paper_v2/application/market_cycle/agent_session.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/runtime.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/controller_state.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/goal_identity.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_runtime.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_context.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_intent_mailbox.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_authority.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_ledger.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/attention_repository.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/okx_profiles.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/paper_evidence.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/raw_capture.py",
+        "trade_system/theory_paper_v2/presentation/paper_agent.py",
+        "tests/test_theory_paper_v2_v332_paper_runtime.py",
+        "tests/test_theory_paper_v2_v332_paper_agent.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_setup_is_after_admitted_slice_and_has_no_external_order_surface",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_setup_retry_is_idempotent_and_goal_change_is_zero_write",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_direct_runtime_requires_host_identity_before_any_write",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_direct_runtime_mutations_require_the_registered_host_goal",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_exact_direct_intent_and_admitted_quote_close_the_local_loop",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_direct_prepare_and_commit_need_no_controller_worker_record",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_direct_commit_rejects_registry_identity_drift",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_wait_intent_is_durable_without_creating_an_order",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_intent_request_is_not_issued_before_behavior_plan_is_sealed",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_policy_risk_cap_rejects_before_ledger_mutation",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_recomputed_notional_and_unbounded_short_reject_before_mutation",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_action_window_rejects_request_and_receipt_at_outcome_hard_stop",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_direct_prepare_owns_time_and_retry_reuses_sealed_time",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_direct_first_prepare_after_hard_stop_is_zero_write",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_persistent_goal_prepares_and_commits_without_paper_worker",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_idle_persistent_goal_can_resume_and_use_direct_port",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_direct_commit_rejects_decision_goal_binding_tamper",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_runtime_funding_uses_admitted_slice_and_is_idempotent",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_linear_perp_short_bracket_is_atomic_held_and_forward_only",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_short_bracket_modeled_loss_over_policy_is_zero_write",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_direct_risk_rejection_does_not_mutate_fact_owners",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_direct_recovers_owner_facts_without_receipt_after_deadline",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_direct_recovery_accepts_later_episode_bracket_linkage",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_process_preserves_partial_before_forward_funding_boundary",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_process_maps_only_bounded_scheduler_window_error_to_partial",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_process_exactly_replays_market_after_hard_funding_failures",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_process_does_not_replay_exact_fact_behind_newer_market",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_public_process_rebuilds_runtime_across_three_funding_windows",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_closed_run_rejects_setup_and_direct_prepare_without_writes",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_close_rejects_live_incomplete_paper_intent_without_marker",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_close_allows_expired_incomplete_intent_without_action",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_close_allows_completed_action_and_preserves_open_order",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_goal_attention_uses_trusted_clock_and_exact_retry",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_goal_attention_wrong_goal_and_expired_are_zero_write",
+        "tests.test_theory_paper_v2_v332_paper_runtime.V332HypePaperRuntimeTests.test_closed_run_rejects_goal_attention_without_writes",
+        "tests.test_theory_paper_v2_v332_paper_agent.V332PaperAgentCliTests.test_parser_exposes_only_run_identity_and_decision_cycle",
+        "tests.test_theory_paper_v2_v332_paper_agent.V332PaperAgentCliTests.test_public_entrypoint_has_only_identity_inputs",
+        "tests.test_theory_paper_v2_v332_paper_agent.V332PaperAgentCliTests.test_public_entrypoint_uses_replay_policy_and_only_action_port",
+        "tests.test_theory_paper_v2_v332_paper_agent.V332PaperAgentCliTests.test_setup_derives_goal_and_continuity_without_caller_controls",
+        "tests.test_theory_paper_v2_v332_paper_agent.V332PaperAgentCliTests.test_goal_mismatch_rejects_before_direct_port_or_write",
+        "tests.test_theory_paper_v2_v332_paper_agent.V332PaperAgentCliTests.test_missing_host_goal_identity_fails_closed",
+        "tests.test_theory_paper_v2_v332_paper_agent.V332PaperAgentCliTests.test_main_delegates_to_public_entrypoint_and_writes_canonical_json",
+        "tests.test_theory_paper_v2_v332_paper_agent.V332PaperAgentCliTests.test_main_prepare_delegates_without_trade_fields",
+        "tests.test_theory_paper_v2_v332_paper_agent.V332PaperAgentCliTests.test_main_setup_has_no_identity_or_account_arguments",
+        "tests.test_theory_paper_v2_v332_paper_agent.V332PaperAgentCliTests.test_main_process_delegates_without_fill_controls",
+        "tests.test_theory_paper_v2_v332_paper_agent.V332PaperAgentCliTests.test_main_checkpoint_delegates_only_exact_request_path",
+        "tests.test_theory_paper_v2_v332_paper_agent.V332PaperAgentCliTests.test_checkpoint_entrypoint_forwards_exact_canonical_agent_fact",
+        "tests.test_theory_paper_v2_v332_paper_agent.V332PaperAgentCliTests.test_commit_rejects_missing_frozen_paper_account"
+      ],
+      "budget_seconds": 20,
+      "use_when": "修改 persistent Goal identity、HYPE local-paper setup/prepare/commit/process、intent 或机械行情处理时运行。",
+      "forbidden_uses": [
+        "无外部订单接口；不证明真实成交或盈利。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-capability-evaluation": {
+      "owner": "trade_system/theory_paper_v2/application/market_cycle/capability_evaluation.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/capability_evaluation.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/experiment.py",
+        "trade_system/theory_paper_v2/application/market_cycle/capability_evaluation.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/capability_assessor_mailbox.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/capability_evaluation_store.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/controller_state.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/codex_mailbox.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/repository.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/runtime.py",
+        "trade_system/theory_paper_v2/presentation/market_cycle.py",
+        "tests/test_theory_paper_v2_v332_capability_evaluation.py",
+        "tests/test_theory_paper_v2_v332_capability_evaluation_store.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_capability_evaluation.V332CapabilityEvaluationTests.test_market_analysis_blind_vector_binds_every_hash_without_total_score",
+        "tests.test_theory_paper_v2_v332_capability_evaluation.V332CapabilityEvaluationTests.test_missing_quality_is_recorded_not_rejected_or_promoted",
+        "tests.test_theory_paper_v2_v332_capability_evaluation.V332CapabilityEvaluationTests.test_identity_chronology_and_utf8_spans_fail_closed",
+        "tests.test_theory_paper_v2_v332_capability_evaluation.V332CapabilityEvaluationTests.test_request_binding_and_pre_outcome_deadline_reject_tampering",
+        "tests.test_theory_paper_v2_v332_capability_evaluation.V332CapabilityEvaluationTests.test_frozen_rubric_body_and_digest_reject_tampering",
+        "tests.test_theory_paper_v2_v332_capability_evaluation_store.CapabilityEvaluationStoreTests.test_preregister_is_write_once_and_requires_sealed_decision",
+        "tests.test_theory_paper_v2_v332_capability_evaluation_store.CapabilityEvaluationStoreTests.test_same_goal_assessor_ack_is_rejected_before_controller_write",
+        "tests.test_theory_paper_v2_v332_capability_evaluation_store.CapabilityEvaluationStoreTests.test_general_capability_cli_has_only_derived_three_step_surface",
+        "tests.test_theory_paper_v2_v332_capability_evaluation_store.CapabilityEvaluationStoreTests.test_assessment_round_trips_sealed_author_and_decision_hashes",
+        "tests.test_theory_paper_v2_v332_capability_evaluation_store.CapabilityEvaluationStoreTests.test_assessment_after_outcome_is_rejected_under_same_cycle_lock",
+        "tests.test_theory_paper_v2_v332_capability_evaluation_store.CapabilityEvaluationStoreTests.test_assessment_rejects_delivery_or_physical_goal_tampering"
+      ],
+      "budget_seconds": 20,
+      "use_when": "修改 MARKET_ANALYSIS/HYPOTHESIS_GENERATION 的事前任务、原文证据或可信评价封存时运行。",
+      "forbidden_uses": [
+        "不声称预测、泛化、盈利或外部信息技术隔离。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-paper-capability-evaluation": {
+      "owner": "trade_system/theory_paper_v2/application/market_cycle/paper_capability_evaluation.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/paper_capability_evaluation.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/capability_evaluation.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/experiment.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/attention.py",
+        "trade_system/theory_paper_v2/application/market_cycle/paper_capability_evaluation.py",
+        "trade_system/theory_paper_v2/application/market_cycle/agent_session.py",
+        "trade_system/theory_paper_v2/application/market_cycle/attention.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/capability_assessor_mailbox.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_capability_evaluation_store.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_context.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_intent_mailbox.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_ledger.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/attention_repository.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/controller_state.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/runtime.py",
+        "trade_system/theory_paper_v2/presentation/market_cycle.py",
+        "tests/test_theory_paper_v2_v332_paper_capability_evaluation.py",
+        "tests/test_theory_paper_v2_v332_paper_capability_evaluation_store.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation.V332PaperCapabilityEvaluationTests.test_attention_scheduling_binds_goal_checkpoint_and_real_followup",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation.V332PaperCapabilityEvaluationTests.test_attention_scheduling_requires_exact_frozen_paper_state_ref",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation.V332PaperCapabilityEvaluationTests.test_attention_scheduling_rejects_checkpoint_or_physical_agent_tamper",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation.V332PaperCapabilityEvaluationTests.test_attention_scheduling_records_late_followup_without_rejecting_facts",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation.V332PaperCapabilityEvaluationTests.test_trading_decision_binds_one_point_without_outcome_or_total_score",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation.V332PaperCapabilityEvaluationTests.test_trading_decision_requires_intent_request_and_registry_same_goal_agent",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation.V332PaperCapabilityEvaluationTests.test_position_management_requires_fresh_same_episode_and_prior_intent",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation.V332PaperCapabilityEvaluationTests.test_position_management_rejects_single_point_or_missing_prior_intent",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation.V332PaperCapabilityEvaluationTests.test_position_management_rejects_unfilled_flat_or_unprotected_state",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation.V332PaperCapabilityEvaluationTests.test_position_no_loss_averaging_requires_fresh_losing_state",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation.V332PaperCapabilityEvaluationTests.test_tampered_span_head_and_non_singleton_policy_fail_closed",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation_store.V332PaperCapabilityStoreTests.test_store_rebuilds_facts_and_write_once_round_trips_same_digests",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation_store.V332PaperCapabilityStoreTests.test_api_accepts_no_caller_facts_assessor_or_findings",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation_store.V332PaperCapabilityStoreTests.test_paper_cli_has_repeatable_exact_cycles_and_derived_inputs_only",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation_store.V332PaperCapabilityStoreTests.test_store_rejects_nonphysical_or_subject_assessor_before_ack_write",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation_store.V332PaperCapabilityStoreTests.test_position_bracket_then_commandless_point_reaches_preregister",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation_store.V332PositionCapabilityFactRoutingTests.test_position_fact_rebuild_requires_completed_history_and_pre_outcome_tail",
+        "tests.test_theory_paper_v2_v332_paper_capability_evaluation_store.V332AttentionCapabilityStoreTests.test_store_seals_self_managed_checkpoint_followed_by_real_decision"
+      ],
+      "budget_seconds": 30,
+      "use_when": "修改 TRADING_DECISION/POSITION_MANAGEMENT 或 Goal 自管检查节奏的事实绑定与事前评价时运行。",
+      "forbidden_uses": [
+        "无总分；不证明预测、收益、泛化或真实执行。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-continuity": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/market_cycle/continuity_checkpoint.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/continuity.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/experiment.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/attention.py",
+        "trade_system/theory_paper_v2/application/market_cycle/attention.py",
+        "trade_system/theory_paper_v2/application/market_cycle/agent_session.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/continuity_checkpoint.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/attention_repository.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_ledger.py",
+        "trade_system/theory_paper_v2/v32_durable_json.py",
+        "tests/test_theory_paper_v2_v332_continuity.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_continuity.ContinuityCheckpointTests.test_create_only_hash_chain_and_recovery_are_consistent",
+        "tests.test_theory_paper_v2_v332_continuity.ContinuityCheckpointTests.test_unknown_issue_fails_closed_and_absolute_gap_requires_restart",
+        "tests.test_theory_paper_v2_v332_continuity.ContinuityCheckpointTests.test_recovery_accepts_monotonic_progress_and_rejects_head_regression",
+        "tests.test_theory_paper_v2_v332_continuity.ContinuityCheckpointTests.test_chain_tamper_is_detected_through_previous_hash",
+        "tests.test_theory_paper_v2_v332_continuity.ContinuityCheckpointTests.test_finalize_awaits_authoritative_run_close",
+        "tests.test_theory_paper_v2_v332_continuity.ContinuityCheckpointTests.test_agent_attention_followup_decision_is_owner_derived_and_single_use",
+        "tests.test_theory_paper_v2_v332_continuity.ContinuityCheckpointTests.test_agent_attention_attempt_uses_cycle_request_time_not_late_delivery",
+        "tests.test_theory_paper_v2_v332_continuity.ContinuityCheckpointTests.test_agent_attention_ignores_cycle_started_before_exact_window",
+        "tests.test_theory_paper_v2_v332_continuity.ContinuityCheckpointTests.test_agent_attention_does_not_substitute_for_a_missing_base_slot",
+        "tests.test_theory_paper_v2_v332_continuity.ContinuityCheckpointTests.test_agent_attention_late_followup_is_recorded_without_supervisor_action",
+        "tests.test_theory_paper_v2_v332_continuity.ContinuityCheckpointTests.test_recovery_probe_safe_prepared_restart_is_identical_and_idempotent",
+        "tests.test_theory_paper_v2_v332_continuity.ContinuityCheckpointTests.test_spawn_requested_without_ack_is_unresolved_restart_without_resend",
+        "tests.test_theory_paper_v2_v332_continuity.ContinuityCheckpointTests.test_recovery_probe_tamper_is_rejected"
+      ],
+      "budget_seconds": 20,
+      "use_when": "修改 24h checkpoint、Goal 自定检查时点、owner-head recovery 或 RECOVERY_REPLAY probe 时运行。",
+      "forbidden_uses": [
+        "局部回放不证明 24 小时连续运行已完成。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-funding-coverage": {
+      "owner": "trade_system/theory_paper_v2/infrastructure/market_cycle/funding_scheduler.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/application/market_cycle/paper.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/funding_scheduler.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/paper_ledger.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/okx_derivatives.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/okx_profiles.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/okx_snapshot.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/okx_transport.py",
+        "trade_system/theory_paper_v2/infrastructure/market_data/paper_evidence.py",
+        "tests/test_theory_paper_v2_v332_funding_scheduler.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_funding_scheduler.V332FundingSchedulerTests.test_complete_requires_bracketing_history_and_is_replay_idempotent",
+        "tests.test_theory_paper_v2_v332_funding_scheduler.V332FundingSchedulerTests.test_history_truncation_or_missing_after_boundary_stays_partial",
+        "tests.test_theory_paper_v2_v332_funding_scheduler.V332FundingSchedulerTests.test_zero_event_window_needs_both_history_boundaries",
+        "tests.test_theory_paper_v2_v332_funding_scheduler.V332FundingSchedulerTests.test_after_window_raw_not_yet_available_stays_partial",
+        "tests.test_theory_paper_v2_v332_funding_scheduler.V332FundingSchedulerTests.test_duplicate_official_settlement_time_is_not_admitted",
+        "tests.test_theory_paper_v2_v332_funding_scheduler.V332FundingSchedulerTests.test_missing_pre_event_closed_bar_keeps_window_partial",
+        "tests.test_theory_paper_v2_v332_funding_scheduler.V332FundingSchedulerTests.test_coverage_advance_rejects_one_missing_ledger_settlement",
+        "tests.test_theory_paper_v2_v332_funding_scheduler.V332FundingSchedulerTests.test_failed_atomic_batch_leaves_no_partial_window_and_recovers",
+        "tests.test_theory_paper_v2_v332_funding_scheduler.V332FundingSchedulerTests.test_three_incremental_windows_use_durable_cursor_and_new_sources",
+        "tests.test_theory_paper_v2_v332_funding_scheduler.V332FundingSchedulerTests.test_invalid_later_accrual_is_rejected_before_any_window_write"
+      ],
+      "budget_seconds": 20,
+      "use_when": "修改资金费结算模型、逐点入账、窗口完整覆盖或资金费证据时运行。",
+      "forbidden_uses": [
+        "公开 history 完整覆盖不等于真实账户 funding debit。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v332-external-data-diagnostic": {
+      "owner": "tests/test_theory_paper_v2_v332_external_data_diagnostic.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/v3.3.2/external_data_interface/application/service.py",
+        "trade_system/theory_paper_v2/v3.3.2/external_data_interface/infrastructure/catalog.py",
+        "trade_system/theory_paper_v2/v3.3.2/external_data_interface/infrastructure/raw_store.py",
+        "trade_system/theory_paper_v2/v3.3.2/tests/test_raw_store_and_service.py",
+        "tests/test_theory_paper_v2_v332_external_data_diagnostic.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v332_external_data_diagnostic.V332ExternalDataDiagnosticTests.test_okx_websocket_does_not_require_http_provider_code",
+        "tests.test_theory_paper_v2_v332_external_data_diagnostic.V332ExternalDataDiagnosticTests.test_raw_only_capture_audits_as_incomplete_and_invalid",
+        "tests.test_theory_paper_v2_v332_external_data_diagnostic.V332ExternalDataDiagnosticTests.test_order_book_stream_claim_keeps_sequence_checks_unknown"
+      ],
+      "budget_seconds": 10,
+      "use_when": "修改 V3.3.2 外置诊断采集原型的完成性审计、WS provider 判断或 claim ceiling 时运行。",
+      "forbidden_uses": [
+        "该模块仍是迁移/诊断边界，不是主 MarketDataPort、连续 L2 或生产采集证明。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "market-cycle-core-e2e": {
+      "owner": "trade_system/theory_paper_v2/application/market_cycle/service.py",
+      "trigger_paths": [
+        "pyproject.toml",
+        "setup.py",
+        "theory/versions/v3.3.1/README.md",
+        "theory/versions/v3.3.1/01_MARKET_COGNITION.md",
+        "theory/versions/v3.3.1/02_DYNAMIC_POSITION_MANAGEMENT.md",
+        "theory/versions/v3.3.1/03_HYPOTHESIS_SYSTEM.md",
+        "theory/versions/v3.3.1/04_EXECUTION_AND_AGENT.md",
+        "theory/versions/v3.3.1/05_RISK_AND_BOUNDARIES.md",
+        "trade_system/theory_paper_v2/application/market_cycle/__init__.py",
+        "trade_system/theory_paper_v2/application/market_cycle/analysis.py",
+        "trade_system/theory_paper_v2/application/market_cycle/outcomes.py",
+        "trade_system/theory_paper_v2/application/market_cycle/ports.py",
+        "trade_system/theory_paper_v2/application/market_cycle/position.py",
+        "trade_system/theory_paper_v2/application/market_cycle/review.py",
+        "trade_system/theory_paper_v2/application/market_cycle/service.py",
+        "trade_system/theory_paper_v2/application/market_cycle/source.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/__init__.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/codex_mailbox.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/controller_state.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/runtime.py",
+        "trade_system/theory_paper_v2/presentation/market_cycle.py",
+        "tests/test_theory_paper_v2_market_cycle_core.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_market_cycle_core.MarketCycleCoreTest.test_unimplemented_profiles_fail_before_cycle_or_external_calls",
+        "tests.test_theory_paper_v2_market_cycle_core.MarketCycleCoreTest.test_worker_dispatch_admission_and_request_only_expiry_are_typed_and_artifact_free",
+        "tests.test_theory_paper_v2_market_cycle_core.MarketCycleCoreTest.test_three_readable_agent_text_formats_round_trip_verbatim",
+        "tests.test_theory_paper_v2_market_cycle_core.MarketCycleCoreTest.test_decision_mailbox_content_binding_late_and_overwrite_fail_closed",
+        "tests.test_theory_paper_v2_market_cycle_core.MarketCycleCoreTest.test_agent_review_pending_context_binding_late_and_overwrite_fail_closed",
+        "tests.test_theory_paper_v2_market_cycle_core.MarketCycleCoreTest.test_one_agent_first_offline_observed_cycle_with_unknown_projection_reaches_complete",
+        "tests.test_theory_paper_v2_market_cycle_core.MarketCycleCoreTest.test_agent_first_active_call_chain_has_no_deterministic_decision_or_review"
+      ],
+      "budget_seconds": 10,
+      "use_when": "修改 Agent 决策或复盘原文 transport、Worker hard-stop/request-only typed close、Daily/Decision/Review durable dispatch、一次 wake 编排、runtime/CLI 或唯一离线五工件 E2E 时运行。",
+      "forbidden_uses": [
+        "不发网络请求；通过不代表 Agent 质量、预测增量、生产或交易授权。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v340-scheduled-forecast": {
+      "owner": "trade_system/theory_paper_v2/application/market_cycle/forecast_qualification.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/application/market_cycle/forecast_qualification.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/scheduled_strategy.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/strategic_state_repository.py",
+        "trade_system/theory_paper_v2/presentation/v34_forecast.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/__init__.py",
+        "trade_system/theory_paper_v2/infrastructure/market_cycle/__init__.py",
+        "tests/test_theory_paper_v2_v340_scheduled_forecast.py"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ScheduledStrategyTests.test_fixed_four_hour_slots_are_external_time_authority",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ScheduledStrategyTests.test_forecast_requires_four_hour_or_longer_horizon",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ScheduledStrategyTests.test_forecast_requires_4h_12h_24h_paths",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ScheduledStrategyTests.test_llm_cannot_change_market_position_between_committees",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ScheduledStrategyTests.test_local_executor_can_only_execute_frozen_committee_actions",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ScheduledStrategyTests.test_safety_system_can_only_de_risk",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ScheduledStrategyTests.test_low_token_context_contains_only_one_previous_state_and_delta",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ScheduledStrategyTests.test_low_token_context_requires_current_theory_identity_and_source_refs",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ScheduledStrategyTests.test_low_token_context_detects_post_build_mutation",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ScheduledStrategyTests.test_low_token_context_fails_closed_when_budget_is_exceeded",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ForecastQualificationServiceTests.test_service_rejects_context_from_another_asset",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ForecastQualificationServiceTests.test_service_rejects_context_mutated_after_build",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ForecastQualificationServiceTests.test_reference_price_is_frozen_inside_context_and_forecast_record",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ForecastQualificationServiceTests.test_forecast_records_observed_model_token_usage_without_estimating_cost",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ForecastQualificationServiceTests.test_forecast_keeps_model_usage_unknown_when_provider_usage_is_unavailable",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ForecastQualificationServiceTests.test_first_forecast_is_durable_and_has_no_execution_authority",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ForecastQualificationServiceTests.test_second_forecast_must_continue_state_not_reinitialize",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ForecastQualificationServiceTests.test_next_context_carries_complete_strategic_summary_not_only_price_zones",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ForecastQualificationServiceTests.test_service_rejects_non_committee_slot_before_agent_work",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ForecastQualificationServiceTests.test_outcome_must_bind_forecast_reference_and_exact_horizon_times",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ForecastQualificationServiceTests.test_complete_24h_outcome_produces_objective_forecast_evaluation",
+        "tests.test_theory_paper_v2_v340_scheduled_forecast.V340ForecastQualificationServiceTests.test_outcome_cannot_be_scored_before_full_24h_window"
+      ],
+      "budget_seconds": 10,
+      "use_when": "修改 V3.4 固定 4H scheduler、FORECAST_ONLY、Durable Strategic State、低 token context、跨资产绑定或 forecast outcome evaluation 时运行。",
+      "forbidden_uses": [
+        "只证明定时/状态/上下文/评价合同，不证明市场预测有效、paper 盈利或执行授权。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [],
+        "to": []
+      }
+    },
+    "v340-strategic-control": {
+      "owner": "trade_system/theory_paper_v2/domain/market_cycle/strategic_control.py",
+      "trigger_paths": [
+        "trade_system/theory_paper_v2/domain/market_cycle/strategic_control.py",
+        "trade_system/theory_paper_v2/domain/market_cycle/__init__.py",
+        "tests/test_theory_paper_v2_v340_strategic_control.py",
+        "theory/versions/v3.4.0/**",
+        "theory/CURRENT.md"
+      ],
+      "selectors": [
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_ready_open_keeps_realized_and_unrealized_separate_and_recomputes_payoff",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_open_requires_four_timeframe_zones",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_core_cannot_use_ordinary_15m_exit_all",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_emergency_15m_exit_is_distinct_and_allowed",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_core_cannot_use_ordinary_1h_exit_all",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_exposure_plan_is_frozen_until_next_committee",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_catastrophic_and_wait_to_committee_risk_must_fit_budget",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_exposure_increase_below_four_hour_horizon_is_not_ready",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_exposure_increase_rejects_risk_above_declared_budget",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_wait_can_be_semantically_ready_without_trade_payoff",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_action_comparison_cannot_silently_drop_harvest_or_reduce",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_data_quality_and_future_space_cannot_be_implicit",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_exposure_requires_conditional_tranche_plan",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_management_requires_size_effect_and_waiting_risk",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_activity_profile_is_required_for_interaction_weighting",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_harvest_and_runner_quantities_cannot_exceed_position_quantity",
+        "tests.test_theory_paper_v2_v340_strategic_control.V340StrategicControlTests.test_v340_manifest_binds_exact_overlay_documents"
+      ],
+      "budget_seconds": 10,
+      "use_when": "修改 V3.4 四周期战略语义、PnL 分离、动作比较、tranche/activity profile、management hierarchy 或 payoff/max-loss 复算时运行。",
+      "forbidden_uses": [
+        "只证明语义完整性和确定性算术，不证明市场方向、预测 edge、paper 盈利或 V3.4 runtime 已获得执行权限。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "未来把该检查器接入 V3.4 paper exposure admission"
+        ],
+        "to": []
+      }
+    },
+    "v4-decision-architecture": {
+      "owner": "tests/v4/test_v4_decision_architecture.py",
+      "trigger_paths": [
+        "trade_system/v4_decision/**",
+        "tests/v4/test_v4_decision_architecture.py"
+      ],
+      "selectors": [
+        "tests.v4.test_v4_decision_architecture.V4DecisionArchitectureTests.test_risk_size_is_derived_from_structural_stop",
+        "tests.v4.test_v4_decision_architecture.V4DecisionArchitectureTests.test_stress_buffer_reduces_notional",
+        "tests.v4.test_v4_decision_architecture.V4DecisionArchitectureTests.test_net_ev_includes_costs",
+        "tests.v4.test_v4_decision_architecture.V4DecisionArchitectureTests.test_directional_plan_requires_new_evidence_and_remains_non_executable",
+        "tests.v4.test_v4_decision_architecture.V4DecisionArchitectureTests.test_executable_flag_is_rejected"
+      ],
+      "budget_seconds": 5,
+      "use_when": "修改 V4 风险、EV 或非可执行交易计划计算时运行。",
+      "forbidden_uses": [
+        "不能证明市场预测有效、交易盈利、paper/testnet/live 权限或实际成交。"
+      ],
+      "manual_only": false,
+      "escalation": {
+        "automatic": false,
+        "when": [
+          "V4 决策合同跨越既有 market-cycle runtime"
+        ],
+        "to": []
+      }
+    }
+  }
+}

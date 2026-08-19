@@ -1,0 +1,137 @@
+{
+  "audit_digest": "6f3b58adfe5987d3de2c52f945b657a1fb9a1c4f4e8f0d6c72200abed6004594",
+  "continuity_and_observation_findings": {
+    "add_actions_exercised": false,
+    "agent_requested_features": [
+      "TAKER_BUY_SHARE:1h",
+      "OPEN_INTEREST_CHANGE:1h"
+    ],
+    "exit_reentry_cycle_exercised": false,
+    "missing_requested_feature_status": "UNKNOWN",
+    "missing_requested_features_zero_filled": false,
+    "prior_accepted_state_consumed_each_cycle": true,
+    "prior_requests_returned_next_cycle": true,
+    "reentry_contract_exercised": false,
+    "selected_action_equals_action_transition_count": 48,
+    "stable_hypothesis_identity_preserved": true
+  },
+  "corrected_descriptive_leadership": {
+    "agent_deterministic_selected_action_identity_count": 16,
+    "agent_deterministic_total_cycle_count": 16,
+    "agent_incremental_net_vs_deterministic_usdt": "0",
+    "audit_status": "TIE",
+    "cause": "The raw evaluator used arm_id lexical order as a final max tie-break.",
+    "raw_label": "SINGLE_STRATEGY_AGENT",
+    "raw_market_numbers_changed": false,
+    "tied_net_leaders": [
+      "DETERMINISTIC_CONTINUOUS",
+      "SINGLE_STRATEGY_AGENT"
+    ],
+    "tied_net_pnl_usdt": "0"
+  },
+  "cost_and_transport_findings": {
+    "agent_input_tokens_total": 556052,
+    "agent_latency_ms_total": 565911,
+    "agent_output_tokens_max": 1216,
+    "agent_output_tokens_total": 15922,
+    "cost_complete": false,
+    "funding_cost_quality": "OBSERVED_REALIZED_RATE_WITH_TRADE_CANDLE_CLOSE_MARK_PROXY_NOT_COST_COMPLETE",
+    "served_model_attested": false,
+    "transport_evidence_class": "PRACTICAL_NOT_SERVED_MODEL_ATTESTED"
+  },
+  "executable": false,
+  "external_execution_authority": "NONE_E0",
+  "integrity_verdict": {
+    "all_artifact_file_hashes_verified": true,
+    "all_required_self_digests_verified": true,
+    "completed_arm_decisions": 48,
+    "genesis_to_terminal_cycles": 16,
+    "pit_available_at_lte_decision_at": true,
+    "status": "PASS",
+    "strategy_agent_outputs_before_outcome_access": 16
+  },
+  "market_findings": {
+    "agent_24h_hindsight_best_match_count": 13,
+    "agent_24h_hindsight_total_count": 16,
+    "agent_action_counts": {
+      "WAIT_WITH_REVIEW": 16
+    },
+    "agent_overlapping_24h_opportunity_loss_usdt": "7.533782588827303907472",
+    "agent_positive_open_miss_cycles": [
+      5,
+      6,
+      7
+    ],
+    "core_hold_net_pnl_usdt": "-8.15351846760119746518",
+    "deterministic_action_counts": {
+      "WAIT_WITH_REVIEW": 16
+    },
+    "deterministic_continuous_net_pnl_usdt": "0",
+    "interpretation": "WAIT protected capital in a falling long-only window, but the Agent added no action discrimination over the deterministic policy and missed an overlapping rebound cluster.",
+    "single_strategy_agent_net_pnl_usdt": "0",
+    "static_v1_style_net_pnl_usdt": "-5.39253428",
+    "static_v1_style_stop_cycle": 4
+  },
+  "problem_verdicts": [
+    {
+      "effect": "Raw report falsely implies Agent-only descriptive leadership despite exact net tie.",
+      "problem_id": "EVALUATOR_TIE_MISLABEL",
+      "status": "CONFIRMED_AND_SUCCESSOR_FIXED",
+      "successor_code_sha256": "f22b50e1867753848c36429f63b9cb2fad4ff0fa6f0847a2e93dc0c1896def90"
+    },
+    {
+      "effect": "Agent and deterministic actions and net results are identical for all 16 cycles.",
+      "problem_id": "AGENT_INCREMENTAL_ACTION_VALUE",
+      "status": "NOT_SUPPORTED_IN_THIS_WINDOW"
+    },
+    {
+      "effect": "Three overlapping cycles preferred WAIT ex ante but OPEN_CORE was positive at 24h hindsight.",
+      "problem_id": "CONTINUATION_AND_REVERSAL_CAPTURE",
+      "status": "NOT_RESOLVED"
+    },
+    {
+      "effect": "A flat-only candidate path cannot validate add utilization, exit obligations, or reentry delay.",
+      "problem_id": "ADD_REDUCE_EXIT_REENTRY_CONTRACTS",
+      "status": "NOT_EXERCISED_BY_CANDIDATE_ARMS"
+    },
+    {
+      "effect": "Closed bars, volume, contract rules, and realized funding were usable; taker flow and OI stayed typed UNKNOWN.",
+      "problem_id": "PUBLIC_DATA_VISIBILITY",
+      "status": "PARTIAL"
+    },
+    {
+      "effect": "The Agent consumed 556052 input tokens and about 565.9 seconds while matching the deterministic action every cycle.",
+      "problem_id": "AGENT_RESEARCH_COST",
+      "status": "HIGH_WITHOUT_OBSERVED_INCREMENTAL_ACTION"
+    }
+  ],
+  "raw_artifact_binding": {
+    "artifact_manifest_digest": "c73167d057ef24f0d3c46168149f8246070a62aa2fa338a71ea8bdf381d58540",
+    "dataset_digest": "ad84f7b8ecaa1b356131fcc285f75b30f0cf9d16baa7f6592bf9a0707db31b94",
+    "manifest_digest": "52fe76ad94af30467a741149d3921be73c14205f8a4d8c05f99903f0ede845f6",
+    "raw_artifact_immutable": true,
+    "raw_result_digest": "be94fd7a4f1ee442ed4868f93340126872e2be294586a826d6f59b832bbe3153",
+    "raw_result_physical_sha256": "39331f2986c2fc74760fb2484a07f6a2ccb7d33d2a284a6cb389be4b2aae9726",
+    "terminal_receipt_digest": "fe94865e87c25518653906ec18727f961e907a5fa208b5557a75a55dcffdf05a"
+  },
+  "run_id": "continuous-p0-btcusdt-20260731T100000Z-20260801T010000Z",
+  "schema_id": "continuous_p0_post_result_audit",
+  "schema_version": "1.0.0",
+  "successor_boundary": {
+    "new_data_collection_or_trading_authority": false,
+    "outcome_derived_entry_threshold_added": false,
+    "raw_artifact_rewritten": false,
+    "tie_aware_evaluator_only": true
+  },
+  "system_mode": "E0_OFFLINE_COUNTERFACTUAL",
+  "terminal_verdict": "UNSEEN_RESULT_AUDITED_AGENT_INCREMENTAL_VALUE_NOT_SUPPORTED",
+  "theory_verdict": {
+    "agent_incremental_market_value": "NOT_SUPPORTED",
+    "continuation_reentry_problem_solved": "NOT_DEMONSTRATED",
+    "generalization": "NOT_PROVEN",
+    "predictive_validity": "NOT_PROVEN",
+    "profitability": "NOT_PROVEN",
+    "state_risk_and_pit_mechanics": "SUPPORTED_FOR_THIS_OFFLINE_RUN",
+    "wait_capital_preservation_in_this_window": "DESCRIPTIVELY_SUPPORTED"
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "schema_version": "sol-decision.p1a-authority-chain-block.v1",
+  "decision_id": "SOL_P1A_AUTHORITY_CHAIN_BLOCK.v1",
+  "issued_at": "2026-07-27T02:56:59Z",
+  "issued_by": "GPT-5.6-SOL-ULTRA_STAGE_GATE",
+  "decision_state": "TERMINAL_P1A_AUTHORITY_CHAIN_BLOCK",
+  "decision_class": "STRUCTURAL_CONTRACT_AUTHORITY_CHAIN_BLOCK",
+  "evidence_level": "E0_STATIC_CONTRACT_ADVERSARIAL_FACT",
+  "decision_scope": {
+    "scope_id": "P1A_R3_1_AUTHORITY_CHAIN_FINAL_STAGE_GATE_ONLY",
+    "included": [
+      "Bind the current six P1A R3.1 draft artifacts by physical SHA-256.",
+      "Apply the previously frozen R3.1 terminal stop rule to the reported direct-module audit facts.",
+      "Serialize the final Sol stage disposition for this P1A authority-chain route."
+    ],
+    "excluded": [
+      "Editing or repairing any of the six R3.1 draft artifacts.",
+      "Reading or changing active G1.",
+      "Creating R3.2, R4, P1B, a replacement lane, or a runtime adapter.",
+      "Using network, metadata, market rows, outcome rows, downloads, backtests, paper trading, live trading, or order execution.",
+      "Evaluating market validity, theory validity, strategy profitability, or trading efficacy."
+    ],
+    "workspace_context": {
+      "cwd": "/Users/wt/Documents/agent-trade-emotion",
+      "branch": "codex/s0-research-foundation",
+      "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+    },
+    "active_g1_read_performed": false,
+    "active_g1_mutation_performed": false
+  },
+  "bound_candidate": {
+    "candidate_id": "P1A-R3.1-IN-PLACE-DRAFT",
+    "bound_at": "2026-07-27T02:56:59Z",
+    "binding_type": "PHYSICAL_SHA256_EXACT_SIX_ARTIFACT_SET",
+    "artifacts": [
+      {
+        "role": "specification",
+        "path": "MSTA_HED_RAW_AUTHORITY_BUNDLE_P1A_SPEC_v0_1_3.md",
+        "physical_sha256": "9f68d09aa8aa9d460246213f773d29128581a3d8093170f94b080ad9d03bee08"
+      },
+      {
+        "role": "declarative_contract",
+        "path": "config/msta_hed_raw_authority_bundle.p1a_contract.v0_1_3.json",
+        "physical_sha256": "3d0bc7349d1d91c7c74ece6feafc4eddf4ef68a24078982ff51939954e8d2372"
+      },
+      {
+        "role": "synthetic_fixture",
+        "path": "config/msta_hed_raw_authority_bundle.p1a_synthetic_contract.v0_1_3.json",
+        "physical_sha256": "b6cb0ed5b126ba93a0d22e8afb7010c428cf49d324376c9fbbbec201e58f2816"
+      },
+      {
+        "role": "executable_reference_validator",
+        "path": "trade_system/msta_hed_raw_authority_bundle_p1a_reference_v0_1_3.py",
+        "physical_sha256": "c7851055cc1e7676d92ebed113f3e547ebb968696101cc135a440ecb32d5e9b2"
+      },
+      {
+        "role": "contract_tests",
+        "path": "tests/test_msta_hed_raw_authority_bundle_p1a_r3_contract.py",
+        "physical_sha256": "70ba657cde1f2571a017861f6dc18b0cd5a5f9daf2226fc06762151f02590daf"
+      },
+      {
+        "role": "validation_report",
+        "path": "artifacts/msta_hed_raw_authority_bundle_p1a_r3_validation_report.md",
+        "physical_sha256": "21c5850e489c4ce6d7dd107cb652e98150dce2271d4e33126144ab0f491976e8"
+      }
+    ],
+    "artifact_count": 6,
+    "candidate_mutation_authorized": false
+  },
+  "terminal_rule": {
+    "rule_id": "SOL_P1A_R3_1_SINGLE_REPAIR_TERMINAL_RULE",
+    "frozen_condition": "After the one authorized in-place R3.1 repair, any independently observed unauthorized ADMITTED result, incorrectly accepted VALID_EMPTY_NOT_ADMITTED result, validator exception, unexecuted contract field type, aliased mutator, or non-exact v0.5 Evidence carrier triggers TERMINAL_P1A_AUTHORITY_CHAIN_BLOCK.",
+    "triggered": true,
+    "trigger_basis": [
+      "Multiple unauthorized candidate mutations were independently observed as ADMITTED.",
+      "A zero-byte candidate with a nonstandard payload hash was observed as VALID_EMPTY_NOT_ADMITTED.",
+      "The implementer explicitly reported that Transform, Coverage, and Tip pinning remained incomplete.",
+      "The implementer explicitly reported that independent mutator preservation remained incomplete."
+    ]
+  },
+  "direct_module_audit_facts": {
+    "fact_source": "ROOT_DIRECT_MODULE_AUDIT_HANDOFF",
+    "module_under_test_sha256": "c7851055cc1e7676d92ebed113f3e547ebb968696101cc135a440ecb32d5e9b2",
+    "contract_under_test_sha256": "3d0bc7349d1d91c7c74ece6feafc4eddf4ef68a24078982ff51939954e8d2372",
+    "failures": [
+      {
+        "case_id": "R3_1_ROOT_01_ARBITRARY_TRANSFORM_DIGEST",
+        "mutation": "Replace transform_digest with an arbitrary value and preserve candidate self-consistency.",
+        "observed_status": "ADMITTED",
+        "required_status": "REJECTED",
+        "violated_property": "PINNED_TRANSFORM_AUTHORITY"
+      },
+      {
+        "case_id": "R3_1_ROOT_02_ARBITRARY_NO_ACTIVITY_PROOF",
+        "mutation": "Replace no-activity proof_ref and proof_digest with arbitrary values and preserve candidate self-consistency.",
+        "observed_status": "ADMITTED",
+        "required_status": "REJECTED",
+        "violated_property": "PINNED_PROOF_AUTHORITY_AND_CLAIM_BINDING"
+      },
+      {
+        "case_id": "R3_1_ROOT_03_FUTURE_ARBITRARY_EXTERNAL_TIP",
+        "mutation": "Supply an arbitrary external tip whose commitment time is in the future.",
+        "observed_status": "ADMITTED",
+        "required_status": "REJECTED",
+        "violated_property": "PINNED_EXTERNAL_TIP_IDENTITY_AND_CAUSAL_CLOCK"
+      },
+      {
+        "case_id": "R3_1_ROOT_04_FUTURE_EXACT_FIELD_V05_EVIDENCE",
+        "mutation": "Supply an exact-field v0.5 Evidence carrier whose available_at is later than decision_time.",
+        "observed_status": "ADMITTED",
+        "required_status": "REJECTED",
+        "violated_property": "V05_EVIDENCE_CAUSAL_CLOCK"
+      },
+      {
+        "case_id": "R3_1_ROOT_05_RAW_PAYLOAD_SHA256_INTEGER",
+        "mutation": "Set the raw record payload_sha256 to an integer and re-sign the containing objects.",
+        "observed_status": "ADMITTED",
+        "required_status": "REJECTED",
+        "violated_property": "EXECUTABLE_PER_FIELD_SCHEMA"
+      },
+      {
+        "case_id": "R3_1_ROOT_06_INPUT_RECORD_PAYLOAD_MISMATCH",
+        "mutation": "Use different payload SHA-256 values in ValidatorInput and the admitted raw record.",
+        "observed_status": "ADMITTED",
+        "required_status": "REJECTED",
+        "violated_property": "PAYLOAD_TO_RECORD_RELATIONAL_BINDING"
+      },
+      {
+        "case_id": "R3_1_ROOT_07_ZERO_BYTE_NONSTANDARD_HASH",
+        "mutation": "Use payload_byte_length zero with a payload hash other than SHA-256 of empty bytes.",
+        "observed_status": "VALID_EMPTY_NOT_ADMITTED",
+        "required_status": "REJECTED",
+        "violated_property": "ZERO_BYTE_PAYLOAD_HASH_BINDING"
+      },
+      {
+        "case_id": "R3_1_ROOT_08_EMPTY_RECEIPT_ID",
+        "mutation": "Use an empty receipt_id in a nonempty admitted candidate.",
+        "observed_status": "ADMITTED",
+        "required_status": "REJECTED",
+        "violated_property": "EXACT_RECEIPT_FIELD_TYPE"
+      },
+      {
+        "case_id": "R3_1_ROOT_09_INTEGER_ADMISSION_ID",
+        "mutation": "Use an integer admission_id in a nonempty admitted candidate.",
+        "observed_status": "ADMITTED",
+        "required_status": "REJECTED",
+        "violated_property": "EXACT_ADMISSION_FIELD_TYPE"
+      },
+      {
+        "case_id": "R3_1_ROOT_10_ACTIVE_G1_ALIAS",
+        "mutation": "Use the forbidden ACTIVE-G1 alias in candidate identity data.",
+        "observed_status": "ADMITTED",
+        "required_status": "REJECTED",
+        "violated_property": "ACTIVE_G1_ISOLATION"
+      },
+      {
+        "case_id": "R3_1_ROOT_11_APPLICATION_SUPPORT_ALIAS",
+        "mutation": "Use the forbidden plain Application Support alias in candidate identity data.",
+        "observed_status": "ADMITTED",
+        "required_status": "REJECTED",
+        "violated_property": "ACTIVE_G1_ISOLATION"
+      }
+    ],
+    "failure_count": 11,
+    "passed_control": {
+      "case_id": "R3_1_ROOT_CONTROL_MALFORMED_CONTRACT",
+      "observed_status": "REJECTED",
+      "interpretation": "Malformed-contract totality was corrected, but this isolated control does not close the authority-chain failures."
+    }
+  },
+  "structural_root_cause": {
+    "root_cause_id": "P1A_SELF_AUTHORIZING_GRAPH_AND_PARTIAL_SCHEMA_EXECUTION",
+    "findings": [
+      "Transform, proof, and external-tip values remain candidate-authorized rather than contract-pinned exact authority objects.",
+      "Declared field types and cross-object bindings are not completely enforced by the executable validator.",
+      "Payload identity is not closed from ValidatorInput through the raw record and admission chain.",
+      "Zero-byte EMPTY semantics are not bound to SHA-256 of empty bytes.",
+      "Forbidden active-G1 aliases remain incompletely normalized and rejected.",
+      "The one authorized R3.1 repair did not preserve the required independently executable mutator closure."
+    ],
+    "classification": "STRUCTURAL_CONTRACT_BLOCK",
+    "market_invalidity_inferred": false,
+    "theory_invalidity_inferred": false
+  },
+  "stage_disposition": {
+    "p1a_r3_status": "NOT_PASS",
+    "p1a_r3_1_status": "TERMINAL_P1A_AUTHORITY_CHAIN_BLOCK",
+    "r3_2_authorized": false,
+    "r4_authorized": false,
+    "p1b_authorized": false,
+    "replacement_lane_authorized": false,
+    "implementation_authorized": false,
+    "network_authorized": false,
+    "metadata_authorized": false,
+    "rows_authorized": false,
+    "adapter_authorized": false,
+    "download_authorized": false,
+    "backtest_authorized": false,
+    "calibration_authorized": false,
+    "holdout_authorized": false,
+    "paper_authorized": false,
+    "live_authorized": false,
+    "deployment_authorized": false,
+    "trading_authorized": false,
+    "permitted_actions": [
+      "Preserve the six bound R3.1 draft artifacts unchanged.",
+      "Perform read-only governance reporting about this terminal block."
+    ],
+    "reopening_rule": "Any reopening requires a new explicit user-authorized program-level Sol decision. This record grants no reopening, repair, replacement-lane, or implementation permission."
+  },
+  "claim_boundary": {
+    "contract_closure": "NOT_ESTABLISHED",
+    "runtime_readiness": "NOT_EVALUATED",
+    "source_data_validity": "NOT_EVALUATED",
+    "market_validity": "NOT_EVALUATED",
+    "theory_validity": "NOT_EVALUATED",
+    "strategy_profitability": "NOT_EVALUATED",
+    "backtest_result": "NOT_EVALUATED",
+    "paper_result": "NOT_EVALUATED",
+    "live_result": "NOT_EVALUATED",
+    "trading_authorization": "DENIED",
+    "maximum_positive_claim": "The bound P1A R3.1 static reference candidate fails its frozen authority-chain acceptance contract and is terminally blocked under the previously authorized single-repair stop rule."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "digest_field": "decision_sha256",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "canonical_json": {
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ],
+      "encoding": "UTF-8"
+    },
+    "domain_prefix_utf8": "msta-hed/sol-p1a-authority-chain-block-decision/v1",
+    "domain_separator_hex": "00",
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "ceda54e7a7f6c37fc691096ce851b7ae9e079336e525db5d9da16e023772478f"
+}

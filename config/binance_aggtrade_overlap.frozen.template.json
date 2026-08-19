@@ -1,0 +1,32 @@
+{
+  "audit_id": "REPLACE_WITH_VERSIONED_BINANCE_AGGTRADE_OVERLAP_ID",
+  "status": "FROZEN_BINANCE_ARCHIVE_OVERLAP_PLAN",
+  "source_registry": {
+    "registry_id": "REQUIRED: source-registry.v3",
+    "sha256": "REQUIRED: lowercase SHA-256 of the frozen source registry"
+  },
+  "instrument": "BTCUSDT",
+  "archive": {
+    "date": "YYYY-MM-DD",
+    "source_id": "SRC-BIN-ARCHIVE",
+    "source_url": "https://data.binance.vision/data/futures/um/daily/aggTrades/BTCUSDT/BTCUSDT-aggTrades-YYYY-MM-DD.zip",
+    "path": "relative/path/to/official-BTCUSDT-aggTrades-YYYY-MM-DD.zip",
+    "checksum_source_url": "https://data.binance.vision/data/futures/um/daily/aggTrades/BTCUSDT/BTCUSDT-aggTrades-YYYY-MM-DD.zip.CHECKSUM",
+    "checksum_path": "relative/path/to/official-BTCUSDT-aggTrades-YYYY-MM-DD.zip.CHECKSUM",
+    "sha256": "REQUIRED: lowercase SHA-256 of the downloaded archive",
+    "columns": [
+      "agg_trade_id",
+      "price",
+      "qty",
+      "first_trade_id",
+      "last_trade_id",
+      "transact_time",
+      "is_buyer_maker"
+    ]
+  },
+  "forward_collection": {
+    "data_dir": "relative/path/to/sealed-evidence-store",
+    "collection_id": "REQUIRED: exact SEALED_CURRENT collection ID"
+  },
+  "notice": "Use only an official Binance USD-M aggTrades daily archive and its verified SHA-256. This plan is a point-in-time overlap audit, not a replacement for forward capture, L2 validation, G1/G2 eligibility, execution evidence, or trading authorization."
+}

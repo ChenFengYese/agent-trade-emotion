@@ -1,0 +1,43 @@
+{
+  "profile_id": "paper-risk-gate-profile.v1",
+  "status": "FROZEN_PAPER_RISK_GATE_PROFILE",
+  "frozen_at": "2026-07-22T00:00:00Z",
+  "scope": "PAPER_OR_SYNTHETIC_ONLY",
+  "resolver_order": ["HALT_AND_RECONCILE", "NO_NEW_RISK", "OPEN"],
+  "reason_policies": [
+    {
+      "reason_code": "MODEL_INPUT_STALE",
+      "gate_level": "NO_NEW_RISK",
+      "source_contract": "SYNTHETIC_MODEL_ARTIFACT_INPUT",
+      "freshness_contract": "SYNTHETIC_ONLY",
+      "threshold_contract": "SYNTHETIC_ONLY",
+      "activation_duration_seconds": 0,
+      "recovery_hysteresis_seconds": 5,
+      "manual_clear_required": false,
+      "stage_actions": {"WATCH": "BLOCK_NEW", "ENTER_PROBE": "BLOCK_NEW", "ADD_POSITION_CONFIRMED": "BLOCK_NEW"}
+    },
+    {
+      "reason_code": "DATA_EXECUTION_HALT",
+      "gate_level": "HALT_AND_RECONCILE",
+      "source_contract": "SYNTHETIC_DATA_HEALTH",
+      "freshness_contract": "SYNTHETIC_ONLY",
+      "threshold_contract": "SYNTHETIC_ONLY",
+      "activation_duration_seconds": 0,
+      "recovery_hysteresis_seconds": 5,
+      "manual_clear_required": true,
+      "stage_actions": {"WATCH": "CANCEL_AND_RECONCILE", "ENTER_PROBE": "CANCEL_AND_RECONCILE", "ADD_POSITION_CONFIRMED": "CANCEL_AND_RECONCILE"}
+    },
+    {
+      "reason_code": "ACCOUNT_MISMATCH",
+      "gate_level": "HALT_AND_RECONCILE",
+      "source_contract": "SYNTHETIC_ACCOUNT_RECONCILIATION",
+      "freshness_contract": "SYNTHETIC_ONLY",
+      "threshold_contract": "ZERO_UNEXPLAINED_DIFFERENCE",
+      "activation_duration_seconds": 0,
+      "recovery_hysteresis_seconds": 5,
+      "manual_clear_required": true,
+      "stage_actions": {"WATCH": "CANCEL_AND_RECONCILE", "ENTER_PROBE": "CANCEL_AND_RECONCILE", "ADD_POSITION_CONFIRMED": "CANCEL_AND_RECONCILE"}
+    }
+  ],
+  "notice": "Frozen structural contract for paper and synthetic tests only. It declares no production source, threshold, account or live-trading authorization."
+}

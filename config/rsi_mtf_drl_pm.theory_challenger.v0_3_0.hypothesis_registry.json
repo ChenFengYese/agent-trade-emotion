@@ -1,0 +1,452 @@
+{
+  "registry_id": "RSI_MTF_DRL_PM_THEORY_CHALLENGER_HYPOTHESES.v0.3.0",
+  "status": "OUTCOME_FREE_REPAIR_COMPLETE_AWAITING_SOL_V3_B_GATE",
+  "evidence_level": "E0",
+  "created_at": "2026-07-23",
+  "champion": {
+    "theory_id": "RSI_MTF_DRL_PM.v0.2.2",
+    "semantic_source_sha256": "43eedbee0a10cf0254721052c1aca23baf027a90f879739ec33b48180cfd87a6",
+    "authority_spec_sha256": "9b2446de9e0549579d52bc8ce2bc3bd124885203a52855f0dbf0f1324f9f1295",
+    "route_decision_sha256": "631f8187e9eb81465718156736045c3ca5cc7ec5e33bbba7b063354cefeb792c",
+    "strategy_contract_sha256": "26ab29e08968518a758a45ce872dd748543e59b93e2909b19e35052d2bdd4cdc",
+    "mutation_allowed": false
+  },
+  "capabilities": {
+    "literature_research": "ALLOWED",
+    "outcome_free_hypothesis_design": "ALLOWED",
+    "synthetic_schema_design": "FORBIDDEN_UNTIL_SOL_V3_B_GATE_PASS",
+    "source_schema_feasibility_read_only": "ALLOWED",
+    "historical_source_adapter": "FORBIDDEN_UNLESS_EXPLICIT_AUTHORITY_B4_DATA_FEASIBILITY_AUTHORIZATION_AND_INDEPENDENT_SOURCE_ADAPTER_CONTRACT",
+    "historical_outcome_access": "FORBIDDEN_UNTIL_POST_B4_INDEPENDENT_DEVELOPMENT_AUTHORIZATION",
+    "backtest": "FORBIDDEN_UNTIL_POST_B4_INDEPENDENT_DEVELOPMENT_AUTHORIZATION",
+    "calibration": "FORBIDDEN_UNTIL_POST_DEVELOPMENT_GATE",
+    "holdout": "FORBIDDEN_UNTIL_POST_CALIBRATION_FREEZE",
+    "paper": "FORBIDDEN",
+    "live": "FORBIDDEN"
+  },
+  "next_p0": {
+    "action": "SOL_V3_B_GATE",
+    "v3_c_start": "FORBIDDEN_UNTIL_SOL_V3_B_GATE_PASS",
+    "b4_data_feasibility_application": "FORBIDDEN_UNTIL_POST_V3_C_GATE"
+  },
+  "authorization_gates": {
+    "AUTHORITY_B4_DATA_FEASIBILITY": {
+      "status": "REQUIRES_NEW_SOL_AUTHORIZATION",
+      "scope": "OUTCOME_FREE_SOURCE_SCHEMA_AVAILABILITY_AND_COST_FEASIBILITY_ONLY",
+      "source_adapter_rule": "MAY_BE_ENABLED_ONLY_BY_EXPLICIT_GATE_GRANT_AND_INDEPENDENT_SOURCE_ADAPTER_CONTRACT",
+      "historical_outcome_access": "NOT_GRANTED",
+      "backtest": "NOT_GRANTED"
+    },
+    "INDEPENDENT_DEVELOPMENT_GATE": {
+      "status": "REQUIRES_SEPARATE_POST_B4_SOL_AUTHORIZATION",
+      "prerequisites": [
+        "AUTHORITY_B4_DATA_FEASIBILITY_GRANTED",
+        "INDEPENDENT_SOURCE_ADAPTER_CONTRACT_FROZEN",
+        "DEVELOPMENT_ROLE_DATES_AND_COST_MODEL_FROZEN"
+      ],
+      "historical_outcome_access": "MAY_BE_GRANTED_ONLY_BY_THIS_GATE",
+      "backtest": "MAY_BE_GRANTED_ONLY_BY_THIS_GATE"
+    }
+  },
+  "common_protocol": {
+    "opportunity_universe": "candidate_neutral_U_compare_v0_3_required",
+    "comparison_rule": "ONE_PREDECLARED_INDEPENDENT_SINGLE_LAYER_EDGE_PER_HYPOTHESIS",
+    "availability_rule": "ALL_INPUTS_MUST_BE_AVAILABLE_AT_OR_BEFORE_DECISION_TIME",
+    "missing_conflict_action": "UNKNOWN_OR_ABSTAIN",
+    "barrier_rule": "FIRST_HIT_WITH_STOP_FIRST_WHEN_INTRABAR_ORDER_IS_UNPROVABLE",
+    "cost_rule": "SAME_FROZEN_FEE_SLIPPAGE_LATENCY_AND_FILL_MODEL_FOR_ALL_ARMS",
+    "sample_roles": [
+      "DEVELOPMENT",
+      "CALIBRATION",
+      "ONE_SHOT_HOLDOUT"
+    ],
+    "role_dates": "REQUIRED_BEFORE_ANY_NEW_OUTCOME_ACCESS",
+    "seen_rule": "ANY_ACCESSED_WINDOW_IS_PERMANENTLY_SEEN",
+    "primary_statistics": [
+      "UTC_DAY_OR_EPISODE_BLOCK_BOOTSTRAP",
+      "HANSEN_SPA_OR_WHITE_REALITY_CHECK_FOR_SHARED_BENCHMARK_FAMILY"
+    ],
+    "diagnostics_only": [
+      "PROBABILITY_OF_BACKTEST_OVERFITTING",
+      "DEFLATED_SHARPE_RATIO"
+    ],
+    "allowed_results": [
+      "NOT_RUN",
+      "WAIT_DATA",
+      "INCONCLUSIVE_COVERAGE",
+      "SUPPORTED_DEVELOPMENT_ONLY",
+      "REJECTED_DEVELOPMENT",
+      "CALIBRATION_PASS",
+      "REJECTED_CALIBRATION",
+      "HOLDOUT_PASS_BOUNDED",
+      "REJECTED_HOLDOUT",
+      "STOP_DATA_INVALID"
+    ]
+  },
+  "source_registry": {
+    "SRC_TSMOM_2012": {
+      "title": "Time Series Momentum",
+      "url": "https://w4.stern.nyu.edu/facdir/lpederse/papers/TimeSeriesMomentum.pdf",
+      "source_market_and_horizon": "58 liquid futures and forwards, mainly monthly horizons",
+      "transport_risk": "HIGH_TO_BTCUSDT_15M_4H"
+    },
+    "SRC_MOMENTUM_CRASH_2016": {
+      "title": "Momentum Crashes",
+      "url": "https://www.kentdaniel.net/papers/published/jfe_16.pdf",
+      "source_market_and_horizon": "cross-asset momentum portfolios and panic rebounds",
+      "transport_risk": "MEDIUM_HIGH"
+    },
+    "SRC_OFI_2014": {
+      "title": "The Price Impact of Order Book Events",
+      "url": "https://arxiv.org/abs/1011.6402",
+      "source_market_and_horizon": "NYSE equities, short concurrent windows",
+      "transport_risk": "HIGH_TO_FUTURE_PREDICTION"
+    },
+    "SRC_QUEUE_2015": {
+      "title": "Queue Imbalance as a One-Tick-Ahead Price Predictor",
+      "url": "https://arxiv.org/abs/1512.03492",
+      "source_market_and_horizon": "Nasdaq equities, next mid-price tick",
+      "transport_risk": "HIGH_AND_TICK_REGIME_DEPENDENT"
+    },
+    "SRC_SUPPORT_2000": {
+      "title": "Support for Resistance",
+      "url": "https://www.newyorkfed.org/medialibrary/media/research/epr/00v06n2/0007osle.pdf",
+      "source_market_and_horizon": "institutional FX intraday levels",
+      "transport_risk": "HIGH_TO_ALGORITHMIC_BTC_LEVELS"
+    },
+    "SRC_STOP_2007": {
+      "title": "When Do Stop-Loss Rules Stop Losses?",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=968338",
+      "source_market_and_horizon": "portfolio stop-loss theory and monthly US assets",
+      "transport_risk": "HIGH_TO_INTRADAY_BARRIERS"
+    },
+    "SRC_VOL_2017": {
+      "title": "Volatility-Managed Portfolios",
+      "url": "https://doi.org/10.1111/jofi.12513",
+      "source_market_and_horizon": "managed factor portfolios",
+      "transport_risk": "HIGH_TO_SINGLE_CRYPTO_PERPETUAL"
+    },
+    "SRC_VOL_COUNTEREVIDENCE_2020": {
+      "title": "On the Performance of Volatility-Managed Portfolios",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0304405X2030132X",
+      "source_market_and_horizon": "103 equity strategies, real-time out-of-sample volatility management",
+      "transport_risk": "HIGH_AND_DIRECTLY_CONTRADICTS_UNIVERSAL_VOLATILITY_SCALING"
+    },
+    "SRC_EXEC_2000": {
+      "title": "Optimal Execution of Portfolio Transactions",
+      "url": "https://doi.org/10.21314/JOR.2001.041",
+      "source_market_and_horizon": "optimal liquidation with impact and timing risk",
+      "transport_risk": "MEDIUM_HIGH_FOR_SMALL_ORDER_INTRADAY_EXECUTION"
+    }
+  },
+  "comparison_graph": {
+    "graph_id": "V3-INDEPENDENT-SINGLE-LAYER-COMPARISON.v1",
+    "mode": "INDEPENDENT_SINGLE_LAYER_ONLY",
+    "post_hoc_comparator_switching": "FORBIDDEN",
+    "cumulative_layering": "FORBIDDEN",
+    "comparators": [
+      {
+        "comparator_id": "V3-CMP-CHAMPION",
+        "definition": "FROZEN_CHAMPION_V0_2_2_SAME_U",
+        "freeze_rule": "MUST_BE_FROZEN_IN_V3_C_BEFORE_ANY_PREDECESSOR_DISPOSITION"
+      },
+      {
+        "comparator_id": "V3-CMP-D-ONLY",
+        "definition": "FROZEN_CHAMPION_D_ONLY_SAME_U",
+        "freeze_rule": "MUST_BE_FROZEN_IN_V3_C_BEFORE_ANY_PREDECESSOR_DISPOSITION"
+      },
+      {
+        "comparator_id": "V3-CMP-R-BASELINE",
+        "definition": "FROZEN_EXISTING_R_SAME_U",
+        "freeze_rule": "MUST_BE_FROZEN_IN_V3_C_BEFORE_H02_DISPOSITION_AND_REUSED_UNCHANGED_FOR_H03"
+      },
+      {
+        "comparator_id": "V3-CMP-LEVEL-BASELINE",
+        "definition": "PREDECLARED_EXECUTABLE_TOUCH_G0_RANDOM_AND_PRIOR_HIGH_LOW_SAME_U",
+        "freeze_rule": "MUST_BE_FROZEN_IN_V3_C_BEFORE_H03_DISPOSITION_AND_REUSED_UNCHANGED_FOR_H04"
+      },
+      {
+        "comparator_id": "V3-CMP-GEOMETRY-BASELINE",
+        "definition": "FROZEN_FIXED_BPS_OR_EXISTING_GEOMETRY_SAME_U",
+        "freeze_rule": "MUST_BE_FROZEN_IN_V3_C_BEFORE_H04_DISPOSITION"
+      },
+      {
+        "comparator_id": "V3-CMP-SAME-FILL-EXIT",
+        "definition": "FROZEN_EXISTING_DYNAMIC_EXIT_EXACT_SAME_FILL_COHORT",
+        "freeze_rule": "MUST_BE_FROZEN_IN_V3_C_BEFORE_H05_DISPOSITION"
+      }
+    ],
+    "edges": [
+      {"layer_id": "V3-L0", "hypothesis_id": null, "comparator_id": null, "dependency_disposition": null},
+      {"layer_id": "V3-L1", "hypothesis_id": "V3-H01-TREND_VETO", "comparator_id": "V3-CMP-CHAMPION", "dependency_disposition": null},
+      {"layer_id": "V3-L2", "hypothesis_id": "V3-H02-OFI_INCREMENT", "comparator_id": "V3-CMP-D-ONLY", "dependency_disposition": "V3-H01-TREND_VETO_DISPOSITION_RECORDED"},
+      {"layer_id": "V3-L3", "hypothesis_id": "V3-H03-IMPACT_RESILIENCE", "comparator_id": "V3-CMP-R-BASELINE", "dependency_disposition": "V3-H02-OFI_INCREMENT_DISPOSITION_RECORDED"},
+      {"layer_id": "V3-L4", "hypothesis_id": "V3-H04-LEVEL_RESPONSE", "comparator_id": "V3-CMP-LEVEL-BASELINE", "dependency_disposition": "V3-H03-IMPACT_RESILIENCE_DISPOSITION_RECORDED"},
+      {"layer_id": "V3-L5", "hypothesis_id": "V3-H05-VOL_LIQ_GEOMETRY", "comparator_id": "V3-CMP-GEOMETRY-BASELINE", "dependency_disposition": "V3-H04-LEVEL_RESPONSE_DISPOSITION_RECORDED"},
+      {"layer_id": "V3-L6", "hypothesis_id": "V3-H06-REMAINING_EV_EXIT", "comparator_id": "V3-CMP-SAME-FILL-EXIT", "dependency_disposition": "V3-H05-VOL_LIQ_GEOMETRY_DISPOSITION_RECORDED"}
+    ]
+  },
+  "trial_order": [
+    "V3-H01-TREND_VETO",
+    "V3-H02-OFI_INCREMENT",
+    "V3-H03-IMPACT_RESILIENCE",
+    "V3-H04-LEVEL_RESPONSE",
+    "V3-H05-VOL_LIQ_GEOMETRY",
+    "V3-H06-REMAINING_EV_EXIT"
+  ],
+  "hypotheses": [
+    {
+      "hypothesis_id": "V3-H01-TREND_VETO",
+      "priority": "P0",
+      "depends_on": [],
+      "source_ids": [
+        "SRC_TSMOM_2012",
+        "SRC_MOMENTUM_CRASH_2016"
+      ],
+      "source_claim": "Past-return trends can persist, but trend effects are state-dependent and can crash.",
+      "mechanism": "A strong closed higher-timeframe trend may reduce the expected value of taking an RSI-extreme reversal against that trend.",
+      "unobservable_claims_forbidden": [
+        "TREND_MUST_CONTINUE",
+        "MARKET_MAKER_DIRECTION",
+        "CURRENT_UNCLOSED_BAR_TREND"
+      ],
+      "required_raw_fields": [
+        "closed_1h_or_4h_mark_bars",
+        "bar_available_at",
+        "rsi_event_time",
+        "champion_opportunity_id"
+      ],
+      "availability_clock": "ONLY_BARS_CLOSED_AND_AVAILABLE_BEFORE_DECISION",
+      "measurement_contract_id": "V3-C-MEASUREMENT-CONTRACT-REQUIRED",
+      "measurement_contract_status": "NOT_FROZEN_REQUIRES_V3_C_SYNTHETIC",
+      "measurement_definition_candidate": "VOLATILITY_NORMALIZED_TREND_SIGN_AND_MAGNITUDE",
+      "candidate_rule": "VETO_COUNTERTREND_REVERSAL_ONLY_NO_CONTINUATION_ORDER",
+      "champion_control": "V3-CMP-CHAMPION",
+      "comparison_edge_id": "V3-L1",
+      "primary_outcome": "OPPORTUNITY_LEVEL_FIRST_HIT_NET_UTILITY",
+      "primary_metric": "BLOCK_BOOTSTRAP_LOWER_CONFIDENCE_BOUND_INCREMENT",
+      "negative_controls": [
+        "REVERSED_TREND_SIGN",
+        "TIME_SHIFTED_TREND"
+      ],
+      "falsification_condition": "NO_STABLE_INTERACTION_INCREMENT_OR_OPPORTUNITY_COST_EXCEEDS_TAIL_RISK_IMPROVEMENT",
+      "multiple_test_family": "V3_P0_SHARED_CHAMPION",
+      "result_status": "NOT_RUN",
+      "next_allowed_stage": "V3_C_SYNTHETIC_THEN_V3_D_DATA_FEASIBILITY"
+    },
+    {
+      "hypothesis_id": "V3-H02-OFI_INCREMENT",
+      "priority": "P0",
+      "depends_on": [
+        "V3-H01-TREND_VETO_DISPOSITION_RECORDED"
+      ],
+      "source_ids": [
+        "SRC_OFI_2014",
+        "SRC_QUEUE_2015"
+      ],
+      "source_claim": "Order-flow and queue imbalance explain short-horizon price pressure, with strong market and tick-regime dependence.",
+      "mechanism": "Causal limit additions, cancellations and executions may add short-horizon information beyond aggressive-trade D.",
+      "unobservable_claims_forbidden": [
+        "VISIBLE_WALL_IS_FIRM_INTENT",
+        "CONCURRENT_OFI_IS_FUTURE_ALPHA",
+        "AGGTRADE_EQUALS_FULL_OFI"
+      ],
+      "required_raw_fields": [
+        "continuous_diff_depth",
+        "snapshot_generation",
+        "update_id_sequence",
+        "best_bid_ask_price_and_size",
+        "trade_direction",
+        "event_available_at"
+      ],
+      "availability_clock": "EVENTS_AVAILABLE_BEFORE_PREDICTION_WINDOW_START",
+      "measurement_contract_id": "V3-C-MEASUREMENT-CONTRACT-REQUIRED",
+      "measurement_contract_status": "NOT_FROZEN_REQUIRES_V3_C_SYNTHETIC",
+      "measurement_definition_candidate": "L1_OR_PREDECLARED_MULTILEVEL_OFI",
+      "candidate_rule": "CONFIRM_OR_VETO_EXISTING_DIRECTION_NEVER_STANDALONE_ENTRY",
+      "champion_control": "V3-CMP-D-ONLY",
+      "comparison_edge_id": "V3-L2",
+      "primary_outcome": "FUTURE_MID_OR_FIRST_HIT_DIRECTION_AND_NET_UTILITY",
+      "primary_metric": "INCREMENTAL_LOG_LOSS_BRIER_AND_COST_AFTER_UTILITY",
+      "negative_controls": [
+        "TIME_SHIFTED_OFI",
+        "SIGN_PERMUTED_OFI",
+        "TRADE_VOLUME_ONLY"
+      ],
+      "falsification_condition": "NO_INCREMENT_OVER_D_ONLY_OR_EFFECT_DISAPPEARS_AFTER_LATENCY_COST_OR_PLACEBO",
+      "multiple_test_family": "V3_P0_SHARED_CHAMPION",
+      "result_status": "WAIT_DATA",
+      "next_allowed_stage": "V3_D_REQUIRES_CONTINUOUS_L2"
+    },
+    {
+      "hypothesis_id": "V3-H03-IMPACT_RESILIENCE",
+      "priority": "P0",
+      "depends_on": [
+        "V3-H02-OFI_INCREMENT_DISPOSITION_RECORDED"
+      ],
+      "source_ids": [
+        "SRC_OFI_2014"
+      ],
+      "source_claim": "The impact of order flow depends on available depth and evolving liquidity.",
+      "mechanism": "Falling marginal price impact during persistent adverse flow, combined with non-overlapping replenishment, may identify absorption and resilience.",
+      "unobservable_claims_forbidden": [
+        "ABSORPTION_IS_MARKET_MAKER_ACCUMULATION",
+        "OVERLAPPING_RECOVERY_WINDOW",
+        "FUTURE_DEPTH_IN_CURRENT_DECISION"
+      ],
+      "required_raw_fields": [
+        "causal_ofi",
+        "mid_price_path",
+        "non_overlapping_depth_recovery_windows",
+        "spread",
+        "event_available_at"
+      ],
+      "availability_clock": "ALL_IMPACT_AND_RECOVERY_WINDOWS_END_BEFORE_DECISION",
+      "measurement_contract_id": "V3-C-MEASUREMENT-CONTRACT-REQUIRED",
+      "measurement_contract_status": "NOT_FROZEN_REQUIRES_V3_C_SYNTHETIC",
+      "measurement_definition_candidate": "MARGINAL_IMPACT_AND_DEPTH_RESILIENCE_ESTIMATOR",
+      "candidate_rule": "ALLOW_REVERSAL_EVALUATION_ONLY_WHEN_RESILIENCE_IS_CONFIRMED",
+      "champion_control": "V3-CMP-R-BASELINE",
+      "comparison_edge_id": "V3-L3",
+      "primary_outcome": "CALIBRATED_REVERSAL_FIRST_HIT_AND_NET_UTILITY",
+      "primary_metric": "INCREMENTAL_CALIBRATION_AND_COST_AFTER_UTILITY",
+      "negative_controls": [
+        "OVERLAPPING_WINDOW_PLACEBO",
+        "RANDOMIZED_RECOVERY_ORDER"
+      ],
+      "falsification_condition": "NO_INCREMENT_OVER_EXISTING_R_OR_NONCAUSAL_WINDOW_REQUIRED",
+      "multiple_test_family": "V3_P0_SHARED_CHAMPION",
+      "result_status": "WAIT_DATA",
+      "next_allowed_stage": "V3_D_REQUIRES_CONTINUOUS_L2"
+    },
+    {
+      "hypothesis_id": "V3-H04-LEVEL_RESPONSE",
+      "priority": "P0",
+      "depends_on": [
+        "V3-H03-IMPACT_RESILIENCE_DISPOSITION_RECORDED"
+      ],
+      "source_ids": [
+        "SRC_SUPPORT_2000",
+        "SRC_OFI_2014"
+      ],
+      "source_claim": "Some frozen price levels are associated with trend interruption, but effects vary and must be separated from random levels.",
+      "mechanism": "At a frozen causal zone, replenishment with falling impact may support interruption, while cancellation or depletion with persistent OFI indicates breakout risk.",
+      "unobservable_claims_forbidden": [
+        "HAND_DRAWN_LEVEL",
+        "POST_OUTCOME_LEVEL",
+        "BREAKOUT_AUTOMATICALLY_AUTHORIZES_CONTINUATION"
+      ],
+      "required_raw_fields": [
+        "closed_higher_timeframe_bars",
+        "frozen_zone_definition",
+        "continuous_l2",
+        "causal_ofi",
+        "impact_resilience",
+        "venue_tick_rules"
+      ],
+      "availability_clock": "ZONE_FROZEN_BEFORE_TOUCH_AND_ALL_RESPONSE_INPUTS_CAUSAL",
+      "measurement_contract_id": "V3-C-MEASUREMENT-CONTRACT-REQUIRED",
+      "measurement_contract_status": "NOT_FROZEN_REQUIRES_V3_C_SYNTHETIC",
+      "measurement_definition_candidate": "ZONE_PLUS_LEVEL_RESPONSE_CLASSIFIER",
+      "candidate_rule": "REVERSAL_ALLOWED_OR_CONTINUATION_RISK_ABSTAIN",
+      "champion_control": "V3-CMP-LEVEL-BASELINE",
+      "comparison_edge_id": "V3-L4",
+      "primary_outcome": "FIRST_HIT_TREND_INTERRUPTION_AND_OPPORTUNITY_UTILITY",
+      "primary_metric": "INCREMENT_OVER_ALL_THREE_CONTROLS",
+      "negative_controls": [
+        "TIME_MATCHED_RANDOM_ZONE",
+        "SAME_WIDTH_SHIFTED_ZONE"
+      ],
+      "falsification_condition": "NO_INCREMENT_OVER_EXECUTABLE_TOUCH_RANDOM_OR_SIMPLE_ZONE_OR_EFFECT_IS_CONCENTRATED",
+      "multiple_test_family": "V3_P0_SHARED_CHAMPION",
+      "result_status": "WAIT_DATA",
+      "next_allowed_stage": "V3_D_REQUIRES_CAUSAL_ZONE_AND_L2"
+    },
+    {
+      "hypothesis_id": "V3-H05-VOL_LIQ_GEOMETRY",
+      "priority": "P0",
+      "depends_on": [
+        "V3-H04-LEVEL_RESPONSE_DISPOSITION_RECORDED"
+      ],
+      "source_ids": [
+        "SRC_VOL_2017",
+        "SRC_VOL_COUNTEREVIDENCE_2020",
+        "SRC_EXEC_2000"
+      ],
+      "source_claim": "Risk exposure and execution cost depend on ex-ante volatility, liquidity and impact, but volatility scaling is not universally superior out of sample.",
+      "mechanism": "Scaling EntryZone, stop distance and maximum holding horizon by ex-ante volatility, spread and visible capacity may stabilize normalized excursion and cost-after utility.",
+      "unobservable_claims_forbidden": [
+        "VOLATILITY_SCALING_CREATES_ALPHA",
+        "VISIBLE_DEPTH_EQUALS_FILLABLE_CAPACITY",
+        "HARD_RISK_LIMIT_OVERRIDE"
+      ],
+      "required_raw_fields": [
+        "closed_bar_volatility",
+        "causal_spread",
+        "causal_visible_capacity",
+        "venue_rules",
+        "fee_slippage_latency_scenario"
+      ],
+      "availability_clock": "ALL_GEOMETRY_INPUTS_AVAILABLE_BEFORE_SUBMISSION",
+      "measurement_contract_id": "V3-C-MEASUREMENT-CONTRACT-REQUIRED",
+      "measurement_contract_status": "NOT_FROZEN_REQUIRES_V3_C_SYNTHETIC",
+      "measurement_definition_candidate": "VOLATILITY_SPREAD_CAPACITY_GEOMETRY",
+      "candidate_rule": "SCALE_ENTRY_ZONE_STOP_DISTANCE_AND_HORIZON_WITHIN_HARD_RISK_CAP",
+      "champion_control": "V3-CMP-GEOMETRY-BASELINE",
+      "comparison_edge_id": "V3-L5",
+      "primary_outcome": "NORMALIZED_MAE_MFE_AND_COST_AFTER_OPPORTUNITY_UTILITY",
+      "primary_metric": "STABILITY_AND_TAIL_RISK_WITH_NONDEGRADED_UTILITY",
+      "negative_controls": [
+        "VOLATILITY_ONLY",
+        "HARD_CAP_ONLY"
+      ],
+      "falsification_condition": "PARAMETER_NEIGHBORHOOD_COLLAPSE_NO_COST_AFTER_INCREMENT_OR_NO_RISK_IMPROVEMENT",
+      "multiple_test_family": "V3_P0_SHARED_CHAMPION",
+      "result_status": "NOT_RUN",
+      "next_allowed_stage": "V3_C_SYNTHETIC_THEN_V3_D_DATA_FEASIBILITY"
+    },
+    {
+      "hypothesis_id": "V3-H06-REMAINING_EV_EXIT",
+      "priority": "P0",
+      "depends_on": [
+        "V3-H05-VOL_LIQ_GEOMETRY_DISPOSITION_RECORDED"
+      ],
+      "source_ids": [
+        "SRC_STOP_2007",
+        "SRC_EXEC_2000"
+      ],
+      "source_claim": "Stop and liquidation policies have conditional value and must account for execution cost and timing risk.",
+      "mechanism": "Within the exact same submission and fill cohort, exit is preferable when the lower confidence bound of remaining hold EV no longer exceeds immediate exit value.",
+      "unobservable_claims_forbidden": [
+        "CHANGED_ENTRY_COHORT",
+        "POST_OUTCOME_EXIT_RULE",
+        "STOP_WIDENING_TO_AVOID_LOSS"
+      ],
+      "required_raw_fields": [
+        "exact_submission_id",
+        "exact_fill_id",
+        "causal_position_state",
+        "remaining_target_and_stop",
+        "immediate_exit_cost",
+        "remaining_horizon"
+      ],
+      "availability_clock": "ONLY_STATE_AVAILABLE_AT_EXIT_DECISION",
+      "measurement_contract_id": "V3-C-MEASUREMENT-CONTRACT-REQUIRED",
+      "measurement_contract_status": "NOT_FROZEN_REQUIRES_V3_C_SYNTHETIC",
+      "measurement_definition_candidate": "REMAINING_EV_LOWER_CONFIDENCE_BOUND",
+      "candidate_rule": "EXIT_WHEN_REMAINING_EV_LCB_NOT_GREATER_THAN_IMMEDIATE_EXIT_VALUE",
+      "champion_control": "V3-CMP-SAME-FILL-EXIT",
+      "comparison_edge_id": "V3-L6",
+      "primary_outcome": "SAME_FILL_COST_AFTER_UTILITY_AND_EXPECTED_SHORTFALL",
+      "primary_metric": "UTILITY_INCREMENT_WITH_NONWORSENING_TAIL",
+      "negative_controls": [
+        "TIME_SHIFTED_EXIT_STATE",
+        "FIXED_TIME_EXIT"
+      ],
+      "falsification_condition": "ENTRY_OR_FILL_COHORT_CHANGES_NO_UTILITY_INCREMENT_OR_TAIL_WORSENS",
+      "multiple_test_family": "V3_P0_SHARED_CHAMPION",
+      "result_status": "NOT_RUN",
+      "next_allowed_stage": "V3_C_SYNTHETIC_THEN_V3_D_DATA_FEASIBILITY"
+    }
+  ]
+}

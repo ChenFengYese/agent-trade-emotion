@@ -1,0 +1,4 @@
+interface:
+  display_name: "Run Theory Agent E0 Experiment"
+  short_description: "Resume and run the native Codex E0 cluster experiment"
+  default_prompt: "Use $run-theory-agent-e0-experiment to resume the frozen E0 cluster experiment from its durable checkpoint."

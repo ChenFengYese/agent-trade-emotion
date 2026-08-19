@@ -1,0 +1,307 @@
+{
+  "schema_id": "theory_paper_v2_prospective_24h_template",
+  "schema_version": "1.4.0",
+  "contract_id": "SINGLE_STRATEGY_AGENT_PROSPECTIVE_24H_SUCCESSOR_20260805_V1_4_AUTO_RECOVERY_AUTHORIZED",
+  "evidence_class": "PROSPECTIVE_24H_PUBLIC_PAPER",
+  "agent_judgment_evidence_label": "PRACTICAL_SINGLE_AGENT_JUDGMENT",
+  "purpose": "Test one stateful Strategy Agent under Core v2.1 ordinal competing-path, dependency-deduplicated evidence, pre-state-bound action counterfactuals, continuous CORE/TACTICAL state, hard risk, truthful cost, deterministic execution, and sealed-predecessor automatic recovery boundaries in a fresh unseen 24-hour window.",
+  "system_mode": "LOCAL_PAPER_RESEARCH_NON_EXECUTABLE",
+  "external_execution_authority": "NONE_LOCAL_SIMULATION",
+  "executable": false,
+  "start_authorized": true,
+  "authorization": {
+    "confirmed_at": "2026-08-05T07:42:15Z",
+    "confirmation_text": "agent理应自动修复 让研究持续推进",
+    "scope": "AUTO_REPAIRED_NEW_SUCCESSOR_PUBLIC_DATA_LOCAL_NON_EXECUTABLE_24H_RESEARCH_ONLY",
+    "base_template_path": "config/theory_paper_v2.prospective_24h.v1_3_authorized_20260804.json",
+    "base_template_physical_sha256": "9349f54fd4e7f339dd7d26a2522c96e4d88d948ae6288b24f2a3b84bb08893c6",
+    "base_template_canonical_sha256": "fe6ed71f456853492aa111517190fe05edd863483ee303ffb14077b92e30510d",
+    "account_credential_order_or_fund_authority": false
+  },
+  "supersedes": {
+    "template_path": "config/theory_paper_v2.prospective_24h.v1_3_authorized_20260804.json",
+    "template_physical_sha256": "9349f54fd4e7f339dd7d26a2522c96e4d88d948ae6288b24f2a3b84bb08893c6",
+    "template_canonical_sha256": "fe6ed71f456853492aa111517190fe05edd863483ee303ffb14077b92e30510d",
+    "interrupted_run_id": "single-agent-prospective-24h-v13-20260804t100154z",
+    "interrupted_manifest_digest": "2da95cd49587cdc02da7cba94d2ac895bfd56a04aba2a60eaafdcef7dbef6f03",
+    "interruption_digest": "13470ea3538c09d62c7c737bab83e2a6805b7c11681d585d3ba2c983833f337b",
+    "reason_code": "ACCEPTED_CYCLE_0017_ACTION_COUNTERFACTUAL_LOT_TRUTH_CONFLICT",
+    "resume_old_run": false,
+    "change_class": "ACCEPT_PREVALIDATION_AND_AUTOMATIC_RECOVERY_FIX_ONLY"
+  },
+  "automatic_recovery": {
+    "mode": "SEALED_PREDECESSOR_TO_FRESH_SUCCESSOR",
+    "predecessor_run_id": "single-agent-prospective-24h-v13-20260804t100154z",
+    "predecessor_manifest_digest": "2da95cd49587cdc02da7cba94d2ac895bfd56a04aba2a60eaafdcef7dbef6f03",
+    "predecessor_interruption_digest": "13470ea3538c09d62c7c737bab83e2a6805b7c11681d585d3ba2c983833f337b",
+    "predecessor_reason_code": "ACCEPTED_CYCLE_0017_ACTION_COUNTERFACTUAL_LOT_TRUTH_CONFLICT",
+    "resume_predecessor": false,
+    "reuse_predecessor_state_or_context": false,
+    "bounded_pre_accept_repair_attempts": 2,
+    "pre_accept_recoverable_error": "USE_FROZEN_OFFICIAL_FALLBACK_OR_CORRECT_AGENT_PROPOSAL_AT_MOST_TWICE",
+    "post_accept_truth_conflict": "SEAL_AND_START_NEW_CHRONOLOGY",
+    "stale_heartbeat_disposition": "PAUSE_BEFORE_CREATING_ONE_BOUND_SUCCESSOR_HEARTBEAT",
+    "status_only_repeat_without_repair": "FORBIDDEN"
+  },
+  "symbols": {
+    "SNDKUSDT": "SNDK-USDT-SWAP",
+    "MUUSDT": "MU-USDT-SWAP",
+    "BTCUSDT": "BTC-USDT-SWAP",
+    "ETHUSDT": "ETH-USDT-SWAP",
+    "SOLUSDT": "SOL-USDT-SWAP",
+    "HYPEUSDT": "HYPE-USDT-SWAP"
+  },
+  "schedule_policy": {
+    "duration_hours": 24,
+    "decision_interval_minutes": 60,
+    "decision_cycles": 24,
+    "terminal_observation_cycle": 25,
+    "review_interval_hours": 4,
+    "review_cycles": [4, 8, 12, 16, 20, 24],
+    "maximum_cycle_lateness_minutes": 90,
+    "no_backfill": true,
+    "interruption": "BOUNDED_PRE_ACCEPT_REPAIR_ELSE_WRITE_ONCE_FAILURE_CLOSE_AND_AUTOMATIC_NEW_CHRONOLOGY_SUCCESSOR"
+  },
+  "data_policy": {
+    "venue": "OKX_OFFICIAL_PUBLIC",
+    "credential_used": false,
+    "account_or_order_endpoint_used": false,
+    "closed_bar_rule": "ONLY_OKX_CONFIRM_EQUALS_1_RESPONSES_RECEIVED_BEFORE_DECISION_AT_OR_COMPLETE_FIXED_UTC_AGGREGATION_FROM_SUCH_LOWER_BARS",
+    "hard_required": [
+      "live instrument metadata",
+      "positive current mark",
+      "closed 15m execution prefix",
+      "1h ATR14 for protected exogenous genesis lots"
+    ],
+    "preferred_timeframes": ["1h", "4h", "1d", "1w"],
+    "timeframe_recovery": "HISTORY_CANDLES_THEN_CURRENT_CANDLES_THEN_COMPLETE_FIXED_UTC_LOWER_BAR_AGGREGATION_ELSE_UNKNOWN",
+    "timeframe_role_profiles": "SYMBOL_AND_MARKET_SPECIFIC_CONTEXT_OBJECTS_NO_MAJORITY_VOTE_NO_UNIVERSAL_BTC_REUSE",
+    "hourly_core": [
+      "instrument",
+      "mark and public last trade",
+      "15m/1h/4h/1d/1w closed candles or explicit lineage-bounded UNKNOWN",
+      "ticker",
+      "index and basis",
+      "open interest and 1h history",
+      "current and realized funding history",
+      "20x20 order book snapshot",
+      "100 recent trades"
+    ],
+    "four_hour_and_terminal_supplement": [
+      "long-short account ratio",
+      "taker volume history",
+      "recent liquidation groups"
+    ],
+    "news": "GOOGLE_NEWS_RSS_DISCOVERY_METADATA_ONLY",
+    "missing_rule": "UNKNOWN_NOT_ZERO_CONFIDENCE_REDUCED_AND_REVIEW_OBLIGATION_NOT_AUTOMATIC_GLOBAL_WAIT",
+    "recent_trades": "LATEST_N_WITH_START_END_SPAN_AND_CROSS_CYCLE_COMPARABLE_FALSE_NOT_FIXED_TIME_WINDOW",
+    "static_book_impact": "VALID_BID_ASK_MIDPOINT_REFERENCE_NONNEGATIVE_ADVERSE_LEGS",
+    "strict_orderbook_resilience": "UNKNOWN_HOURLY_SNAPSHOT_ONLY",
+    "liquidation_history_completeness": "UNKNOWN_RECENT_ROWS_ONLY",
+    "evidence_lineage": "AVAILABLE_AT_SOURCE_VERSION_AND_AUTHORITATIVE_DEPENDENCY_GROUP_PER_EVIDENCE_REF",
+    "request_attempt_receipt": "WRITE_ONCE_PER_OBSERVATION_BEFORE_NORMALIZATION_WITH_ROUTE_ERROR_TIME_AND_DIGEST",
+    "request_retry": "INSTRUMENT_AND_MARK_UP_TO_FOUR_ATTEMPTS;15M_ALTERNATES_TWO_OFFICIAL_ROUTES_TWICE;HIGHER_CANDLES_ATTEMPT_EACH_OFFICIAL_ROUTE_ONCE;OTHER_OPTIONAL_OBSERVATIONS_ONCE",
+    "concurrency": "THREE_SYMBOL_WORKERS_WITH_SEQUENTIAL_REQUESTS_PER_SYMBOL",
+    "candle_limit": 300,
+    "transport": "CURL_HTTP_1_1_RESTRICTED_TO_OKX_PUBLIC_HOST_AND_ALLOWLISTED_PATHS"
+  },
+  "strategy_playbook": {
+    "path": "config/single_strategy_agent_research_playbook.v3.md",
+    "physical_sha256": "bcfb08bcdc1d79f512c7ed5a5f01637170e8b07e6b444b6af98f601f29568c76"
+  },
+  "initial_equity_usdt": "10000",
+  "initial_cost_basis_rule": "GENESIS_OKX_MARK_MULTIPLIED_BY_1.02",
+  "initial_market_notional_usdt": {
+    "SNDKUSDT": "500",
+    "ETHUSDT": "1000",
+    "SOLUSDT": "800",
+    "BTCUSDT": "1000",
+    "HYPEUSDT": "800"
+  },
+  "initial_position_boundary": {
+    "mu_initial_position": "NONE_AS_IN_V1",
+    "legacy_absolute_quantities": "NOT_CARRIED_FORWARD",
+    "quantity_rule": "V1_MARKET_NOTIONAL_DIVIDED_BY_GENESIS_MARK",
+    "legacy_orders": "NONE_STALE_V1_GEOMETRY_NOT_CARRIED_FORWARD",
+    "entry_fee": "NONE_EXISTING_EXOGENOUS_POSITION",
+    "genesis_contract": "EACH_INITIAL_CORE_HAS_PARENT_EPISODE_ROLE_STOP_RISK_BUDGET_MANAGEMENT_CHECKPOINT_EXIT_INTENT_GEOMETRY_AND_24H_MAX_HORIZON_BEFORE_AGENT_INPUT",
+    "genesis_protection": "STOP_AT_GENESIS_MARK_MINUS_2_TIMES_1H_ATR14;CHECKPOINT_IS_REVIEW_EVENT_NOT_AUTO_EXIT"
+  },
+  "source_config": {
+    "risk_policy": {
+      "daily_realized_loss_fraction": "0.02",
+      "default_maker_fee_rate": "0.0002",
+      "default_market_slippage_bps": "2",
+      "default_stop_slippage_bps": "3",
+      "default_taker_fee_rate": "0.0005",
+      "drawdown_no_new_risk_fraction": "0.05",
+      "exploration_probe_risk_fraction": "0.0015",
+      "gross_notional_equity_multiple": "1.5",
+      "minimum_reward_risk": "1.5",
+      "new_positions_require_stop_and_target": true,
+      "open_risk_measurement": "CURRENT_MARK_TO_SLIPPAGE_ADJUSTED_STOP_PLUS_EXIT_FEE",
+      "per_instrument_open_pending_risk_fraction": "0.01",
+      "portfolio_open_pending_risk_fraction": "0.03",
+      "position_lock_stop_monotonic": true,
+      "risk_cap_equity_funding_rule": "INCLUDE_MODELED_FUNDING_BUT_NEVER_EXPAND_CAP_ABOVE_INITIAL_EQUITY",
+      "same_bar_stop_target_policy": "STOP_FIRST_AND_MARK_AMBIGUOUS",
+      "standard_thesis_risk_fraction": "0.005",
+      "unprotected_position_policy": "PROTECT_REDUCE_OR_EXIT_ON_FIRST_VALID_CYCLE"
+    }
+  },
+  "cost_policy": {
+    "market_fee_rate": "0.0005",
+    "maker_fee_rate": "0.0002",
+    "market_slippage_bps": "2",
+    "stop_slippage_bps": "3",
+    "funding": "MODELED_OKX_REALIZED_RATE_TIMES_OPEN_POSITION_TIMES_LATEST_CLOSED_15M_PRE_SETTLEMENT_TRADE_PRICE_PROXY",
+    "funding_truth_boundary": "NOT_TRUE_SETTLEMENT_MARK_OR_ACCOUNT_CASHFLOW",
+    "missing_funding": "UNKNOWN_NOT_ZERO"
+  },
+  "execution_policy": {
+    "closed_15m_barriers": "STOP_FIRST_AND_TACTICAL_TARGET_AT_FROZEN_BARRIER",
+    "decision_boundary_last_trade": "IF_VISIBLE_PUBLIC_LAST_TRADE_IS_ALREADY_BEYOND_AN_UNPROCESSED_ACTIVE_BARRIER_FILL_THE_FROZEN_BARRIER_BEFORE_AGENT_MARKET_ACTION",
+    "barrier_change": "ONLY_AN_ACCEPTED_STATE_BEFORE_TRIGGER_MAY_CANCEL_OR_REPLACE",
+    "core_checkpoint": "REVIEW_EVENT_NOT_AUTOMATIC_EXIT"
+  },
+  "single_strategy_agent_policy": {
+    "strategy_agent_count": 1,
+    "critic_enabled": false,
+    "required_path_classes": [
+      "TREND_CONTINUATION",
+      "NORMAL_PULLBACK",
+      "EXHAUSTION_OR_FAILURE",
+      "RANGE_REFORMATION",
+      "OTHER_OR_UNKNOWN"
+    ],
+    "mechanism_library": [
+      "CONTINUATION",
+      "ABSORPTION_REVERSAL",
+      "RANGE",
+      "LIQUIDATION_CASCADE_OR_LIQUIDITY_VACUUM",
+      "EVENT_REPRICING",
+      "ARTIFACT",
+      "OTHER"
+    ],
+    "support": "ORDINAL_NON_NORMALIZED_DOMINANT_SUPPORTED_PLAUSIBLE_WEAK_INVALIDATED_UNKNOWN",
+    "competition_set_status": "UNKNOWN_NO_VALID_COMPETITION_SET",
+    "numeric_probability": "FORBIDDEN_NO_REGISTERED_PARTITION_PROOF_OR_CALIBRATION_AUTHORITY",
+    "evidence_ledger": "EXACT_NINE_FIELDS_WITH_AUTHORITATIVE_DEPENDENCY_GROUP_AND_MAX_ABSOLUTE_STRENGTH_DEDUP",
+    "actions": ["HOLD", "OPEN", "ADD", "REDUCE", "PARTIAL_TAKE_PROFIT", "EXIT", "REENTER", "WAIT"],
+    "decision_schema_version": "1.3.0",
+    "action_position_truth": "DETERMINISTIC_PER_SYMBOL_PRE_STATE_MARK_QUANTITY_NOTIONAL_AND_MARK_TO_STOP_RISK_WITH_DIGEST_REFERENCE_IN_EVERY_PATH_OUTCOME",
+    "action_counterfactual_numeric_truth": "NARRATIVE_POSITION_NUMBERS_FORBIDDEN_POSITION_TRUTH_DIGEST_REQUIRED",
+    "dynamic_update_prior_cycle": "STRUCTURED_CYCLE_INDEX_MINUS_ONE_AND_FREE_TEXT_LABEL_CANNOT_CONFLICT",
+    "action_counterfactuals": "EACH_ACTION_COVERS_OPERATIONAL_LEAD_RUNNER_UP_AND_OTHER_RESIDUAL_WITH_POSITION_EFFECT_COMPATIBILITY_POSITION_TRUTH_DIGEST_REALIZATION_FAILURE_OPPORTUNITY_COST_AND_COST_RISK",
+    "tactical_reentry": "REENTER_TACTICAL_SAME_EPISODE_ROLE_AND_DELAY_FROM_PRIOR_TACTICAL_EXIT",
+    "activity_boundary": "NO_FORCED_TRADE_BUT_WAIT_HAS_OPPORTUNITY_COST_AND_OBLIGATION"
+  },
+  "comparator_policies": {
+    "static_v1": {
+      "initial_positions": "SAME_FIVE_EXOGENOUS_LOTS_AND_102_PERCENT_COST_BASIS",
+      "initial_stop": "GENESIS_MARK_MINUS_2_TIMES_GENESIS_1H_ATR14",
+      "full_target": "GENESIS_MARK_PLUS_2R_WHERE_R_IS_GENESIS_MARK_MINUS_INITIAL_STOP",
+      "same_bar": "STOP_FIRST",
+      "after_full_exit": "WAIT_WITHOUT_REENTRY",
+      "mu": "NO_POSITION"
+    },
+    "deterministic_continuous": {
+      "initial_positions_and_stop": "SAME_AS_STATIC_V1",
+      "partial_at_1r": "25_PERCENT_OF_ORIGINAL_QUANTITY",
+      "partial_at_2r": "25_PERCENT_OF_ORIGINAL_QUANTITY",
+      "residual": "TRAIL_AT_HIGHEST_VISIBLE_CLOSED_1H_HIGH_MINUS_2_TIMES_CURRENT_1H_ATR14",
+      "reentry_condition": "PREVIOUS_1H_CLOSE_LTE_PREVIOUS_VWAP24_AND_CURRENT_1H_CLOSE_GT_CURRENT_VWAP24_AND_CURRENT_4H_CHANGE_POSITIVE",
+      "reentry_size": "MINIMUM_OF_50_PERCENT_BASE_NOTIONAL_AND_50_USDT_STOP_RISK",
+      "maximum_reentries_per_symbol": 1,
+      "mu_probe_notional_usdt": "500",
+      "same_bar": "STOP_FIRST"
+    }
+  },
+  "evaluation_policy": {
+    "raw_before_audit": true,
+    "metrics": [
+      "realized and unrealized pnl",
+      "fees and modeled funding proxy accrual",
+      "strategy and exogenous attribution",
+      "per-symbol pnl",
+      "maximum drawdown and tail",
+      "1h/4h/8h/24h outcomes",
+      "longest flat duration",
+      "core and tactical reentry delay",
+      "add utilization",
+      "path capture",
+      "initial static hold return",
+      "opportunity difference",
+      "action fidelity and risk veto discrimination"
+    ],
+    "claims": "ONE_24H_WINDOW_CAN_SUPPORT_FAIL_OR_REMAIN_UNCERTAIN_BUT_CANNOT_ESTABLISH_STABLE_PROFITABILITY_OR_PRODUCTION_READINESS"
+  },
+  "stop_conditions": {
+    "fatal": [
+      "live instrument, positive mark, closed 15m, or protected genesis contract remains unavailable after bounded recovery",
+      "available_at exceeds decision_at",
+      "state head, lot, episode, barrier, or reentry truth conflict",
+      "cycle lateness exceeds 90 minutes",
+      "protection or hard risk failure",
+      "write-once or digest conflict",
+      "status-only repetition without in-scope repair or sealed successor creation"
+    ],
+    "nonfatal_unknown": [
+      "higher timeframe unavailable after deterministic recovery",
+      "optional market statistic unavailable",
+      "no relevant public headline",
+      "recent liquidation rows empty or incomplete",
+      "strict orderbook replenishment resilience unavailable"
+    ],
+    "no_midrun_market_policy_change": true
+  },
+  "reporting_policy": {
+    "every_cycle": "FULL_CHINESE_DATA_ANALYSIS_THEORY_INFERENCE_ORDINAL_PATH_ACTION_POSITION_AND_FILL_REPORT",
+    "four_hour_review": "CYCLES_4_8_12_16_20_24",
+    "terminal": "RAW_THREE_POLICY_RESULT_THEN_SEPARATE_AUDIT",
+    "logs_are_not_market_evidence": true
+  },
+  "implementation_bindings": [
+    {
+      "path": "trade_system/theory_paper_v2/application/prospective_single_agent.py",
+      "physical_sha256": "4fb02dd3da860b1a44cacc66ee57f09be19d6675b38bb584405d2046fefd6302"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/application/single_agent_research.py",
+      "physical_sha256": "2953cc3e3a5a6945a5eadb9184c6a1df2fb0a6784c1d672ac0bf29288eff54ec"
+    },
+    {
+      "path": "trade_system/theory_paper/market.py",
+      "physical_sha256": "f4497b1cea8cb71f3b6a28c189551af19fae26211ddec2a373b8752f96150a4b"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/infrastructure/fresh_market/okx_public.py",
+      "physical_sha256": "ccd3090c0d3484b4c19e8d472298e35ac8e48ecc6de1cb564c57e4cb23a3cb07"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/presentation/single_agent_research_cli.py",
+      "physical_sha256": "35284f771d798813ae5ada2e4e036a40b6155f6b53f6101986d719a4c1604258"
+    },
+    {
+      "path": "tests/test_theory_paper_v2_prospective_single_agent.py",
+      "physical_sha256": "cba49c8c67f18f881c894a2e314e4a5bc0c31530ed51a14f79a20c9f316ca4bb"
+    },
+    {
+      "path": "tests/test_theory_paper_v2_single_agent_research.py",
+      "physical_sha256": "1a0d5feabf9b920daa69f8918cf8e6d6b5958b5bcf5e03193ab1220fa0691ade"
+    }
+  ],
+  "pre_freeze_attestation": {
+    "successor_candidate_cycles_before_template_freeze": 0,
+    "predecessor_completed_cycles": 17,
+    "predecessor_cycle_18_or_later_collected": false,
+    "old_run_resumed": false,
+    "future_market_outcomes_after_interruption_read": false,
+    "risk_cost_or_evaluation_tuned_to_future_outcomes": false,
+    "only_policy_delta": "POSITION_TRUTH_BINDING_DYNAMIC_PRIOR_CYCLE_BINDING_AND_AUTOMATIC_RECOVERY_CONTROL",
+    "account_credential_order_or_fund_authority": false,
+    "new_window_start_requires_separate_confirmation": false,
+    "separate_confirmation_satisfied": true
+  }
+}
+

@@ -1,0 +1,18 @@
+{
+  "experiment_id": "binance-coinm-btcusd-perp-historical-mechanism-2025-01-v1",
+  "status": "FROZEN_BINANCE_CM_HISTORICAL_MECHANISM_PLAN_V1",
+  "venue": "BINANCE_COINM",
+  "instrument": "BTCUSD_PERP",
+  "dates": ["2025-01-01", "2025-01-02", "2025-01-03", "2025-01-04", "2025-01-05", "2025-01-06", "2025-01-07", "2025-01-08", "2025-01-09", "2025-01-10", "2025-01-11", "2025-01-12", "2025-01-13", "2025-01-14", "2025-01-15", "2025-01-16", "2025-01-17", "2025-01-18", "2025-01-19", "2025-01-20", "2025-01-21", "2025-01-22", "2025-01-23", "2025-01-24", "2025-01-25", "2025-01-26", "2025-01-27", "2025-01-28"],
+  "development_dates": ["2025-01-01", "2025-01-02", "2025-01-03", "2025-01-04", "2025-01-05", "2025-01-06", "2025-01-07", "2025-01-08", "2025-01-09", "2025-01-10", "2025-01-11", "2025-01-12", "2025-01-13", "2025-01-14", "2025-01-15", "2025-01-16", "2025-01-17", "2025-01-18", "2025-01-19", "2025-01-20", "2025-01-21"],
+  "evaluation_dates": ["2025-01-22", "2025-01-23", "2025-01-24", "2025-01-25", "2025-01-26", "2025-01-27", "2025-01-28"],
+  "min_rows_per_side": 30,
+  "liquidity_state_thresholds": {"thin_max_depth": 1200000, "deep_min_depth": 1600000},
+  "input_contract": {
+    "required_daily_kinds": ["aggTrades", "bookDepth", "metrics"],
+    "source_url_template": "https://data.binance.vision/data/futures/cm/daily/{kind}/BTCUSD_PERP/BTCUSD_PERP-{kind}-{date}.zip",
+    "checksum": "each ZIP must have its official same-name .CHECKSUM and match it",
+    "excluded": ["1m is intentionally excluded; it is not used for features or outcome paths"]
+  },
+  "notice": "Isolated historical COIN-M mechanism experiment only. D is five-minute signed aggressor quantity divided by contemporaneous +/-1% displayed depth, expressed in percentage points; thus abs(D)>=1.5 is a fixed 1.5 percentage-point threshold. eligible_for_binance_g2=false; it is not G1/G2/G3 or trading authorization. Thresholds, dates, latency, labels and model forms are fixed before the locked 2025-01-22..28 evaluation."
+}

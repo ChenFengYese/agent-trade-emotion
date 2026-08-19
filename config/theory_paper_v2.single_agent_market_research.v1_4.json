@@ -1,0 +1,119 @@
+{
+  "schema_id": "theory_paper_v2_single_agent_market_research_successor",
+  "schema_version": "1.4.0",
+  "contract_id": "SINGLE_AGENT_SEEN_V1_POSTMORTEM_INFORMED_PLAYBOOK_20260802",
+  "evidence_class": "SEEN_V1_DIAGNOSTIC_REPLAY",
+  "source_run_id": "msta-paper-20260729T212716Z-87cc29bb",
+  "source_tree_digest": "aba02e17eca90ab4b4ae652c485940523e6c0f0ae2f78eae485c8a5019264085",
+  "predecessor_contract": {
+    "path": "config/theory_paper_v2.single_agent_market_research.v1_3.json",
+    "canonical_digest": "7667c5402e6392897fac5bacb4a61f20a3efb64c975b1711f58fdc09cec7260b",
+    "status": "SUPERSEDED_FOR_POSTMORTEM_INFORMED_DIAGNOSTIC_GUIDANCE"
+  },
+  "failed_predecessor_run": {
+    "run_id": "single-agent-seen-v1-20260802-v13",
+    "last_completed_cycle": 0,
+    "failed_cycle": 1,
+    "checkpoint_status": "AWAITING_SINGLE_AGENT_DECISION_OUTCOMES_SEALED",
+    "recorded_v1_decisions_opened": false,
+    "recorded_v1_outcomes_opened": false,
+    "failure_code": "AGENT_CONTEXT_CONTAMINATION_BY_REPOSITORY_WIDE_POST_RESULT_SEARCH",
+    "status": "FAILED_CLOSED_IMMUTABLE_NOT_RESUMABLE"
+  },
+  "diagnostic_learning_boundary": {
+    "known_v1_failure_classes_visible": true,
+    "known_failure_classes": [
+      "STATELESS_REGENERATION",
+      "FIXED_TARGET_FULL_EXIT",
+      "CORE_TACTICAL_COLLAPSE",
+      "NO_REENTRY_RECOVERY_CHAIN",
+      "OLD_GEOMETRY_ABSORBING_FLAT_STATE",
+      "WAIT_WITHOUT_OPPORTUNITY_COST",
+      "LOW_TIMEFRAME_STRATEGIC_CONTAMINATION",
+      "MISSING_SENTIMENT_AND_EVENT_EVIDENCE"
+    ],
+    "historical_outcome_values_in_playbook": false,
+    "per_cycle_future_market_context_visible": false,
+    "recorded_v1_decisions_or_fills_visible_before_terminal": false,
+    "claim": "POSTMORTEM_INFORMED_SEEN_DIAGNOSTIC_NOT_BLIND_MARKET_EVIDENCE"
+  },
+  "root_cause": {
+    "fact": "The previous context exposed output literals but only a few one-line analysis rules. It did not operationalize multi-timescale roles, mechanism competition, falsifiable path cards, path payoff, data acquisition, or eight distinct position alternatives. The validator also allowed self-declared strategic invalidation without matching a prior hard invalidator.",
+    "is_data_platform_failure": false,
+    "is_agent_cluster_failure": false,
+    "is_theory_to_agent_guidance_failure": true,
+    "is_strategic_invalidation_contract_failure": true,
+    "minimum_vertical_slice": "ONE_FROZEN_PLAYBOOK_PLUS_CONTEXT_BINDING_AND_LOCAL_SEMANTIC_VALIDATION"
+  },
+  "changes": {
+    "frozen_playbook_injected_each_cycle": true,
+    "playbook_decision_digest_binding_required": true,
+    "required_core_path_classes": 4,
+    "optional_theory_path_classes": 4,
+    "path_card_requires_support_contradiction_falsifier_expiry_and_payoff_process": true,
+    "primary_and_runner_up_selection_explanation_required": true,
+    "generic_observation_request_lifecycle_required": true,
+    "distinct_action_comparison_classes": 8,
+    "strategic_invalidation_must_match_prior_hard_invalidator": true,
+    "undeclared_exogenous_thesis_is_not_a_market_falsifier": true,
+    "new_indicator_threshold": false,
+    "fixed_core_fraction": false,
+    "forced_trade_rule": false,
+    "market_data_change": false,
+    "risk_or_cost_change": false,
+    "matching_change": false,
+    "evaluation_market_metric_change": false
+  },
+  "strategy_playbook": {
+    "path": "config/single_strategy_agent_research_playbook.v1.md",
+    "physical_sha256": "6314f71820a9cfd3f9fa4e21f2b3d9a4728a0bf47fbde8090b8144622f27cb65"
+  },
+  "fresh_strategy_agent_run": {
+    "run_id": "single-agent-seen-v1-20260802-v14-guided",
+    "agent_identity": "ONE_POSTMORTEM_INFORMED_STRATEGY_AGENT",
+    "cycles": "1_THROUGH_24",
+    "terminal_observation_cycle": 25,
+    "start_state": "FRESH_GENESIS",
+    "predecessor_decision_replay": false,
+    "future_context_access": false,
+    "recorded_v1_decision_or_outcome_access_before_terminal": false,
+    "critic_enabled": false,
+    "cluster_enabled": false
+  },
+  "claims_boundary": {
+    "evidence": "SEEN_V1_POSTMORTEM_INFORMED_DIAGNOSTIC_ONLY",
+    "predictive_validity": "NOT_ESTABLISHED",
+    "profitability": "NOT_ESTABLISHED",
+    "latest_market_validity": "NOT_ESTABLISHED",
+    "system_mode": "LOCAL_PAPER_RESEARCH_NON_EXECUTABLE",
+    "external_execution_authority": "NONE_LOCAL_SIMULATION",
+    "automation_authority": false,
+    "account_or_credential_authority": false,
+    "paper_or_live_order_authority": false,
+    "executable": false
+  },
+  "implementation_bindings": [
+    {
+      "path": "trade_system/theory_paper_v2/application/single_agent_research.py",
+      "physical_sha256": "077b2658b976840ace29efa0c03872c757543fb1e829f3e5bb47184462cf5aa6"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/presentation/single_agent_research_cli.py",
+      "physical_sha256": "afe00e5426623ba938aa2646640d8f9aaa2a8b3195ffd97152a3a5222dc6a74e"
+    },
+    {
+      "path": "tests/test_theory_paper_v2_single_agent_research.py",
+      "physical_sha256": "0a463f56210dd095bb905103cb77c4f68f3f657f90b7b3bff56709c3bbc279fa"
+    }
+  ],
+  "pre_freeze_attestation": {
+    "successor_candidate_cycles_before_freeze": 0,
+    "successor_run_root_absent": true,
+    "recorded_v1_decisions_opened_for_successor": false,
+    "recorded_v1_outcomes_opened_for_successor": false,
+    "historical_failure_classes_used_as_guidance": true,
+    "historical_outcome_values_used_as_policy_parameters": false,
+    "trading_policy_changed_to_fit_results": false,
+    "active_main_task": "POSTMORTEM_INFORMED_SINGLE_AGENT_SEQUENTIAL_DIAGNOSTIC"
+  }
+}

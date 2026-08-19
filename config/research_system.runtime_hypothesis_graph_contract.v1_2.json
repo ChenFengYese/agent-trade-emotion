@@ -1,0 +1,648 @@
+{
+  "contract_id": "MSTA_HED_RUNTIME_HYPOTHESIS_GRAPH_CONTRACT.v1_2",
+  "schema_version": "research-system-runtime-hypothesis-graph-contract.v1_2",
+  "created_at": "2026-07-27T11:18:00Z",
+  "status": "E0_P0_1_CANDIDATE_NOT_ACCEPTED",
+  "evidence_level": "E0_STATIC_AND_SYNTHETIC_CONTRACT_ONLY",
+  "authority_binding": {
+    "route_decision": {
+      "path": "config/sol_decision.research-system-dynamic-hypothesis-graph-p0_1-route.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_DYNAMIC_HYPOTHESIS_GRAPH_P0_1_ROUTE.v1",
+      "decision_state": "AUTHORIZED_P0_1_E0_DYNAMIC_HYPOTHESIS_GRAPH_CHALLENGER",
+      "physical_sha256": "eb1ded24b8cb2792135422bc2cc28c52344e0a299354449fecfce43a83614e17",
+      "canonical_sha256": "d2550e5eacd6a304eda141977eefec280d478c86bd3a13189277cc7c9ecfc1d2"
+    },
+    "accepted_p0_foundation": {
+      "path": "config/sol_decision.research-system-reconstruction-p0-gate.v1_1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION_P0_GATE.v1_1",
+      "decision_state": "ACCEPT_P0",
+      "physical_sha256": "ff9f2b608fe387b953e5d18e1a3cd0a246fcc43bf209f694ffab53f867a8f4cf",
+      "canonical_sha256": "d0968a40d33cea693cd2ad979a656b7897c30fe58b3cd94d85b6f1ce5afd6a58"
+    },
+    "current_core_theory": {
+      "path": "CORE_TRADING_THEORY_v2_1.md",
+      "authority_id": "CORE_TRADING_THEORY.v2.1",
+      "version": "2.1",
+      "status": "CURRENT_IMMUTABLE_AUTHORITY",
+      "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d"
+    },
+    "core_authority_manifest": {
+      "path": "config/core_trading_theory.authority.v2_1.json",
+      "physical_sha256": "a3e174c616b176253f4aef2ce267a932d43f7e64db3490db815a27f007df12d4"
+    },
+    "frozen_v1_1_inventory": {
+      "path": "config/research_system.p0_artifact_inventory.v1_1.json",
+      "inventory_id": "MSTA_HED_RESEARCH_SYSTEM_P0_ARTIFACT_INVENTORY.v1_1",
+      "physical_sha256": "dc78634eb373aef988cc7a13a5bfdb87d03303b452b22b896d95c02d88a2ee26",
+      "canonical_sha256": "c6cb8e84e37d858b971d02b2cf4aed7878804327922482460701ea4ef214cbc1"
+    },
+    "frozen_v1_1_bundle": {
+      "schema_version": "research-system-contract-bundle.v1_1",
+      "document_count": 8,
+      "bundle_digest": "8a607d9d472f5a26d05e4e74ddca27876621a52ec102a6088f723687c52950fe"
+    }
+  },
+  "plane_contract": {
+    "research_plane_object": "ResearchHypothesis",
+    "runtime_plane_objects": [
+      "MechanismHypothesisInstance",
+      "PathHypothesisInstance",
+      "TradeHypothesisInstance"
+    ],
+    "namespace_rule": "RESEARCH_AND_RUNTIME_IDENTITIES_ARE_DISJOINT",
+    "runtime_result_rewrites_research_hypothesis": false,
+    "runtime_revision_rewrites_prior_revision": false,
+    "research_plane_authorizes_action": false,
+    "runtime_plane_authorizes_action": false
+  },
+  "object_schemas": {
+    "MechanismHypothesisInstance": [
+      "mechanism_instance_id",
+      "opportunity_id",
+      "mechanism_template_id",
+      "graph_revision_id",
+      "generated_at",
+      "status",
+      "ordinal_support",
+      "identifiability_class_id",
+      "accepted_evidence_ids",
+      "conflict_ids",
+      "terminal_reason",
+      "receipt_tip_digest"
+    ],
+    "PathHypothesisInstance": [
+      "path_instance_id",
+      "opportunity_id",
+      "path_template_id",
+      "graph_revision_id",
+      "generated_at",
+      "current_milestones",
+      "terminal_cell_id",
+      "terminal_scenario_id",
+      "direction",
+      "status",
+      "ordinal_support",
+      "hard_invalidation_state",
+      "expiry_at",
+      "accepted_evidence_ids",
+      "conflict_ids",
+      "receipt_tip_digest"
+    ],
+    "TradeHypothesisInstance": [
+      "trade_instance_id",
+      "opportunity_id",
+      "trade_template_id",
+      "parent_path_instance_id",
+      "graph_revision_id",
+      "generated_at",
+      "side",
+      "trigger_state",
+      "invalidation_state",
+      "expiry_at",
+      "status",
+      "mechanism_context_instance_ids",
+      "mechanism_context_effect",
+      "permission_state",
+      "max_risk",
+      "receipt_tip_digest"
+    ],
+    "TypedGraphEdge": [
+      "edge_instance_id",
+      "edge_template_id",
+      "graph_revision_id",
+      "from_kind",
+      "from_instance_id",
+      "to_kind",
+      "to_instance_id",
+      "edge_type",
+      "transfer_mode",
+      "created_at"
+    ],
+    "GraphRevisionReceipt": [
+      "graph_revision_id",
+      "opportunity_id",
+      "decision_at",
+      "refresh_trigger",
+      "state_snapshot_id",
+      "state_snapshot_digest",
+      "structural_position_id",
+      "structural_position_digest",
+      "data_quality_snapshot_id",
+      "data_quality_snapshot_digest",
+      "clock_snapshot_id",
+      "clock_snapshot_digest",
+      "template_registry_id",
+      "template_registry_digest",
+      "generator_policy_id",
+      "generator_policy_version",
+      "generator_policy_digest",
+      "prior_revision_digest",
+      "selected_template_ids",
+      "rejected_template_ids_with_reasons",
+      "generated_instance_ids",
+      "generated_edge_instance_ids",
+      "unknown_reasons",
+      "action_disposition",
+      "revision_digest"
+    ],
+    "TerminalScenarioAggregationReceipt": [
+      "aggregation_receipt_id",
+      "opportunity_id",
+      "as_of",
+      "aggregation_rule_version",
+      "terminal_scenario_id",
+      "source_path_instance_ids",
+      "source_path_template_ids",
+      "source_terminal_cell_ids",
+      "source_path_receipt_tip_digests",
+      "ordinal_only",
+      "probability_values",
+      "receipt_digest"
+    ],
+    "PolicyTrajectory": [
+      "trajectory_id",
+      "opportunity_id",
+      "policy_version",
+      "started_at",
+      "latest_event_available_at",
+      "event_ids",
+      "graph_revision_ids",
+      "trade_hypothesis_instance_ids",
+      "decision_receipt_ids",
+      "order_intent_ids",
+      "position_transition_ids",
+      "status",
+      "previous_trajectory_digest",
+      "trajectory_digest"
+    ],
+    "DecisionReceipt": [
+      "decision_receipt_id",
+      "trajectory_id",
+      "opportunity_id",
+      "event_id",
+      "decision_at",
+      "state_snapshot_digest",
+      "graph_revision_id",
+      "graph_revision_digest",
+      "selected_trade_hypothesis_instance_id",
+      "action_class",
+      "policy_action",
+      "reason_codes",
+      "declared_risk_before",
+      "declared_risk_after",
+      "order_intent_ids",
+      "position_transition_id",
+      "previous_decision_receipt_digest",
+      "receipt_digest"
+    ],
+    "OrderIntent": [
+      "order_intent_id",
+      "trajectory_id",
+      "opportunity_id",
+      "trade_hypothesis_instance_id",
+      "permission_object_id",
+      "permission_state",
+      "created_at",
+      "intent_action",
+      "side",
+      "order_type",
+      "quantity",
+      "limit_price",
+      "stop_price",
+      "target_prices",
+      "time_in_force",
+      "expires_at",
+      "replaces_order_intent_id",
+      "status",
+      "previous_order_intent_digest",
+      "intent_digest"
+    ],
+    "PositionStateTransition": [
+      "position_transition_id",
+      "trajectory_id",
+      "opportunity_id",
+      "position_id",
+      "event_id",
+      "decision_receipt_id",
+      "transition_at",
+      "policy_action",
+      "position_state_before",
+      "position_state_after",
+      "quantity_before",
+      "quantity_after",
+      "stop_before",
+      "stop_after",
+      "target_set_before",
+      "target_set_after",
+      "declared_controllable_worst_case_risk_before",
+      "declared_controllable_worst_case_risk_after",
+      "monotonic_risk_check",
+      "market_gap_or_slippage_observed",
+      "previous_position_transition_digest",
+      "transition_digest"
+    ],
+    "PolicyEvent": [
+      "event_id",
+      "opportunity_id",
+      "available_at",
+      "source_sequence",
+      "event_kind",
+      "source_or_measurement_id",
+      "payload_digest",
+      "data_quality_digest",
+      "supersedes_event_id",
+      "event_digest"
+    ],
+    "PositionLock": [
+      "position_lock_id",
+      "trajectory_id",
+      "opportunity_id",
+      "trade_hypothesis_instance_id",
+      "parent_path_instance_id",
+      "side",
+      "locked_quantity",
+      "locked_stop",
+      "locked_target_set",
+      "locked_horizon_end",
+      "locked_total_risk_budget",
+      "locked_permission_object_id",
+      "locked_at",
+      "lock_digest"
+    ],
+    "RiskEnvelopeSnapshot": [
+      "risk_envelope_id",
+      "trajectory_id",
+      "event_id",
+      "as_of",
+      "risk_unit",
+      "realized_loss_used",
+      "open_position_worst_case_loss",
+      "pending_order_worst_case_loss",
+      "fees_reserve",
+      "funding_reserve",
+      "tail_reserve",
+      "total_risk_used_or_reserved",
+      "locked_total_risk_budget",
+      "within_lock",
+      "previous_risk_envelope_digest",
+      "risk_envelope_digest"
+    ]
+  },
+  "graph_semantics": {
+    "edge_types": [
+      "MECHANISM_TO_PATH",
+      "PATH_TO_TRADE"
+    ],
+    "mechanism_to_path_cardinality": "MANY_TO_MANY",
+    "mechanism_to_path_transfer_mode": "NO_SCORE_TRANSFER",
+    "path_to_trade_cardinality": "ONE_PATH_TO_ZERO_OR_MORE_TRADES",
+    "trade_parent_path_cardinality": "EXACTLY_ONE",
+    "multi_path_composite_trade": "DEFERRED_NOT_IN_V1_2",
+    "mechanism_context_in_trade": "CONTEXT_ONLY_EFFECT_NONE",
+    "cross_layer_implicit_update": "FORBIDDEN",
+    "top_path_auto_action": "FORBIDDEN",
+    "scenario_aggregation_rewrites_path": "FORBIDDEN"
+  },
+  "dynamic_policy_contract": {
+    "contract_id": "MSTA_HED_DYNAMIC_POLICY_TRAJECTORY.v1_2",
+    "status": "E0_INTERFACE_ONLY_NOT_IMPLEMENTED_NOT_AUTHORIZED",
+    "policy_event_order": [
+      "available_at_ASC",
+      "source_sequence_ASC",
+      "event_id_ASC"
+    ],
+    "policy_state_vector": [
+      "information_set",
+      "graph_revision",
+      "policy_state",
+      "position_lock",
+      "position",
+      "risk_envelope",
+      "permission",
+      "receipt_chain"
+    ],
+    "transition_function": "F(Sigma_i,PolicyEvent_i,FrozenPolicyPackage)->(Sigma_i_plus_1,DecisionReceipt_i,Emissions_i)",
+    "transition_function_pure": true,
+    "same_state_event_and_package_same_output": true,
+    "duplicate_event_idempotent_no_second_state_change_or_receipt": true,
+    "event_update_chain": [
+      "PIT_EVENT_ADMITTED",
+      "STATE_SNAPSHOT_UPDATED_OR_NO_CHANGE_RECEIPT",
+      "GRAPH_REVISION_CREATED_OR_NO_CHANGE_RECEIPT",
+      "TRADE_HYPOTHESIS_CREATED_REVISED_EXPIRED_OR_NO_CHANGE_RECEIPT",
+      "POLICY_ACTION_DECIDED",
+      "DECISION_RECEIPT_APPENDED",
+      "ORDER_INTENT_AND_POSITION_TRANSITION_APPENDED_IF_APPLICABLE"
+    ],
+    "exactly_one_decision_receipt_per_admitted_event": true,
+    "counterfactual_lane_states": [
+      "FLAT",
+      "WATCH",
+      "PREPARE",
+      "CF_ENTRY_ELIGIBLE",
+      "CF_OPEN_LOCKED",
+      "CF_MANAGE",
+      "CF_EXITED"
+    ],
+    "counterfactual_state_transition_order": "MONOTONE_FORWARD_EXCEPT_WATCH_PREPARE_MAY_RETURN_TO_FLAT_WITH_RECEIPT",
+    "real_permission_state": "DENIED_P0_1",
+    "real_action_state": "ABSTAIN",
+    "real_max_risk": 0,
+    "action_classes": {
+      "NEW_RISK": [
+        "ABSTAIN_NEW_RISK",
+        "CREATE_ENTRY_INTENT",
+        "CANCEL_UNFILLED_ENTRY",
+        "REPLACE_UNFILLED_ENTRY_NONINCREASING_DECLARED_RISK"
+      ],
+      "POSITION_MANAGEMENT": [
+        "KEEP",
+        "TIGHTEN",
+        "REDUCE",
+        "EXIT"
+      ]
+    },
+    "position_lock_contract": {
+      "created_at_state": "CF_OPEN_LOCKED",
+      "immutable_after_creation": true,
+      "locks": [
+        "opportunity_id",
+        "trade_hypothesis_instance_id",
+        "parent_path_instance_id",
+        "side",
+        "initial_quantity",
+        "initial_stop",
+        "initial_target_set",
+        "horizon_end",
+        "total_risk_budget",
+        "permission_object_id"
+      ],
+      "graph_or_path_revision_rewrites_lock": "FORBIDDEN",
+      "late_event_or_revision_rewrites_lock": "FORBIDDEN"
+    },
+    "position_management_risk_contract": {
+      "risk_scope": "DECLARED_CONTROLLABLE_WORST_CASE_RISK_NOT_REALIZED_GAP_OR_SLIPPAGE_LOSS",
+      "risk_unit_must_match": true,
+      "risk_after_lte_risk_before": true,
+      "absolute_quantity_next_lte_absolute_quantity": true,
+      "position_sign_stable_until_exit": true,
+      "long_stop_next_gte_long_stop": true,
+      "short_stop_next_lte_short_stop": true,
+      "horizon_end_may_extend": false,
+      "long_target_next_lte_long_target": true,
+      "short_target_next_gte_short_target": true,
+      "total_risk_components": [
+        "REALIZED_LOSS_USED",
+        "OPEN_POSITION_WORST_CASE_LOSS",
+        "PENDING_ORDER_WORST_CASE_LOSS",
+        "FEES_RESERVE",
+        "FUNDING_RESERVE",
+        "TAIL_RESERVE"
+      ],
+      "total_risk_used_or_reserved_lte_locked_total_risk_budget": true,
+      "KEEP": "SAME_POSITION_SIZE_STOP_TARGET_AND_DECLARED_RISK",
+      "TIGHTEN": "NO_SIZE_INCREASE_AND_AT_LEAST_ONE_RISK_BOUND_STRICTLY_TIGHTER",
+      "REDUCE": "ABS_QUANTITY_STRICTLY_DECREASES_AND_DECLARED_RISK_DOES_NOT_INCREASE",
+      "EXIT": "TARGET_POSITION_QUANTITY_ZERO_AND_NEW_DECLARED_POSITION_RISK_ZERO",
+      "increase_position_size": "FORBIDDEN",
+      "widen_invalidation_or_stop": "FORBIDDEN",
+      "extend_horizon": "FORBIDDEN",
+      "move_target_outward": "FORBIDDEN",
+      "loss_recovery_or_martingale": "FORBIDDEN",
+      "omit_pending_fees_funding_or_tail_reserve": "FORBIDDEN",
+      "endpoint_pnl_cannot_hide_intratrajectory_risk_breach": true,
+      "market_gap_or_slippage": "RECORD_SEPARATELY_NEVER_RECLASSIFY_AS_PLANNED_RISK_PERMISSION"
+    },
+    "path_switch_contract": {
+      "leading_path_change_auto_reverses_position": false,
+      "leading_path_change_auto_creates_opposite_order": false,
+      "leading_path_change_auto_adds_or_rescues_position": false,
+      "leading_path_change_auto_reenters_after_exit": false,
+      "existing_position_management_remains_bound_to_locked_trade_hypothesis": true,
+      "opposite_new_risk_requires": [
+        "NEW_OPPORTUNITY_ID",
+        "NEW_TRADE_HYPOTHESIS_WITH_EXACTLY_ONE_PARENT_PATH",
+        "NEW_SEPARATE_PERMISSION_OBJECT"
+      ],
+      "current_permission_state": "DENIED_P0_1"
+    },
+    "gap_contract": {
+      "gap_or_ambiguous_fill_at_entry": "CENSORED_NO_COUNTERFACTUAL_ENTRY",
+      "gap_with_open_counterfactual_position": "RECORD_GAP_TRANSITION_AND_RISK_BREACH_IF_ANY",
+      "gap_event_may_be_labeled_normal_ENTER_or_KEEP": false,
+      "favorable_first_same_bar_assumption": "FORBIDDEN"
+    },
+    "carrier_contract": {
+      "required_carriers": [
+        "PolicyEvent",
+        "PolicyTrajectory",
+        "DecisionReceipt",
+        "OrderIntent",
+        "PositionStateTransition",
+        "PositionLock",
+        "RiskEnvelopeSnapshot"
+      ],
+      "append_only": true,
+      "prior_digest_required": true,
+      "historical_rewrite": "FORBIDDEN",
+      "missing_carrier_disposition": "SUSPEND_ABSTAIN_NO_NEW_RISK"
+    },
+    "runtime_implementation": "NOT_IMPLEMENTED",
+    "backtest_implementation": "NOT_IMPLEMENTED",
+    "order_submission": "DENIED",
+    "market_or_execution_claim": "NONE"
+  },
+  "generation_contract": {
+    "generator_policy_id": "GEN-PIT-STATE-CONDITIONED-FINITE-v1_2",
+    "generator_policy_version": "1.0.0",
+    "input_fields": [
+      "decision_at",
+      "state_snapshot_id",
+      "state_snapshot_digest",
+      "structural_position_id",
+      "structural_position_digest",
+      "data_quality_snapshot_id",
+      "data_quality_snapshot_digest",
+      "clock_snapshot_id",
+      "clock_snapshot_digest",
+      "template_registry_id",
+      "template_registry_digest",
+      "prior_revision_digest",
+      "refresh_trigger"
+    ],
+    "allowed_refresh_triggers": [
+      "SCHEDULED_BAR_CLOSE",
+      "STATE_CHANGE",
+      "STRUCTURAL_POSITION_CHANGE",
+      "NEW_ELIGIBLE_EVIDENCE",
+      "DATA_QUALITY_CHANGE",
+      "PATH_TERMINAL_OR_EXPIRY",
+      "POSITION_RISK_CHANGE"
+    ],
+    "selection_order": "LEXICOGRAPHIC_TEMPLATE_ID_AFTER_PREDICATE_EVALUATION",
+    "runtime_template_creation": "FORBIDDEN",
+    "llm_story_injection": "FORBIDDEN",
+    "cartesian_or_power_set_generation": "FORBIDDEN",
+    "outcome_conditioned_generation": "FORBIDDEN",
+    "backdating": "FORBIDDEN",
+    "prior_revision_rewrite": "FORBIDDEN",
+    "same_input_same_output": true,
+    "revision_receipt_required": true,
+    "capacity_policy": {
+      "max_named_market_path_instances": 4,
+      "required_outcome_residual": "OTHER_PATH",
+      "required_epistemic_meta_node": "UNKNOWN_PATH",
+      "overflow_disposition": "POOL_OVERFLOW_UNKNOWN_ABSTAIN",
+      "silent_pruning": "FORBIDDEN"
+    }
+  },
+  "path_identity_contract": {
+    "semantic_identity_fields": [
+      "activation_predicate_ids",
+      "required_partial_order_edges",
+      "optional_partial_order_edges",
+      "repeatable_milestones",
+      "skippable_milestones",
+      "terminal_cell_id",
+      "terminal_matcher_predicate_ids",
+      "horizon_bars",
+      "clock_profile",
+      "hard_invalidation_predicate_ids",
+      "expiry_predicate_ids"
+    ],
+    "excluded_identity_fields": [
+      "mechanism_template_ids",
+      "default_trade_side",
+      "direction",
+      "terminal_scenario_id",
+      "natural_language_name"
+    ],
+    "digest_domain": "msta-hed/runtime-path-semantic-identity/v1_2",
+    "exact_duplicate_disposition": "REJECT_DUPLICATE_PATH_SEMANTIC_IDENTITY",
+    "same_side_merge": "FORBIDDEN",
+    "same_terminal_scenario_merge": "FORBIDDEN",
+    "same_mechanism_merge": "FORBIDDEN",
+    "distinct_path_history_merge": "FORBIDDEN",
+    "named_terminal_cells_pairwise_disjoint": true,
+    "unmatched_observable_outcome": "OTHER_PATH"
+  },
+  "terminal_partition_contract": {
+    "partition_observable_id": "OBS-FIRST-UNIQUE-TERMINAL-CELL-ID",
+    "candidate_match_requires": [
+      "ACTIVE_NONTERMINAL_PATH_INSTANCE",
+      "FULL_REQUIRED_PARTIAL_ORDER_SATISFIED",
+      "RESOLUTION_PREDICATES_TRUE",
+      "HARD_INVALIDATION_FALSE",
+      "EXPIRY_FALSE",
+      "AVAILABLE_AT_LTE_DECISION_AT"
+    ],
+    "evaluation_order": "ASCENDING_AVAILABLE_AT_FROM_OPPORTUNITY_START",
+    "named_cell_assignment": "EARLIEST_TIMESTAMP_WITH_EXACTLY_ONE_CANDIDATE_MATCH",
+    "simultaneous_candidate_match_count_gt_one": "OTHER_PATH_AMBIGUOUS_SIMULTANEOUS_TERMINAL_MATCH",
+    "no_named_match_by_master_horizon": "OTHER_PATH",
+    "insufficient_observability": "UNKNOWN_PATH_OR_CENSORED_BY_TYPED_REASON",
+    "later_match_after_terminal_assignment": "PRESERVE_AS_EVIDENCE_DO_NOT_RELABEL",
+    "identifier_tie_break": "FORBIDDEN",
+    "assignment_receipt_required": true,
+    "assignment_rewrite": "FORBIDDEN",
+    "machine_proof_rule": "EACH_NAMED_TERMINAL_MATCHER_IS_EQ_SINGLETON_OF_SAME_PARTITION_OBSERVABLE_AND_SINGLETON_VALUES_ARE_PAIRWISE_DISTINCT"
+  },
+  "direction_and_residual_contract": {
+    "market_path_directions": [
+      "UPWARD",
+      "DOWNWARD",
+      "BALANCE",
+      "DOWNWARD_TAIL"
+    ],
+    "trade_sides": [
+      "LONG",
+      "SHORT",
+      "NONE"
+    ],
+    "terminal_scenarios": [
+      "UPSIDE",
+      "DOWNSIDE",
+      "RANGE",
+      "UNRESOLVED"
+    ],
+    "required_named_direction_coverage": [
+      "UPWARD",
+      "DOWNWARD",
+      "BALANCE",
+      "DOWNWARD_TAIL"
+    ],
+    "OTHER_PATH": {
+      "namespace": "MARKET_OUTCOME_RESIDUAL",
+      "is_outcome": true,
+      "is_probability_eligible_in_future": true,
+      "is_tradeable": false
+    },
+    "UNKNOWN_PATH": {
+      "namespace": "EPISTEMIC_META_NODE",
+      "is_outcome": false,
+      "is_probability_eligible_in_future": false,
+      "is_tradeable": false
+    },
+    "CENSORED": {
+      "namespace": "RESULT_LABELING_STATE",
+      "is_outcome": false,
+      "is_probability_eligible_in_future": false,
+      "is_tradeable": false
+    },
+    "ABSTAIN": {
+      "namespace": "ACTION_ONLY",
+      "is_outcome": false,
+      "is_probability_eligible_in_future": false,
+      "is_tradeable": false
+    },
+    "ARTIFACT": {
+      "namespace": "DATA_QUALITY_ONLY",
+      "is_outcome": false,
+      "is_probability_eligible_in_future": false,
+      "is_tradeable": false
+    }
+  },
+  "stage_denials": {
+    "D0": "DENIED",
+    "D1": "DENIED",
+    "D2": "DENIED",
+    "D3": "DENIED",
+    "E2": "DENIED",
+    "E3": "DENIED"
+  },
+  "claim_boundary": {
+    "candidate_acceptance": "NOT_EVALUATED",
+    "current_core_theory": "UNCHANGED",
+    "runtime_generator": "CONTRACT_ONLY_NOT_IMPLEMENTED",
+    "dynamic_policy_runtime": "CONTRACT_ONLY_NOT_IMPLEMENTED",
+    "event_driven_replay": "CONTRACT_ONLY_NOT_IMPLEMENTED_NOT_AUTHORIZED",
+    "runtime_data": "NOT_ACCESSED",
+    "machine_predicate_market_validity": "NOT_EVALUATED",
+    "mechanism_truth": "NOT_ESTABLISHED",
+    "probability_calibration": "NOT_AUTHORIZED",
+    "predictive_validity": "NOT_EVALUATED",
+    "profitability": "NOT_EVALUATED",
+    "backtest": "NOT_AUTHORIZED",
+    "paper": "NOT_AUTHORIZED",
+    "deployment": "DENIED",
+    "trading": "DENIED",
+    "f005_dsp022": "REMAINS_OPEN_DEFERRED_BLOCKING",
+    "maximum_positive_claim": "Exact E0 runtime hypothesis graph schema and synthetic contract candidate only."
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "domain": "msta-hed/research-system-runtime-hypothesis-graph-contract/v1_2",
+    "domain_separator_hex": "00",
+    "exclude_fields": [
+      "contract_sha256"
+    ],
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "encoding": "UTF-8"
+  },
+  "contract_sha256": "ecffaef260232b2e16eac8f2d80e49c44f97006a8cf8a1ca948a588f3ca1672b"
+}

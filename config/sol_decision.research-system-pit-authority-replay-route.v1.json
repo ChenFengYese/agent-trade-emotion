@@ -1,0 +1,1043 @@
+{
+  "schema_version": "sol-research-system-pit-authority-replay-route-decision.v1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_ROUTE.v1",
+  "issued_at": "2026-07-27T14:24:30Z",
+  "issued_by": "GPT-5.6-SOL_ULTRA_PROGRAM_ROUTE",
+  "decision_state": "AUTHORIZED_PITAR1_E0_AND_BOUNDED_SOURCE_DISCOVERY_PHASED_SUCCESSOR_ROUTE",
+  "decision_class": "NEW_PROGRAM_SUCCESSOR_NOT_P1A_RECOVERY",
+  "evidence_level": "E0_CONTRACT_AND_LOCAL_SYNTHETIC_VALIDATION_ROUTE_ONLY",
+  "route_identity": {
+    "route_id": "RSR-PITAR1-POINT_IN_TIME-AUTHORITY-REPLAY-v1",
+    "route_version": "1.0.0",
+    "namespace": "PITAR1",
+    "priority": "P0",
+    "current_stage": "E0_ROUTE_AUTHORIZED_CANDIDATE_NOT_BUILT_NOT_ACCEPTED",
+    "successor_relation": "INDEPENDENT_SUCCESSOR_AFTER_TERMINAL_P1A_LINEAGE_BLOCK",
+    "forbidden_new_artifact_tokens": [
+      "P1A",
+      "R3",
+      "R4",
+      "P1B",
+      "v0.1.0",
+      "v0.1.1",
+      "v0.1.2",
+      "v0.1.3",
+      "msta/r3/"
+    ],
+    "workspace": {
+      "cwd": "/Users/wt/Documents/agent-trade-emotion",
+      "branch": "codex/s0-research-foundation",
+      "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+    }
+  },
+  "authority_binding": {
+    "program_governance": {
+      "path": "PROGRAM_GOVERNANCE.md",
+      "size_bytes": 23867,
+      "physical_sha256": "69125790fa36c0c4f72ebdecea4f5415be73a9e4fba78c6c1aa53b9639ef6f09",
+      "state": "READ_ONLY_PROGRAM_GOVERNANCE"
+    },
+    "data_authority_standard": {
+      "path": "DATA_AUTHORITY_STANDARD_v1_0.md",
+      "size_bytes": 6933,
+      "physical_sha256": "03a38e2e4fa5f299b9ed698b0e0d185addf67984bb5e4712d9cc2bd742fd9f72",
+      "state": "READ_ONLY_DATA_AUTHORITY_STANDARD"
+    },
+    "research_stage_contract": {
+      "path": "config/research_system.stage_contract.v1.json",
+      "size_bytes": 8581,
+      "physical_sha256": "ab81251c0ea70e945d9ea7176e9cb59e7353477212dcf36a2d9e4424f944674b",
+      "canonical_sha256": "d84c8ba50d828688020a5197202a58985079cdc64938c58fe9c54e3cb69b6fba",
+      "state": "BINDING_STAGE_SEMANTICS"
+    },
+    "source_authority_registry": {
+      "path": "config/research_system.source_authority_registry.v1.json",
+      "size_bytes": 46188,
+      "physical_sha256": "693cc7361c16fb154df97bf2c58a1e68807f990dc976df949658e7ce635abb12",
+      "canonical_sha256": "faa6f33577d71275939b7bdf56fa850aecb3b75eed8df5ee175fb9340a3d4324",
+      "state": "DOCUMENT_DISCOVERY_ONLY_NO_MARKET_ROWS"
+    },
+    "accepted_p0_foundation": {
+      "path": "config/sol_decision.research-system-reconstruction-p0-gate.v1_1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION_P0_GATE.v1_1",
+      "decision_state": "ACCEPT_P0",
+      "size_bytes": 17299,
+      "physical_sha256": "ff9f2b608fe387b953e5d18e1a3cd0a246fcc43bf209f694ffab53f867a8f4cf",
+      "canonical_sha256": "d0968a40d33cea693cd2ad979a656b7897c30fe58b3cd94d85b6f1ce5afd6a58",
+      "interpretation": "Accepted E0 research-system foundation only; it grants no data, replay, evaluation, paper or trading permission."
+    },
+    "accepted_p0_1_dynamic_policy": {
+      "path": "config/sol_decision.research-system-dynamic-hypothesis-graph-p0_1-gate.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_DYNAMIC_HYPOTHESIS_GRAPH_P0_1_GATE.v1",
+      "decision_state": "ACCEPT_P0_1",
+      "size_bytes": 27090,
+      "physical_sha256": "c5a8e2a99d81c9b6729e5eb6c696e669c44fdba7af8c84ae9e743ff089edf446",
+      "canonical_sha256": "adcc574e67c70eae33fc9c56cc4285566646c07c44fef2ccfb56d8a4959f21f2",
+      "composed_bundle_sha256": "f730d9f712001ec603a33e26977efaadf8db1a7492cba2e4d24acaee7ba10625",
+      "interpretation": "Accepted E0 dynamic-policy contract is a read-only comparison subject. It does not grant D0 through E3 permission."
+    },
+    "current_core_theory": {
+      "path": "CORE_TRADING_THEORY_v2_1.md",
+      "authority_id": "CORE_TRADING_THEORY.v2.1",
+      "size_bytes": 140126,
+      "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d",
+      "state": "CURRENT_IMMUTABLE_AUTHORITY"
+    },
+    "current_core_manifest": {
+      "path": "config/core_trading_theory.authority.v2_1.json",
+      "size_bytes": 299,
+      "physical_sha256": "a3e174c616b176253f4aef2ce267a932d43f7e64db3490db815a27f007df12d4",
+      "recorded_core_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d"
+    },
+    "old_p1a_terminal_block": {
+      "path": "config/sol_decision.p1a-authority-chain-block.v1.json",
+      "decision_id": "SOL_P1A_AUTHORITY_CHAIN_BLOCK.v1",
+      "decision_state": "TERMINAL_P1A_AUTHORITY_CHAIN_BLOCK",
+      "size_bytes": 11387,
+      "physical_sha256": "26355176199bde8cc20e73e2183b43a14bf6210b3a3c41c9480c51b204b9d759",
+      "canonical_sha256": "ceda54e7a7f6c37fc691096ce851b7ae9e079336e525db5d9da16e023772478f",
+      "interpretation": "Permanent negative authority. No old P1A artifact, helper, schema, namespace, test fixture or authority value may be revived, edited, copied into, imported by or relied on by PITAR1."
+    },
+    "old_active_g1_terminal_decision": {
+      "path": "config/sol_decision.active-g1-plan-unreachable.v2.json",
+      "decision_id": "SOL_ACTIVE_G1_PLAN_UNREACHABLE.v2",
+      "decision_state": "TERMINAL_WAIT_DATA_PLAN_UNREACHABLE",
+      "size_bytes": 10768,
+      "physical_sha256": "3417205afc38247bc8463ddd6e18cf54dffe51724571100a974f9572309127c8",
+      "canonical_sha256": "e143fae7d8c8094298f65bc6724de35f368f25e739e6fe2a35cfdf69fd1d6272",
+      "interpretation": "Active G1 package, plan, registry, evidence root, window and identities remain immutable and unreachable from this route."
+    },
+    "s0_009_terminal_chronology": {
+      "route_decision_path": "config/sol_decision.s0-009-r1-acquisition-gap-censoring.a2f1.json",
+      "route_decision_physical_sha256": "9ef2ca7d75ca714cb85a8afa76f1115c7ff37e0b520a6bc983736441c895095d",
+      "february_guard_path": "config/s0_009_february_terminal_seen_guard.a3e1.json",
+      "february_guard_state": "ACTIVE_FAIL_CLOSED",
+      "february_guard_size_bytes": 2525,
+      "february_guard_physical_sha256": "5cdc23c6d0db3c84c89016920835265faba5c70f0c8520a1328b652029bd5e8a",
+      "interpretation": "January 2025 and February 2025 are permanently SEEN and role-consumed; neither may be reacquired, replayed, tuned on, calibrated on or represented as unseen."
+    },
+    "binding_effect": "This route is valid only for the exact cwd, branch, HEAD and immutable identities above. Any drift, alias, symlink, alternate root or changed authority value is fail-closed and requires a new Sol decision."
+  },
+  "old_p1a_negative_evidence_audit": {
+    "audit_result": "STRUCTURAL_TERMINAL_NOT_WAIT_DATA",
+    "reviewed_artifact_count": 21,
+    "ordered_physical_manifest_sha256": "1b5cfb13c6275dcdfd5a87438207150717a6d6135516753fbea770d31fae64e6",
+    "versions_reviewed": [
+      {
+        "version": "0.1.0",
+        "state": "E0_DRAFT_NEVER_AUTHORITY",
+        "artifacts": [
+          {
+            "path": "MSTA_HED_RAW_AUTHORITY_BUNDLE_P1A_SPEC_v0_1_0.md",
+            "size_bytes": 8264,
+            "physical_sha256": "49300c2a5d22a7777a6bf16fa90b674d78a6eca7f4c5f4b507b496daa08a3e2d"
+          },
+          {
+            "path": "config/msta_hed_raw_authority_bundle.p1a_contract.v0_1_0.json",
+            "size_bytes": 10594,
+            "physical_sha256": "64f6f6cc54b1fb6fa9f7d721eb34a8244dad400f6151b3e2781ea9a09069956d"
+          },
+          {
+            "path": "config/msta_hed_raw_authority_bundle.p1a_synthetic_contract.v0_1_0.json",
+            "size_bytes": 2873,
+            "physical_sha256": "7f13e61fc1b84cc00c6d0cae157d3e8eff53071c4332042c31a129ec8dc01afc"
+          },
+          {
+            "path": "tests/test_msta_hed_raw_authority_bundle_p1a_contract.py",
+            "size_bytes": 22360,
+            "physical_sha256": "a82168724073b88c1de723478210f4425f374906aaf358ea773e549d17d71601"
+          }
+        ]
+      },
+      {
+        "version": "0.1.1",
+        "state": "E0_DRAFT_NEVER_AUTHORITY",
+        "artifacts": [
+          {
+            "path": "MSTA_HED_RAW_AUTHORITY_BUNDLE_P1A_SPEC_v0_1_1.md",
+            "size_bytes": 5346,
+            "physical_sha256": "0d3baabd7f0e4cc4d607e82a5219a5b376c0e731f7faed7c9c502cb0bfe4a652"
+          },
+          {
+            "path": "config/msta_hed_raw_authority_bundle.p1a_contract.v0_1_1.json",
+            "size_bytes": 16011,
+            "physical_sha256": "45baae1c3a65429236f65420fc3ce8fcfecf6006af09679f3c42b45519a9bdac"
+          },
+          {
+            "path": "config/msta_hed_raw_authority_bundle.p1a_synthetic_contract.v0_1_1.json",
+            "size_bytes": 1282,
+            "physical_sha256": "996928b5e81664b81fb1c9b1af6f01e2d3a1a69f3bca6e8daf622de4bf66598f"
+          },
+          {
+            "path": "tests/test_msta_hed_raw_authority_bundle_p1a_r1_contract.py",
+            "size_bytes": 30196,
+            "physical_sha256": "a76b841136ca09f7b5109b4ebac7ee78b2bdbf0f541a223d7f1c59d6075e5bbc"
+          },
+          {
+            "path": "artifacts/msta_hed_raw_authority_bundle_p1a_r1_validation_report.md",
+            "size_bytes": 2653,
+            "physical_sha256": "a6e1d5a32a354d8ad34f79c0cc059f95fd1b1b848b888a883fc837f60a839401"
+          }
+        ]
+      },
+      {
+        "version": "0.1.2",
+        "state": "E0_DRAFT_NEVER_AUTHORITY",
+        "artifacts": [
+          {
+            "path": "MSTA_HED_RAW_AUTHORITY_BUNDLE_P1A_SPEC_v0_1_2.md",
+            "size_bytes": 3728,
+            "physical_sha256": "b56f46b5bb8a4a5d7b8077fa64ee69815620860b5d68bbfd8fd19f81ddaa2f54"
+          },
+          {
+            "path": "config/msta_hed_raw_authority_bundle.p1a_contract.v0_1_2.json",
+            "size_bytes": 10190,
+            "physical_sha256": "751580429f7a293c45ed57fbc2c86399e49639c37f575009a892e2d57dfff7bc"
+          },
+          {
+            "path": "config/msta_hed_raw_authority_bundle.p1a_synthetic_contract.v0_1_2.json",
+            "size_bytes": 3448,
+            "physical_sha256": "341af751fc422c439f8287e222d12edfbc60a0fcd9c1ee31bf50124701947247"
+          },
+          {
+            "path": "tests/test_msta_hed_raw_authority_bundle_p1a_r2_contract.py",
+            "size_bytes": 25706,
+            "physical_sha256": "8da7cbff82a32b700a0a4120067cc1c8c3d9a25da4113d41efc13b1f791e38a6"
+          },
+          {
+            "path": "artifacts/msta_hed_raw_authority_bundle_p1a_r2_validation_report.md",
+            "size_bytes": 2235,
+            "physical_sha256": "0d01c1fd7a3ce638049d34f5168bf9df1c022751f0d1da636b43856c3285fb69"
+          }
+        ]
+      },
+      {
+        "version": "0.1.3",
+        "state": "E0_DRAFT_TERMINALLY_BLOCKED_NEVER_AUTHORITY",
+        "artifacts": [
+          {
+            "path": "MSTA_HED_RAW_AUTHORITY_BUNDLE_P1A_SPEC_v0_1_3.md",
+            "size_bytes": 2284,
+            "physical_sha256": "9f68d09aa8aa9d460246213f773d29128581a3d8093170f94b080ad9d03bee08"
+          },
+          {
+            "path": "config/msta_hed_raw_authority_bundle.p1a_contract.v0_1_3.json",
+            "size_bytes": 7091,
+            "physical_sha256": "3d0bc7349d1d91c7c74ece6feafc4eddf4ef68a24078982ff51939954e8d2372"
+          },
+          {
+            "path": "config/msta_hed_raw_authority_bundle.p1a_synthetic_contract.v0_1_3.json",
+            "size_bytes": 2465,
+            "physical_sha256": "b6cb0ed5b126ba93a0d22e8afb7010c428cf49d324376c9fbbbec201e58f2816"
+          },
+          {
+            "path": "tests/test_msta_hed_raw_authority_bundle_p1a_r3_contract.py",
+            "size_bytes": 7158,
+            "physical_sha256": "70ba657cde1f2571a017861f6dc18b0cd5a5f9daf2226fc06762151f02590daf"
+          },
+          {
+            "path": "trade_system/msta_hed_raw_authority_bundle_p1a_reference_v0_1_3.py",
+            "size_bytes": 9455,
+            "physical_sha256": "c7851055cc1e7676d92ebed113f3e547ebb968696101cc135a440ecb32d5e9b2"
+          },
+          {
+            "path": "artifacts/msta_hed_raw_authority_bundle_p1a_r3_validation_report.md",
+            "size_bytes": 1438,
+            "physical_sha256": "21c5850e489c4ce6d7dd107cb652e98150dce2271d4e33126144ab0f491976e8"
+          }
+        ]
+      }
+    ],
+    "base_report": {
+      "path": "artifacts/msta_hed_raw_authority_bundle_p1a_validation_report.md",
+      "size_bytes": 3591,
+      "physical_sha256": "fb44a610fa5c1bdb59c26da048db37f33fb7e2d42c712cb27bc8104062c6daf7"
+    },
+    "r3_1_fact_audit": {
+      "declared_local_tests": "40_OF_40_PASS",
+      "declared_artifact_identity_matches": "6_OF_6_MATCH",
+      "independently_reproduced_false_admission_attacks": "11_OF_11_REPRODUCED",
+      "attack_families": [
+        "transform_hash_mutation_accepted",
+        "proof_hash_mutation_accepted",
+        "tip_hash_mutation_accepted",
+        "future_evidence_timestamp_accepted",
+        "non_string_payload_hash_accepted",
+        "payload_and_hash_mismatch_accepted",
+        "wrong_genesis_or_zero_hash_accepted",
+        "invalid_receipt_type_accepted",
+        "invalid_admission_type_accepted",
+        "active_g1_alias_accepted",
+        "application_support_alias_accepted"
+      ],
+      "disposition": "A green local test suite did not establish authority-chain soundness. The lineage is permanently blocked rather than awaiting more data."
+    },
+    "reuse_policy": {
+      "allowed": [
+        "Conceptual lessons restated independently in new PITAR1 language.",
+        "The eleven attack families used as negative regression requirements.",
+        "Read-only comparison of historical failure modes."
+      ],
+      "forbidden": [
+        "Import, subclass, copy, patch, rename or wrap any old reference implementation.",
+        "Use any old contract, synthetic fixture, validation report, hash, domain, namespace or test helper as authority.",
+        "Describe the successor as R4, repaired P1A, P1B or a continuation of v0.1.x.",
+        "Treat old 40-of-40 results as acceptance evidence."
+      ]
+    }
+  },
+  "current_workspace_capability_audit": {
+    "audit_result": "USEFUL_ENGINEERING_REFERENCE_BUT_NOT_PIT_AUTHORITY_OR_REPLAY_PROOF",
+    "reviewed_code": [
+      {
+        "path": "trade_system/types.py",
+        "size_bytes": 7172,
+        "physical_sha256": "f0a5ebfa9f15dd0b466dff21101f20b180dea1faa4c41424fe5064f60c955716"
+      },
+      {
+        "path": "trade_system/event_store.py",
+        "size_bytes": 18014,
+        "physical_sha256": "5abca218479dfe1fae0e0fd0717fcb5c5687f70cfda6e9bb8fa4bf492800f964"
+      },
+      {
+        "path": "trade_system/replay.py",
+        "size_bytes": 3856,
+        "physical_sha256": "01a6ec5af8a0338e0be49b0cd2181bcb1b6cca5fd5f80d658161ae1865a44da5"
+      },
+      {
+        "path": "trade_system/data_acceptance.py",
+        "size_bytes": 9555,
+        "physical_sha256": "ff566b4587a60cf692d042590009d7ccbca5bfb8887f51a5ad3a3ddd1959c02e"
+      },
+      {
+        "path": "trade_system/historical_audit.py",
+        "size_bytes": 10596,
+        "physical_sha256": "d6ee85974682bfa0b667058a26a678e770b3d13d4ef5fe314f5b5d520ee33185"
+      },
+      {
+        "path": "trade_system/historical_diagnostic_application.py",
+        "size_bytes": 14258,
+        "physical_sha256": "886db139c222c8bba34359652e4fce1e5b95edb40184a3776030dbc11074c424"
+      },
+      {
+        "path": "trade_system/historical_diagnostic_authorization.py",
+        "size_bytes": 48108,
+        "physical_sha256": "090b03ce39aeebf73076edb33ecc9ec4bdda08d6a06ecfa80e53ab9d0fb3d0ed"
+      },
+      {
+        "path": "trade_system/historical_diagnostic_development.py",
+        "size_bytes": 27739,
+        "physical_sha256": "d149cbc38f96fcef2d68176ec26cd1f28bbfd97031eb86d2ea72547716dbc664"
+      },
+      {
+        "path": "trade_system/historical_diagnostic_gap_censoring_v3.py",
+        "size_bytes": 21741,
+        "physical_sha256": "9ec43ff08393f9901329edb04c6cb55e927099afd3a10b49e3729c142b8c2e8d"
+      },
+      {
+        "path": "trade_system/historical_diagnostic_guarded_download.py",
+        "size_bytes": 37990,
+        "physical_sha256": "4b70a7c8ad2df2bba36614a2dd7507462e93e74ca5f38d4457571b42f3b0d3a0"
+      },
+      {
+        "path": "trade_system/historical_diagnostic_terminal_guard.py",
+        "size_bytes": 9496,
+        "physical_sha256": "ab19338ac3548458c488e74ebc6dadb53c8ce33b8257854ebf647771ea5dd7a5"
+      },
+      {
+        "path": "trade_system/historical_evidence_ledger.py",
+        "size_bytes": 6562,
+        "physical_sha256": "8ab3f63f9fb9d5f4caee8c3ffc8911090efde14d871e7d0727dae1df6772e6cd"
+      },
+      {
+        "path": "trade_system/binance_cm_historical_diagnostic.py",
+        "size_bytes": 17340,
+        "physical_sha256": "62151be2f3e6cd58961e9ec736474540aef7860e66af6d2acdf3cf83d21fda99"
+      },
+      {
+        "path": "trade_system/binance_cm_historical_mechanism.py",
+        "size_bytes": 24945,
+        "physical_sha256": "ba3d54f481f905f4ff3beefb5d4a78c9c812f3beec36bf89fc75b6b956702eea"
+      }
+    ],
+    "replay_findings": [
+      "Current replay orders mainly by available_at, capture_seq, event_id and schema_version but lacks a complete row-level five-clock contract.",
+      "Current replay lacks logical identity, revision identity, supersedes, operation, admitted raw offset and a domain-separated receipt chain.",
+      "Exact duplicate derived versions are not specified as idempotent no-ops.",
+      "Gap, outage, market inactivity, quarantine and censoring are not represented with the required independent semantics.",
+      "The current modules do not prove point-in-time revision visibility or prevent latest-revision backfill."
+    ],
+    "data_findings": [
+      "data_acceptance.py belongs to active G1 and is outside this route.",
+      "Historical diagnostic, guarded-download, terminal-guard and exchange-specific modules belong to January or February S0-009 seen/terminal lanes and are outside this route.",
+      "historical_audit.py contains an old OKX source alias and only sample-level behavior.",
+      "No current module supplies an admitted D1 raw artifact or a valid D0 receipt for PITAR1."
+    ],
+    "implementation_boundary": "PITAR1 must create isolated new modules and contracts. Existing code is read-only historical reference or negative baseline and may not be modified, imported or treated as an authority root."
+  },
+  "authorized_objective": {
+    "program_question": "Can an independent point-in-time authority and deterministic replay successor preserve exact raw bytes, chronology, revisions, gaps and information availability so the accepted dynamic hypothesis policy can later be compared fairly without leakage?",
+    "current_deliverable_goal": "Produce a review-ready E0 PITAR1 theory, contract, pure validator, bounded official-source discovery record, adversarial test package, validation report and exact inventory.",
+    "maximum_current_result": "An exact locally validated E0 successor candidate plus a bounded D0 plan candidate awaiting a separate Sol E0 completion gate and later D0 activation decision.",
+    "not_a_goal": [
+      "Acquire any market row, archive object, macro observation, order-book snapshot or live payload.",
+      "Repair, revive, replace or extend the terminal P1A lineage.",
+      "Access or modify the active Application Support package, active G1 plan, registry, evidence root or window.",
+      "Run an adapter, replay, dataset build, backtest, calibration, holdout, paper simulation, deployment or trade.",
+      "Claim source completeness, point-in-time validity, predictive validity, market validity, positive expected value or profitability."
+    ]
+  },
+  "current_authorized_phases": [
+    {
+      "phase_id": "PITAR1-E0",
+      "state": "AUTHORIZED_BUILD_NOT_ACCEPTED",
+      "scope": "New theory and machine contracts, pure validator, synthetic and adversarial fixtures, exact validation report and inventory.",
+      "market_rows": false,
+      "external_state_mutation": false,
+      "completion_effect": "NONE_AUTOMATIC_REQUIRES_SOL_E0_GATE"
+    },
+    {
+      "phase_id": "PITAR1-SD0",
+      "state": "AUTHORIZED_BOUNDED_DOCUMENT_DISCOVERY_AND_D0_PLAN_CANDIDATE_ONLY",
+      "scope": "Read official grade-A or grade-B public documentation and catalogs already named by the source registry; record exact legal, schema, clock, revision, coverage and resource unknowns; construct a non-executing D0 plan candidate inside the allowlisted discovery artifacts.",
+      "market_rows": false,
+      "external_state_mutation": false,
+      "completion_effect": "NONE_AUTOMATIC_REQUIRES_SOL_D0_ACTIVATION_DECISION"
+    }
+  ],
+  "future_phase_dependency_graph": [
+    {
+      "phase_id": "PITAR1-D0",
+      "stage_contract_meaning": "EXACT_ACQUISITION_PLAN_ONLY",
+      "state": "CLOSED_REQUIRES_NEW_SOL_D0_DECISION",
+      "prerequisites": [
+        "PITAR1-E0 Sol acceptance",
+        "Exact public source and license or terms eligibility",
+        "Exact instrument, schema, date window, object list, checksum, cost and bounded resource plan",
+        "Frozen chronology role before any object access",
+        "New non-aliasing plan and output identities"
+      ],
+      "permission_if_later_accepted": "ONLY_THE_EXACT_ZERO_COST_ACQUISITION_PLAN"
+    },
+    {
+      "phase_id": "PITAR1-D1",
+      "stage_contract_meaning": "EXACT_RAW_ARTIFACT_ADMISSION",
+      "state": "CLOSED_REQUIRES_D0_RECEIPT_OR_EXPLICIT_RAW_ARTIFACT_AND_NEW_SOL_D1_DECISION",
+      "prerequisites": [
+        "Exact D0 acquisition receipt or explicitly supplied exact raw artifact",
+        "External authority values rather than candidate assertions",
+        "Raw byte digest, coverage, revision and point-in-time facts",
+        "Independent false-admission attack closure"
+      ],
+      "permission_if_later_accepted": "ONLY_THE_EXACT_RAW_ARTIFACT_ADMISSION"
+    },
+    {
+      "phase_id": "PITAR1-D2",
+      "stage_contract_meaning": "EXACT_OFFLINE_ADAPTER_AND_REPLAY",
+      "state": "CLOSED_REQUIRES_D1_PASS_AND_NEW_SOL_D2_DECISION",
+      "prerequisites": [
+        "D1 admission PASS",
+        "Frozen source schema, units, sequence, gap, clock and revision rules",
+        "Supplied-fixture adapter tests",
+        "Deterministic replay and receipt identity"
+      ],
+      "permission_if_later_accepted": "ONLY_THE_EXACT_OFFLINE_ADAPTER_AND_REPLAY"
+    },
+    {
+      "phase_id": "PITAR1-D3",
+      "stage_contract_meaning": "EXACT_RESEARCH_DATASET_GENERATION_NO_SCORING",
+      "state": "CLOSED_REQUIRES_D2_PASS_AND_NEW_SOL_D3_DECISION",
+      "prerequisites": [
+        "D2 replay PASS",
+        "Frozen point-in-time features, states, zones, paths, labels and censoring",
+        "Chronology and coverage proof",
+        "Predeclared dataset identity and no-scoring rule"
+      ],
+      "permission_if_later_accepted": "ONLY_EXACT_DEVELOPMENT_TRAJECTORY_DATASET_GENERATION_WITHOUT_POLICY_SCORING"
+    },
+    {
+      "phase_id": "PITAR1-E2",
+      "stage_contract_meaning": "EXACT_BACKTEST_CALIBRATION_OR_ONE_TIME_HOLDOUT_EVALUATION",
+      "state": "CLOSED_REQUIRES_D3_PASS_AND_NEW_SOL_E2_DECISION",
+      "prerequisites": [
+        "D3 PASS",
+        "Sufficient support and frozen opportunity denominator",
+        "Frozen four-policy candidates, costs, risk, splits, metrics and multiplicity rules",
+        "One-time unseen holdout and trial registry where applicable"
+      ],
+      "permission_if_later_accepted": "ONLY_THE_EXACT_PREREGISTERED_COMPARISON_NO_PAPER"
+    },
+    {
+      "phase_id": "PITAR1-E3",
+      "stage_contract_meaning": "EXACT_PAPER_OR_TESTNET_SCOPE",
+      "state": "CLOSED_REQUIRES_E2_EVIDENCE_AND_NEW_SOL_E3_DECISION",
+      "prerequisites": [
+        "E2 evidence decision",
+        "Independent risk engine and OMS invariants",
+        "Failure injection, account, legal and operator boundaries"
+      ],
+      "permission_if_later_accepted": "ONLY_EXACT_PAPER_OR_TESTNET_WITH_NO_LIVE_FUNDS"
+    }
+  ],
+  "authorized_e0_artifact_allowlist": [
+    {
+      "role": "successor_theory_and_technical_specification",
+      "path": "PIT_AUTHORITY_REPLAY_SUCCESSOR_SPEC_v1_0.md"
+    },
+    {
+      "role": "bundle_authority_contract",
+      "path": "config/pit_authority_replay.authority_bundle_contract.v1.json"
+    },
+    {
+      "role": "point_in_time_admission_contract",
+      "path": "config/pit_authority_replay.pit_admission_contract.v1.json"
+    },
+    {
+      "role": "source_inventory_and_d0_plan_candidate",
+      "path": "config/pit_authority_replay.source_inventory.v1.json"
+    },
+    {
+      "role": "chronology_contract",
+      "path": "config/pit_authority_replay.chronology_contract.v1.json"
+    },
+    {
+      "role": "adapter_and_replay_interface_contract",
+      "path": "config/pit_authority_replay.adapter_replay_contract.v1.json"
+    },
+    {
+      "role": "future_development_comparison_contract",
+      "path": "config/pit_authority_replay.development_comparison_contract.v1.json"
+    },
+    {
+      "role": "pure_total_e0_validator",
+      "path": "trade_system/pit_authority_replay_contract_v1.py"
+    },
+    {
+      "role": "synthetic_and_adversarial_tests",
+      "path": "tests/test_pit_authority_replay_contract_v1.py"
+    },
+    {
+      "role": "bounded_official_source_discovery_record",
+      "path": "artifacts/pit_authority_replay_source_discovery.v1.json"
+    },
+    {
+      "role": "independent_adversarial_review",
+      "path": "artifacts/pit_authority_replay_e0_adversarial_review.v1.json"
+    },
+    {
+      "role": "integrated_validation_report",
+      "path": "artifacts/pit_authority_replay_e0_validation_report.v1.json"
+    },
+    {
+      "role": "exact_e0_inventory",
+      "path": "config/pit_authority_replay.e0_artifact_inventory.v1.json"
+    }
+  ],
+  "e0_artifact_scope_rules": {
+    "new_artifact_count": 13,
+    "existing_artifact_modification_allowed": false,
+    "artifact_outside_allowlist_allowed": false,
+    "dependency_installation_allowed": false,
+    "market_or_macro_row_generation_allowed": false,
+    "runtime_network_access_allowed": false,
+    "candidate_may_accept_itself": false,
+    "all_artifacts_must_use_pitar1_namespace": true,
+    "all_json_contracts_and_reports_require_domain_separated_canonical_digests": true,
+    "inventory_must_bind_this_route_and_every_exact_baseline": true,
+    "any_scope_expansion_action": "STOP_AND_REQUEST_NEW_SOL_DECISION"
+  },
+  "future_artifact_generation_rules": {
+    "general": [
+      "Future artifacts are not authorized merely by being named here.",
+      "Every phase requires its own explicit Sol decision and exact allowlist.",
+      "Identifiers must match ^[a-z0-9][a-z0-9._-]{0,95}$ and must not contain path separators, traversal, aliases or forbidden legacy tokens.",
+      "All raw and receipt artifacts are write-once and content-addressed; overwrite, in-place revision and symlink resolution are forbidden.",
+      "Physical path and canonical identity must both be recorded where canonicalization applies."
+    ],
+    "d0_candidate_patterns": [
+      "config/pit_authority_replay.acquisition_plan.<plan_id>.v1.json",
+      "trade_system/pit_authority_replay_acquisition_<plan_id>_v1.py",
+      "tests/test_pit_authority_replay_acquisition_<plan_id>_v1.py",
+      "artifacts/pit_authority_replay_acquisition_review.<plan_id>.v1.json"
+    ],
+    "d1_candidate_patterns": [
+      ".runtime/pitar1/<plan_id>/raw/<content_sha256>/<original_object_name>",
+      ".runtime/pitar1/<plan_id>/receipts/raw_admission.<artifact_id>.v1.json",
+      ".runtime/pitar1/<plan_id>/quarantine/quarantine_event.<event_id>.v1.json"
+    ],
+    "d2_candidate_patterns": [
+      "trade_system/pit_authority_replay_adapter_<plan_id>_v1.py",
+      "trade_system/pit_authority_replay_engine_<plan_id>_v1.py",
+      "tests/test_pit_authority_replay_engine_<plan_id>_v1.py",
+      ".runtime/pitar1/<plan_id>/receipts/replay.<replay_id>.v1.json"
+    ],
+    "d3_candidate_patterns": [
+      ".runtime/pitar1/<plan_id>/datasets/<dataset_id>/",
+      ".runtime/pitar1/<plan_id>/receipts/dataset.<dataset_id>.v1.json"
+    ],
+    "e2_candidate_patterns": [
+      ".runtime/pitar1/<plan_id>/evaluations/<evaluation_id>/",
+      ".runtime/pitar1/<plan_id>/receipts/evaluation.<evaluation_id>.v1.json"
+    ]
+  },
+  "bounded_source_discovery_contract": {
+    "purpose": "Resolve whether any grade-A or grade-B public source can support a later exact zero-cost D0 plan. Discovery proves documentation facts only.",
+    "eligible_registry_sources": [
+      "SRC-BINANCE-PUBLIC-DATA-README",
+      "SRC-BINANCE-USDM-MARKET-DOCS",
+      "SRC-OKX-API-ORDERBOOK-DOCS",
+      "SRC-OKX-HISTORICAL-DATA-PAGE",
+      "SRC-BYBIT-V5-ORDERBOOK-DOCS",
+      "SRC-CFTC-COT-OFFICIAL",
+      "SRC-FRED-ALFRED-API",
+      "SRC-BLS-OFFICIAL",
+      "SRC-BEA-OFFICIAL"
+    ],
+    "discovery_only_sources": [
+      "Any source requiring payment, entitlement, login, API key, cookie, browser challenge or jurisdictional attestation.",
+      "CME, Kaiko and Coin Metrics unless a later explicit entitlement and cost decision exists.",
+      "Any grade-C or grade-D source."
+    ],
+    "allowed_content": [
+      "Official HTML, plain text, public schema examples, public license or terms pages, public change logs, public catalog metadata and checksum manifests that contain no market rows.",
+      "Exact canonical URL, access time, status code, content type, byte count, physical digest, publication or effective-version evidence and unresolved facts."
+    ],
+    "forbidden_content": [
+      "OHLCV, trade, order-book, funding, open-interest, liquidation, macro observation or event rows.",
+      "Archive binaries, bulk market files, WebSocket streams or REST market responses.",
+      "Credentials, cookies, authenticated sessions, paid data, terms bypass, CAPTCHA bypass or regional-control bypass."
+    ],
+    "resource_caps": {
+      "maximum_requests": 64,
+      "maximum_total_bytes": 33554432,
+      "maximum_single_response_bytes": 4194304,
+      "maximum_concurrency": 1,
+      "maximum_elapsed_seconds_per_request": 30,
+      "maximum_cost_usd": 0,
+      "redirect_policy": "NO_REDIRECT_UNLESS_EXACT_SAME_OWNER_HTTPS_AND_EVERY_HOP_RECORDED"
+    },
+    "unknown_rule": "Unknown source identity, grade, owner, terms, schema, clock, revision, coverage, redirect, size or cost returns WAIT_DATA and cannot be converted to an assumption.",
+    "completion_status_options": [
+      "DISCOVERED_EXACT_D0_PLAN_CANDIDATE_READY",
+      "WAIT_DATA",
+      "REWORK_LOCAL"
+    ]
+  },
+  "future_d0_acquisition_plan_contract": {
+    "required_fields": [
+      "plan_id",
+      "source_id",
+      "authority_grade",
+      "authority_owner",
+      "canonical_source_url",
+      "terms_url",
+      "public_free_no_auth_evidence",
+      "venue",
+      "product_family",
+      "instrument_id",
+      "contract_metadata_identity",
+      "schema_identity",
+      "exact_object_urls",
+      "per_object_checksum_expectations",
+      "start_inclusive",
+      "end_exclusive",
+      "event_clock_semantics",
+      "publication_clock_semantics",
+      "revision_semantics",
+      "gap_semantics",
+      "maximum_objects",
+      "maximum_single_object_bytes",
+      "maximum_total_bytes",
+      "maximum_requests",
+      "maximum_concurrency",
+      "minimum_free_disk_after_bytes",
+      "maximum_cost_usd",
+      "output_root",
+      "chronology_role",
+      "abort_and_quarantine_rules"
+    ],
+    "hard_caps": {
+      "maximum_objects": 64,
+      "maximum_single_object_bytes": 67108864,
+      "maximum_total_bytes": 268435456,
+      "maximum_requests": 128,
+      "maximum_concurrency": 1,
+      "minimum_free_disk_after_bytes": 16106127360,
+      "maximum_cost_usd": 0
+    },
+    "hard_failures": [
+      "Unknown or changed terms, cost, content length, object identity, checksum, schema, product mapping, point-in-time semantics or chronology role.",
+      "Redirect outside the exact approved owner and host set.",
+      "An object overlaps January 2025, February 2025, the active G1 window or any reserved future holdout.",
+      "The output path aliases, resolves into or depends on Application Support, an old route root or an existing authority root."
+    ],
+    "current_disposition": "WAIT_DATA_REQUIRES_SOL_D0_ACTIVATION"
+  },
+  "point_in_time_semantics_contract": {
+    "required_clocks": {
+      "event_time": "When the measured market or economic event occurred or the observation period references. It never establishes information availability.",
+      "published_at": "Exact source publication time for this revision when authoritative evidence exists; otherwise explicit UNKNOWN.",
+      "received_at": "Earliest local time at which the exact bytes were fully observable to the authorized acquisition process.",
+      "ingested_at": "Time at which exact bytes were durably persisted and their physical digest completed.",
+      "admission_validated_at": "Time at which the pure admission validator completed against the exact persisted bytes and external authority values."
+    },
+    "available_at_rule": "available_at is the maximum of every verified timestamp required for lawful and technical knowledge of that exact revision, including published_at when applicable, received_at, ingested_at and admission_validated_at. event_time, bar open or close time, archive folder date and current latest-revision timestamps cannot substitute.",
+    "uncertainty_rule": "If an exact publication or receipt clock is unavailable, classify the artifact as BATCH_ARCHIVE_RECEIPT_ONLY or UNKNOWN. It may support bounded engineering replay after admission but cannot be represented as decision-time available evidence.",
+    "clock_classes": [
+      "REALTIME_PUSH",
+      "SCHEDULED_PUBLICATION",
+      "BATCH_ARCHIVE",
+      "RETROSPECTIVE_SNAPSHOT",
+      "UNKNOWN"
+    ],
+    "latency_evidence_classes": [
+      "ACTUAL_MEASURED",
+      "AUTHORITATIVE_SCHEDULED",
+      "BATCH_RECEIPT_BOUND",
+      "UNKNOWN"
+    ],
+    "conservative_latency_rule": "Uncertainty must delay availability, censor the row or suspend the affected lane; it may never make information earlier."
+  },
+  "raw_authority_and_admission_contract": {
+    "required_row_identity": [
+      "source_id",
+      "authority_grade",
+      "instrument_id",
+      "source_event_id",
+      "logical_id",
+      "revision_id",
+      "supersedes_revision_id",
+      "operation",
+      "event_time",
+      "published_at",
+      "received_at",
+      "ingested_at",
+      "admission_validated_at",
+      "available_at",
+      "raw_artifact_sha256",
+      "raw_byte_offset_or_member_id",
+      "parser_version",
+      "source_sequence",
+      "source_sequence_kind"
+    ],
+    "revision_rules": [
+      "Revisions are append-only, acyclic and visible only at their own available_at.",
+      "A later correction, retraction or tombstone cannot rewrite earlier replay state.",
+      "Latest-revision backfill into an earlier decision timestamp is forbidden.",
+      "The full supersedes chain and operation must remain inspectable."
+    ],
+    "duplicate_and_conflict_rules": [
+      "An exact duplicate with the same identity and payload digest is an idempotent no-op and creates no second effect.",
+      "The same identity with a different payload digest is a conflict, quarantines the object and suspends the affected lane.",
+      "Out-of-order arrivals are retained with their real clocks and later replayed by available_at; they are never reordered by event_time for decision visibility."
+    ],
+    "gap_rules": [
+      "Source outage, acquisition failure, sequence gap, scheduled non-publication, market inactivity, censored observation, unknown coverage and quarantine are distinct typed states.",
+      "No missing row may be silently filled, forward-filled, set to zero or interpreted as no activity.",
+      "Coverage denominators retain unknown, abstained, quarantined and censored opportunities."
+    ],
+    "raw_byte_rules": [
+      "Exact raw bytes are content-addressed and write-once.",
+      "Compressed bytes and decompressed members have separate physical digests and lineage.",
+      "Raw objects cannot be overwritten by corrected or newly downloaded objects.",
+      "Every admission receipt binds raw digest, byte length, source, plan, clocks, coverage, revision facts, validator version and authority values."
+    ],
+    "validator_rules": [
+      "The public validator is pure, total and fail-closed over caller-supplied raw mappings.",
+      "Authority roots, route identity, type ceilings, path roots and permission ceilings are pinned outside candidate-controlled content.",
+      "Booleans are not integers; hash and identifier fields require exact string types and formats.",
+      "Candidate-provided acceptance flags, hashes, paths, receipts or authority names cannot establish their own validity."
+    ]
+  },
+  "adapter_and_replay_contract": {
+    "adapter_input": "Only exact D1-admitted artifacts and exact external admission receipts.",
+    "adapter_output": "Versioned normalized rows plus deterministic adapter receipts retaining complete raw lineage.",
+    "adapter_forbidden": [
+      "Network access",
+      "Imputation or silent filling",
+      "Participant-intent or causal labels",
+      "Prediction, utility, position, order or permission fields",
+      "Current-revision backfill",
+      "Merging product families or instrument identities"
+    ],
+    "replay_order": [
+      "available_at",
+      "source_sequence",
+      "event_id"
+    ],
+    "source_sequence_rule": "source_sequence is an authoritative native sequence when available, otherwise an explicitly named monotonic local receipt ordinal. It may never be derived from event_time or future information.",
+    "replay_invariants": [
+      "Identical admitted input and frozen code produce identical normalized rows, event order, state transitions and receipt chain.",
+      "Exact duplicates are idempotent.",
+      "Revision selection is point-in-time and append-only.",
+      "Every replay receipt is domain-separated and chained to the prior receipt, admitted artifact set, adapter version and configuration identity.",
+      "Future rows, full-bar extremes before bar close and admission, favorable-first barrier ordering and gap interpolation are forbidden.",
+      "OHLC high and low are usable only after exact bar close plus admission availability.",
+      "MFE and MAE are outcome diagnostics available only after the evaluation horizon and never input features."
+    ],
+    "ambiguity_rule": "When two barriers can be touched within an unsequenced aggregate bar, the result is AMBIGUOUS_OR_CENSORED unless an admitted finer-grained source resolves the order. Favorable ordering is forbidden.",
+    "current_disposition": "INTERFACE_AND_SYNTHETIC_SEMANTICS_ONLY_NO_D2_RUNTIME_PERMISSION"
+  },
+  "development_dataset_and_comparison_contract": {
+    "d3_boundary": "D3 may later generate a point-in-time development trajectory dataset and receipts only. It may not score, rank or select policies.",
+    "four_preregistered_policy_ids": [
+      "DYNAMIC_MULTI_PATH",
+      "FROZEN_ENTRY_STATIC_EXIT",
+      "SINGLE_PATH",
+      "NO_TRADE"
+    ],
+    "dynamic_policy_binding": "DYNAMIC_MULTI_PATH must bind the exact accepted P0.1 dynamic-policy bundle and its deterministic event order, idempotency, position lock, non-expansive management actions and fail-closed gap or future semantics.",
+    "common_information_rules": [
+      "All policies receive the same admitted point-in-time events and exact opportunity denominator.",
+      "All policies use the same chronology, fees, slippage, funding, risk budget, liquidity constraints and barrier ambiguity rule.",
+      "No policy receives post-outcome MFE, MAE, full-bar future extrema, latest revisions or another policy's future decisions.",
+      "NO_TRADE retains every eligible opportunity and its zero-action outcome in the denominator."
+    ],
+    "preregistered_trajectory_fields": [
+      "opportunity_id",
+      "policy_id",
+      "graph_revision_count",
+      "path_revision_count",
+      "leader_switch_count",
+      "graph_update_latency",
+      "decision_latency",
+      "entry_count",
+      "cancel_count",
+      "replace_count",
+      "fill_count",
+      "partial_fill_count",
+      "stop_revision_count",
+      "target_revision_count",
+      "horizon_revision_count",
+      "fees",
+      "slippage",
+      "funding",
+      "tail_loss",
+      "risk_breach_count",
+      "coverage_state",
+      "abstain_state",
+      "unknown_state",
+      "censor_state",
+      "mfe_post_outcome_only",
+      "mae_post_outcome_only"
+    ],
+    "evaluation_boundary": "Any real-data four-policy score, statistical comparison, calibration, backtest, holdout or profitability assessment is E2 and requires a separate Sol decision. Calling it development, replay QA or D3 does not change its stage.",
+    "current_disposition": "PREREGISTRATION_AND_SYNTHETIC_TRAJECTORY_SCHEMA_ONLY"
+  },
+  "chronology_contract": {
+    "current_route_role": "ENGINEERING_REPLAY_QA_ONLY",
+    "permanently_seen_or_excluded": [
+      {
+        "window": "2025-01-01/2025-02-01",
+        "role": "SEEN_DEVELOPMENT_AND_NEGATIVE_EVIDENCE_CONSUMED",
+        "allowed_future_use": "READ_ONLY_NEGATIVE_AUDIT_ONLY"
+      },
+      {
+        "window": "2025-02-01/2025-03-01",
+        "role": "SEEN_WAIT_DATA_NOT_SCORED_ROLE_CONSUMED",
+        "allowed_future_use": "READ_ONLY_TERMINAL_CHRONOLOGY_EVIDENCE_ONLY"
+      },
+      {
+        "window": "2026-07-23/2026-07-30",
+        "role": "ACTIVE_G1_TERMINAL_PACKAGE_SCOPE",
+        "allowed_future_use": "NONE_FROM_PITAR1"
+      }
+    ],
+    "first_access_rule": "Any market or macro window becomes permanently SEEN for this program at the first request, listing, byte access, download attempt or supplied-artifact inspection, including failed or partial access.",
+    "role_lock_rule": "A seen engineering window can never later become calibration or holdout. Future calibration and one-time holdout roles must be assigned to non-overlapping exact windows before any access.",
+    "failed_access_rule": "Failed access still consumes the declared chronology role when it reveals object presence, absence, size, schema, coverage or content metadata.",
+    "no_relabeling_rule": "Development, calibration and holdout labels are immutable once first access occurs."
+  },
+  "acceptance_and_failure_contract": {
+    "e0_completion_result_options": [
+      "ACCEPT_PITAR1_E0",
+      "REWORK_LOCAL",
+      "WAIT_DATA",
+      "REWORK_ROUTE"
+    ],
+    "acceptance_owner": "GPT-5.6-SOL_ULTRA_EXTERNAL_STAGE_GATE",
+    "builder_may_accept_own_candidate": false,
+    "accept_pitar1_e0_requires": [
+      "Exact workspace and every bound authority identity match this route.",
+      "Only the thirteen allowlisted E0 artifacts are new and no existing artifact is modified.",
+      "Every artifact has exact byte length and physical digest; each JSON contract and report has an independently recomputable domain-separated canonical digest.",
+      "No new artifact imports, aliases, copies or relies on old P1A, S0-009, active G1 or Application Support artifacts.",
+      "The validator is pure, total, type-strict, authority-pinned outside candidate content and fail-closed.",
+      "The exact clean candidate passes deterministic validation and independent helper-free adversarial mutations.",
+      "All eleven historical false-admission attacks are rejected.",
+      "Clock, revision, duplicate, conflict, gap, raw-byte, adapter and replay invariants have positive, boundary and negative synthetic fixtures.",
+      "Source discovery stayed inside official grade-A or grade-B documentation caps and acquired no market rows.",
+      "The D0 plan candidate states every unknown and grants no acquisition permission.",
+      "The report makes no market, predictive, probability, profitability, paper, deployment or trading claim."
+    ],
+    "wait_data_conditions": [
+      "Unknown source identity, authority grade, owner, license or terms, public access eligibility, schema, product mapping, exact window, object identity, checksum, clock, revision, PIT meaning, size, storage or cost.",
+      "No exact D0 receipt and no explicitly supplied exact raw artifact.",
+      "No admitted sequence or finer-grained data to resolve a replay ambiguity.",
+      "No safely available independent source needed for a declared cross-check."
+    ],
+    "rework_local_conditions": [
+      "Deterministic schema, type, hash, canonicalization, path, mutation, validator, fixture, chronology or receipt defect confined to the E0 allowlist.",
+      "A missing test or report field whose repair needs no new source, authority, phase or scope.",
+      "Non-matching physical or canonical identity caused by local candidate construction."
+    ],
+    "rework_route_conditions": [
+      "Required scope cannot be satisfied without modifying an existing artifact.",
+      "PITAR1 cannot remain independent from terminal P1A, S0-009, active G1 or Application Support.",
+      "A requested D3 comparison actually requires E2 scoring.",
+      "A required source is paid, authenticated, legally unclear or exceeds the zero-cost resource ceiling.",
+      "The stage contract, immutable authority, chronology roles or real-permission boundary must change."
+    ],
+    "hard_precedence": "Authority mismatch, scope breach, future leakage, raw overwrite, candidate self-acceptance, old-lineage import or real-permission escalation dominates local scores and immediately fails closed."
+  },
+  "agent_and_escalation_contract": {
+    "daily_builder_and_tester": {
+      "model": "gpt-5.6-terra",
+      "reasoning_effort": "high",
+      "scope": "Build allowlisted artifacts, run deterministic synthetic and adversarial tests, perform bounded official-document discovery and report exact facts.",
+      "can_accept_own_candidate": false
+    },
+    "independent_fact_reviewer": {
+      "model": "gpt-5.6-terra",
+      "reasoning_effort": "high",
+      "scope": "Recompute physical and canonical identities and reproduce attacks without the builder's helper constructors.",
+      "can_accept_own_candidate": false
+    },
+    "program_route_and_stage_gate": {
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "ultra",
+      "allowed_invocations": [
+        "This initial successor route",
+        "Complete PITAR1-E0, D0, D1, D2 or D3 stage candidate",
+        "A genuine authority, chronology, scope or stage blocker",
+        "The same root cause remains unresolved after two complete Terra-high repair rounds"
+      ],
+      "not_for": [
+        "Ordinary schema, type, naming, fixture or deterministic local test repair",
+        "Routine daily implementation or status reporting"
+      ],
+      "can_accept_candidate": true
+    },
+    "escalation_payload_required": [
+      "Exact stage and candidate inventory",
+      "Exact command and failure output",
+      "Root-cause statement",
+      "Two Terra-high repair receipts when applicable",
+      "Authority, chronology and permission impact",
+      "Proposed WAIT_DATA, REWORK_LOCAL or REWORK_ROUTE disposition"
+    ]
+  },
+  "open_findings": [
+    {
+      "finding_id": "F-005",
+      "dispute_id": "DSP-022",
+      "status": "OPEN_DEFERRED_BLOCKING",
+      "condition": "Natural-language hard falsifier and expiry descriptions are not executable predicates.",
+      "blocks": [
+        "D3",
+        "E2"
+      ],
+      "this_decision_effect": "UNCHANGED. PITAR1 does not close or weaken this finding."
+    }
+  ],
+  "permission_matrix": {
+    "read_existing_workspace_artifacts": true,
+    "create_this_exact_route_decision": true,
+    "create_exact_allowlisted_e0_artifacts": true,
+    "perform_bounded_official_document_discovery": true,
+    "construct_non_executing_d0_plan_candidate_inside_allowlisted_artifacts": true,
+    "modify_existing_artifacts": false,
+    "modify_core_theory_authority": false,
+    "modify_program_governance": false,
+    "modify_stage_contract_or_source_registry": false,
+    "reuse_old_p1a_as_authority_or_code": false,
+    "access_active_application_support_root": false,
+    "access_or_modify_active_g1_package": false,
+    "access_january_or_february_2025_market_data": false,
+    "install_dependencies": false,
+    "use_authenticated_paid_or_entitled_sources": false,
+    "acquire_market_or_macro_rows": false,
+    "download_archive_or_market_objects": false,
+    "admit_raw_runtime_data": false,
+    "implement_or_execute_adapter_or_replay": false,
+    "build_real_dataset_features_or_labels": false,
+    "score_real_policy_comparisons": false,
+    "run_backtest_or_evaluation": false,
+    "run_calibration_or_holdout": false,
+    "run_paper_or_testnet": false,
+    "deploy": false,
+    "trade_or_use_live_funds": false
+  },
+  "stage_denials": {
+    "D0_ACTUAL_ACQUISITION": "DENIED_REQUIRES_EXACT_PLAN_AND_NEW_SOL_D0_DECISION",
+    "D1_RAW_ADMISSION": "DENIED_REQUIRES_D0_RECEIPT_OR_EXPLICIT_RAW_ARTIFACT_AND_NEW_SOL_D1_DECISION",
+    "D2_ADAPTER_AND_REPLAY": "DENIED_REQUIRES_D1_PASS_AND_NEW_SOL_D2_DECISION",
+    "D3_REAL_DATASET": "DENIED_REQUIRES_D2_PASS_AND_NEW_SOL_D3_DECISION",
+    "E2_REAL_COMPARISON_BACKTEST_OR_CALIBRATION": "DENIED_REQUIRES_D3_PASS_AND_NEW_SOL_E2_DECISION",
+    "E3_PAPER_OR_TESTNET": "DENIED_REQUIRES_E2_EVIDENCE_AND_NEW_SOL_E3_DECISION",
+    "DEPLOYMENT": "DENIED",
+    "LIVE_TRADING": "DENIED"
+  },
+  "stage_disposition": {
+    "pitar1_successor_route_feasible": true,
+    "pitar1_e0_authorized": true,
+    "pitar1_e0_candidate_built": false,
+    "pitar1_e0_candidate_accepted": false,
+    "bounded_source_document_discovery_authorized": true,
+    "d0_plan_candidate_authorized": true,
+    "d0_actual_acquisition_authorized": false,
+    "d1_authorized": false,
+    "d2_authorized": false,
+    "d3_authorized": false,
+    "e2_authorized": false,
+    "e3_authorized": false,
+    "market_data_authorized": false,
+    "backtest_authorized": false,
+    "paper_authorized": false,
+    "deployment_authorized": false,
+    "trading_authorized": false,
+    "current_permission_effect": "ONLY_EXACT_PITAR1_E0_CONSTRUCTION_AND_BOUNDED_OFFICIAL_DOCUMENT_DISCOVERY",
+    "next_stage": "TERRA_HIGH_BUILDS_EXACT_E0_ALLOWLIST_THEN_EXTERNAL_SOL_PITAR1_E0_COMPLETION_GATE"
+  },
+  "claim_boundary": {
+    "route_feasibility": "AUTHORIZED_AS_INDEPENDENT_SUCCESSOR",
+    "old_p1a": "TERMINALLY_BLOCKED_NEGATIVE_EVIDENCE_ONLY",
+    "pitar1_candidate_acceptance": "NOT_EVALUATED",
+    "source_document_discovery": "AUTHORIZED_WITHIN_CAPS",
+    "source_data_validity": "NOT_EVALUATED",
+    "point_in_time_validity": "NOT_EVALUATED",
+    "adapter_or_replay_validity": "NOT_EVALUATED",
+    "development_dataset_validity": "NOT_EVALUATED",
+    "dynamic_policy_market_validity": "NOT_EVALUATED",
+    "predictive_validity": "NOT_EVALUATED",
+    "probability_calibration": "NOT_AUTHORIZED",
+    "positive_expected_value": "NOT_EVALUATED",
+    "profitability": "NOT_EVALUATED",
+    "historical_data_acquisition": "NOT_AUTHORIZED",
+    "backtest": "NOT_AUTHORIZED",
+    "paper": "NOT_AUTHORIZED",
+    "deployment": "DENIED",
+    "trading": "DENIED",
+    "maximum_positive_claim": "This decision finds a clean independent PITAR1 successor route feasible and authorizes only thirteen exact E0 artifacts plus bounded official grade-A or grade-B document discovery and a non-executing D0 plan candidate. It grants no market-row acquisition, raw admission, adapter, replay, dataset, comparison, calibration, paper, deployment or trading permission; it does not revive P1A, change CORE_TRADING_THEORY.v2.1, alter active G1 or close F-005/DSP-022."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-research-system-pit-authority-replay-route/v1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "7e141bd47a728078c3a4dca02d231eae2bcbe6a3f12ff39c6e01c37e92556932"
+}

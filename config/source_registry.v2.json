@@ -1,0 +1,32 @@
+{
+  "registry_id": "source-registry.v2",
+  "schema_version": "source-registry-v1",
+  "status": "FROZEN_SOURCE_REGISTRY",
+  "frozen_at": "2026-07-22T00:00:00Z",
+  "sources": [
+    {
+      "source_id": "SRC-BIN-FUT-WS",
+      "venue": "BINANCE_USDM",
+      "instrument_scope": ["BTCUSDT"],
+      "transport": "WEBSOCKET",
+      "endpoints": ["wss://fstream.binance.com/public/stream", "wss://fstream.binance.com/market/stream"],
+      "channels": ["{symbol}@depth@100ms", "{symbol}@aggTrade", "{symbol}@markPrice@1s", "{symbol}@forceOrder"],
+      "schema_version": "binance-usdm-ws-2026-07-22",
+      "permission": "PUBLIC_NO_CREDENTIALS",
+      "region_constraints": "Availability and eligibility may vary by jurisdiction; collector does not infer eligibility.",
+      "coverage_semantics": "Depth has exchange sequence semantics; aggTrade and mark are observed public messages; forceOrder is censored and a silent interval is unknown, not zero."
+    },
+    {
+      "source_id": "SRC-BIN-FUT-REST",
+      "venue": "BINANCE_USDM",
+      "instrument_scope": ["BTCUSDT"],
+      "transport": "REST",
+      "endpoints": ["https://fapi.binance.com/fapi/v1/depth", "https://fapi.binance.com/fapi/v1/openInterest", "https://fapi.binance.com/fapi/v1/exchangeInfo"],
+      "channels": ["snapshot", "openInterest", "exchangeInfo"],
+      "schema_version": "binance-usdm-rest-2026-07-22.1",
+      "permission": "PUBLIC_NO_CREDENTIALS",
+      "region_constraints": "Availability and eligibility may vary by jurisdiction; collector does not infer eligibility.",
+      "coverage_semantics": "Snapshots and OI are point observations without a continuous stream sequence; exchangeInfo is a one-time contract/status snapshot; polling and connection coverage must be recorded."
+    }
+  ]
+}

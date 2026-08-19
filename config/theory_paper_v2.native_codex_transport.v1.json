@@ -1,0 +1,25 @@
+{
+  "schema_id": "native_codex_transport_contract",
+  "schema_version": "1.0.0",
+  "contract_id": "native-codex-transport-phase-b-20260806",
+  "frozen_at": "2026-08-06T00:00:00Z",
+  "agent_id": "CURRENT_CODEX_TASK",
+  "evidence_level": "PRACTICAL_CODEX_NATIVE_AGENT_TRANSPORT",
+  "required_stages": [
+    "PROPOSAL",
+    "DELIBERATION",
+    "POST_ACCEPT_TAIL"
+  ],
+  "max_output_bytes": 65536,
+  "api_key_required": false,
+  "sub_agents_allowed": false,
+  "service_model_attested": false,
+  "exact_token_budget_attested": false,
+  "chat_history_is_authority": false,
+  "private_chain_of_thought_requested": false,
+  "market_data_allowed": false,
+  "model_api_allowed": false,
+  "automation_allowed": false,
+  "external_execution_authority": "NONE_LOCAL_SIMULATION",
+  "native_transport_contract_digest": "6b1f0eaa08858097ad7c47e4ee33796fd2d1fa3b68467249a8e44c1fa7bf8181"
+}

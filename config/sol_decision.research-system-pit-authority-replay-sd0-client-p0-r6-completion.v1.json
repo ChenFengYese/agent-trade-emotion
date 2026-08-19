@@ -1,0 +1,387 @@
+{
+  "schema_version": "sol-research-system-pit-authority-replay-sd0-client-p0-r6-completion-decision.v1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R6_COMPLETION.v1",
+  "issued_at": "2026-07-28T15:40:13Z",
+  "issued_by": "GPT-5.6-SOL_ULTRA_R6_COMPLETION_GATE",
+  "decision_state": "ACCEPT_R6_REPAIR_KEEP_NETWORK_SUSPENDED_PENDING_SEPARATE_RESUME_BINDING",
+  "decision_class": "P0_R6_OFFLINE_REPAIR_COMPLETION_ACCEPTANCE_NO_EXECUTION_PERMISSION",
+  "evidence_level": "LOCAL_SOURCE_AUDIT_ROOT_AND_INDEPENDENT_TERRA_OFFLINE_INTEGRATED_TEST_EVIDENCE_ONLY",
+  "completion_scope": {
+    "issue_id": "PITAR1-SD0-CLIENT-P0-R6-COMPLETION",
+    "completed_repair_issue": "PITAR1-SD0-CLIENT-P0-R6",
+    "stage": "SD0",
+    "completion_result": "ACCEPT",
+    "precheck_safe": "YES_OFFLINE_ONLY",
+    "network_resume": false,
+    "workspace_preflight_resume": false,
+    "workspace_runtime_resume": false,
+    "automatic_resume": false,
+    "active_g1_access": false,
+    "market_data_access": false,
+    "d0_adapter_replay": false,
+    "backtest_paper_live": false,
+    "credentials_orders_funds": false,
+    "maximum_positive_effect": "The exact R6 client and test candidates are accepted as the offline-safe implementation baseline. All production entrypoints remain suspended until a separately named, independently bound resume route is completed."
+  },
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "audited_at": "2026-07-28T15:40:13Z"
+  },
+  "accepted_candidate": {
+    "client": {
+      "path": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 54422,
+      "physical_sha256": "664ba9fcae87324df281adaa40df8c979664d1ccea61cba258a1a762bf2f665f",
+      "disposition": "ACCEPT_OFFLINE_SAFE_BASELINE_PRODUCTION_SUSPENSION_REMAINS"
+    },
+    "test": {
+      "path": "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 91675,
+      "physical_sha256": "d544c80f6e3bb341777cb1215bef1400f59339674872adb8dfa988577e57c038",
+      "disposition": "ACCEPT_R6_INTEGRATED_REGRESSION_BASE"
+    },
+    "exact_candidate_pair_sha256": "bbbb62ba717cf96a87242b7ef74fee82b6f608d9b28d8d1a3b8e171060755657",
+    "pair_formula": "sha256(client_path_utf8 || 0x00 || client_physical_sha256_ascii || 0x00 || test_path_utf8 || 0x00 || test_physical_sha256_ascii)",
+    "pair_use": "IDENTITY_LABEL_ONLY_NOT_A_SUBSTITUTE_FOR_INDIVIDUAL_PHYSICAL_HASH_CHECKS"
+  },
+  "frozen_authority_bindings": {
+    "r2_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r2-repair.v1.json",
+      "physical_sha256": "0525ba67fe0acbc56bab7943c016f922b75dc4e541771b57ad1fca0b8c8765fb",
+      "canonical_sha256": "7ad74bdf5c162b54128cb55a2281bc50b16103083cebd522b6a083159d95d15d",
+      "binding_result": "MATCH"
+    },
+    "r3_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r3-repair.v1.json",
+      "physical_sha256": "51c4e532c451472dbf0dbf02e1fae08fd994c1c92797b2f39ff1b1e68b699faf",
+      "canonical_sha256": "1e77ed08350f998ad4bc4c7fa9ced261373fb824b7cd3cb537c3eecb5177aeb7",
+      "binding_result": "MATCH",
+      "effect": "PRODUCTION_SUSPENSION_REMAINS"
+    },
+    "r4_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r4-repair.v1.json",
+      "physical_sha256": "09581d04f9b7e8ca9dd32185d5efe8d2872ec311048cbdf7be546121660b643d",
+      "canonical_sha256": "f427f93794c7db76a3cf9090f2cdd10e080a6c786e6d1de6c7f73fa2d7d0c283",
+      "binding_result": "MATCH"
+    },
+    "r5_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r5-repair.v1.json",
+      "physical_sha256": "9701d528322cf85795405069b5aa0b10160d4db2923096c5fdd10ac5c60a46a9",
+      "canonical_sha256": "9389912b333bbec965a7efb4e1368e03cc7ea2b83843908553693cf2e609e112",
+      "binding_result": "MATCH"
+    },
+    "r6_repair_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r6-repair.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R6_REPAIR.v1",
+      "decision_state": "REJECT_R5_CANDIDATE_CONTINUE_R3_R4_R5_SUSPENSION_AUTHORIZE_TWO_FILE_R6_REPAIR",
+      "size_bytes": 35592,
+      "physical_sha256": "8c736c54273075065fa56757614e95554666ec6dadae831a57652f5bfbdb7b50",
+      "canonical_sha256": "a15e4e51c2f3a1f7a643d72865cecaaa691d8218b3f28d0cec2bfdeffe3fad44",
+      "binding_result": "MATCH",
+      "completion_effect": "R6 repair requirements are accepted as closed for the exact candidate pair. Its production suspension remains effective."
+    },
+    "phased_route": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-d0-phased-route.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_D0_PHASED_ROUTE.v1",
+      "decision_state": "AUTHORIZED_METERED_SD0_CLOSURE_ROUTE_NETWORK_WAIT_D0_AND_LATER_GATES_LOCKED",
+      "physical_sha256": "776a7b69c2655dd76eb84ccab12b3fbac30aef6a81b0f6ebad27ab391b129ec0",
+      "canonical_sha256": "a777dc9411f638f1d3728f7f98f4ccbb64673f06b8f344dd3489efcdc5b79eeb",
+      "binding_result": "MATCH"
+    },
+    "measurement_contract": {
+      "path": "config/pit_authority_replay.sd0_measurement_contract.v1.json",
+      "physical_sha256": "e2cd42a3930e0ede4d5d003742c2abdc76faa755ae86d20074c9d1f60f79e681",
+      "canonical_sha256": "4ed9f22451ede5c834c20e4f1786d344847166b646f9a1b17d2948e16c617a5b",
+      "binding_result": "MATCH"
+    },
+    "request_plan": {
+      "path": "config/pit_authority_replay.sd0_request_plan.v1.json",
+      "physical_sha256": "3f2f487f824643d870bb9d023e6d883e4c7d28bc9fb0bc769cb5d21253a7079c",
+      "canonical_sha256": "a334816cca1cbdf676e1b935a3404f5803d4ee892c25d2e1d7d34d3a02ea6fe7",
+      "binding_result": "MATCH"
+    }
+  },
+  "root_fact_package": {
+    "source": "ROOT_AGENT",
+    "syntax": {
+      "command": "PYTHONPYCACHEPREFIX=/tmp/pitar1-sd0-r6-pycache python3 -m py_compile trade_system/pit_authority_replay_sd0_metered_fetch_v1.py tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    "scoped": {
+      "command": "python3 -m unittest -v tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+      "tests_run": 59,
+      "passed": 59,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "combined": {
+      "command": "python3 -m unittest -v tests.test_pit_authority_replay_contract_v1 tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+      "tests_run": 128,
+      "passed": 128,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "two_file_diff_check": "PASS",
+    "frozen_hash_check": "R2_R3_R4_R5_R6_ROUTE_CONTRACT_PLAN_MATCH",
+    "workspace_preflight_runtime_paths_checked": 9,
+    "workspace_preflight_runtime_paths_present": 0,
+    "active_g1_root_identity": "REPORTED_INODE_AND_MTIME_UNCHANGED_NOT_READ_BY_SOL_IN_THIS_TURN",
+    "network_requests": 0,
+    "workspace_preflight_runs": 0,
+    "workspace_runtime_runs": 0,
+    "active_g1_access_by_sol": 0,
+    "real_data_or_funds_actions": 0
+  },
+  "independent_terra_completion_audit": {
+    "auditor": "GPT-5.6-TERRA_HIGH",
+    "precheck_safe": "YES",
+    "no_remaining_implementation_counterexample": true,
+    "observation_matrix": [
+      {
+        "observation_id": "O1",
+        "cases": 39,
+        "subject": "Exact context equality, nested authority/static mutation, and independent expected snapshot",
+        "result": "PASS"
+      },
+      {
+        "observation_id": "O2",
+        "cases": 20,
+        "subject": "Local authority failures before TCP",
+        "tcp_probe_calls": 0,
+        "result": "PASS"
+      },
+      {
+        "observation_id": "O3_O4",
+        "cases": 54,
+        "subject": "READY projection rejection through persist_ready and execute",
+        "rejections": 54,
+        "inverse_valid_cases": 6,
+        "result": "PASS"
+      },
+      {
+        "observation_id": "O5",
+        "cases": 2,
+        "subject": "Fresh external reality and phase binding",
+        "result": "PASS"
+      },
+      {
+        "observation_id": "O6",
+        "cases": 8,
+        "subject": "Integrated production-boundary invocation",
+        "result": "PASS"
+      },
+      {
+        "observation_id": "O7",
+        "closer_cases": 20,
+        "body_and_cleanup_cases": 16,
+        "subject": "Ordinary and BaseException cleanup plus captured response evidence",
+        "result": "PASS"
+      },
+      {
+        "observation_id": "O8",
+        "subject": "R5-T21 through R5-T32 and R6-T33 through R6-T40 production-boundary audit",
+        "result": "PASS"
+      }
+    ]
+  },
+  "sol_static_completion_audit": {
+    "tests_executed_by_sol": false,
+    "reason_not_executed": "The completion instruction prohibited tests and preflight. Sol performed source, exact hash, JSON identity, output-absence, and test-structure inspection only.",
+    "static_discoverable_test_methods": 59,
+    "r5_test_methods": 12,
+    "r6_test_methods": 8,
+    "verified_source_properties": [
+      "_context_is_ready requires an independent expected context and exact canonical equality.",
+      "Actual route authority and full issuing context occur before tcp_probe.",
+      "READY projection has a dedicated projection matcher used by READY validation.",
+      "persist_ready and execute remain protected by READY validation plus fresh context recapture.",
+      "The cleanup loop captures BaseException, attempts both closers, then re-raises.",
+      "The production gate hard-pins R3 through R6 and unconditionally suspends at the production root."
+    ],
+    "workspace_output_absence_observed": {
+      "paths_checked": 9,
+      "paths_present": 0
+    },
+    "active_g1_read": false,
+    "network_or_real_data_action": false
+  },
+  "r6_invariant_disposition": [
+    {
+      "invariant_id": "R6-I01",
+      "result": "ACCEPT_CLOSED",
+      "basis": "Exact independent expected equality plus O1 and nested mutation coverage."
+    },
+    {
+      "invariant_id": "R6-I02",
+      "result": "ACCEPT_CLOSED",
+      "basis": "Local authority before TCP plus O2 twenty cases with tcp_probe_calls=0."
+    },
+    {
+      "invariant_id": "R6-I03",
+      "result": "ACCEPT_CLOSED",
+      "basis": "Deterministic projection and O3/O4 rejection matrix."
+    },
+    {
+      "invariant_id": "R6-I04",
+      "result": "ACCEPT_CLOSED",
+      "basis": "Projection and fresh reality are independently exercised at persistence and execution."
+    },
+    {
+      "invariant_id": "R6-I05",
+      "result": "ACCEPT_CLOSED_WITH_NONBLOCKING_PRECEDENCE_DISPUTE",
+      "basis": "Both closers are attempted and required BaseException matrices pass."
+    },
+    {
+      "invariant_id": "R6-I06",
+      "result": "ACCEPT_CLOSED",
+      "basis": "Integrated production-boundary test audit O6 through O8."
+    },
+    {
+      "invariant_id": "R6-I07",
+      "result": "ACCEPT_CLOSED",
+      "basis": "R5-T21 through R5-T32 strengthened and independently audited."
+    },
+    {
+      "invariant_id": "R6-I08",
+      "result": "ACCEPT_CLOSED_SUSPENSION_EFFECTIVE",
+      "basis": "Exact R3/R4/R5/R6 gate chain remains hard-pinned and production-blocking."
+    },
+    {
+      "invariant_id": "R6-I09",
+      "result": "ACCEPT_CLOSED",
+      "basis": "Full 59 scoped and 128 combined suites plus independent no-counterexample audit."
+    }
+  ],
+  "disputed_nonblocking_item": {
+    "dispute_id": "R6-D01",
+    "subject": "An active body-processing BaseException and a cleanup BaseException occur in the same request.",
+    "current_behavior": "Cleanup BaseException takes precedence.",
+    "r5_r6_contract_status": "PRECEDENCE_NOT_EXPLICITLY_DEFINED",
+    "decision": "DISPUTED_NOT_BLOCKING",
+    "reason": [
+      "Both outcomes are nonrecoverable BaseException paths.",
+      "Neither path can produce a successful request, continue to a later request, resume production, or authorize data/funds actions.",
+      "The required two-closer cleanup and ordinary-failure evidence properties are closed.",
+      "No positive production safety claim depends on choosing body-first versus cleanup-first precedence."
+    ],
+    "claim_limit": "This completion decision does not standardize BaseException precedence beyond guaranteeing no normal continuation."
+  },
+  "completion_decision": {
+    "r6_repair": "ACCEPTED_FOR_EXACT_CANDIDATE_PAIR",
+    "offline_precheck_safe": true,
+    "production_preflight": "SUSPENDED",
+    "production_seven_request_route": "SUSPENDED",
+    "d0_and_later": "DENIED",
+    "adapter_replay_dataset": "DENIED",
+    "backtest_paper_live": "DENIED",
+    "credentials_orders_funds": "DENIED",
+    "automatic_effect_on_client_gate": "NONE",
+    "required_next_authority": "SEPARATELY_NAMED_EXACT_GATE_REBINDING_AND_FINAL_HASH_ACCEPTANCE"
+  },
+  "resume_binding_readiness": {
+    "decision": "NOT_READY_DO_NOT_CREATE_RESUME_FILE",
+    "immediate_resume_possible": false,
+    "blocking_gaps": [
+      {
+        "gap_id": "RB-G01",
+        "fact": "The accepted exact client hard-pins the rejecting R6 decision state and unconditionally raises production suspension after validating R3 through R6.",
+        "source": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:132-189",
+        "effect": "A new decision document alone cannot be consumed by the exact accepted client and cannot resume preflight or requests."
+      },
+      {
+        "gap_id": "RB-G02",
+        "fact": "Adding a completion/resume binding to the client changes its physical SHA-256 and normally changes its gate tests.",
+        "effect": "A resume decision that binds only the current accepted client/test hashes cannot simultaneously authenticate the not-yet-produced gate-rebound client/test hashes."
+      },
+      {
+        "gap_id": "RB-G03",
+        "fact": "No separately authorized, reviewed gate-only patch and no final post-patch client/test physical identities exist.",
+        "effect": "There is no exact executable resume candidate for Sol to bind."
+      },
+      {
+        "gap_id": "RB-G04",
+        "fact": "The revised production gate has not yet been shown to accept only this completion decision while retaining all route, cap, zero-row, D0-denial, Active-G1 isolation, and no-funds boundaries.",
+        "effect": "Issuing execution permission now would rely on unimplemented behavior."
+      }
+    ],
+    "minimum_safe_next_route": [
+      "A separately named gate-rebinding authorization may bind this completion decision and the accepted baseline hashes while authorizing changes only to the exact client and test.",
+      "That authorization must keep network and workspace preflight/runtime suspended during the gate-only revision and offline tests.",
+      "The revised client must hard-pin this completion decision and a separately named resume authority, remove no R2-R6 invariant, and expose no dynamic or local-PASS override.",
+      "After the revised client/test exist, a new Sol final-binding decision must bind their exact physical hashes before production preflight or any request can be considered.",
+      "Only that final decision may consider production preflight and the existing seven sequential bounded requests. D0, adapter, replay, market-row data, backtest, paper, deployment, credentials, orders, and funds remain denied."
+    ],
+    "resume_file_created": false
+  },
+  "permission_matrix": {
+    "create_this_completion_decision": true,
+    "modify_client_or_test": false,
+    "modify_r2_r3_r4_r5_r6_decision": false,
+    "modify_route_contract_plan_schema_or_spec": false,
+    "create_resume_binding_file": false,
+    "run_tests_or_preflight": false,
+    "persist_workspace_preflight": false,
+    "create_workspace_runtime": false,
+    "tcp_probe_or_network": false,
+    "active_g1_access": false,
+    "market_row_or_zip_body_access": false,
+    "d0_adapter_replay_dataset": false,
+    "backtest_paper_testnet_deploy": false,
+    "credentials_account_orders_funds": false,
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "stage_disposition": {
+    "pitar1_sd0_client_r6_repair": "ACCEPTED_OFFLINE",
+    "pitar1_sd0_test_r6": "ACCEPTED_REGRESSION_BASE",
+    "pitar1_sd0_route": "FROZEN_STRUCTURALLY_VALID",
+    "pitar1_sd0_contract": "FROZEN_VALID",
+    "pitar1_sd0_plan": "FROZEN_VALID",
+    "pitar1_sd0_production_preflight": "SUSPENDED",
+    "pitar1_sd0_production_requests": "SUSPENDED",
+    "resume_binding": "NOT_READY_NO_FILE_CREATED",
+    "pitar1_d0_and_later": "DENIED_UNCHANGED",
+    "active_g1": "ISOLATED_UNCHANGED",
+    "paper_testnet_deployment_live": "DENIED_UNCHANGED",
+    "next_action": "REQUEST_A_SEPARATE_GATE_REBINDING_AUTHORIZATION_THEN_TERRA_GATE_ONLY_PATCH_OFFLINE_TEST_AND_FINAL_SOL_HASH_BINDING",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "claim_boundary": {
+    "r6_offline_implementation_safety": "ACCEPTED_FOR_EXACT_HASHED_CANDIDATE",
+    "network_transport_success": "NOT_TESTED_NOT_AUTHORIZED",
+    "source_authority_or_terms": "NOT_EVALUATED",
+    "market_data_or_pit_validity": "NOT_EVALUATED",
+    "d0_adapter_or_replay": "NOT_AUTHORIZED",
+    "predictive_or_profitability_validity": "NOT_EVALUATED",
+    "paper_or_live_readiness": "NOT_AUTHORIZED",
+    "maximum_positive_claim": "The exact R6 client and test candidates pass the reported 59 scoped and 128 combined offline suites, pass independent integrated R6 counterexample review with PRECHECK_SAFE=YES, and are accepted as the offline-safe SD0 client baseline. This does not resume production. The accepted client still hard-blocks the production root, all nine workspace preflight/runtime outputs are absent, and no network, Active G1, real-data, D0, adapter, replay, backtest, paper, deployment, credential, order, or funds action is authorized. A resume file is not created because a gate-only revision would change the client/test hashes and no final exact executable resume candidate exists."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-research-system-pit-authority-replay-sd0-client-p0-r6-completion/v1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "65477842be4b90700f08b7e217f9c798815c4ad4ec6780cb5cdffcbc4556ec0b"
+}

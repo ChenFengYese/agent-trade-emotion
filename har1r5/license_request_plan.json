@@ -1,0 +1,16 @@
+{
+  "schema_version": "har1r5-license-request-plan.v1",
+  "route_id": "SOL_HAR1R5_RAW_LICENSE_CANDIDATE.v1",
+  "route_physical_sha256": "139131d3f0d06361f1acb6242d197ae07427afc1422bf88f446978ec1f28f00c",
+  "route_canonical_sha256": "9b82cc08e31bdfa36c3d921405473c82deb37d1bc1cf0adfb42a53635f37740e",
+  "run_id": "har1r5-raw-license-candidate-v1",
+  "activation_path": "config/sol_activation.har1r5-raw-license-candidate.v1.json",
+  "evidence_path": "har1r5/evidence/requests.jsonl",
+  "raw_path": "har1r5/evidence/raw/binance-public-data-LICENSE.raw",
+  "manifest_path": "har1r5/evidence/manifest.json",
+  "transport": {"proxy": "http://127.0.0.1:7897", "concurrency": 1, "redirects": 0, "retries": 0, "cookies": false, "authentication": false, "api_key": false, "proxy_bypass": false, "tls_default_verification": true, "per_request_deadline_seconds": 20, "total_deadline_seconds": 20, "header_cap_bytes": 65536, "body_cap_bytes": 65536},
+  "request": {"sequence": 1, "method": "GET", "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/LICENSE", "headers": {"Accept": "text/plain", "Accept-Encoding": "identity", "Connection": "close", "User-Agent": "agent-trade-emotion-har1r5-license/1.0"}},
+  "execution_semantics": {"r4_retry": "NEVER", "close_before_persist": true, "available_at_utc": "LOCAL_ADMITTED_MAX_ONLY", "evidence_lines": 3, "jsonl": "CANONICAL_UTF8_LF_SHA256_PREVIOUS_RAW_LINE", "manifest": "FRESH_SAME_RUN_REPLAY_REQUIRED", "production_alarm_preflight": true},
+  "canonical_self_digest": {"algorithm": "SHA-256_CANONICAL_JSON", "digest_field": "request_plan_sha256", "domain_prefix_utf8": "msta-hed/har1r5-license-request-plan/v1"},
+  "request_plan_sha256": "ab1a7fd2d75448ee91d265e87f3a885838f8460ad92f202115393a3f21a31747"
+}

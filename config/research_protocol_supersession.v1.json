@@ -1,0 +1,17 @@
+{
+  "guard_id": "research-protocol-supersession.v1",
+  "status": "FROZEN_PROTOCOL_SUPERSESSION_GUARD",
+  "frozen_at": "2026-07-22T10:00:00Z",
+  "superseded_protocols": [
+    {
+      "protocol_id": "btc-usdt-absorption-research-v1",
+      "preregistered_protocol_sha256": "4645fc18567e72c843e3e45d19cf0d5d0f72add025e17490d04f3ee282476d68",
+      "before_g1": false,
+      "outcomes_inspected": false,
+      "holdout_opened": false,
+      "allowed_successor_id": "btc-usdt-absorption-research-v2",
+      "reason_code": "V1_REPLACED_BEFORE_G1_FOR_VERSIONED_COLLECTION_ADMISSION"
+    }
+  ],
+  "notice": "Frozen lineage guard. The v1 protocol remains readable historical evidence but may never be finalized; it was superseded before a G1 PASS, outcome inspection, or final-holdout opening."
+}

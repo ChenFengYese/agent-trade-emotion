@@ -1,0 +1,764 @@
+{
+  "schema_version": "sol-decision.research-system-reconstruction.v1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION.v1",
+  "issued_at": "2026-07-27T03:28:42Z",
+  "issued_by": "GPT-5.6-SOL-ULTRA_PROGRAM_ROUTE",
+  "decision_state": "AUTHORIZED_P0_E0_RESEARCH_SYSTEM_RECONSTRUCTION",
+  "decision_class": "USER_CONFIRMED_PROGRAM_LEVEL_RECONSTRUCTION",
+  "evidence_level": "E0_THEORY_SOURCE_CONTRACT_DESIGN_ONLY",
+  "authorization_basis": {
+    "basis": "The user explicitly confirmed a project-level reconstruction of the research system, including dynamic addition and removal of research roles, after the prior active-G1 and P1A routes reached terminal states.",
+    "authority_effect": "This decision opens one new, separately identified P0 reconstruction route limited to theory, authoritative-source documentation research, registries, contracts, pure validators, synthetic fixtures, tests, and route governance.",
+    "non_effect": "General decision authority does not create market data, source rights, credentials, accounts, funds, holdout eligibility, stage evidence, or trading permission."
+  },
+  "decision_scope": {
+    "scope_id": "MSTA_HED_RESEARCH_SYSTEM_RECONSTRUCTION_P0",
+    "included": [
+      "Read-only audit of current workspace theory, governance, architecture, route, source, contract, code, test, and terminal-decision artifacts.",
+      "Internet discovery and review of authoritative documentation and original research publications without acquiring market rows or dataset archives.",
+      "Creation of new versioned theory challenger or integration documents, source registries, hypothesis registries, measurement contracts, schemas, pure validators, synthetic fixtures, adversarial tests, evidence inventories, and route plans.",
+      "Dynamic assignment of narrowly scoped research roles under the permissions of this P0 stage.",
+      "Preparation of candidate contracts for later data-acquisition, raw-admission, adapter, dataset, and backtest gates without executing those stages."
+    ],
+    "excluded": [
+      "Reading or modifying /Users/wt/Library/Application Support/agent-trade-emotion.",
+      "Reading, changing, repairing, backfilling, relabeling, redeploying, or replacing the old active-G1 package, plan, registry, evidence, schedule, logs, or seal.",
+      "Editing or repairing the six artifacts bound by SOL_P1A_AUTHORITY_CHAIN_BLOCK.v1.",
+      "Downloading or querying historical or live market rows, order-book rows, trades, candles, funding, open interest, liquidation, account, order, fill, or position data.",
+      "Running a source adapter, raw admission, replay, feature build, episode extraction, backtest, calibration, holdout, paper, testnet, canary, deployment, live execution, or trading operation.",
+      "Obtaining or using credentials, API keys, accounts, funds, paid datasets, or purchase authority.",
+      "Claiming market validity, predictive validity, strategy profitability, paper readiness, live readiness, or trading readiness."
+    ],
+    "workspace_context": {
+      "cwd": "/Users/wt/Documents/agent-trade-emotion",
+      "branch": "codex/s0-research-foundation",
+      "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+    },
+    "active_g1_root_read_performed": false,
+    "active_g1_root_mutation_performed": false,
+    "market_row_access_performed": false,
+    "backtest_performed": false,
+    "trading_operation_performed": false
+  },
+  "authority_bindings": {
+    "bound_at": "2026-07-27T03:28:42Z",
+    "binding_type": "WORKSPACE_PHYSICAL_SHA256",
+    "artifacts": [
+      {
+        "role": "program_governance_baseline",
+        "path": "PROGRAM_GOVERNANCE.md",
+        "physical_sha256": "69125790fa36c0c4f72ebdecea4f5415be73a9e4fba78c6c1aa53b9639ef6f09",
+        "size_bytes": 23867,
+        "interpretation": "Normative governance invariants remain applicable; its old current-stage narrative is superseded only where later terminal decisions and this new route explicitly conflict."
+      },
+      {
+        "role": "current_core_theory_mirror",
+        "path": "CORE_TRADING_THEORY.md",
+        "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d",
+        "size_bytes": 140126,
+        "interpretation": "Current immutable theory authority mirror; it is an input to reconstruction, not an editable output of this decision."
+      },
+      {
+        "role": "current_core_theory_version",
+        "path": "CORE_TRADING_THEORY_v2_1.md",
+        "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d",
+        "size_bytes": 140126,
+        "interpretation": "Current immutable theory authority version."
+      },
+      {
+        "role": "core_theory_authority_manifest",
+        "path": "config/core_trading_theory.authority.v2_1.json",
+        "physical_sha256": "a3e174c616b176253f4aef2ce267a932d43f7e64db3490db815a27f007df12d4",
+        "size_bytes": 299,
+        "interpretation": "Binds CORE_TRADING_THEORY.v2.1 as CURRENT_IMMUTABLE_AUTHORITY."
+      },
+      {
+        "role": "architecture_baseline",
+        "path": "SYSTEM_ARCHITECTURE.md",
+        "physical_sha256": "632968d94a81496377290165c305ac947f32f906d872f13a58ad2a1931bc4806",
+        "size_bytes": 13734,
+        "interpretation": "Supplies separation, deterministic replay, fail-closed, and authority-owner invariants; old route assumptions are not inherited as current facts."
+      },
+      {
+        "role": "roadmap_baseline",
+        "path": "SYSTEM_DESIGN_ROADMAP.md",
+        "physical_sha256": "ede84088294e0608cb211f22e7878141d13d59737a1cdd5a6e56ec81d8e3e251",
+        "size_bytes": 90259,
+        "interpretation": "Supplies evidence ladder and risk-driven sequencing; its old active-G1 continuation path is historical after the terminal reachability decision."
+      },
+      {
+        "role": "technical_guidance_challenger",
+        "path": "MSTA_HED_TECHNICAL_GUIDANCE_v0_6_0.md",
+        "physical_sha256": "04cc1ec6c5a7701fd8af6dc1f923e57cd11c9e9de458a043ce4f7548f8f81825",
+        "size_bytes": 18324,
+        "interpretation": "E0 technical guidance only; no runtime, market, or predictive authority."
+      },
+      {
+        "role": "theory_integration_challenger",
+        "path": "MSTA_HED_THEORY_INTEGRATION_CHALLENGER_v0_6_0.md",
+        "physical_sha256": "44e8558a7f4b748082805c8138e757b64e8766b1a71a728b5ac0d5f7566ff5dd",
+        "size_bytes": 19843,
+        "interpretation": "E0 challenger methodology only; no market support or trading permission."
+      },
+      {
+        "role": "old_active_g1_terminal_decision",
+        "path": "config/sol_decision.active-g1-plan-unreachable.v2.json",
+        "physical_sha256": "3417205afc38247bc8463ddd6e18cf54dffe51724571100a974f9572309127c8",
+        "size_bytes": 10768,
+        "internal_decision_sha256": "e143fae7d8c8094298f65bc6724de35f368f25e739e6fe2a35cfdf69fd1d6272",
+        "decision_state": "TERMINAL_WAIT_DATA_PLAN_UNREACHABLE"
+      },
+      {
+        "role": "old_p1a_terminal_decision",
+        "path": "config/sol_decision.p1a-authority-chain-block.v1.json",
+        "physical_sha256": "26355176199bde8cc20e73e2183b43a14bf6210b3a3c41c9480c51b204b9d759",
+        "size_bytes": 11387,
+        "internal_decision_sha256": "ceda54e7a7f6c37fc691096ce851b7ae9e079336e525db5d9da16e023772478f",
+        "decision_state": "TERMINAL_P1A_AUTHORITY_CHAIN_BLOCK"
+      }
+    ]
+  },
+  "supersession_and_preservation": {
+    "route_relation": "NEW_PROGRAM_ROUTE_NOT_RECOVERY",
+    "old_active_g1": {
+      "terminal_state_preserved": true,
+      "all_active_artifacts_immutable": true,
+      "recovery_or_completion_claim_forbidden": true,
+      "relationship_to_new_route": "Historical negative operational evidence only. No package, plan, registry, evidence root, schedule, slot, or identity may be reused as the authority of the new route."
+    },
+    "old_p1a": {
+      "terminal_state_preserved": true,
+      "six_bound_r3_1_artifacts_immutable": true,
+      "r3_2_r4_p1b_remain_closed": true,
+      "relationship_to_new_route": "The user-confirmed program-level authority requirement for a new route is satisfied by this decision, but the old P1A route is not reopened. Its self-authorizing authority graph and partial-schema failures are retained as mandatory counterexamples."
+    },
+    "current_theory_authority": {
+      "core_v2_1_immutable": true,
+      "current_round_edit_authorized": false,
+      "allowed_successor_work": "Create separately versioned challenger, integration, measurement-contract, and registry candidates. Promotion to a new core authority requires a later full Sol stage-gate decision."
+    },
+    "governance_effect": "This decision is a narrow program-route overlay. It changes the authorized current route and current-stage permissions only; it does not silently rewrite prior evidence, theory IDs, evidence levels, holdout roles, or terminal records."
+  },
+  "program_objective": {
+    "decision_system": "MULTI_TIMEFRAME_STATE_TO_FINITE_HYPOTHESES_TO_EVIDENCE_UPDATE_TO_CONDITIONAL_DECISION_TO_RISK_CONSTRAINED_EXECUTION_TO_FEEDBACK_CALIBRATION",
+    "primary_research_question": "Can a point-in-time, falsifiable, multi-view state and competing-path methodology produce reproducible decision improvement after costs and risk constraints without relying on narrative hindsight?",
+    "optimization_target": "Maximize decision-relevant evidence and falsifiability per unit of time, cost, complexity, and irreversible risk.",
+    "non_target": "Producing more indicators, more code, higher backtest fit, a forced bullish or bearish conclusion, or a promise of profitability."
+  },
+  "nonnegotiable_invariants": [
+    "Facts, measurements, inferences, hypotheses, forecasts, policies, risks, and executions remain typed and separately auditable.",
+    "A market-path hypothesis, a mechanism hypothesis, and a trade hypothesis are distinct objects and cannot substitute for one another.",
+    "Multi-timeframe roles are explicit; a lower-timeframe trigger cannot rewrite a higher-timeframe state.",
+    "Active path competition is finite and includes OTHER, UNKNOWN, and ABSTAIN so that unsupported explanations are not forced into a preferred story.",
+    "Evidence dependencies are grouped so correlated indicators cannot be counted as independent confirmation.",
+    "Belief, path ranking, scenario distribution, utility, permission, and action remain separate outputs.",
+    "A hypothesis must define prerequisites, prediction window, supporting evidence, contradicting evidence, hard falsifier, expiry, action link, and non-trade conditions before it can reach a test gate.",
+    "A structural invalidation dominates an aggregate score.",
+    "The system may wait, abstain, simplify, archive, or stop; it is not required to trade or rescue a theory.",
+    "All market, paper, and live conclusions are stated at their achieved evidence level."
+  ],
+  "hypothesis_governance": {
+    "registry_id": "MSTA_HED_HYPOTHESIS_VALIDATION_QUEUE.v1",
+    "preservation_rule": "Weak, contradictory, falsified, expired, or superseded hypotheses are never physically deleted or silently renamed. Their immutable version, evidence, state transitions, and disposition remain in the registry.",
+    "active_path_limit": {
+      "leading_paths": 1,
+      "alternative_paths_max": 2,
+      "tail_risk_paths_max": 1,
+      "other_hypotheses": "Remain DORMANT or QUEUED until a predeclared activation condition is met.",
+      "coverage_rule": "When the finite active set plus OTHER covers the material mutually distinguishable paths, stop adding narratives and update evidence."
+    },
+    "required_fields": [
+      "hypothesis_id",
+      "hypothesis_version",
+      "type",
+      "claim_text",
+      "evidence_level",
+      "timeframe_role",
+      "created_at",
+      "prerequisites",
+      "prediction_window",
+      "expected_partial_order_path",
+      "supporting_evidence_contracts",
+      "contradicting_evidence_contracts",
+      "hard_falsifier",
+      "expiry_rule",
+      "trade_link_or_none",
+      "non_trade_conditions",
+      "dependency_group_ids",
+      "current_state",
+      "priority",
+      "next_cheapest_discriminating_test",
+      "source_claim_ids",
+      "result_history"
+    ],
+    "lifecycle_states": [
+      "DORMANT",
+      "QUEUED",
+      "ACTIVE_DESIGN",
+      "READY_FOR_GATE",
+      "TESTING",
+      "WEAK_EVIDENCE",
+      "CONTRADICTED",
+      "LOCALLY_REVISED",
+      "RETEST_REQUIRED",
+      "FALSIFIED",
+      "EXPIRED",
+      "ARCHIVED"
+    ],
+    "priority_order": [
+      "Safety, permission, causal-clock, raw-authority, and data-integrity hypotheses.",
+      "Core theory hypotheses whose resolution unlocks or stops multiple downstream tasks.",
+      "Hypotheses with a clear falsifier and a low-cost, high-information discriminating test.",
+      "Action-geometry, cost, and decision-value hypotheses.",
+      "Optional mechanism refinements and low-impact explanatory hypotheses."
+    ],
+    "weak_evidence_rule": "Insufficient evidence produces WEAK_EVIDENCE or WAIT_DATA, not support, failure, deletion, or a lower gate.",
+    "terminal_episode_rule": "A hard falsifier or expiry can end the current hypothesis version or episode. Re-entry requires a new version, a declared reason, and a new evidence chain; archival history remains immutable.",
+    "failure_attribution_and_retest": {
+      "required_sequence": [
+        "Freeze the candidate, input identities, source bindings, chronology, output report, and all negative evidence.",
+        "Determine whether evidence quantity and quality were sufficient for a support or failure conclusion.",
+        "Classify the primary error as DATA_AVAILABILITY, STATE, MECHANISM_LIBRARY, PATH_SPEC, DEPENDENCE, CALIBRATION, ACTION_GEOMETRY, COST_EXECUTION, or PERMISSION_RISK.",
+        "Declare exactly one local theory delta aimed at that primary error class, together with affected IDs, unchanged invariants, and expected observable consequences.",
+        "Create a new version and a new DEVELOPMENT/CALIBRATION/HOLDOUT chronology with an unseen evaluation window.",
+        "Repeat the applicable controls, comparator, cost, sensitivity, and adversarial tests before requesting a new gate.",
+        "Retain the prior failed or inconclusive version and link the retest result without rewriting it."
+      ],
+      "same_root_cause_limit": "Two Terra-high implementation or validation rounds that fail for the same root cause require Sol escalation before further work.",
+      "multi_delta_rule": "If more than one material theory delta is necessary, split them into independently attributable challengers or return to program-route review."
+    },
+    "no_post_hoc_rescue": [
+      "Do not change cohort, action, label, comparator, cost, gate, state boundary, feature set, hypothesis wording, or priority after observing the evaluation outcome in order to rescue that outcome.",
+      "Do not reuse an opened or seen holdout as unseen evidence.",
+      "Do not add correlated indicators or data families merely to recover a failed score.",
+      "Do not delete negative trials, rename a failed hypothesis as a new one without a declared delta, or select only favorable regimes after the fact.",
+      "Do not let a data, contract, or execution defect be redescribed as market support or market invalidity.",
+      "A retest may answer only the preregistered local delta on a new evidence chronology."
+    ]
+  },
+  "authoritative_source_research_contract": {
+    "purpose": "Improve theory definitions, observability contracts, source semantics, legal or access constraints, and test design before any market-row acquisition.",
+    "allowed_source_classes": [
+      "Official exchange specifications, API documentation, schema documents, rulebooks, status and changelog pages.",
+      "Regulator, central bank, standards-body, and official statistical-methodology publications.",
+      "Original peer-reviewed papers, official working papers, and primary author or publisher versions.",
+      "Official venue or vendor licensing, coverage, timestamp, revision, and data-availability documentation."
+    ],
+    "secondary_source_rule": "Secondary summaries may be discovery aids but cannot be the sole authority for a measurement contract, causal claim, source semantic, or stage decision.",
+    "forbidden_network_content": [
+      "Market-row API responses, downloadable datasets, archives, CSV, JSON row dumps, order-book files, trade files, candle files, account data, or execution data.",
+      "Credentials, authenticated endpoints, paid purchases, trial subscriptions, or access that creates financial or contractual obligations."
+    ],
+    "required_registry_fields": [
+      "source_id",
+      "source_class",
+      "authority_owner",
+      "title",
+      "canonical_url",
+      "document_version_or_publication_date",
+      "accessed_at",
+      "license_or_terms_status",
+      "clock_and_point_in_time_semantics",
+      "revision_semantics",
+      "schema_or_measurement_scope",
+      "claim_ids_supported",
+      "claim_ids_contradicted",
+      "known_limitations",
+      "evidence_grade",
+      "content_digest_if_locally_preserved"
+    ],
+    "claim_rule": "Documentation can establish definitions, availability constraints, and measurement contracts. It cannot by itself establish predictive alpha, realized execution quality, profitability, or market validity.",
+    "conflict_rule": "Conflicting primary sources remain separately recorded. The program must state which version and effective period a contract uses; it may not silently average or choose the favorable source."
+  },
+  "dynamic_agent_system": {
+    "composition_principle": "Use the smallest role set that closes the current dependency and risk boundary. Add a role only when it supplies a distinct artifact, authority check, or adversarial perspective; remove or suspend it when its deliverable is complete or its stage is unauthorized.",
+    "role_permission_rule": "Adding, renaming, or spawning an Agent never expands stage permissions. Every role inherits the narrowest current gate and may write only its declared artifact class.",
+    "builder_reviewer_separation": "A candidate builder cannot issue its own acceptance receipt. At least one independent adversarial review path is required for authority, raw-admission, chronology, and holdout contracts.",
+    "roles": [
+      {
+        "role_id": "PROGRAM_ROUTE_GOVERNOR",
+        "model": "gpt-5.6-sol-ultra",
+        "lifecycle": "ON_DEMAND",
+        "responsibilities": [
+          "Initial theory, architecture, route, and permission audit.",
+          "Full P0, data, backtest, paper, and later stage-gate decisions.",
+          "Theory simplification, denial, or route change after sufficient evidence.",
+          "Frozen-authority, holdout, funds, or conclusion-changing conflicts."
+        ],
+        "prohibited": [
+          "Daily implementation.",
+          "Routine local test repair.",
+          "Continuous market monitoring."
+        ]
+      },
+      {
+        "role_id": "RESEARCH_PROGRAM_LEAD",
+        "model": "gpt-5.6-terra-high",
+        "lifecycle": "ACTIVE_DURING_P0",
+        "responsibilities": [
+          "Daily P0 orchestration, bounded implementation, deterministic tests, evidence logging, dependency updates, and fact reports.",
+          "Prepare stage candidates and escalation packets without granting acceptance."
+        ],
+        "prohibited": [
+          "Changing immutable theory authority, holdout meaning, active-G1 history, funds, or trading permissions.",
+          "Self-approving a gate."
+        ]
+      },
+      {
+        "role_id": "THEORY_AND_MECHANISM_CHALLENGER",
+        "model": "gpt-5.6-terra-high",
+        "lifecycle": "DYNAMIC_P0",
+        "responsibilities": [
+          "Map claims to observables, counterexamples, falsifiers, mechanism alternatives, and finite path coverage.",
+          "Maintain weak-evidence hypotheses in the prioritized queue."
+        ]
+      },
+      {
+        "role_id": "SOURCE_AUTHORITY_AUDITOR",
+        "model": "gpt-5.6-terra-high",
+        "lifecycle": "DYNAMIC_P0",
+        "responsibilities": [
+          "Discover and register authoritative documentation and original publications.",
+          "Audit version, license, availability, revision, timestamp, and measurement semantics."
+        ],
+        "prohibited": [
+          "Downloading market rows or using authenticated market endpoints."
+        ]
+      },
+      {
+        "role_id": "CONTRACT_AND_SCHEMA_BUILDER",
+        "model": "gpt-5.6-terra-high",
+        "lifecycle": "DYNAMIC_P0",
+        "responsibilities": [
+          "Build versioned schemas, canonicalization rules, pure total validators, synthetic fixtures, and deterministic contract tests."
+        ],
+        "prohibited": [
+          "Supplying candidate-controlled authority values as trusted inputs.",
+          "Issuing the acceptance receipt for its own candidate."
+        ]
+      },
+      {
+        "role_id": "INDEPENDENT_ADVERSARIAL_VALIDATOR",
+        "model": "gpt-5.6-terra-high",
+        "lifecycle": "REQUIRED_AT_P0_AUTHORITY_REVIEW",
+        "responsibilities": [
+          "Attack authority ownership, per-field types, cross-object bindings, causal clocks, aliases, empty semantics, mutation closure, canonical digests, and fail-closed totality.",
+          "Report exact commands, exit codes, mutations, observed outcomes, expected outcomes, and artifact digests."
+        ],
+        "independence_rule": "Must not rely solely on the candidate builder's helper, fixture constructor, success-path oracle, or self-reported digest."
+      },
+      {
+        "role_id": "DATA_ACQUISITION_OPERATOR",
+        "model": "gpt-5.6-terra-high",
+        "lifecycle": "DORMANT_UNTIL_D0",
+        "authorization": "DENIED_THIS_DECISION"
+      },
+      {
+        "role_id": "RAW_ADMISSION_AND_ADAPTER_ENGINEER",
+        "model": "gpt-5.6-terra-high",
+        "lifecycle": "DORMANT_UNTIL_D1_OR_D2",
+        "authorization": "DENIED_THIS_DECISION"
+      },
+      {
+        "role_id": "BACKTEST_AND_EVALUATION_ENGINEER",
+        "model": "gpt-5.6-terra-high",
+        "lifecycle": "DORMANT_UNTIL_E2",
+        "authorization": "DENIED_THIS_DECISION"
+      },
+      {
+        "role_id": "PAPER_RISK_AND_EXECUTION_ENGINEER",
+        "model": "gpt-5.6-terra-high",
+        "lifecycle": "DORMANT_UNTIL_E3",
+        "authorization": "DENIED_THIS_DECISION"
+      }
+    ],
+    "sol_call_policy": {
+      "call_now": "This decision is the initial program-route call.",
+      "call_when": [
+        "The complete P0 reconstruction package is REVIEW_READY.",
+        "A requested action crosses a frozen authority, data-acquisition, raw-admission, adapter, holdout, paper, funds, deployment, or trading boundary.",
+        "The same root cause remains open after two Terra-high rounds.",
+        "Evidence is sufficient but a theory hypothesis fails and requires simplification, denial, or a material route change.",
+        "Two options would materially change data meaning, evidence interpretation, user outcome, or claim scope.",
+        "A complete S0, G1, G2, or G3 equivalent stage is finished."
+      ],
+      "do_not_call_for": [
+        "Routine document drafting.",
+        "Ordinary schema, type, naming, formatting, or local test defects.",
+        "Reversible P0 implementation choices that do not change semantics or permission."
+      ]
+    },
+    "terra_reporting_contract": {
+      "required_facts": [
+        "task_id",
+        "role_id",
+        "input_artifact_paths_and_sha256",
+        "commands",
+        "exit_codes",
+        "created_or_changed_paths_and_sha256",
+        "acceptance_checks",
+        "failures_and_root_cause",
+        "claim_boundary",
+        "next_dependency"
+      ],
+      "escalation_packet_required": true,
+      "no_result_invention": true
+    }
+  },
+  "current_round_authorization": {
+    "stage_id": "RSR_P0_RECONSTRUCTION_FOUNDATION",
+    "status": "ACTIVE_AUTHORIZED",
+    "allowed_now": [
+      "READ_ONLY_WORKSPACE_THEORY_SOURCE_CODE_ARTIFACT_AUDIT",
+      "AUTHORITATIVE_DOCUMENT_AND_PRIMARY_PUBLICATION_INTERNET_DISCOVERY",
+      "VERSIONED_THEORY_CHALLENGER_AND_INTEGRATION_DOCUMENTS",
+      "SOURCE_AUTHORITY_REGISTRY",
+      "HYPOTHESIS_AND_VALIDATION_QUEUE_REGISTRY",
+      "MEASUREMENT_AND_STAGE_CONTRACTS",
+      "JSON_SCHEMA_AND_CANONICAL_DIGEST_RULES",
+      "PURE_TOTAL_STATIC_VALIDATORS",
+      "SYNTHETIC_NO_MARKET_NO_OUTCOME_FIXTURES",
+      "UNIT_CONTRACT_AND_ADVERSARIAL_TESTS",
+      "PROGRAM_ROUTE_DEPENDENCY_AND_EVIDENCE_INVENTORIES"
+    ],
+    "read_only_authorities": [
+      "PROGRAM_GOVERNANCE.md",
+      "CORE_TRADING_THEORY.md",
+      "CORE_TRADING_THEORY_v2_1.md",
+      "config/core_trading_theory.authority.v2_1.json",
+      "SYSTEM_ARCHITECTURE.md",
+      "SYSTEM_DESIGN_ROADMAP.md",
+      "MSTA_HED_TECHNICAL_GUIDANCE_v0_6_0.md",
+      "MSTA_HED_THEORY_INTEGRATION_CHALLENGER_v0_6_0.md",
+      "config/sol_decision.active-g1-plan-unreachable.v2.json",
+      "config/sol_decision.p1a-authority-chain-block.v1.json",
+      "The six P1A R3.1 artifacts bound by the P1A terminal decision"
+    ],
+    "forbidden_now": [
+      "ACTIVE_G1_ROOT_READ_OR_WRITE",
+      "OLD_TERMINAL_ARTIFACT_MUTATION",
+      "CORE_THEORY_AUTHORITY_MUTATION_OR_PROMOTION",
+      "MARKET_ROW_OR_DATASET_ACQUISITION",
+      "AUTHENTICATED_OR_PAID_SOURCE_ACCESS",
+      "RAW_RUNTIME_ADMISSION",
+      "SOURCE_OR_EXCHANGE_ADAPTER_EXECUTION",
+      "REPLAY_FEATURE_EPISODE_OR_LABEL_BUILD",
+      "BACKTEST_CALIBRATION_OR_HOLDOUT",
+      "PAPER_TESTNET_CANARY_LIVE_DEPLOYMENT_OR_TRADING",
+      "CREDENTIAL_ACCOUNT_FUND_OR_ORDER_ACCESS"
+    ],
+    "authorization_matrix": {
+      "theory_source_audit": true,
+      "authoritative_document_discovery": true,
+      "new_versioned_theory_documents": true,
+      "registries_and_measurement_contracts": true,
+      "pure_validators_and_synthetic_tests": true,
+      "market_row_download": false,
+      "historical_data_acquisition": false,
+      "raw_admission_runtime": false,
+      "adapter_implementation_or_execution": false,
+      "dataset_or_feature_build": false,
+      "backtest": false,
+      "calibration": false,
+      "holdout": false,
+      "paper_or_testnet": false,
+      "deployment": false,
+      "live_or_trading": false
+    }
+  },
+  "stage_gate_graph": {
+    "dependency_chain": "RSR-P0 -> D0_ACQUISITION_AUTHORITY -> D1_RAW_ADMISSION -> D2_ADAPTER_AND_REPLAY -> D3_DATASET_AND_EPISODE -> E2_BACKTEST_AND_CALIBRATION -> E3_PAPER -> LATER_CANARY_OR_LIVE",
+    "global_gate_rule": "A candidate artifact, validator result, stage report, Agent, or earlier gate cannot authorize its own stage or the next stage. Every permission expansion requires the stated prerequisites plus a new explicit Sol decision; funds and live operations additionally require the relevant external owner authorization.",
+    "gates": [
+      {
+        "gate_id": "RSR-P0",
+        "name": "RESEARCH_RECONSTRUCTION_FOUNDATION",
+        "status": "AUTHORIZED",
+        "work_scope": "Theory and source audit, authoritative documentation discovery, registries, contracts, pure validators, synthetic fixtures, tests, and route planning only.",
+        "acceptance_owner": "GPT-5.6-SOL-ULTRA_PROGRAM_ROUTE",
+        "acceptance_requires": [
+          "All P0 goals are complete with exact artifact identities and physical SHA-256 values.",
+          "Core theory, old active-G1, old P1A, seen chronology, and terminal records remain unchanged.",
+          "Hypothesis queue preserves weak and negative evidence and every testable hypothesis has a measurement contract.",
+          "Source registry uses primary authority, records version, access, license, clock, revision, limitations, and claim mappings.",
+          "Schemas and pure validators enforce per-field types, cross-object identity, causal clocks, canonical digests, authority ownership, alias rejection, empty semantics, and total fail-closed behavior.",
+          "Independent adversarial tests do not rely only on candidate-owned helpers and all P0 failures are either closed or explicitly terminal.",
+          "No market row, adapter, backtest, paper, deployment, or trading claim is present."
+        ],
+        "permission_on_acceptance": "NONE_AUTOMATIC. A separate D0 decision is required even after PASS."
+      },
+      {
+        "gate_id": "D0",
+        "name": "HISTORICAL_DATA_ACQUISITION_AUTHORIZATION",
+        "status": "NOT_AUTHORIZED",
+        "prerequisites": [
+          "RSR-P0 Sol PASS.",
+          "Exact source identity, official or primary documentation, legal and license status, symbol and contract identity, endpoint or archive identity, date range, expected schema, expected size, cost, storage root, and resource budget.",
+          "Frozen DEVELOPMENT, CALIBRATION, and one-time HOLDOUT roles that remain unseen.",
+          "Frozen acquisition failure, partial-download, retry, checksum, and no-backfill semantics.",
+          "A new plan identity, registry identity, evidence root, and collector or downloader identity that do not alias old active G1 or P1A."
+        ],
+        "acceptance_owner": "GPT-5.6-SOL-ULTRA_STAGE_GATE",
+        "permission_on_acceptance": "Only the exact acquisition plan named by a new decision; no admission, adapter, replay, scoring, or backtest permission."
+      },
+      {
+        "gate_id": "D1",
+        "name": "RAW_ARTIFACT_ADMISSION",
+        "status": "NOT_AUTHORIZED",
+        "prerequisites": [
+          "A D0-authorized acquisition receipt or separately user-supplied raw artifact explicitly admitted for review.",
+          "Exact raw-byte digest, byte length, source receipt, license, coverage, missingness, point-in-time availability, revision, and chronology-role facts.",
+          "Authority values pinned outside the candidate graph.",
+          "Independent adversarial validator closure for type, cross-binding, payload identity, zero-byte semantics, causal time, alias rejection, mutation closure, and totality.",
+          "A new authority contract that does not import, repair, or claim completion of the terminal P1A R3.1 route."
+        ],
+        "acceptance_owner": "GPT-5.6-SOL-ULTRA_STAGE_GATE",
+        "permission_on_acceptance": "Only admission of the exact bound raw artifact. No adapter, replay, feature, scoring, or backtest permission."
+      },
+      {
+        "gate_id": "D2",
+        "name": "ADAPTER_AND_DETERMINISTIC_REPLAY",
+        "status": "NOT_AUTHORIZED",
+        "prerequisites": [
+          "D1 PASS for exact raw artifacts.",
+          "Frozen source schema, contract units, side semantics, sequence and gap rules, timestamps, revisions, availability and reconstruction semantics.",
+          "Pure supplied-fixture adapter tests before any network runtime.",
+          "Capability allowlist, resource limits, immutable input handling, deterministic output identity, and no candidate-supplied trust roots.",
+          "Independent replay and malformed-input tests."
+        ],
+        "acceptance_owner": "GPT-5.6-SOL-ULTRA_STAGE_GATE",
+        "permission_on_acceptance": "Only the exact offline adapter and replay scope named by a new decision. Network runtime remains separately denied unless explicitly granted."
+      },
+      {
+        "gate_id": "D3",
+        "name": "POINT_IN_TIME_DATASET_FEATURE_AND_EPISODE",
+        "status": "NOT_AUTHORIZED",
+        "prerequisites": [
+          "D2 PASS.",
+          "Deterministic replay with available_at not later than decision_at and explicit ACTUAL versus RECONSTRUCTED semantics.",
+          "Frozen feature, state, zone, path, label, censoring, gap, eligibility, and episode contracts.",
+          "Frozen chronology roles and proof that opened or seen periods cannot be promoted to unseen holdout.",
+          "Qualified coverage and missingness reports by state and timeframe."
+        ],
+        "acceptance_owner": "GPT-5.6-SOL-ULTRA_STAGE_GATE",
+        "permission_on_acceptance": "Only generation of the exact preregistered research dataset. No model score, backtest, calibration, or holdout opening."
+      },
+      {
+        "gate_id": "E2",
+        "name": "BACKTEST_CALIBRATION_AND_ONE_TIME_HOLDOUT",
+        "status": "NOT_AUTHORIZED",
+        "prerequisites": [
+          "D3 PASS and sufficient eligible coverage.",
+          "Frozen hypothesis versions, opportunity universe, baseline, comparator, action, label, state classifier, cost, latency, slippage, funding, split, purge, embargo, metrics, uncertainty, sensitivity, concentration, stop, support, failure, and WAIT_DATA rules.",
+          "A release candidate frozen before the one-time holdout is opened.",
+          "Independent receipt and consumption registry that binds exact code, configuration, rows, roles, and output and refuses reuse.",
+          "Explicit separation of hypothesis-path accuracy, trade success conditional on trigger, expected value, risk, and permission."
+        ],
+        "acceptance_owner": "GPT-5.6-SOL-ULTRA_STAGE_GATE",
+        "permission_on_acceptance": "Only the exact one-time evaluation named by a new decision. A result cannot authorize paper, deployment, or trading."
+      },
+      {
+        "gate_id": "E3",
+        "name": "PAPER_AND_TESTNET_SYSTEM_VALIDATION",
+        "status": "NOT_AUTHORIZED",
+        "prerequisites": [
+          "E2 Sol decision establishes sufficient sample-out evidence for the exact fixed candidate or explicitly authorizes an engineering-only paper test with no alpha claim.",
+          "Independent risk engine, permission state machine, OMS invariants, cost model, idempotency, protection, reconciliation, kill switch, data-health and recovery contracts.",
+          "Failure injection for duplicate, partial fill, rejection, timeout, disconnect, unknown order, protection failure, position mismatch, stale data, and clock anomaly.",
+          "Explicit account, credential, venue, legal, and operator boundaries."
+        ],
+        "acceptance_owner": "GPT-5.6-SOL-ULTRA_STAGE_GATE",
+        "permission_on_acceptance": "Paper or testnet scope only if separately named. No funds, canary, live deployment, or trading."
+      }
+    ]
+  },
+  "p0_program": {
+    "program_id": "RSR-P0-v1",
+    "priority": "P0",
+    "goal_order": [
+      "P0-RS-01",
+      "P0-RS-02_AND_P0-RS-03_IN_PARALLEL",
+      "P0-RS-04",
+      "P0-RS-05"
+    ],
+    "goals": [
+      {
+        "goal_id": "P0-RS-01",
+        "name": "IMMUTABLE_BASELINE_AND_ROUTE_FORK",
+        "dependencies": [],
+        "deliverables": [
+          "A versioned reconstruction authority and artifact inventory.",
+          "A route-fork record that distinguishes immutable old active-G1 and P1A history from the new program.",
+          "An evidence and permission matrix with exact stage denials."
+        ],
+        "acceptance": [
+          "Every bound input has an exact path, role, physical SHA-256, and interpretation.",
+          "No old active-G1, old P1A, terminal, seen-role, or core-authority artifact is modified.",
+          "No path or identifier aliases the old active-G1 or P1A authority roots."
+        ]
+      },
+      {
+        "goal_id": "P0-RS-02",
+        "name": "THEORY_OBJECT_MAP_AND_HYPOTHESIS_VALIDATION_QUEUE",
+        "dependencies": [
+          "P0-RS-01"
+        ],
+        "deliverables": [
+          "Typed fact, measure, state-belief, structural-position, mechanism, path, scenario, trade-thesis, utility, permission, action, and result interfaces.",
+          "Versioned claim and hypothesis registry including weak, contradicted, falsified, expired, and archived records.",
+          "Measurement contracts, finite path coverage, dependency groups, hard falsifiers, expiry, and next discriminating tests."
+        ],
+        "acceptance": [
+          "No anecdote, indicator, mechanism story, or actor-intent claim can directly create an order.",
+          "Every active testable claim maps to observables, counterevidence, evidence level, and a stop or WAIT_DATA condition.",
+          "The user's illustrative multi-day narrative is represented only as seen anecdotal input, object-gap evidence, and counterexample material, not as a fixed-duration rule or holdout selector.",
+          "Weak evidence remains queued without being promoted to fact or discarded."
+        ]
+      },
+      {
+        "goal_id": "P0-RS-03",
+        "name": "AUTHORITATIVE_SOURCE_DISCOVERY_REGISTRY",
+        "dependencies": [
+          "P0-RS-01"
+        ],
+        "deliverables": [
+          "A primary-source registry for market microstructure, technical measurement, time-series validation, execution, risk, venue semantics, and relevant macro or event observability.",
+          "A claim-to-source and source-to-measurement mapping with contradictions and limitations."
+        ],
+        "acceptance": [
+          "Every normative source entry records authority owner, version or date, URL, accessed_at, license or terms status, clock, revision, scope, limitations, and claim mappings.",
+          "Secondary material is not the sole authority for executable semantics.",
+          "No market rows, datasets, credentials, paid access, or authenticated endpoints are used.",
+          "Literature support is not mislabeled as empirical strategy validation."
+        ]
+      },
+      {
+        "goal_id": "P0-RS-04",
+        "name": "NON_SELF_AUTHORIZING_CONTRACT_AND_VALIDATOR_FOUNDATION",
+        "dependencies": [
+          "P0-RS-02",
+          "P0-RS-03"
+        ],
+        "deliverables": [
+          "Versioned schemas and pure total validators for registries, measurement contracts, stage candidates, canonical identities, and evidence reports.",
+          "Synthetic positive, malformed, mutation, alias, clock, cross-binding, empty, and unknown-field fixtures.",
+          "An independent adversarial report."
+        ],
+        "acceptance": [
+          "Authority roots and expected identities are pinned outside the candidate object.",
+          "Every declared field type and cross-object relationship is executable, including raw identity placeholders used in future contract design.",
+          "Canonical serialization and self-digest rules are independently recomputed.",
+          "Malformed or unauthorized inputs produce a stable rejection result rather than an exception, admission, or privilege expansion.",
+          "The independent reviewer can reproduce every mutation without the builder's fixture constructor."
+        ]
+      },
+      {
+        "goal_id": "P0-RS-05",
+        "name": "INTEGRATED_RESEARCH_ROUTE_AND_SOL_GATE_PACKAGE",
+        "dependencies": [
+          "P0-RS-01",
+          "P0-RS-02",
+          "P0-RS-03",
+          "P0-RS-04"
+        ],
+        "deliverables": [
+          "A single dependency-ordered program roadmap with P0, D0, D1, D2, D3, E2, and E3 gates.",
+          "A dynamic role registry and issue-escalation procedure.",
+          "A complete evidence index, test report, unresolved-risk register, and claim-boundary statement."
+        ],
+        "acceptance": [
+          "All P0 acceptance checks are complete and reproducible from exact artifacts.",
+          "Every later stage remains explicitly closed and has non-circular prerequisites.",
+          "There is no hidden market row, seen outcome, adapter execution, backtest, paper, deployment, or trading evidence.",
+          "The package is REVIEW_READY for a full Sol P0 stage-gate decision."
+        ]
+      }
+    ],
+    "completion_definition": "P0 is complete only when P0-RS-01 through P0-RS-05 pass their acceptance contracts and a later Sol gate accepts the complete package. Document count, code volume, local test count, or this authorization record alone cannot complete P0."
+  },
+  "stop_wait_and_escalation_rules": {
+    "immediate_scope_stop": [
+      "Any task requires reading or writing /Users/wt/Library/Application Support/agent-trade-emotion.",
+      "Any task requires mutation, repair, relabeling, backfill, reuse, or deployment of old active-G1 or old P1A artifacts.",
+      "Any task requires market rows, dataset archives, authenticated endpoints, credentials, payment, accounts, funds, orders, positions, deployment, or trading.",
+      "A candidate, builder, validator, registry, or Agent attempts to grant itself authority or the next-stage permission.",
+      "An authority value, expected digest, transform, proof, external tip, source identity, or acceptance condition is supplied only by the candidate it is meant to validate.",
+      "A seen outcome or holdout is exposed to development, tuning, hypothesis wording, gate design, or opportunity selection."
+    ],
+    "rework_conditions": [
+      "Duplicate or ambiguous IDs, non-executable field semantics, inconsistent source mappings, unresolved causal clocks, or non-total validators.",
+      "A hypothesis lacks a falsifier, expiry, prediction window, dependency group, or decision relevance.",
+      "Correlated measurements are counted as independent evidence.",
+      "A source is secondary, version-ambiguous, license-ambiguous, or unable to support the claimed measurement semantics.",
+      "A P0 artifact cannot be reproduced from its bound inputs and declared pure procedure."
+    ],
+    "wait_data_rule": "Use WAIT_DATA only when a required external fact or authoritative document is unavailable and no remaining safe P0 theory, registry, contract, synthetic, or adversarial task can change readiness. Do not use WAIT_DATA to hide a deterministic defect or to avoid a stop decision.",
+    "sol_escalation_triggers": [
+      "P0-RS-01 through P0-RS-05 are complete and REVIEW_READY.",
+      "The same root cause remains open after two Terra-high rounds.",
+      "A frozen theory, authority, chronology, holdout, evidence, data, account, funds, deployment, or trading boundary would change.",
+      "Evidence is sufficient and a hypothesis fails, requiring a local theory delta, simplification, denial, or route change.",
+      "Two plausible options materially change data meaning, evidence interpretation, cost, risk, or user outcome."
+    ],
+    "terminal_options": [
+      "ACCEPT_P0",
+      "REWORK_LOCAL",
+      "WAIT_DATA",
+      "SIMPLIFY_THEORY",
+      "DENY_HYPOTHESIS",
+      "STOP_ROUTE"
+    ]
+  },
+  "audit_and_integrity_requirements": {
+    "artifact_identity": "Every P0 JSON, document candidate, registry, schema, validator, test report, and gate package must record its path and physical SHA-256 in the evidence index.",
+    "json_integrity": "Normative JSON authorities must define canonical serialization and a self-digest or be externally bound by an immutable manifest.",
+    "test_evidence": "Reports must include exact commands, exit codes, fixture identities, expected outcomes, observed outcomes, and changed artifact digests.",
+    "negative_evidence": "Failures, rejected candidates, contradictory sources, weak results, and stopped routes are permanent evidence and must remain discoverable.",
+    "authority_separation": "Candidate construction, independent mutation, and Sol acceptance are separate authorities.",
+    "active_root_assertion": "This decision was produced without reading or modifying the active Application Support root."
+  },
+  "claim_boundary": {
+    "program_reconstruction": "AUTHORIZED_AT_E0_FOR_P0_WORK_ONLY",
+    "theory_authority": "CORE_TRADING_THEORY_V2_1_REMAINS_CURRENT_AND_UNCHANGED",
+    "new_theory_validity": "NOT_EVALUATED",
+    "source_data_validity": "NOT_EVALUATED",
+    "market_validity": "NOT_EVALUATED",
+    "predictive_validity": "NOT_EVALUATED",
+    "strategy_profitability": "NOT_EVALUATED",
+    "historical_data_acquisition": "NOT_AUTHORIZED",
+    "raw_admission": "NOT_AUTHORIZED",
+    "adapter_readiness": "NOT_EVALUATED",
+    "backtest_result": "NOT_EVALUATED",
+    "paper_result": "NOT_EVALUATED",
+    "live_result": "NOT_EVALUATED",
+    "deployment_authorization": "DENIED",
+    "trading_authorization": "DENIED",
+    "maximum_positive_claim": "A new, separately identified E0 P0 research-system reconstruction route is authorized with immutable preservation of the old active-G1 and P1A terminal histories, explicit hypothesis-retention and failure-retest discipline, dynamic narrow Agent roles, and non-self-authorizing future stage prerequisites. No market data, empirical theory, backtest, paper, deployment, or trading result has been established."
+  },
+  "next_action": {
+    "owner": "gpt-5.6-terra-high RESEARCH_PROGRAM_LEAD",
+    "action": "Execute P0-RS-01, then run P0-RS-02 and P0-RS-03 in parallel, followed by P0-RS-04 and P0-RS-05.",
+    "first_deliverable": "A versioned immutable-baseline and route-fork inventory that binds this decision and the old terminal histories without accessing the active Application Support root.",
+    "forbidden_shortcut": "Do not begin acquisition, raw admission, adapter work, replay, feature construction, backtest, paper, deployment, or trading while preparing the P0 package."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "digest_field": "decision_sha256",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "canonical_json": {
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ],
+      "encoding": "UTF-8"
+    },
+    "domain_prefix_utf8": "msta-hed/sol-research-system-reconstruction-decision/v1",
+    "domain_separator_hex": "00",
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "2a434f542f58c6d43798e1562b7f203336eae7e5db4b6745095e3c9e7633ddb6"
+}

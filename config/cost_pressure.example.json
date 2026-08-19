@@ -1,0 +1,46 @@
+{
+  "entry_price": "100000",
+  "quantity": "0.001",
+  "gain_if_tp": "0.6",
+  "loss_if_sl": "0.4",
+  "expected_structure_return": "-0.05",
+  "expected_timeout_return": "0",
+  "minimum_submit_ev": "0",
+  "gate_level": "OPEN",
+  "data_healthy": true,
+  "model_applicable": true,
+  "outcome": {
+    "tp": "0.50",
+    "sl": "0.30",
+    "structure_exit": "0.10",
+    "timeout": "0.10"
+  },
+  "execution": {
+    "fill_probability": "0.70",
+    "expected_fill_fraction": "0.85"
+  },
+  "scenarios": [
+    {
+      "scenario_id": "normal-example",
+      "entry_fee_rate": "0.0005",
+      "exit_fee_rate": "0.0005",
+      "spread_bps": "1",
+      "conditional_slippage_bps": "2",
+      "funding_bps": "0.5",
+      "tail_execution_bps": "2",
+      "submit_cost": "0",
+      "no_fill_cost": "0"
+    },
+    {
+      "scenario_id": "stress-example",
+      "entry_fee_rate": "0.0005",
+      "exit_fee_rate": "0.0005",
+      "spread_bps": "3",
+      "conditional_slippage_bps": "8",
+      "funding_bps": "2",
+      "tail_execution_bps": "10",
+      "submit_cost": "0",
+      "no_fill_cost": "0"
+    }
+  ]
+}

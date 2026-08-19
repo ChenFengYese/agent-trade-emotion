@@ -1,0 +1,114 @@
+{
+  "schema_id": "theory_paper_v2_single_agent_market_research_successor",
+  "schema_version": "1.3.0",
+  "contract_id": "SINGLE_AGENT_SEEN_V1_DIAGNOSTIC_VISIBLE_DECISION_CONTRACT_20260802",
+  "evidence_class": "SEEN_V1_DIAGNOSTIC_REPLAY",
+  "source_run_id": "msta-paper-20260729T212716Z-87cc29bb",
+  "source_tree_digest": "aba02e17eca90ab4b4ae652c485940523e6c0f0ae2f78eae485c8a5019264085",
+  "predecessor_contract": {
+    "path": "config/theory_paper_v2.single_agent_market_research.v1_2.json",
+    "canonical_digest": "9c8a4b7567f6f38e61fa79bde94c13547cbd37fe25b3f161fa1d7b90b1e1b5fc",
+    "status": "SUPERSEDED_ONLY_FOR_VISIBLE_OUTPUT_INTERFACE"
+  },
+  "failed_predecessor_run": {
+    "run_id": "single-agent-seen-v1-20260802-v12",
+    "last_completed_cycle": 0,
+    "failed_cycle": 1,
+    "checkpoint_status": "AWAITING_SINGLE_AGENT_DECISION_OUTCOMES_SEALED",
+    "draft_path": ".runtime/theory-paper-v2-single-agent/single-agent-seen-v1-20260802-v12/agent-inputs/cycle-0001.json",
+    "draft_physical_sha256": "7db5b039f247406572e18d24f83e32e796c0642f217aa157781ff538b4a48bbc",
+    "failure_code": "EPISODE_TRANSITION_INVALID",
+    "recorded_v1_decisions_opened": false,
+    "recorded_v1_outcomes_opened": false,
+    "status": "FAILED_CLOSED_IMMUTABLE_NOT_RESUMABLE"
+  },
+  "root_cause": {
+    "fact": "The single Strategy Agent used intuitive episode_operation CREATE for the only symbol without a prior episode; the validator required OPEN but the current Agent context did not expose any allowed episode-operation literals or transition pairs.",
+    "is_market_analysis_failure": false,
+    "is_risk_or_execution_failure": false,
+    "is_output_interface_visibility_failure": true,
+    "is_hidden_platform_expansion_required": false,
+    "pure_validation_evidence": "Five symbol decisions passed unchanged; replacing only MU CREATE with OPEN in memory made the sixth symbol pass pure validation."
+  },
+  "only_change": {
+    "before": "The validator held exact episode and action literals, but the per-cycle Strategy Agent context omitted them.",
+    "after": "The per-cycle context lists the existing episode operations, strategic statuses, operation-status pairs, genesis and continuity rules, and existing action-type literals.",
+    "new_market_rule": false,
+    "new_indicator": false,
+    "new_action": false,
+    "new_state_transition": false,
+    "analysis_space_change": false,
+    "risk_or_cost_change": false,
+    "matching_change": false,
+    "evaluation_change": false
+  },
+  "decision_contract_boundary": {
+    "purpose": "OUTPUT_INTERFACE_ONLY",
+    "genesis_rule": "OPEN_WITH_NEW_EPISODE_ID_EVEN_FOR_FLAT_WATCH_EPISODE",
+    "create_literal": "INVALID_NOT_ALIASED_OR_SILENTLY_REWRITTEN",
+    "agent_freedom": "NO_PATH_DIRECTION_SENTIMENT_ACTION_OR_POSITION_IS_PRESELECTED"
+  },
+  "unchanged_from_predecessor": [
+    "ONE_STRATEGY_AGENT_NO_CRITIC_NO_CLUSTER",
+    "RFC_NEWS_WITH_UNCHANGED_PIT_CUTOFF",
+    "OPEN_AGENT_MARKET_ANALYSIS_AND_SENTIMENT_SPACE",
+    "FOUR_COMPETING_PATH_CLASSES",
+    "SIX_ACTION_COMPARISON_CLASSES",
+    "CORE_AND_TACTICAL_SEMANTICS",
+    "CORE_CHECKPOINT_NOT_AUTOMATIC_EXIT",
+    "REENTRY_OBLIGATION",
+    "RISK_LIMITS",
+    "COST_AND_SLIPPAGE_RATES",
+    "ALL_NEW_15M_BAR_MATCHING",
+    "POST_RESULT_EVALUATION_CORRECTIONS",
+    "NO_EXTERNAL_EXECUTION_AUTHORITY"
+  ],
+  "fresh_strategy_agent_run": {
+    "run_id": "single-agent-seen-v1-20260802-v13",
+    "agent_identity": "SAME_SINGLE_STRATEGY_AGENT",
+    "cycles": "1_THROUGH_24",
+    "terminal_observation_cycle": 25,
+    "start_state": "FRESH_GENESIS",
+    "v12_draft_reuse": false,
+    "predecessor_decision_replay": false,
+    "future_context_access": false,
+    "recorded_v1_decision_or_outcome_access_before_terminal": false,
+    "post_result_artifact_access_by_strategy_agent": false,
+    "critic_enabled": false,
+    "cluster_enabled": false
+  },
+  "claims_boundary": {
+    "evidence": "SEEN_V1_DIAGNOSTIC_ONLY",
+    "predictive_validity": "NOT_ESTABLISHED",
+    "profitability": "NOT_ESTABLISHED",
+    "latest_market_validity": "NOT_ESTABLISHED",
+    "system_mode": "LOCAL_PAPER_RESEARCH_NON_EXECUTABLE",
+    "external_execution_authority": "NONE_LOCAL_SIMULATION",
+    "automation_authority": false,
+    "account_or_credential_authority": false,
+    "paper_or_live_order_authority": false,
+    "executable": false
+  },
+  "implementation_bindings": [
+    {
+      "path": "trade_system/theory_paper_v2/application/single_agent_research.py",
+      "physical_sha256": "f759b033659f1237522ec557147b35d35b14fa4cb3eb750db37ade35b4348a2d"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/presentation/single_agent_research_cli.py",
+      "physical_sha256": "afe00e5426623ba938aa2646640d8f9aaa2a8b3195ffd97152a3a5222dc6a74e"
+    },
+    {
+      "path": "tests/test_theory_paper_v2_single_agent_research.py",
+      "physical_sha256": "9bb09b5e598629cfad54bbae3ae8b88a5eeb65e166532e085bdd9503262a5add"
+    }
+  ],
+  "pre_freeze_attestation": {
+    "successor_candidate_cycles_before_freeze": 0,
+    "successor_run_root_absent": true,
+    "recorded_v1_decisions_opened_for_successor": false,
+    "recorded_v1_outcomes_opened_for_successor": false,
+    "trading_policy_changed_to_fit_results": false,
+    "active_main_task": "FULL_SINGLE_AGENT_VISIBLE_CONTRACT_SUCCESSOR_RERUN"
+  }
+}

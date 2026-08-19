@@ -1,0 +1,106 @@
+{
+  "schema_version": "har1r4-source-terms-contract.v1",
+  "route_id": "SOL_HAR1R4_SOURCE_TERMS_RAW_EVIDENCE.v1",
+  "route_physical_sha256": "1821db735137efd443b1ffd36f2726a9313e447d831d4d36ab7c102a994c15dd",
+  "route_canonical_sha256": "df0f06c41da124d84974f4ca911c889290598f17573f716000fcec2647a4f511",
+  "request_plan_physical_sha256": "f90a8fd86146489f35c5a1a98ddcfb10f5a17093bb60793957516b38e2b53159",
+  "request_plan_canonical_sha256": "94e57785aee738961a46260a3612e3c203938ed00ae075013393edafb9fc99af",
+  "r3_replay_contract": {
+    "technical_evidence_record_count": 5,
+    "technical_evidence_raw_line_sha256_chain": true,
+    "technical_activation_first_unique": true,
+    "technical_probe_count": 3,
+    "aggregate_terminal_last_unique": true,
+    "aggregate_outcome": "SUCCESS",
+    "successful_probes": 3,
+    "failed_probes": 0,
+    "cumulative_elapsed_ms": 2270,
+    "total_response_body_bytes": 5233,
+    "probe_1_readme_body_bytes": 5144,
+    "probe_1_readme_body_sha256": "085ab91377aa9325d44f4c7ad27cce4ab381e158403e1d7df2bad39d1a66f7c6",
+    "probe_1_readme_git_blob_sha1": "311354cd82a76bcaaec588e6818e6c12644abef0"
+  },
+  "output_paths": {
+    "activation": "config/sol_activation.har1r4-source-terms-raw.v1.json",
+    "evidence": "har1r4/evidence/requests.jsonl",
+    "raw": [
+      "har1r4/evidence/raw/github-repository-metadata.json",
+      "har1r4/evidence/raw/github-master-commit.json",
+      "har1r4/evidence/raw/github-master-tree.json",
+      "har1r4/evidence/raw/binance-ja-terms.raw"
+    ],
+    "manifest": "har1r4/evidence/manifest.json"
+  },
+  "output_creation": {
+    "parent_walk": "DIR_FD_O_DIRECTORY_O_NOFOLLOW",
+    "final_open": "O_CREAT_O_EXCL_O_NOFOLLOW",
+    "mode_octal": "0600",
+    "partial_write_loop": true,
+    "file_fsync": true,
+    "parent_fsync": true,
+    "close_before_readback": true,
+    "readonly_nofollow_readback": true,
+    "create_once": true
+  },
+  "repository_validations": {
+    "owner_login": "binance",
+    "full_name": "binance/binance-public-data",
+    "default_branch": "master",
+    "commit_tree_sha_equals_tree_response_sha": true,
+    "tree_truncated": false,
+    "root_readme_blob_sha1": "311354cd82a76bcaaec588e6818e6c12644abef0",
+    "license_disposition": "EXISTENCE_FACT_ONLY_NOT_AUTHORITY"
+  },
+  "terms_validation": {
+    "visible_text_minimum_characters": 500,
+    "reject_empty_challenge_or_spa_shell": true,
+    "required_candidates": [
+      "explicit_effective_or_revision_date",
+      "legal_entity",
+      "governing_law_or_jurisdiction",
+      "data_scope"
+    ],
+    "missing_or_ambiguous_disposition": "WAIT_DATA_TERMS_D0_DENIED",
+    "passing_disposition": "CANDIDATE_TEXT_ONLY_REQUIRES_INDEPENDENT_REVIEW",
+    "legal_conclusion": false
+  },
+  "activation_contract": {
+    "permission": "ONE_FOUR_GET_RAW_DOCUMENT_BATCH",
+    "maximum_ttl_seconds": 900,
+    "opaque_single_process_single_use": true,
+    "duplicate_issuance": "DENIED",
+    "raw_physical_and_canonical_file_binding": true,
+    "final_route_plan_contract_client_test_hash_binding": true
+  },
+  "readback_contract": {
+    "frozen_plan_and_raw_recomputation": true,
+    "same_run_transport_observation_binding": true,
+    "raw_body_does_not_independently_attest_http_metadata": true,
+    "integer_millisecond_budget_ledger": true,
+    "canonical_utc_millisecond_ordering": true,
+    "manifest_is_strict_derived_view": true,
+    "manifest_requires_same_run_observations_and_fresh_evidence_replay": true,
+    "offline_replay_cannot_authorize_sealed_state": true,
+    "deadline_three_state_latch": true,
+    "jsonl_lines_are_exact_canonical_physical_bytes": true,
+    "writer_cleanup_on_any_failure": true,
+    "production_alarm_preflight_before_output": true
+  },
+  "failure_states": [
+    "WAIT_DATA_NETWORK_TRANSPORT",
+    "WAIT_DATA_TERMS_D0_DENIED",
+    "WAIT_DATA_SOURCE_CONTRACT_MISMATCH",
+    "HALT_ROUTE_DRIFT_NEW_SOL_REVIEW",
+    "HALT_PROTOCOL_VIOLATION",
+    "HALT_RESOURCE_CAP",
+    "FAIL_CLOSED_NO_OVERWRITE",
+    "STOP_AND_ESCALATE_TO_SOL_WITH_PROBLEM_BUNDLE"
+  ],
+  "maximum_claim": "Raw source and terms candidate evidence only. Repository LICENSE is an existence fact only. No legal or permission conclusion is made.",
+  "canonical_self_digest": {
+    "algorithm": "SHA-256_CANONICAL_JSON",
+    "digest_field": "source_terms_contract_sha256",
+    "domain_prefix_utf8": "msta-hed/har1r4-source-terms-contract/v1"
+  },
+  "source_terms_contract_sha256": "a79a1c84f7d4d3298c3e338a4d784163b738cbb3cd541ebe53ecad5e5fc78a65"
+}

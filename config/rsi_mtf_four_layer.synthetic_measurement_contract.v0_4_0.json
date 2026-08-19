@@ -1,0 +1,425 @@
+{
+  "contract_id": "RSI_MTF_FOUR_LAYER_SYNTHETIC_MEASUREMENT_CONTRACT.v0.4.0",
+  "stage": "V4-M00",
+  "status": "SYNTHETIC_MEASUREMENT_ONLY",
+  "evidence_level": "E0",
+  "created_at": "2026-07-26",
+  "purpose": "Freeze causally valid multi-timeframe, state, historical-neighbor, macro-vintage, and protective-barrier semantics before any historical payload, outcome, adapter, backtest, calibration, paper, or live activity.",
+  "authority_boundary": {
+    "real_historical_payload": "FORBIDDEN",
+    "historical_outcome_access": "FORBIDDEN",
+    "source_adapter": "FORBIDDEN",
+    "backtest": "FORBIDDEN",
+    "calibration": "FORBIDDEN",
+    "paper": "FORBIDDEN",
+    "live": "FORBIDDEN",
+    "market_or_alpha_claim": "FORBIDDEN",
+    "production_strategy_or_parameter_model": "OUT_OF_SCOPE"
+  },
+  "time_contract": {
+    "timezone": "UTC",
+    "timestamp_unit": "ISO_8601_UTC_OR_EPOCH_MILLISECONDS_WITH_EXPLICIT_UNIT",
+    "timeframes": [
+      "15m",
+      "1h",
+      "4h",
+      "1d",
+      "1w"
+    ],
+    "parent_child_edges": [
+      {"parent": "1w", "child": "1d"},
+      {"parent": "1d", "child": "4h"},
+      {"parent": "4h", "child": "1h"},
+      {"parent": "1h", "child": "15m"}
+    ],
+    "bar_schema": [
+      "instrument_id",
+      "venue",
+      "timeframe",
+      "open_time",
+      "close_time",
+      "source_id",
+      "generation_id_or_stream_id",
+      "source_sequence",
+      "stable_input_id",
+      "source_timestamp",
+      "available_at",
+      "record_version",
+      "is_closed"
+    ],
+    "visibility_invariant": "A bar is visible at decision_time if and only if is_closed is the exact JSON boolean true; source_timestamp, close_time, available_at, and decision_time are present, valid, timezone-aware, mutually comparable timestamps; and source_timestamp <= decision_time, close_time <= decision_time, and available_at <= decision_time. Any missing, malformed, incomparable timestamp or pseudo-boolean is_closed fails closed to DATA_INVALID and UNKNOWN_OR_ABSTAIN.",
+    "event_visibility_invariant": "An event is visible at decision_time if and only if source_timestamp, published_at, available_at, and decision_time are present, valid, timezone-aware, mutually comparable timestamps; and source_timestamp <= decision_time, published_at <= decision_time, and available_at <= decision_time. source_timestamp records source provenance and is distinct from published_at, the public event publication time. Any missing, malformed, incomparable or future timestamp fails closed to DATA_INVALID and UNKNOWN_OR_ABSTAIN.",
+    "visibility_rule": "A bar is visible at decision_time if and only if the full visibility_invariant holds.",
+    "parent_visibility_rule": "A child-timeframe decision may consume a parent TFState only from the latest parent bar satisfying the full visibility_invariant; an unclosed, late, future-sourced, malformed, missing, conflicting, or data-invalid parent bar is never substituted with a current estimate.",
+    "same_timestamp_rule": "If close_time equals decision_time, the bar is visible only when available_at also equals or precedes decision_time. source_sequence is comparable only within one (source_id,generation_id_or_stream_id). Cross-source records sharing available_at form an unordered batch with no economic before/after; exchangeable aggregation is batch-permutation invariant, while only a non-exchangeable result requiring first-hit must resolve UNRESOLVED or STOP_FIRST. stable_input_id is replay serialization only, never market-time order.",
+    "failure_action": "DATA_INVALID_OR_ABSTAIN",
+    "record_identity_rule": "source_sequence is comparable only within the same source_id and generation_id_or_stream_id. Missing, duplicate or conflicting source_sequence/stable_input_id/record_version or other required identity fails closed to DATA_INVALID and UNKNOWN_OR_ABSTAIN; stable_input_id is replay serialization only."
+  },
+  "enum_definitions": {
+    "data_quality": ["VALID", "STALE", "GAP", "CONFLICT", "DATA_INVALID", "UNKNOWN"],
+    "macro_condition": ["QUIET", "SCHEDULED_RISK", "RELEASE_SHOCK", "REVISION_CONFLICT", "UNKNOWN"],
+    "structural_regime": ["UP", "DOWN", "RANGE", "TRANSITION", "UNKNOWN"],
+    "local_impulse": ["ALIGNED", "COUNTER", "FLAT", "UNKNOWN"],
+    "impulse_change": ["ACCELERATING", "STEADY", "DECELERATING", "UNKNOWN"],
+    "extension_location": ["BALANCED", "EXTENDED_UP", "EXTENDED_DOWN", "AT_CAUSAL_ZONE", "UNKNOWN"],
+    "volatility_liquidity": ["ORDERLY", "HIGH_VOL", "THIN", "DISLOCATED", "UNKNOWN"],
+    "confirmation": ["NONE", "REVERSAL_CANDIDATE", "CONTINUATION_RISK", "EXECUTION_READY", "UNKNOWN"],
+    "parent_child_relation": ["ALIGNED", "COUNTERTREND", "RANGE_NESTED", "RANGE_EXCURSION", "TRANSITION", "UNKNOWN"],
+    "kinematics": ["ACCELERATING", "STEADY", "DECELERATING", "UNKNOWN"],
+    "volatility_state": ["CONTRACTING", "NORMAL", "EXPANDING", "SHOCK", "UNKNOWN"],
+    "action": ["UNKNOWN", "OBSERVE", "ABSTAIN", "HALT", "EVALUATE_REVERSAL", "EXECUTION_READY", "MANAGE_ONLY", "EXIT"],
+    "scenario_branch": ["UPSIDE", "DOWNSIDE", "RANGE", "UNRESOLVED"],
+    "action_outcome": ["NO_FILL", "TP_FIRST", "SL_FIRST", "STRUCTURE_EXIT", "TIMEOUT"],
+    "data_disposition": ["VALID", "CENSORED", "DATA_INVALID", "OPERATIONAL_OVERRIDE"],
+    "state_permission_gate": ["ALLOW", "DENY"],
+    "exit_reason": ["STOP", "TARGET", "STRUCTURE_INVALIDATION", "TIME_STOP", "DATA_OR_VENUE_HALT", "REMAINING_EV_EXIT", "UNKNOWN"]
+  },
+  "state_contract": {
+    "TFState_required_fields": ["timeframe", "DataQuality", "StructuralRegime", "normalized_velocity", "directional_efficiency", "kinematics", "volatility_state", "trailing_location", "state_age", "close_time", "available_at", "measurement_version", "provenance"],
+    "DecisionState_required_components": ["adjacent_TFState_chain", "parent_child_relation", "MacroCondition", "LocalImpulse", "CurrentPressureContext", "data_quality_rollup", "provenance"],
+    "orthogonality_rule": "DataQuality is a separate axis from StructuralRegime. A TFState has exactly one value from each named enum axis; DATA_INVALID is data_quality only and is never a StructuralRegime.",
+    "unknown_rule": "UNKNOWN means sufficient valid closed data does not exist for a declared axis measurement. It is not UP, DOWN, or RANGE by default.",
+    "transition_rule": "For DataQuality=VALID, TRANSITION is the remaining StructuralRegime cross-region or incomplete same-timeframe hysteresis. Parent-child conflict belongs only to DecisionState.parent_child_relation and never rewrites a TFState StructuralRegime.",
+    "data_invalid_rule": "DATA_INVALID means a required temporal, schema, sequence, duplicate, revision, or availability invariant failed. The decision must fail closed to UNKNOWN or ABSTAIN and may not coerce DATA_INVALID into a StructuralRegime.",
+    "user_state_to_mechanical_label": {
+      "上涨周期": "UPTREND",
+      "下跌周期": "DOWNTREND",
+      "震荡周期": "RANGE",
+      "下跌中震荡周期": "DOWNTREND_RANGE_NESTED",
+      "下跌中反弹周期": "DOWNTREND_REBOUND",
+      "下跌中止跌周期": "POTENTIAL_BOTTOMING",
+      "下跌中加速周期": "DOWN_ACCELERATION",
+      "下跌中减速周期": "DOWN_DECELERATION",
+      "上涨中回落周期": "UPTREND_PULLBACK",
+      "上涨中震荡周期": "UPTREND_RANGE_NESTED",
+      "上涨中见顶周期": "POTENTIAL_TOPPING",
+      "上涨加速周期": "UP_ACCELERATION",
+      "上涨减速周期": "UP_DECELERATION"
+    },
+    "mapping_boundary": "The mapping is an ontology crosswalk only. It freezes neither thresholds nor a predictive or trading interpretation; potential top/bottom never grants entry permission."
+  },
+  "mechanical_label_mapping": {
+    "UPTREND": "structural_regime=UP",
+    "DOWNTREND": "structural_regime=DOWN",
+    "RANGE": "structural_regime=RANGE",
+    "DOWNTREND_RANGE_NESTED": "4h.StructuralRegime=DOWN + parent_child_relation=RANGE_NESTED + 1h.directional_efficiency/state_age remain separate axes",
+    "UPTREND_RANGE_NESTED": "4h.StructuralRegime=UP + parent_child_relation=RANGE_NESTED + 1h.directional_efficiency/state_age remain separate axes",
+    "UPTREND_PULLBACK": "4h.StructuralRegime=UP + parent_child_relation=COUNTERTREND + 1h.normalized_velocity<0 + 1h.trailing_location=AT_CAUSAL_ZONE_OR_BALANCED",
+    "DOWNTREND_REBOUND": "4h.StructuralRegime=DOWN + parent_child_relation=COUNTERTREND + 1h.normalized_velocity>0 + 1h.trailing_location=AT_CAUSAL_ZONE_OR_BALANCED",
+    "UP_ACCELERATION": "4h.StructuralRegime=UP + parent_child_relation=ALIGNED + 1h.kinematics=ACCELERATING + 1h.volatility_state in {NORMAL,EXPANDING}",
+    "DOWN_ACCELERATION": "4h.StructuralRegime=DOWN + parent_child_relation=ALIGNED + 1h.kinematics=ACCELERATING + 1h.volatility_state in {NORMAL,EXPANDING}",
+    "UP_DECELERATION": "4h.StructuralRegime=UP + 1h.kinematics=DECELERATING + directional_efficiency and state_age retained as separate axes",
+    "DOWN_DECELERATION": "4h.StructuralRegime=DOWN + 1h.kinematics=DECELERATING + directional_efficiency and state_age retained as separate axes",
+    "POTENTIAL_BOTTOMING": "4h.StructuralRegime=DOWN + parent_child_relation=COUNTERTREND + 1h.kinematics=DECELERATING + trailing_location=AT_CAUSAL_ZONE + Confirmation=REVERSAL_CANDIDATE",
+    "POTENTIAL_TOPPING": "4h.StructuralRegime=UP + parent_child_relation=COUNTERTREND + 1h.kinematics=DECELERATING + trailing_location=AT_CAUSAL_ZONE + Confirmation=REVERSAL_CANDIDATE",
+    "BREAKOUT_RISK": "trailing_location=AT_CAUSAL_ZONE + parent_child_relation=RANGE_EXCURSION_OR_ALIGNED + Confirmation=CONTINUATION_RISK",
+    "rule": "POTENTIAL_BOTTOMING and POTENTIAL_TOPPING are observable candidates, not confirmed bottoms/tops or entry permissions. BREAKOUT_RISK defaults to ABSTAIN until an independently validated continuation branch exists."
+  },
+  "parent_child_contract": {
+    "parent_child_relation_enum_ref": "enum_definitions.parent_child_relation",
+    "adjacent_pairs": [["1w", "1d"], ["1d", "4h"], ["4h", "1h"], ["1h", "15m"]],
+    "read_rule": "Each child may read only its adjacent visible parent TFState; no skipped-parent override or weighted vote is permitted.",
+    "authority_rule": "Only 4h may set operational structural_regime; 1w and 1d may veto risk but cannot create entry; 1h and 15m cannot overwrite the 4h structural_regime.",
+    "conflict_rule": "Parent conflict, parent UNKNOWN, or DATA_INVALID cannot be resolved by child voting and must produce UNKNOWN or ABSTAIN; it is recorded in DecisionState.parent_child_relation and never rewrites either TFState StructuralRegime."
+  },
+  "probability_contract": {
+    "MarketScenario": {
+      "branches": ["UPSIDE", "DOWNSIDE", "RANGE", "UNRESOLVED"],
+      "label_definition": "For a frozen horizon H, frozen barriers B_up/B_down and frozen central_range_band defined before outcome access: UPSIDE/DOWNSIDE require a sortable valid event stream and respectively upper/lower barrier first; RANGE requires neither barrier by H plus terminal displacement and realized range inside central_range_band; UNRESOLVED is valid data with neither-first but failing RANGE, or both barriers in the same window without sequence proof. These four classes are mutually exclusive and exhaustive for valid data; UNKNOWN/DATA_INVALID are model/data-invalid outputs outside normalization.",
+      "probability_scalar_rule": "Every probability is a finite JSON number in [0,1]. JSON booleans true/false are not probability numbers and must fail closed.",
+      "unknown_output_boundary": "UNKNOWN is a model/data-invalid output and not a MarketScenario class; it never participates in normalization.",
+      "normalization_rule": "Exactly the four MarketScenario branches are mutually exclusive and sum to one within a declared pre-event horizon; insufficient support, invalid probability, or missing calibration returns UNKNOWN_OR_ABSTAIN.",
+      "decision_rule": "A MarketScenario probability is a calibrated candidate output only; it cannot directly create an order or override the action priority."
+    },
+    "ActionOutcome": {
+      "branches": ["NO_FILL", "TP_FIRST", "SL_FIRST", "STRUCTURE_EXIT", "TIMEOUT"],
+      "conditional_scope": "Per declared candidate action conditional on valid submission; NO_FILL is a mutually exclusive terminal outcome of the submission attempt and the vector is not conditional-on-fill.",
+      "probability_scalar_rule": "Every probability is a finite JSON number in [0,1]. JSON booleans true/false are not probability numbers and must fail closed.",
+      "normalization_rule": "Exactly the five ActionOutcome branches are mutually exclusive and sum to one; insufficient support, invalid probability, or unproven submission/outcome cohort returns UNKNOWN_OR_ABSTAIN.",
+      "fill_and_conditional_distribution": "P(fill)=1-P(NO_FILL). For filled-cohort outcomes, renormalize TP_FIRST/SL_FIRST/STRUCTURE_EXIT/TIMEOUT by their joint-probability sum; never include NO_FILL in the conditional-on-fill distribution.",
+      "data_disposition": "DataDisposition={VALID,CENSORED,DATA_INVALID,OPERATIONAL_OVERRIDE} is outside the ActionOutcome probability vector. Invalid data, censoring or post-fill operational/risk override fails closed and is counted rather than silently deleted.",
+      "post_fill_scoring_semantics": "At submission freeze immutable five-branch prediction. Store observed_fill=true|false|null, observed_action_outcome=one_of_five_branches|null and DataDisposition separately. Score P(fill) only where observed_fill is non-null; joint only where one terminal outcome is known; filled-cohort only where observed_fill=true and terminal outcome is known. CENSORED/DATA_INVALID/OPERATIONAL_OVERRIDE never rewrite prediction or fabricate NO_FILL/terminal outcome; each affected score excludes only its missing label while disposition and pre/post-fill counts remain reported.",
+      "strict_record_validation": "One shared validator runs before every denominator/count: observed_fill has exact JSON type boolean or null, so numeric pseudo-booleans 1/0/1.0/0.0 are rejected; observed_action_outcome has exact JSON type string and is one of NO_FILL/TP_FIRST/SL_FIRST/STRUCTURE_EXIT/TIMEOUT, or is null; NO_FILL requires observed_fill=false; a filled terminal requires observed_fill=true; unknown labels or contradictions are DATA_INVALID and never counted.",
+      "decision_rule": "An ActionOutcome probability cannot directly create an order, change a cohort, broaden a stop, or extend a horizon."
+    }
+  },
+  "current_pressure_contract": {
+    "required_quality_rule": "Every required TFState and required CurrentPressureContext field family must have DataQuality=VALID. STALE, GAP, CONFLICT, DATA_INVALID, UNKNOWN, missing time proof, or missing required field forces UNKNOWN_OR_ABSTAIN and cannot produce EVALUATE_REVERSAL or EXECUTION_READY.",
+    "field_families": ["trade", "funding", "open_interest", "basis", "spread", "depth", "realized_volatility", "freshness"],
+    "neutral_imputation": "FORBIDDEN"
+  },
+  "causal_measurement_contract": {
+    "status": "CANDIDATE_FAMILY_UNFROZEN_OUTPUT_UNKNOWN",
+    "returns": "r_t = log(close_t / close_{t-1}) for eligible closed bars only.",
+    "atr_scale": "ATR_n(t) = causal ATR over the last n eligible closed bars; realized_vol_n(t) = sqrt(sum_{i=t-n+1}^t r_i^2). scale_t = max(ATR_n(t), close_t * realized_vol_n(t), epsilon).",
+    "normalized_velocity": "v_n(t) = (close_t - close_{t-n}) / scale_t.",
+    "directional_efficiency": "de_n(t) = abs(close_t - close_{t-n}) / max(sum_{i=t-n+1}^t abs(close_i-close_{i-1}), epsilon).",
+    "non_overlapping_acceleration": "a_n(t) = v_n(t) - v_n(t-n); the two velocity windows must not overlap. kinematics is ACCELERATING/STEADY/DECELERATING only by a frozen sign/threshold rule.",
+    "trailing_location": "loc_t = (close_t - z_low) / max(z_high-z_low, epsilon) for frozen causal StructuralZone=[z_low,z_high], with a separately frozen extension band expressed in scale_t.",
+    "structural_regime_boolean": {
+      "UP": "v_n(t) >= theta_v AND de_n(t) >= theta_de AND this_timeframe_hysteresis_complete",
+      "DOWN": "v_n(t) <= -theta_v AND de_n(t) >= theta_de AND this_timeframe_hysteresis_complete",
+      "RANGE": "-theta_v < v_n(t) < theta_v AND de_n(t) < theta_de AND this_timeframe_hysteresis_complete",
+      "TRANSITION": "DataQuality=VALID AND ((the remaining cross-region, including de_n >= theta_de with -theta_v < v_n < theta_v) OR this_timeframe_hysteresis_incomplete). Parent-child conflict belongs only to DecisionState.parent_child_relation and never rewrites a TFState regime.",
+      "UNKNOWN": "candidate family is unfrozen, any required field/time proof is absent, or DataQuality is not VALID"
+    },
+    "parameter_domain": "theta_v must be finite and >0; theta_de must be finite and 0<=theta_de<=1; normalized_velocity must be finite; directional_efficiency is finite and in [0,1]; n, hysteresis_length h and volatility_window are positive integers; epsilon is finite and >0; all bands/scales must be finite, ordered and nonnegative where applicable.",
+    "invalid_domain_rule": "Any parameter-domain violation produces DATA_INVALID/UNKNOWN and StructuralRegime is not computed.",
+    "candidate_tuple_contract": {
+      "exact_fields": ["n", "theta_v", "theta_de", "extension_band", "hysteresis_length", "volatility_window", "ATR_or_RV_choice", "volume_baseline_method", "weekday_or_session_adjustment", "central_range_band", "epsilon"],
+      "enum_domains": {"ATR_or_RV_choice": ["ATR", "REALIZED_VOL", "MAX_ATR_REALIZED_VOL"], "volume_baseline_method": ["ROBUST_MEDIAN_MAD", "FROZEN_EWMA"], "weekday_or_session_adjustment": ["NONE", "WEEKDAY", "SESSION"]},
+      "band_rule": "extension_band and central_range_band are finite nonnegative [lower,upper] pairs with lower<=upper; all scale-like values are finite and nonnegative.",
+      "family_rule": "Family length is 1..8, every tuple is exact-key complete and semantically unique after numeric normalization, and every tuple satisfies the full parameter and enum domain before any outcome access. Numerically equal encodings such as 1 versus 1.0 and -0.0 versus 0.0 are duplicates."
+    },
+    "finite_candidate_family": "Before any outcome access, choose at most eight complete valid tuples (n, theta_v, theta_de, extension_band, hysteresis_length, volatility_window, ATR_or_RV_choice, volume_baseline_method, weekday_or_session_adjustment, central_range_band, epsilon). No infinite/grid expansion, online update, result-conditioned replacement or parameter blending is permitted.",
+    "freeze_rule": "If no complete pre-outcome candidate tuple is frozen, all measurement-dependent outputs are UNKNOWN."
+  },
+  "h10_daily_prefix_contract": {
+    "hypothesis_ids": ["V4-H10-D2_D3_UPWARD_EXPANSION_PRICE_SEQUENCE", "V4-H11-D6_D7_DOWNSIDE_BREAKDOWN_PRICE_SEQUENCE", "V4-H12-EVENT_ARRIVAL_ASSOCIATION"],
+    "role": "OUTCOME_FREE_DAILY_EVENT_SEQUENCE_CONTRACT",
+    "prefix_ids": ["D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8"],
+    "prefix_rule": "At prefix Dk, the measurement state, probability, and action may read only D1..Dk fields satisfying the full visibility_invariant at the prefix decision_time. D(k+1)..D8 are forbidden input and may not rewrite the earlier prefix record.",
+    "specific_prefix_assertions": {
+      "D2_D3_price_primary": "H10 may evaluate only observed D1..D2 or D1..D3 prefixes for the predeclared 1-3 day UPWARD_EXPANSION price endpoint after each prefix available_at; it may not select the full D1..D8 episode and no event arrival may enter this price endpoint.",
+      "D6_D7_price_primary": "H11 may evaluate only observed D1..D6 or D1..D7 prefixes for the predeclared next-day DOWNSIDE_BREAKDOWN price endpoint after each prefix available_at; it may not select the full D1..D8 episode and no event arrival may enter this price endpoint.",
+      "H12_event_diagnostic": "H12 event arrival association is a separate diagnostic only after the full event_visibility_invariant holds. It cannot make either H10 or H11 price endpoint pass."
+    },
+    "cluster_rule": "All D1..D8 nested prefixes from one anchor are one episode cluster for split, bootstrap, and multiple-comparison accounting; they are not eight independent observations.",
+    "event_rule": "A message/event is readable only when the full event_visibility_invariant holds: source_timestamp, published_at and available_at are each no later than the prefix decision time. source_timestamp is source provenance and is distinct from published_at, the public event publication time. A later revision is append-only and cannot overwrite an earlier prefix. Event availability is diagnostic only and never a H10/H11 price-endpoint disjunct.",
+    "volume_rule": "Use log-volume residual against either a robust trailing median/MAD baseline or a frozen EWMA baseline, selected only within the at-most-eight causal candidate tuples. A baseline may use only prior eligible observations and its frozen weekday/session adjustment.",
+    "exact_cohort_key_set": ["asset_class", "venue", "market_type", "instrument_id", "contract_specification", "session_timezone", "daily_boundary", "volume_unit", "price_adjustment_policy"],
+    "pool_boundary": "Any mismatch in asset_class, venue, market_type, instrument_id, contract_specification, session_timezone, daily_boundary, volume_unit or price_adjustment_policy must not pool into one cohort; use a separately registered stratum or fail DATA_INVALID. Equity and crypto observations must never be pooled as one calibration or baseline cohort.",
+    "action_set": ["UNKNOWN", "OBSERVE", "ABSTAIN", "EVALUATE_REVERSAL"],
+    "unknown_action_rule": "UNKNOWN is permitted only for invalid, missing or unfrozen required inputs; valid evaluated states use OBSERVE, ABSTAIN or EVALUATE_REVERSAL.",
+    "action_boundary": "Each prefix action uses exactly UNKNOWN, OBSERVE, ABSTAIN, or EVALUATE_REVERSAL until a separately authorized execution contract exists. A large event bar cannot be chased into EXECUTION_READY, and an exit or invalidation cannot automatically reverse direction in the same episode.",
+    "nonvalid_block": "Any non-VALID required data quality, missing or conflicting source_sequence where an ordering is required within the same source_id and generation_id_or_stream_id, missing, malformed, incomparable or future event source_timestamp/published_at/available_at, missing volume baseline, or unfrozen candidate tuple forces UNKNOWN_OR_ABSTAIN. Cross-source equal-available_at batches are not invalid merely because they have no economic order.",
+    "forbidden": ["FULL_EPISODE_LOOKAHEAD", "PREFIX_REWRITE", "OUTCOME_SELECTED_EVENT", "EVENT_OR_PRICE_ENDPOINT", "INSTITUTIONAL_INTENT_CLAIM", "SENTIMENT_TRUTH_CLAIM", "AUTOMATIC_REVERSAL", "EVENT_BAR_CHASING"]
+  },
+  "action_priority": [
+    "HALT_IF_ACCOUNT_VENUE_OR_DATA_SAFETY_FAILURE",
+    "EXIT_IF_EXISTING_POSITION_REQUIRES_PROTECTIVE_EXIT",
+    "MANAGE_ONLY_IF_EXISTING_POSITION_AND_NO_EXIT",
+    "UNKNOWN_IF_REQUIRED_INPUT_OR_TIME_PROOF_MISSING_FOR_NEW_ACTION",
+    "OBSERVE_IF_RSI_EVENT_AND_NO_OTHER_PERMISSION",
+    "ABSTAIN_IF_VALID_BUT_CONFLICT_UNSUPPORTED_OR_ZONE_EMPTY",
+    "EVALUATE_REVERSAL_IF_ALL_CANDIDATE_GATES_PASS",
+    "EXECUTION_READY_ONLY_IF_SEPARATE_FUTURE_AUTHORIZED_EXECUTION_CONTRACT_PASSES"
+  ],
+  "rsi_contract": {
+    "role": "OBSERVE_ONLY",
+    "required_fields": ["timeframe", "computed_from_visible_closed_bars", "available_at", "value_or_missing_reason"],
+    "forbidden_roles": [
+      "ENTRY_COMMAND",
+      "DIRECTION_COMMAND",
+      "UNCONFIRMED_PARENT_STATE_OVERRIDE",
+      "OUTCOME_LABEL"
+    ],
+    "missing_or_late_action": "UNKNOWN_OR_ABSTAIN",
+    "episode_lifecycle": {
+      "identity_and_eligibility": "episode_id and immutable creation record identify existence. active is lifecycle persistence; eligible_for_upgrade=false at creation and on the same bar, and becomes true only for a strictly later eligible closed bar after every upgrade gate passes.",
+      "new_observe_emitted": "Boolean separate from Action: true exactly once only when cross_valid, VALID quality, valid parent, candidate gates pass and nonterminal create an episode; persistent extreme keeps it false.",
+      "creation": "Invalid-data, invalid-parent, failed-gate or terminal cross creates no episode; only a fully valid cross creates episode_id with Action=OBSERVE and new_observe_emitted=true.",
+      "dedup": "Persistent extreme does not create a second OBSERVE or episode.",
+      "upgrade": "Only later eligible closed time with active=true, eligible_for_upgrade=true, unexpired episode, VALID quality, valid parent relation, all candidate gates and no terminal action may produce EVALUATE_REVERSAL; same-bar upgrade is forbidden.",
+      "termination": "Frozen expiry, data-quality failure, parent invalidation or terminal action retains immutable episode identity but sets active=false and eligible_for_upgrade=false. An existing inactive record without termination proof returns UNKNOWN with LIFECYCLE_PROOF_MISSING; other missing lifecycle proof fails closed to ABSTAIN."
+    }
+  },
+  "historical_neighbor_contract": {
+    "role": "DESCRIPTIVE_CANDIDATE_ONLY",
+    "query_required_fields": ["query_id", "query_available_at", "feature_version", "feature_vector", "data_validity"],
+    "neighbor_required_fields": ["neighbor_id", "feature_version", "feature_vector", "label_tail_end", "embargo", "data_validity"],
+    "causal_eligibility_rule": "A neighbor is eligible only when its feature_version matches the query, its data_validity is VALID, and label_tail_end plus embargo is strictly earlier than query_available_at.",
+    "forbidden_matching_keys": ["future_return", "future_barrier_hit", "future_direction", "post_event_label"],
+    "empty_or_invalid_action": "UNKNOWN_OR_ABSTAIN",
+    "market_claim_boundary": "Similarity is a retrieval candidate, not evidence that a historical path will recur."
+  },
+  "macro_contract": {
+    "role": "EVENT_RISK_AND_CONFLICT_ANNOTATION_ONLY",
+    "record_schema": [
+      "series_or_event_id",
+      "scheduled_release_at",
+      "actual_release_at",
+      "observed_period",
+      "vintage_id",
+      "vintage_available_at",
+      "value_or_document_hash",
+      "source_revision_id"
+    ],
+    "join_rule": "At decision_time, use only the latest macro record whose actual_release_at and vintage_available_at are both at or before decision_time.",
+    "first_release_rule": "The first released vintage is immutable as a point-in-time record; later revisions are appended with a distinct vintage_id and never overwrite it.",
+    "scheduled_vs_actual_rule": "scheduled_release_at may define a risk window but may not expose a value before actual_release_at.",
+    "missing_or_ambiguous_release_action": "DATA_INVALID_OR_ABSTAIN",
+    "forbidden_interpretation": "Macro events and disclosures may not be pre-labeled bullish or bearish in this measurement contract."
+  },
+  "entry_zone_contract": {
+    "role": "GEOMETRIC_MEASUREMENT_ONLY",
+    "zone_schema": ["zone_id", "lower", "upper", "available_at", "source_version", "validity"],
+    "state_permission_gate": "StatePermissionGate={ALLOW,DENY} has no price coordinate. UNKNOWN/invalid data fails before the gate to UNKNOWN/ABSTAIN; ALLOW permits, but cannot move, StructuralZone intersect LiquidityFeasibleZone intersect RiskGeometryZone intersect VenueRuleZone; DENY produces empty EntryZone and ABSTAIN; any other gate is rejected.",
+    "intersection_rule": "An EntryZone exists only if StatePermissionGate=ALLOW and all four declared component zones are valid, visible, and their closed interval intersection is non-empty.",
+    "empty_intersection_action": "ABSTAIN",
+    "missing_or_late_component_action": "UNKNOWN_OR_ABSTAIN",
+    "forbidden_interpretation": "A non-empty EntryZone is not an order, a direction, or a profitability claim."
+  },
+  "protective_barrier_contract": {
+    "role": "RISK_SEMANTICS_ONLY",
+    "required_predeclared_fields": ["position_side", "entry_reference", "initial_stop", "initial_target", "initial_horizon_end", "barrier_version"],
+    "stop_rule": "After a hypothetical position exists, an updated stop may preserve or reduce worst-case price risk only; it may never broaden risk relative to the prior valid stop.",
+    "horizon_rule": "An updated horizon_end may preserve or shorten the prior horizon only; it may never extend it.",
+    "target_rule": "Initial target semantics and every permitted update category must be declared before evaluation. A target update may not be selected after observing the later barrier outcome, and this contract declares no target formula or order behavior.",
+    "intrabar_order_rule": "If a bar or synthetic interval can touch both stop and target without an independently ordered event stream, classify it STOP_FIRST.",
+    "data_invalid_action": "STOP_DATA_INVALID_AND_ABSTAIN",
+    "scope_boundary": "This contract defines measurement and protective invariants, not an execution, fill, sizing, leverage, or profit model."
+  },
+  "deterministic_replay_contract": {
+    "input_identity": ["contract_id", "contract_version", "feature_version", "fixture_id", "ordered_input_ids", "ordered_input_record_versions"],
+    "ordering_rule": "source_sequence is comparable only inside one (source_id,generation_id_or_stream_id). Cross-source equal-available_at records are an unordered economic batch: exchangeable aggregation must be batch-permutation invariant; only a non-exchangeable result requiring first-hit resolves UNRESOLVED or STOP_FIRST. A stable input_id tie-break is permitted only for canonical replay serialization, never to create market-time order.",
+    "replay_rule": "The same canonical inputs and versions must yield byte-equivalent canonical JSON output, including state, qualifiers, visibility disposition, and failure disposition.",
+    "revision_rule": "A revised input receives a new version and must produce a distinct replay identity; it must not silently replace the prior replay."
+  },
+  "prohibited_claims": [
+    "MARKET_EFFECTIVENESS",
+    "PREDICTIVE_VALIDITY",
+    "POST_COST_PROFITABILITY",
+    "MARKET_MAKER_INTENT",
+    "PAPER_READINESS",
+    "LIVE_READINESS",
+    "AUTOMATIC_PROMOTION"
+  ],
+  "synthetic_fixtures": [
+    {
+      "fixture_id": "M00-F01-UNCLOSED_PARENT",
+      "given": {"decision_time": "2026-01-01T10:15:00Z", "parent_1h": {"is_closed": false, "source_timestamp": "2026-01-01T10:00:00Z", "close_time": "2026-01-01T11:00:00Z", "available_at": "2026-01-01T10:15:00Z"}},
+      "expect": "PARENT_NOT_VISIBLE__UNKNOWN_OR_ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F02-LATE_CLOSED_PARENT",
+      "given": {"decision_time": "2026-01-01T11:00:00Z", "parent_1h": {"is_closed": true, "source_timestamp": "2026-01-01T10:00:00Z", "close_time": "2026-01-01T11:00:00Z", "available_at": "2026-01-01T11:00:01Z"}},
+      "expect": "PARENT_NOT_VISIBLE__UNKNOWN_OR_ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F03-VISIBLE_PARENT",
+      "given": {"decision_time": "2026-01-01T11:00:01Z", "parent_1h": {"is_closed": true, "source_timestamp": "2026-01-01T10:00:00Z", "close_time": "2026-01-01T11:00:00Z", "available_at": "2026-01-01T11:00:01Z"}},
+      "expect": "PARENT_VISIBLE"
+    },
+    {
+      "fixture_id": "M00-F04-NEIGHBOR_EMBARGO",
+      "given": {"query_available_at": "2026-01-10T00:00:00Z", "neighbor_label_tail_end": "2026-01-09T23:00:00Z", "embargo_minutes": 60},
+      "expect": "NEIGHBOR_INELIGIBLE_STRICT_INEQUALITY"
+    },
+    {
+      "fixture_id": "M00-F05-MACRO_REVISION",
+      "given": {"decision_time": "2026-02-01T12:00:00Z", "first_vintage": {"vintage_id": "v1", "actual_release_at": "2026-02-01T11:30:00Z", "vintage_available_at": "2026-02-01T11:30:00Z"}, "revision": {"vintage_id": "v2", "actual_release_at": "2026-02-02T11:30:00Z", "vintage_available_at": "2026-02-02T11:30:00Z"}},
+      "expect": "USE_V1_APPEND_V2_DO_NOT_OVERWRITE"
+    },
+    {
+      "fixture_id": "M00-F06-EMPTY_ENTRY_INTERSECTION",
+      "given": {"zones": [[100.0, 101.0], [101.1, 102.0]]},
+      "expect": "ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F07-LONG_STOP_EXPANSION",
+      "given": {"side": "LONG", "prior_stop": 98.0, "updated_stop": 97.0},
+      "expect": "STOP_DATA_INVALID_AND_ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F08-SHORT_STOP_EXPANSION",
+      "given": {"side": "SHORT", "prior_stop": 102.0, "updated_stop": 103.0},
+      "expect": "STOP_DATA_INVALID_AND_ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F09-HORIZON_EXTENSION",
+      "given": {"prior_horizon_end": "2026-01-01T12:00:00Z", "updated_horizon_end": "2026-01-01T12:15:00Z"},
+      "expect": "STOP_DATA_INVALID_AND_ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F10-SIMULTANEOUS_BARRIERS",
+      "given": {"ordered_event_stream": false, "stop_touched": true, "target_touched": true},
+      "expect": "STOP_FIRST"
+    },
+    {
+      "fixture_id": "M00-F11-VALID_CROSS_REGION_TRANSITION",
+      "given": {"DataQuality": "VALID", "normalized_velocity": 0.0, "directional_efficiency_at_or_above_threshold": true, "same_timeframe_hysteresis_complete": true},
+      "expect": "TFSTATE_STRUCTURAL_REGIME_TRANSITION"
+    },
+    {
+      "fixture_id": "M00-F12-PARENT_CONFLICT_DOES_NOT_REWRITE_TFSTATE",
+      "given": {"tfstate_structural_regime": "UP", "parent_child_relation": "UNKNOWN", "data_quality_rollup_reason": "CONFLICT"},
+      "expect": "TFSTATE_UP__DECISIONSTATE_ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F13-POST_FILL_OPERATIONAL_OVERRIDE_EXTERNAL",
+      "given": {"ActionOutcome": ["NO_FILL", "TP_FIRST", "SL_FIRST", "STRUCTURE_EXIT", "TIMEOUT"], "DataDisposition": "OPERATIONAL_OVERRIDE", "post_fill": true},
+      "expect": "REPORT_FAIL_CLOSED__DO_NOT_REWRITE_ACTION_OUTCOME"
+    },
+    {
+      "fixture_id": "M00-F14-CROSS_SOURCE_EQUAL_TIME_NONEXCHANGEABLE",
+      "given": {"equal_available_at": true, "same_source_and_stream": false, "requires_first_hit": true},
+      "expect": "UNRESOLVED_OR_STOP_FIRST"
+    },
+    {
+      "fixture_id": "M00-F15-STATE_PERMISSION_DENY_EMPTY_ZONE",
+      "given": {"StatePermissionGate": "DENY", "all_four_price_zones_intersect": true},
+      "expect": "EMPTY_ENTRYZONE__ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F16-EXACT_COHORT_ONE_FIELD_MISMATCH",
+      "given": {"cohort_key_mismatch_fields": ["volume_unit"]},
+      "expect": "NO_POOL__SEPARATE_STRATUM_OR_DATA_INVALID"
+    },
+    {
+      "fixture_id": "M00-F17-RSI_PERSISTENT_EXTREME_LATER_EVALUATE",
+      "given": {"episode_exists": true, "new_frozen_cross": false, "persistent_extreme": true, "later_eligible_closed_time": true, "same_bar": false},
+      "expect": "NO_DUPLICATE_OBSERVE__EVALUATE_REVERSAL_ALLOWED"
+    },
+    {
+      "fixture_id": "M00-F18-H12_EVENT_CANNOT_SATISFY_H10_PRICE",
+      "given": {"h10_price_endpoint_met": false, "h12_event_arrival_available": true},
+      "expect": "H10_NOT_SUPPORTED__H12_DIAGNOSTIC_ONLY"
+    },
+    {
+      "fixture_id": "M00-F19-FUTURE_SOURCE_TIMESTAMP",
+      "given": {"decision_time": "2026-01-01T11:00:00Z", "parent_1h": {"is_closed": true, "source_timestamp": "2026-01-01T11:00:01Z", "close_time": "2026-01-01T11:00:00Z", "available_at": "2026-01-01T11:00:00Z"}},
+      "expect": "PARENT_NOT_VISIBLE__DATA_INVALID__UNKNOWN_OR_ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F20-STRING_PSEUDO_BOOLEAN",
+      "given": {"decision_time": "2026-01-01T11:00:00Z", "parent_1h": {"is_closed": "true", "source_timestamp": "2026-01-01T10:00:00Z", "close_time": "2026-01-01T11:00:00Z", "available_at": "2026-01-01T11:00:00Z"}},
+      "expect": "PARENT_NOT_VISIBLE__DATA_INVALID__UNKNOWN_OR_ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F21-NUMERIC_PSEUDO_BOOLEAN",
+      "given": {"decision_time": "2026-01-01T11:00:00Z", "parent_1h": {"is_closed": 1, "source_timestamp": "2026-01-01T10:00:00Z", "close_time": "2026-01-01T11:00:00Z", "available_at": "2026-01-01T11:00:00Z"}},
+      "expect": "PARENT_NOT_VISIBLE__DATA_INVALID__UNKNOWN_OR_ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F22-MALFORMED_TIMESTAMP",
+      "given": {"decision_time": "2026-01-01T11:00:00Z", "parent_1h": {"is_closed": true, "source_timestamp": "malformed", "close_time": "2026-01-01T11:00:00Z", "available_at": "2026-01-01T11:00:00Z"}},
+      "expect": "PARENT_NOT_VISIBLE__DATA_INVALID__UNKNOWN_OR_ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F23-MISSING_TIMESTAMP",
+      "given": {"decision_time": "2026-01-01T11:00:00Z", "parent_1h": {"is_closed": true, "close_time": "2026-01-01T11:00:00Z", "available_at": "2026-01-01T11:00:00Z"}},
+      "expect": "PARENT_NOT_VISIBLE__DATA_INVALID__UNKNOWN_OR_ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F24-EVENT_FUTURE_SOURCE_TIMESTAMP",
+      "given": {"decision_time": "2026-01-03T00:01:00Z", "event": {"source_timestamp": "2026-01-03T00:01:01Z", "published_at": "2026-01-03T00:00:00Z", "available_at": "2026-01-03T00:01:00Z"}},
+      "expect": "EVENT_NOT_VISIBLE__DATA_INVALID__UNKNOWN_OR_ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F25-EVENT_FUTURE_REVISION_AVAILABLE",
+      "given": {"decision_time": "2026-01-03T00:01:00Z", "revision": {"source_timestamp": "2026-01-03T00:00:30Z", "published_at": "2026-01-03T00:00:30Z", "available_at": "2026-01-03T00:01:01Z", "revision_status": "REVISED"}},
+      "expect": "EVENT_REVISION_NOT_VISIBLE__APPEND_ONLY__UNKNOWN_OR_ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F26-EVENT_MALFORMED_TIMESTAMP",
+      "given": {"decision_time": "2026-01-03T00:01:00Z", "event": {"source_timestamp": "2026-01-03T00:00:00Z", "published_at": "malformed", "available_at": "2026-01-03T00:01:00Z"}},
+      "expect": "EVENT_NOT_VISIBLE__DATA_INVALID__UNKNOWN_OR_ABSTAIN"
+    },
+    {
+      "fixture_id": "M00-F27-EVENT_MISSING_TIMESTAMP",
+      "given": {"decision_time": "2026-01-03T00:01:00Z", "event": {"published_at": "2026-01-03T00:00:00Z", "available_at": "2026-01-03T00:01:00Z"}},
+      "expect": "EVENT_NOT_VISIBLE__DATA_INVALID__UNKNOWN_OR_ABSTAIN"
+    }
+  ]
+}

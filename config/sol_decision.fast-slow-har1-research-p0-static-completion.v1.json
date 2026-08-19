@@ -1,0 +1,114 @@
+{
+  "schema_version": "sol-fast-slow-har1-research-p0-static-completion.v1",
+  "decision_id": "SOL_FAST_SLOW_HAR1_RESEARCH_P0_STATIC_COMPLETION.v1",
+  "decision_state": "ACCEPT_WITH_BOUNDED_DEVIATIONS",
+  "stage_status": "COMPLETE",
+  "route_state": "CLOSED",
+  "scope": "STATIC_P0_EXACT_SIX_AND_OFFLINE_TESTS_ONLY",
+  "issued_by": "GPT-5.6-SOL_ULTRA_STAGE_GATE",
+  "issued_at": "2026-07-29T08:33:26Z",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "route_binding": {
+    "path": "config/sol_decision.fast-slow-har1-research-p0-static-route.v1.json",
+    "physical_sha256": "dc34ae5949bb43bac90a867667a4bd911e92923a288ee938a508eab22c99eed8",
+    "canonical_sha256": "979ffbda9ff1493a91a8a91d62955413491cca3897cbed576433e94c195f2be7"
+  },
+  "accepted_artifacts": [
+    {
+      "path": "config/fast_slow_har1_research_contract.v1.json",
+      "physical_sha256": "64ea33337b7205d81b87e608c8246ec6da24e5c5926a61dc45213053f74fca17",
+      "canonical_sha256": "3b1f6f468f31d5803971d4b07b156c2171c85f5965d2c45021e01a25e9cfa8d7"
+    },
+    {
+      "path": "config/har1_btcusdt_dataset_plan.v1.json",
+      "physical_sha256": "e5b41825273e32fc67fa739cba6d56370869ecab52339affe14ee773ae281bd0",
+      "canonical_sha256": "39853c9f92171bbcd851184842654829e1a1a1aa6522ccfa1d6ee8a3d91377e2"
+    },
+    {
+      "path": "trade_system/bar_resampler.py",
+      "physical_sha256": "d958a88caf89f8b0a605892e54ae46dbaeb2b27f75ee112ce79573bf35e627df"
+    },
+    {
+      "path": "trade_system/slow_context.py",
+      "physical_sha256": "3f963b86905e981590e09da728c6b7e90b36b83977a6a6225289644d7f4f951d"
+    },
+    {
+      "path": "tests/test_bar_resampler.py",
+      "physical_sha256": "c5833c625aaccee49b1c7551c0ca8a7ccc3da6433f025fb6d9948da49c3a2b6a"
+    },
+    {
+      "path": "tests/test_slow_context.py",
+      "physical_sha256": "41b4bcaffb71e5e9d620a73114e6b396d0d53516cb19926a65d58b90ff6e4a7d"
+    }
+  ],
+  "verification": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest tests.test_bar_resampler tests.test_slow_context -v",
+    "main_agent_result": "13_OF_13_PASS",
+    "independent_terra_result": "13_OF_13_PASS",
+    "adversarial_checks": [
+      "NONCANONICAL_OFFSET_TIME_REJECTED",
+      "EVIDENCE_AFTER_GENERATION_REJECTED",
+      "SCHEMA_DRIFT_REJECTED",
+      "DELAYED_AVAILABLE_AT_NOT_BACKDATED",
+      "OFF_AND_SHADOW_HOT_PATH_EFFECT_ZERO"
+    ],
+    "network_llm_order_runtime_writer_static_violations": 0
+  },
+  "bounded_deviations": [
+    {
+      "deviation_id": "DEV-DIRTY-WORKTREE-BASELINE",
+      "classification": "ATTRIBUTION_LIMITATION",
+      "facts": "The worktree was already dirty. The exact six implementation paths were recorded absent before Terra work and later appeared, but no clean full-worktree snapshot exists.",
+      "effect": "No claim that the complete worktree is clean or globally unmodified is permitted."
+    },
+    {
+      "deviation_id": "DEV-JAN-RG-READ-SCOPE",
+      "classification": "BOUNDED_PROCEDURAL_DEVIATION",
+      "facts": "A root-agent broad read-only rg command printed a small number of legacy January diagnostic configuration lines. It did not read market rows, outcome reports or historical results and those lines were not used in implementation, parameter selection or validation.",
+      "effect": "The read prohibition was violated, but the static six-file result is not treated as outcome-contaminated. Future routes must use explicit read allowlists and a January denylist."
+    }
+  ],
+  "maximum_claim": "The exact six static artifacts and their offline behavior are complete for this route and satisfy the tested fail-closed, point-in-time and zero-hot-path-effect constraints. This does not establish real data validity, source permission, runtime integration, predictive validity, economic value, production readiness or repository-wide cleanliness.",
+  "permission_matrix": {
+    "static_stage_complete": true,
+    "automatic_expansion": false,
+    "network": false,
+    "data_download": false,
+    "historical_result_read": false,
+    "backtest_or_training": false,
+    "holdout_open": false,
+    "paper_or_live_execution": false,
+    "active_g1_access": false
+  },
+  "next_route_prerequisites": [
+    "FREEZE_BRANCH_HEAD_AND_CLEAN_WORKTREE_OR_COMPLETE_DIRTY_MANIFEST",
+    "FREEZE_EXPLICIT_READ_AND_WRITE_ALLOWLISTS_AND_JAN_DENYLIST",
+    "FREEZE_SOURCE_TERMS_OBJECT_URLS_CHECKSUMS_RESOURCE_CAPS_AND_POINT_IN_TIME_SEMANTICS",
+    "FREEZE_MAXIMUM_LOOKBACK_MAXIMUM_HOLDING_PURGE_AND_FEATURE_HISTORY_CROSS_ROLE_POLICY",
+    "USE_A_NEW_SOL_ROUTE_FOR_ANY_SOURCE_EVIDENCE_DOWNLOADER_DATA_OR_REPLAY_ACTION"
+  ],
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-fast-slow-har1-research-p0-static-completion/v1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "a4d2a861d570c4506353685fb8013342aac13515bebb31a60f6099bd7c932acf"
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "har1r5-license-contract.v1",
+  "route_id": "SOL_HAR1R5_RAW_LICENSE_CANDIDATE.v1",
+  "route_physical_sha256": "139131d3f0d06361f1acb6242d197ae07427afc1422bf88f446978ec1f28f00c",
+  "route_canonical_sha256": "9b82cc08e31bdfa36c3d921405473c82deb37d1bc1cf0adfb42a53635f37740e",
+  "request_plan_physical_sha256": "768a70935d288d2242bcf1f43c5bba8f925f442aa570caea141a90cfad8ba67c",
+  "request_plan_canonical_sha256": "ab1a7fd2d75448ee91d265e87f3a885838f8460ad92f202115393a3f21a31747",
+  "predecessor_replay": "R3_R4_FINAL_PHYSICAL_AND_CANONICAL_REPLAY_AND_EMPTY_DATA_PLAN_REQUIRED",
+  "activation_contract": {"permission": "ONE_GET_LICENSE_RAW_CANDIDATE", "maximum_ttl_seconds": 900, "opaque_single_process_single_use": true, "activation_is_sol_only": true},
+  "acceptance": {"status_code": 200, "final_url_exact": true, "content_type_prefix": "text/plain", "body_nonempty": true, "utf8_no_bom": true, "nul_denied": true, "all_required_for_transport_pass": true},
+  "candidate_dimensions": ["identity", "copyright", "grant", "conditions", "warranty", "liability"],
+  "candidate_complete_state": "SEALED_LICENSE_CANDIDATE_PENDING_HUMAN_SOL_REVIEW",
+  "candidate_incomplete_state": "SEALED_NOT_LICENSE_WAIT_DATA",
+  "legal_conclusion": false,
+  "archive_scope_automatic_judgment": false,
+  "output_creation": {"create_once": true, "nofollow": true, "mode_octal": "0600", "fsync": true, "close_before_persist": true},
+  "canonical_self_digest": {"algorithm": "SHA-256_CANONICAL_JSON", "digest_field": "license_contract_sha256", "domain_prefix_utf8": "msta-hed/har1r5-license-contract/v1"},
+  "license_contract_sha256": "f0f445c6db6fadfe98733a36e503ca05f0e7346945cacdc8537e46b14f354d45"
+}

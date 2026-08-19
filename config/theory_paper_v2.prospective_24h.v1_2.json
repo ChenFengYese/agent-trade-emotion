@@ -1,0 +1,240 @@
+{
+  "schema_id": "theory_paper_v2_prospective_24h_template",
+  "schema_version": "1.2.0",
+  "contract_id": "SINGLE_STRATEGY_AGENT_PROSPECTIVE_24H_20260803_V1_2",
+  "evidence_class": "PROSPECTIVE_24H_PUBLIC_PAPER",
+  "purpose": "Test whether Core v2.1 and one stateful Strategy Agent can analyze emotion, maintain competing paths, and actively manage continuous positions over a new 24-hour market window without repeating V1's static-exit and absorbing-flat failures.",
+  "system_mode": "LOCAL_PAPER_RESEARCH_NON_EXECUTABLE",
+  "external_execution_authority": "NONE_LOCAL_SIMULATION",
+  "executable": false,
+  "supersedes": {
+    "template_path": "config/theory_paper_v2.prospective_24h.v1_1.json",
+    "template_physical_sha256": "64d440be78ca194565db09c99f7e1535cf4b3dbee03485afacb5429b526466c7",
+    "template_canonical_sha256": "d10bcde934eded0361f6feefda42a036adb6c22150625819543bcca1054bad75",
+    "failed_run_id": "single-agent-prospective-24h-20260803t065717z",
+    "failure_receipt_digest": "6f44821b06db972ac7e26e0c68502964693468dd7db0bbc2709a8ab5dfb014a2",
+    "user_resume_authorized": true,
+    "sole_change_class": "PUBLIC_DATA_VISIBILITY_AND_FAILURE_DURABILITY"
+  },
+  "symbols": {
+    "SNDKUSDT": "SNDK-USDT-SWAP",
+    "MUUSDT": "MU-USDT-SWAP",
+    "BTCUSDT": "BTC-USDT-SWAP",
+    "ETHUSDT": "ETH-USDT-SWAP",
+    "SOLUSDT": "SOL-USDT-SWAP",
+    "HYPEUSDT": "HYPE-USDT-SWAP"
+  },
+  "schedule_policy": {
+    "duration_hours": 24,
+    "decision_interval_minutes": 60,
+    "decision_cycles": 24,
+    "terminal_observation_cycle": 25,
+    "review_interval_hours": 4,
+    "review_cycles": [4, 8, 12, 16, 20, 24],
+    "maximum_cycle_lateness_minutes": 90,
+    "no_backfill": true
+  },
+  "data_policy": {
+    "venue": "OKX_OFFICIAL_PUBLIC",
+    "credential_used": false,
+    "account_or_order_endpoint_used": false,
+    "closed_bar_rule": "ONLY_OKX_CONFIRM_EQUALS_1_RESPONSES_RECEIVED_BEFORE_DECISION_AT_OR_COMPLETE_FIXED_UTC_AGGREGATION_FROM_SUCH_LOWER_BARS",
+    "hard_required": [
+      "live instrument metadata",
+      "positive current mark",
+      "closed 15m execution prefix"
+    ],
+    "preferred_timeframes": ["1h", "4h", "1d", "1w"],
+    "timeframe_recovery": "HISTORY_CANDLES_THEN_CURRENT_CANDLES_THEN_COMPLETE_FIXED_UTC_LOWER_BAR_AGGREGATION_ELSE_UNKNOWN",
+    "hourly_core": [
+      "instrument",
+      "mark",
+      "15m/1h/4h/1d/1w closed candles or explicit lineage-bounded UNKNOWN",
+      "ticker",
+      "index and basis",
+      "open interest and 1h history",
+      "current and realized funding history",
+      "20x20 order book snapshot",
+      "100 recent trades"
+    ],
+    "four_hour_and_terminal_supplement": [
+      "long-short account ratio",
+      "taker volume history",
+      "recent liquidation groups"
+    ],
+    "news": "GOOGLE_NEWS_RSS_DISCOVERY_METADATA_ONLY",
+    "opennews": "NOT_USED_REQUIRES_BEARER_TOKEN_OUTSIDE_NO_CREDENTIAL_BOUNDARY",
+    "missing_rule": "UNKNOWN_NOT_ZERO_CONFIDENCE_REDUCED_AND_REVIEW_OBLIGATION_NOT_AUTOMATIC_GLOBAL_WAIT",
+    "strict_orderbook_resilience": "UNKNOWN_HOURLY_SNAPSHOT_ONLY",
+    "liquidation_history_completeness": "UNKNOWN_RECENT_ROWS_ONLY",
+    "request_attempt_receipt": "WRITE_ONCE_PER_OBSERVATION_BEFORE_NORMALIZATION_WITH_ROUTE_ERROR_TIME_AND_DIGEST",
+    "request_retry": "INSTRUMENT_AND_MARK_UP_TO_FOUR_ATTEMPTS;15M_ALTERNATES_TWO_OFFICIAL_ROUTES_TWICE;HIGHER_CANDLES_ATTEMPT_EACH_OFFICIAL_ROUTE_ONCE;OTHER_OPTIONAL_OBSERVATIONS_ONCE",
+    "concurrency": "THREE_SYMBOL_WORKERS_WITH_SEQUENTIAL_REQUESTS_PER_SYMBOL",
+    "candle_limit": 300,
+    "transport": "CURL_HTTP_1_1_RESTRICTED_TO_OKX_PUBLIC_HOST_AND_ALLOWLISTED_PATHS"
+  },
+  "strategy_playbook": {
+    "path": "config/single_strategy_agent_research_playbook.v2.md",
+    "physical_sha256": "624bbdb89a4d87ff2498d52f8af34c83888645a134e22861ee53317f6fb3308c"
+  },
+  "initial_equity_usdt": "10000",
+  "initial_cost_basis_rule": "GENESIS_OKX_MARK_MULTIPLIED_BY_1.02",
+  "initial_market_notional_usdt": {
+    "SNDKUSDT": "500",
+    "ETHUSDT": "1000",
+    "SOLUSDT": "800",
+    "BTCUSDT": "1000",
+    "HYPEUSDT": "800"
+  },
+  "initial_position_boundary": {
+    "mu_initial_position": "NONE_AS_IN_V1",
+    "legacy_absolute_quantities": "NOT_CARRIED_FORWARD",
+    "quantity_rule": "V1_MARKET_NOTIONAL_DIVIDED_BY_GENESIS_MARK",
+    "legacy_orders": "NONE_STALE_V1_GEOMETRY_NOT_CARRIED_FORWARD",
+    "entry_fee": "NONE_EXISTING_EXOGENOUS_POSITION"
+  },
+  "source_config": {
+    "risk_policy": {
+      "daily_realized_loss_fraction": "0.02",
+      "default_maker_fee_rate": "0.0002",
+      "default_market_slippage_bps": "2",
+      "default_stop_slippage_bps": "3",
+      "default_taker_fee_rate": "0.0005",
+      "drawdown_no_new_risk_fraction": "0.05",
+      "exploration_probe_risk_fraction": "0.0015",
+      "gross_notional_equity_multiple": "1.5",
+      "minimum_reward_risk": "1.5",
+      "new_positions_require_stop_and_target": true,
+      "per_instrument_open_pending_risk_fraction": "0.01",
+      "portfolio_open_pending_risk_fraction": "0.03",
+      "position_lock_stop_monotonic": true,
+      "same_bar_stop_target_policy": "STOP_FIRST_AND_MARK_AMBIGUOUS",
+      "standard_thesis_risk_fraction": "0.005",
+      "unprotected_position_policy": "PROTECT_REDUCE_OR_EXIT_ON_FIRST_VALID_CYCLE"
+    }
+  },
+  "cost_policy": {
+    "market_fee_rate": "0.0005",
+    "maker_fee_rate": "0.0002",
+    "market_slippage_bps": "2",
+    "stop_slippage_bps": "3",
+    "funding": "APPLY_OKX_REALIZED_RATE_TO_OPEN_POSITION_AT_SETTLEMENT_USING_LATEST_CLOSED_15M_PRE_SETTLEMENT_MARK_PROXY",
+    "missing_funding": "UNKNOWN_NOT_ZERO"
+  },
+  "comparator_policies": {
+    "static_v1": {
+      "initial_positions": "SAME_FIVE_EXOGENOUS_LOTS_AND_102_PERCENT_COST_BASIS",
+      "initial_stop": "GENESIS_MARK_MINUS_2_TIMES_GENESIS_1H_ATR14",
+      "full_target": "GENESIS_MARK_PLUS_2R_WHERE_R_IS_GENESIS_MARK_MINUS_INITIAL_STOP",
+      "same_bar": "STOP_FIRST",
+      "after_full_exit": "WAIT_WITHOUT_REENTRY",
+      "mu": "NO_POSITION",
+      "missing_1h_atr": "SYMBOL_NOT_EVALUABLE_NO_GEOMETRY_FABRICATION"
+    },
+    "deterministic_continuous": {
+      "initial_positions_and_stop": "SAME_AS_STATIC_V1",
+      "partial_at_1r": "25_PERCENT_OF_ORIGINAL_QUANTITY",
+      "partial_at_2r": "25_PERCENT_OF_ORIGINAL_QUANTITY",
+      "residual": "TRAIL_AT_HIGHEST_VISIBLE_CLOSED_1H_HIGH_MINUS_2_TIMES_CURRENT_1H_ATR14",
+      "reentry_condition": "PREVIOUS_1H_CLOSE_LTE_PREVIOUS_VWAP24_AND_CURRENT_1H_CLOSE_GT_CURRENT_VWAP24_AND_CURRENT_4H_CHANGE_POSITIVE",
+      "reentry_size": "MINIMUM_OF_50_PERCENT_BASE_NOTIONAL_AND_50_USDT_STOP_RISK",
+      "maximum_reentries_per_symbol": 1,
+      "mu_probe_notional_usdt": "500",
+      "same_bar": "STOP_FIRST",
+      "missing_required_measure": "NO_NEW_COMPARATOR_ACTION_UNTIL_OBSERVABLE"
+    },
+    "single_strategy_agent": {
+      "policy": "ONE_AGENT_UPDATES_PRIOR_ACCEPTED_STATE_AND_SELECTS_WITHIN_THE_HARD_FEASIBLE_SET",
+      "required_paths": [
+        "TREND_CONTINUATION",
+        "NORMAL_PULLBACK",
+        "EXHAUSTION_OR_FAILURE",
+        "RANGE_REFORMATION"
+      ],
+      "probability_rule": "NONNEGATIVE_PATH_PROBABILITIES_TOTAL_100_PER_SYMBOL_WITH_CONFIDENCE_AND_UNCALIBRATED_BOUNDARY",
+      "actions": ["HOLD", "OPEN", "ADD", "REDUCE", "PARTIAL_TAKE_PROFIT", "EXIT", "REENTER", "WAIT"],
+      "activity_boundary": "NO_FORCED_TRADE_BUT_WAIT_HAS_OPPORTUNITY_COST_AND_OBLIGATION"
+    }
+  },
+  "evaluation_policy": {
+    "raw_before_audit": true,
+    "metrics": [
+      "realized and unrealized pnl",
+      "fees and funding",
+      "strategy and exogenous attribution",
+      "per-symbol pnl",
+      "maximum drawdown and tail",
+      "1h/4h/8h/24h outcomes",
+      "longest flat duration",
+      "reentry delay",
+      "add utilization",
+      "path capture",
+      "initial static hold return",
+      "opportunity difference",
+      "action fidelity"
+    ],
+    "claims": "ONE_24H_WINDOW_CAN_SUPPORT_FAIL_OR_REMAIN_UNCERTAIN_BUT_CANNOT_ESTABLISH_STABLE_PROFITABILITY_OR_PRODUCTION_READINESS"
+  },
+  "stop_conditions": {
+    "fatal": [
+      "live instrument, positive mark, or closed 15m remains unavailable after its bounded recovery",
+      "available_at exceeds decision_at",
+      "state head or lot/episode truth conflict",
+      "cycle lateness exceeds 90 minutes",
+      "protection or hard risk failure",
+      "write-once or digest conflict"
+    ],
+    "nonfatal_unknown": [
+      "1h/4h/1d/1w direct and deterministic aggregate unavailable",
+      "optional market statistic unavailable",
+      "no relevant public headline",
+      "recent liquidation rows empty or incomplete",
+      "strict orderbook replenishment resilience unavailable"
+    ],
+    "transport_correction_boundary": "BEFORE_CYCLE_1_ACCEPTED_ONLY_NEW_FRESH_RUN_AFTER_ACCEPTANCE_NO_POLICY_CHANGE",
+    "no_midrun_market_policy_change": true
+  },
+  "reporting_policy": {
+    "every_cycle": "FULL_CHINESE_DATA_ANALYSIS_THEORY_INFERENCE_PATH_PROBABILITY_ACTION_POSITION_AND_FILL_REPORT",
+    "four_hour_review": "CYCLES_4_8_12_16_20_24",
+    "terminal": "RAW_THREE_POLICY_RESULT_THEN_SEPARATE_AUDIT",
+    "logs_are_not_market_evidence": true
+  },
+  "implementation_bindings": [
+    {
+      "path": "trade_system/theory_paper_v2/application/prospective_single_agent.py",
+      "physical_sha256": "8179f02b3bfee251b376351c506058c1a3a23b18c1e28e206303f830ff9096c5"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/application/single_agent_research.py",
+      "physical_sha256": "8feb1438ffe352218896cb2a20f99fa31977e58fb902fd1c4344ecccf12b2f5b"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/infrastructure/fresh_market/okx_public.py",
+      "physical_sha256": "ccd3090c0d3484b4c19e8d472298e35ac8e48ecc6de1cb564c57e4cb23a3cb07"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/presentation/single_agent_research_cli.py",
+      "physical_sha256": "0eb438a1930e78e72b21d8d35ca1982a2899dca1e9a9b829a8280b4da41f5eed"
+    },
+    {
+      "path": "tests/test_theory_paper_v2_prospective_single_agent.py",
+      "physical_sha256": "f7717b0a07f45e7b1babac08fb31a319f68c7811130183b8d78d000fc0bce190"
+    },
+    {
+      "path": "tests/test_theory_paper_v2_single_agent_research.py",
+      "physical_sha256": "df942556b4cf420e6278529a2b2d4c266483b52a4590ae2a0d8df8834608ba0e"
+    }
+  ],
+  "pre_freeze_attestation": {
+    "prospective_candidate_cycles_before_template_freeze": 0,
+    "failed_pre_manifest_capture_attempts_before_successor": 2,
+    "data_recovery_pretests_before_successor": 1,
+    "pretest_acquisition_digest": "55e6a45d4b00dbce63c1a764ae54f1e5422133a633b4129c1d817c8d28485e6c",
+    "pretest_used_as_formal_input": false,
+    "market_decisions_before_successor_freeze": 0,
+    "future_market_outcomes_read": false,
+    "risk_cost_or_evaluation_tuned_to_future_outcomes": false,
+    "account_credential_order_or_fund_authority": false
+  }
+}

@@ -1,0 +1,508 @@
+{
+  "schema_version": "sol-research-system-pit-authority-replay-sd0-client-p0-r3-repair-decision.v1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R3_REPAIR.v1",
+  "issued_at": "2026-07-28T09:43:56Z",
+  "issued_by": "GPT-5.6-SOL_ULTRA_P0_R3_INDEPENDENT_GATE",
+  "decision_state": "CONTINUE_SD0_SUSPENSION_AUTHORIZE_TWO_FILE_R3_REPAIR",
+  "decision_class": "P0_R3_RESPONSE_ACCOUNTING_ROOT_BINDING_AND_GATE_ENFORCEMENT_REPAIR",
+  "evidence_level": "LOCAL_SOURCE_AUDIT_OFFLINE_TEST_AND_OFFLINE_COUNTEREXAMPLE_EVIDENCE_ONLY",
+  "issue": {
+    "issue_id": "PITAR1-SD0-CLIENT-P0-R3",
+    "stage": "SD0",
+    "severity": "P0",
+    "trigger": "R2_SCOPED_TESTS_PASS_BUT_INDEPENDENT_ROOT_AND_TERRA_R3_PRECHECK_SAFE_NO",
+    "workspace_only": true,
+    "network_requests": 0,
+    "workspace_preflight_outputs": 0,
+    "workspace_runtime_outputs": 0,
+    "active_g1_access": 0,
+    "market_data_access": 0,
+    "holdout_at_risk": false,
+    "funds_at_risk": false,
+    "repair_owner": "GPT-5.6-TERRA_HIGH",
+    "completion_gate_owner": "GPT-5.6-SOL_ULTRA"
+  },
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "audited_at": "2026-07-28T09:43:56Z"
+  },
+  "authority_bindings": {
+    "r2_blocker_and_repair_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r2-repair.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R2_REPAIR.v1",
+      "decision_state": "SUSPEND_SD0_NETWORK_AUTHORIZE_TWO_FILE_P0_REPAIR",
+      "size_bytes": 25214,
+      "physical_sha256": "0525ba67fe0acbc56bab7943c016f922b75dc4e541771b57ad1fca0b8c8765fb",
+      "canonical_sha256": "7ad74bdf5c162b54128cb55a2281bc50b16103083cebd522b6a083159d95d15d",
+      "binding_result": "MATCH",
+      "effect": "Its network, workspace preflight/runtime, active G1, data, backtest, paper, deployment, and funds suspension remains in force."
+    },
+    "phased_route": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-d0-phased-route.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_D0_PHASED_ROUTE.v1",
+      "decision_state": "AUTHORIZED_METERED_SD0_CLOSURE_ROUTE_NETWORK_WAIT_D0_AND_LATER_GATES_LOCKED",
+      "size_bytes": 39834,
+      "physical_sha256": "776a7b69c2655dd76eb84ccab12b3fbac30aef6a81b0f6ebad27ab391b129ec0",
+      "canonical_sha256": "a777dc9411f638f1d3728f7f98f4ccbb64673f06b8f344dd3489efcdc5b79eeb",
+      "binding_result": "MATCH"
+    },
+    "measurement_contract": {
+      "path": "config/pit_authority_replay.sd0_measurement_contract.v1.json",
+      "contract_id": "PITAR1_SD0_MEASUREMENT_CONTRACT.v1",
+      "size_bytes": 17452,
+      "physical_sha256": "e2cd42a3930e0ede4d5d003742c2abdc76faa755ae86d20074c9d1f60f79e681",
+      "canonical_sha256": "4ed9f22451ede5c834c20e4f1786d344847166b646f9a1b17d2948e16c617a5b",
+      "binding_result": "MATCH_CANONICAL_SELF_DIGEST"
+    },
+    "request_plan": {
+      "path": "config/pit_authority_replay.sd0_request_plan.v1.json",
+      "plan_id": "PITAR1_SD0_EXACT_REQUEST_PLAN.v1",
+      "size_bytes": 4942,
+      "physical_sha256": "3f2f487f824643d870bb9d023e6d883e4c7d28bc9fb0bc769cb5d21253a7079c",
+      "canonical_sha256": "a334816cca1cbdf676e1b935a3404f5803d4ee892c25d2e1d7d34d3a02ea6fe7",
+      "binding_result": "MATCH_CANONICAL_SELF_DIGEST"
+    },
+    "r2_client_candidate": {
+      "path": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 31356,
+      "physical_sha256": "dc49f5e519fe993bcee0cfbdb1c695920bbe3b969ff04035ce15e4e28268edd1",
+      "candidate_disposition": "REJECT_PRECHECK_SAFE_REPAIR_ALLOWED"
+    },
+    "r2_test_candidate": {
+      "path": "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 24538,
+      "physical_sha256": "c86a8ee3a8f7ed5deed88fc1d65c3723f39c08528812cef8bee42425a0312f33",
+      "candidate_disposition": "PASS_CURRENT_CASES_INCOMPLETE_ADVERSARIAL_COVERAGE_REPAIR_ALLOWED"
+    }
+  },
+  "verified_test_facts": {
+    "scoped_command": "python3 -m unittest -v tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+    "scoped_result": {
+      "tests_run": 17,
+      "passed": 17,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "combined_command": "python3 -m unittest -v tests.test_pit_authority_replay_contract_v1 tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+    "combined_result": {
+      "tests_run": 86,
+      "passed": 86,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "interpretation": "The R2 implementation closes the R2 regression set. These counts are not SD0 runtime acceptance because the R3 counterexamples are absent from the checked-in tests."
+  },
+  "offline_counterevidence": {
+    "cross_root_replay": {
+      "network": false,
+      "method": "A same-process issued READY and frozen contract/plan/preflight were supplied to a second temporary SafeRoot and executed with a mock opener.",
+      "opener_calls": 7,
+      "runtime_outputs_created": 8,
+      "result": "CONFIRMED_READY_NOT_BOUND_TO_ISSUING_ROOT_GIT_AUTHORITY_OR_STATIC_SNAPSHOT"
+    },
+    "received_http_response_lost": {
+      "network": false,
+      "method": "A fake HTTPConnection returned status 503 and Content-Type/X-Proof headers without Content-Length.",
+      "opener_disposition": "WAIT_DATA_SOURCE_CONTRACT_MISMATCH",
+      "request_ledger_status": null,
+      "response_header_records": 0,
+      "recorded_headers_hash": "SHA256_EMPTY",
+      "result": "CONFIRMED_RESPONSE_RECEIVED_BUT_ACCOUNTED_AS_NO_RESPONSE"
+    },
+    "initial_local_cap": {
+      "network": false,
+      "method": "A frozen test plan with maximum_total_local_artifact_bytes=1 was executed while the persisted preflight exceeded the cap.",
+      "disposition": "HALT_RESOURCE_CAP",
+      "opener_calls": 0,
+      "runtime_outputs_created": 0,
+      "result": "IMPLEMENTATION_CURRENTLY_FAILS_BEFORE_RUNTIME_OR_OPENER_BUT_FORMAL_TEST_OMITS_THE_ZERO_CALL_ZERO_FILE_ASSERTIONS"
+    },
+    "workspace_effect": {
+      "workspace_preflight_created": false,
+      "workspace_runtime_created": false,
+      "network_requests": 0,
+      "active_g1_access": 0
+    }
+  },
+  "finding_decisions": [
+    {
+      "finding_id": "R3-P0-1",
+      "reported_finding": "StdlibProxyOpener raises after receiving HTTP response metadata and execute catches only SD0Error; real transport exceptions can bypass authentic accounting and closure.",
+      "decision": "CONFIRMED_P0",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:266-279,312-344",
+      "facts": [
+        "Content-Length absence or declared cap breach raises inside StdlibProxyOpener after status and headers have been received but before HttpResponse is returned.",
+        "execute then creates a synthetic status=null request record and no header record.",
+        "socket, TLS, http.client.HTTPException, and IncompleteRead are not uniformly converted into a declared terminal state and sealed evidence.",
+        "A valid response-first accounting chain therefore does not exist for all actual transport outcomes."
+      ],
+      "repairability": "CLIENT_AND_TEST_ONLY"
+    },
+    {
+      "finding_id": "R3-P0-2",
+      "reported_finding": "persist_ready and execute do not bind READY to the issuing root, git identity, authority hashes, and static artifacts.",
+      "decision": "CONFIRMED_P0",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:223-260,312-322",
+      "facts": [
+        "The READY canonical bytes are immutable, but _READY maps only digest to snapshot bytes.",
+        "persist_ready does not load or compare current root/git/authority/static state.",
+        "execute reloads contract/plan but does not compare the current root, git, authority_binding_results, or static_path_results to the issued preflight.",
+        "The offline second-root replay produced seven mock opener calls and eight runtime outputs."
+      ],
+      "repairability": "CLIENT_AND_TEST_ONLY"
+    },
+    {
+      "finding_id": "R3-P0-3",
+      "reported_finding": "An initial preflight already exceeding the local cap may not be rejected before runtime files or opener use.",
+      "decision": "IMPLEMENTATION_CURRENTLY_SAFE_TEST_EVIDENCE_INCOMPLETE",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:187-195,320-322; tests/test_pit_authority_replay_sd0_metered_fetch_v1.py:427-438",
+      "facts": [
+        "Budget is initialized with len(persisted), and its first reserve(0) rejects when initial used exceeds cap.",
+        "The first reserve occurs before SafeRoot.create and before opener construction, so the reproduced result is zero opener calls and zero runtime outputs.",
+        "The current formal test asserts only HALT_RESOURCE_CAP and omits zero-call and zero-output assertions.",
+        "An explicit constructor or pre-execution initial-cap check is still required to make the safety property direct rather than dependent on a later zero-byte reservation."
+      ],
+      "repairability": "CLIENT_CLARIFICATION_AND_TEST_ONLY",
+      "not_a_confirmed_runtime_bypass": true
+    },
+    {
+      "finding_id": "R3-P0-4",
+      "reported_finding": "stdlib HEAD read(0) cannot observe a nonconforming server-sent body.",
+      "decision": "CONFIRMED_OBSERVABILITY_LIMIT_WITH_ACCEPTABLE_APPLICATION_LAYER_FAIL_CLOSED_BOUNDARY",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:266-279",
+      "facts": [
+        "http.client applies HEAD semantics and read(0) cannot prove that a nonconforming server transmitted zero bytes after the headers.",
+        "Reliable wire-body detection would require reading raw post-header bytes, a byte-counting proxy, packet evidence, or a custom transport and would change the route's measurement scope.",
+        "The frozen contract records application response_body_bytes and requires no ZIP body persisted; it does not define TCP/TLS wire-byte accounting.",
+        "The frozen route's strongest unambiguous condition is that no market-row or ZIP body is requested or persisted."
+      ],
+      "current_safe_boundary": [
+        "StdlibProxyOpener must not call response.read at all for HEAD, including read(0).",
+        "It returns application body bytes as empty and immediately closes the response/connection after header capture.",
+        "Any nonempty body exposed by an injected/custom opener is observed, accounted, and classified HALT_NO_ROW_LEAK_VIOLATION.",
+        "response_body_bytes=0 means zero bytes returned to the application, not proof of zero server-emitted wire bytes.",
+        "No SD0 report may claim TCP/TLS body-byte completeness or that the server transmitted zero body bytes."
+      ],
+      "contract_or_plan_change_required_now": false,
+      "reason_no_change_required": "This is a narrowing of the claim to the existing application-layer fields and the existing no-request/no-persistence boundary, not a relaxation of the zero-byte artifact rule.",
+      "future_new_route_trigger": "If wire-level proof or total transferred-byte accounting becomes mandatory, stop this route and create a new transport/contract route using an independently metered proxy, packet evidence, or reviewed raw HTTP parser. Do not add such complexity to the current P0."
+    },
+    {
+      "finding_id": "R3-P0-5",
+      "reported_finding": "The CLI does not enforce the current SUSPENDED Sol gate, so passing tests may reactivate the old route.",
+      "decision": "CONFIRMED_P0",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:364-374",
+      "facts": [
+        "main calls preflight, persists READY, and may execute based only on test evidence, route conditions, and --execute.",
+        "The client contains no binding to the R2 SUSPEND decision.",
+        "A passing local test artifact is not Sol authority and cannot resume the route."
+      ],
+      "repairability": "THIS_R3_DECISION_IS_THE_NEW_EXTERNAL_GATE_AUTHORITY; CLIENT_AND_TEST_BINDING_ONLY"
+    }
+  ],
+  "route_contract_plan_decision": {
+    "structural_route": "REMAINS_VALID",
+    "measurement_contract": "REMAINS_VALID_AND_FROZEN",
+    "request_plan": "REMAINS_VALID_AND_FROZEN",
+    "new_route_required_now": false,
+    "contract_change_required_now": false,
+    "plan_change_required_now": false,
+    "reason": "Response-first accounting, root-context binding, explicit cap proof, application-layer HEAD handling, and suspension enforcement can all be implemented internally without changing the seven requests, output schemas, failure enum, resource values, or write allowlist.",
+    "claim_interpretation_override": "Any earlier wording that could be read as wire-level proof is narrowed by this decision: SD0 may prove only that HEAD requested no body, the application accepted/read/persisted no HEAD body, and custom-opener body exposure fails closed. It may not prove that a server emitted zero TCP/TLS body bytes.",
+    "network_permission": "SUSPENDED",
+    "workspace_preflight_permission": "SUSPENDED",
+    "workspace_runtime_permission": "SUSPENDED",
+    "automatic_resume": false,
+    "completion_gate_required": true
+  },
+  "minimal_repair_authorization": {
+    "authorized": true,
+    "implementation_agent": "GPT-5.6-TERRA_HIGH",
+    "exact_mutable_file_allowlist": [
+      "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py"
+    ],
+    "maximum_mutable_files": 2,
+    "new_production_files": 0,
+    "new_test_files": 0,
+    "modify_r2_decision": false,
+    "modify_this_r3_decision": false,
+    "modify_route": false,
+    "modify_contract": false,
+    "modify_plan": false,
+    "modify_specification": false,
+    "install_dependencies": false,
+    "run_offline_tests": true,
+    "network": false,
+    "workspace_preflight_or_runtime": false,
+    "active_g1": false,
+    "data_backtest_paper_live_funds": false,
+    "scope_stop_rule": "If any repair requires a new output field, failure state, URL, method, request header contract, wire-byte claim, helper production file, or dynamic unpinned gate file, stop and return to Sol. No such change is presently necessary."
+  },
+  "mandatory_repair_invariants": [
+    {
+      "invariant_id": "R3-I01",
+      "name": "RESPONSE_FIRST_TRANSPORT_ACCOUNTING",
+      "requirements": [
+        "After HTTP status and headers are received, StdlibProxyOpener must return or raise a structured internal result carrying the actual status, safely representable headers, header digest, TLS result, and any partial application body; it must not discard them through an early semantic SD0Error.",
+        "Missing or invalid Content-Length, declared cap excess, disallowed status/content type/redirect, and header cap failures are classified after an auditable observation exists.",
+        "For a GET whose headers already prove rejection, read zero body bytes and return the actual header/status evidence for fail-closed classification.",
+        "For an eligible bounded GET, read no more than the declared length and frozen cap.",
+        "http.client.IncompleteRead preserves its partial bytes and actual response metadata before failure sealing.",
+        "socket timeout, TimeoutError, ssl.SSLError, ConnectionError, OSError, HTTPException, and other pre-response transport failures produce one request-attempt record with status null, no fabricated header record, a declared failure state, zero further requests, and closure/inventory when the local cap permits.",
+        "No response that was actually received may be represented as status null or an empty-header digest."
+      ]
+    },
+    {
+      "invariant_id": "R3-I02",
+      "name": "ISSUING_CONTEXT_BOUND_READY",
+      "requirements": [
+        "The in-process READY registry binds digest and canonical snapshot to an issuing-context fingerprint containing the exact resolved root, root device/inode, git branch/HEAD, route/contract/plan identities, ordered authority-binding results, ordered static-path physical hashes, and preflight output-absence snapshot.",
+        "persist_ready recomputes this context and rejects any mismatch before creating the preflight file.",
+        "execute recomputes the same root/git/authority/static context and verifies that only the exact persisted preflight is present while all NETWORK_PATHS remain absent before creating any runtime file or opener.",
+        "Copying the token, static files, contract, plan, or persisted preflight to another root must fail with zero opener calls and zero runtime outputs.",
+        "Replacing the root directory, changing root inode, changing git state, changing any authority/static byte, or changing plan/contract self-digest after issuance must fail closed."
+      ]
+    },
+    {
+      "invariant_id": "R3-I03",
+      "name": "EXPLICIT_INITIAL_LOCAL_CAP_GUARD",
+      "requirements": [
+        "Budget construction or an explicit execute guard rejects initial persisted preflight bytes greater than maximum_total_local_artifact_bytes immediately.",
+        "The guard executes before any NETWORK_PATHS create/append, opener construction, or opener call.",
+        "The existing cap accounting over preflight plus every runtime byte remains unchanged.",
+        "The formal test must assert HALT_RESOURCE_CAP, opener_calls=0, and no NETWORK_PATHS output.",
+        "This invariant strengthens proof clarity; it does not assert that the R2 implementation currently creates files or calls the opener in this case."
+      ]
+    },
+    {
+      "invariant_id": "R3-I04",
+      "name": "APPLICATION_LAYER_HEAD_ZERO_BODY_BOUNDARY",
+      "requirements": [
+        "For HEAD, StdlibProxyOpener captures status and headers but never calls response.read, including read(0).",
+        "The response and connection are closed immediately after header capture.",
+        "The returned application body is exactly empty and no body artifact is created.",
+        "A custom or synthetic opener returning any body byte is fully accounted and fails HALT_NO_ROW_LEAK_VIOLATION.",
+        "Receipts and reports describe response_body_bytes as application bytes and do not claim wire-level server-body absence.",
+        "No raw-socket body probe, Range GET, ZIP GET, packet capture, or new transport is introduced under this repair."
+      ]
+    },
+    {
+      "invariant_id": "R3-I05",
+      "name": "EXTERNAL_SOL_SUSPENSION_GATE_ENFORCEMENT",
+      "requirements": [
+        "This exact R3 decision path and its externally reported canonical SHA-256 are hard-pinned in the production client; the client verifies strict JSON, canonical digest, decision_id, decision_state, workspace, branch, HEAD, and issue_id.",
+        "The canonical pin is a code constant supplied by the external Sol handoff, not read from the candidate decision as self-authority.",
+        "Because this decision state is CONTINUE_SD0_SUSPENSION_AUTHORIZE_TWO_FILE_R3_REPAIR, main, preflight, persist_ready, and execute reject production-root operation before tests-evidence input, TCP probe, preflight persistence, runtime output, opener construction, or network.",
+        "No CLI flag, environment variable, tests-evidence file, monkeypatchable user input, or locally generated PASS result can override the production suspension.",
+        "Offline unit tests may patch a private gate verifier only inside temporary roots; one unpatched production-root test must prove the exact R3 gate blocks all operations with zero outputs and zero socket/opener calls.",
+        "A future Sol completion decision does not automatically resume this client. Resumption requires a separately authorized exact client/test gate-binding revision pinned to that future decision."
+      ],
+      "self_physical_hash_note": "A file cannot securely embed its own physical hash. The production pin uses this decision's externally reported canonical SHA-256; the Sol handoff also reports the physical SHA-256 for artifact verification."
+    },
+    {
+      "invariant_id": "R3-I06",
+      "name": "R2_INVARIANTS_PRESERVED",
+      "requirements": [
+        "R2-I01 through R2-I09 remain satisfied.",
+        "Exact seven-request order, proxy-only transport, zero redirect/retry, fixed hosts/URLs/caps, no ZIP GET, no market rows, create-once outputs, complete closure/inventory, ledger authenticity, checksum binding, no active G1, and zero funds remain unchanged.",
+        "No repaired test weakens or removes an existing R2 adversarial assertion."
+      ]
+    }
+  ],
+  "required_test_expansion": {
+    "same_test_file_only": "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+    "all_existing_17_tests_retained_or_strictly_strengthened": true,
+    "required_new_offline_cases": [
+      {
+        "test_id": "R3-T01",
+        "case": "HTTP response status and headers received without Content-Length",
+        "assertions": "Actual status/header digest/header record are sealed; request status is not null; no response body is read; closure/inventory exist within cap."
+      },
+      {
+        "test_id": "R3-T02",
+        "case": "HTTP response declares length above cap after status/headers",
+        "assertions": "Actual status/headers are sealed, body read calls are zero, terminal state is HALT_RESOURCE_CAP, and later requests are absent."
+      },
+      {
+        "test_id": "R3-T03",
+        "case": "IncompleteRead after accepted GET headers",
+        "assertions": "Partial bytes and digests plus actual status/headers are accounted, a declared failure is sealed, and no later request occurs."
+      },
+      {
+        "test_id": "R3-T04",
+        "case": "TLS, socket timeout, connection error, and HTTPException before response",
+        "assertions": "Each yields one status-null attempt, no fabricated header, closure/inventory where cap permits, and no raw exception or later request."
+      },
+      {
+        "test_id": "R3-T05",
+        "case": "Same-process READY persisted into a second fully copied temporary root",
+        "assertions": "persist_ready rejects with zero preflight in the second root."
+      },
+      {
+        "test_id": "R3-T06",
+        "case": "Persisted READY and static/authority files copied to a second temporary root",
+        "assertions": "execute rejects before runtime/opener; opener_calls=0 and NETWORK_PATHS=[] in the second root."
+      },
+      {
+        "test_id": "R3-T07",
+        "case": "Persisted preflight bytes exceed lowered total-local cap",
+        "assertions": "HALT_RESOURCE_CAP, opener construction/calls=0, and NETWORK_PATHS=[] explicitly asserted."
+      },
+      {
+        "test_id": "R3-T08",
+        "case": "Real StdlibProxyOpener HEAD with a fake response whose read method fails if called",
+        "assertions": "HEAD succeeds to observation without invoking read; application body is empty."
+      },
+      {
+        "test_id": "R3-T09",
+        "case": "Custom opener exposes nonempty HEAD body",
+        "assertions": "Actual byte count/digests are recorded and state is HALT_NO_ROW_LEAK_VIOLATION."
+      },
+      {
+        "test_id": "R3-T10",
+        "case": "Unpatched exact production R3 suspension gate with otherwise passing tests and mock-positive proxy",
+        "assertions": "main/preflight/persist_ready/execute remain blocked before tests-evidence read, TCP/socket/opener, preflight, or runtime files."
+      }
+    ],
+    "minimum_scoped_tests_after_expansion": 27,
+    "required_result": "ALL_DISCOVERED_TESTS_PASS_ZERO_FAIL_ERROR_SKIP",
+    "network_in_tests": false,
+    "workspace_runtime_in_tests": false,
+    "active_g1_in_tests": false,
+    "forbidden_test_actions": [
+      "Remove or weaken any existing R2 test.",
+      "Patch away response accounting, root-context verification, local-cap guard, or ledger sealing in the success/failure tests.",
+      "Use a real socket, TLS connection, HTTP endpoint, browser, curl, or proxy.",
+      "Treat a locally generated PASS result as a Sol execution gate.",
+      "Modify route, contract, plan, R2 decision, or this R3 decision."
+    ]
+  },
+  "repair_completion_gate": {
+    "current_state": "BLOCKED_R3_REPAIR_NOT_IMPLEMENTED",
+    "network_resume": false,
+    "required_commands": [
+      {
+        "command": "PYTHONPYCACHEPREFIX=/tmp/pitar1-sd0-r3-pycache python3 -m py_compile trade_system/pit_authority_replay_sd0_metered_fetch_v1.py tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+        "required_exit_code": 0
+      },
+      {
+        "command": "python3 -m unittest -v tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+        "required_exit_code": 0,
+        "required_result": "AT_LEAST_27_PASS_ZERO_FAIL_ERROR_SKIP"
+      },
+      {
+        "command": "python3 -m unittest -v tests.test_pit_authority_replay_contract_v1 tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+        "required_exit_code": 0,
+        "required_result": "ALL_COMBINED_PITAR1_TESTS_PASS"
+      }
+    ],
+    "required_static_checks": [
+      "R2 decision, phased route, measurement contract, and request plan physical/canonical hashes remain unchanged.",
+      "Only the exact client and test paths differ from the R2 candidate hashes.",
+      "The client hard-pins the externally reported canonical hash of this R3 decision and the exact suspended decision state.",
+      "No new production/test/helper file exists.",
+      "No workspace preflight or NETWORK_PATHS output exists.",
+      "No network request, active G1 access, market data, backtest, paper, deployment, credential, order, or fund action occurred."
+    ],
+    "required_terra_report": [
+      "Before/after physical SHA-256 and sizes for the client and test.",
+      "Exact scoped and combined command outputs and counts.",
+      "Code/test mapping for R3-I01 through R3-I06 and R3-T01 through R3-T10.",
+      "Offline counterexample closure evidence for response-first accounting and cross-root rejection.",
+      "Explicit proof that the exact production R3 suspension gate blocks main/preflight/persist_ready/execute.",
+      "Explicit zero network, zero workspace preflight/runtime, zero active G1, zero data/backtest/paper/live, and zero funds statement."
+    ],
+    "sol_completion_review": {
+      "required": true,
+      "possible_results": [
+        "ACCEPT_R3_REPAIR_KEEP_NETWORK_SUSPENDED_PENDING_SEPARATE_RESUME_BINDING",
+        "REJECT_R3_REPAIR_CONTINUE_SUSPENSION",
+        "STOP_REQUIRE_NEW_TRANSPORT_ROUTE_OR_CONTRACT"
+      ],
+      "automatic_resume": false,
+      "reason": "The repaired client must first prove it enforces this suspension. A later external Sol decision and separately authorized gate-binding revision are required before any proxy preflight or request."
+    }
+  },
+  "permission_matrix": {
+    "create_this_r3_decision": true,
+    "terra_modify_exact_client": true,
+    "terra_modify_exact_test": true,
+    "terra_run_offline_tests": true,
+    "modify_r2_decision": false,
+    "modify_this_r3_decision": false,
+    "modify_route_contract_plan_or_spec": false,
+    "create_new_helper_or_gate_file": false,
+    "install_dependency": false,
+    "read_exact_r3_decision_for_gate_verification": true,
+    "persist_workspace_preflight": false,
+    "create_workspace_runtime": false,
+    "tcp_probe_or_socket_outside_mock": false,
+    "network_request": false,
+    "proxy_change_or_bypass": false,
+    "archive_zip_or_market_row_access": false,
+    "active_g1_access": false,
+    "adapter_dataset_backtest_holdout": false,
+    "paper_testnet_deploy": false,
+    "credentials_account_orders_funds": false,
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "stage_disposition": {
+    "pitar1_e0": "ACCEPTED_PREDECESSOR_SCOPE_UNCHANGED",
+    "pitar1_sd0_route": "STRUCTURALLY_VALID",
+    "pitar1_sd0_contract": "FROZEN_VALID",
+    "pitar1_sd0_plan": "FROZEN_VALID",
+    "pitar1_sd0_r2_tests": "PASS_BUT_INSUFFICIENT",
+    "pitar1_sd0_r2_client": "REJECT_PRECHECK_SAFE",
+    "pitar1_sd0_r3_repair": "AUTHORIZED_EXACT_TWO_FILES_OFFLINE_ONLY",
+    "pitar1_sd0_network": "SUSPENDED",
+    "pitar1_sd0_preflight_runtime": "SUSPENDED",
+    "pitar1_d0_and_later": "DENIED_UNCHANGED",
+    "paper_testnet_deployment_live": "DENIED_UNCHANGED",
+    "next_action": "GPT-5.6-TERRA_HIGH_REPAIRS_ONLY_CLIENT_AND_TEST_THEN_RETURNS_R3_FACT_PACKAGE_TO_SOL",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "claim_boundary": {
+    "r2_test_result": "17_OF_17_AND_86_OF_86_PASS",
+    "r2_runtime_precheck": "REJECTED",
+    "response_accounting_validity": "NOT_YET_ESTABLISHED",
+    "ready_context_binding": "NOT_YET_ESTABLISHED",
+    "initial_local_cap_behavior": "IMPLEMENTATION_SAFE_OFFLINE_FORMAL_ASSERTIONS_MISSING",
+    "head_application_body_boundary": "FEASIBLE_NO_BODY_READ_OR_PERSISTENCE",
+    "head_wire_body_absence": "NOT_OBSERVABLE_NOT_CLAIMED",
+    "cli_sol_gate_enforcement": "NOT_YET_ESTABLISHED",
+    "sd0_source_authority": "NOT_EVALUATED",
+    "market_data_or_pit_validity": "NOT_EVALUATED",
+    "backtest_predictive_or_profitability": "NOT_AUTHORIZED",
+    "paper_or_live_readiness": "NOT_AUTHORIZED",
+    "maximum_positive_claim": "The R2 candidate passes its 17 scoped and 86 combined offline tests, and its initial persisted-preflight local-cap path currently rejects before opener/runtime. It nevertheless fails R3 precheck because actual received HTTP metadata can be lost, READY can be replayed across roots, and the CLI ignores the external Sol suspension. The frozen route, contract, plan, and application-layer no-body boundary remain structurally usable, so Terra high may repair only the exact client and test files. Network, workspace preflight/runtime, active G1, data, backtest, paper, deployment, credentials, orders, and funds remain prohibited. No test result can resume execution; only a future Sol decision plus a separately authorized exact gate-binding revision can do so."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-research-system-pit-authority-replay-sd0-client-p0-r3-repair/v1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "1e77ed08350f998ad4bc4c7fa9ced261373fb824b7cd3cb537c3eecb5177aeb7"
+}

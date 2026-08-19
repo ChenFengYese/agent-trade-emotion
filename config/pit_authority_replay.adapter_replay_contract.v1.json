@@ -1,0 +1,168 @@
+{
+  "schema_version": "pitar1-adapter-replay-contract.v1",
+  "contract_id": "pitar1.adapter-replay-contract.v1",
+  "namespace": "pitar1",
+  "artifact_role": "adapter_and_replay_interface_contract",
+  "stage": "E0_INTERFACE_ONLY_NOT_IMPLEMENTED_NOT_AUTHORIZED",
+  "route_binding": {
+    "route_id": "RSR-PITAR1-POINT_IN_TIME-AUTHORITY-REPLAY-v1",
+    "route_version": "1.0.0",
+    "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_ROUTE.v1",
+    "decision_physical_sha256": "a3dcb124477ac4f54189d659b7438431ea62ba6785f4c248fe2448e55f28035f",
+    "decision_canonical_sha256": "7e141bd47a728078c3a4dca02d231eae2bcbe6a3f12ff39c6e01c37e92556932",
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "adapter_interface": {
+    "signature": "adapt(request,external_admission_receipt,supplied_raw_bytes)->typed_result",
+    "request_exact_fields": [
+      "request_id",
+      "plan_id",
+      "artifact_id",
+      "admission_receipt_sha256",
+      "schema_sha256",
+      "transform_sha256",
+      "parser_sha256",
+      "prior_cursor_sha256",
+      "decision_at"
+    ],
+    "result_exact_fields": [
+      "result_id",
+      "request_id",
+      "record_digests",
+      "coverage_event_digests",
+      "quarantine_event_digests",
+      "next_cursor_sha256",
+      "adapter_receipt_sha256",
+      "result_class"
+    ],
+    "result_class_values": [
+      "VALID_EMPTY",
+      "NORMALIZED",
+      "QUARANTINED",
+      "REJECTED"
+    ],
+    "pure": true,
+    "deterministic": true,
+    "explicit_bytes_only": true,
+    "runtime_implementation": "NOT_IMPLEMENTED"
+  },
+  "normalized_row_schema": {
+    "exact_fields": [
+      "event_id",
+      "source_id",
+      "instrument_id",
+      "logical_id",
+      "revision_id",
+      "supersedes_revision_id",
+      "operation",
+      "event_time",
+      "published_at",
+      "received_at",
+      "ingested_at",
+      "admission_validated_at",
+      "available_at",
+      "source_sequence",
+      "source_sequence_kind",
+      "raw_artifact_sha256",
+      "raw_byte_offset_or_member_id",
+      "payload_sha256",
+      "coverage_state",
+      "normalized_payload",
+      "record_sha256"
+    ],
+    "prediction_or_utility_fields": "FORBIDDEN",
+    "hypothesis_or_decision_fields": "FORBIDDEN",
+    "position_order_or_permission_fields": "FORBIDDEN"
+  },
+  "adapter_forbidden_operations": [
+    "NETWORK_ACCESS",
+    "FILESYSTEM_DISCOVERY",
+    "ENVIRONMENT_ACCESS",
+    "WALL_CLOCK_ACCESS",
+    "RANDOMNESS",
+    "SUBPROCESS_ACCESS",
+    "IMPUTATION",
+    "FORWARD_FILL",
+    "ZERO_FILL",
+    "PARTICIPANT_INTENT_LABEL",
+    "CAUSAL_LABEL",
+    "FEATURE_OR_OUTCOME_LABEL",
+    "PREDICTION_OR_UTILITY",
+    "CURRENT_REVISION_BACKFILL",
+    "PRODUCT_OR_INSTRUMENT_MERGE"
+  ],
+  "replay_interface": {
+    "sort_key": [
+      "available_at",
+      "source_sequence",
+      "event_id"
+    ],
+    "decision_filter": "available_at_lte_decision_at",
+    "source_sequence_rule": "NATIVE_OR_EXPLICIT_LOCAL_RECEIPT_ORDINAL_NOT_EVENT_TIME",
+    "exact_duplicate": "IDEMPOTENT_NO_SECOND_EFFECT",
+    "late_revision": "NEW_EVENT_NEVER_OVERWRITE_PRIOR_STATE_OR_RECEIPT",
+    "out_of_order_arrival": "RETAIN_REAL_CLOCKS",
+    "runtime_implementation": "NOT_IMPLEMENTED"
+  },
+  "receipt_chain_schema": {
+    "exact_fields": [
+      "replay_receipt_id",
+      "prior_replay_receipt_sha256",
+      "admitted_artifact_set_sha256",
+      "adapter_version_sha256",
+      "configuration_sha256",
+      "first_event_key",
+      "last_event_key",
+      "event_count",
+      "state_transition_sha256",
+      "created_at",
+      "replay_receipt_sha256"
+    ],
+    "domain_separated": true,
+    "prior_receipt_required_after_genesis": true,
+    "candidate_receipt_id_is_authority": false
+  },
+  "bar_and_outcome_contract": {
+    "ohlc_high_low_visibility": "AFTER_EXACT_BAR_CLOSE_AND_ADMISSION_ONLY",
+    "future_full_bar_backfill": "FORBIDDEN",
+    "same_aggregate_bar_two_barriers": "AMBIGUOUS_OR_CENSORED",
+    "favorable_first_assumption": "FORBIDDEN",
+    "finer_grained_resolution_requires_admitted_source": true,
+    "mfe_mae_visibility": "POST_OUTCOME_DIAGNOSTIC_ONLY"
+  },
+  "gap_contract": {
+    "gap_interpolation": "FORBIDDEN",
+    "unknown_gap_as_normal_event": "FORBIDDEN",
+    "gap_or_quarantine_action": "SUSPEND_OR_CENSOR",
+    "unknown_abstain_quarantine_censor_retained": true
+  },
+  "permission_ceiling": {
+    "d2_runtime": "DENIED",
+    "d3_dataset": "DENIED",
+    "e2_evaluation": "DENIED",
+    "e3_paper": "DENIED",
+    "deployment": "DENIED",
+    "trading": "DENIED",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "encoding": "UTF-8",
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "domain_prefix_utf8": "pitar1/adapter-replay-contract/v1",
+    "domain_separator_hex": "00",
+    "digest_field": "contract_sha256",
+    "excluded_fields": [
+      "contract_sha256"
+    ]
+  },
+  "contract_sha256": "2da2595895f27029d970217b5d34e91285159b74aaf7fd0c77c15ce84f0e3550"
+}

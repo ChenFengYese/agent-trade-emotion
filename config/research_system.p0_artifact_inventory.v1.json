@@ -1,0 +1,246 @@
+{
+  "inventory_id": "MSTA_HED_RESEARCH_SYSTEM_P0_ARTIFACT_INVENTORY.v1",
+  "schema_version": "research-system-p0-artifact-inventory.v1",
+  "created_at": "2026-07-27T08:57:06Z",
+  "status": "REVIEW_READY_CANDIDATE_AWAITING_EXTERNAL_SOL_GATE",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "route_id": "RSR-P0-NEW-PROGRAM-ROUTE-v1"
+  },
+  "authority_binding": {
+    "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION.v1",
+    "decision_state": "AUTHORIZED_P0_E0_RESEARCH_SYSTEM_RECONSTRUCTION",
+    "decision_physical_sha256": "2cf37e54989d3fd09846cacdbe622de26a4c0bd60e46cb0650f67b2827bf5586",
+    "decision_canonical_sha256": "2a434f542f58c6d43798e1562b7f203336eae7e5db4b6745095e3c9e7633ddb6"
+  },
+  "immutable_baselines": [
+    {
+      "role": "program_governance_baseline",
+      "path": "PROGRAM_GOVERNANCE.md",
+      "size_bytes": 23867,
+      "physical_sha256": "69125790fa36c0c4f72ebdecea4f5415be73a9e4fba78c6c1aa53b9639ef6f09"
+    },
+    {
+      "role": "current_core_theory_mirror",
+      "path": "CORE_TRADING_THEORY.md",
+      "size_bytes": 140126,
+      "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d"
+    },
+    {
+      "role": "current_core_theory_version",
+      "path": "CORE_TRADING_THEORY_v2_1.md",
+      "size_bytes": 140126,
+      "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d"
+    },
+    {
+      "role": "core_theory_authority_manifest",
+      "path": "config/core_trading_theory.authority.v2_1.json",
+      "size_bytes": 299,
+      "physical_sha256": "a3e174c616b176253f4aef2ce267a932d43f7e64db3490db815a27f007df12d4"
+    },
+    {
+      "role": "architecture_baseline",
+      "path": "SYSTEM_ARCHITECTURE.md",
+      "size_bytes": 13734,
+      "physical_sha256": "632968d94a81496377290165c305ac947f32f906d872f13a58ad2a1931bc4806"
+    },
+    {
+      "role": "roadmap_baseline",
+      "path": "SYSTEM_DESIGN_ROADMAP.md",
+      "size_bytes": 90259,
+      "physical_sha256": "ede84088294e0608cb211f22e7878141d13d59737a1cdd5a6e56ec81d8e3e251"
+    },
+    {
+      "role": "technical_guidance_challenger",
+      "path": "MSTA_HED_TECHNICAL_GUIDANCE_v0_6_0.md",
+      "size_bytes": 18324,
+      "physical_sha256": "04cc1ec6c5a7701fd8af6dc1f923e57cd11c9e9de458a043ce4f7548f8f81825"
+    },
+    {
+      "role": "theory_integration_challenger",
+      "path": "MSTA_HED_THEORY_INTEGRATION_CHALLENGER_v0_6_0.md",
+      "size_bytes": 19843,
+      "physical_sha256": "44e8558a7f4b748082805c8138e757b64e8766b1a71a728b5ac0d5f7566ff5dd"
+    },
+    {
+      "role": "old_active_g1_terminal_decision",
+      "path": "config/sol_decision.active-g1-plan-unreachable.v2.json",
+      "size_bytes": 10768,
+      "physical_sha256": "3417205afc38247bc8463ddd6e18cf54dffe51724571100a974f9572309127c8"
+    },
+    {
+      "role": "old_p1a_terminal_decision",
+      "path": "config/sol_decision.p1a-authority-chain-block.v1.json",
+      "size_bytes": 11387,
+      "physical_sha256": "26355176199bde8cc20e73e2183b43a14bf6210b3a3c41c9480c51b204b9d759"
+    }
+  ],
+  "p0_artifacts": [
+    {
+      "role": "external_route_decision",
+      "path": "config/sol_decision.research-system-reconstruction.v1.json",
+      "size_bytes": 45579,
+      "physical_sha256": "2cf37e54989d3fd09846cacdbe622de26a4c0bd60e46cb0650f67b2827bf5586"
+    },
+    {
+      "role": "unified_theory_candidate",
+      "path": "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md",
+      "size_bytes": 28683,
+      "physical_sha256": "c7a5a3607936f4ac4ca05c9d8f05a32e06c0acccb7c5b36804a392e80911f348"
+    },
+    {
+      "role": "dynamic_research_team_governance",
+      "path": "RESEARCH_TEAM_GOVERNANCE_v1_0.md",
+      "size_bytes": 11800,
+      "physical_sha256": "d31f6bf8581a16614eccd57fe3c96a0a6211f881412cd0957e910f4e2f37263f"
+    },
+    {
+      "role": "data_authority_standard",
+      "path": "DATA_AUTHORITY_STANDARD_v1_0.md",
+      "size_bytes": 6933,
+      "physical_sha256": "03a38e2e4fa5f299b9ed698b0e0d185addf67984bb5e4712d9cc2bd742fd9f72"
+    },
+    {
+      "role": "theory_evidence_consistency_audit",
+      "path": "RESEARCH_SYSTEM_AUDIT_v1_0.md",
+      "size_bytes": 13436,
+      "physical_sha256": "15f7015a907d48621631efd420361b80519c6cf32e92d7a8ac1b434a60b366b8"
+    },
+    {
+      "role": "dependency_ordered_program_roadmap",
+      "path": "RESEARCH_SYSTEM_ROADMAP_v1_0.md",
+      "size_bytes": 13004,
+      "physical_sha256": "74f61b2e1381d751638da05664fea3e0691699a9e405814a51509132dc1d183f"
+    },
+    {
+      "role": "version_change_record",
+      "path": "RESEARCH_SYSTEM_CHANGELOG_v1_0.md",
+      "size_bytes": 6899,
+      "physical_sha256": "6df8f6d9f2a626e4ac05cc0645fc72992d4517bb40070683d6b6ac36d977abde"
+    },
+    {
+      "role": "object_variable_claim_dictionary",
+      "path": "config/research_system.object_dictionary.v1.json",
+      "size_bytes": 27667,
+      "physical_sha256": "9a167daea7bf05d1022e65da40be5b87786139a9e0f74d52994cbc2fd4915fff"
+    },
+    {
+      "role": "hypothesis_validation_queue",
+      "path": "config/research_system.hypothesis_validation_queue.v1.json",
+      "size_bytes": 41358,
+      "physical_sha256": "e76ab11983326ab53d209b6efd362deb91a00215a0c47b14d5930457c614b4cb"
+    },
+    {
+      "role": "measurement_contract_registry",
+      "path": "config/research_system.measurement_contract.v1.json",
+      "size_bytes": 34948,
+      "physical_sha256": "2e8d162f9be5182fbe25fd4e5d0c96fd817edc010b92ac61aa03f991aac20651"
+    },
+    {
+      "role": "parameter_and_sensitivity_registry",
+      "path": "config/research_system.parameter_registry.v1.json",
+      "size_bytes": 28793,
+      "physical_sha256": "a5321385626f2acd67063fed1cf8138b400c5911265ad333aed4da3958ca2a26"
+    },
+    {
+      "role": "dispute_and_conflict_registry",
+      "path": "config/research_system.dispute_registry.v1.json",
+      "size_bytes": 19321,
+      "physical_sha256": "ae137bcb46051dd7ddb0b71f8c2b01390fcf9ff21d3d409fc7776ef1cb791ba3"
+    },
+    {
+      "role": "source_authority_registry",
+      "path": "config/research_system.source_authority_registry.v1.json",
+      "size_bytes": 46188,
+      "physical_sha256": "693cc7361c16fb154df97bf2c58a1e68807f990dc976df949658e7ce635abb12"
+    },
+    {
+      "role": "stage_permission_contract",
+      "path": "config/research_system.stage_contract.v1.json",
+      "size_bytes": 8581,
+      "physical_sha256": "ab81251c0ea70e945d9ea7176e9cb59e7353477212dcf36a2d9e4424f944674b"
+    },
+    {
+      "role": "pure_total_contract_validator",
+      "path": "trade_system/research_system_contract_v1.py",
+      "size_bytes": 61830,
+      "physical_sha256": "5101ca7b59182c51d4afbfc30e4208273a58eaf80589afb96b083295074d362d"
+    },
+    {
+      "role": "contract_unit_and_adversarial_tests",
+      "path": "tests/test_research_system_contract_v1.py",
+      "size_bytes": 30473,
+      "physical_sha256": "698b925ce7c9854d86b013df05adef43ec13d4b61027c425e579fbb8df643cd6"
+    },
+    {
+      "role": "preserved_initial_independent_math_failure_report",
+      "path": "artifacts/research_system_p0_independent_math_review.v1.json",
+      "size_bytes": 14636,
+      "physical_sha256": "907d967f684e873166ec9477c40634ebadccfccbd3be47006b23c07eb6e10d92"
+    },
+    {
+      "role": "independent_math_local_recheck",
+      "path": "artifacts/research_system_p0_independent_math_recheck.v1.json",
+      "size_bytes": 8927,
+      "physical_sha256": "f81c1128822c691da8f47ef631b2c1c7cc605d251e4cb9e435d353b50ff6a511"
+    },
+    {
+      "role": "independent_current_math_attestation",
+      "path": "artifacts/research_system_p0_math_final_attestation.v1.json",
+      "size_bytes": 5607,
+      "physical_sha256": "cbbceaa23fc871d4e840ab8ce1b28658139d7471533e9017f789e9c5b9add3e4"
+    },
+    {
+      "role": "independent_validator_adversarial_review",
+      "path": "artifacts/research_system_p0_adversarial_review.v1.json",
+      "size_bytes": 10401,
+      "physical_sha256": "b3a4cf459b32e7720ec8e3b2348156322378cf48c040e9edf9f898df3ae0c8d8"
+    },
+    {
+      "role": "integrated_local_validation_report",
+      "path": "artifacts/research_system_p0_validation_report.v1.json",
+      "size_bytes": 9773,
+      "physical_sha256": "11269856184b0e7bd1f275bd7cce0e0e3f1f2bc3660a20c8176c1b2fd415f722"
+    }
+  ],
+  "inventory_summary": {
+    "immutable_baseline_count": 10,
+    "p0_artifact_count": 21,
+    "immutable_baseline_hashes_match_external_decision": true,
+    "p0_package_state": "REVIEW_READY_NOT_ACCEPTED",
+    "next_required_authority": "GPT-5.6-SOL-ULTRA_P0_STAGE_GATE",
+    "permission_after_local_validation": "NONE"
+  },
+  "self_identity_rule": {
+    "path": "config/research_system.p0_artifact_inventory.v1.json",
+    "rule": "This inventory is protected by inventory_sha256 below. Its physical SHA-256 and byte length must be pinned by the external Sol P0 decision because a file cannot contain its own physical hash without a cycle."
+  },
+  "claim_boundary": {
+    "maximum_positive_claim": "This inventory binds the exact immutable baselines and local P0 review package presented to the external Sol stage gate.",
+    "p0_complete": false,
+    "market_data_acquired": false,
+    "market_validity": "NOT_EVALUATED",
+    "predictive_validity": "NOT_EVALUATED",
+    "profitability": "NOT_EVALUATED",
+    "d0_authorized": false,
+    "backtest_authorized": false,
+    "paper_authorized": false,
+    "deployment_authorized": false,
+    "trading_authorized": false
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "domain": "msta-hed/research-system-p0-artifact-inventory/v1",
+    "formula": "SHA256(domain_prefix_utf8 || HEX(domain_separator_hex) || canonical_json_utf8)",
+    "domain_prefix_utf8": "msta-hed/research-system-p0-artifact-inventory/v1",
+    "domain_separator_hex": "00",
+    "exclude_fields": ["inventory_sha256"],
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [",", ":"],
+    "encoding": "UTF-8"
+  },
+  "inventory_sha256": "a64d0036f08f6849619562a0079d03ea64f436518eefa41b3fe5b48cdd3acf30"
+}

@@ -1,0 +1,135 @@
+{
+  "schema_version": "sol-har1-btcusdt-source-preflight-r2f-route-amendment.v1",
+  "decision_id": "SOL_HAR1_BTCUSDT_SOURCE_PREFLIGHT_R2F_ROUTE_AMENDMENT.v1",
+  "decision_state": "REJECT_R2E_ACTIVATION_AUTHORIZE_R2F_TWO_FILE_OFFLINE_SCHEMA_REPAIR_NO_NETWORK",
+  "issued_by": "GPT-5.6-SOL_ULTRA_STAGE_GATE",
+  "issued_at": "2026-07-29T10:13:58Z",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "predecessor_bindings": {
+    "r2_route": {
+      "path": "config/sol_decision.har1-btcusdt-source-preflight-r2-route.v1.json",
+      "physical_sha256": "1512149ca8f2f9df3fa66490636db9f0f3e340873087a8c989c5093eea1f2057",
+      "canonical_sha256": "6979a3ec4b2df46d81d48533ed3ed2147d78f68ec9595fe7bbb7a9a1d3beafa0"
+    },
+    "r2d_route": {
+      "path": "config/sol_decision.har1-btcusdt-source-preflight-r2d-route-amendment.v1.json",
+      "physical_sha256": "5bcd3feee3bd52f27d8c268a89504c06884eb5541568fccf2ab168f91dded8ae",
+      "canonical_sha256": "4099f69788265afda3cd98baf3ce2f02850269f8a7468c3270b1e37d5a982814"
+    },
+    "r2e_route": {
+      "path": "config/sol_decision.har1-btcusdt-source-preflight-r2e-route-amendment.v1.json",
+      "physical_sha256": "fbbb48fc700bc5258c9bfd049676896b2475990fff64bf879eedad811e61dc71",
+      "canonical_sha256": "666354ec75eaee6fcf02c7ccf7a31e542d091514812b0ffe9d4f7f66bb095884"
+    },
+    "rejected_r2e_client_physical_sha256": "c60a1af0152cd86a70d1993ed82c8e24a7c362daed0df3ffc580c441fd5032f3",
+    "rejected_r2e_test_physical_sha256": "e64484ab66d68f6fa614db9b4a368b87866c883a644904593a82949a80881988"
+  },
+  "blocking_finding": {
+    "id": "R2F_P0_EXACT_JSON_SCALAR_TYPES",
+    "finding": "Ordinary Python equality treats true as 1, false as 0 and integral floats as equal to integers, allowing a correctly self-hashed but non-exact activation request plan to pass.",
+    "minimal_reproductions": [
+      "REQUEST_1_SEQUENCE_TRUE_INSTEAD_OF_INTEGER_1",
+      "HEAD_BODY_CAP_FALSE_INSTEAD_OF_INTEGER_0",
+      "SEQUENCE_OR_BODY_CAP_INTEGRAL_FLOAT_INSTEAD_OF_INTEGER"
+    ],
+    "violated_contracts": [
+      "STRICT_RAW_ACTIVATION_SCHEMA",
+      "EXACT_FIVE_REQUEST_PLAN",
+      "AUDITABLE_ACTIVATION_PROVENANCE"
+    ]
+  },
+  "r2f_patch_scope": {
+    "required_implementer": "GPT-5.6-TERRA_HIGH",
+    "only_modifiable_paths": [
+      "har1r2/preflight_client.py",
+      "har1r2/test_preflight_client.py"
+    ],
+    "all_other_existing_paths_immutable": true,
+    "har1r2_evidence_jsonl_must_remain_absent": true,
+    "network": false,
+    "runtime_execution": false
+  },
+  "required_repairs": {
+    "exact_json_equality": {
+      "required_property": "JSON_SCALAR_TYPE_AND_VALUE_EQUALITY",
+      "ordinary_python_equality_for_activation_bindings": "DENIED",
+      "acceptable_implementation": [
+        "CANONICAL_JSON_BYTE_EQUALITY",
+        "RECURSIVE_TYPE_AND_VALUE_EQUALITY"
+      ],
+      "required_application_points": [
+        "ACTIVATION_ISSUER_EXPECTED_BINDINGS",
+        "PRE_TCP_FROZEN_REQUEST_PLAN_RECHECK",
+        "READBACK_ACTIVATION_BINDINGS_AND_TOP_LEVEL_REQUEST_PLAN"
+      ],
+      "booleans_as_integers": "DENIED",
+      "integral_floats_as_integers": "DENIED",
+      "extra_or_missing_nested_fields": "DENIED"
+    },
+    "activation_time_bound": {
+      "maximum_ttl_seconds": 900,
+      "minimum_ttl_seconds_exclusive": 0,
+      "issuer_must_enforce": true,
+      "meaning": "The activation authorizes initiation of one run only during this bounded interval; it does not authorize retries."
+    },
+    "route_binding": {
+      "r2f_route_physical_and_canonical_in_activation_bindings": true,
+      "r2f_route_physical_and_canonical_in_first_evidence_record": true,
+      "r2f_route_physical_and_canonical_pre_tcp_recheck": true
+    }
+  },
+  "offline_acceptance": [
+    "SELF_HASHED_ACTIVATION_WITH_BOOLEAN_SEQUENCE_REJECTED",
+    "SELF_HASHED_ACTIVATION_WITH_BOOLEAN_BODY_CAP_REJECTED",
+    "SELF_HASHED_ACTIVATION_WITH_FLOAT_SEQUENCE_OR_BODY_CAP_REJECTED",
+    "EXTRA_OR_MISSING_NESTED_REQUEST_FIELD_REJECTED",
+    "PRE_TCP_MUTATED_OR_NONEXACT_REQUEST_PLAN_REJECTED",
+    "READBACK_RECOMPUTED_HASH_CHAIN_WITH_NONEXACT_ACTIVATION_PLAN_REJECTED",
+    "ACTIVATION_TTL_ZERO_NEGATIVE_OR_OVER_900_SECONDS_REJECTED",
+    "R2F_ROUTE_BOUND_AND_RECHECKED_BEFORE_TCP",
+    "R2E_48_OFFLINE_BEHAVIORS_REMAIN_PASSING",
+    "SOCKET_TRIPWIRE_REMAINS_ACTIVE_BEFORE_MODULE_IMPORT"
+  ],
+  "permission_matrix": {
+    "modify_two_r2f_files": true,
+    "offline_tests": true,
+    "network": false,
+    "create_evidence_jsonl": false,
+    "create_activation_document": false,
+    "zip_body_or_market_row": false,
+    "backtest_training_score_or_holdout": false,
+    "paper_order_account_or_live": false,
+    "active_g1_access": false
+  },
+  "next_gate": {
+    "required_reviewer": "GPT-5.6-SOL_ULTRA",
+    "required_state": "R2F_IMPLEMENTATION_AND_OFFLINE_TESTS_COMPLETE",
+    "must_bind_full_final_hashes": true,
+    "maximum_permission": "ONE_BOUNDED_FIVE_REQUEST_PREFLIGHT_EXECUTION_NO_ZIP_BODY",
+    "automatic_permission": "NONE"
+  },
+  "maximum_claim": "R2F may repair exact JSON activation provenance, bind this amendment and enforce a short activation TTL. It grants no network execution, source permission, market data, backtest or trading claim.",
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-har1-btcusdt-source-preflight-r2f-route-amendment/v1",
+    "domain_separator_hex": "00",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "excluded_fields": [
+      "/decision_sha256"
+    ]
+  },
+  "decision_sha256": "793c77dc38a4f310c78decdbde52461a2732ee6fad25e404a99a97209bb6103f"
+}

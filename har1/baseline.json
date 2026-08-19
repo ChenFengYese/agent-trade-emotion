@@ -1,0 +1,56 @@
+{
+  "schema": "har1.static-baseline.v1",
+  "captured_before_har1_files": true,
+  "git": {
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "dirty_manifest": {
+    "format": "git-status-porcelain-v2-nul",
+    "record_count": 162,
+    "sha256": "f8a9c129c169a8e42a2ff6455d506780cb66718cdeb122b0dd3ea928db104c4a",
+    "modified_paths": [
+      "CORE_TRADING_THEORY.md",
+      "PROGRAM_GOVERNANCE.md",
+      "README.md",
+      "SYSTEM_DESIGN_ROADMAP.md",
+      "trade_system/cli.py"
+    ],
+    "untracked_path_count": 157,
+    "untracked_roots": [
+      "CORE_TRADING_THEORY_v2_1.md",
+      "DATA_AUTHORITY_STANDARD_v1_0.md",
+      "GENERALIZED_COMPETING_PATH_THEORY_CHALLENGER_v0_5_0.md",
+      "MSTA_HED_RAW_AUTHORITY_BUNDLE_P1A_SPEC_v0_1_0.md",
+      "MSTA_HED_RAW_AUTHORITY_BUNDLE_P1A_SPEC_v0_1_1.md",
+      "MSTA_HED_RAW_AUTHORITY_BUNDLE_P1A_SPEC_v0_1_2.md",
+      "MSTA_HED_RAW_AUTHORITY_BUNDLE_P1A_SPEC_v0_1_3.md",
+      "MSTA_HED_TECHNICAL_GUIDANCE_v0_6_0.md",
+      "MSTA_HED_THEORY_INTEGRATION_CHALLENGER_v0_6_0.md",
+      "PIT_AUTHORITY_REPLAY_SD0_CLOSURE_SPEC_v1_0.md",
+      "PIT_AUTHORITY_REPLAY_SUCCESSOR_SPEC_v1_0.md",
+      "RESEARCH_SYSTEM_AUDIT_v1_0.md",
+      "RESEARCH_SYSTEM_CHANGELOG_v1_0.md",
+      "RESEARCH_SYSTEM_DYNAMIC_HYPOTHESIS_GRAPH_CHALLENGER_v1_2.md",
+      "RESEARCH_SYSTEM_ROADMAP_v1_0.md",
+      "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md",
+      "RESEARCH_TEAM_GOVERNANCE_v1_0.md",
+      "RSI_MTF_DRL_PM_AUTHORITY_BUNDLE_SPEC_v0_2_2.md",
+      "RSI_MTF_DRL_PM_DIRECT_AST_PROFILE_v0_2_2.md",
+      "RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_1.md",
+      "RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_2.md",
+      "RSI_MTF_DRL_PM_THEORY_CHALLENGER_v0_3_0.md",
+      "RSI_MTF_FOUR_LAYER_THEORY_CHALLENGER_v0_4_0.md",
+      "artifacts/",
+      "config/",
+      "tests/",
+      "tools/",
+      "trade_system/"
+    ],
+    "complete_manifest_reference": "The exact pre-HAR1 NUL-delimited porcelain stream is identified by the recorded SHA-256 and record count; no existing dirty path is owned, modified, or deleted by HAR1."
+  },
+  "route": {
+    "physical_sha256": "a2fbc648ea89906da62bc821ecfc5af693b7572478d5908ad8e5fd0fce574c0c",
+    "canonical_sha256": "0cf2c13a4b0663b93b902a4cfd7e76fb340cb821c7ae507b1d6c28615b056c74"
+  }
+}

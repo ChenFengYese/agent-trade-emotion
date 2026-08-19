@@ -1,0 +1,6 @@
+.env
+*.env.local
+credentials.env.local
+runtime/
+__pycache__/
+*.pyc

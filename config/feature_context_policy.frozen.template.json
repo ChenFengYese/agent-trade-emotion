@@ -1,0 +1,24 @@
+{
+  "context_policy_id": "UNRESOLVED: versioned context policy ID",
+  "status": "UNRESOLVED_FEATURE_CONTEXT_POLICY",
+  "frozen_at": "UNRESOLVED: UTC timestamp before feature construction",
+  "instrument": "BTCUSDT",
+  "feature_version": "UNRESOLVED: feature version that embeds this context",
+  "allowed_availability": "ACTUAL_ONLY",
+  "sampling": {
+    "decision_frequency_seconds": 1,
+    "warmup_seconds": 14400,
+    "max_gap_seconds": 1
+  },
+  "lookbacks_seconds": [60, 900, 3600, 14400],
+  "trend": {
+    "lookback_seconds": 3600,
+    "volatility_floor": "UNRESOLVED: positive outcome-free frozen floor"
+  },
+  "trend_continuation_veto": {
+    "min_abs_trend_score": "UNRESOLVED: positive outcome-free frozen threshold",
+    "min_abs_directional_pressure": "UNRESOLVED: positive outcome-free frozen threshold",
+    "min_abs_price_impact": "UNRESOLVED: positive outcome-free frozen threshold",
+    "max_directional_resilience": "UNRESOLVED: outcome-free frozen upper bound"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schema_id": "theory_paper_v2_seen_v1_diagnostic_implementation_binding",
+  "schema_version": "1.5.0",
+  "binding_id": "THEORY_AGENT_V2_SEEN_V1_DIAGNOSTIC_PROVIDER_SCHEMA_SUCCESSOR_20260802",
+  "evidence_class": "SEEN_V1_DIAGNOSTIC_REPLAY",
+  "freeze_commit": "b3933170a9c0b2e373efcbc8c8c82643caa0e97a",
+  "predecessor_binding": {
+    "path": "config/theory_paper_v2.seen_v1_diagnostic.v1_4.json",
+    "canonical_digest": "f523b5a481b37f968b687212837a17daef8b8112953e9f0a57c3340ed4011487",
+    "status": "SUPERSEDED_ONLY_FOR_PROVIDER_SCHEMA_COMPATIBILITY"
+  },
+  "predecessor_failed_run": {
+    "run_id": "seen-v1-diagnostic-20260802t000000z",
+    "manifest_digest": "fb9ec20d272d9035225e115f10ffbc610b9054b1eda6e4dc0abf7204e3b78b1a",
+    "failure_receipt_digest": "ea3065ecfa3207eee34de13ddeaba09b3bddb795740ee2a29ce623cc41250468",
+    "status": "FAILED_CLOSED_IMMUTABLE_NOT_RESUMABLE",
+    "candidate_progress": {
+      "CURRENT_DETERMINISTIC_CONTINUOUS": "24_OF_24_PLUS_TERMINAL",
+      "CURRENT_SINGLE_STRATEGY_AGENT": "0_OF_24"
+    },
+    "recorded_v1_decisions_opened": false,
+    "recorded_v1_outcomes_opened": false
+  },
+  "parent_contract_digests": {
+    "config/theory_paper_v2.seen_v1_diagnostic.v1.json": "186caa897597c6a853fa5165dc2700e6a60c1c60549b1e2a8265dd5ad5c52499",
+    "config/theory_paper_v2.seen_v1_diagnostic.v1_1.json": "edd29908d2996b51ce537fd43e5c75659ef7d890ccc23c992ab14e96fb9c3f31",
+    "config/theory_paper_v2.seen_v1_diagnostic.v1_2.json": "6c07410d8f4c5b20382d26389217a670c3c1ef25a6411fc22dac4b8d7f5bdb78",
+    "config/theory_paper_v2.continuous_p0.v1.json": "d46623e3cf1f5007568afaf3988549282422688812409fff5df3f7dc09d6a65f"
+  },
+  "only_code_change": {
+    "provider_schema_projection": "REMOVE_ONLY_UNSUPPORTED_UNIQUE_ITEMS_KEYWORD",
+    "local_schema_and_validation": "UNCHANGED_FULL_CONTRACT_INCLUDING_UNIQUENESS",
+    "packet_clarification": "RESTATE_EXACT_SYMBOL_ORDER_AND_NO_DUPLICATE_ARRAY_INVARIANTS",
+    "cause": "Current structured-output provider rejects uniqueItems before generation with invalid_json_schema. A no-market synthetic request proved the same transport and the projected schema complete successfully."
+  },
+  "implementation_bindings": [
+    {
+      "path": "trade_system/theory_paper_v2/application/seen_v1_diagnostic.py",
+      "physical_sha256": "8b22d9a181aca1e1e93da3e4450b79c7ab86584b493e548051aa51126559c2be"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/presentation/seen_v1_diagnostic_cli.py",
+      "physical_sha256": "2aef3746222c60af095eaad279f441e246c9fc7ea714aa82fa198a272e18f2aa"
+    },
+    {
+      "path": "tests/test_theory_paper_v2_seen_v1_diagnostic.py",
+      "physical_sha256": "da7cc80ad9d3edd1ee4e586aa2c8fffa13c9becea9415d25a547fbf128a1dd5e"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/application/continuous_experiment.py",
+      "physical_sha256": "21e3246752bbceb99070d060d68058ea27c622a0bc5d33805e8176399831e3b1"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/domain/action_discrimination/engine.py",
+      "physical_sha256": "bec3446e871f75091f9095d504c82e535c2f66fcfaa967e2f681cad7d19c7c82"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/infrastructure/offline_portfolio/engine.py",
+      "physical_sha256": "df2d3c24d8a92d5f06c2bb1161d322aa5c24c33b77bf83162af547d480ccc52a"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/infrastructure/offline_portfolio/model.py",
+      "physical_sha256": "a04fb8d947860a10f1ca5527f6c7440c308ff5d2a659190da38764c9953bbb35"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/infrastructure/generative_topology/codex_exec.py",
+      "physical_sha256": "269ed4d50aed615cfd143188536b1756d8ef3c15b52582220a924fcb033749b4"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/domain/contracts/canonical.py",
+      "physical_sha256": "294c34ffa811c08a37b7f6cbdcec8829b138293e8060983cee696b102b02cb28"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/domain/contracts/validation.py",
+      "physical_sha256": "b04cc496004d8456ecf05c943fa17ef7c8f7081b1b67e6aa7892bcd7833c0145"
+    },
+    {
+      "path": "trade_system/theory_paper/common.py",
+      "physical_sha256": "d016ddad09f970d0b245a5577908efd02e35e3f546f32d4389c3e408156be63f"
+    },
+    {
+      "path": "trade_system/theory_paper/experiment.py",
+      "physical_sha256": "26c136d11cb2a559e06d63c94417b0775064d0d0dd916d2301cdfa81f1870b55"
+    }
+  ],
+  "pre_freeze_validation": {
+    "focused_and_adjacent_tests_passed": 31,
+    "real_provider_synthetic_projected_schema_status": "COMPLETE",
+    "real_provider_synthetic_projected_schema_output_bytes": 4497,
+    "real_provider_synthetic_projected_schema_input_contains_market_data": false,
+    "successor_real_v1_candidate_policy_cycles": 0,
+    "recorded_v1_decisions_used_by_successor": false,
+    "recorded_v1_outcomes_used_by_successor": false
+  },
+  "candidate_policy_run_count_before_freeze": 0,
+  "candidate_policy_run_count_scope": "THIS_SUCCESSOR_IMPLEMENTATION_ONLY",
+  "unchanged": [
+    "SOURCE_MARKET_INPUTS",
+    "DETERMINISTIC_PRECEDENCE",
+    "LOCAL_STRATEGY_AGENT_CONTRACT_AND_VALIDATOR",
+    "STRATEGY_AGENT_MODEL_REASONING_AND_TOKEN_LIMIT",
+    "RISK_LIMITS",
+    "COSTS",
+    "EVALUATION",
+    "STOP_CONDITIONS",
+    "NO_EXTERNAL_EXECUTION_AUTHORITY"
+  ],
+  "status": "FROZEN_IMPLEMENTATION_READY_FOR_NEW_PREPARE"
+}

@@ -1,0 +1,243 @@
+{
+  "schema_id": "theory_paper_v2_continuous_p0_contract",
+  "schema_version": "2.1.0",
+  "experiment_id": "THEORY_AGENT_V2_CONTINUOUS_P0_OKX_POST_FREEZE_SUCCESSOR_20260802",
+  "evidence_class": "PRACTICAL_CODEX_CONTINUOUS_EXPERIMENT",
+  "purpose": "Compare a static V1-style arm, a deterministic continuous arm, and one stateful Strategy Agent on the same newly frozen post-prior-freeze PIT replay window.",
+  "system_mode": "E0_OFFLINE_COUNTERFACTUAL",
+  "external_execution_authority": "NONE_E0",
+  "executable": false,
+  "pre_freeze_boundary": {
+    "full_256_bar_window_fetched": true,
+    "selected_window_outcomes_read": false,
+    "source_selection_used_selected_window_returns": false,
+    "policy_changed_from_v1_continuous_contract": false,
+    "risk_cost_or_evaluation_changed_to_fit_outcomes": false
+  },
+  "implementation_binding": {
+    "freeze_commit": "428cf1d35b9ee37414c921a819ec720111cab405",
+    "freeze_tree": "8eaabbdd3f8fc1d59f324a24686611873065d473",
+    "files": [
+      {
+        "path": "trade_system/theory_paper_v2/application/continuous_experiment.py",
+        "physical_sha256": "2629e415cf16bbeb59c88c54697110b09d17123f47e08c6d40303265a6fa9576"
+      },
+      {
+        "path": "trade_system/theory_paper_v2/domain/action_discrimination/engine.py",
+        "physical_sha256": "41b31581d745e1dd6071648d7e4dc53461dd5e17055f8b5767346b5955cbcdc1"
+      },
+      {
+        "path": "trade_system/theory_paper_v2/infrastructure/fresh_market/model.py",
+        "physical_sha256": "c47c75c372f97b51c07948cf493774ff56ce75ab6525aa04d7213122ce6b667f"
+      },
+      {
+        "path": "trade_system/theory_paper_v2/infrastructure/fresh_market/quality.py",
+        "physical_sha256": "e2cf88a52a2bc9d693ec8dd668ba333ae57a29a9c3e7eb70bb903d14ece58be6"
+      },
+      {
+        "path": "trade_system/theory_paper_v2/infrastructure/fresh_market/okx_public.py",
+        "physical_sha256": "a1dc3fb7dfed4462d2a1bcf73757f919fa2e5f66fb0c0b9050a76e99f8802ee8"
+      },
+      {
+        "path": "trade_system/theory_paper_v2/infrastructure/offline_portfolio/engine.py",
+        "physical_sha256": "df2d3c24d8a92d5f06c2bb1161d322aa5c24c33b77bf83162af547d480ccc52a"
+      },
+      {
+        "path": "trade_system/theory_paper_v2/infrastructure/offline_portfolio/model.py",
+        "physical_sha256": "a04fb8d947860a10f1ca5527f6c7440c308ff5d2a659190da38764c9953bbb35"
+      },
+      {
+        "path": "trade_system/theory_paper_v2/infrastructure/generative_topology/codex_exec.py",
+        "physical_sha256": "269ed4d50aed615cfd143188536b1756d8ef3c15b52582220a924fcb033749b4"
+      },
+      {
+        "path": "trade_system/theory_paper_v2/domain/contracts/canonical.py",
+        "physical_sha256": "294c34ffa811c08a37b7f6cbdcec8829b138293e8060983cee696b102b02cb28"
+      },
+      {
+        "path": "trade_system/theory_paper_v2/domain/contracts/validation.py",
+        "physical_sha256": "b04cc496004d8456ecf05c943fa17ef7c8f7081b1b67e6aa7892bcd7833c0145"
+      }
+    ]
+  },
+  "dataset": {
+    "provider": "OKX_OFFICIAL_PUBLIC",
+    "provider_instrument_id": "BTC-USDT-SWAP",
+    "symbol": "BTCUSDT",
+    "interval": "1h",
+    "requested_closed_bar_count": 256,
+    "minimum_visible_history_bars": 96,
+    "prior_freeze_last_close_exclusive": "2026-07-31T08:59:59.999Z",
+    "decision_selection": "EARLIEST_CONTIGUOUS_BARS_AFTER_PRIOR_FREEZE_WITH_COMPLETE_MAX_HORIZON",
+    "decision_count": 16,
+    "outcome_horizons_hours": [
+      1,
+      4,
+      8,
+      24
+    ],
+    "contemporaneous_claim": "UNKNOWN_HISTORICAL_COUNTERFACTUAL_REPLAY_ONLY",
+    "trade_count_status": "UNKNOWN_NOT_PROVIDED_BY_SOURCE",
+    "taker_flow_status": "UNKNOWN_NOT_PROVIDED_BY_SOURCE"
+  },
+  "arms": [
+    {
+      "arm_id": "STATIC_V1",
+      "policy": "OPEN_ONE_CORE_AT_GENESIS_WITH_FIXED_STOP_AND_2R_FULL_TARGET_THEN_WAIT_WITHOUT_REENTRY"
+    },
+    {
+      "arm_id": "DETERMINISTIC_CONTINUOUS",
+      "policy": "FROZEN_FEATURE_RULES_WITH_STATEFUL_ADD_REDUCE_EXIT_AND_REENTRY"
+    },
+    {
+      "arm_id": "SINGLE_STRATEGY_AGENT",
+      "policy": "ONE_BOUNDED_STRATEGY_AGENT_UPDATES_PRIOR_ACCEPTED_STATE_AND_SELECTS_FROM_THE_HARD_FEASIBLE_SET"
+    }
+  ],
+  "financial_contract": {
+    "initial_equity_usdt": "10000",
+    "core_notional_fraction": "0.0625",
+    "tactical_notional_fraction": "0.03125",
+    "maximum_gross_fraction": "0.125",
+    "maximum_episode_risk_fraction": "0.0125",
+    "core_risk_cap_fraction": "0.0075",
+    "tactical_risk_cap_fraction": "0.005",
+    "tail_gap_fraction": "0.01",
+    "fee_rate_per_fill": "0.0005",
+    "adverse_slippage_bps_per_market_fill": "2",
+    "funding_source": "OKX_PUBLIC_REALIZED_FUNDING_HISTORY",
+    "funding_cost_quality": "OBSERVED_REALIZED_RATE_WITH_TRADE_CANDLE_CLOSE_MARK_PROXY_NOT_COST_COMPLETE",
+    "funding_event_order": "EXPOSURE_AFTER_PRIOR_BAR_PROTECTION_AND_BEFORE_SAME_TIMESTAMP_DECISION_ACTION",
+    "funding_missing_policy": "UNKNOWN_BLOCKS_COST_COMPLETE_CLAIM_NEVER_ZERO_FILL",
+    "dynamic_target_policy": "NO_AUTOMATIC_FULL_TARGET_EXIT",
+    "protective_match_policy": "STOP_FIRST_WITH_ADVERSE_MARKET_SLIPPAGE",
+    "quantity_policy": "ROUND_DOWN_TO_FROZEN_EXCHANGE_STEP",
+    "price_policy": "ADVERSE_ROUND_TO_FROZEN_EXCHANGE_TICK"
+  },
+  "feature_requests": [
+    {
+      "feature_id": "BOLLINGER_20_2",
+      "timeframe": "1h",
+      "parameters": {
+        "period": 20,
+        "standard_deviations": "2"
+      },
+      "distinguishes": "compression, expansion, breakout continuation, and mean-reversion paths",
+      "limitation": "closed-bar geometry is not a mechanical trade signal"
+    },
+    {
+      "feature_id": "RECENT_VWAP_24",
+      "timeframe": "1h",
+      "parameters": {
+        "window_bars": 24,
+        "price_basis": "quote_volume_divided_by_base_volume"
+      },
+      "distinguishes": "acceptance above or below recent transacted value",
+      "limitation": "rolling kline VWAP is not session, anchored, or order-level VWAP"
+    },
+    {
+      "feature_id": "EMA20_LEVEL",
+      "timeframe": "1h",
+      "parameters": {
+        "period": 20
+      },
+      "distinguishes": "current acceptance above or below the frozen deterministic policy trend level",
+      "limitation": "EMA is a lagging closed-bar observation, not a trade signal"
+    }
+  ],
+  "deterministic_policy": {
+    "precedence": [
+      "IF_EXPOSED_AND_CLOSE_BELOW_BOLLINGER_LOWER_AND_RETURN_24H_NEGATIVE_THEN_INVALIDATE_AND_EXIT",
+      "IF_EXPOSED_WITH_TACTICAL_AND_CLOSE_BELOW_EMA20_THEN_REDUCE_TACTICAL",
+      "IF_EXPOSED_CORE_ONLY_AND_CLOSE_BELOW_EMA20_THEN_EXIT_WITH_REENTRY",
+      "IF_REENTRY_PENDING_AND_CLOSE_AT_OR_ABOVE_EMA20_AND_EMA20_SLOPE_NONNEGATIVE_THEN_REENTER_CORE_ELSE_WAIT",
+      "IF_FLAT_WITHOUT_REENTRY_AND_CLOSE_AT_OR_ABOVE_EMA20_AND_RETURN_24H_POSITIVE_THEN_OPEN_CORE_ELSE_WAIT",
+      "IF_CORE_ONLY_AND_CLOSE_ABOVE_BOLLINGER_UPPER_AND_EMA20_SLOPE_POSITIVE_THEN_ADD_CONFIRMATION",
+      "IF_CORE_PLUS_ONE_TACTICAL_AND_CLOSE_ABOVE_BOLLINGER_UPPER_AND_RETURN_6H_POSITIVE_THEN_ADD_TREND",
+      "IF_EXPOSED_AND_PERCENT_B_ABOVE_ONE_AND_CLOSE_ABOVE_RECENT_VWAP_THEN_HOLD_CORE_TRAIL",
+      "OTHERWISE_HOLD_CURRENT_EXPOSURE_OR_WAIT_IF_FLAT"
+    ],
+    "unknown_input_policy": "SKIP_ONLY_THE_RULE_REQUIRING_THE_UNKNOWN_INPUT"
+  },
+  "strategy_agent": {
+    "identity": "SINGLE_STATEFUL_STRATEGY_AGENT",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "token_limit": 4000,
+    "timeout_seconds": 180,
+    "tool_policy": "NO_TOOLS_NO_NETWORK_NO_FILES_NO_MEMORY",
+    "context_policy": "ONLY_CURRENT_PIT_PACKET_AND_PRIOR_ACCEPTED_STATE",
+    "path_ids": [
+      "PRIMARY",
+      "ALTERNATIVE",
+      "NULL"
+    ],
+    "numeric_probability_policy": "NOT_CLAIMED",
+    "critic": "DISABLED",
+    "failure_policy": "FAIL_CLOSED_WITHOUT_RETRY_OR_RULE_CHANGE"
+  },
+  "registered_actions": [
+    "WAIT_WITH_REVIEW",
+    "HOLD_CORE",
+    "HOLD_CORE_TRAIL",
+    "OPEN_CORE",
+    "ADD_CONFIRMATION",
+    "ADD_TREND",
+    "REDUCE_TACTICAL",
+    "PARTIAL_TAKE_PROFIT",
+    "EXIT_WITH_REENTRY",
+    "REENTER_CORE",
+    "INVALIDATE_AND_EXIT"
+  ],
+  "evaluation": {
+    "sequential_metrics": [
+      "realized_pnl_before_cost",
+      "unrealized_pnl",
+      "fees",
+      "slippage",
+      "funding",
+      "net_pnl",
+      "maximum_drawdown",
+      "minimum_one_hour_equity_change",
+      "flat_duration",
+      "reentry_delay",
+      "add_utilization",
+      "benchmark_core_hold_return",
+      "opportunity_difference"
+    ],
+    "decision_metrics": [
+      "forward_net_change_1h_4h_8h_24h",
+      "hindsight_best_then_feasible_action_24h",
+      "selected_action_opportunity_loss_24h"
+    ],
+    "cost_completeness": "NOT_COST_COMPLETE_DUE_TO_FUNDING_SETTLEMENT_MARK_PROXY",
+    "promotion_forbidden": [
+      "PREDICTIVE_VALIDITY_PROVEN",
+      "PROFITABILITY_PROVEN",
+      "PRODUCTION_READY",
+      "PAPER_OR_LIVE_AUTHORIZED",
+      "CONTEMPORANEOUS_COLLECTION_PROVEN",
+      "COST_COMPLETE"
+    ]
+  },
+  "stop_conditions": [
+    "PUBLIC_DATA_UNAVAILABLE_OR_QUALITY_HARD_FAIL",
+    "INSUFFICIENT_POST_PRIOR_FREEZE_CONTIGUOUS_WINDOW",
+    "AGENT_TRANSPORT_OR_SCHEMA_FAILURE",
+    "PIT_AVAILABLE_AT_VIOLATION",
+    "PRIOR_ACCEPTED_STATE_DIGEST_MISMATCH",
+    "EMPTY_HARD_FEASIBLE_SET",
+    "RISK_OR_PROTECTION_STATE_UNKNOWN",
+    "OUTCOME_ACCESS_BEFORE_ALL_DECISIONS_AND_TERMINAL_RECEIPT"
+  ],
+  "predecessor_failed_prepare": {
+    "path": "config/theory_paper_v2.continuous_p0.v2.json",
+    "canonical_digest": "5c6817e85b91c7c77293f40e8c97ef8d221a92d9427a1c6169b2e45cc89b4d36",
+    "physical_sha256": "83c3bb4d5dda268aba00cf0c3a0e4069502a93bab3c18c4a4d537021060d49c9",
+    "status": "FAILED_CLOSED_BEFORE_RUN_DIRECTORY_OR_MANIFEST",
+    "error_code": "FUNDING_MARK_PROXY_MISSING",
+    "selected_window_outcomes_read": false,
+    "strategy_decisions_started": false,
+    "only_successor_change": "FUNDING_REQUEST_AND_FILTER_START_AT_FIRST_DECISION_GENESIS_INSTEAD_OF_RAW_WARMUP_START"
+  }
+}

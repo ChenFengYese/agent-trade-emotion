@@ -1,0 +1,358 @@
+{
+  "schema_version": "sol-har1-btcusdt-source-preflight-static-downloader-route.v1",
+  "decision_id": "SOL_HAR1_BTCUSDT_SOURCE_PREFLIGHT_STATIC_DOWNLOADER_ROUTE.v1",
+  "decision_state": "AUTHORIZE_BOUNDED_OFFICIAL_SOURCE_PREFLIGHT_AND_STATIC_DOWNLOADER_NO_ZIP_BODY",
+  "issued_by": "GPT-5.6-SOL_ULTRA_ROUTE_PLANNER",
+  "issued_at": "2026-07-29T08:37:59Z",
+  "evidence_level": "D0_SOURCE_PREFLIGHT_AND_STATIC_CLIENT_ONLY",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "predecessor_completion": {
+    "path": "config/sol_decision.fast-slow-har1-research-p0-static-completion.v1.json",
+    "physical_sha256": "826f693beaecd8d2e67046e8a9775e5a2d36c1b7534b6752b39dea6ccd7d81c4",
+    "canonical_sha256": "a4d2a861d570c4506353685fb8013342aac13515bebb31a60f6099bd7c932acf",
+    "decision_state": "ACCEPT_WITH_BOUNDED_DEVIATIONS"
+  },
+  "route_scope": {
+    "actor": "NATURAL_PERSON",
+    "jurisdiction": "JP",
+    "purpose": "INTERNAL_RESEARCH_AND_DERIVED_ANALYSIS",
+    "redistribution": "NOT_REQUESTED",
+    "instrument_id": "BTCUSDT",
+    "venue": "BINANCE",
+    "product_family": "USD_M_FUTURES",
+    "automatic_promotion": false,
+    "legal_effect": "SOURCE_EVIDENCE_COLLECTION_ONLY_NOT_LEGAL_ADVICE_OR_PERMISSION_CONCLUSION"
+  },
+  "new_file_allowlist": [
+    "har1/baseline.json",
+    "har1/source_contract.json",
+    "har1/purge_plan.json",
+    "har1/preflight_client.py",
+    "har1/tests/test_preflight_client.py",
+    "har1/next_fetch_manifest.json",
+    "har1/evidence/01-jp-home.json",
+    "har1/evidence/02-jp-terms.json",
+    "har1/evidence/03-public-data-readme.json",
+    "har1/evidence/04-smoke-zip-head.json",
+    "har1/evidence/05-smoke-checksum.json"
+  ],
+  "file_creation_policy": {
+    "all_allowlisted_paths_absent_at_route_issue": true,
+    "baseline_must_be_created_before_other_allowlisted_files": true,
+    "all_outputs_create_once": true,
+    "implementation_files_may_be_iterated_before_network_preflight": true,
+    "evidence_files_may_not_be_overwritten_or_deleted": true,
+    "write_mechanism": "O_EXCL_THEN_FLUSH_FSYNC_AND_ATOMIC_DIRECTORY_FSYNC_WHERE_SUPPORTED",
+    "existing_target_action": "FAIL_CLOSED",
+    "cleanup_or_retry": "DENIED_REQUIRES_NEW_ROUTE"
+  },
+  "baseline_contract": {
+    "command": "git status --porcelain=v2 --branch -z",
+    "required_fields": [
+      "captured_at",
+      "branch",
+      "head",
+      "raw_status_utf8",
+      "raw_status_sha256",
+      "dirty_path_count",
+      "route_physical_sha256"
+    ],
+    "clean_requirement": "CLEAN_OR_COMPLETE_DIRTY_MANIFEST",
+    "content_reads": "DENIED_STATUS_METADATA_ONLY"
+  },
+  "local_read_allowlist": [
+    "config/sol_decision.har1-btcusdt-source-preflight-static-downloader-route.v1.json",
+    "config/sol_decision.fast-slow-har1-research-p0-static-completion.v1.json",
+    "config/fast_slow_har1_research_contract.v1.json",
+    "config/har1_btcusdt_dataset_plan.v1.json",
+    "trade_system/bar_resampler.py",
+    "trade_system/slow_context.py",
+    "tests/test_bar_resampler.py",
+    "tests/test_slow_context.py",
+    "har1/baseline.json",
+    "har1/source_contract.json",
+    "har1/purge_plan.json",
+    "har1/preflight_client.py",
+    "har1/tests/test_preflight_client.py",
+    "har1/next_fetch_manifest.json"
+  ],
+  "local_read_denylist": [
+    "/Users/wt/Library/Application Support/agent-trade-emotion",
+    ".runtime",
+    "artifacts",
+    "config/binance_cm_historical_diagnostic.v2.frozen_before_download.json",
+    "config/binance_cm_historical_diagnostic.v2.jan_development.json",
+    "config/binance_cm_historical_evidence_ledger.v1.json",
+    "all other January or February historical data, reports, evidence and runtime paths"
+  ],
+  "search_policy": {
+    "broad_rg_find_glob": "DENIED",
+    "explicit_path_reads_only": true,
+    "reuse_old_responses": false
+  },
+  "implementation_scope": {
+    "required_implementer": "GPT-5.6-TERRA_HIGH",
+    "language": "PYTHON_STDLIB_ONLY",
+    "allowed": [
+      "STRICT_JSON_AND_DUPLICATE_KEY_VALIDATION",
+      "CANONICAL_SHA256_SELF_DIGESTS",
+      "DETERMINISTIC_MONTH_OBJECT_MANIFEST_GENERATION",
+      "BOUNDED_SEQUENTIAL_HTTPS_REQUESTS_THROUGH_EXACT_PROXY",
+      "CREATE_ONCE_EVIDENCE_SEALING",
+      "OFFLINE_SYNTHETIC_TESTS",
+      "ONE_BOUNDED_NETWORK_PREFLIGHT_AFTER_TEST_PASS"
+    ],
+    "forbidden": [
+      "GENERAL_PURPOSE_FETCHER",
+      "DYNAMIC_URL_HOST_OR_METHOD",
+      "SHELL_EXECUTION",
+      "COOKIE_AUTH_CREDENTIAL_OR_API_KEY",
+      "REDIRECT_RETRY_OR_CONCURRENCY",
+      "ZIP_GET_OR_RANGE_GET",
+      "ZIP_BODY_READ",
+      "MARKET_ROW_PARSE_OR_READ",
+      "BACKTEST_TRAINING_CALIBRATION_OR_SCORE",
+      "HOLDOUT_OPEN",
+      "PAPER_TESTNET_ORDER_ACCOUNT_OR_LIVE",
+      "ACTIVE_G1_ACCESS"
+    ]
+  },
+  "network_contract": {
+    "proxy": "http://127.0.0.1:7897",
+    "scheme": "HTTPS_ONLY",
+    "redirects": 0,
+    "retries": 0,
+    "concurrency": 1,
+    "cookies": false,
+    "authentication": false,
+    "request_timeout_seconds": 20,
+    "total_elapsed_cap_seconds": 90,
+    "request_count": 5,
+    "request_sequence": [
+      {
+        "sequence": 1,
+        "method": "GET",
+        "url": "https://www.binance.com/ja",
+        "body_cap_bytes": 2097152,
+        "evidence_path": "har1/evidence/01-jp-home.json"
+      },
+      {
+        "sequence": 2,
+        "method": "GET",
+        "url": "https://www.binance.com/ja/terms",
+        "body_cap_bytes": 2097152,
+        "evidence_path": "har1/evidence/02-jp-terms.json"
+      },
+      {
+        "sequence": 3,
+        "method": "GET",
+        "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/README.md",
+        "body_cap_bytes": 1048576,
+        "evidence_path": "har1/evidence/03-public-data-readme.json"
+      },
+      {
+        "sequence": 4,
+        "method": "HEAD",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-07.zip",
+        "body_cap_bytes": 0,
+        "evidence_path": "har1/evidence/04-smoke-zip-head.json"
+      },
+      {
+        "sequence": 5,
+        "method": "GET",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-07.zip.CHECKSUM",
+        "body_cap_bytes": 512,
+        "evidence_path": "har1/evidence/05-smoke-checksum.json"
+      }
+    ],
+    "total_body_cap_bytes": 5243392,
+    "headers": {
+      "Accept": "*/*",
+      "Accept-Encoding": "identity",
+      "Connection": "close",
+      "User-Agent": "agent-trade-emotion-har1-source-preflight/1.0"
+    },
+    "success_status": 200,
+    "failure_rule": "SEAL_CURRENT_FAILURE_EVIDENCE_THEN_STOP_WITHOUT_NEXT_REQUEST",
+    "head_body_rule": "MUST_BE_ZERO_BYTES",
+    "evidence_minimum_fields": [
+      "sequence",
+      "method",
+      "url",
+      "proxy",
+      "started_at",
+      "received_at",
+      "available_at",
+      "status_code",
+      "response_headers",
+      "response_body_base64",
+      "response_bytes",
+      "response_sha256",
+      "elapsed_ms",
+      "client_physical_sha256",
+      "route_physical_sha256",
+      "terminal",
+      "error"
+    ]
+  },
+  "research_boundary_plan": {
+    "parameter_status": "UNVALIDATED_INITIAL_BOUNDARY_FOR_CAUSAL_REPLAY_DESIGN",
+    "one_minute_acquisition": {
+      "start_inclusive": "2025-04-01T00:00:00Z",
+      "end_exclusive": "2026-07-01T00:00:00Z",
+      "months": 15,
+      "warmup_start": "2025-04-01T00:00:00Z",
+      "pilot_start": "2025-07-01T00:00:00Z"
+    },
+    "four_hour_long_context": {
+      "start_inclusive": "2020-07-01T00:00:00Z",
+      "end_exclusive": "2025-04-01T00:00:00Z",
+      "months": 57,
+      "role": "SEEN_CONTEXT_ONLY_NOT_CALIBRATION_OR_HOLDOUT"
+    },
+    "maximum_lookback": {
+      "value": 90,
+      "unit": "CALENDAR_DAYS",
+      "source_type": "VALIDATION_STARTING_BOUND_NOT_EMPIRICAL_RESULT"
+    },
+    "maximum_holding": {
+      "value": 7,
+      "unit": "CALENDAR_DAYS",
+      "source_type": "VALIDATION_STARTING_BOUND_NOT_EMPIRICAL_RESULT"
+    },
+    "feature_history_cross_role_policy": "PAST_ONLY_CARRY_IN_FROM_EARLIER_ROLE_ALLOWED_NO_FUTURE_ROLE_INPUT",
+    "role_windows_before_purge": [
+      {
+        "role": "DEVELOPMENT",
+        "start_inclusive": "2025-07-01T00:00:00Z",
+        "end_exclusive": "2026-01-01T00:00:00Z"
+      },
+      {
+        "role": "CALIBRATION",
+        "start_inclusive": "2026-01-01T00:00:00Z",
+        "end_exclusive": "2026-04-01T00:00:00Z"
+      },
+      {
+        "role": "LOCKED_HISTORICAL_HOLDOUT",
+        "start_inclusive": "2026-04-01T00:00:00Z",
+        "end_exclusive": "2026-07-01T00:00:00Z"
+      }
+    ],
+    "eligible_decision_windows_after_purge": [
+      {
+        "role": "DEVELOPMENT",
+        "start_inclusive": "2025-07-01T00:00:00Z",
+        "end_exclusive": "2025-12-25T00:00:00Z"
+      },
+      {
+        "role": "CALIBRATION",
+        "start_inclusive": "2026-01-01T00:00:00Z",
+        "end_exclusive": "2026-03-25T00:00:00Z"
+      },
+      {
+        "role": "LOCKED_HISTORICAL_HOLDOUT",
+        "start_inclusive": "2026-04-01T00:00:00Z",
+        "end_exclusive": "2026-06-24T00:00:00Z"
+      }
+    ],
+    "label_rule": "NO_LABEL_OR_MAXIMUM_HOLDING_WINDOW_MAY_CROSS_A_ROLE_END"
+  },
+  "next_fetch_manifest_contract": {
+    "one_minute_zip_objects": 15,
+    "four_hour_zip_objects": 57,
+    "total_zip_objects": 72,
+    "total_checksum_objects": 72,
+    "all_download_authorized": false,
+    "zip_single_object_cap_bytes": 67108864,
+    "zip_total_cap_bytes": 536870912,
+    "checksum_single_object_cap_bytes": 1024,
+    "checksum_total_cap_bytes": 73728,
+    "url_prefix": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/",
+    "ordering": "INTERVAL_ASC_THEN_MONTH_ASC_ZIP_THEN_CHECKSUM",
+    "future_availability_semantics": "RECONSTRUCTED_ONLY_NEVER_ACTUAL",
+    "bar_reconstructed_available_at_candidate": "KLINE_CLOSE_TIME_PLUS_ONE_MILLISECOND_UNVALIDATED_REQUIRES_NEXT_GATE"
+  },
+  "offline_test_requirements": [
+    "EXACT_PROXY_HOST_PATH_METHOD_AND_ORDER",
+    "ZERO_REDIRECT_RETRY_COOKIE_AUTH_AND_CONCURRENCY",
+    "PER_REQUEST_AND_TOTAL_BODY_CAPS",
+    "PER_REQUEST_AND_TOTAL_TIMEOUTS",
+    "CREATE_ONCE_NO_OVERWRITE",
+    "FAILURE_EVIDENCE_THEN_STOP",
+    "HEAD_BODY_REJECTION",
+    "CHECKSUM_FORMAT_VALIDATION",
+    "STRICT_JSON_DUPLICATE_KEY_AND_SELF_HASH",
+    "DETERMINISTIC_72_ZIP_AND_72_CHECKSUM_MANIFEST",
+    "EXACT_WINDOWS_PURGE_AND_USER_SCOPE",
+    "NO_GENERAL_FETCH_ZIP_BODY_MARKET_PARSE_BACKTEST_OR_TRADE_ENTRYPOINT"
+  ],
+  "completion_conditions": [
+    "BASELINE_EXISTS_AND_BINDS_ROUTE_BRANCH_HEAD_AND_COMPLETE_DIRTY_STATUS",
+    "STATIC_FILES_PASS_OFFLINE_TESTS_AND_HAVE_REPORTED_PHYSICAL_AND_CANONICAL_HASHES",
+    "EVIDENCE_FILES_FORM_EXACT_PREFIX_OF_THE_FIVE_REQUEST_SEQUENCE",
+    "SUCCESS_REQUIRES_ALL_FIVE_STATUS_200_WITHIN_CAPS_AND_FINAL_CHECKSUM_TERMINAL_TRUE",
+    "FAILURE_IS_WAIT_DATA_WITH_SEALED_PARTIAL_EVIDENCE_AND_NO_RETRY",
+    "NO_ZIP_BODY_OR_MARKET_ROW_WAS_READ",
+    "NEXT_FETCH_MANIFEST_HAS_72_ZIP_AND_72_CHECKSUM_URLS_ALL_UNAUTHORIZED",
+    "SOURCE_TERMS_REMAIN_CONDITIONAL_PENDING_NEW_SOL_REVIEW"
+  ],
+  "permission_matrix": {
+    "terra_static_implementation": true,
+    "offline_tests": true,
+    "one_bounded_five_request_preflight": true,
+    "terms_permission_conclusion": false,
+    "zip_head": true,
+    "checksum_get": true,
+    "zip_get_or_body": false,
+    "market_row_read": false,
+    "historical_result_read": false,
+    "backtest_training_calibration_or_score": false,
+    "holdout_open": false,
+    "paper_or_live_execution": false,
+    "active_g1_access": false
+  },
+  "next_gate": {
+    "id": "HAR2_FULL_FETCH_ROUTE",
+    "automatic_permission": "NONE",
+    "required_reviewer": "GPT-5.6-SOL_ULTRA",
+    "required_inputs": [
+      "ALL_PREFLIGHT_EVIDENCE_PHYSICAL_HASHES",
+      "TERMS_AND_SOURCE_CONDITIONAL_USE_REVIEW",
+      "FINAL_STATIC_CLIENT_AND_TEST_HASHES",
+      "NEXT_FETCH_MANIFEST_HASH",
+      "STORAGE_BUDGET_AND_EXACT_CREATE_ONCE_RAW_ROOT",
+      "BOUNDED_ACTIVATION_CAPABILITY"
+    ],
+    "maximum_possible_permission": "BOUNDED_72_OBJECT_HAR1_FETCH_NO_RESULT_READ_OR_BACKTEST"
+  },
+  "claim_boundary": {
+    "maximum_positive_claim": "A successful run establishes only that five exact official-source preflight requests succeeded through the declared proxy within frozen caps and that the next historical object list is statically defined. It does not establish legal permission, historical point-in-time truth, data correctness, predictive validity or trading readiness.",
+    "data_downloaded": false,
+    "market_rows_read": false,
+    "backtest_validity": "NOT_EVALUATED",
+    "trading_permission": "DENIED"
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-har1-btcusdt-source-preflight-static-downloader-route/v1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ]
+  },
+  "decision_sha256": "0cf2c13a4b0663b93b902a4cfd7e76fb340cb821c7ae507b1d6c28615b056c74"
+}

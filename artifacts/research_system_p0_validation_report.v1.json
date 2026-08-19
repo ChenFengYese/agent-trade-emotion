@@ -1,0 +1,208 @@
+{
+  "report_id": "MSTA_HED_RESEARCH_SYSTEM_P0_VALIDATION_REPORT.v1",
+  "schema_version": "research-system-p0-validation-report.v1",
+  "created_at": "2026-07-27T08:55:09Z",
+  "scope": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "stage": "RSR-P0",
+    "result_class": "LOCAL_REVIEW_READY_CANDIDATE_AWAITING_SOL_GATE"
+  },
+  "authority_binding": {
+    "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION.v1",
+    "decision_physical_sha256": "2cf37e54989d3fd09846cacdbe622de26a4c0bd60e46cb0650f67b2827bf5586",
+    "decision_canonical_sha256": "2a434f542f58c6d43798e1562b7f203336eae7e5db4b6745095e3c9e7633ddb6",
+    "decision_state": "AUTHORIZED_P0_E0_RESEARCH_SYSTEM_RECONSTRUCTION"
+  },
+  "structured_counts": {
+    "object_types": 17,
+    "variables": 25,
+    "claims": 18,
+    "hypotheses": 19,
+    "measurement_contracts": 19,
+    "parameters": 43,
+    "disputes": 22,
+    "source_documents": 21,
+    "source_grade_A": 18,
+    "source_grade_B": 3
+  },
+  "primary_input_identities": [
+    {
+      "path": "config/research_system.object_dictionary.v1.json",
+      "physical_sha256": "9a167daea7bf05d1022e65da40be5b87786139a9e0f74d52994cbc2fd4915fff",
+      "canonical_sha256": "6f69d94c81f81d174f9d39a8fdfeb0cdf5d52cc753a0dc20b3847cbb5adb8f8e"
+    },
+    {
+      "path": "config/research_system.hypothesis_validation_queue.v1.json",
+      "physical_sha256": "e76ab11983326ab53d209b6efd362deb91a00215a0c47b14d5930457c614b4cb",
+      "canonical_sha256": "a4675f506a617fc9b871088f2926a3a5f204c37cc7230222459e999bd3f57704"
+    },
+    {
+      "path": "config/research_system.measurement_contract.v1.json",
+      "physical_sha256": "2e8d162f9be5182fbe25fd4e5d0c96fd817edc010b92ac61aa03f991aac20651",
+      "canonical_sha256": "004652f83c7873f0fb958258a9f10404d8d379eff1a768cc8b84c406061c9b5a"
+    },
+    {
+      "path": "config/research_system.parameter_registry.v1.json",
+      "physical_sha256": "a5321385626f2acd67063fed1cf8138b400c5911265ad333aed4da3958ca2a26",
+      "canonical_sha256": "ef537b706599b22a10a385c43632435c763f9a9db4e6143670862c391989af39"
+    },
+    {
+      "path": "config/research_system.dispute_registry.v1.json",
+      "physical_sha256": "ae137bcb46051dd7ddb0b71f8c2b01390fcf9ff21d3d409fc7776ef1cb791ba3",
+      "canonical_sha256": "434d9169c8c5bb030ea05007e124e179e90e5e5e14671ae9d30d5a38b42d0609"
+    },
+    {
+      "path": "config/research_system.source_authority_registry.v1.json",
+      "physical_sha256": "693cc7361c16fb154df97bf2c58a1e68807f990dc976df949658e7ce635abb12",
+      "canonical_sha256": "faa6f33577d71275939b7bdf56fa850aecb3b75eed8df5ee175fb9340a3d4324"
+    },
+    {
+      "path": "config/research_system.stage_contract.v1.json",
+      "physical_sha256": "ab81251c0ea70e945d9ea7176e9cb59e7353477212dcf36a2d9e4424f944674b",
+      "canonical_sha256": "d84c8ba50d828688020a5197202a58985079cdc64938c58fe9c54e3cb69b6fba"
+    },
+    {
+      "path": "trade_system/research_system_contract_v1.py",
+      "physical_sha256": "5101ca7b59182c51d4afbfc30e4208273a58eaf80589afb96b083295074d362d"
+    },
+    {
+      "path": "tests/test_research_system_contract_v1.py",
+      "physical_sha256": "698b925ce7c9854d86b013df05adef43ec13d4b61027c425e579fbb8df643cd6"
+    }
+  ],
+  "verification_results": [
+    {
+      "check_id": "VAL-001",
+      "method": "Strict JSON parse, duplicate-key rejection and seven declared canonical digest recomputations.",
+      "result": "PASS_7_OF_7",
+      "exit_code": 0
+    },
+    {
+      "check_id": "VAL-002",
+      "method": "python3 -m unittest -q tests.test_research_system_contract_v1",
+      "result": "PASS_88_OF_88",
+      "exit_code": 0
+    },
+    {
+      "check_id": "VAL-003",
+      "method": "PYTHONPYCACHEPREFIX=/tmp/agent-trade-emotion-pyc python3 -m py_compile trade_system/research_system_contract_v1.py tests/test_research_system_contract_v1.py",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    {
+      "check_id": "VAL-004",
+      "method": "validate_research_system_bundle over the seven exact raw-text documents.",
+      "result": "ACCEPTED_OK",
+      "bundle_digest": "c4eb9da641ee6a8f2971d06174f9eaa2c970122fa106acc9a2e8f584833b085d",
+      "exit_code": 0
+    },
+    {
+      "check_id": "VAL-005",
+      "method": "Independent in-memory re-signing and adversarial mutations without builder test or validator private helpers.",
+      "result": "PASS_14_OF_14",
+      "evidence_path": "artifacts/research_system_p0_adversarial_review.v1.json",
+      "evidence_physical_sha256": "b3a4cf459b32e7720ec8e3b2348156322378cf48c040e9edf9f898df3ae0c8d8",
+      "exit_code": 0
+    },
+    {
+      "check_id": "VAL-006",
+      "method": "Independent target-blind mathematics and theory review, local remediation recheck, and final current-input attestation.",
+      "result": "FOUR_CURRENT_CLOSED_ONE_DEFERRED_BLOCKING_O001_CURRENT_CLOSED",
+      "initial_review_path": "artifacts/research_system_p0_independent_math_review.v1.json",
+      "initial_review_physical_sha256": "907d967f684e873166ec9477c40634ebadccfccbd3be47006b23c07eb6e10d92",
+      "recheck_path": "artifacts/research_system_p0_independent_math_recheck.v1.json",
+      "recheck_physical_sha256": "f81c1128822c691da8f47ef631b2c1c7cc605d251e4cb9e435d353b50ff6a511",
+      "final_attestation_path": "artifacts/research_system_p0_math_final_attestation.v1.json",
+      "final_attestation_physical_sha256": "cbbceaa23fc871d4e840ab8ce1b28658139d7471533e9017f789e9c5b9add3e4",
+      "exit_code": 0
+    },
+    {
+      "check_id": "VAL-007",
+      "method": "Recompute the ten immutable baseline physical SHA-256 identities bound by the external Sol route decision.",
+      "result": "PASS_10_OF_10",
+      "exit_code": 0
+    },
+    {
+      "check_id": "VAL-008",
+      "method": "Cross-registry closure for hypothesis-to-contract, claim references, parameter references, IDs and result-history immutability.",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    {
+      "check_id": "VAL-009",
+      "method": "Trailing-whitespace scan and scoped diff check over the new P0 documents, registries, code, tests and evidence artifacts.",
+      "result": "PASS",
+      "exit_code": 0
+    }
+  ],
+  "rework_history": [
+    {
+      "issue": "Canonical digest composition, ER/RVOL totality, action-size units and ordinal-control registration.",
+      "first_observed": "artifacts/research_system_p0_independent_math_review.v1.json",
+      "resolution": "Local definitions and registries revised; original failure retained; final current-input attestation closes the remediable items."
+    },
+    {
+      "issue": "Repeated percent-decoding could miss a ninth-layer P1A alias.",
+      "resolution": "Decode until stable under a bounded loop; the independent nine-layer mutation now returns E_ALIAS."
+    },
+    {
+      "issue": "Future gate prerequisite and deliverable text could be candidate-rewritten while the gate remained closed.",
+      "resolution": "Complete gate terms and order pinned outside the candidate; six new tests plus independent mutations reject content, order and self-cycle changes."
+    }
+  ],
+  "deferred_blockers": [
+    {
+      "blocker_id": "BLOCK-D3-E2-MACHINE-PREDICATES",
+      "status": "DEFERRED_BLOCKING",
+      "scope": "Every active hypothesis hard falsifier and expiry",
+      "condition": "Natural-language rules must be replaced by versioned observable/operator/threshold/clock/window/censoring/terminal predicates with independent fixtures before D3 or E2.",
+      "does_not_block": "RSR-P0 design and validator foundation",
+      "blocks": ["D3", "E2"]
+    },
+    {
+      "blocker_id": "BLOCK-D0-SEPARATE-AUTHORITY",
+      "status": "NOT_AUTHORIZED",
+      "scope": "Historical market-data acquisition",
+      "condition": "A separate exact D0 plan and new Sol decision are required after a Sol RSR-P0 PASS.",
+      "does_not_block": "RSR-P0 design and validator foundation",
+      "blocks": ["D0", "D1", "D2", "D3", "E2", "E3"]
+    }
+  ],
+  "forbidden_actions_confirmation": {
+    "market_rows_or_datasets_acquired": false,
+    "authenticated_or_paid_sources_used": false,
+    "raw_runtime_admission_performed": false,
+    "adapter_or_replay_executed": false,
+    "feature_dataset_or_label_built": false,
+    "backtest_calibration_or_holdout_run": false,
+    "paper_testnet_deployment_or_trading_run": false,
+    "active_application_support_root_accessed": false
+  },
+  "claim_boundary": {
+    "maximum_positive_claim": "The exact recorded P0 package is locally REVIEW_READY: its E0 research objects, hypothesis queue, source-document registry, measurement and parameter contracts, stage denials, pure validator, mathematical remediation trail and independent adversarial evidence are reproducible at the recorded identities. This does not complete P0 until a later Sol gate accepts it.",
+    "source_data_validity": "NOT_EVALUATED",
+    "market_validity": "NOT_EVALUATED",
+    "predictive_validity": "NOT_EVALUATED",
+    "profitability": "NOT_EVALUATED",
+    "historical_data_acquisition": "NOT_AUTHORIZED",
+    "backtest": "NOT_AUTHORIZED",
+    "paper": "NOT_AUTHORIZED",
+    "deployment": "DENIED",
+    "trading": "DENIED"
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "domain": "msta-hed/research-system-p0-validation-report/v1",
+    "formula": "SHA256(domain_prefix_utf8 || HEX(domain_separator_hex) || canonical_json_utf8)",
+    "domain_prefix_utf8": "msta-hed/research-system-p0-validation-report/v1",
+    "domain_separator_hex": "00",
+    "exclude_fields": ["report_sha256"],
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [",", ":"],
+    "encoding": "UTF-8"
+  },
+  "report_sha256": "d061894eab87f7679ce7283334192aebae7edf6de65e24ecfda1e110c351ad42"
+}

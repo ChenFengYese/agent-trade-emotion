@@ -1,0 +1,19 @@
+{
+  "classifier_id": "REPLACE_WITH_VERSIONED_STATE_CLASSIFIER_ID",
+  "status": "DRAFT_TEMPLATE",
+  "notice": "Template only. Use observed feature distributions to define rules before changing status to FROZEN_STATE_CLASSIFIER. Rules are checked in order; first matching rule wins, otherwise fallback_state_id is assigned.",
+  "fallback_state_id": "REQUIRED: explicit fallback state ID",
+  "rules": [
+    {
+      "state_id": "REQUIRED: predeclared state ID",
+      "all": [
+        {
+          "feature": "REQUIRED: feature key from label artifact",
+          "min": "OPTIONAL: inclusive finite numeric lower bound",
+          "max": "OPTIONAL: exclusive finite numeric upper bound",
+          "absolute": false
+        }
+      ]
+    }
+  ]
+}

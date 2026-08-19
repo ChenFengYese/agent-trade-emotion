@@ -1,0 +1,127 @@
+{
+  "action_ids": [
+    "WAIT_WITH_REVIEW",
+    "HOLD_CORE",
+    "HOLD_CORE_TRAIL",
+    "OPEN_CORE",
+    "ADD_CONFIRMATION",
+    "ADD_TREND",
+    "REDUCE_TACTICAL",
+    "PARTIAL_TAKE_PROFIT",
+    "EXIT_WITH_REENTRY",
+    "REENTER_CORE",
+    "INVALIDATE_AND_EXIT"
+  ],
+  "account_policy": {
+    "adverse_slippage_rate": "0.0002",
+    "core_fraction": "0.0625",
+    "funding_status": "UNKNOWN_EXCLUDED",
+    "initial_equity": "10000",
+    "maximum_gross_fraction": "0.125",
+    "maximum_stop_risk_fraction": "0.0125",
+    "minimum_net_reward_risk": "1.5",
+    "stage_fraction": "0.03125",
+    "tail_gap_fraction": "0.01",
+    "taker_fee_rate": "0.0005"
+  },
+  "agent_autonomy": {
+    "agent_owned": [
+      "PATH_INTERPRETATION",
+      "ORDINAL_TRADEOFF",
+      "BOUNDED_SELECTION"
+    ],
+    "kernel_owned": [
+      "PIT",
+      "STATE",
+      "RISK",
+      "SUPERVISION",
+      "PERMISSION"
+    ],
+    "selector_policy_id": "BOUNDED_SELECTOR_POLICY_V2"
+  },
+  "config_digest": "44008474739e7d8329324efeb6cc16162e4cbee93dcb5639829ee580da97950a",
+  "decision_indices_inclusive": [
+    128,
+    159
+  ],
+  "evidence_class": "PRACTICAL_CODEX_ACTION_DISCRIMINATION_EXPERIMENT",
+  "executable": false,
+  "external_execution_authority": "NONE_E0",
+  "geometry_policy": {
+    "normal_target_r_multiple": "2.00",
+    "stop_atr_multiple": "1.50",
+    "stop_floor_fraction_of_mark": "0.90",
+    "stop_low24_atr_offset": "0.25",
+    "trend_target_r_multiple": "3.50"
+  },
+  "outcome_policy": {
+    "economic_metrics_are_descriptive": true,
+    "horizons_hours": [
+      1,
+      4,
+      8,
+      24
+    ],
+    "opportunity_loss_is_actual_loss": false,
+    "outcome_authorization": "EVALUATE_AFTER_ALL_ROLE_OUTPUTS_FROZEN",
+    "overlapping_windows_no_iid_claim": true
+  },
+  "profile_order": [
+    "FLAT_ACTIVE",
+    "CORE_ACTIVE",
+    "CORE_CONFIRMATION_ELIGIBLE",
+    "CORE_PLUS_TACTICAL",
+    "TARGET_REVIEW_ACTIVE",
+    "REENTRY_PENDING",
+    "RISK_BUDGET_PRESSURE",
+    "HARD_INVALIDATED_CONTROL"
+  ],
+  "role_contract": {
+    "arm_ids": [
+      "SINGLE_STRONG",
+      "BLIND_THREE_ROLE_CLUSTER"
+    ],
+    "clean_fork_turns": "none",
+    "delivery_protocol": "INITIAL_MESSAGE_DIRECT_INLINE_CANONICAL_PACKET_V1",
+    "expected_outputs_per_sample": 6,
+    "invocation_receipt_required": true,
+    "model_identity_attestation": "UNAVAILABLE_PRACTICAL_EVIDENCE",
+    "role_keys": [
+      "single-proposal",
+      "single-self-review",
+      "single-selection",
+      "cluster-proposal",
+      "cluster-challenge",
+      "cluster-selection"
+    ],
+    "token_budget_attestation": "UNAVAILABLE_PRACTICAL_EVIDENCE",
+    "transport": "CODEX_NATIVE_SUBAGENT_COLLABORATION",
+    "transport_preflight": {
+      "context_digest": "b749e2a9cb0688ace6cacafe404e147705840bcce2346bbd38a48827b4193d9b",
+      "packet_byte_length": 15402,
+      "packet_digest": "90887ee568a5ba535ec0c8091f4f3c3a54cf643f02008572b6630c7eef873f21",
+      "result": "PASS_DIRECT_INLINE_NO_TRUNCATION",
+      "sample_index": 128,
+      "selector_choice_set_count": 2,
+      "used_as_formal_role_output": false
+    }
+  },
+  "sample_count": 32,
+  "schema_id": "action_discrimination_experiment_config",
+  "schema_version": "1.1.0",
+  "supervision_order": [
+    "ATTENDED",
+    "UNATTENDED_PROTECTED",
+    "UNATTENDED_NO_NEW_RISK",
+    "ATTENDED"
+  ],
+  "system_mode": "E0_OFFLINE_COUNTERFACTUAL",
+  "terminal_verdict_order": [
+    "FAIL_HARD_SAFETY",
+    "INCOMPLETE_NO_DECISION",
+    "NO_ACTION_DISCRIMINATION",
+    "INCONCLUSIVE_ACTION_TRADEOFF",
+    "PRACTICAL_CLUSTER_ACTION_BENEFIT",
+    "PRACTICAL_SINGLE_ACTION_BENEFIT"
+  ]
+}

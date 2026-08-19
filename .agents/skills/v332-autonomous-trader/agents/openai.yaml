@@ -1,0 +1,6 @@
+interface:
+  display_name: "V3.3.2 Autonomous Trader"
+  short_description: "State-driven autonomous market analysis and paper trading"
+  default_prompt: "Use $v332-autonomous-trader to run a state-driven public-data and local-paper trading workflow."
+policy:
+  allow_implicit_invocation: true

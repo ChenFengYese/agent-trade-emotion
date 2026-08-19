@@ -1,0 +1,93 @@
+{
+  "record_type": "program_governance_amendment.v1",
+  "amendment_id": "S0-009-FEB-FALSIFICATION-v1",
+  "version": 1,
+  "effective_date": "2026-07-23",
+  "authority": {
+    "decision_id": "SOL-S0-009-FEB2025-FRESH-FALSIFICATION-85A95D08-R1",
+    "path": "config/sol_decision.s0-009-feb-falsification.v1.json"
+  },
+  "status": "EFFECTIVE_SCOPE_AMENDMENT_HOLD_BEFORE_DOWNLOAD",
+  "current_execution_state": "HOLD_BEFORE_DOWNLOAD",
+  "historical_rule_retained": {
+    "id": "S0-009-JAN-ONLY-v1",
+    "meaning": "The earlier Jan-only rule and its prohibition on any February input remain part of the historical audit trail and describe the governance state before this amendment."
+  },
+  "supersedes_only": [
+    {
+      "document": "PROGRAM_GOVERNANCE.md",
+      "clauses": [
+        "S0-009 table entry in section 1.3",
+        "section 1.4 statements that every fresh or February use is SCOPE_BREACH"
+      ],
+      "replacement": "The exact 2025-02-01 through 2025-02-28 score-only falsification is conditionally in scope after all seven P0 requirements are verified."
+    },
+    {
+      "document": "SYSTEM_DESIGN_ROADMAP.md",
+      "clauses": [
+        "section 9.2.1A Jan-only scope and blanket February prohibition"
+      ],
+      "replacement": "One exact frozen February receipt and one exact scoring attempt are conditionally in scope after the P0 release gate."
+    }
+  ],
+  "does_not_supersede": [
+    "the requirement that January evidence is SEEN development-only E0-X",
+    "the separation from active G1 and future DEVELOPMENT, CALIBRATION, and HOLDOUT",
+    "the prohibition on H adjudication, champion selection, G2, paper, deployment, and trading claims",
+    "the requirement for exact artifact bindings, fail-closed data handling, and one-time consumption"
+  ],
+  "allowed_after_p0_release": {
+    "date_start": "2025-02-01",
+    "date_end": "2025-02-28",
+    "date_count": 28,
+    "authorization_receipts": 1,
+    "scoring_attempts": 1,
+    "mode": "FRESH_SCORE_ONLY",
+    "candidate_versions": 1,
+    "candidate": "D+post-pressure-R+persistence+deceleration",
+    "control": "D-only extreme",
+    "cohort": "ALL_EXTREMES_SHARED",
+    "calibration": "IDENTITY_TEMPERATURE_1",
+    "base_cost_bps": 10,
+    "stress_cost_bps": 20,
+    "maximum_output_stage": "E0-X",
+    "active_g1_mutation": "DENIED"
+  },
+  "scope_breach_conditions": [
+    "any date outside 2025-02-01 through 2025-02-28",
+    "a second authorization receipt or scoring attempt",
+    "fit, refit, calibration fit, tuning, threshold selection, state-boundary reselection, or model rescue",
+    "candidate or control replacement, cohort change, action change, cost change, or gate change",
+    "using a WAIT, STOP, FAILED, or COMPLETE February result to tune and rerun the same month",
+    "modifying active G1 or its Application Support evidence producer",
+    "claiming an H conclusion, market validation, profitability, champion, G2, paper readiness, deployment readiness, or trading permission"
+  ],
+  "one_time_data_role_lifecycle": {
+    "before_any_target_read": "UNSEEN_FRESH_FALSIFICATION",
+    "after_any_target_or_result_is_read": "SEEN",
+    "terminal_rule": "Any February result, including WAIT_DATA_COVERAGE, STOP, FAILED, or COMPLETE, permanently consumes its independent-evaluation role and cannot be reopened by tuning."
+  },
+  "sustainable_chronology_rule": {
+    "required_before_new_version": [
+      "assign non-overlapping DEVELOPMENT dates",
+      "assign non-overlapping CALIBRATION dates",
+      "assign a later non-overlapping HOLDOUT window",
+      "freeze one candidate after DEVELOPMENT and CALIBRATION",
+      "open the HOLDOUT once using a versioned receipt"
+    ],
+    "development_use": "Model and policy construction only within preregistered DEVELOPMENT.",
+    "calibration_use": "Calibration only within preregistered CALIBRATION and before viewing HOLDOUT.",
+    "holdout_use": "One-time evaluation of the frozen candidate; every viewed month remains permanently SEEN.",
+    "failure_policy": "Retire or version the candidate and move to later data; never relax gates or rescue a failed candidate on the consumed month."
+  },
+  "required_before_download": [
+    "all seven P0 requirements mechanically verified",
+    "fresh ALL_TARGETS_ABSENT inventory",
+    "authorization receipt and authorized execution contract",
+    "P0 test report bound by SHA-256",
+    "post-fix runner, evaluator, and package bound by SHA-256"
+  ],
+  "g2_eligibility": false,
+  "trading_authorization": "DENIED",
+  "notice": "This amendment removes one blanket February scope prohibition only. It does not assert P0 completion, authorize a download now, or upgrade January or February evidence beyond E0-X."
+}

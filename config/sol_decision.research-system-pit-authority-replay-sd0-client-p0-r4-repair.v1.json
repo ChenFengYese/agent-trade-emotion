@@ -1,0 +1,539 @@
+{
+  "schema_version": "sol-research-system-pit-authority-replay-sd0-client-p0-r4-repair-decision.v1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R4_REPAIR.v1",
+  "issued_at": "2026-07-28T10:30:13Z",
+  "issued_by": "GPT-5.6-SOL_ULTRA_P0_R4_INDEPENDENT_BLOCKER_GATE",
+  "decision_state": "CONTINUE_R3_PRODUCTION_SUSPENSION_AUTHORIZE_TWO_FILE_R4_REPAIR",
+  "decision_class": "P0_R4_ATOMIC_CONTEXT_HEADER_NORMALIZATION_AND_EXHAUSTED_CAP_REPAIR",
+  "evidence_level": "LOCAL_SOURCE_AUDIT_OFFLINE_TEST_AND_OFFLINE_COUNTEREXAMPLE_EVIDENCE_ONLY",
+  "issue": {
+    "issue_id": "PITAR1-SD0-CLIENT-P0-R4",
+    "stage": "SD0",
+    "severity": "P0",
+    "trigger": "R3_TERRA_TWO_ROUNDS_AND_29_SCOPED_98_COMBINED_TESTS_PASS_BUT_INDEPENDENT_ROOT_AND_TERRA_PRECHECK_SAFE_REMAIN_NO",
+    "same_root_causes_not_closed": [
+      "R2-I02 READY identity can be split between the signed document and the stored issuing context.",
+      "R2-I08 exact exhausted cap permits runtime output and one opener call before HALT.",
+      "Response header interpretation is ambiguous and non-total under duplicate or adversarial fields."
+    ],
+    "workspace_only": true,
+    "network_requests": 0,
+    "workspace_preflight_outputs": 0,
+    "workspace_runtime_outputs": 0,
+    "active_g1_access": 0,
+    "market_data_access": 0,
+    "backtest_runs": 0,
+    "paper_or_live_actions": 0,
+    "holdout_at_risk": false,
+    "funds_at_risk": false,
+    "repair_owner": "GPT-5.6-TERRA_HIGH",
+    "completion_gate_owner": "GPT-5.6-SOL_ULTRA"
+  },
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "audited_at": "2026-07-28T10:30:13Z"
+  },
+  "authority_bindings": {
+    "r3_blocker_and_repair_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r3-repair.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R3_REPAIR.v1",
+      "decision_state": "CONTINUE_SD0_SUSPENSION_AUTHORIZE_TWO_FILE_R3_REPAIR",
+      "size_bytes": 30654,
+      "physical_sha256": "51c4e532c451472dbf0dbf02e1fae08fd994c1c92797b2f39ff1b1e68b699faf",
+      "canonical_sha256": "1e77ed08350f998ad4bc4c7fa9ced261373fb824b7cd3cb537c3eecb5177aeb7",
+      "binding_result": "MATCH",
+      "effect": "The exact R3 production suspension remains authoritative and must not be weakened, replaced, bypassed, or automatically resumed by this R4 repair."
+    },
+    "phased_route": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-d0-phased-route.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_D0_PHASED_ROUTE.v1",
+      "decision_state": "AUTHORIZED_METERED_SD0_CLOSURE_ROUTE_NETWORK_WAIT_D0_AND_LATER_GATES_LOCKED",
+      "size_bytes": 39834,
+      "physical_sha256": "776a7b69c2655dd76eb84ccab12b3fbac30aef6a81b0f6ebad27ab391b129ec0",
+      "canonical_sha256": "a777dc9411f638f1d3728f7f98f4ccbb64673f06b8f344dd3489efcdc5b79eeb",
+      "binding_result": "MATCH"
+    },
+    "measurement_contract": {
+      "path": "config/pit_authority_replay.sd0_measurement_contract.v1.json",
+      "contract_id": "PITAR1_SD0_MEASUREMENT_CONTRACT.v1",
+      "size_bytes": 17452,
+      "physical_sha256": "e2cd42a3930e0ede4d5d003742c2abdc76faa755ae86d20074c9d1f60f79e681",
+      "canonical_sha256": "4ed9f22451ede5c834c20e4f1786d344847166b646f9a1b17d2948e16c617a5b",
+      "binding_result": "MATCH_CANONICAL_SELF_DIGEST"
+    },
+    "request_plan": {
+      "path": "config/pit_authority_replay.sd0_request_plan.v1.json",
+      "plan_id": "PITAR1_SD0_EXACT_REQUEST_PLAN.v1",
+      "size_bytes": 4942,
+      "physical_sha256": "3f2f487f824643d870bb9d023e6d883e4c7d28bc9fb0bc769cb5d21253a7079c",
+      "canonical_sha256": "a334816cca1cbdf676e1b935a3404f5803d4ee892c25d2e1d7d34d3a02ea6fe7",
+      "binding_result": "MATCH_CANONICAL_SELF_DIGEST"
+    },
+    "r3_client_candidate": {
+      "path": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 38370,
+      "physical_sha256": "be8d788be610b5bd00fdf562939812d44b560e6149c9613b5b540aa116b16acc",
+      "candidate_disposition": "REJECT_PRECHECK_SAFE_R4_REPAIR_ALLOWED"
+    },
+    "r3_test_candidate": {
+      "path": "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 39463,
+      "physical_sha256": "4a5f763a5e471f86d4572f7e23fbcb0c113e487d17da50ba466e83df1c8b4cc0",
+      "candidate_disposition": "PASS_CURRENT_CASES_INCOMPLETE_R4_ADVERSARIAL_COVERAGE_REPAIR_ALLOWED"
+    }
+  },
+  "verified_test_facts": {
+    "scoped_command": "python3 -m unittest -v tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+    "scoped_result": {
+      "tests_run": 29,
+      "passed": 29,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "combined_command": "python3 -m unittest -v tests.test_pit_authority_replay_contract_v1 tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+    "combined_result": {
+      "tests_run": 98,
+      "passed": 98,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "interpretation": "The R3 candidate closes its checked-in regression set but not the four independently reproduced R4 counterexamples. Passing 29 scoped and 98 combined offline tests is not SD0 runtime acceptance, source authority proof, market validity, or permission to create workspace artifacts or use the network.",
+    "precheck_safe": "NO"
+  },
+  "offline_counterevidence": {
+    "split_brain_preflight_context": {
+      "network": false,
+      "method": "Mutate a static or git-bound input after the initial preflight static/git scan and before _issuing_context, while allowing preflight, persistence, and execution to continue with a seven-response mock opener.",
+      "observed_mock_opener_calls": 7,
+      "observed_document_static_hash_relation_to_registry_context": "MISMATCH",
+      "result": "CONFIRMED_SIGNED_DOCUMENT_AND_REGISTRY_CONTEXT_CAN_DESCRIBE_DIFFERENT_AUTHORITY_SNAPSHOTS"
+    },
+    "exact_exhausted_cap": {
+      "network": false,
+      "method": "Set maximum_total_local_artifact_bytes equal to the exact persisted preflight byte length and execute with a counting mock opener.",
+      "observed_runtime_ledgers_created": 2,
+      "observed_mock_opener_calls": 1,
+      "terminal_disposition": "HALT_RESOURCE_CAP",
+      "result": "CONFIRMED_R2_I08_ZERO_OUTPUT_ZERO_CALL_PROPERTY_VIOLATED_AT_EXACT_EXHAUSTION"
+    },
+    "duplicate_content_length": {
+      "network": false,
+      "method": "Return two application-layer Content-Length fields with values 6 and 999999 from the mock response.",
+      "observed_value_selected": "FIRST_ONLY",
+      "observed_mock_requests_closed": 7,
+      "result": "CONFIRMED_AMBIGUOUS_CRITICAL_HEADER_ACCEPTED"
+    },
+    "non_total_and_lossy_header_parsing": {
+      "network": false,
+      "method": "Audit and adversarially exercise very long numeric Content-Length and non-ASCII header representations.",
+      "facts": [
+        "On CPython 3.11 or later, conversion of an excessively long decimal string can raise ValueError.",
+        "Header digest construction currently uses ASCII ignore and ISO-8859-1 replace, so distinct observed values can collapse to lossy evidence.",
+        "General ordinary parsing exceptions are not totalized at one boundary."
+      ],
+      "result": "CONFIRMED_NON_TOTAL_NON_INJECTIVE_HEADER_EVIDENCE_PATH"
+    },
+    "workspace_effect": {
+      "workspace_preflight_created": false,
+      "workspace_runtime_created": false,
+      "network_requests": 0,
+      "active_g1_access": 0
+    }
+  },
+  "finding_decisions": [
+    {
+      "finding_id": "R4-P0-1",
+      "reported_finding": "Preflight signs one authority/static/git snapshot while the READY registry can retain a later issuing context, and _context_is_ready does not enforce all frozen identities or document-to-context equality.",
+      "decision": "CONFIRMED_P0",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:254-315",
+      "facts": [
+        "_issuing_context captures root identity, git identity, route binding, contract/plan hashes, authority results, static results, and output absence.",
+        "_context_is_ready checks only matched authority, present static files, absent network paths, and absent preflight.",
+        "It does not enforce the frozen resolved root, root device/inode, branch, HEAD, route binding, contract physical/canonical identities, or plan physical/canonical identities.",
+        "The signed preflight document is built from an earlier scan and is not required to equal the later registry context.",
+        "persist_ready and execute can therefore consistently revalidate the later context while using a signed document from the earlier context."
+      ],
+      "risk": "A READY capability can attest one authority snapshot while authorizing another, defeating reproducibility and root-bound issuance.",
+      "repairability": "CLIENT_AND_TEST_ONLY"
+    },
+    {
+      "finding_id": "R4-P0-2",
+      "reported_finding": "Budget rejects initial bytes only when initial is greater than the cap, so exact exhaustion reaches ledger creation and one request.",
+      "decision": "CONFIRMED_P0",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:216-219 and execute initialization path",
+      "facts": [
+        "The R3 implementation correctly rejects initial bytes greater than the cap before runtime or opener use.",
+        "The unclosed boundary is initial bytes equal to the cap.",
+        "R2-I08 explicitly requires an already exhausted preflight to produce HALT_RESOURCE_CAP with zero opener calls and no runtime output.",
+        "The exact-equality counterexample created two ledgers and made one mock opener call before HALT."
+      ],
+      "risk": "An exhausted local budget can still create evidence files and initiate external transport.",
+      "repairability": "CLIENT_AND_TEST_ONLY",
+      "not_a_regression_of_greater_than_case": true
+    },
+    {
+      "finding_id": "R4-P0-3",
+      "reported_finding": "Critical response headers use first-value selection rather than a strict cardinality and ambiguity contract.",
+      "decision": "CONFIRMED_P0",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:336-382",
+      "facts": [
+        "Content-Length is selected with next and later header maps collapse duplicate names.",
+        "Conflicting Content-Length values 6 and 999999 were accepted using the first value and all seven mock requests closed.",
+        "Content-Type, Location, Transfer-Encoding, Content-Encoding, and credential-bearing fields do not share one explicit cardinality and normalization boundary.",
+        "The opener and observation builder independently interpret the same header collection."
+      ],
+      "risk": "The transport, evidence, and decision layers can disagree about the response that was actually observed.",
+      "repairability": "CLIENT_AND_TEST_ONLY"
+    },
+    {
+      "finding_id": "R4-P0-4",
+      "reported_finding": "Header evidence uses lossy encoding and Content-Length/general parsing is not total for adversarial ordinary inputs.",
+      "decision": "CONFIRMED_P0",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:336-382 and execute exception boundary",
+      "facts": [
+        "ASCII ignore and ISO-8859-1 replace are non-injective transformations and cannot authenticate exact observed application-layer pairs.",
+        "isdecimal accepts a wider character class than the required ASCII decimal grammar.",
+        "Unbounded int conversion may raise ValueError under CPython's maximum decimal-digit guard.",
+        "ValueError, TypeError, UnicodeError, and other ordinary parser exceptions are not guaranteed to become a declared sealed disposition."
+      ],
+      "risk": "Malformed server metadata can escape the state machine or be sealed under a digest that does not uniquely represent the observed values.",
+      "repairability": "CLIENT_AND_TEST_ONLY"
+    }
+  ],
+  "route_contract_plan_decision": {
+    "structural_route": "REMAINS_VALID",
+    "measurement_contract": "REMAINS_VALID_AND_FROZEN",
+    "request_plan": "REMAINS_VALID_AND_FROZEN",
+    "new_route_required_now": false,
+    "contract_change_required_now": false,
+    "plan_change_required_now": false,
+    "reason": "The R4 defects are implementation-level authority snapshot consistency, exact cap enforcement, deterministic response-header normalization, and exception totalization. They require no new URL, method, request order, resource cap, output field, failure enum, data source, transport, or wire-level claim.",
+    "strict_header_rules_are": "A fail-closed deterministic implementation refinement of existing response evidence and protocol checks, not an expansion or relaxation of the frozen measurement contract.",
+    "network_permission": "SUSPENDED_BY_R3_AND_THIS_R4",
+    "workspace_preflight_permission": "SUSPENDED_BY_R3_AND_THIS_R4",
+    "workspace_runtime_permission": "SUSPENDED_BY_R3_AND_THIS_R4",
+    "automatic_resume": false,
+    "completion_gate_required": true
+  },
+  "minimal_repair_authorization": {
+    "authorized": true,
+    "implementation_agent": "GPT-5.6-TERRA_HIGH",
+    "exact_mutable_file_allowlist": [
+      "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py"
+    ],
+    "maximum_mutable_files": 2,
+    "new_production_files": 0,
+    "new_test_files": 0,
+    "modify_r2_decision": false,
+    "modify_r3_decision": false,
+    "modify_this_r4_decision": false,
+    "modify_route": false,
+    "modify_contract": false,
+    "modify_plan": false,
+    "modify_specification": false,
+    "install_dependencies": false,
+    "run_offline_tests": true,
+    "network": false,
+    "workspace_preflight_or_runtime": false,
+    "active_g1": false,
+    "data_backtest_paper_live_funds": false,
+    "scope_stop_rule": "If repair requires a new output field, failure state, URL, method, request sequence, cap, request header, transport, helper production file, wire-byte claim, or mutation outside the exact two files, stop and return to Sol. No such expansion is presently necessary."
+  },
+  "mandatory_repair_invariants": [
+    {
+      "invariant_id": "R4-I01",
+      "name": "ATOMIC_SINGLE_SOURCE_READY_CONTEXT",
+      "requirements": [
+        "After every slow or externally variable preflight operation, including frozen document loading, offline test-evidence validation, proxy configuration checks, and any authorized no-request TCP precheck, capture the complete authority context again rather than reusing earlier scan values.",
+        "The complete context contains exact resolved workspace root, root device/inode, git branch and HEAD, phased-route physical and canonical identity, measurement-contract physical and canonical identity, request-plan physical and canonical identity, ordered authority-binding results, ordered static-path physical hashes, and phase-appropriate output state.",
+        "Obtain at least two consecutive complete captures and require exact canonical equality; any mismatch returns WAIT_DATA_NO_FALLBACK before READY registry insertion, preflight persistence, runtime output, opener construction, or request.",
+        "Build the signed preflight document directly from the one accepted complete context. Do not perform an independent earlier authority/static/git scan that can populate document fields separately.",
+        "The document authority_binding_results, static_path_results, output_path_results, route_binding, request_plan_sha256, branch, HEAD, and workspace identity must be an exact deterministic projection of the accepted context.",
+        "Immediately before READY registry insertion, capture the complete context one final time and require equality with the accepted context and with the document projection.",
+        "Registry insertion stores the canonical immutable READY document and that exact accepted context together; no post-document context replacement is permitted.",
+        "_context_is_ready validates every frozen identity and every result, not only presence/absence booleans.",
+        "persist_ready revalidates the exact issued context and exact document projection before the only allowed output-state transition from absent preflight to the exact persisted READY bytes.",
+        "execute revalidates the exact issued authority context, requires the exact persisted READY bytes as the only allowed preflight-state transition, and requires all NETWORK_PATHS absent before any runtime file, opener construction, or opener call.",
+        "A mutation after the final issuance capture may make the capability stale, but persist_ready and execute must reject it with zero new output and zero opener calls."
+      ]
+    },
+    {
+      "invariant_id": "R4-I02",
+      "name": "EXACT_EXHAUSTED_CAP_IS_PRE_REQUEST_TERMINAL",
+      "requirements": [
+        "Budget construction or an explicit execute guard rejects initial persisted preflight bytes greater than or equal to maximum_total_local_artifact_bytes.",
+        "The equality and greater-than checks complete before creation or append of any NETWORK_PATHS file, before opener construction, and before opener call.",
+        "The exact-equality disposition is HALT_RESOURCE_CAP with zero runtime outputs and zero opener construction/calls.",
+        "The already-safe greater-than behavior remains safe and gains no weaker path.",
+        "All later R2-I08 monotonic accounting, write-before-reserve prohibition, create-once evidence, and cap-preserving partial-failure behavior remain unchanged."
+      ]
+    },
+    {
+      "invariant_id": "R4-I03",
+      "name": "ONE_SHARED_TOTAL_HEADER_NORMALIZER",
+      "requirements": [
+        "Introduce one private shared total header normalizer used by both StdlibProxyOpener and _make_observation; opener, evidence, and semantic validation may not retain parallel next, dict-collapse, isdecimal, or int parsing logic.",
+        "Input is the ordered application-layer response header pairs exposed by the transport. Duplicate noncritical fields remain ordered pairs and are never silently collapsed through dict construction.",
+        "Every header name and value must be str. Names must be nonempty ASCII RFC token characters and are normalized to lowercase only for semantic lookup.",
+        "Values must be strictly ISO-8859-1 encodable and contain no carriage return, line feed, NUL, DEL, or prohibited control character. No ignore, replace, implicit repr, locale-dependent, or platform-dependent encoding is allowed.",
+        "The authentic evidence digest and evidence byte count use a documented canonical JSON encoding of the complete ordered original name/value pairs with UTF-8, ensure_ascii=true, and compact separators, after strict representability validation. The same normalized object is reused by opener and observation.",
+        "Aggregate canonical header evidence bytes must be at most 65536 before semantic parsing or integer conversion. Exceeding the cap yields HALT_RESOURCE_CAP with actual status and the safely computed bounded evidence required by the existing response-first accounting rules.",
+        "No parser exception from an ordinary header object may escape the declared SD0 state machine."
+      ]
+    },
+    {
+      "invariant_id": "R4-I04",
+      "name": "STRICT_CRITICAL_RESPONSE_HEADER_RULES",
+      "requirements": [
+        "Content-Length must occur exactly once. Zero, two, or more occurrences are never resolved by first-value, last-value, identical-value coalescing, comma splitting, or dict collapse.",
+        "Two or more Content-Length occurrences, whether identical or conflicting, yield HALT_PROTOCOL_VIOLATION before any response body read.",
+        "A single Content-Length value must match ASCII grammar 0|[1-9][0-9]{0,8}. Unicode decimal digits, sign, surrounding whitespace, comma list, empty value, leading zero other than exactly 0, and more than nine digits are invalid without calling int.",
+        "The nine-digit bound is sufficient for the frozen global maximum 536870912. Only after grammar and length validation may the value be converted once to int and compared with the exact per-request and route caps.",
+        "A missing or syntactically invalid single Content-Length yields WAIT_DATA_SOURCE_CONTRACT_MISMATCH; a syntactically valid value above the applicable frozen cap yields HALT_RESOURCE_CAP.",
+        "Content-Type must occur exactly once. Duplicate Content-Type yields HALT_PROTOCOL_VIOLATION. Its normalized media type, excluding optional parameters only through one deterministic parser, must match the frozen allowlist or yield WAIT_DATA_SOURCE_CONTRACT_MISMATCH.",
+        "Location must occur zero times. Any Location field, including an empty value, yields HALT_PROTOCOL_VIOLATION.",
+        "Transfer-Encoding must occur zero times because this route requires fixed Content-Length. Any Transfer-Encoding field yields HALT_PROTOCOL_VIOLATION.",
+        "Content-Encoding may be absent or occur exactly once with normalized value identity. Duplicate Content-Encoding or any non-identity value yields HALT_PROTOCOL_VIOLATION.",
+        "Authorization, Proxy-Authorization, Cookie, and Set-Cookie must occur zero times. Presence yields HALT_PROTOCOL_VIOLATION; their values must never appear in ledgers, JSON documents, exception strings, problem bundles, or test failure messages.",
+        "The response-header evidence may retain only the existing count/byte-count/authentic full-header digest fields for forbidden-header observations; it must not persist cleartext header pairs.",
+        "All critical-header cardinality and syntax checks occur from the shared normalized object and before any body read."
+      ]
+    },
+    {
+      "invariant_id": "R4-I05",
+      "name": "TOTAL_ORDINARY_EXCEPTION_BOUNDARY",
+      "requirements": [
+        "Place one auditable boundary around external response acquisition, ordered-header extraction, shared normalization, semantic parsing, observation creation, and failure sealing.",
+        "ValueError, OverflowError, TypeError, UnicodeError, http.client parsing errors, and other ordinary Exception subclasses must not escape after a request attempt.",
+        "If status and any safely representable headers were received, preserve the actual status and all safe authentic response evidence before sealing the declared terminal disposition.",
+        "If failure occurs before response metadata exists, record status null and no fabricated header record, then seal the declared terminal disposition when the local cap permits.",
+        "Expected malformed protocol or source-contract inputs map to their specific existing HALT_PROTOCOL_VIOLATION, WAIT_DATA_SOURCE_CONTRACT_MISMATCH, or HALT_RESOURCE_CAP states.",
+        "An unexpected ordinary Exception maps to STOP_AND_ESCALATE_TO_SOL_WITH_PROBLEM_BUNDLE, stops later requests, seals already authentic evidence within cap, and does not include forbidden header values.",
+        "Do not catch BaseException, KeyboardInterrupt, SystemExit, GeneratorExit, or MemoryError as ordinary recoverable protocol failures.",
+        "No exception handler may fabricate status, content length, header count, header digest, TLS result, body bytes, or timing evidence."
+      ]
+    },
+    {
+      "invariant_id": "R4-I06",
+      "name": "R3_PRODUCTION_SUSPENSION_AND_R4_AUTHORITY_CHAIN",
+      "requirements": [
+        "The existing exact R3 decision path, canonical SHA-256, decision_id, suspended decision_state, workspace, branch, HEAD, and issue binding remain hard-pinned and enforced at production root with equal or stronger behavior.",
+        "This exact R4 decision path and externally reported canonical SHA-256 are additionally hard-pinned as the only repair authority. The client verifies strict JSON, canonical digest, decision_id, decision_state, workspace, branch, HEAD, issue_id, and its exact binding to the R3 decision.",
+        "R4 does not replace R3. main, preflight, persist_ready, and execute continue to reject production-root operation before tests-evidence input, TCP/socket/opener use, preflight persistence, runtime output, or network.",
+        "No CLI flag, environment variable, locally generated PASS result, monkeypatchable production input, or future decision file discovered dynamically can bypass either gate.",
+        "Offline tests may patch a private verifier only in temporary roots. An unpatched production-root test must prove R3 plus R4 keep all four public entry paths blocked with zero outputs and zero socket/opener calls.",
+        "A future Sol completion decision cannot automatically resume this client. Any resume requires a separately authorized exact two-file gate-binding revision after Sol acceptance."
+      ],
+      "self_physical_hash_note": "A file cannot securely embed its own physical hash. The production pin uses this decision's externally reported canonical SHA-256; the Sol handoff separately reports the physical SHA-256 for artifact verification."
+    },
+    {
+      "invariant_id": "R4-I07",
+      "name": "R2_AND_R3_INVARIANTS_PRESERVED",
+      "requirements": [
+        "R2-I01 through R2-I09 and R3-I01 through R3-I06 remain satisfied except that R3-I03 is strictly strengthened from initial greater-than to greater-than-or-equal cap rejection.",
+        "Exact seven-request order, proxy-only transport, zero redirect/retry, concurrency one, fixed hosts/URLs/caps, no ZIP GET, no market rows, application-layer HEAD no-read boundary, response-first accounting, create-once outputs, complete closure/inventory, ledger authenticity, checksum binding, no active G1, and zero funds remain unchanged.",
+        "No existing R2 or R3 adversarial assertion may be removed or weakened.",
+        "No raw socket parser, packet capture, Range GET, ZIP GET, new transport, dependency, production helper file, or schema extension is introduced."
+      ]
+    }
+  ],
+  "required_test_expansion": {
+    "same_test_file_only": "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+    "all_existing_29_tests_retained_or_strictly_strengthened": true,
+    "required_new_offline_cases": [
+      {
+        "test_id": "R4-T11",
+        "case": "Static file changes between an initial preflight scan and final context capture",
+        "assertions": "No READY is issued or registered; persist/execute cannot proceed; opener construction/calls=0; workspace preflight and NETWORK_PATHS remain absent."
+      },
+      {
+        "test_id": "R4-T12",
+        "case": "Git branch or HEAD changes between an initial preflight scan and final context capture",
+        "assertions": "The operation fails WAIT_DATA_NO_FALLBACK; no split document/context registry entry, no output, and no opener/socket call."
+      },
+      {
+        "test_id": "R4-T13",
+        "case": "Accepted context projection and exhaustive _context_is_ready identity checks",
+        "assertions": "Document fields exactly equal the stored context projection; independent mutations of root device/inode, branch, HEAD, route binding, contract identities, plan identities, authority result, static result, or output state each return false."
+      },
+      {
+        "test_id": "R4-T14",
+        "case": "Persisted preflight length equals the frozen or lowered total-local cap",
+        "assertions": "HALT_RESOURCE_CAP before NETWORK_PATHS or opener construction; runtime output count=0 and opener_calls=0. The existing greater-than case remains zero-output and zero-call."
+      },
+      {
+        "test_id": "R4-T15",
+        "case": "Duplicate Content-Length, both identical and conflicting",
+        "assertions": "Each yields HALT_PROTOCOL_VIOLATION with actual status/header evidence, body read calls=0, no later request, and no first-value acceptance."
+      },
+      {
+        "test_id": "R4-T16",
+        "case": "Duplicate Content-Type and forbidden Location, Transfer-Encoding, Content-Encoding, authorization, proxy-authorization, cookie, and set-cookie variants",
+        "assertions": "Exact R4-I04 disposition/cardinality rules hold before body read; forbidden values never appear in persisted bytes, raised text, or problem bundles."
+      },
+      {
+        "test_id": "R4-T17",
+        "case": "Very long digits, Unicode digits, signs, whitespace, comma lists, empty value, and leading-zero Content-Length",
+        "assertions": "No int or parser exception escapes; invalid syntax maps to WAIT_DATA_SOURCE_CONTRACT_MISMATCH, body read calls=0, and a valid bounded ASCII value remains accepted."
+      },
+      {
+        "test_id": "R4-T18",
+        "case": "Non-ASCII header name, non-ISO-8859-1 value, CR/LF/NUL/control value, and two distinct values that the former ignore/replace path collapsed",
+        "assertions": "No lossy digest is produced; inputs fail closed under a declared state; no cleartext secret is persisted; no raw Unicode or encoding exception escapes."
+      },
+      {
+        "test_id": "R4-T19",
+        "case": "Shared normalizer parity for opener and observation",
+        "assertions": "Both paths consume the same immutable normalized result and produce identical ordered count/byte/digest evidence; source has no independent first-value/dict-collapse parser and no ASCII ignore or ISO-8859-1 replace."
+      },
+      {
+        "test_id": "R4-T20",
+        "case": "Unexpected ordinary exceptions from custom header collections, parsers, and custom openers before and after response metadata",
+        "assertions": "No ordinary Exception escapes; pre-response attempts use status null without fabricated headers; post-response attempts retain authentic status/safe header evidence; state is STOP_AND_ESCALATE_TO_SOL_WITH_PROBLEM_BUNDLE where no specific state applies; no later request; closure/inventory are sealed when cap permits."
+      }
+    ],
+    "minimum_scoped_tests_after_expansion": 39,
+    "minimum_combined_tests_after_expansion": 108,
+    "required_result": "ALL_DISCOVERED_TESTS_PASS_ZERO_FAIL_ERROR_SKIP",
+    "network_in_tests": false,
+    "workspace_runtime_in_tests": false,
+    "active_g1_in_tests": false,
+    "forbidden_test_actions": [
+      "Remove or weaken any existing R2 or R3 test.",
+      "Patch away context equality, critical-header normalization, exact-cap guard, response-first accounting, ledger sealing, or production suspension in a success/failure test.",
+      "Use a real socket, TLS connection, HTTP endpoint, browser, curl, or proxy.",
+      "Treat locally generated PASS evidence as a Sol execution gate.",
+      "Modify the route, measurement contract, request plan, specification, R2 decision, R3 decision, or this R4 decision."
+    ]
+  },
+  "repair_completion_gate": {
+    "current_state": "BLOCKED_R4_REPAIR_NOT_IMPLEMENTED",
+    "network_resume": false,
+    "required_commands": [
+      {
+        "command": "PYTHONPYCACHEPREFIX=/tmp/pitar1-sd0-r4-pycache python3 -m py_compile trade_system/pit_authority_replay_sd0_metered_fetch_v1.py tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+        "required_exit_code": 0
+      },
+      {
+        "command": "python3 -m unittest -v tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+        "required_exit_code": 0,
+        "required_result": "AT_LEAST_39_PASS_ZERO_FAIL_ERROR_SKIP"
+      },
+      {
+        "command": "python3 -m unittest -v tests.test_pit_authority_replay_contract_v1 tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+        "required_exit_code": 0,
+        "required_result": "AT_LEAST_108_PASS_ZERO_FAIL_ERROR_SKIP"
+      }
+    ],
+    "required_static_checks": [
+      "R2 decision, R3 decision, phased route, measurement contract, and request plan physical/canonical hashes remain unchanged.",
+      "Only the exact client and test paths differ from the R3 candidate hashes bound in this decision.",
+      "The client preserves the exact R3 suspended production gate and additionally hard-pins the externally reported canonical hash of this R4 decision.",
+      "No new production, test, helper, transport, or gate file exists.",
+      "No workspace preflight or NETWORK_PATHS output exists.",
+      "No ASCII ignore, ISO-8859-1 replace, first-value critical-header selection, duplicate critical-header collapse, unbounded decimal conversion, or initial-used-equals-cap continuation remains.",
+      "No network request, active G1 access, market data, backtest, paper, deployment, credential, order, or fund action occurred."
+    ],
+    "required_terra_report": [
+      "Before/after physical SHA-256 and sizes for the exact client and test.",
+      "Exact syntax, scoped, and combined command outputs and counts.",
+      "Code/test mapping for R4-I01 through R4-I07 and R4-T11 through R4-T20, plus preservation mapping for all R2/R3 invariants.",
+      "Offline counterexample closure evidence for split-brain issuance, exact exhausted cap, duplicate critical headers, long decimal values, lossy header values, and ordinary parser exceptions.",
+      "Exact deterministic header normalization grammar, cardinality table, evidence encoding, state mapping, and proof that opener and observation share it.",
+      "Explicit proof that the unpatched production R3 plus R4 gates block main, preflight, persist_ready, and execute.",
+      "Explicit zero network, zero workspace preflight/runtime, zero active G1, zero data/backtest/paper/live, and zero funds statement."
+    ],
+    "sol_completion_review": {
+      "required": true,
+      "possible_results": [
+        "ACCEPT_R4_REPAIR_KEEP_NETWORK_SUSPENDED_PENDING_SEPARATE_RESUME_BINDING",
+        "REJECT_R4_REPAIR_CONTINUE_R3_R4_SUSPENSION",
+        "STOP_REQUIRE_CONTRACT_PLAN_OR_TRANSPORT_ROUTE_CHANGE"
+      ],
+      "automatic_resume": false,
+      "reason": "The repaired client must first close all R4 counterexamples while preserving the R3 production suspension. Only a later external Sol completion decision and separately authorized exact gate-binding revision may consider any workspace preflight or proxy action."
+    }
+  },
+  "permission_matrix": {
+    "create_this_r4_decision": true,
+    "terra_modify_exact_client": true,
+    "terra_modify_exact_test": true,
+    "terra_run_offline_tests": true,
+    "modify_r2_or_r3_decision": false,
+    "modify_this_r4_decision": false,
+    "modify_route_contract_plan_or_spec": false,
+    "create_new_helper_transport_test_or_gate_file": false,
+    "install_dependency": false,
+    "read_exact_r3_and_r4_decisions_for_gate_verification": true,
+    "persist_workspace_preflight": false,
+    "create_workspace_runtime": false,
+    "tcp_probe_or_socket_outside_mock": false,
+    "network_request": false,
+    "proxy_change_or_bypass": false,
+    "archive_zip_or_market_row_access": false,
+    "active_g1_access": false,
+    "adapter_dataset_backtest_holdout": false,
+    "paper_testnet_deploy": false,
+    "credentials_account_orders_funds": false,
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "stage_disposition": {
+    "pitar1_e0": "ACCEPTED_PREDECESSOR_SCOPE_UNCHANGED",
+    "pitar1_sd0_route": "STRUCTURALLY_VALID",
+    "pitar1_sd0_contract": "FROZEN_VALID",
+    "pitar1_sd0_plan": "FROZEN_VALID",
+    "pitar1_sd0_r3_tests": "29_SCOPED_AND_98_COMBINED_PASS_BUT_INSUFFICIENT",
+    "pitar1_sd0_r3_client": "REJECT_PRECHECK_SAFE",
+    "pitar1_sd0_r4_repair": "AUTHORIZED_EXACT_TWO_FILES_OFFLINE_ONLY",
+    "pitar1_sd0_network": "SUSPENDED",
+    "pitar1_sd0_preflight_runtime": "SUSPENDED",
+    "pitar1_d0_and_later": "DENIED_UNCHANGED",
+    "paper_testnet_deployment_live": "DENIED_UNCHANGED",
+    "next_action": "GPT-5.6-TERRA_HIGH_REPAIRS_ONLY_CLIENT_AND_TEST_THEN_RETURNS_R4_FACT_PACKAGE_TO_SOL",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "claim_boundary": {
+    "r3_test_result": "29_OF_29_AND_98_OF_98_PASS",
+    "r3_runtime_precheck": "REJECTED",
+    "ready_atomic_context_binding": "NOT_YET_ESTABLISHED",
+    "exact_exhausted_local_cap_behavior": "CONFIRMED_UNSAFE_OFFLINE",
+    "strict_critical_header_handling": "NOT_YET_ESTABLISHED",
+    "header_evidence_exactness": "NOT_YET_ESTABLISHED",
+    "ordinary_parser_totality": "NOT_YET_ESTABLISHED",
+    "r3_production_suspension": "REMAINS_REQUIRED",
+    "sd0_source_authority": "NOT_EVALUATED",
+    "market_data_or_pit_validity": "NOT_EVALUATED",
+    "backtest_predictive_or_profitability": "NOT_AUTHORIZED",
+    "paper_or_live_readiness": "NOT_AUTHORIZED",
+    "maximum_positive_claim": "The R3 candidate passes 29 scoped and 98 combined offline tests and retains its production suspension gate, but independent counterexamples show a signed-document versus registry-context split, one mock request and two runtime files at exact local-cap exhaustion, acceptance of conflicting duplicate Content-Length, and lossy or non-total header parsing. The frozen route, measurement contract, and request plan remain structurally usable. Terra high may repair only the exact client and test files under R4. Network, workspace preflight/runtime, active G1, data, backtest, paper, deployment, credentials, orders, and funds remain prohibited. Passing tests cannot resume execution; only a future Sol completion gate plus a separately authorized gate-binding revision may do so."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-research-system-pit-authority-replay-sd0-client-p0-r4-repair/v1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "f427f93794c7db76a3cf9090f2cdd10e080a6c786e6d1de6c7f73fa2d7d0c283"
+}

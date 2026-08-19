@@ -1,0 +1,111 @@
+{
+  "schema_version": "har1r4-source-terms-request-plan.v1",
+  "route_id": "SOL_HAR1R4_SOURCE_TERMS_RAW_EVIDENCE.v1",
+  "route_physical_sha256": "1821db735137efd443b1ffd36f2726a9313e447d831d4d36ab7c102a994c15dd",
+  "route_canonical_sha256": "df0f06c41da124d84974f4ca911c889290598f17573f716000fcec2647a4f511",
+  "run_id": "har1r4-source-terms-raw-20260729-v1",
+  "activation_path": "config/sol_activation.har1r4-source-terms-raw.v1.json",
+  "evidence_path": "har1r4/evidence/requests.jsonl",
+  "manifest_path": "har1r4/evidence/manifest.json",
+  "transport": {
+    "proxy": "http://127.0.0.1:7897",
+    "concurrency": 1,
+    "redirects": 0,
+    "retries": 0,
+    "cookies": false,
+    "authentication": false,
+    "api_key": false,
+    "proxy_bypass": false,
+    "per_request_network_read_timeout_seconds": 20,
+    "total_network_read_budget_seconds": 80,
+    "total_body_cap_bytes": 6029312
+  },
+  "requests": [
+    {
+      "sequence": 1,
+      "method": "GET",
+      "url": "https://api.github.com/repos/binance/binance-public-data",
+      "raw_path": "har1r4/evidence/raw/github-repository-metadata.json",
+      "body_cap_bytes": 262144,
+      "require_status": 200,
+      "require_content_type_prefix": "application/json",
+      "headers": {
+        "Accept": "application/vnd.github+json",
+        "Accept-Encoding": "identity",
+        "Connection": "close",
+        "User-Agent": "agent-trade-emotion-har1r4-source-terms/1.0",
+        "X-GitHub-Api-Version": "2022-11-28"
+      }
+    },
+    {
+      "sequence": 2,
+      "method": "GET",
+      "url": "https://api.github.com/repos/binance/binance-public-data/commits/master",
+      "raw_path": "har1r4/evidence/raw/github-master-commit.json",
+      "body_cap_bytes": 524288,
+      "require_status": 200,
+      "require_content_type_prefix": "application/json",
+      "headers": {
+        "Accept": "application/vnd.github+json",
+        "Accept-Encoding": "identity",
+        "Connection": "close",
+        "User-Agent": "agent-trade-emotion-har1r4-source-terms/1.0",
+        "X-GitHub-Api-Version": "2022-11-28"
+      }
+    },
+    {
+      "sequence": 3,
+      "method": "GET",
+      "url": "https://api.github.com/repos/binance/binance-public-data/git/trees/master",
+      "raw_path": "har1r4/evidence/raw/github-master-tree.json",
+      "body_cap_bytes": 1048576,
+      "require_status": 200,
+      "require_content_type_prefix": "application/json",
+      "headers": {
+        "Accept": "application/vnd.github+json",
+        "Accept-Encoding": "identity",
+        "Connection": "close",
+        "User-Agent": "agent-trade-emotion-har1r4-source-terms/1.0",
+        "X-GitHub-Api-Version": "2022-11-28"
+      }
+    },
+    {
+      "sequence": 4,
+      "method": "GET",
+      "url": "https://www.binance.com/ja/terms",
+      "raw_path": "har1r4/evidence/raw/binance-ja-terms.raw",
+      "body_cap_bytes": 4194304,
+      "require_status": 200,
+      "require_content_type_prefix": "text/html",
+      "headers": {
+        "Accept": "text/html,application/xhtml+xml",
+        "Accept-Encoding": "identity",
+        "Accept-Language": "ja",
+        "Connection": "close",
+        "User-Agent": "agent-trade-emotion-har1r4-source-terms/1.0"
+      }
+    }
+  ],
+  "execution_semantics": {
+    "http_3xx": "RECORD_LOCATION_NO_FOLLOW_PERSIST_RAW_CONTINUE",
+    "http_403_or_429": "PERSIST_RAW_RECORD_FAILURE_CONTINUE",
+    "set_cookie": "RECORD_NEVER_REUSE",
+    "transport_failure": "DURABLY_RECORD_NO_RAW_CONTINUE",
+    "durability_or_readback_failure": "STOP_ALL_REMAINING_NETWORK_IMMEDIATELY",
+    "protocol_violation": "HALT_PROTOCOL_VIOLATION",
+    "response_close": "BEFORE_ANY_RAW_OR_JSONL_PERSISTENCE",
+    "available_at_utc": "MAX_OF_LOCAL_RECEIVED_PERSISTED_ADMITTED_CLOCKS_ONLY",
+    "server_date_last_modified_effective_or_event_time": "NEVER_USED_FOR_AVAILABILITY",
+    "readback": "RECOMPUTE_FROM_FROZEN_PLAN_AND_RAW_WITH_SAME_RUN_TRANSPORT_METADATA_BINDING",
+    "budget_ledger": "INTEGER_MILLISECONDS_DELTA_EXACT_20S_PER_REQUEST_80S_TOTAL_STOP_AFTER_DEADLINE",
+    "deadline_states": "TOTAL_ONLY_WHEN_REMAINING_ZERO_PRIOR_ONLY_AFTER_LIVE_DEADLINE_LATCH",
+    "offline_readback": "BODY_AND_STRUCTURE_REVIEW_ONLY_NEVER_MANIFEST_OR_SEALED_AUTHORIZATION",
+    "jsonl_physical_form": "EACH_LINE_EXACT_CANONICAL_JSON_THEN_LF"
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256_CANONICAL_JSON",
+    "digest_field": "request_plan_sha256",
+    "domain_prefix_utf8": "msta-hed/har1r4-source-terms-request-plan/v1"
+  },
+  "request_plan_sha256": "94e57785aee738961a46260a3612e3c203938ed00ae075013393edafb9fc99af"
+}

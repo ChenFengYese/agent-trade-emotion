@@ -1,0 +1,143 @@
+{
+  "schema_id": "public_market_data_capability_probe",
+  "schema_version": "1.0.0",
+  "observed_at_from_venue": "2026-08-02T17:28:27.685000Z",
+  "probe_completed_at_from_response": "2026-08-02T17:30:36.590000Z",
+  "authority": "PUBLIC_READ_ONLY_NO_CREDENTIALS_NO_ACCOUNT_NO_ORDERS",
+  "requested_symbols": [
+    "SNDKUSDT",
+    "MUUSDT",
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "HYPEUSDT"
+  ],
+  "source_routing": {
+    "binance_usdm": {
+      "result": "UNAVAILABLE_HTTP_451_RESTRICTED_LOCATION",
+      "tested_public_paths": [
+        "/fapi/v1/allForceOrders",
+        "/fapi/v1/depth",
+        "/futures/data/openInterestHist"
+      ],
+      "decision": "DO_NOT_BYPASS"
+    },
+    "bybit_public": {
+      "result": "UNAVAILABLE_CLOUDFRONT_COUNTRY_BLOCK",
+      "tested_path": "/v5/market/instruments-info",
+      "decision": "DO_NOT_BYPASS"
+    },
+    "okx_public": {
+      "result": "AVAILABLE_CODE_0",
+      "base_url": "https://www.okx.com",
+      "credential_used": false,
+      "account_or_order_endpoint_used": false
+    }
+  },
+  "instrument_coverage": {
+    "SNDKUSDT": {
+      "inst_id": "SNDK-USDT-SWAP",
+      "state": "live",
+      "candles_returned": 3,
+      "open_interest_rows": 1,
+      "funding_rows": 1,
+      "book_levels": "20x20",
+      "recent_trades_returned": 100,
+      "liquidation_groups_returned": 16
+    },
+    "MUUSDT": {
+      "inst_id": "MU-USDT-SWAP",
+      "state": "live",
+      "candles_returned": 3,
+      "open_interest_rows": 1,
+      "funding_rows": 1,
+      "book_levels": "20x20",
+      "recent_trades_returned": 100,
+      "liquidation_groups_returned": 16
+    },
+    "BTCUSDT": {
+      "inst_id": "BTC-USDT-SWAP",
+      "state": "live",
+      "candles_returned": 3,
+      "open_interest_rows": 1,
+      "funding_rows": 1,
+      "book_levels": "20x20",
+      "recent_trades_returned": 100,
+      "liquidation_groups_returned": 16
+    },
+    "ETHUSDT": {
+      "inst_id": "ETH-USDT-SWAP",
+      "state": "live",
+      "candles_returned": 3,
+      "open_interest_rows": 1,
+      "funding_rows": 1,
+      "book_levels": "20x20",
+      "recent_trades_returned": 100,
+      "liquidation_groups_returned": 16
+    },
+    "SOLUSDT": {
+      "inst_id": "SOL-USDT-SWAP",
+      "state": "live",
+      "candles_returned": 3,
+      "open_interest_rows": 1,
+      "funding_rows": 1,
+      "book_levels": "20x20",
+      "recent_trades_returned": 100,
+      "liquidation_groups_returned": 16
+    },
+    "HYPEUSDT": {
+      "inst_id": "HYPE-USDT-SWAP",
+      "state": "live",
+      "candles_returned": 3,
+      "open_interest_rows": 1,
+      "funding_rows": 1,
+      "book_levels": "20x20",
+      "recent_trades_returned": 100,
+      "liquidation_groups_returned": 16
+    }
+  },
+  "additional_history_probe": {
+    "inst_id": "SNDK-USDT-SWAP",
+    "history_candles_15m_rows": 100,
+    "funding_history_rows": 100,
+    "open_interest_history_1h_rows": 100,
+    "long_short_account_ratio_1h_rows": 720,
+    "taker_volume_1h_rows": 720,
+    "mark_price_rows": 1
+  },
+  "capability_decision": {
+    "closed_bars": "AVAILABLE_ALL_SIX",
+    "recent_trades_and_flow_proxy": "AVAILABLE_ALL_SIX",
+    "open_interest_and_history": "AVAILABLE_ALL_SIX_SUBJECT_TO_POINT_IN_TIME_FREEZE",
+    "funding_rate_and_settlement_history": "AVAILABLE_ALL_SIX",
+    "basis": "DERIVABLE_FROM_PUBLIC_MARK_AND_INDEX_PRICE_WHEN_BOTH_ARE_FROZEN",
+    "long_short_and_taker_statistics": "PUBLIC_HISTORY_ROUTE_AVAILABLE",
+    "forced_deleveraging": "RECENT_PUBLIC_LIQUIDATION_ROWS_AVAILABLE_NOT_PROVEN_COMPLETE_HISTORY",
+    "order_book_snapshot": "AVAILABLE_ALL_SIX",
+    "strict_liquidity_resilience": "UNKNOWN_REQUIRES_PROSPECTIVE_MULTI_SNAPSHOT_OR_STREAM_SEQUENCE",
+    "public_news_metadata": "REUSE_EXISTING_PIT_RSS_ROUTE_WITH_AGENT_RELEVANCE_REVIEW",
+    "funding_pnl": "CAN_BE_ACCOUNTED_FROM_FROZEN_SETTLEMENT_HISTORY"
+  },
+  "tested_okx_paths": [
+    "/api/v5/public/time",
+    "/api/v5/public/instruments",
+    "/api/v5/market/candles",
+    "/api/v5/market/history-candles",
+    "/api/v5/public/open-interest",
+    "/api/v5/public/funding-rate",
+    "/api/v5/public/funding-rate-history",
+    "/api/v5/public/mark-price",
+    "/api/v5/market/books",
+    "/api/v5/market/trades",
+    "/api/v5/public/liquidation-orders",
+    "/api/v5/rubik/stat/contracts/open-interest-history",
+    "/api/v5/rubik/stat/contracts/long-short-account-ratio",
+    "/api/v5/rubik/stat/taker-volume"
+  ],
+  "boundaries": [
+    "This probe establishes current public reachability and field presence only.",
+    "It is not a frozen experiment dataset, a completeness proof, a paper cycle, or production authorization.",
+    "Liquidation response groups and one order-book snapshot cannot prove exhaustive forced deleveraging or strict replenishment resilience.",
+    "A new paper window still requires pre-outcome source bytes, available_at cutoffs, costs, risk, initial state, evaluation, and stopping rules to be frozen before the first Agent decision."
+  ]
+}

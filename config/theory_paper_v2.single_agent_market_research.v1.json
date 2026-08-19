@@ -1,0 +1,182 @@
+{
+  "schema_id": "theory_paper_v2_single_agent_market_research_contract",
+  "schema_version": "1.0.0",
+  "contract_id": "SINGLE_AGENT_SEEN_V1_DIAGNOSTIC_20260802",
+  "evidence_class": "SEEN_V1_DIAGNOSTIC_REPLAY",
+  "purpose": "Use one stateful Strategy Agent to diagnose whether the current theory and minimal deterministic research kernel solve the known V1 continuity, position-semantics, target, reentry, sentiment-analysis, opportunity-cost, and matching failures.",
+  "source_run_id": "msta-paper-20260729T212716Z-87cc29bb",
+  "source_tree_digest": "aba02e17eca90ab4b4ae652c485940523e6c0f0ae2f78eae485c8a5019264085",
+  "source_use": {
+    "decision_cycles": 24,
+    "terminal_observation_cycle": 25,
+    "symbols": [
+      "SNDKUSDT",
+      "MUUSDT",
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT",
+      "HYPEUSDT"
+    ],
+    "recorded_v1_decisions_visible_before_candidate_terminal": false,
+    "recorded_v1_outcomes_visible_before_candidate_terminal": false,
+    "historical_outcome_status": "AUTHORIZED_SEEN_DIAGNOSTIC_ONLY",
+    "point_in_time_rule": "AVAILABLE_AT_LTE_DECISION_AT_CLOSED_BARS_ONLY"
+  },
+  "strategy_agent": {
+    "count": 1,
+    "critic_enabled": false,
+    "cluster_enabled": false,
+    "transport_platform_enabled": false,
+    "decision_role": "The Strategy Agent itself interprets market emotion, multiscale structure, competing paths, relative action utility, dynamic geometry, position roles, and reentry. Deterministic code may validate hard boundaries but may not generate paths, candidates, or a trading policy.",
+    "state_update_rule": "PREVIOUS_ACCEPTED_STATE_PLUS_NEW_EVIDENCE_TO_REVISED_STATE_AND_ACTION",
+    "required_competing_path_classes": [
+      "TREND_CONTINUATION",
+      "NORMAL_PULLBACK",
+      "EXHAUSTION_OR_FAILURE",
+      "RANGE_REFORMATION"
+    ],
+    "required_sentiment_dimensions": [
+      "price_and_flow_emotion",
+      "leverage_and_crowding",
+      "public_event_narrative",
+      "cross_market_risk_appetite"
+    ],
+    "required_action_comparison": [
+      "HOLD",
+      "OPEN_OR_ADD",
+      "REDUCE",
+      "EXIT",
+      "REENTER",
+      "WAIT"
+    ],
+    "unknown_rule": "MISSING_DATA_REMAINS_UNKNOWN_INFERENCE_MUST_BE_LABELED",
+    "wait_rule": "WAIT_REQUIRES_DATA_GAP_RISK_VETO_OR_RELATIVE_UTILITY_AND_A_REVIEW_OBLIGATION"
+  },
+  "market_observations": {
+    "agent_feature_space": "OPEN_SUBJECT_TO_PIT_PROVENANCE_REPRODUCIBILITY_QUALITY_AND_COST",
+    "already_transmitted": [
+      "BOLLINGER_MIDDLE_UPPER_LOWER_BANDWIDTH_PERCENT_B",
+      "ROLLING_VWAP_24",
+      "REALIZED_VOLATILITY_20",
+      "EMA_RSI_ATR_ADX_EFFICIENCY_MACD_RELATIVE_VOLUME",
+      "RECENT_TRADE_VWAP_AND_IMBALANCE",
+      "SPREAD_DEPTH_IMBALANCE_AND_IMPACT_PROXY",
+      "OPEN_INTEREST_FUNDING_CROWDING_AND_TAKER_RATIO",
+      "CROSS_MARKET_RELATIVE_STRENGTH",
+      "PUBLIC_NEWS_HEADLINE_METADATA"
+    ],
+    "known_unknowns": [
+      "LIQUIDATION_F",
+      "STRICT_CONTINUOUS_LIQUIDITY_RESILIENCE_R",
+      "FUNDING_PNL_ACCRUAL"
+    ],
+    "indicator_rule": "OBSERVATION_NOT_MECHANICAL_ACTION_SIGNAL"
+  },
+  "position_and_execution_semantics": {
+    "roles": [
+      "CORE",
+      "TACTICAL"
+    ],
+    "core_checkpoint": "AGENT_REVIEW_EVENT_NOT_AUTOMATIC_EXIT",
+    "tactical_target": "EXACT_LIMIT_BARRIER_ON_EACH_NEW_15M_CLOSED_BAR",
+    "protective_stop": "EACH_NEW_15M_CLOSED_BAR_STOP_FIRST_WITH_ADVERSE_SLIPPAGE",
+    "same_bar_policy": "STOP_FIRST",
+    "full_core_exit_while_thesis_valid": "REENTRY_CONTRACT_REQUIRED",
+    "old_geometry": "MUST_BE_REVIEWED_OR_CANCELLED_NOT_SILENTLY_REUSED",
+    "initial_orders": "ALL_REVIEW_REQUIRED_IN_CYCLE_1",
+    "initial_positions": "ALL_REQUIRE_PROTECT_REDUCE_OR_EXIT_IN_CYCLE_1"
+  },
+  "fixed_risk_and_cost": {
+    "initial_equity_usdt": "10000",
+    "standard_trade_risk_fraction": "0.005",
+    "probe_trade_risk_fraction": "0.0015",
+    "symbol_open_pending_risk_fraction": "0.01",
+    "portfolio_open_pending_risk_fraction": "0.03",
+    "gross_notional_equity_multiple": "1.5",
+    "symbol_notional_equity_fraction": "0.35",
+    "drawdown_no_new_risk_fraction": "0.05",
+    "minimum_net_reward_risk": "1.5",
+    "minimum_notional_usdt": "50",
+    "maximum_notional_usdt": "1500",
+    "maker_fee_rate": "0.0002",
+    "taker_fee_rate": "0.0005",
+    "market_slippage_bps": "2",
+    "stop_slippage_bps": "3",
+    "risk_cap_equity": "MIN_INITIAL_AND_CURRENT_EQUITY",
+    "unrealized_profit_may_subsidize_new_risk": false,
+    "funding_missing_policy": "UNKNOWN_NEVER_ZERO_FILL"
+  },
+  "evaluation": {
+    "raw_result_before_review_or_change": true,
+    "metrics": [
+      "REALIZED_AND_UNREALIZED_PNL_SEPARATELY",
+      "FEES_AND_UNKNOWN_FUNDING_SEPARATELY",
+      "MAXIMUM_DRAWDOWN",
+      "INITIAL_POSITION_HOLD_BENCHMARK",
+      "OPPORTUNITY_DIFFERENCE",
+      "FLAT_DURATION",
+      "REENTRY_DELAY",
+      "ADD_UTILIZATION",
+      "ACTION_FIDELITY",
+      "ONE_STEP_PATH_CAPTURE",
+      "CORE_MANAGEMENT_CHECKPOINT_EVENTS"
+    ],
+    "comparators": [
+      "RECORDED_STATIC_V1_BASELINE",
+      "INITIAL_PORTFOLIO_STATIC_HOLD",
+      "SINGLE_AGENT_DYNAMIC_CANDIDATE"
+    ],
+    "sndk_core_retention_sensitivity": [
+      "0.25",
+      "0.5",
+      "0.75",
+      "1"
+    ],
+    "sensitivity_boundary": "OUTCOME_CONDITIONED_COUNTERFACTUAL_ONLY_NOT_PARAMETER_SELECTION"
+  },
+  "stop_conditions": [
+    "SOURCE_TREE_DIGEST_DRIFT",
+    "PIT_AVAILABLE_AT_VIOLATION",
+    "STATE_OR_EPISODE_DIGEST_DISCONTINUITY",
+    "DECISION_SCHEMA_OR_EVIDENCE_REFERENCE_INVALID",
+    "UNPROTECTED_INITIAL_POSITION_AFTER_CYCLE_1",
+    "UNRESOLVED_INITIAL_ORDER_AFTER_CYCLE_1",
+    "CORE_EXIT_WITHOUT_INVALIDATION_OR_REENTRY_OBLIGATION",
+    "TWO_REASONABLE_IMPLEMENTATION_ROUTES_FAIL"
+  ],
+  "claims_boundary": {
+    "seen_diagnostic_can_prove": "KNOWN_FAILURE_HANDLING_AND_INTERNAL_SEQUENTIAL_BEHAVIOR_ON_THE_V1_RECORD",
+    "seen_diagnostic_cannot_prove": [
+      "PREDICTIVE_VALIDITY",
+      "STABLE_PROFITABILITY",
+      "PRODUCTION_READINESS",
+      "LATEST_MARKET_PERFORMANCE"
+    ],
+    "system_mode": "LOCAL_PAPER_RESEARCH_NON_EXECUTABLE",
+    "external_execution_authority": "NONE_LOCAL_SIMULATION",
+    "automation_authority": false,
+    "account_or_credential_authority": false,
+    "paper_or_live_order_authority": false,
+    "executable": false
+  },
+  "pre_freeze_attestation": {
+    "candidate_results_generated_before_this_contract": false,
+    "theory_or_evaluation_changed_to_fit_candidate_results": false,
+    "freeze_parent_head": "0465ed4ead869dbc886de668813a0fdafa7aad55",
+    "active_main_task": "SINGLE_AGENT_SEEN_V1_DIAGNOSTIC_RAW_RESULT"
+  },
+  "implementation_bindings": [
+    {
+      "path": "trade_system/theory_paper_v2/application/single_agent_research.py",
+      "physical_sha256": "9b0b9ce09e630c1ef755e398cff7149f0cc72a2290dd07c6bd79109158ff5e45"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/presentation/single_agent_research_cli.py",
+      "physical_sha256": "afe00e5426623ba938aa2646640d8f9aaa2a8b3195ffd97152a3a5222dc6a74e"
+    },
+    {
+      "path": "tests/test_theory_paper_v2_single_agent_research.py",
+      "physical_sha256": "6eaeb9bc69c724bf54779a12e772bd55ef28c031dde4f4061e0c55d340c18ace"
+    }
+  ]
+}

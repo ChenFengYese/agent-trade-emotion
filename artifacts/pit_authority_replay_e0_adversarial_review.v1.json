@@ -1,0 +1,219 @@
+{
+  "schema_version": "pitar1-e0-adversarial-review.v1",
+  "review_id": "pitar1.e0-adversarial-review.v1",
+  "namespace": "pitar1",
+  "artifact_role": "independent_adversarial_review",
+  "stage": "E0_LOCAL_SYNTHETIC_REVIEW_ONLY",
+  "review_state": "INDEPENDENT_ATTACK_REPRODUCTION_PASS_NOT_EXTERNAL_ACCEPTANCE",
+  "route_binding": {
+    "route_id": "RSR-PITAR1-POINT_IN_TIME-AUTHORITY-REPLAY-v1",
+    "route_version": "1.0.0",
+    "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_ROUTE.v1",
+    "decision_physical_sha256": "a3dcb124477ac4f54189d659b7438431ea62ba6785f4c248fe2448e55f28035f",
+    "decision_canonical_sha256": "7e141bd47a728078c3a4dca02d231eae2bcbe6a3f12ff39c6e01c37e92556932",
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "reviewer_separation": {
+    "reviewer_class": "INDEPENDENT_TERRA_HIGH_SUBAGENT",
+    "read_only": true,
+    "files_written": 0,
+    "old_implementation_imported": false,
+    "test_candidate_constructor_imported": false,
+    "test_mutation_helper_imported": false,
+    "clean_candidate_construction": "HAND_WRITTEN_MAPPING_WITH_INDEPENDENT_CANONICAL_DIGEST_AND_VALIDATOR_PUBLIC_SYNTHETIC_PROFILE_AND_RAW_BYTES",
+    "attack_mutation_construction": "DIRECT_IN_MEMORY_MUTATIONS_WITHOUT_TEST_HELPERS"
+  },
+  "exact_code_identity": {
+    "validator_path": "trade_system/pit_authority_replay_contract_v1.py",
+    "validator_physical_sha256": "b53779ac12bdb01bb085b5b79da1a1e17b1b3bddc4eab0c1e20e07fa7f8c0166",
+    "test_path": "tests/test_pit_authority_replay_contract_v1.py",
+    "test_physical_sha256": "677d2dba8363c472a1b7bb121f5dde69553a6f3d25976b3025e593401cb30384"
+  },
+  "commands": [
+    {
+      "command": "PYTHONPYCACHEPREFIX=/private/tmp/pitar1-audit-pycache python3 -m unittest -q tests/test_pit_authority_replay_contract_v1.py",
+      "exit_code": 0,
+      "result": "69_TESTS_PASS"
+    },
+    {
+      "command": "PYTHONPYCACHEPREFIX=/private/tmp/pitar1-audit-pycache python3 -m py_compile trade_system/pit_authority_replay_contract_v1.py tests/test_pit_authority_replay_contract_v1.py",
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "IN_MEMORY_INDEPENDENT_HAND_WRITTEN_CANDIDATE_AND_DIRECT_ATTACK_SCRIPT",
+      "exit_code": 0,
+      "result": "CLEAN_VALID_AND_11_OF_11_ATTACKS_REJECTED"
+    }
+  ],
+  "clean_candidate_result": {
+    "status": "VALID_E0_SYNTHETIC_FIXTURE",
+    "reason_code": "SYNTHETIC_ADMISSION_SEMANTICS_VALID_NOT_ACCEPTED",
+    "permission": "DENIED",
+    "action": "ABSTAIN",
+    "max_risk": 0,
+    "candidate_self_acceptance": false
+  },
+  "historical_false_admission_attack_results": [
+    {
+      "attack_id": "HISTORICAL_ATTACK_01_ARBITRARY_TRANSFORM",
+      "result": "REJECT",
+      "reason_code": "BUNDLE_EXTERNAL_AUTHORITY_MISMATCH"
+    },
+    {
+      "attack_id": "HISTORICAL_ATTACK_02_ARBITRARY_PROOF",
+      "result": "REJECT",
+      "reason_code": "PROOF_AUTHORITY_MISMATCH"
+    },
+    {
+      "attack_id": "HISTORICAL_ATTACK_03_ARBITRARY_TIP",
+      "result": "REJECT",
+      "reason_code": "BUNDLE_EXTERNAL_AUTHORITY_MISMATCH"
+    },
+    {
+      "attack_id": "HISTORICAL_ATTACK_04_FUTURE_EVIDENCE",
+      "result": "REJECT",
+      "reason_code": "FUTURE_EVIDENCE"
+    },
+    {
+      "attack_id": "HISTORICAL_ATTACK_05_NON_STRING_PAYLOAD_HASH",
+      "result": "REJECT",
+      "reason_code": "ROW_PAYLOAD_HASH_INVALID"
+    },
+    {
+      "attack_id": "HISTORICAL_ATTACK_06_PAYLOAD_INPUT_MISMATCH",
+      "result": "REJECT",
+      "reason_code": "RAW_OR_PAYLOAD_HASH_MISMATCH"
+    },
+    {
+      "attack_id": "HISTORICAL_ATTACK_07_ZERO_BYTE_WRONG_HASH",
+      "result": "REJECT",
+      "reason_code": "RAW_OR_PAYLOAD_HASH_MISMATCH"
+    },
+    {
+      "attack_id": "HISTORICAL_ATTACK_08_EMPTY_RECEIPT_ID",
+      "result": "REJECT",
+      "reason_code": "RECEIPT_IDENTIFIER_INVALID"
+    },
+    {
+      "attack_id": "HISTORICAL_ATTACK_09_INTEGER_ADMISSION_ID",
+      "result": "REJECT",
+      "reason_code": "ADMISSION_IDENTIFIER_INVALID"
+    },
+    {
+      "attack_id": "HISTORICAL_ATTACK_10_ACTIVE_PACKAGE_ALIAS",
+      "result": "REJECT",
+      "reason_code": "FORBIDDEN_ALIAS"
+    },
+    {
+      "attack_id": "HISTORICAL_ATTACK_11_APPLICATION_SUPPORT_ALIAS",
+      "result": "REJECT",
+      "reason_code": "FORBIDDEN_ALIAS"
+    }
+  ],
+  "contract_bundle_review": {
+    "document_count": 6,
+    "status": "VALID_E0_CANDIDATE",
+    "reason_code": "LOCAL_REVIEW_READY_NOT_ACCEPTED",
+    "permission": "DENIED",
+    "action": "ABSTAIN",
+    "max_risk": 0,
+    "canonical_digest_match_count": 6,
+    "canonical_digest_mismatch_count": 0,
+    "contract_digests": {
+      "authority_bundle_contract": "5352ece7122480723cfc069b987663ccb089a5887688e30f52204e3179c3f722",
+      "pit_admission_contract": "4a0e5715b0fcb97917149a0fabfd489318f31c0580e5896ee90e71d51cbaa3e5",
+      "source_inventory_contract": "32764ee39297ddcb9f64ef32f0a5734a34f085045f14087e3cc886e597f6f9b8",
+      "chronology_contract": "40338cbac39e4a25ebdab9e710fcb11370c95e929acfc0ea62a9ec292a7ca913",
+      "adapter_replay_contract": "2da2595895f27029d970217b5d34e91285159b74aaf7fd0c77c15ce84f0e3550",
+      "development_comparison_contract": "bb4046b84f18ab5fd368e3cec658aae6c197abaac34ca1871206972aab2998c3"
+    }
+  },
+  "source_discovery_review": {
+    "status": "WAIT_DATA",
+    "reason_code": "DOCUMENT_DISCOVERY_VALID_NO_D0_PERMISSION",
+    "source_count": 9,
+    "ready_count": 0,
+    "wait_data_count": 9,
+    "market_or_macro_rows_accessed": false,
+    "archive_or_bulk_objects_accessed": false,
+    "permission": "DENIED",
+    "action": "ABSTAIN",
+    "max_risk": 0
+  },
+  "additional_fail_closed_coverage": {
+    "strict_json_duplicate_key_and_nonfinite_rejection": "PASS",
+    "contract_exact_set_and_order_independence": "PASS",
+    "contract_leaf_mutation_count": 752,
+    "source_discovery_leaf_mutation_count": 163,
+    "clock_and_available_at_attacks": "PASS",
+    "revision_gap_fork_late_revision_and_conflict": "PASS",
+    "typed_gap_denominator_retention": "PASS",
+    "receipt_chain_break": "PASS",
+    "aggregate_bar_double_barrier_ambiguity": "PASS",
+    "full_bar_future_extrema": "PASS",
+    "four_policy_equal_information": "PASS",
+    "post_outcome_input_leakage": "PASS",
+    "trajectory_exact_policy_denominator": "PASS",
+    "d0_unknown_cap_and_alias_attacks": "PASS",
+    "boolean_is_not_integer": "PASS"
+  },
+  "purity_review": {
+    "validator_file_io": false,
+    "validator_network_io": false,
+    "validator_environment_access": false,
+    "validator_wall_clock_access": false,
+    "validator_randomness": false,
+    "validator_subprocess_access": false,
+    "validator_old_project_module_imports": false,
+    "ast_review": "PASS",
+    "textual_get_attribute_matches_interpreted_as_dictionary_access_not_network_io": true
+  },
+  "route_token_review": {
+    "reviewed_candidate_file_count_at_code_audit": 10,
+    "route_forbidden_token_match_count": 0,
+    "result": "NO_HITS",
+    "final_report_and_inventory_paths_require_separate_package_inventory_check": true
+  },
+  "findings": [],
+  "limitations": [
+    "The review proves local E0 contract and synthetic fail-closed behavior only.",
+    "No market or macro rows, archive objects, adapter runtime, replay runtime, dataset, scoring, backtest, paper, deployment or trade were executed.",
+    "The independent code audit was performed before the three report and inventory files were materialized; final package count and physical identities are the responsibility of the integrated validation report and exact inventory.",
+    "This review is not an external Sol stage decision and cannot accept the candidate."
+  ],
+  "disposition": {
+    "local_adversarial_scope": "PASS",
+    "candidate_acceptance": "NOT_AUTHORIZED",
+    "external_sol_gate_required": true,
+    "d0_acquisition": "DENIED",
+    "d1_admission": "DENIED",
+    "d2_adapter_or_replay": "DENIED",
+    "d3_dataset": "DENIED",
+    "e2_evaluation": "DENIED",
+    "e3_paper": "DENIED",
+    "deployment": "DENIED",
+    "trading": "DENIED",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "encoding": "UTF-8",
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "domain_prefix_utf8": "pitar1/e0-adversarial-review/v1",
+    "domain_separator_hex": "00",
+    "digest_field": "review_sha256",
+    "excluded_fields": [
+      "review_sha256"
+    ]
+  },
+  "review_sha256": "ed932ead749a3f5300dfbe73cf2ddc2ab2171aecfb6ddc2df11bb7f3132c6012"
+}

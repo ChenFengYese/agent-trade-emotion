@@ -1,0 +1,78 @@
+{
+  "schema_version": "sol-har1-btcusdt-source-preflight-v1-blocked.v1",
+  "decision_id": "SOL_HAR1_BTCUSDT_SOURCE_PREFLIGHT_V1_BLOCKED.v1",
+  "decision_state": "BLOCKED_P0_NONRETRYABLE_CREATE_ONCE_BASELINE_INCOMPLETE",
+  "issued_by": "GPT-5.6-SOL_ULTRA_BLOCKER_AUDITOR",
+  "issued_at": "2026-07-29T08:49:00Z",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "failed_route": {
+    "path": "config/sol_decision.har1-btcusdt-source-preflight-static-downloader-route.v1.json",
+    "physical_sha256": "a2fbc648ea89906da62bc821ecfc5af693b7572478d5908ad8e5fd0fce574c0c",
+    "canonical_sha256": "0cf2c13a4b0663b93b902a4cfd7e76fb340cb821c7ae507b1d6c28615b056c74"
+  },
+  "sealed_failed_outputs": [
+    {
+      "path": "har1/baseline.json",
+      "physical_sha256": "61b36e229466a88fb85259f089c1b4fe606ec4c9c7ee3f8a29d8179e9c10eb12",
+      "failure": "MISSING_CAPTURED_AT_RAW_STATUS_BYTES_REQUIRED_FIELD_NAMES_AND_COMPLETE_PATH_PROJECTION"
+    },
+    {
+      "path": "har1/source_contract.json",
+      "physical_sha256": "16087fa87ea1c55027bc8e64bd793ac76b17b75616f4c932bb41f8bba9b174bf",
+      "status": "CREATED_AFTER_INVALID_BASELINE_NOT_ADMISSIBLE"
+    },
+    {
+      "path": "har1/purge_plan.json",
+      "physical_sha256": "8dbd22281844300e9c6432f32ce3a94a0ef94f58bb583b2c6222d8648be6d2d8",
+      "status": "CREATED_AFTER_INVALID_BASELINE_NOT_ADMISSIBLE"
+    }
+  ],
+  "absent_outputs_at_stop": [
+    "har1/preflight_client.py",
+    "har1/tests/test_preflight_client.py",
+    "har1/next_fetch_manifest.json",
+    "har1/evidence/01-jp-home.json",
+    "har1/evidence/02-jp-terms.json",
+    "har1/evidence/03-public-data-readme.json",
+    "har1/evidence/04-smoke-zip-head.json",
+    "har1/evidence/05-smoke-checksum.json"
+  ],
+  "external_effects": {
+    "network_requests": 0,
+    "zip_body_reads": 0,
+    "market_rows_read": 0,
+    "runtime_outputs": 0,
+    "trading_actions": 0
+  },
+  "immutability_rule": "ALL_THREE_HAR1_V1_OUTPUTS_MUST_REMAIN_BYTE_FOR_BYTE_UNCHANGED_NO_OVERWRITE_DELETE_RENAME_REUSE_OR_RETRY",
+  "recovery": {
+    "same_route_retry": false,
+    "same_namespace_retry": false,
+    "required_route": "NEW_SOL_R2_ROUTE_NEW_RUN_ID_NEW_HAR1R2_NAMESPACE",
+    "permission_expansion": "NONE"
+  },
+  "claim_boundary": "The v1 route failed before any network request. It provides only a sealed local implementation-process failure record and no source, data, market, backtest or trading evidence.",
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-har1-btcusdt-source-preflight-v1-blocked/v1",
+    "domain_separator_hex": "00",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "excluded_fields": [
+      "/decision_sha256"
+    ]
+  },
+  "decision_sha256": "8cf923b01dfcf2172d64401b6aeaed40064fbc64900bb2dfc76ee3af20babe16"
+}

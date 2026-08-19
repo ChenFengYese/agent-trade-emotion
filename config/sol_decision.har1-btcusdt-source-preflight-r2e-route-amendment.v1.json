@@ -1,0 +1,146 @@
+{
+  "schema_version": "sol-har1-btcusdt-source-preflight-r2e-route-amendment.v1",
+  "decision_id": "SOL_HAR1_BTCUSDT_SOURCE_PREFLIGHT_R2E_ROUTE_AMENDMENT.v1",
+  "decision_state": "REJECT_R2D_ACTIVATION_AUTHORIZE_R2E_SEMANTIC_AMENDMENT_AND_TWO_FILE_OFFLINE_REPAIR_NO_NETWORK",
+  "issued_by": "GPT-5.6-SOL_ULTRA_STAGE_GATE",
+  "issued_at": "2026-07-29T09:58:10Z",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "predecessor_bindings": {
+    "r2_route": {
+      "path": "config/sol_decision.har1-btcusdt-source-preflight-r2-route.v1.json",
+      "physical_sha256": "1512149ca8f2f9df3fa66490636db9f0f3e340873087a8c989c5093eea1f2057",
+      "canonical_sha256": "6979a3ec4b2df46d81d48533ed3ed2147d78f68ec9595fe7bbb7a9a1d3beafa0"
+    },
+    "r2d_route": {
+      "path": "config/sol_decision.har1-btcusdt-source-preflight-r2d-route-amendment.v1.json",
+      "physical_sha256": "5bcd3feee3bd52f27d8c268a89504c06884eb5541568fccf2ab168f91dded8ae",
+      "canonical_sha256": "4099f69788265afda3cd98baf3ce2f02850269f8a7468c3270b1e37d5a982814"
+    },
+    "r2d_client_physical_sha256": "0e7622c757a4d9e90e15f64eda6bb8268fe55f80868540ede6a5cbcdadf44496",
+    "r2d_test_physical_sha256": "12dca1cda562b21efd2cdf33a423ce00db1db75949657e8ab5f135ea4f01d709",
+    "baseline_physical_sha256": "8e4c9c7ad50eaa9061bbca6cd2c4e691628974da322faac3803222184df340d6",
+    "source_physical_sha256": "87f23ab76b243341f26844f17ae582c502a3322943a241f2c94b3c110179df4b",
+    "purge_physical_sha256": "caeb09d8b756980fdcc9fca5998da978d26cbbafaa100ae186178962b6b09031"
+  },
+  "r2d_verification": {
+    "main_and_terra_result": "41_OF_41_PASS",
+    "evidence_jsonl_absent": true,
+    "network_requests": 0,
+    "accepted_closures": [
+      "STRICT_RAW_ACTIVATION_INGESTION",
+      "RAW_PHYSICAL_AND_CANONICAL_ACTIVATION_BINDING",
+      "WRITE_AND_FSYNC_FAILURE_STOPS_WITHOUT_TERMINAL_UPGRADE",
+      "NETWORK_AND_READ_BUDGET_EXCLUDES_EVIDENCE_FSYNC",
+      "PROTOCOL_FAILURE_HAS_ONE_FSYNCED_TERMINAL"
+    ],
+    "activation_blocker": "The R2D amendment conflated a protocol terminal record with whole-file sealed status after close failure."
+  },
+  "r2e_patch_scope": {
+    "required_implementer": "GPT-5.6-TERRA_HIGH",
+    "only_modifiable_paths": [
+      "har1r2/preflight_client.py",
+      "har1r2/test_preflight_client.py"
+    ],
+    "all_other_existing_paths_immutable": true,
+    "har1r2_evidence_jsonl_must_remain_absent": true,
+    "network": false,
+    "runtime_execution": false
+  },
+  "terminal_and_seal_semantics": {
+    "terminal_definition": "THE_FINAL_PROTOCOL_SEQUENCE_RECORD_ONLY; NOT A WHOLE_FILE_SEAL",
+    "terminal_reliability_condition": "THE_TERMINAL_RECORD_WRITE_AND_FSYNC SUCCEEDED",
+    "write_or_fsync_failure": {
+      "required_exception": "EVIDENCE_DURABILITY_FAILURE",
+      "capability_and_run_consumed": true,
+      "further_transport": 0,
+      "retry_same_run": false,
+      "terminal_upgrade": false,
+      "whole_file_state": "UNSEALED_OR_PARTIAL",
+      "json_like_stray_bytes_are_evidence": false
+    },
+    "close_failure_after_fsynced_records": {
+      "required_exception": "EVIDENCE_CLOSE_FAILURE_AFTER_FSYNC",
+      "preserve_prior_fsynced_records_without_retroactive_falsification": true,
+      "normal_return": false,
+      "preflight_success_or_sealed_report": false,
+      "capability_and_run_consumed": true,
+      "retry_same_run": false,
+      "whole_file_state": "REVIEW_REQUIRED_CLOSE_ERROR"
+    },
+    "sealed_external_classification": {
+      "prerequisite": "FILE_DESCRIPTOR_CLOSE_SUCCEEDED",
+      "required_next_step": "STRICT_READ_ONLY_REOPEN_AND_READBACK",
+      "readback_checks": [
+        "REGULAR_FILE_AND_NO_FINAL_SYMLINK",
+        "STRICT_UTF8_JSONL_NO_DUPLICATE_KEYS_OR_NONFINITE_VALUES",
+        "ACTIVATION_IS_FIRST_AND_UNIQUE",
+        "PREVIOUS_SHA256_CHAIN_MATCHES_EXACT_RAW_LINES",
+        "REQUEST_SEQUENCE_MATCHES_THE_FROZEN_PLAN",
+        "EXACTLY_ONE_TERMINAL_AND_IT_IS_LAST",
+        "TERMINAL_OUTCOME_IS_SUCCESS_OR_A_DURABLE_FAILURE"
+      ],
+      "readback_writes": 0,
+      "readback_failure_state": "UNSEALED_OR_REVIEW_REQUIRED",
+      "append_seal_after_close": false
+    }
+  },
+  "socket_tripwire_refinement": {
+    "required_scope": "BEFORE_MODULE_IMPORT_THROUGH_END_OF_ALL OFFLINE TESTS",
+    "import_time_transport": "MUST_FAIL_THE_TEST",
+    "test_fixture_transport": "FAKE_ONLY",
+    "workspace_evidence_during_tests": "ABSENT"
+  },
+  "offline_acceptance": [
+    "CLOSE_FAILURE_AFTER_SUCCESS_TERMINAL_RAISES_DISTINCT_SUBTYPE_AND_DOES_NOT_RETURN_SUCCESS_OR_SEALED",
+    "CLOSE_FAILURE_AFTER_FAILURE_TERMINAL_RAISES_DISTINCT_SUBTYPE_AND_DOES_NOT_RETURN_SEALED",
+    "PRIOR_FSYNCED_TERMINAL_REMAINS_PARSEABLE_WITHOUT_BEING_CALLED_A_WHOLE_FILE_SEAL",
+    "WRITE_OR_FSYNC_FAILURE_REMAINS_UNSEALED_OR_PARTIAL_WITH_ZERO_FURTHER_TRANSPORT",
+    "CLOSE_SUCCESS_THEN_READ_ONLY_REOPEN_VALIDATES_STRICT_JSONL_CHAIN_ACTIVATION_SEQUENCE_AND_TERMINAL_LAST",
+    "READBACK_DUPLICATE_NONFINITE_TRUNCATED_CHAIN_SEQUENCE_OR_TERMINAL_DRIFT_REJECTED",
+    "READBACK_PERFORMS_ZERO_WRITES",
+    "SOCKET_TRIPWIRE_IS_ACTIVE_BEFORE_MODULE_IMPORT",
+    "R2D_41_OFFLINE_BEHAVIORS_REMAIN_PASSING"
+  ],
+  "permission_matrix": {
+    "modify_two_r2e_files": true,
+    "offline_tests": true,
+    "network": false,
+    "create_evidence_jsonl": false,
+    "create_activation_document": false,
+    "zip_body_or_market_row": false,
+    "backtest_training_score_or_holdout": false,
+    "paper_order_account_or_live": false,
+    "active_g1_access": false
+  },
+  "next_gate": {
+    "required_reviewer": "GPT-5.6-SOL_ULTRA",
+    "required_state": "R2E_IMPLEMENTATION_AND_OFFLINE_TESTS_COMPLETE",
+    "must_bind_full_final_hashes": true,
+    "maximum_permission": "ONE_BOUNDED_FIVE_REQUEST_PREFLIGHT_EXECUTION_NO_ZIP_BODY",
+    "automatic_permission": "NONE"
+  },
+  "maximum_claim": "R2E may separate protocol termination from whole-file sealing and add strict read-only post-close validation. It grants no network, source permission, market data, backtest or trading claim.",
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-har1-btcusdt-source-preflight-r2e-route-amendment/v1",
+    "domain_separator_hex": "00",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "excluded_fields": [
+      "/decision_sha256"
+    ]
+  },
+  "decision_sha256": "666354ec75eaee6fcf02c7ccf7a31e542d091514812b0ffe9d4f7f66bb095884"
+}

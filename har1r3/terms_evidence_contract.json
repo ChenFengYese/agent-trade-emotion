@@ -1,0 +1,76 @@
+{
+  "schema_version": "har1r3-terms-evidence-contract.v1",
+  "route_id": "SOL_HAR1R3_DUAL_LANE_SUCCESSOR_ROUTE.v1",
+  "route_physical_sha256": "6b23ca9248233929023b29c606466af7063929e23fe70e89d01e0f1b2fca8c8d",
+  "route_canonical_sha256": "a21411873c7a793dc9d51983c4717ac3afad422bfe0d4f744679e9a51673b604",
+  "closed_r2": {
+    "activation_path": "config/sol_activation.har1-btcusdt-source-preflight-r2f.v1.json",
+    "activation_raw_physical_sha256": "c1b4b3b68fe8787d36a7b08fe2b76cf679fca9e3785678e8bf751b41e7fbae18",
+    "activation_canonical_sha256": "784c864f23d604ed890d218229e5346d964fa8eda3d5b1e3ea8e61f48b35a897",
+    "evidence_path": "har1r2/evidence.jsonl",
+    "evidence_physical_sha256": "01a3705f0e4baf45082d01d5447b727638a5259ede63792eef4cd75033fbafbe",
+    "evidence_bytes": 4304,
+    "record_count": 2,
+    "state": "SEALED_PROTOCOL_FAILURE",
+    "terminal_fact": {
+      "sequence": 1,
+      "method": "GET",
+      "url": "https://www.binance.com/ja",
+      "status_code": 202,
+      "response_bytes": 0,
+      "request_elapsed_ms": 1262,
+      "outcome": "FAILURE",
+      "error": "ContractError"
+    },
+    "later_requests": 0,
+    "zip_body_bytes": 0,
+    "market_rows": 0,
+    "causal_or_legal_inference": "NOT_ESTABLISHED"
+  },
+  "run_id": "har1r3-terms-evidence-20260729-v1",
+  "session": "NEW_ISOLATED_UNAUTHENTICATED_NO_EXISTING_COOKIE",
+  "top_level_navigation_limit": 2,
+  "session_budget_seconds": 240,
+  "navigations": [
+    {
+      "sequence": 1,
+      "url": "https://www.binance.com/ja/terms"
+    },
+    {
+      "sequence": 2,
+      "url": "https://github.com/binance/binance-public-data"
+    }
+  ],
+  "redirect_policy": {
+    "same_origin": "RECORD_AND_ALLOW",
+    "cross_origin_login_wall_or_empty_page": "RECORD_UNRESOLVED_AND_STOP_NAVIGATION"
+  },
+  "interaction_boundary": {
+    "login_form_submit": false,
+    "accept_button": false,
+    "account_access": false,
+    "download": false,
+    "subresources_as_authority_evidence": false
+  },
+  "required_manifest_fields": [
+    "requested_url",
+    "final_url",
+    "captured_at_utc",
+    "page_title",
+    "visible_version_or_effective_date",
+    "bounded_visible_excerpt",
+    "visible_license_or_terms_links_not_opened",
+    "screenshot_path",
+    "screenshot_sha256",
+    "status",
+    "limitations"
+  ],
+  "legal_conclusion": false,
+  "maximum_claim": "VISIBLE_PAGE_AND_PROVENANCE_EVIDENCE_PENDING_HUMAN_AND_SOL_REVIEW",
+  "canonical_self_digest": {
+    "algorithm": "SHA-256_CANONICAL_JSON",
+    "digest_field": "terms_evidence_contract_sha256",
+    "domain_prefix_utf8": "msta-hed/har1r3-terms-evidence-contract/v1"
+  },
+  "terms_evidence_contract_sha256": "71a8592d35f01c4667a0eaff555cfb43dd5e2b6c245f206f3ca76c0a2fd082af"
+}

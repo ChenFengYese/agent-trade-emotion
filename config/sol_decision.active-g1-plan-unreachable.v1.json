@@ -1,0 +1,123 @@
+{
+  "schema_version": "sol-decision.active-g1-plan-unreachable.v1",
+  "decision_id": "SOL_ACTIVE_G1_PLAN_UNREACHABLE.v1",
+  "decision_state": "TERMINAL_WAIT_DATA_PLAN_UNREACHABLE",
+  "decision_class": "PLAN_MATHEMATICAL_UNREACHABILITY",
+  "evidence_level": "E0_OPERATIONAL_FACT_SERIALIZATION",
+  "baseline_as_of": "2026-07-26T13:55:00Z",
+  "snapshot_at": "2026-07-26T14:23:53Z",
+  "external_session_dependency": "NONE",
+  "scope": {
+    "workspace_cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "workspace_branch": "codex/s0-research-foundation",
+    "workspace_head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "active_g1_root": "/Users/wt/Library/Application Support/agent-trade-emotion",
+    "plan_id": "btc-usdt-g1-forward-20260723-v1",
+    "instrument": "BTCUSDT"
+  },
+  "immutable_bindings": {
+    "active_plan": {
+      "path": "/Users/wt/Library/Application Support/agent-trade-emotion/config/forward_capture_plan.g1.v1.json",
+      "physical_sha256": "189317fdff53d9f0ca64747d48690a283a3328b04df539f53307eb1370c3cb6d",
+      "canonical_sha256": "bfc2f96d8432135c81e04b8c50227dce81280cb5cc941fbdd052b979c7ba973d"
+    },
+    "active_registry": {
+      "path": "/Users/wt/Library/Application Support/agent-trade-emotion/config/source_registry.v3.json",
+      "physical_sha256": "b3848092824dc65e9fea6ac524811453b8abf4783b865d8c057089cb5603453f",
+      "canonical_sha256": "3aa28782ff3c0af5be5ad0bc98e690af87dbe2c57687d6ab61b1549bae74ec4b"
+    },
+    "active_collector_package": {
+      "root": "/Users/wt/Library/Python/3.9/lib/python/site-packages/trade_system",
+      "package_source_sha256": "c9b3d829e2fc62fb978cfdfc0af0c92e877d33f8bc0d94af1be02fcc05454240",
+      "python_source_count": 56
+    },
+    "workspace_collector_package": {
+      "root": "/Users/wt/Documents/agent-trade-emotion/trade_system",
+      "package_source_sha256": "88190a534f7c04d031e53ee3b581920c0654034c579653bcdb6b5fce3a406122",
+      "python_source_count": 78,
+      "active_g1_deployment_use": "FORBIDDEN"
+    }
+  },
+  "slot_accounting_at_baseline": {
+    "total_predeclared_slots": 28,
+    "qualified_smoke_sealed": 1,
+    "unqualified": 1,
+    "missed": 13,
+    "future": 13,
+    "active": 0,
+    "missed_root_cause": "UNKNOWN",
+    "next_predeclared_slot": {
+      "slot_id": "d4-h18",
+      "start": "2026-07-26T18:00:00Z",
+      "end": "2026-07-26T19:15:00Z"
+    }
+  },
+  "slot_facts": {
+    "d4-h06": {
+      "collection_result": "UNQUALIFIED",
+      "raw_captured": 58165,
+      "availability_written": 58165,
+      "open_interest_poll_errors": 19,
+      "raw_seal": "ABSENT"
+    },
+    "d4-h12": {
+      "collection_result": "QUALIFIED_SMOKE_SEALED",
+      "raw_captured": 61156,
+      "availability_written": 61156,
+      "open_interest_poll_errors": 0,
+      "raw_seal": "VALID",
+      "raw_seal_sha256": "d3ec2a0988b855c27b0cb6181f7f3b48da806d2dc319fc7ce2385a73ee905ad9"
+    }
+  },
+  "launch_agent_read_only_snapshot": {
+    "label": "com.agent-trade-emotion.capture-supervisor",
+    "loaded": true,
+    "state": "not running",
+    "active_count": 0,
+    "runs": 3,
+    "last_exit_code": 0,
+    "mutation_performed": false
+  },
+  "resource_snapshot_at_baseline": {
+    "free_space_gib_rounded": 15.228,
+    "margin_above_plan_minimum_mib_approx": 233.9,
+    "interpretation": "Read-only baseline observation; no disk cleanup, reservation, or capture action was performed."
+  },
+  "unreachability_proof": {
+    "qualified_slot_requirement": 24,
+    "maximum_qualified_slots_from_frozen_plan": 14,
+    "qualified_duration_requirement_seconds": 86400,
+    "maximum_qualified_duration_seconds_from_frozen_plan": 51240,
+    "utc_calendar_day_requirement": 7,
+    "maximum_utc_calendar_days_from_frozen_plan": 4,
+    "result": "PLAN_UNREACHABLE"
+  },
+  "prohibited_remediations": [
+    "DO_NOT_BACKFILL_MISSED_SLOTS",
+    "DO_NOT_RERUN_MISSED_SLOTS",
+    "DO_NOT_LOWER_G1_ACCEPTANCE_GATE",
+    "DO_NOT_OVERWRITE_ACTIVE_PACKAGE_WITH_WORKSPACE_PACKAGE",
+    "DO_NOT_MODIFY_ACTIVE_PLAN",
+    "DO_NOT_MODIFY_ACTIVE_REGISTRY",
+    "DO_NOT_DELETE_OR_REWRITE_ACTIVE_EVIDENCE",
+    "DO_NOT_DESCRIBE_ANY_NEW_DATA_LANE_AS_G1_RECOVERY"
+  ],
+  "future_data_lane_boundary": {
+    "requires_separate_sol_authorization": true,
+    "requires_new_plan": true,
+    "requires_new_registry": true,
+    "requires_new_evidence_root": true,
+    "requires_new_collector_bundle": true,
+    "requires_new_seal": true,
+    "requires_sufficient_storage_before_capture": true,
+    "relation_to_active_g1": "SEPARATE_LANE_NOT_G1_RECOVERY"
+  },
+  "non_claims": [
+    "NOT_A_MARKET_OR_THEORY_FAILURE",
+    "NOT_A_DATA_QUALITY_OR_CAUSAL_EFFICACY_CLAIM",
+    "NOT_A_BACKTEST_OR_CALIBRATION_RESULT",
+    "NOT_A_PAPER_OR_LIVE_TRADING_AUTHORIZATION",
+    "MISSED_SLOT_ROOT_CAUSE_IS_UNKNOWN_AND_NOT_INFERRED"
+  ],
+  "maximum_positive_claim": "For the immutable active G1 plan bound above, the stated G1 acceptance thresholds are mathematically unreachable; this record makes no market, theory, predictive, profitability, or trading-readiness claim."
+}

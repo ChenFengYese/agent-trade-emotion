@@ -1,0 +1,4 @@
+interface:
+  display_name: "Trading Operations Security"
+  short_description: "Protect trading accounts keys orders and funds"
+  default_prompt: "Use $protect-trading-operations to assess the security and authorization risks of this trading workflow."

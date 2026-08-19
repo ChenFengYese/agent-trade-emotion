@@ -1,0 +1,241 @@
+{
+  "schema_version": "msta-paper-experiment.v0.1",
+  "status": "EXPERIMENTAL_PAPER_PRACTICE_VALIDATION_NOT_CAUSAL_OR_PREDICTIVE_PROOF",
+  "experiment_name": "new-theory-six-market-72h-practice",
+  "duration_hours": 72,
+  "analysis_interval_hours": 1,
+  "review_interval_hours": 8,
+  "clock_policy": {
+    "mode": "LIVE_WALL_CLOCK",
+    "future_tolerance_seconds": 300
+  },
+  "symbols": [
+    "SNDKUSDT",
+    "MUUSDT",
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "HYPEUSDT"
+  ],
+  "authority_boundary": {
+    "live_order_capability": false,
+    "credential_capability": false,
+    "exchange_private_api_capability": false,
+    "existing_e0_permission_remains_denied": true,
+    "paper_permission": "LOCAL_SIMULATION_ONLY",
+    "theory_role": "NEW_MSTA_AND_DYNAMIC_HYPOTHESIS_THEORY_IS_PRIMARY_EXPERIMENTAL_RUNTIME",
+    "legacy_role": "DATA_REPLAY_RISK_AND_AUDIT_SUPPORT_ONLY",
+    "profitability_claim": "OBJECTIVE_NOT_GUARANTEE",
+    "validation_claim": "72H_DESCRIPTIVE_PRACTICE_CANNOT_PROVE_CAUSAL_OR_PREDICTIVE_VALIDITY"
+  },
+  "data_policy": {
+    "primary_venue": "BINANCE_USDM_PUBLIC",
+    "equity_perpetual_symbols": [
+      "SNDKUSDT",
+      "MUUSDT"
+    ],
+    "closed_bar_only": true,
+    "unknown_is_not_zero": true,
+    "participant_identity_claims_forbidden": true,
+    "strict_resilience_requires_continuous_depth": true,
+    "news_queries": {
+      "SNDKUSDT": "Sandisk SNDK earnings SEC investor relations stock",
+      "MUUSDT": "Micron MU earnings SEC investor relations stock semiconductors",
+      "BTCUSDT": "Bitcoin BTC macro regulation ETF market",
+      "ETHUSDT": "Ethereum ETH foundation upgrade market",
+      "SOLUSDT": "Solana SOL network ecosystem market",
+      "HYPEUSDT": "Hyperliquid HYPE protocol market"
+    }
+  },
+  "initial_portfolio": {
+    "initial_cash_usdt": 10000.0,
+    "position_notional_semantics": "ONE_X_ENTRY_NOTIONAL",
+    "netting_mode": "ONE_WAY_CLOSE_THEN_EXCESS_REVERSE_WITH_NEW_PERMISSION",
+    "positions": [
+      {
+        "symbol": "SNDKUSDT",
+        "side": "LONG",
+        "entry_price": 1125.0,
+        "notional_usdt": 500.0,
+        "origin": "EXOGENOUS_INITIAL_POSITION"
+      },
+      {
+        "symbol": "ETHUSDT",
+        "side": "LONG",
+        "entry_price": 1920.0,
+        "notional_usdt": 1000.0,
+        "origin": "EXOGENOUS_INITIAL_POSITION"
+      },
+      {
+        "symbol": "SOLUSDT",
+        "side": "LONG",
+        "entry_price": 75.0,
+        "notional_usdt": 800.0,
+        "origin": "EXOGENOUS_INITIAL_POSITION"
+      },
+      {
+        "symbol": "BTCUSDT",
+        "side": "LONG",
+        "entry_price": 64000.0,
+        "notional_usdt": 1000.0,
+        "origin": "EXOGENOUS_INITIAL_POSITION"
+      },
+      {
+        "symbol": "HYPEUSDT",
+        "side": "LONG",
+        "entry_price": 55.0,
+        "notional_usdt": 800.0,
+        "origin": "EXOGENOUS_INITIAL_POSITION"
+      }
+    ],
+    "orders": [
+      {
+        "symbol": "SNDKUSDT",
+        "side": "BUY",
+        "limit_price": 1006.0,
+        "notional_usdt": 300.0
+      },
+      {
+        "symbol": "SNDKUSDT",
+        "side": "BUY",
+        "limit_price": 920.0,
+        "notional_usdt": 300.0
+      },
+      {
+        "symbol": "SNDKUSDT",
+        "side": "BUY",
+        "limit_price": 860.0,
+        "notional_usdt": 500.0
+      },
+      {
+        "symbol": "ETHUSDT",
+        "side": "BUY",
+        "limit_price": 1850.0,
+        "notional_usdt": 300.0
+      },
+      {
+        "symbol": "ETHUSDT",
+        "side": "SELL",
+        "limit_price": 1965.0,
+        "notional_usdt": 1000.0
+      },
+      {
+        "symbol": "SOLUSDT",
+        "side": "BUY",
+        "limit_price": 68.0,
+        "notional_usdt": 1200.0
+      },
+      {
+        "symbol": "SOLUSDT",
+        "side": "SELL",
+        "limit_price": 83.0,
+        "notional_usdt": 1000.0
+      },
+      {
+        "symbol": "BTCUSDT",
+        "side": "BUY",
+        "limit_price": 60200.0,
+        "notional_usdt": 1000.0
+      },
+      {
+        "symbol": "BTCUSDT",
+        "side": "SELL",
+        "limit_price": 66000.0,
+        "notional_usdt": 1000.0
+      },
+      {
+        "symbol": "HYPEUSDT",
+        "side": "BUY",
+        "limit_price": 51.0,
+        "notional_usdt": 800.0
+      },
+      {
+        "symbol": "HYPEUSDT",
+        "side": "SELL",
+        "limit_price": 73.0,
+        "notional_usdt": 1000.0
+      }
+    ],
+    "initial_order_state": "REVIEW_REQUIRED",
+    "initial_position_protection_sla_cycles": 1
+  },
+  "risk_policy": {
+    "standard_thesis_risk_fraction": 0.005,
+    "exploration_probe_risk_fraction": 0.0015,
+    "per_instrument_open_pending_risk_fraction": 0.01,
+    "portfolio_open_pending_risk_fraction": 0.03,
+    "daily_realized_loss_fraction": 0.02,
+    "drawdown_no_new_risk_fraction": 0.05,
+    "gross_notional_equity_multiple": 1.5,
+    "minimum_reward_risk": 1.5,
+    "default_taker_fee_rate": 0.0005,
+    "default_maker_fee_rate": 0.0002,
+    "default_market_slippage_bps": 2.0,
+    "default_stop_slippage_bps": 3.0,
+    "same_bar_stop_target_policy": "STOP_FIRST_AND_MARK_AMBIGUOUS",
+    "unprotected_position_policy": "PROTECT_REDUCE_OR_EXIT_ON_FIRST_VALID_CYCLE",
+    "new_positions_require_stop_and_target": true,
+    "position_lock_stop_monotonic": true
+  },
+  "activity_policy": {
+    "analysis_required_for_every_symbol_each_cycle": true,
+    "decision_receipt_required_even_when_abstaining": true,
+    "actionable_setup_execution_rule": "EXECUTE_IN_CURRENT_CYCLE_WHEN_TRIGGERED_DATA_VALID_NET_RR_AND_RISK_GATES_PASS",
+    "abstention_requires_untriggered_geometry_or_typed_data_or_risk_veto": true,
+    "valid_hours_without_strategy_fill_before_probe": 6,
+    "probe_threshold_role": "BACKSTOP_NOT_WAITING_PERIOD",
+    "probe_requires_complete_falsifiable_thesis": true,
+    "probe_may_not_bypass_data_or_risk_veto": true,
+    "probe_notional_min_usdt": 100.0,
+    "probe_notional_max_usdt": 250.0
+  },
+  "chaos_policy": {
+    "enabled": true,
+    "auto_injection_count": 3,
+    "eligible_offset_hour_windows": [
+      [
+        10,
+        16
+      ],
+      [
+        26,
+        34
+      ],
+      [
+        44,
+        54
+      ]
+    ],
+    "notional_min_usdt": 100.0,
+    "notional_max_usdt": 250.0,
+    "origin": "EXOGENOUS_EMOTION_INJECTION",
+    "strategy_entry_attribution": "NONE",
+    "protection_sla_cycles": 1,
+    "absolute_risk_caps_still_apply": true,
+    "future_schedule_hidden_from_analysis_packets": true,
+    "manual_injection_enabled": true
+  },
+  "scoring_policy": {
+    "implementation": "FROZEN_V0_1_SIMPLIFIED_STRUCTURAL_AND_PRACTICE_SCORE",
+    "theory_integrity_weights": {
+      "measurement_chain": 20,
+      "multiscale_roles": 15,
+      "structural_position": 10,
+      "phi_competition": 25,
+      "actor_boundary": 15,
+      "geometry_boundary": 15
+    },
+    "method_practice_weights": {
+      "evidence_discipline": 20,
+      "hypothesis_competition": 20,
+      "falsification_discipline": 20,
+      "geometry_and_risk": 20,
+      "review_learning": 20
+    },
+    "hard_failures": {
+      "theory_integrity_failure_cap": 49,
+      "method_practice_failure_cap": 49,
+      "pnl_may_change_integrity_scores": false
+    }
+  }
+}

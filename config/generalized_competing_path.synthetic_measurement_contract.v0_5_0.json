@@ -1,0 +1,1606 @@
+{
+  "contract_id": "GENERALIZED_COMPETING_PATH_SYNTHETIC_MEASUREMENT_CONTRACT.v0.5.0",
+  "contract_version": "0.5.0",
+  "stage": "V5-M00",
+  "status": "PURE_SYNTHETIC_NO_NEW_OUTCOME_ACCESS",
+  "evidence_level": "E0",
+  "created_at": "2026-07-26",
+  "io_boundary": {
+    "market_read": "FORBIDDEN",
+    "outcome_read": "FORBIDDEN",
+    "network": "FORBIDDEN",
+    "active_g1": "FORBIDDEN",
+    "write_external_state": "FORBIDDEN"
+  },
+  "object_required_fields": {
+    "ObservationFrame": [
+      "observation_frame_id",
+      "decision_time",
+      "available_at_cutoff",
+      "data_layers",
+      "quality_by_layer",
+      "missing_required",
+      "missing_optional",
+      "dependency_groups",
+      "provenance"
+    ],
+    "MultiScaleStateBelief": [
+      "state_belief_id",
+      "decision_time",
+      "ordered_role_profile_id",
+      "role_states",
+      "state_axes",
+      "uncertainty",
+      "unknown_reasons",
+      "provenance"
+    ],
+    "MechanismSpec": [
+      "mechanism_id",
+      "required_evidence_types",
+      "optional_evidence_rules",
+      "support_rules",
+      "soft_contradictions",
+      "hard_falsifiers",
+      "expiry_rule",
+      "allowed_path_ids",
+      "dependence_group_policy",
+      "merge_equivalence_class"
+    ],
+    "PathSpec": [
+      "path_id",
+      "primitive_mechanism_ids",
+      "milestone_vocabulary",
+      "observation_count_rule",
+      "event_time_stopping_rule",
+      "stopping_policy_id",
+      "frozen_horizon_seconds",
+      "path_event_schema_id",
+      "runtime_capacity_guard",
+      "required_partial_order_edges",
+      "optional_partial_order_edges",
+      "repeatable_milestones",
+      "skippable_milestones",
+      "horizon_rule",
+      "soft_contradictions",
+      "hard_falsifiers",
+      "expiry_rule",
+      "merge_equivalence_class"
+    ],
+    "PathEvent": [
+      "path_event_id",
+      "path_instance_id",
+      "milestone",
+      "event_at",
+      "available_at",
+      "terminal_reason",
+      "terminal_trigger_id",
+      "source_version"
+    ],
+    "PathBeliefSet": [
+      "belief_set_id",
+      "as_of",
+      "primitive_support_mode",
+      "primitive_support_by_mechanism",
+      "active_primitive_mechanism_ids",
+      "path_weight_mode",
+      "path_hypothesis_weights",
+      "competition_set",
+      "top_path_hypothesis_id",
+      "margin",
+      "entropy",
+      "other_disposition",
+      "unknown_reason",
+      "update_receipt_id"
+    ],
+    "ScenarioDistribution": [
+      "distribution_id",
+      "as_of",
+      "mode",
+      "branches",
+      "values",
+      "normalization_status",
+      "calibration_version",
+      "unknown_reason"
+    ],
+    "ActionCandidate": [
+      "candidate_id",
+      "as_of",
+      "action",
+      "side",
+      "entry_zone",
+      "stop",
+      "target",
+      "horizon",
+      "size",
+      "conservative_utility",
+      "reason_codes",
+      "scenario_distribution_id",
+      "scenario_distribution_digest",
+      "utility_receipt_id",
+      "utility_receipt_digest",
+      "permission_envelope_id",
+      "permission_envelope_digest",
+      "authority_version"
+    ],
+    "UtilityReceipt": [
+      "utility_receipt_id",
+      "as_of",
+      "mode",
+      "scenario_distribution_id",
+      "scenario_distribution_digest",
+      "utility_by_scenario",
+      "stress_cost",
+      "tail",
+      "uncertainty_penalty",
+      "conservative_utility",
+      "authority_version",
+      "utility_receipt_digest"
+    ],
+    "PermissionEnvelope": [
+      "envelope_id",
+      "as_of",
+      "permission_state",
+      "allowed_actions",
+      "max_risk",
+      "vetoes",
+      "authority_version"
+    ],
+    "UpdateReceipt": [
+      "receipt_id",
+      "as_of",
+      "previous_belief_digest",
+      "observation_frame_id",
+      "accepted_evidence_ids",
+      "dependency_group_aggregates",
+      "rejected_evidence",
+      "updated_path_ids",
+      "new_belief_digest",
+      "previous_receipt_hash"
+    ],
+    "PatternInstance": [
+      "pattern_instance_id",
+      "as_of",
+      "origin",
+      "instrument_id",
+      "time_range",
+      "truth_status",
+      "observed_sequence",
+      "observation_count",
+      "candidate_mechanism_ids",
+      "anchor_refs",
+      "outcome_visibility",
+      "not_for_holdout_selection",
+      "opportunity_universe_role",
+      "provenance"
+    ]
+  },
+  "mechanism_library": {
+    "mechanism_ids": [
+      "CONTINUATION",
+      "ABSORPTION_REVERSAL",
+      "RANGE",
+      "LIQUIDATION_CASCADE_OR_LIQUIDITY_VACUUM",
+      "EVENT_REPRICING",
+      "ARTIFACT",
+      "OTHER"
+    ],
+    "runtime_extension": "FORBIDDEN",
+    "other_required": true,
+    "mechanism_semantics": "NON_EXCLUSIVE_PRIMITIVE_MULTI_LABEL",
+    "primitive_support_normalization": "FORBIDDEN",
+    "coexistence_example": [
+      "EVENT_REPRICING",
+      "LIQUIDATION_CASCADE_OR_LIQUIDITY_VACUUM",
+      "CONTINUATION"
+    ],
+    "mechanism_roles": {
+      "MARKET_DYNAMICS": [
+        "CONTINUATION",
+        "ABSORPTION_REVERSAL",
+        "RANGE",
+        "LIQUIDATION_CASCADE_OR_LIQUIDITY_VACUUM",
+        "EVENT_REPRICING"
+      ],
+      "EPISTEMIC_DATA_QUALITY": [
+        "ARTIFACT"
+      ],
+      "RESIDUAL": [
+        "OTHER"
+      ]
+    },
+    "artifact_direct_utility_weight": "FORBIDDEN",
+    "weight_truth_boundary": "INDEPENDENT_ORDINAL_SUPPORT_NOT_NORMALIZED_NOT_REALITY_OR_CAUSAL_TRUTH",
+    "mechanism_signatures": {
+      "CONTINUATION": {
+        "antecedent": "DIRECTIONAL_RESPONSE_ACTIVE",
+        "next_support": "SAME_DIRECTION_IMPACT_AND_BREAK_HOLD",
+        "soft_contradiction": "MOMENTUM_DECAY",
+        "hard_falsifier": "FROZEN_OPPOSITE_STRUCTURE_INVALIDATION",
+        "expiry_or_terminal": "HORIZON_TARGET_OR_INVALIDATION",
+        "forbidden_intent": "INFORMED_ACTOR_CONTINUES"
+      },
+      "ABSORPTION_REVERSAL": {
+        "antecedent": "PRESSURE_PERSISTS_MARGINAL_IMPACT_DECAYS",
+        "next_support": "RESILIENCE_REFILL_AND_OPPOSITE_RESPONSE",
+        "soft_contradiction": "WICK_ONLY_OR_NONPERSISTENT_REFILL",
+        "hard_falsifier": "SAME_DIRECTION_EXPANSION_RESTARTS",
+        "expiry_or_terminal": "RESPONSE_EXPIRY_OR_STRUCTURE_TERMINAL",
+        "forbidden_intent": "INSTITUTIONAL_ACCUMULATION_OR_DISTRIBUTION"
+      },
+      "RANGE": {
+        "antecedent": "BIDIRECTIONAL_RESPONSE_BOUNDED",
+        "next_support": "BOUNDARY_RESPONSES_AND_CENTER_REVERSION",
+        "soft_contradiction": "ONE_SIDE_GAINS_SUPPORT",
+        "hard_falsifier": "VALID_BREAKOUT_HOLDS",
+        "expiry_or_terminal": "RANGE_EXPIRY_OR_BREAKOUT",
+        "forbidden_intent": "CONTROLLED_RANGE"
+      },
+      "LIQUIDATION_CASCADE_OR_LIQUIDITY_VACUUM": {
+        "antecedent": "ABRUPT_MOVE_AND_STRESS_PROXY",
+        "next_support": "LIQUIDATION_LOWER_BOUND_OR_DEPTH_WITHDRAWAL_OR_IMPACT",
+        "soft_contradiction": "FAST_LIQUIDITY_RECOVERY",
+        "hard_falsifier": "COMPLETE_DATA_PROVES_ARTIFACT_OR_DECLARED_CONDITION_ABSENT",
+        "expiry_or_terminal": "STRESS_EXPIRY_OR_RECOVERY",
+        "forbidden_intent": "CERTAIN_LIQUIDATION_OR_CANCEL_INTENT"
+      },
+      "EVENT_REPRICING": {
+        "antecedent": "POINT_IN_TIME_EVENT_ARRIVAL",
+        "next_support": "POST_PUBLICATION_CROSS_LAYER_RESPONSE",
+        "soft_contradiction": "TRANSIENT_OR_MATCHED_CONTROL_RESPONSE",
+        "hard_falsifier": "UNPROVABLE_CLOCK_OR_REVISION_LEAKAGE_OR_PRE_EVENT_RESPONSE",
+        "expiry_or_terminal": "EVENT_WINDOW_EXPIRY_OR_NEW_VINTAGE",
+        "forbidden_intent": "BULLISH_OR_BEARISH_NARRATIVE_CERTAINTY"
+      },
+      "ARTIFACT": {
+        "antecedent": "GAP_SCHEMA_CLOCK_OR_VENUE_CONFLICT",
+        "next_support": "INDEPENDENT_SOURCE_NONREPRODUCTION_OR_AUDIT_FAILURE",
+        "soft_contradiction": "MULTISOURCE_VALID_REPRODUCTION",
+        "hard_falsifier": "COMPLETE_INDEPENDENT_DATA_REPRODUCES_AND_EXCLUDES_ARTIFACT",
+        "expiry_or_terminal": "REPAIR_OR_ISOLATION",
+        "forbidden_intent": "BAD_DATA_IS_MARKET_INTENT"
+      },
+      "OTHER": {
+        "antecedent": "REGISTERED_MECHANISMS_WEAK_OR_UNCOVERED",
+        "next_support": "PERSISTENT_NONIDENTIFICATION",
+        "soft_contradiction": "REGISTERED_MECHANISM_GAINS_INDEPENDENT_SUPPORT",
+        "hard_falsifier": "PREDECLARED_COVERAGE_RULE_EXCLUDES_OTHER",
+        "expiry_or_terminal": "COVERAGE_EXPIRY",
+        "forbidden_intent": "RUNTIME_OR_LLM_NEW_STORY"
+      }
+    },
+    "volume_wick_candidate_ids": [
+      "CONTINUATION",
+      "ABSORPTION_REVERSAL",
+      "LIQUIDATION_CASCADE_OR_LIQUIDITY_VACUUM",
+      "ARTIFACT",
+      "OTHER"
+    ]
+  },
+  "sample_path_specs": [
+    {
+      "path_id": "PATH-GENERIC-COMPETING-001",
+      "primitive_mechanism_ids": [
+        "EVENT_REPRICING",
+        "LIQUIDATION_CASCADE_OR_LIQUIDITY_VACUUM",
+        "CONTINUATION"
+      ],
+      "milestone_vocabulary": [
+        "ANCHOR",
+        "PRESSURE",
+        "TEST",
+        "RESPONSE",
+        "TERMINAL"
+      ],
+      "observation_count_rule": "VARIABLE_POSITIVE_COUNT",
+      "event_time_stopping_rule": "STOP_AT_FROZEN_EXPIRY_HARD_FALSIFIER_OR_TERMINAL",
+      "stopping_policy_id": "EARLIEST_OF_TERMINAL_EXPIRY_HARD_FALSIFIER_V1",
+      "frozen_horizon_seconds": 86400,
+      "path_event_schema_id": "PATH_EVENT_EXACT_V1",
+      "runtime_capacity_guard": {
+        "max_in_memory_observations": 256,
+        "semantic_boundary": "RESOURCE_ONLY_NOT_MARKET_LENGTH",
+        "overflow_disposition": "COMPACT_OR_CONTINUE_RECEIPT_ELSE_UNKNOWN_RESOURCE",
+        "forbidden_overflow_dispositions": [
+          "FALSIFIED",
+          "EXPIRED",
+          "TERMINAL"
+        ]
+      },
+      "required_partial_order_edges": [
+        [
+          "ANCHOR",
+          "TERMINAL"
+        ]
+      ],
+      "optional_partial_order_edges": [
+        [
+          "PRESSURE",
+          "RESPONSE"
+        ]
+      ],
+      "repeatable_milestones": [
+        "PRESSURE",
+        "TEST",
+        "RESPONSE"
+      ],
+      "skippable_milestones": [
+        "PRESSURE",
+        "TEST",
+        "RESPONSE"
+      ],
+      "horizon_rule": "EVENT_TIME_EXPIRY_NOT_DAY_COUNT",
+      "soft_contradictions": [
+        "EXPECTED_RESPONSE_WEAK"
+      ],
+      "hard_falsifiers": [
+        "PREDECLARED_INVALIDATION"
+      ],
+      "expiry_rule": "NO_EXTENSION",
+      "merge_equivalence_class": "GENERIC_RESPONSE_EQUIVALENCE_V1"
+    }
+  ],
+  "path_contract": {
+    "primitive_mechanism_ids_rule": "NONEMPTY_UNIQUE_REGISTERED_ONLY",
+    "compound_template_registry": "FINITE_PREDECLARED_ONLY",
+    "runtime_power_set_or_cartesian_product": "FORBIDDEN",
+    "runtime_or_llm_compound_injection": "FORBIDDEN",
+    "path_event_schema_id": "PATH_EVENT_EXACT_V1",
+    "path_event_exact_fields": [
+      "path_event_id",
+      "path_instance_id",
+      "milestone",
+      "event_at",
+      "available_at",
+      "terminal_reason",
+      "terminal_trigger_id",
+      "source_version"
+    ],
+    "path_spec_authority_source": "METHOD_CONTRACT_FINITE_PATH_ID_COMPLETE_CANONICAL_PATHSPEC_DIGEST_ALLOWLIST_ONLY_NOT_THE_PENDING_PATHSPEC_OR_MUTABLE_SYNTHETIC_PAYLOAD",
+    "path_spec_digest_rule": "LOWERCASE_SHA256_OF_COMPLETE_EXACT_PATHSPEC_UTF8_CANONICAL_JSON_WITH_ENSURE_ASCII_TRUE_SORT_KEYS_TRUE_AND_SEPARATORS_COMMA_COLON; ALL_LIST_ORDER_AND_NESTED_FIELDS_ARE_BOUND",
+    "causal_clock_rule": "AWARE event_at <= available_at <= decision_time with strictly increasing event_at after path_started_at.",
+    "stopping_policy_id": "EARLIEST_OF_TERMINAL_EXPIRY_HARD_FALSIFIER_V1",
+    "terminal_reason_allowlist": [
+      "TERMINAL_MILESTONE",
+      "HARD_FALSIFIER",
+      "EXPIRY"
+    ],
+    "expiry_rule": "EXACT path_started_at + requested_horizon_seconds; requested_horizon_seconds <= frozen_horizon_seconds; extension forbidden.",
+    "forbidden_stopping_or_horizon_policies": [
+      "NEVER_STOP",
+      "FIXED_8_DAY"
+    ],
+    "canonical_dedup_key": "path_template_id + sorted primitive_mechanism_ids + scope",
+    "normalized_path_artifact_rule": "NO_MARKET_OR_RESIDUAL_PATH_IN_A_NORMALIZED_MIXTURE_MAY_CONTAIN_ARTIFACT",
+    "market_path_other_rule": "NO_MARKET_PATH_MAY_CONTAIN_OTHER; OTHER_IS_RESERVED_FOR_EXACT_OTHER_PATH_RESIDUAL",
+    "residual_path_rule": "OTHER_PATH_ROLE_RESIDUAL_PATH_PRIMITIVE_MECHANISM_IDS_EXACT_OTHER_ONLY",
+    "residual_partition_domain_rule": "RESIDUAL_DOMAIN_VALUES_EXACT_SINGLETON_OTHER_OR_UNRESOLVED_TERMINAL_AND_EXACT_RESIDUAL_CELL_MATCH",
+    "path_hypothesis_registry": [
+      {
+        "path_hypothesis_id": "PATH-GENERIC-COMPETING-001",
+        "primitive_mechanism_ids": [
+          "EVENT_REPRICING",
+          "LIQUIDATION_CASCADE_OR_LIQUIDITY_VACUUM",
+          "CONTINUATION"
+        ],
+        "role": "MARKET_PATH"
+      },
+      {
+        "path_hypothesis_id": "PATH-ABSORPTION-REVERSAL-001",
+        "primitive_mechanism_ids": [
+          "ABSORPTION_REVERSAL"
+        ],
+        "role": "MARKET_PATH"
+      },
+      {
+        "path_hypothesis_id": "PATH-RANGE-001",
+        "primitive_mechanism_ids": [
+          "RANGE"
+        ],
+        "role": "MARKET_PATH"
+      },
+      {
+        "path_hypothesis_id": "OTHER_PATH",
+        "primitive_mechanism_ids": [
+          "OTHER"
+        ],
+        "role": "RESIDUAL_PATH"
+      }
+    ],
+    "partition_proof_registry": [
+      {
+        "partition_proof_id": "PP-SYNTHETIC-COMPOUND-TERMINAL-V1",
+        "partition_proof_digest": "57c5886f18d7d4527b9d4a98e5bb8e38314f63ce75c94f15e70bcea31a5fa0b6",
+        "competition_set_id": "PCS-SYNTHETIC-001",
+        "path_registry_digest": "8ff84c801693037e904dae1d74c3a02aa4c11103dcb54bbeedc1e761aa17a664",
+        "partition_version": "1.0.0",
+        "partition_domain_id": "SYNTHETIC_COMPOUND_TERMINAL_CLASS_V1",
+        "domain_values": [
+          "EVENT_STRESS_CONTINUATION_TERMINAL",
+          "ABSORPTION_REVERSAL_TERMINAL",
+          "RANGE_TERMINAL",
+          "OTHER_OR_UNRESOLVED_TERMINAL"
+        ],
+        "path_hypothesis_ids": [
+          "PATH-GENERIC-COMPETING-001",
+          "PATH-ABSORPTION-REVERSAL-001",
+          "PATH-RANGE-001",
+          "OTHER_PATH"
+        ],
+        "partition_cells": [
+          {
+            "path_hypothesis_id": "PATH-GENERIC-COMPETING-001",
+            "domain_values": [
+              "EVENT_STRESS_CONTINUATION_TERMINAL"
+            ]
+          },
+          {
+            "path_hypothesis_id": "PATH-ABSORPTION-REVERSAL-001",
+            "domain_values": [
+              "ABSORPTION_REVERSAL_TERMINAL"
+            ]
+          },
+          {
+            "path_hypothesis_id": "PATH-RANGE-001",
+            "domain_values": [
+              "RANGE_TERMINAL"
+            ]
+          },
+          {
+            "path_hypothesis_id": "OTHER_PATH",
+            "domain_values": [
+              "OTHER_OR_UNRESOLVED_TERMINAL"
+            ]
+          }
+        ],
+        "mutually_exclusive": true,
+        "exhaustive": true,
+        "residual_path_id": "OTHER_PATH",
+        "residual_domain_values": [
+          "OTHER_OR_UNRESOLVED_TERMINAL"
+        ],
+        "calibration_version": "SYNTHETIC-CAL-V1",
+        "verification_scope": "SYNTHETIC_FINITE_DOMAIN_PARTITION_ONLY_NOT_REAL_MARKET_MATHEMATICAL_PROOF"
+      }
+    ],
+    "sample_competition_set": {
+      "competition_set_id": "PCS-SYNTHETIC-001",
+      "path_hypothesis_ids": [
+        "PATH-GENERIC-COMPETING-001",
+        "PATH-ABSORPTION-REVERSAL-001",
+        "PATH-RANGE-001",
+        "OTHER_PATH"
+      ],
+      "partition_proof_id": "PP-SYNTHETIC-COMPOUND-TERMINAL-V1",
+      "partition_proof_digest": "57c5886f18d7d4527b9d4a98e5bb8e38314f63ce75c94f15e70bcea31a5fa0b6",
+      "partition_version": "1.0.0",
+      "exhaustive": true,
+      "residual_path_id": "OTHER_PATH",
+      "calibration_version": "SYNTHETIC-CAL-V1"
+    },
+    "required_supported_observation_counts": [
+      2,
+      8,
+      20
+    ],
+    "count_semantics": "EXAMPLES_NOT_THEORETICAL_MINIMUM_MAXIMUM_OR_DAY_COUNT",
+    "partial_order": true,
+    "skip_and_repeat": true,
+    "late_event_prefix_rewrite": "FORBIDDEN",
+    "merge_only_predeclared_equivalence": true,
+    "capacity_overflow_is_path_semantics": false,
+    "capacity_overflow_preserves_receipt_continuation": true
+  },
+  "evidence_contract": {
+    "exact_fields": [
+      "evidence_id",
+      "available_at",
+      "perspective_id",
+      "dependency_group",
+      "target_ids",
+      "direction",
+      "ordinal_strength",
+      "quality",
+      "source_version"
+    ],
+    "dependency_group_aggregation": "MAX_ABSOLUTE_SIGNED_INCREMENT_THEN_LEXICOGRAPHIC_EVIDENCE_ID",
+    "causal_clock_rule": "EXACT_SCHEMA_AWARE_AVAILABLE_AT_LESS_THAN_OR_EQUAL_TO_CANONICAL_DECISION_TIME_TYPED_IDENTITIES_TARGETS_ENUMS_AND_SOURCE_VERSION",
+    "validate_before_filter": "ALL_ROWS_FIRST_VALIDATE_EXACT_SCHEMA_TYPE_ENUM_CLOCK_QUALITY_AND_TARGET; UNDETERMINED_MALFORMED_TARGET_FAILS_TARGET_BATCH_UNKNOWN_NO_SUPPORT_CHANGE",
+    "source_lineage_authority": "METHOD_CONTRACT_V5_M00_SYNTHETIC_EVIDENCE_LINEAGE_V1_CANONICAL_PROJECTION_ONLY; EVIDENCE_ID_AND_DEPENDENCY_GROUP_RECOMPUTED; AVAILABLE_AT_CANONICAL_UTC; TARGET_ROUTING_EXCLUDED_FROM_EXTERNAL_UNDERLYING_INCREMENT_ID",
+    "rejected_evidence_rule": "MISSING_MALFORMED_NAIVE_SCHEMA_TYPE_ENUM_AUTHORITY_OR_INVALID_QUALITY_IS_PERMANENT; FUTURE_AVAILABLE_AT_IS_RETRYABLE_AT_LATER_DECISION_TIME; NO_REJECTION_UPDATES_SUPPORT",
+    "same_increment_repeat": "FORBIDDEN; EVIDENCE_ID_MUST_BE_UNIQUE_PER_TARGET_SCOPED_BATCH; ANY_DUPLICATE_SAME_OR_CONFLICTING_PAYLOAD_IS_UNKNOWN_WITH_NO_SUPPORT_CHANGE",
+    "hard_falsifier": "IMMEDIATE_FALSIFIED_NO_REVIVAL_IN_CURRENT_PATH_INSTANCE_AND_OPPORTUNITY_EPISODE",
+    "new_episode_same_mechanism": "ALLOWED_ONLY_WITH_DISTINCT_NONEMPTY_OBSERVATION_FRAME_EPISODE_PATH_INSTANCE_ACTIVE_ZERO_SUPPORT_AND_EMPTY_NEW_RECEIPT_CHAIN_NO_OLD_PREFIX_REUSE",
+    "soft_contradiction": "DECREASE_SUPPORT_ONLY",
+    "expiry": "EXACT_VALIDATED_EXPIRY_BECOMES_EXPIRED_NO_HORIZON_EXTENSION; INVALID_OR_UNCERTAIN_INPUT_REMAINS_NONTERMINAL_UNKNOWN"
+  },
+  "evidence_ledger_contract": {
+    "receipt_schema_id": "EVIDENCE_LEDGER_RECEIPT_EXACT_V2",
+    "scope": "EXACT_OBSERVATION_FRAME_EPISODE_PATH_INSTANCE_MECHANISM_DIGEST",
+    "genesis": "REGISTERED_MECHANISM_ACTIVE_ZERO_EMPTY_CHAIN_ONLY",
+    "transition_inputs": "EXACT_TYPE_TAGGED_CANONICAL_EVIDENCE_BATCH_OR_COMPLETE_PATHSPEC_BOUND_ORDERED_PATHEVENT_LIFECYCLE_TERMINAL",
+    "transition_derivation": "REPLAY_FROM_GENESIS_REDECODE_BATCH_REVALIDATE_AUTHORITY_RECOMPUTE_REJECTION_CLASS_IDEMPOTENCY_KEY_ALL_CANDIDATE_EFFECTS_EVIDENCE_AND_LIFECYCLE_IDENTITY_ADMISSIONS_CUTOFF_ELIGIBILITY_GROUP_WINNERS_SEMANTIC_TERMINAL_WINNER_RAW_AND_CLIPPED_SUPPORT_STATUS_AND_STATE_DIGEST_EXACT_COMPARE_RECEIPT",
+    "validated_effects": "EXACT_EFFECT_KIND_TARGET_SCOPE_BATCH_MEMBER_DEPENDENCY_GROUP_SELECTED_EVIDENCE_AUTHORITY_CONTENT_UNDERLYING_DIRECTION_SIGNED_DELTA_EFFECTIVE_TIME_TERMINAL_EVENT_TIME_SOURCE_DIGEST_STABLE_AUTHORITY_ID_SEMANTIC_TERMINAL_ID_OR_REJECTION_AND_EFFECT_DIGEST",
+    "dependency_group_segmentation": "COMPLETE_LEDGER_MAX_ABSOLUTE_SIGNED_DELTA_THEN_LEXICAL_EVIDENCE_ID_WINNER_REPLACEMENT_RAW_UNCLIPPED_SUM; ORDINARY_AND_HARD_MIXED_BATCH_OR_ANY_RECEIPT_ORDER_CONVERGES_UNDER_EVENT_TIME_B",
+    "terminal_statuses": [
+      "FALSIFIED",
+      "EXPIRED",
+      "TERMINAL",
+      "EXPIRED_OR_UNKNOWN"
+    ],
+    "terminal_derivation": "SYNTHETIC_STRUCTURAL_DERIVABILITY_ONLY; FALSIFIED_FROM_VALID_HARD_EVIDENCE_OR_PREDECLARED_HARD_PATHEVENT; EXPIRED_AND_TERMINAL_ONLY_FROM_COMPLETE_VALID_PATHSPEC_BOUND_PATHEVENT_SEQUENCE; EXPIRED_OR_UNKNOWN_HAS_NO_V5M00_SYNTHETIC_SOURCE",
+    "terminal_monotonicity": "TERMINAL_CLASS_NEVER_REACTIVATES; LATER_ARRIVING_EARLIER_STRUCTURALLY_VALID_TERMINAL_MAY_CORRECT_REASON; EVENT_TIME_B_ACCEPTS_LATE_ORDINARY_STRICTLY_BEFORE_CUTOFF_FOR_DERIVED_SUPPORT_ONLY_AND_REJECTS_EQUAL_OR_AFTER",
+    "terminal_clock": "LIFECYCLE_USES_LAST_VALIDATED_PATHEVENT_EVENT_AT; EXPIRY_EQUALS_PATH_START_PLUS_HORIZON; HARD_EVIDENCE_CONSERVATIVELY_USES_CANONICAL_AVAILABLE_AT",
+    "terminal_semantic_merge": "WINNER_BINDS_SCOPE_TARGET_STATUS_CANONICAL_EVENT_TIME_FROZEN_REASON_PRIORITY_REASON_AND_STABLE_METHOD_AUTHORITY; ARBITRARY_PATHEVENT_ID_AND_SOURCE_DIGEST_PROVENANCE_NEVER_CHANGES_CURRENT_STATE_DIGEST",
+    "lifecycle_fact_boundary": "COMPLETE_PATHSPEC_AND_PATHEVENTS_ARE_CALLER_PROVIDED_SYNTHETIC_INPUT; STRUCTURE_SCOPE_MECHANISM_CLOCK_STOPPING_AND_EXPIRY_VALIDATE_BUT_NO_EXTERNAL_PATH_INSTANCE_LOG_TIP_OR_FACT_AUTHORITY_EXISTS",
+    "lifecycle_identity": "ACCEPTED_ID_AND_DIGEST_ENTER_INTERNAL_LEDGER_SET; SAME_EXACT_SAME_CANONICAL_DECISION_CONTEXT_BYTE_NOOP; SAME_ID_CONTENT_DRIFT_PERMANENT_REJECTION; DISTINCT_EARLIER_VALID_TERMINAL_COMPETES",
+    "lifecycle_capacity": "COMPACT_REQUIRED_RECEIPT_CONTINUATION_IS_RESOURCE_CAPACITY_REQUIRED_UNKNOWN_RESOURCE_REJECTION_NEVER_TERMINAL_EFFECT",
+    "cross_receipt_replay": "SAME_ID_REPLAY_OR_DRIFT_AND_SAME_UNDERLYING_DIFFERENT_GROUP_REJECT; SAME_UNDERLYING_SAME_GROUP_DISTINCT_VALID_CANDIDATE_ONLY_COMPETES_FOR_REPLACEMENT",
+    "receipt_chain": "SEQUENTIAL_ID_SCOPE_FULL_PINNED_METHOD_RAW_SHA_CANONICAL_UTC_NONDECREASING_DECISION_TIME_REJECTION_CLASS_IDEMPOTENCY_KEY_TYPED_INPUT_EFFECTS_PREVIOUS_HASH_BEFORE_AFTER_STATE_DIGEST_AND_COMPLETE_RECEIPT_HASH",
+    "input_order": "SORTED_EXACT_TYPE_TAGGED_CANONICAL_BATCH_DIGEST",
+    "idempotency": "KEY_BINDS_SCOPE_KIND_BATCH_CANONICAL_DECISION_TIME_AND_REJECTION_CLASS; EMPTY_AND_SAME_CONTEXT_RETRY_BYTE_NOOP; RETRYABLE_CAUSAL_REJECTION_REDERIVES_AT_LATER_DECISION; PERMANENT_OR_RESOURCE_DOES_NOT",
+    "expected_tip_boundary": "CALLER_EXPECTED_TIP_CHECKED_WHEN_PRESENT; NO_EXTERNAL_TIP_OR_SEAL_SO_NO_CROSS_PROCESS_SUFFIX_TRUNCATION_OR_FULL_CHAIN_REPLACEMENT_CLAIM",
+    "exact_carrier_boundary": "CURRENT_EVIDENCE_EVENT_HAS_NO_RAW_RECORD_OR_TRANSFORM_ID; TARGET_ROUTING_IS_NOT_RAW_SOURCE_IDENTITY; SYNTHETIC_PROJECTION_IS_CONSERVATIVE_E0_ONLY_AND_FUTURE_RUNTIME_REQUIRES_SEPARATE_RAW_AUTHORITY_BUNDLE_AND_EXTERNAL_TIP_SEAL"
+  },
+  "belief_contract": {
+    "primitive_support_mode": "QUALITATIVE_E0_MULTI_LABEL",
+    "primitive_support_normalization": "FORBIDDEN",
+    "primitive_support_sum_constraint": "NONE",
+    "path_weight_modes": [
+      "ABSENT_NO_VALID_COMPETITION_SET",
+      "CALIBRATED_COMPOUND_PATHS"
+    ],
+    "competition_set_exact_fields": [
+      "competition_set_id",
+      "path_hypothesis_ids",
+      "partition_proof_id",
+      "partition_proof_digest",
+      "partition_version",
+      "exhaustive",
+      "residual_path_id",
+      "calibration_version"
+    ],
+    "partition_proof_exact_fields": [
+      "partition_proof_id",
+      "partition_proof_digest",
+      "competition_set_id",
+      "path_registry_digest",
+      "partition_version",
+      "partition_domain_id",
+      "domain_values",
+      "path_hypothesis_ids",
+      "partition_cells",
+      "mutually_exclusive",
+      "exhaustive",
+      "residual_path_id",
+      "residual_domain_values",
+      "calibration_version",
+      "verification_scope"
+    ],
+    "partition_cell_exact_fields": [
+      "path_hypothesis_id",
+      "domain_values"
+    ],
+    "partition_proof_authority_source": "METHOD_CONTRACT_FINITE_ID_DIGEST_AND_EXACT_SCOPE_ALLOWLIST_ONLY_NOT_THE_MUTABLE_SYNTHETIC_REGISTRY",
+    "partition_proof_digest_rule": "LOWERCASE_SHA256_OF_UTF8_CANONICAL_JSON_OF_THE_COMPLETE_EXACT_PROOF_OBJECT_EXCLUDING_ONLY_partition_proof_digest_WITH_ENSURE_ASCII_TRUE_SORT_KEYS_TRUE_AND_SEPARATORS_COMMA_COLON",
+    "path_registry_digest_rule": "LOWERCASE_SHA256_OF_UTF8_JSON_DUMPS_ON_THE_EXACT_ORDERED_PATH_REGISTRY_ARRAY_WITH_ENSURE_ASCII_TRUE_SORT_KEYS_TRUE_AND_SEPARATORS_COMMA_COLON; exact row fields and all array orders are significant.",
+    "path_normalization_requirements": "REGISTERED_FULL_PROOF_METHOD_AUTHORITY_EXACT_ID_DIGEST_ELIGIBLE_PATHS_DOMAIN_AND_RESIDUAL_SCOPE_EXACT_COMPETITION_SET_RECOMPUTED_PATH_REGISTRY_DIGEST_PATH_ORDER_CELLS_VERSIONS_MUTUAL_EXCLUSIVITY_EXHAUSTIVITY_RESIDUAL_DOMAIN_EXACT_OTHER_OR_UNRESOLVED_TERMINAL_RESIDUAL_PATH_EXACT_OTHER_NO_MARKET_OTHER_AND_NO_ARTIFACT",
+    "partition_proof_claim_boundary": "SYNTHETIC_FINITE_DOMAIN_PARTITION_EVIDENCE_NOT_REAL_MARKET_MATHEMATICAL_PROOF",
+    "uncalibrated_numeric_probability": "FORBIDDEN",
+    "qualitative_summary": {
+      "margin": "UNKNOWN_UNCALIBRATED",
+      "entropy": "UNKNOWN_UNCALIBRATED"
+    },
+    "all_weak": "OTHER_OR_UNKNOWN",
+    "top_tie": "UNKNOWN",
+    "no_valid_competition_set": "UNKNOWN_NO_VALID_COMPETITION_SET"
+  },
+  "scenario_contract": {
+    "branches": [
+      "UPSIDE",
+      "DOWNSIDE",
+      "RANGE",
+      "UNRESOLVED"
+    ],
+    "mechanism_or_qualifier_as_terminal": "FORBIDDEN",
+    "qualitative_values": [
+      "LEADING",
+      "SUPPORTED",
+      "WEAK",
+      "UNSUPPORTED",
+      "UNKNOWN"
+    ],
+    "synthetic_counterfactual_probability_rule": "MODE_SYNTHETIC_COUNTERFACTUAL_ONLY_EXACT_OBJECT_CAUSAL_AS_OF_EXACT_KEYS_FINITE_NON_BOOLEAN_IN_0_1_SUM_1_CALIBRATION_VERSION_SYNTHETIC_CAL_V1_NO_ACTION_AUTHORITY",
+    "future_calibrated_probability": "FORBIDDEN_AT_V5_M00",
+    "action_outcome_branches": [
+      "NO_FILL",
+      "TP_FIRST",
+      "SL_FIRST",
+      "STRUCTURE_EXIT",
+      "TIMEOUT"
+    ],
+    "action_outcome_separation": "SEPARATE_FROM_PRICE_SCENARIO"
+  },
+  "evaluation_contract": {
+    "trigger_reasons": [
+      "SCHEDULED",
+      "STATE_CHANGE",
+      "EVENT_ARRIVAL",
+      "DATA_QUALITY_CHANGE",
+      "POSITION_RISK"
+    ],
+    "rsi": "OPTIONAL_TRIGGER",
+    "rsi_absent_still_runs": [
+      "SCHEDULED",
+      "STATE_CHANGE",
+      "EVENT_ARRIVAL",
+      "DATA_QUALITY_CHANGE",
+      "POSITION_RISK"
+    ],
+    "uncovered_feed_silence": "UNKNOWN"
+  },
+  "action_contract": {
+    "entry_zone_components": [
+      "CausalStructuralZone",
+      "LiquidityFeasibleZone",
+      "RiskGeometryZone",
+      "VenueRuleZone"
+    ],
+    "empty_zone": "ABSTAIN",
+    "v5_m00_new_risk_action": "ALWAYS_ABSTAIN",
+    "evaluate_new_risk": "FORBIDDEN_AT_V5_M00",
+    "permission_envelope": "EXACT_OBJECT_CAUSAL_AS_OF_DENY_OR_UNKNOWN_ALLOWED_ACTIONS_EXACT_ABSTAIN_MAX_RISK_ZERO_NONEMPTY_VETOES_AUTHORITY_V5_M00_E0_NO_NEW_RISK",
+    "utility_receipt": "CANONICAL_DIGEST_BINDS_COMPLETE_SYNTHETIC_COUNTERFACTUAL_SCENARIO_COST_TAIL_UNCERTAINTY_AS_OF_AND_AUTHORITY_NEVER_ACTION_PERMISSION",
+    "raw_scenario_map_calibrated_bool_permission_string_or_utility_scalar": "FORBIDDEN",
+    "permission_deny_or_unknown": "ABSTAIN",
+    "uncalibrated": "ABSTAIN",
+    "nonpositive_conservative_utility": "ABSTAIN",
+    "p0_utility_sample_space": "EXACT_SYNTHETIC_COUNTERFACTUAL_FOUR_BRANCH_SCENARIO_DISTRIBUTION_ONLY_NO_ACTION_AUTHORITY",
+    "primitive_support_as_mixture_weight": "FORBIDDEN",
+    "artifact_support_in_market_utility": "FORBIDDEN",
+    "artifact_path_direct_or_indirect_utility": "FORBIDDEN_FOR_MARKET_AND_RESIDUAL_PATHS",
+    "optional_path_conditioned_utility": "VALID_COMPOUND_PATH_COMPETITION_SET_REQUIRED",
+    "long_geometry": "stop < low <= high < target",
+    "short_geometry": "target < low <= high < stop",
+    "size_formula": "min(risk_budget/(abs(entry_reference-stop)+worst_cost_per_unit+tail_per_unit),liquidity_cap,venue_cap,margin_cap)",
+    "positive_capacity_rule": "STRICTLY_POSITIVE_FINITE_NON_BOOLEAN_RISK_BUDGET_CAPS_AND_FINAL_SIZE",
+    "post_position_actions": [
+      "KEEP",
+      "TIGHTEN",
+      "REDUCE",
+      "EXIT"
+    ],
+    "target_and_horizon_extension": "FORBIDDEN",
+    "path_switch_auto_reverse": "FORBIDDEN"
+  },
+  "pattern_instance_case": {
+    "pattern_instance_id": "CASE-USER-EXPERIENCE-SHOCK-COMPRESSION-001",
+    "as_of": "2026-07-26T00:00:00Z",
+    "origin": "USER_EXPERIENCE",
+    "instrument_id": "UNSPECIFIED",
+    "time_range": "UNSPECIFIED",
+    "truth_status": "ANECDOTAL_UNVERIFIED",
+    "observed_sequence": [
+      "SHOCK",
+      "COMPRESSION",
+      "RESPONSE",
+      "EVENT_MOVE",
+      "WEAKENING",
+      "NARRATED_DOWNSIDE"
+    ],
+    "observation_count": 6,
+    "candidate_mechanism_ids": [
+      "CONTINUATION",
+      "ABSORPTION_REVERSAL",
+      "LIQUIDATION_CASCADE_OR_LIQUIDITY_VACUUM",
+      "ARTIFACT",
+      "OTHER"
+    ],
+    "anchor_refs": [
+      "USER_NARRATIVE_UNVERIFIED"
+    ],
+    "outcome_visibility": "SEEN_NARRATIVE",
+    "not_for_holdout_selection": true,
+    "opportunity_universe_role": "NONE_DIAGNOSTIC_ONLY",
+    "provenance": [
+      "USER_CLARIFICATION_REJECTED_FIXED_SEQUENCE_BEFORE_NEW_OUTCOME_ACCESS"
+    ]
+  },
+  "pattern_instance_use_boundary": {
+    "candidate_field": "candidate_mechanism_ids",
+    "candidate_membership": "NONEMPTY_UNIQUE_EXACT_SUBSET_OF_FROZEN_MECHANISM_LIBRARY",
+    "known_result_adjusts_rules_or_synthetic_assertions": false
+  },
+  "synthetic_fixtures": [
+    {
+      "fixture_id": "V5-F01-REQUIRED-MISSING",
+      "given": {
+        "missing_required": [
+          "decision_time"
+        ]
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "fixture_id": "V5-F02-OPTIONAL-MISSING",
+      "given": {
+        "optional_rule": "IGNORE_WITH_MISSING_FLAG"
+      },
+      "expect": "MISSING_FLAG_NOT_ZERO"
+    },
+    {
+      "fixture_id": "V5-F03-DEPENDENCY-DUPLICATE",
+      "given": {
+        "dependency_group": "g1",
+        "increments": [
+          2,
+          2
+        ]
+      },
+      "expect": "ONE_INCREMENT"
+    },
+    {
+      "fixture_id": "V5-F04-PATH-COUNT-2",
+      "given": {
+        "sequence": [
+          "ANCHOR",
+          "TERMINAL"
+        ]
+      },
+      "expect": "VALID_VARIABLE_PATH"
+    },
+    {
+      "fixture_id": "V5-F05-PATH-COUNT-8",
+      "given": {
+        "count": 8
+      },
+      "expect": "VALID_VARIABLE_PATH"
+    },
+    {
+      "fixture_id": "V5-F06-PATH-COUNT-20",
+      "given": {
+        "count": 20
+      },
+      "expect": "VALID_VARIABLE_PATH"
+    },
+    {
+      "fixture_id": "V5-F07-PATH-SKIP",
+      "given": {
+        "sequence": [
+          "ANCHOR",
+          "RESPONSE",
+          "TERMINAL"
+        ]
+      },
+      "expect": "VALID_SKIP"
+    },
+    {
+      "fixture_id": "V5-F08-PATH-REPEAT",
+      "given": {
+        "sequence": [
+          "ANCHOR",
+          "PRESSURE",
+          "PRESSURE",
+          "TERMINAL"
+        ]
+      },
+      "expect": "VALID_REPEAT"
+    },
+    {
+      "fixture_id": "V5-F09-HARD-FALSIFIER",
+      "given": {
+        "direction": "HARD_FALSIFIER"
+      },
+      "expect": "FALSIFIED_NO_REVIVAL"
+    },
+    {
+      "fixture_id": "V5-F10-SOFT-CONTRADICTION",
+      "given": {
+        "direction": "SOFT_CONTRADICTION"
+      },
+      "expect": "SUPPORT_DECREASE_ONLY"
+    },
+    {
+      "fixture_id": "V5-F11-EXPIRY",
+      "given": {
+        "expired": true
+      },
+      "expect": "EXPIRED_NO_EXTENSION"
+    },
+    {
+      "fixture_id": "V5-F12-RUNTIME-MECHANISM-INJECTION",
+      "given": {
+        "mechanism_id": "LLM_NEW_STORY"
+      },
+      "expect": "REJECT_UNREGISTERED"
+    },
+    {
+      "fixture_id": "V5-F13-UNCALIBRATED-PSEUDO-PROBABILITY",
+      "given": {
+        "mode": "QUALITATIVE_E0",
+        "values": {
+          "UPSIDE": 0.8
+        }
+      },
+      "expect": "REJECT_NUMERIC_PROBABILITY"
+    },
+    {
+      "fixture_id": "V5-F14-MECHANISM-AS-SCENARIO",
+      "given": {
+        "branch": "EVENT_REPRICING"
+      },
+      "expect": "REJECT_NON_PRICE_TERMINAL"
+    },
+    {
+      "fixture_id": "V5-F15-SCENARIO-NONNORMALIZED",
+      "given": {
+        "sum": 1.2
+      },
+      "expect": "REJECT_NONNORMALIZED"
+    },
+    {
+      "fixture_id": "V5-F16-RSI-ABSENT-SCHEDULED",
+      "given": {
+        "rsi": null,
+        "trigger": "SCHEDULED"
+      },
+      "expect": "EVALUATION_RUNS"
+    },
+    {
+      "fixture_id": "V5-F17-VOLUME-WICK",
+      "given": {
+        "volume_spike": true,
+        "long_wick": true
+      },
+      "expect": "FIVE_COMPETING_CANDIDATES"
+    },
+    {
+      "fixture_id": "V5-F18-UNCOVERED-FEED-SILENCE",
+      "given": {
+        "feed_covered": false,
+        "events": []
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "fixture_id": "V5-F19-LATE-EVENT",
+      "given": {
+        "prefix_receipt": "r1",
+        "later_event": "e2"
+      },
+      "expect": "NEW_RECEIPT_NO_PREFIX_REWRITE"
+    },
+    {
+      "fixture_id": "V5-F20-ALL-WEAK",
+      "given": {
+        "support": "ALL_WEAK"
+      },
+      "expect": "OTHER_OR_UNKNOWN"
+    },
+    {
+      "fixture_id": "V5-F21-PATH-SWITCH",
+      "given": {
+        "position_open": true,
+        "top_path_changed": true
+      },
+      "expect": "NO_AUTO_REVERSE"
+    },
+    {
+      "fixture_id": "V5-F22-EMPTY-ENTRY-ZONE",
+      "given": {
+        "zones": [
+          [
+            100,
+            101
+          ],
+          [
+            102,
+            103
+          ]
+        ]
+      },
+      "expect": "ABSTAIN"
+    },
+    {
+      "fixture_id": "V5-F23-PERMISSION-DENY",
+      "given": {
+        "permission": "DENY"
+      },
+      "expect": "ABSTAIN"
+    },
+    {
+      "fixture_id": "V5-F24-PATTERN-OPPORTUNITY",
+      "given": {
+        "opportunity_universe_role": "CREATES_OPPORTUNITY"
+      },
+      "expect": "REJECT"
+    },
+    {
+      "fixture_id": "V5-F25-INVALID-LONG-GEOMETRY",
+      "given": {
+        "zone": [
+          100,
+          101
+        ],
+        "stop": 100.5,
+        "target": 102
+      },
+      "expect": "ABSTAIN"
+    },
+    {
+      "fixture_id": "V5-F26-MARGIN-CAP",
+      "given": {
+        "risk_size": 10,
+        "liquidity_cap": 9,
+        "venue_cap": 8,
+        "margin_cap": 3
+      },
+      "expect": "SIZE_3"
+    },
+    {
+      "fixture_id": "V5-F27-NON-EQUIVALENT-MERGE",
+      "given": {
+        "left_equivalence": "A",
+        "right_equivalence": "B"
+      },
+      "expect": "REJECT"
+    },
+    {
+      "fixture_id": "V5-F28-POST-POSITION-AUTO-REVERSE",
+      "given": {
+        "action": "AUTO_REVERSE"
+      },
+      "expect": "REJECT"
+    },
+    {
+      "fixture_id": "V5-F29-NAIVE-TIMESTAMP",
+      "given": {
+        "available_at": "2026-01-01T00:00:00"
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "fixture_id": "V5-F30-BOOLEAN-PROBABILITY",
+      "given": {
+        "UPSIDE": true
+      },
+      "expect": "REJECT"
+    },
+    {
+      "fixture_id": "V5-F31-ACTION-OUTCOME-AS-SCENARIO",
+      "given": {
+        "branch": "TP_FIRST"
+      },
+      "expect": "REJECT_NON_PRICE_TERMINAL"
+    },
+    {
+      "fixture_id": "V5-F32-HARD-FALSIFIER-EPISODE-SCOPE",
+      "given": {
+        "old_episode_status": "FALSIFIED",
+        "later_old_episode_support": true,
+        "new_observation_frame": true,
+        "new_episode_same_mechanism": true
+      },
+      "expect": "OLD_REMAINS_FALSIFIED_NEW_EPISODE_INDEPENDENT"
+    },
+    {
+      "fixture_id": "V5-F33-CAPACITY-OVERFLOW",
+      "given": {
+        "semantically_valid_observations": 257,
+        "in_memory_guard": 256
+      },
+      "expect": "COMPACT_OR_CONTINUE_RECEIPT_ELSE_UNKNOWN_RESOURCE_NEVER_PATH_TERMINAL"
+    },
+    {
+      "fixture_id": "V5-F34-ZERO-RISK-CAPACITY",
+      "given": {
+        "risk_budget": 0,
+        "liquidity_cap": 9,
+        "venue_cap": 8,
+        "margin_cap": 3
+      },
+      "expect": "ABSTAIN"
+    },
+    {
+      "fixture_id": "V5-F35-POST-POSITION-HORIZON-TARGET-EXTENSION",
+      "given": {
+        "horizon_extended": true,
+        "target_widened": true
+      },
+      "expect": "REJECT"
+    },
+    {
+      "fixture_id": "V5-F36-PRIMITIVE-COEXISTENCE",
+      "given": {
+        "supported_primitives": [
+          "EVENT_REPRICING",
+          "LIQUIDATION_CASCADE_OR_LIQUIDITY_VACUUM",
+          "CONTINUATION"
+        ]
+      },
+      "expect": "ALL_RETAIN_INDEPENDENT_SUPPORT"
+    },
+    {
+      "fixture_id": "V5-F37-PRIMITIVE-NON-SIMPLEX",
+      "given": {
+        "primitive_support_sum": 7
+      },
+      "expect": "VALID_NONNORMALIZED_MULTI_LABEL_SUPPORT"
+    },
+    {
+      "fixture_id": "V5-F38-COMPOUND-PATH-MULTI-PRIMITIVE",
+      "given": {
+        "primitive_mechanism_ids": [
+          "EVENT_REPRICING",
+          "LIQUIDATION_CASCADE_OR_LIQUIDITY_VACUUM",
+          "CONTINUATION"
+        ]
+      },
+      "expect": "VALID_PREDECLARED_COMPOUND_PATH"
+    },
+    {
+      "fixture_id": "V5-F39-PATH-NORMALIZATION-MISSING-PARTITION-PROOF",
+      "given": {
+        "partition_proof_id": "NOT_A_PROOF"
+      },
+      "expect": "REJECT_PATH_NORMALIZATION"
+    },
+    {
+      "fixture_id": "V5-F40-PRIMITIVE-WEIGHTS-AS-UTILITY-MIXTURE",
+      "given": {
+        "weight_keys": [
+          "CONTINUATION",
+          "EVENT_REPRICING"
+        ]
+      },
+      "expect": "REJECT"
+    },
+    {
+      "fixture_id": "V5-F41-RUNTIME-POWER-SET-COMPOUND",
+      "given": {
+        "path_hypothesis_id": "RUNTIME-POWER-SET-INJECTION"
+      },
+      "expect": "REJECT_UNREGISTERED_COMPOUND"
+    },
+    {
+      "fixture_id": "V5-F42-ARTIFACT-DIRECT-UTILITY",
+      "given": {
+        "mixture_weight_key": "ARTIFACT"
+      },
+      "expect": "REJECT"
+    },
+    {
+      "fixture_id": "V5-F43-ARTIFACT-RESIDUAL-INDIRECT-UTILITY",
+      "given": {
+        "path_hypothesis_id": "OTHER_PATH",
+        "role": "RESIDUAL_PATH",
+        "primitive_mechanism_ids": [
+          "OTHER",
+          "ARTIFACT"
+        ]
+      },
+      "expect": "REJECT_REGISTRY_COMPETITION_AND_UTILITY"
+    },
+    {
+      "fixture_id": "V5-F44-PROOF-PATH-SET-DRIFT",
+      "given": {
+        "partition_proof_id": "PP-SYNTHETIC-COMPOUND-TERMINAL-V1",
+        "path_hypothesis_ids": [
+          "OTHER_PATH",
+          "PATH-RANGE-001",
+          "PATH-ABSORPTION-REVERSAL-001",
+          "PATH-GENERIC-COMPETING-001"
+        ]
+      },
+      "expect": "REJECT_PATH_ORDER_DRIFT"
+    },
+    {
+      "fixture_id": "V5-F45-PROOF-CELL-OVERLAP",
+      "given": {
+        "overlapping_domain_value": "EVENT_STRESS_CONTINUATION_TERMINAL"
+      },
+      "expect": "REJECT_PARTITION_PROOF"
+    },
+    {
+      "fixture_id": "V5-F46-PROOF-DOMAIN-GAP",
+      "given": {
+        "unassigned_domain_value": "UNASSIGNED_TERMINAL"
+      },
+      "expect": "REJECT_PARTITION_PROOF"
+    },
+    {
+      "fixture_id": "V5-F47-PROOF-RESIDUAL-MISMATCH",
+      "given": {
+        "residual_path_id": "OTHER_PATH",
+        "residual_domain_values": [
+          "NOT_OTHER_TERMINAL"
+        ]
+      },
+      "expect": "REJECT_EXACT_OTHER_OR_UNRESOLVED_SEMANTICS"
+    },
+    {
+      "fixture_id": "V5-F48-PROOF-VERSION-CALIBRATION-DRIFT",
+      "given": {
+        "partition_version": "2.0.0",
+        "calibration_version": "SYNTHETIC-CAL-DRIFT"
+      },
+      "expect": "REJECT_PROOF_SET_BINDING"
+    },
+    {
+      "fixture_id": "V5-F49-MARKET-PATH-OTHER",
+      "given": {
+        "role": "MARKET_PATH",
+        "primitive_mechanism_ids": [
+          "OTHER"
+        ]
+      },
+      "expect": "REJECT_OTHER_OUTSIDE_RESIDUAL"
+    },
+    {
+      "fixture_id": "V5-F50-PROOF-MISSING-RESIDUAL",
+      "given": {
+        "residual_path_id": null
+      },
+      "expect": "REJECT_PARTITION_PROOF"
+    },
+    {
+      "fixture_id": "V5-F51-ARBITRARY-EXCLUSIVITY-BASIS",
+      "given": {
+        "exclusivity_basis": "ANALYST_SAYS_PATHS_ARE_EXCLUSIVE"
+      },
+      "expect": "REJECT_NON_SCHEMA_PARTITION_ASSERTION"
+    },
+    {
+      "fixture_id": "V5-F52-PATH-REGISTRY-DEFINITION-DIGEST-DRIFT",
+      "given": {
+        "path_hypothesis_id": "PATH-RANGE-001",
+        "primitive_mechanism_ids": [
+          "CONTINUATION"
+        ],
+        "registered_proof_path_registry_digest": "8ff84c801693037e904dae1d74c3a02aa4c11103dcb54bbeedc1e761aa17a664"
+      },
+      "expect": "REJECT_RECOMPUTED_PATH_REGISTRY_DIGEST_MISMATCH"
+    },
+    {
+      "fixture_id": "V5-F53-PROOF-AUTHORITY-RESIDUAL-ONLY-SHRINK",
+      "given": {
+        "eligible_path_hypothesis_ids": [
+          "OTHER_PATH"
+        ],
+        "partition_domain_values": [
+          "OTHER_OR_UNRESOLVED_TERMINAL"
+        ]
+      },
+      "expect": "REJECT_FULL_PROOF_AUTHORITY_SCOPE"
+    },
+    {
+      "fixture_id": "V5-F54-PROOF-DOMAIN-CELL-RENAME",
+      "given": {
+        "partition_domain_id": "RENAMED-DOMAIN",
+        "partition_cell_id": "RENAMED-CELL"
+      },
+      "expect": "REJECT_FULL_PROOF_DIGEST_MISMATCH"
+    },
+    {
+      "fixture_id": "V5-F55-PROOF-MARKET-CELL-SWAP",
+      "given": {
+        "swap_cells_for": [
+          "PATH-GENERIC-COMPETING-001",
+          "PATH-RANGE-001"
+        ]
+      },
+      "expect": "REJECT_FULL_PROOF_DIGEST_MISMATCH"
+    },
+    {
+      "fixture_id": "V5-F56-PROOF-DOMAIN-ID-DRIFT",
+      "given": {
+        "partition_domain_id": "SYNTHETIC-COMPOUND-TERMINALS-DRIFT"
+      },
+      "expect": "REJECT_FULL_PROOF_DIGEST_MISMATCH"
+    },
+    {
+      "fixture_id": "V5-F57-PROOF-SAME-IDENTITY-CONTENT-DRIFT",
+      "given": {
+        "partition_proof_id": "PP-SYNTHETIC-COMPOUND-TERMINAL-V1",
+        "partition_proof_digest": "REHASHED_ATTACKER_CONTENT"
+      },
+      "expect": "REJECT_METHOD_AUTHORITY_DIGEST_MISMATCH"
+    },
+    {
+      "fixture_id": "V5-F58-RAW-SCENARIO-MAP",
+      "given": {
+        "scenario_distribution": {
+          "UPSIDE": 0.5,
+          "DOWNSIDE": 0.2,
+          "RANGE": 0.2,
+          "UNRESOLVED": 0.1
+        }
+      },
+      "expect": "ABSTAIN_SCENARIO_DISTRIBUTION_INVALID"
+    },
+    {
+      "fixture_id": "V5-F59-PSEUDO-CALIBRATED-BOOLEAN",
+      "given": {
+        "calibrated": true
+      },
+      "expect": "ABSTAIN_SCENARIO_DISTRIBUTION_INVALID"
+    },
+    {
+      "fixture_id": "V5-F60-RAW-PERMISSION-STRING",
+      "given": {
+        "permission_envelope": "ALLOW_NEW_RISK"
+      },
+      "expect": "ABSTAIN_PERMISSION_ENVELOPE_INVALID"
+    },
+    {
+      "fixture_id": "V5-F61-FUTURE-SCENARIO-AS-OF",
+      "given": {
+        "as_of": "2099-01-01T00:00:00Z"
+      },
+      "expect": "ABSTAIN_SCENARIO_DISTRIBUTION_INVALID"
+    },
+    {
+      "fixture_id": "V5-F62-UTILITY-RECEIPT-TAMPER",
+      "given": {
+        "conservative_utility": 999.0
+      },
+      "expect": "ABSTAIN_UTILITY_RECEIPT_INVALID"
+    },
+    {
+      "fixture_id": "V5-F63-FUTURE-EVIDENCE-AVAILABLE-AT",
+      "given": {
+        "available_at": "2099-01-01T00:00:00Z"
+      },
+      "expect": "UNKNOWN_NO_SUPPORT_UPDATE"
+    },
+    {
+      "fixture_id": "V5-F64-MISSING-EVIDENCE-AVAILABLE-AT",
+      "given": {
+        "available_at": null
+      },
+      "expect": "UNKNOWN_NO_SUPPORT_UPDATE"
+    },
+    {
+      "fixture_id": "V5-F65-RSI-NONE-EVENT-ARRIVAL",
+      "given": {
+        "trigger": "EVENT_ARRIVAL",
+        "rsi": null
+      },
+      "expect": "RUN_FULL_EVALUATION"
+    },
+    {
+      "fixture_id": "V5-F66-PATH-NEVER-STOP",
+      "given": {
+        "event_time_stopping_rule": "NEVER_STOP"
+      },
+      "expect": "REJECT_STOPPING_POLICY"
+    },
+    {
+      "fixture_id": "V5-F67-PATH-FIXED-8-DAY",
+      "given": {
+        "horizon_rule": "FIXED_8_DAY"
+      },
+      "expect": "REJECT_HORIZON_POLICY"
+    },
+    {
+      "fixture_id": "V5-F68-PATH-HORIZON-EXTENSION",
+      "given": {
+        "frozen_horizon_seconds": 86400,
+        "requested_horizon_seconds": 86401
+      },
+      "expect": "REJECT_HORIZON_EXTENSION"
+    },
+    {
+      "fixture_id": "V5-F69-PATH-EVENT-AFTER-HARD-FALSIFIER",
+      "given": {
+        "terminal_reason": "HARD_FALSIFIER",
+        "later_event": true
+      },
+      "expect": "REJECT_EVENT_AFTER_TERMINAL"
+    },
+    {
+      "fixture_id": "V5-F70-PATTERN-DUPLICATE-CANDIDATE",
+      "given": {
+        "candidate_mechanism_ids": [
+          "CONTINUATION",
+          "CONTINUATION"
+        ]
+      },
+      "expect": "REJECT_PATTERN_CANDIDATE_SET"
+    },
+    {
+      "fixture_id": "V5-F71-EPISODE-IDENTITY-OR-PREFIX-REUSE",
+      "given": {
+        "old_status": "FALSIFIED",
+        "new_episode_id": "SAME_AS_OLD",
+        "new_receipt_chain": "COPIED_OLD_PREFIX"
+      },
+      "expect": "REJECT_EPISODE_REINSTANTIATION"
+    },
+    {
+      "fixture_id": "V5-F72-CROSS-RECEIPT-EVIDENCE-ID-REPLAY",
+      "given": {
+        "same_evidence_id": true,
+        "receipt_index": 2
+      },
+      "expect": "UNKNOWN_NO_SUPPORT_UPDATE_APPEND_ONE_REJECTION_THEN_IDEMPOTENT"
+    },
+    {
+      "fixture_id": "V5-F73-CROSS-RECEIPT-EVIDENCE-SEMANTIC-DRIFT",
+      "given": {
+        "same_evidence_id": true,
+        "first_direction": "SUPPORT",
+        "second_direction": "HARD_FALSIFIER"
+      },
+      "expect": "UNKNOWN_EVIDENCE_ID_AUTHORITY_MISMATCH_NO_SUPPORT_UPDATE"
+    },
+    {
+      "fixture_id": "V5-F74-UNDERLYING-INCREMENT-RENAMED-ALIAS",
+      "given": {
+        "same_underlying_increment": true,
+        "new_evidence_id": true,
+        "new_perspective": true
+      },
+      "expect": "SAME_DEPENDENCY_GROUP_REPLACEMENT_CANDIDATE_ONLY_ONE_GROUP_CONTRIBUTION"
+    },
+    {
+      "fixture_id": "V5-F75-MALFORMED-TARGET-MIXED-WITH-VALID-SAME-ID",
+      "given": {
+        "malformed_target_ids": "STRING_OR_TUPLE_OR_MIXED_OR_DUPLICATE_OR_EMPTY",
+        "valid_row_in_same_batch": true
+      },
+      "expect": "UNKNOWN_VALIDATE_BEFORE_FILTER_NO_PARTIAL_SUPPORT_UPDATE"
+    },
+    {
+      "fixture_id": "V5-F76-TERMINAL-STATE-REACTIVATION",
+      "given": {
+        "terminal_statuses": [
+          "FALSIFIED",
+          "EXPIRED",
+          "TERMINAL",
+          "EXPIRED_OR_UNKNOWN"
+        ],
+        "later_direction": "SUPPORT"
+      },
+      "expect": "TERMINAL_STATUS_AND_SUPPORT_UNCHANGED_REJECTION_RECEIPT"
+    },
+    {
+      "fixture_id": "V5-F77-EVIDENCE-RECEIPT-CHAIN-TAMPER",
+      "given": {
+        "attack": "DELETE_REORDER_SCOPE_ALIAS_CONTENT_TAMPER_OR_FORGED_PREVIOUS_HASH"
+      },
+      "expect": "REJECT_RECEIPT_CHAIN"
+    },
+    {
+      "fixture_id": "V5-F78-METHOD-AUTHORITY-IN-MEMORY-SUBSTITUTION",
+      "given": {
+        "mutate_prior_loaded_view": true,
+        "next_validation_call": true
+      },
+      "expect": "RELOAD_EXACT_PINNED_METHOD_AUTHORITY"
+    },
+    {
+      "fixture_id": "V5-F79-EMPTY-EFFECT-SUPPORT-FORGERY",
+      "given": {
+        "validated_effects": [],
+        "accepted_evidence_ids": [],
+        "rejected_evidence": [],
+        "support_before": 0,
+        "support_after": 9,
+        "rehash_receipt": true
+      },
+      "expect": "REJECT_TRANSITION_NOT_DERIVABLE"
+    },
+    {
+      "fixture_id": "V5-F80-FULL-CHAIN-DECLARATION-REHASH",
+      "given": {
+        "rewrite_all_before_after_support_and_state_digests": true,
+        "rewrite_all_previous_hashes": true,
+        "rehash_every_receipt": true
+      },
+      "expect": "REJECT_TRANSITION_NOT_DERIVABLE_FROM_CANONICAL_BATCH"
+    },
+    {
+      "fixture_id": "V5-F81-NONZERO-OR-TERMINAL-EMPTY-GENESIS",
+      "given": {
+        "receipt_chain": [],
+        "status_or_support": "NON_ACTIVE_OR_NONZERO"
+      },
+      "expect": "REJECT_LEDGER_GENESIS"
+    },
+    {
+      "fixture_id": "V5-F82-GROUP-WINNER-BATCH-SEGMENTATION",
+      "given": {
+        "same_dependency_group": true,
+        "candidates": [
+          "WEAK",
+          "STRONG"
+        ],
+        "segmentations": [
+          "ONE_BATCH",
+          "WEAK_THEN_STRONG",
+          "STRONG_THEN_WEAK"
+        ]
+      },
+      "expect": "SAME_FINAL_GROUP_WINNER_RAW_SUPPORT_CLIPPED_SUPPORT_STATUS_AND_STATE_DIGEST"
+    },
+    {
+      "fixture_id": "V5-F83-EFFECT-ABSENT-FROM-CANONICAL-BATCH",
+      "given": {
+        "replace_effect_with_other_valid_receipt_effect": true,
+        "rehash_effects_and_receipt": true
+      },
+      "expect": "REJECT_TRANSITION_NOT_DERIVABLE"
+    },
+    {
+      "fixture_id": "V5-F84-SELF-SIGNED-LIFECYCLE-EXPIRY",
+      "given": {
+        "carrier": "OLD_PATH_ID_AND_DIGEST_ONLY_NO_COMPLETE_PATH_EVENTS"
+      },
+      "expect": "UNKNOWN_REJECT_LIFECYCLE_SCHEMA"
+    },
+    {
+      "fixture_id": "V5-F85-EARLIEST-TERMINAL-LATE-ARRIVAL",
+      "given": {
+        "first_processed": "LATER_EXPIRY_PATH_EVENT",
+        "later_processed": "EARLIER_HARD_FALSIFIER_AVAILABLE_AT"
+      },
+      "expect": "TERMINAL_CLASS_REMAINS_TERMINAL_REASON_CORRECTS_TO_EARLIEST_FALSIFIED"
+    },
+    {
+      "fixture_id": "V5-F86-CALLER-EXPECTED-TIP-ROLLBACK-BOUNDARY",
+      "given": {
+        "truncate_to_valid_prefix": true,
+        "caller_supplies_prior_full_tip": true
+      },
+      "expect": "REJECT_EXPECTED_TIP_MISMATCH_BUT_NO_EXTERNAL_TIP_CLAIM"
+    },
+    {
+      "fixture_id": "V5-F87-EMPTY-TRANSITION-NOOP",
+      "given": {
+        "evidence_rows": [],
+        "lifecycle_events": []
+      },
+      "expect": "BYTE_IDENTICAL_EPISODE_AND_RECEIPT_CHAIN"
+    },
+    {
+      "fixture_id": "V5-F88-TARGET-ROUTING-ALIAS",
+      "given": {
+        "target_ids": [
+          "EXACT_PATH_INSTANCE",
+          "UNRELATED_ALIAS"
+        ]
+      },
+      "expect": "UNKNOWN_TARGET_SCOPE_NOT_EXACT_LEDGER_TARGET_NO_SUPPORT_UPDATE"
+    },
+    {
+      "fixture_id": "V5-F89-EQUIVALENT-TIMEZONE-IDENTITY",
+      "given": {
+        "available_at_a": "2026-01-01T00:00:00Z",
+        "available_at_b": "2026-01-01T08:00:00+08:00"
+      },
+      "expect": "SAME_EVIDENCE_GROUP_UNDERLYING_AND_CONTENT_IDENTITY_REPLAY_NO_DOUBLE_COUNT"
+    },
+    {
+      "fixture_id": "V5-F90-RAW-SUPPORT-SATURATION-AND-WEAKER-REPLACEMENT",
+      "given": {
+        "raw_support": 12,
+        "clipped_support": 9,
+        "later_same_group_weaker_candidate": -1
+      },
+      "expect": "RAW_SUPPORT_REMAINS_12_CLIPPED_SUPPORT_REMAINS_9"
+    },
+    {
+      "fixture_id": "V5-F91-EARLIER-TERMINAL-CUTOFF-COMPENSATION",
+      "given": {
+        "receipt_order_a": "SUPPORT_AT_T075_THEN_EXPIRY_AT_T100_THEN_HARD_AT_T050",
+        "receipt_order_b": "HARD_AT_T050_THEN_SUPPORT_AT_T075_THEN_EXPIRY_AT_T100"
+      },
+      "expect": "SAME_FALSIFIED_TERMINAL_WINNER_ZERO_SUPPORT_EMPTY_GROUP_STATE_AND_STATE_DIGEST_WITH_OLD_PREFIX_BYTES_UNCHANGED"
+    },
+    {
+      "fixture_id": "V5-F92-LIFECYCLE-CROSS-MECHANISM-SCOPE",
+      "given": {
+        "episode_mechanism": "RANGE",
+        "path_spec_primitive_mechanisms_exclude": "RANGE"
+      },
+      "expect": "UNKNOWN_REJECT_LIFECYCLE_MECHANISM_SCOPE"
+    },
+    {
+      "fixture_id": "V5-F93-EQUAL-TIME-TERMINAL-DIGEST-GRIND",
+      "given": {
+        "same_terminal_event_at": true,
+        "attacker_changes_path_event_id_until_source_digest_wins": true
+      },
+      "expect": "FROZEN_REASON_PRIORITY_SELECTS_EXPIRY_IN_BOTH_ORDERS_SOURCE_DIGEST_CANNOT_SELECT_REASON"
+    },
+    {
+      "fixture_id": "V5-F94-FULL-LIFECYCLE-FACT-AUTHORITY-BOUNDARY",
+      "given": {
+        "complete_pathspec_and_events": "CALLER_PROVIDED_SYNTHETIC",
+        "external_path_instance_log_tip": null
+      },
+      "expect": "STRUCTURAL_DERIVABILITY_ONLY_NO_REAL_EVENT_FACT_CLAIM"
+    },
+    {
+      "fixture_id": "V5-F95-RECEIPT-DECISION-TIME-CANONICAL-NONDECREASING",
+      "given": {
+        "decision_times": [
+          "2026-01-01T08:00:01+08:00",
+          "2026-01-01T00:00:01Z",
+          "2026-01-01T00:00:02Z"
+        ],
+        "attacker_regresses_or_stores_noncanonical_offset": true
+      },
+      "expect": "STORE_CANONICAL_UTC_ALLOW_EQUAL_AND_INCREASING_REJECT_REGRESSION_AT_ENTRY_AND_REPLAY"
+    },
+    {
+      "fixture_id": "V5-F96-IDEMPOTENCY-KEY-DECISION-CONTEXT-AND-REJECTION-CLASS",
+      "given": {
+        "same_batch": true,
+        "canonical_decision_time_bound": true,
+        "rejection_class_bound": true
+      },
+      "expect": "SAME_COMPLETE_CONTEXT_BYTE_NOOP_DIFFERENT_LATER_RETRYABLE_CONTEXT_REDERIVES"
+    },
+    {
+      "fixture_id": "V5-F97-EVIDENCE-FUTURE-THEN-CAUSALLY-VISIBLE",
+      "given": {
+        "first_decision_before_available_at": true,
+        "second_decision_after_available_at": true
+      },
+      "expect": "FIRST_RETRYABLE_UNKNOWN_SECOND_REDERIVES_ACTIVE_SUPPORT"
+    },
+    {
+      "fixture_id": "V5-F98-LIFECYCLE-FUTURE-THEN-CAUSALLY-VISIBLE",
+      "given": {
+        "first_decision_before_terminal_event_available_at": true,
+        "second_decision_after_terminal_event_available_at": true
+      },
+      "expect": "FIRST_RETRYABLE_UNKNOWN_SECOND_REDERIVES_TERMINAL"
+    },
+    {
+      "fixture_id": "V5-F99-LIFECYCLE-IDENTITY-REPLAY-AND-CONTENT-DRIFT",
+      "given": {
+        "accepted_lifecycle_identity_enters_ledger": true,
+        "same_exact_same_decision_context": "REPLAY",
+        "same_id_different_digest": "CONTENT_DRIFT"
+      },
+      "expect": "EXACT_CONTEXT_BYTE_NOOP_CONTENT_DRIFT_PERMANENT_REJECTION_DIFFERENT_EARLIER_VALID_TERMINAL_COMPETES"
+    },
+    {
+      "fixture_id": "V5-F100-EVENT-TIME-B-LATE-PRECUTOFF-ORDINARY",
+      "given": {
+        "terminal_first": true,
+        "late_support_or_soft_effective_at_strictly_before_cutoff": true,
+        "equal_or_after_cutoff": true
+      },
+      "expect": "BEFORE_UPDATES_DERIVED_SUPPORT_WITH_TERMINAL_CLASS_LOCKED_EQUAL_OR_AFTER_REJECTED"
+    },
+    {
+      "fixture_id": "V5-F101-MIXED-SUPPORT-SOFT-HARD-SEGMENTATION",
+      "given": {
+        "one_batch": "SUPPORT_SOFT_HARD",
+        "split_receipts": "ALL_PERMUTATIONS",
+        "decision_time_order": "NONDECREASING"
+      },
+      "expect": "SAME_CUTOFF_IDENTITIES_TERMINAL_WINNER_RAW_CLIPPED_SUPPORT_STATUS_AND_STATE_DIGEST"
+    },
+    {
+      "fixture_id": "V5-F102-SEMANTIC-TERMINAL-PROVENANCE-MERGE",
+      "given": {
+        "same_scope_status_time_reason_and_path_authority": true,
+        "different_arbitrary_path_event_id_and_source_digest": true
+      },
+      "expect": "PROVENANCE_RECORDED_BUT_SEMANTIC_WINNER_AND_CURRENT_STATE_DIGEST_IDENTICAL"
+    },
+    {
+      "fixture_id": "V5-F103-LIFECYCLE-CAPACITY-OVERFLOW-LEDGER-ROUTING",
+      "given": {
+        "path_events": 257,
+        "max_in_memory_observations": 256,
+        "path_valid_disposition": "COMPACT_REQUIRED_RECEIPT_CONTINUATION"
+      },
+      "expect": "RESOURCE_CAPACITY_REQUIRED_UNKNOWN_RESOURCE_REJECTION_NEVER_TERMINAL_EFFECT"
+    }
+  ]
+}

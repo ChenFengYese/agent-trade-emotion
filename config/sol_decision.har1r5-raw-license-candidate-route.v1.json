@@ -1,0 +1,22 @@
+{
+  "schema_version": "sol-har1r5-raw-license-candidate-route.v1",
+  "decision_id": "SOL_HAR1R5_RAW_LICENSE_CANDIDATE.v1",
+  "decision_state": "AUTHORIZE_HAR1R5_STATIC_GATE_ONLY_NO_NETWORK",
+  "workspace_identity": {"cwd": "/Users/wt/Documents/agent-trade-emotion"},
+  "predecessor_replay": {
+    "r3_route": {"path": "config/sol_decision.har1r3-dual-lane-successor-route.v1.json", "physical_sha256": "6b23ca9248233929023b29c606466af7063929e23fe70e89d01e0f1b2fca8c8d", "canonical_sha256": "a21411873c7a793dc9d51983c4717ac3afad422bfe0d4f744679e9a51673b604"},
+    "r3_technical_evidence": {"path": "har1r3/technical_evidence.jsonl", "physical_sha256": "37ee748b04a412df58815da7421e51193878d3deb3ba3b8d02b0f6544d1c944f"},
+    "r3_terms_manifest": {"path": "har1r3/terms_evidence/manifest.json", "physical_sha256": "43416222cd7188d7012740836ef2ac6d3029d19b461ea873abc4391f7546e0c2"},
+    "r4_activation": {"path": "config/sol_activation.har1r4-source-terms-raw.v1.json", "physical_sha256": "bed93a1f5fc1f8dc338e58b8551ecb2a31414b3afcd0093d925f144daaee5d4f", "canonical_sha256": "ec8a94c3b1aa6697c79a86e0613ae36c2a4d96e8523d82707666052b480e5db4"},
+    "r4_client": {"path": "har1r4/source_terms_client.py", "physical_sha256": "5ab89f70372194840db9b13b4a71be9f662d5801e5aedd89eaebdd4e1cf33989"},
+    "r4_evidence": {"path": "har1r4/evidence/requests.jsonl", "physical_sha256": "f34d80c6fb7be98e596ff61ba03ebd596d7306249828efdc87a7485335df3c52"},
+    "r4_manifest": {"path": "har1r4/evidence/manifest.json", "physical_sha256": "a6628b7d10141bb4107ba2b17c8918b0854ee2a02fc948af480ad470bf507ade"}
+  },
+  "dataset_plan": {"path": "config/har1_btcusdt_dataset_plan.v1.json", "physical_sha256": "e5b41825273e32fc67fa739cba6d56370869ecab52339affe14ee773ae281bd0", "canonical_sha256": "39853c9f92171bbcd851184842654829e1a1a1aa6522ccfa1d6ee8a3d91377e2", "must_remain": "PLAN_ONLY_NO_DOWNLOAD_NO_READ_NO_SCORE"},
+  "static_creation_allowlist": ["config/sol_decision.har1r5-raw-license-candidate-route.v1.json", "har1r5/license_request_plan.json", "har1r5/license_contract.json", "har1r5/license_client.py", "har1r5/test_license_client.py"],
+  "future_output_allowlist": ["config/sol_activation.har1r5-raw-license-candidate.v1.json", "har1r5/evidence/requests.jsonl", "har1r5/evidence/raw/binance-public-data-LICENSE.raw", "har1r5/evidence/manifest.json"],
+  "permission_matrix": {"static_creation": true, "offline_tests": true, "network_now": false, "activation_now": false, "active_g1": false, "data": false, "backtest": false, "trading": false},
+  "maximum_claim": "A raw LICENSE candidate can only be mechanically classified for human Sol review; no legal conclusion, archive scope, data, or trading permission follows.",
+  "canonical_self_digest": {"algorithm": "SHA-256_CANONICAL_JSON", "digest_field": "decision_sha256", "domain_prefix_utf8": "msta-hed/sol-har1r5-raw-license-candidate-route/v1"},
+  "decision_sha256": "9b82cc08e31bdfa36c3d921405473c82deb37d1bc1cf0adfb42a53635f37740e"
+}

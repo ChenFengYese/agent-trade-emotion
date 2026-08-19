@@ -1,0 +1,204 @@
+"""B1 immutable strategy-contract serialization and validation."""
+from __future__ import annotations
+import hashlib
+import json
+from collections.abc import Mapping
+from pathlib import Path
+from typing import Any, TypeAlias
+JSONValue: TypeAlias = None | bool | int | str | list["JSONValue"] | dict[str,"JSONValue"]
+_ERROR="E_KERNEL_CONTRACT_INVALID"
+_SAFE=9007199254740991
+_EXPECTED_RAW="{\"algorithm_interface_registry\":[{\"algorithm_id\":\"algorithm/OrderedSourceProjection.v0.2.2\",\"authority_ref\":[\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_2.md:L604-L639\"],\"owner_entrypoint_id\":\"bundle_validator\",\"parameters\":[{\"name\":\"source_object\",\"type_id\":\"MarketSourceObjectV0_2_2\"}],\"returns\":\"OrderedSourceProjectionV0_2_2\",\"status_semantics\":\"NO_STATUS\"},{\"algorithm_id\":\"algorithm/SelectAccountSnapshot.v0.2.2\",\"authority_ref\":[\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_2.md:L954-L981\"],\"owner_entrypoint_id\":\"decision_calculator\",\"parameters\":[{\"name\":\"artifacts\",\"type_id\":\"ArtifactCatalogV0_2_2\"},{\"name\":\"account_query\",\"type_id\":\"AccountQueryV0_2_2\"},{\"name\":\"tau_us\",\"type_id\":\"UtcUs\"},{\"name\":\"max_age_us\",\"type_id\":\"NonNegativeUtcDelta\"}],\"returns\":\"AccountRiskSnapshotArtifactV0_2_2|UNKNOWN|ACCOUNT_SNAPSHOT_CONFLICT\",\"status_semantics\":\"SUCCESS_WRAPPER_OR_EXACT_STATUS\"},{\"algorithm_id\":\"algorithm/SelectAggTradeWindow.v0.2.2\",\"authority_ref\":[\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_2.md:L987-L989\"],\"owner_entrypoint_id\":\"decision_calculator\",\"parameters\":[{\"name\":\"artifacts\",\"type_id\":\"ArtifactCatalogV0_2_2\"},{\"name\":\"query\",\"type_id\":\"SourceQueryV0_2_2\"},{\"name\":\"start_exclusive_us\",\"type_id\":\"UtcUs\"},{\"name\":\"end_inclusive_us\",\"type_id\":\"UtcUs\"},{\"name\":\"decision_at_us\",\"type_id\":\"UtcUs\"},{\"name\":\"seal_binding\",\"type_id\":\"CoverageSealBindingV0_2_2\"}],\"returns\":\"AggTradeArtifactTupleV0_2_2|UNKNOWN|COVERAGE_CONFLICT\",\"status_semantics\":\"SUCCESS_WRAPPERS_OR_EXACT_STATUS\"},{\"algorithm_id\":\"algorithm/SelectBook.v0.2.2\",\"authority_ref\":[\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_2.md:L894-L914\"],\"owner_entrypoint_id\":\"decision_calculator\",\"parameters\":[{\"name\":\"artifacts\",\"type_id\":\"ArtifactCatalogV0_2_2\"},{\"name\":\"query\",\"type_id\":\"SourceQueryV0_2_2\"},{\"name\":\"tau_us\",\"type_id\":\"UtcUs\"},{\"name\":\"max_age_us\",\"type_id\":\"NonNegativeUtcDelta\"}],\"returns\":\"BookSnapshotArtifactV0_2_2|UNKNOWN|CONFLICT\",\"status_semantics\":\"SUCCESS_WRAPPER_OR_EXACT_STATUS\"},{\"algorithm_id\":\"algorithm/SelectBookGrid.v0.2.2\",\"authority_ref\":[\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_2.md:L991-L1010\"],\"owner_entrypoint_id\":\"decision_calculator\",\"parameters\":[{\"name\":\"artifacts\",\"type_id\":\"ArtifactCatalogV0_2_2\"},{\"name\":\"query\",\"type_id\":\"SourceQueryV0_2_2\"},{\"name\":\"grid_time_us\",\"type_id\":\"UtcUs\"}],\"returns\":\"BookSnapshotArtifactV0_2_2|UNKNOWN|CONFLICT\",\"status_semantics\":\"SUCCESS_WRAPPER_OR_EXACT_STATUS_MAX_AGE_US_1000000\"},{\"algorithm_id\":\"algorithm/SelectClosedMarkBarSlot.v0.2.2\",\"authority_ref\":[\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_2.md:L983-L985\"],\"owner_entrypoint_id\":\"decision_calculator\",\"parameters\":[{\"name\":\"artifacts\",\"type_id\":\"ArtifactCatalogV0_2_2\"},{\"name\":\"query\",\"type_id\":\"SourceQueryV0_2_2\"},{\"name\":\"period_seconds\",\"type_id\":\"PeriodSeconds900Or14400\"},{\"name\":\"bar_open_at_us\",\"type_id\":\"UtcUs\"},{\"name\":\"tau_us\",\"type_id\":\"UtcUs\"}],\"returns\":\"ClosedMarkBarArtifactV0_2_2|UNKNOWN|CONFLICT\",\"status_semantics\":\"SUCCESS_WRAPPER_OR_EXACT_STATUS\"},{\"algorithm_id\":\"algorithm/SelectCoverageSeal.v0.2.2\",\"authority_ref\":[\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_2.md:L746-L765\"],\"owner_entrypoint_id\":\"bundle_validator\",\"parameters\":[{\"name\":\"artifacts\",\"type_id\":\"ArtifactCatalogV0_2_2\"},{\"name\":\"binding\",\"type_id\":\"CoverageSealBindingV0_2_2\"}],\"returns\":\"CoverageSealArtifactV0_2_2|UNKNOWN|COVERAGE_CONFLICT\",\"status_semantics\":\"SUCCESS_WRAPPER_OR_EXACT_STATUS\"},{\"algorithm_id\":\"algorithm/SelectOpenInterest.v0.2.2\",\"authority_ref\":[\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_2.md:L916-L925\"],\"owner_entrypoint_id\":\"decision_calculator\",\"parameters\":[{\"name\":\"artifacts\",\"type_id\":\"ArtifactCatalogV0_2_2\"},{\"name\":\"query\",\"type_id\":\"SourceQueryV0_2_2\"},{\"name\":\"tau_us\",\"type_id\":\"UtcUs\"},{\"name\":\"max_age_us\",\"type_id\":\"NonNegativeUtcDelta\"}],\"returns\":\"OpenInterestArtifactV0_2_2|UNKNOWN|CONFLICT\",\"status_semantics\":\"SUCCESS_WRAPPER_OR_EXACT_STATUS\"},{\"algorithm_id\":\"algorithm/SelectVenueSnapshot.v0.2.2\",\"authority_ref\":[\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_2.md:L926-L952\"],\"owner_entrypoint_id\":\"decision_calculator\",\"parameters\":[{\"name\":\"artifacts\",\"type_id\":\"ArtifactCatalogV0_2_2\"},{\"name\":\"scope\",\"type_id\":\"Scope4V0_2_2\"},{\"name\":\"tau_us\",\"type_id\":\"UtcUs\"}],\"returns\":\"VenueInstrumentSnapshotArtifactV0_2_2|UNKNOWN|RULE_SNAPSHOT_CONFLICT\",\"status_semantics\":\"SUCCESS_WRAPPER_OR_EXACT_STATUS\"},{\"algorithm_id\":\"algorithm/SourceCollision.v0.2.2\",\"authority_ref\":[\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_2.md:L641-L648\"],\"owner_entrypoint_id\":\"bundle_validator\",\"parameters\":[{\"name\":\"source_artifacts\",\"type_id\":\"MarketSourceArtifactTupleV0_2_2\"}],\"returns\":\"Boolean\",\"status_semantics\":\"TRUE_COLLISION_PRESENT_FALSE_COLLISION_FREE\"},{\"algorithm_id\":\"algorithm/ValidateCoverageSeal.v0.2.2\",\"authority_ref\":[\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_2.md:L654-L744\"],\"owner_entrypoint_id\":\"bundle_validator\",\"parameters\":[{\"name\":\"source_artifacts\",\"type_id\":\"MarketSourceArtifactTupleV0_2_2\"},{\"name\":\"seal_artifact\",\"type_id\":\"CoverageSealArtifactV0_2_2\"},{\"name\":\"binding\",\"type_id\":\"CoverageSealBindingV0_2_2\"}],\"returns\":\"Boolean\",\"status_semantics\":\"TRUE_ALL_COVERAGE_RULES_PASS_FALSE_OTHERWISE\"},{\"algorithm_id\":\"algorithm/ValidateDecimal.v0.2.2\",\"authority_ref\":[\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_1.md:L47-L60\",\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_2.md:L102-L102\"],\"owner_entrypoint_id\":\"bundle_validator\",\"parameters\":[{\"name\":\"kind\",\"type_id\":\"DecimalKindV0_2_2\"},{\"name\":\"value\",\"type_id\":\"String\"}],\"returns\":\"Boolean\",\"status_semantics\":\"TRUE_EXACT_DECIMAL_KIND_RULES_PASS_FALSE_OTHERWISE\"},{\"algorithm_id\":\"algorithm/ValidateOICompleteness.v0.2.2\",\"authority_ref\":[\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_2.md:L1012-L1033\"],\"owner_entrypoint_id\":\"decision_calculator\",\"parameters\":[{\"name\":\"artifacts\",\"type_id\":\"ArtifactCatalogV0_2_2\"},{\"name\":\"query\",\"type_id\":\"SourceQueryV0_2_2\"},{\"name\":\"t_us\",\"type_id\":\"UtcUs\"},{\"name\":\"seal_binding\",\"type_id\":\"CoverageSealBindingV0_2_2\"}],\"returns\":\"OIEndpointSelectionV0_2_2|UNKNOWN\",\"status_semantics\":\"ENDPOINT_GAP_SEQUENCE_SEAL_OR_SCOPE_FAILURE_MAPS_UNKNOWN\"}],\"authorization\":{\"backtest\":\"FORBIDDEN\",\"calibration\":\"FORBIDDEN\",\"historical_data\":\"FORBIDDEN\",\"holdout\":\"FORBIDDEN\",\"live_trading\":\"FORBIDDEN\",\"market_data\":\"FORBIDDEN\",\"oms\":\"FORBIDDEN\",\"paper\":\"FORBIDDEN\",\"source_adapter\":\"FORBIDDEN\",\"synthetic_golden_tests\":\"ALLOWED_AFTER_B1_PASS\",\"synthetic_reference_kernel\":\"ALLOWED_AFTER_B1_PASS\"},\"canonicalization\":{\"array_order_policy\":\"SCHEMA_DECLARED_NO_IMPLICIT_SORT\",\"decimal_policy\":\"CANONICAL_DECIMAL_STRING_CONTEXT_34_HALF_EVEN\",\"digest_algorithm\":\"SHA-256\",\"float_policy\":\"FORBIDDEN\",\"identity_rule\":\"SHA256_UTF8_DOMAIN_NUL_CANONICAL_JSON\",\"integer_policy\":\"SAFE_INTEGER_ONLY\",\"json_encoding\":\"UTF-8\",\"object_key_order\":\"UNICODE_CODE_POINT_ASCENDING\",\"string_policy\":\"UTF8_JSON_STRING_NO_NORMALIZATION\",\"trailing_newline\":false,\"whitespace\":\"NONE\"},\"chronology\":{\"active_role\":\"SYNTHETIC\",\"calibration\":{\"authorization\":\"FORBIDDEN_UNTIL_POST_DEVELOPMENT_GATE\",\"window\":null},\"development\":{\"authorization\":\"FORBIDDEN_UNTIL_B4\",\"window\":null},\"holdout\":{\"authorization\":\"FORBIDDEN_UNTIL_POST_CALIBRATION_FREEZE\",\"window\":null},\"pre_access_seen_registry_policy\":\"REJECT_ANY_SEEN_ROLE_REUSE\",\"same_timestamp_rule\":\"STOP_FIRST\",\"synthetic_availability\":\"SYNTHETIC\"},\"closure_case_registry\":[{\"case_executor_id\":\"bundle_validator\",\"closure_id\":\"C01\",\"negative_case_id\":\"C01-N-MIXED-KIND-ORDER\",\"negative_error_code\":\"E_C01_MIXED_SOURCE_KIND\",\"positive_case_id\":\"C01-P-HOMOGENEOUS-ORDER\"},{\"case_executor_id\":\"bundle_validator\",\"closure_id\":\"C02\",\"negative_case_id\":\"C02-N-CROSS-SCOPE\",\"negative_error_code\":\"E_C02_SCOPE_MISMATCH\",\"positive_case_id\":\"C02-P-SCOPE-ISOLATED\"},{\"case_executor_id\":\"bundle_validator\",\"closure_id\":\"C03\",\"negative_case_id\":\"C03-N-COVERAGE-SET\",\"negative_error_code\":\"E_C03_COVERAGE_SET_INVALID\",\"positive_case_id\":\"C03-P-COVERAGE-CONTIGUOUS\"},{\"case_executor_id\":\"bundle_validator\",\"closure_id\":\"C04\",\"negative_case_id\":\"C04-N-BAR-LATE-CLOSE\",\"negative_error_code\":\"E_C04_BAR_CAUSALITY_INVALID\",\"positive_case_id\":\"C04-P-BAR-CAUSAL\"},{\"case_executor_id\":\"decision_calculator\",\"closure_id\":\"C05\",\"negative_case_id\":\"C05-N-BOOK-GRID-DEDUP\",\"negative_error_code\":\"E_C05_BOOK_GRID_DEDUP_INVALID\",\"positive_case_id\":\"C05-P-BOOK-TWO-STAGE\"},{\"case_executor_id\":\"decision_calculator\",\"closure_id\":\"C06\",\"negative_case_id\":\"C06-N-VENUE-RULE-MAPPING\",\"negative_error_code\":\"E_C06_VENUE_RULE_MAPPING_INVALID\",\"positive_case_id\":\"C06-P-VENUE-RULE-MAPPING\"},{\"case_executor_id\":\"decision_calculator\",\"closure_id\":\"C07\",\"negative_case_id\":\"C07-N-ACCOUNT-CONFLICT\",\"negative_error_code\":\"E_C07_ACCOUNT_ASOF_CONFLICT\",\"positive_case_id\":\"C07-P-ACCOUNT-ASOF\"},{\"case_executor_id\":\"bundle_validator\",\"closure_id\":\"C08\",\"negative_case_id\":\"C08-N-EV-STATS\",\"negative_error_code\":\"E_C08_EV_STATS_INCONSISTENT\",\"positive_case_id\":\"C08-P-EV-RECOMPUTED\"},{\"case_executor_id\":\"bundle_validator\",\"closure_id\":\"C09\",\"negative_case_id\":\"C09-N-TARGET-EVIDENCE-MISSING\",\"negative_error_code\":\"E_C09_TARGET_EVIDENCE_INCOMPLETE\",\"positive_case_id\":\"C09-P-TARGET-EVIDENCE-FULL\"},{\"case_executor_id\":\"bundle_validator\",\"closure_id\":\"C10\",\"negative_case_id\":\"C10-N-TIME-AS-ARTIFACT-ID\",\"negative_error_code\":\"E_C10_TARGET_ARTIFACT_ID_INVALID\",\"positive_case_id\":\"C10-P-TARGET-ARTIFACT-BOUND\"},{\"case_executor_id\":\"decision_calculator\",\"closure_id\":\"C11\",\"negative_case_id\":\"C11-N-OI-SEAL-GAP\",\"negative_error_code\":\"E_C11_OI_SEAL_INCOMPLETE\",\"positive_case_id\":\"C11-P-OI-SEAL-ENDPOINTS\"},{\"case_executor_id\":\"decision_calculator\",\"closure_id\":\"C12\",\"negative_case_id\":\"C12-N-DECISION-PROOF\",\"negative_error_code\":\"E_C12_DECISION_PROOF_INVALID\",\"positive_case_id\":\"C12-P-DECISION-PROOF-TOTAL\"},{\"case_executor_id\":\"bundle_validator\",\"closure_id\":\"C13\",\"negative_case_id\":\"C13-N-POLICY-DIGEST\",\"negative_error_code\":\"E_C13_POLICY_DIGEST_MISMATCH\",\"positive_case_id\":\"C13-P-POLICY-DIGEST-CHAIN\"},{\"case_executor_id\":\"bundle_validator\",\"closure_id\":\"C14\",\"negative_case_id\":\"C14-N-U-AS-REDUCER-EVENT\",\"negative_error_code\":\"E_C14_U_RECEIPT_EVENT_FORBIDDEN\",\"positive_case_id\":\"C14-P-U-RECEIPT-SEPARATE\"},{\"case_executor_id\":\"reducer\",\"closure_id\":\"C15\",\"negative_case_id\":\"C15-N-PRIORITY-TABLE\",\"negative_error_code\":\"E_C15_PRIORITY_TABLE_INVALID\",\"positive_case_id\":\"C15-P-PRIORITY-34-TOTAL\"},{\"case_executor_id\":\"reducer\",\"closure_id\":\"C16\",\"negative_case_id\":\"C16-N-DESCENDANT-EQUAL-TIME\",\"negative_error_code\":\"E_C16_DESCENDANT_CAUSALITY_INVALID\",\"positive_case_id\":\"C16-P-DESCENDANT-CAUSAL\"},{\"case_executor_id\":\"bundle_validator\",\"closure_id\":\"C17\",\"negative_case_id\":\"C17-N-ARTIFACT-CROSS-SCOPE\",\"negative_error_code\":\"E_C17_ARTIFACT_SCOPE_MISMATCH\",\"positive_case_id\":\"C17-P-ARTIFACT-SCOPE-ID\"},{\"case_executor_id\":\"bundle_validator\",\"closure_id\":\"C18\",\"negative_case_id\":\"C18-N-DEVELOPMENT-ROLE\",\"negative_error_code\":\"E_C18_ROLE_NOT_SYNTHETIC\",\"positive_case_id\":\"C18-P-SYNTHETIC-ROLE\"},{\"case_executor_id\":\"bundle_validator\",\"closure_id\":\"C19\",\"negative_case_id\":\"C19-N-GENERATION-GAP\",\"negative_error_code\":\"E_C19_GENERATION_CLOSURE_INVALID\",\"positive_case_id\":\"C19-P-GENERATION-CLOSED\"},{\"case_executor_id\":\"decision_calculator\",\"closure_id\":\"C20\",\"negative_case_id\":\"C20-N-SELECTOR-SUBSTITUTION\",\"negative_error_code\":\"E_C20_SELECTOR_BINDING_MISMATCH\",\"positive_case_id\":\"C20-P-SELECTOR-BINDING\"},{\"case_executor_id\":\"authority_lineage_checker\",\"closure_id\":\"C21\",\"negative_case_id\":\"C21-N-AUTHORITY-LINEAGE\",\"negative_error_code\":\"E_C21_AUTHORITY_LINEAGE_INVALID\",\"positive_case_id\":\"C21-P-AUTHORITY-FILE-SET\"}],\"composite_theory_id\":\"3e7ecf5e257d8a2dbf5cc826c1da1240283a2379de710e4be90f7bcfdb8118ea\",\"contract_id\":\"RSI_MTF_DRL_PM_STRATEGY_CONTRACT.v0.2.2\",\"evidence_level\":\"E0\",\"public_entrypoint_registry\":[{\"entrypoint_id\":\"bundle_validator\",\"failure_code_order\":[\"E_KERNEL_CONTRACT_INVALID\",\"E_C01_MIXED_SOURCE_KIND\",\"E_C02_SCOPE_MISMATCH\",\"E_C03_COVERAGE_SET_INVALID\",\"E_C04_BAR_CAUSALITY_INVALID\",\"E_C08_EV_STATS_INCONSISTENT\",\"E_C09_TARGET_EVIDENCE_INCOMPLETE\",\"E_C10_TARGET_ARTIFACT_ID_INVALID\",\"E_C13_POLICY_DIGEST_MISMATCH\",\"E_C14_U_RECEIPT_EVENT_FORBIDDEN\",\"E_C17_ARTIFACT_SCOPE_MISMATCH\",\"E_C18_ROLE_NOT_SYNTHETIC\",\"E_C19_GENERATION_CLOSURE_INVALID\",\"E_KERNEL_ARGUMENT_INVALID\",\"E_KERNEL_SCHEMA_INVALID\",\"E_KERNEL_DIGEST_INVALID\",\"E_KERNEL_BINDING_INVALID\"],\"failure_mode\":\"RETURN_BUNDLE_VALIDATION_FAILURE\",\"parameters\":[{\"name\":\"contract\",\"type_id\":\"StrategyContractV0_2_2\"},{\"name\":\"bundle\",\"type_id\":\"CanonicalSyntheticEventBundleV0_2_2\"},{\"name\":\"as_of_us\",\"type_id\":\"UtcUs\"},{\"name\":\"role\",\"type_id\":\"SyntheticRole\"}],\"purity\":\"PURE_STDLIB_NO_IO\",\"python_symbol\":\"trade_system.rsi_mtf_drl_pm_v0_2_2.kernel:validate_bundle\",\"returns\":\"BundleValidationOutcomeV0_2_2\"},{\"entrypoint_id\":\"contract_serializer\",\"failure_code_order\":[\"E_KERNEL_CONTRACT_INVALID\"],\"failure_mode\":\"RAISE_CONTRACT_VALIDATION_ERROR\",\"parameters\":[{\"name\":\"contract\",\"type_id\":\"StrategyContractV0_2_2\"}],\"purity\":\"PURE_STDLIB_NO_IO\",\"python_symbol\":\"trade_system.rsi_mtf_drl_pm_v0_2_2.contract:serialize_contract\",\"returns\":\"CanonicalContractBytesV0_2_2\"},{\"entrypoint_id\":\"decision_calculator\",\"failure_code_order\":[\"E_KERNEL_CONTRACT_INVALID\",\"E_C05_BOOK_GRID_DEDUP_INVALID\",\"E_C06_VENUE_RULE_MAPPING_INVALID\",\"E_C07_ACCOUNT_ASOF_CONFLICT\",\"E_C11_OI_SEAL_INCOMPLETE\",\"E_C12_DECISION_PROOF_INVALID\",\"E_C20_SELECTOR_BINDING_MISMATCH\",\"E_KERNEL_ARGUMENT_INVALID\",\"E_KERNEL_SCHEMA_INVALID\",\"E_KERNEL_DIGEST_INVALID\",\"E_KERNEL_BINDING_INVALID\"],\"failure_mode\":\"RAISE_KERNEL_VALIDATION_ERROR\",\"parameters\":[{\"name\":\"contract\",\"type_id\":\"StrategyContractV0_2_2\"},{\"name\":\"binding\",\"type_id\":\"DecisionInputBindingV0_2_2\"},{\"name\":\"artifacts\",\"type_id\":\"ArtifactCatalogV0_2_2\"},{\"name\":\"as_of_us\",\"type_id\":\"UtcUs\"},{\"name\":\"role\",\"type_id\":\"SyntheticRole\"}],\"purity\":\"PURE_STDLIB_NO_IO\",\"python_symbol\":\"trade_system.rsi_mtf_drl_pm_v0_2_2.kernel:calculate_decision\",\"returns\":\"DecisionResultV0_2_2\"},{\"entrypoint_id\":\"labeler\",\"failure_code_order\":[\"E_KERNEL_CONTRACT_INVALID\",\"E_KERNEL_ARGUMENT_INVALID\",\"E_KERNEL_SCHEMA_INVALID\",\"E_KERNEL_DIGEST_INVALID\",\"E_KERNEL_BINDING_INVALID\"],\"failure_mode\":\"RAISE_KERNEL_VALIDATION_ERROR\",\"parameters\":[{\"name\":\"contract\",\"type_id\":\"StrategyContractV0_2_2\"},{\"name\":\"validated_bundle\",\"type_id\":\"ValidatedBundleV0_2_2\"},{\"name\":\"reducer_trace\",\"type_id\":\"ManagementLedgerRecordTupleV0_2_2\"},{\"name\":\"as_of_us\",\"type_id\":\"UtcUs\"},{\"name\":\"role\",\"type_id\":\"SyntheticRole\"}],\"purity\":\"PURE_STDLIB_NO_IO\",\"python_symbol\":\"trade_system.rsi_mtf_drl_pm_v0_2_2.kernel:first_hit_label\",\"returns\":\"FirstHitLabelEnvelopeV0_2_2\"},{\"entrypoint_id\":\"ledger_encoder\",\"failure_code_order\":[\"E_KERNEL_CONTRACT_INVALID\",\"E_KERNEL_ARGUMENT_INVALID\",\"E_KERNEL_SCHEMA_INVALID\",\"E_KERNEL_DIGEST_INVALID\",\"E_KERNEL_BINDING_INVALID\"],\"failure_mode\":\"RAISE_KERNEL_VALIDATION_ERROR\",\"parameters\":[{\"name\":\"contract\",\"type_id\":\"StrategyContractV0_2_2\"},{\"name\":\"ledger_record\",\"type_id\":\"ManagementLedgerRecordV0_2_2\"},{\"name\":\"as_of_us\",\"type_id\":\"UtcUs\"},{\"name\":\"role\",\"type_id\":\"SyntheticRole\"}],\"purity\":\"PURE_STDLIB_NO_IO\",\"python_symbol\":\"trade_system.rsi_mtf_drl_pm_v0_2_2.kernel:encode_ledger\",\"returns\":\"CanonicalManagementLedgerRecordBytesV0_2_2\"},{\"entrypoint_id\":\"reducer\",\"failure_code_order\":[\"E_KERNEL_CONTRACT_INVALID\",\"E_C15_PRIORITY_TABLE_INVALID\",\"E_C16_DESCENDANT_CAUSALITY_INVALID\",\"E_KERNEL_ARGUMENT_INVALID\",\"E_KERNEL_SCHEMA_INVALID\",\"E_KERNEL_DIGEST_INVALID\",\"E_KERNEL_BINDING_INVALID\"],\"failure_mode\":\"RAISE_KERNEL_VALIDATION_ERROR\",\"parameters\":[{\"name\":\"contract\",\"type_id\":\"StrategyContractV0_2_2\"},{\"name\":\"validated_bundle\",\"type_id\":\"ValidatedBundleV0_2_2\"},{\"name\":\"as_of_us\",\"type_id\":\"UtcUs\"},{\"name\":\"role\",\"type_id\":\"SyntheticRole\"}],\"purity\":\"PURE_STDLIB_NO_IO\",\"python_symbol\":\"trade_system.rsi_mtf_drl_pm_v0_2_2.kernel:reduce_event_array\",\"returns\":\"ManagementLedgerRecordTupleV0_2_2\"}],\"route_decision_raw_sha256\":\"631f8187e9eb81465718156736045c3ca5cc7ec5e33bbba7b063354cefeb792c\",\"runtime\":{\"canonical_json_backend\":\"PINNED_UTF8_CODEPOINT_CANONICAL_JSON\",\"decimal_backend\":\"DECIMAL_CONTEXT_34_HALF_EVEN\",\"dependencies\":[],\"language\":\"PYTHON\",\"requires_python\":\">=3.11,<3.14\"},\"schema_version\":\"rsi-mtf-drl-pm.strategy-contract.v0.2.2\",\"scope\":\"OUTCOME_FREE_SYNTHETIC_AUTHORITY_ONLY\",\"semantic_commitment\":{\"formula_override\":\"FORBIDDEN\",\"identity_override\":\"FORBIDDEN\",\"parameter_override\":\"FORBIDDEN\",\"policy_override\":\"FORBIDDEN\",\"risk_override\":\"FORBIDDEN\",\"runtime_text_dispatch\":\"FORBIDDEN\",\"schema_override\":\"FORBIDDEN\",\"selector_override\":\"FORBIDDEN\",\"state_machine_override\":\"FORBIDDEN\",\"status_override\":\"FORBIDDEN\",\"strategy_semantics\":\"PINNED_SOURCE_AUTHORITY_ONLY\"},\"source_authority\":{\"authority_bundle_spec_path\":\"archive/authority/RSI_MTF_DRL_PM_AUTHORITY_BUNDLE_SPEC_v0_2_2.md\",\"authority_bundle_spec_raw_sha256\":\"9b2446de9e0549579d52bc8ce2bc3bd124885203a52855f0dbf0f1324f9f1295\",\"authority_bundle_spec_size_bytes\":75233,\"core_theory_path\":\"archive/authority/CORE_TRADING_THEORY_v2_1.md\",\"core_theory_raw_sha256\":\"06014b2f9e2665abef55e816616661951b35cb766ab9a49aadfad6841d7f822d\",\"core_theory_size_bytes\":110738,\"legacy_v0_2_contract_canonical_sha256\":\"38d572453045016bbdc314d184f9be87a608ec8bc36aabaf92d8c0ce742201e5\",\"legacy_v0_2_contract_canonical_size_bytes\":20204,\"legacy_v0_2_contract_path\":\"config/rsi_mtf_drl_pm.research_contract.v0_2.json\",\"legacy_v0_2_contract_raw_sha256\":\"33d84ce8fdfa7766fbce340beac9916344655c002e39ed6c8db29cefaaa6b047\",\"legacy_v0_2_contract_size_bytes\":23206,\"semantic_source_path\":\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_2.md\",\"semantic_source_raw_sha256\":\"43eedbee0a10cf0254721052c1aca23baf027a90f879739ec33b48180cfd87a6\",\"semantic_source_size_bytes\":136468,\"v0_2_1_addendum_path\":\"archive/authority/RSI_MTF_DRL_PM_THEORY_ADDENDUM_v0_2_1.md\",\"v0_2_1_addendum_raw_sha256\":\"021053480fe9a49b3902803e2d363793416a120263551fb741fb3444af6550fd\",\"v0_2_1_addendum_size_bytes\":197800},\"status\":\"IMMUTABLE_CONTRACT_REVIEW_BYTES\",\"support_type_registry\":[{\"invariants\":[\"AGG_TRADE_WRAPPERS_ONLY\",\"PRESERVE_ARTIFACT_ORDER\",\"PRESERVE_ARTIFACT_ID\"],\"ordered_fields\":[{\"name\":\"artifacts\",\"type_id\":\"Tuple[AggTradeArtifactV0_2_2]\"}],\"type_id\":\"AggTradeArtifactTupleV0_2_2\"},{\"invariants\":[\"ARTIFACT_CATALOG_COMPLETE\",\"ARTIFACT_ID_STRICT_ASC\",\"NO_PARALLEL_ID_PAYLOAD\"],\"ordered_fields\":[{\"name\":\"artifacts\",\"type_id\":\"Tuple[ArtifactWrapperV0_2_2]\"}],\"type_id\":\"ArtifactCatalogV0_2_2\"},{\"invariants\":[\"SEMANTIC_ARTIFACT_WRAPPER_9_1_9_2\"],\"ordered_fields\":[{\"name\":\"artifact_id\",\"type_id\":\"StableId\"},{\"name\":\"artifact_scope_id\",\"type_id\":\"StableIdOrNull\"},{\"name\":\"schema_id\",\"type_id\":\"ArtifactSchemaIdV0_2_2\"},{\"name\":\"available_at_us\",\"type_id\":\"UtcUsOrNull\"},{\"name\":\"payload_sha256\",\"type_id\":\"Sha256\"},{\"name\":\"payload\",\"type_id\":\"ExactPayloadBySchemaId\"}],\"type_id\":\"ArtifactWrapperV0_2_2\"},{\"invariants\":[\"C21_MINIMAL_ACYCLIC_PASS\",\"NO_MANIFEST_GOLDEN_RECEIPT_DIGEST_OR_PROJECTION\",\"NO_PARTIAL_SUCCESS\"],\"ordered_fields\":[{\"name\":\"schema_version\",\"type_id\":\"LiteralRsiMtfDrlPmAuthorityLineageFileSetCheckV0_2_2\"},{\"name\":\"status\",\"type_id\":\"LiteralPASS\"},{\"name\":\"closure_id\",\"type_id\":\"LiteralC21\"}],\"type_id\":\"AuthorityLineageFileSetCheckResultV0_2_2\"},{\"invariants\":[\"FAIL_CLOSED_TERMINAL\",\"BUNDLE_ERROR_SUBSET_ONLY\",\"NO_DEFAULT_ACTION\",\"NO_PARTIAL_SUCCESS\",\"NO_FREE_MESSAGE\"],\"ordered_fields\":[{\"name\":\"status\",\"type_id\":\"LiteralINVALID\"},{\"name\":\"error_code\",\"type_id\":\"KernelErrorCodeV0_2_2\"}],\"type_id\":\"BundleValidationFailureV0_2_2\"},{\"invariants\":[\"EXACT_UNION_VALIDATED_BUNDLE_OR_BUNDLE_VALIDATION_FAILURE\",\"NO_OTHER_VARIANT\"],\"ordered_fields\":[],\"type_id\":\"BundleValidationOutcomeV0_2_2\"},{\"invariants\":[\"COVERAGE_BINDING_QUERY_THEN_ID_DIGEST\"],\"ordered_fields\":[{\"name\":\"coverage_seal_artifact_id\",\"type_id\":\"StableId\"},{\"name\":\"coverage_seal_sha256\",\"type_id\":\"Sha256\"},{\"name\":\"venue_id\",\"type_id\":\"NonEmptyString\"},{\"name\":\"instrument_id\",\"type_id\":\"NonEmptyString\"},{\"name\":\"lane_id\",\"type_id\":\"NonEmptyString\"},{\"name\":\"availability_kind\",\"type_id\":\"AvailabilityKind\"},{\"name\":\"source_id\",\"type_id\":\"NonEmptyString\"},{\"name\":\"source_schema_version\",\"type_id\":\"SourceSchemaVersion\"},{\"name\":\"covered_object_kind\",\"type_id\":\"OrderedMarketSourceKind\"},{\"name\":\"window_start_exclusive_us\",\"type_id\":\"UtcUs\"},{\"name\":\"window_end_inclusive_us\",\"type_id\":\"UtcUs\"},{\"name\":\"lane_available_at_us\",\"type_id\":\"UtcUs\"}],\"type_id\":\"CoverageSealBindingV0_2_2\"},{\"invariants\":[\"E_KERNEL_CONTRACT_INVALID\",\"E_KERNEL_ARGUMENT_INVALID\",\"E_KERNEL_SCHEMA_INVALID\",\"E_KERNEL_DIGEST_INVALID\",\"E_KERNEL_BINDING_INVALID\",\"E_C01_MIXED_SOURCE_KIND\",\"E_C02_SCOPE_MISMATCH\",\"E_C03_COVERAGE_SET_INVALID\",\"E_C04_BAR_CAUSALITY_INVALID\",\"E_C05_BOOK_GRID_DEDUP_INVALID\",\"E_C06_VENUE_RULE_MAPPING_INVALID\",\"E_C07_ACCOUNT_ASOF_CONFLICT\",\"E_C08_EV_STATS_INCONSISTENT\",\"E_C09_TARGET_EVIDENCE_INCOMPLETE\",\"E_C10_TARGET_ARTIFACT_ID_INVALID\",\"E_C11_OI_SEAL_INCOMPLETE\",\"E_C12_DECISION_PROOF_INVALID\",\"E_C13_POLICY_DIGEST_MISMATCH\",\"E_C14_U_RECEIPT_EVENT_FORBIDDEN\",\"E_C15_PRIORITY_TABLE_INVALID\",\"E_C16_DESCENDANT_CAUSALITY_INVALID\",\"E_C17_ARTIFACT_SCOPE_MISMATCH\",\"E_C18_ROLE_NOT_SYNTHETIC\",\"E_C19_GENERATION_CLOSURE_INVALID\",\"E_C20_SELECTOR_BINDING_MISMATCH\",\"E_C21_AUTHORITY_LINEAGE_INVALID\"],\"ordered_fields\":[],\"type_id\":\"KernelErrorCodeV0_2_2\"},{\"invariants\":[\"SOURCE_WRAPPERS_ONLY\",\"PRESERVE_ARTIFACT_ORDER\",\"PRESERVE_ARTIFACT_ID\"],\"ordered_fields\":[{\"name\":\"artifacts\",\"type_id\":\"Tuple[ClosedMarkBarArtifactV0_2_2|BookSnapshotArtifactV0_2_2|AggTradeArtifactV0_2_2|OpenInterestArtifactV0_2_2]\"}],\"type_id\":\"MarketSourceArtifactTupleV0_2_2\"},{\"invariants\":[\"OI_WINDOW_960S_ENDPOINTS_IN_SEAL_SAME_SCOPE\"],\"ordered_fields\":[{\"name\":\"coverage_seal_artifact\",\"type_id\":\"CoverageSealArtifactV0_2_2\"},{\"name\":\"oi_now_artifact\",\"type_id\":\"OpenInterestArtifactV0_2_2\"},{\"name\":\"oi_prev_artifact\",\"type_id\":\"OpenInterestArtifactV0_2_2\"}],\"type_id\":\"OIEndpointSelectionV0_2_2\"},{\"invariants\":[\"STATUS_EXACT_VALID\",\"BUNDLE_SHA256_EQUALS_BUNDLE_FIELD\",\"ROLE_EXACT_SYNTHETIC\",\"VALIDATED_AS_OF_EQUALS_VALIDATOR_ARGUMENT\",\"REVALIDATE_BEFORE_REDUCER_OR_LABEL\"],\"ordered_fields\":[{\"name\":\"status\",\"type_id\":\"LiteralVALID\"},{\"name\":\"bundle\",\"type_id\":\"CanonicalSyntheticEventBundleV0_2_2\"},{\"name\":\"bundle_sha256\",\"type_id\":\"StableId\"},{\"name\":\"validated_as_of_us\",\"type_id\":\"UtcUs\"},{\"name\":\"role\",\"type_id\":\"SyntheticRole\"}],\"type_id\":\"ValidatedBundleV0_2_2\"}],\"synthetic_gate\":{\"maximum_claim\":\"MECHANICALLY_SINGLE_VALUED_AT_E0\",\"repeat_process_runs\":2,\"required_closure_ids\":[\"C01\",\"C02\",\"C03\",\"C04\",\"C05\",\"C06\",\"C07\",\"C08\",\"C09\",\"C10\",\"C11\",\"C12\",\"C13\",\"C14\",\"C15\",\"C16\",\"C17\",\"C18\",\"C19\",\"C20\",\"C21\"],\"required_negative_case_ids\":[\"C01-N-MIXED-KIND-ORDER\",\"C02-N-CROSS-SCOPE\",\"C03-N-COVERAGE-SET\",\"C04-N-BAR-LATE-CLOSE\",\"C05-N-BOOK-GRID-DEDUP\",\"C06-N-VENUE-RULE-MAPPING\",\"C07-N-ACCOUNT-CONFLICT\",\"C08-N-EV-STATS\",\"C09-N-TARGET-EVIDENCE-MISSING\",\"C10-N-TIME-AS-ARTIFACT-ID\",\"C11-N-OI-SEAL-GAP\",\"C12-N-DECISION-PROOF\",\"C13-N-POLICY-DIGEST\",\"C14-N-U-AS-REDUCER-EVENT\",\"C15-N-PRIORITY-TABLE\",\"C16-N-DESCENDANT-EQUAL-TIME\",\"C17-N-ARTIFACT-CROSS-SCOPE\",\"C18-N-DEVELOPMENT-ROLE\",\"C19-N-GENERATION-GAP\",\"C20-N-SELECTOR-SUBSTITUTION\",\"C21-N-AUTHORITY-LINEAGE\"],\"required_positive_case_ids\":[\"C01-P-HOMOGENEOUS-ORDER\",\"C02-P-SCOPE-ISOLATED\",\"C03-P-COVERAGE-CONTIGUOUS\",\"C04-P-BAR-CAUSAL\",\"C05-P-BOOK-TWO-STAGE\",\"C06-P-VENUE-RULE-MAPPING\",\"C07-P-ACCOUNT-ASOF\",\"C08-P-EV-RECOMPUTED\",\"C09-P-TARGET-EVIDENCE-FULL\",\"C10-P-TARGET-ARTIFACT-BOUND\",\"C11-P-OI-SEAL-ENDPOINTS\",\"C12-P-DECISION-PROOF-TOTAL\",\"C13-P-POLICY-DIGEST-CHAIN\",\"C14-P-U-RECEIPT-SEPARATE\",\"C15-P-PRIORITY-34-TOTAL\",\"C16-P-DESCENDANT-CAUSAL\",\"C17-P-ARTIFACT-SCOPE-ID\",\"C18-P-SYNTHETIC-ROLE\",\"C19-P-GENERATION-CLOSED\",\"C20-P-SELECTOR-BINDING\",\"C21-P-AUTHORITY-FILE-SET\"],\"required_result\":\"E0_SYNTHETIC_VALIDATED\"}}"
+_EXPECTED = json.loads(_EXPECTED_RAW)
+_EXPECTED_SHA = "26ab29e08968518a758a45ce872dd748543e59b93e2909b19e35052d2bdd4cdc"
+_DECISION_PATH = "config/rsi_mtf_drl_pm.route_b_decision.v0_2_2.json"
+_DECISION_SHA = "631f8187e9eb81465718156736045c3ca5cc7ec5e33bbba7b063354cefeb792c"
+_DECISION_SIZE = 9210
+_DECISION_INTERNAL_SHA = "38ee24d2ed3aa6641e03a6e9decd956989f4a18856d846b2f32d16ead39d15cc"
+_COMPOSITE_DOMAIN = "rsi-mtf-drl-pm-composite-theory/v0.2.2"
+class ContractValidationError(ValueError):
+    def __init__(self) -> None:
+        self.error_code = _ERROR
+        super().__init__(_ERROR)
+
+
+def _bad() -> None:
+    raise ContractValidationError()
+
+
+def _walk_json(value: Any) -> None:
+    """Reject non-JSON values, floats, unsafe integers, and non-string keys."""
+    if isinstance(value, Mapping):
+        for key, child in value.items():
+            if not isinstance(key, str):
+                _bad()
+            _walk_json(child)
+    elif isinstance(value, list):
+        for child in value:
+            _walk_json(child)
+    elif isinstance(value, float):
+        _bad()
+    elif isinstance(value, int) and not isinstance(value, bool):
+        if not -_SAFE <= value <= _SAFE:
+            _bad()
+    elif value is not None and not isinstance(value, (str, bool, int)):
+        _bad()
+
+
+def _materialize_json(value: JSONValue) -> JSONValue:
+    if isinstance(value, Mapping):
+        return {key: _materialize_json(child) for key, child in value.items()}
+    if isinstance(value, list):
+        return [_materialize_json(child) for child in value]
+    return value
+
+
+def _canonical_json(value: Mapping[str, Any]) -> bytes:
+    _walk_json(value)
+    try:
+        return json.dumps(
+            _materialize_json(value),
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+            allow_nan=False,
+        ).encode("utf-8")
+    except (TypeError, ValueError):
+        _bad()
+    raise AssertionError("unreachable")
+
+
+def _require_exact_structure(contract: Mapping[str, JSONValue]) -> None:
+    """Validate the closed Route-B object before using its digest as a seal."""
+    _walk_json(contract)
+    if set(contract) != set(_EXPECTED):
+        _bad()
+    for registry in (
+        "support_type_registry",
+        "algorithm_interface_registry",
+        "public_entrypoint_registry",
+        "closure_case_registry",
+    ):
+        candidate = contract.get(registry)
+        expected = _EXPECTED[registry]
+        if not isinstance(candidate, list) or len(candidate) != len(expected):
+            _bad()
+        id_key = {
+            "support_type_registry": "type_id",
+            "algorithm_interface_registry": "algorithm_id",
+            "public_entrypoint_registry": "entrypoint_id",
+            "closure_case_registry": "closure_id",
+        }[registry]
+        if [row.get(id_key) if isinstance(row, Mapping) else None for row in candidate] != [row[id_key] for row in expected]:
+            _bad()
+        if len({row.get(id_key) for row in candidate if isinstance(row, Mapping)}) != len(candidate):
+            _bad()
+    if contract != _EXPECTED:
+        _bad()
+
+
+def serialize_contract(contract: Mapping[str, JSONValue]) -> bytes:
+    try:
+        if not isinstance(contract, Mapping):
+            _bad()
+        _require_exact_structure(contract)
+        raw = _canonical_json(contract)
+        if not raw.isascii() or hashlib.sha256(raw).hexdigest() != _EXPECTED_SHA:
+            _bad()
+        return raw
+    except Exception:
+        raise ContractValidationError() from None
+
+
+def _sha256(raw: bytes) -> str:
+    return hashlib.sha256(raw).hexdigest()
+
+
+def _read_frozen(workspace_root: Path, item: Mapping[str, Any]) -> bytes:
+    if set(item) not in ({"path", "raw_sha256", "size_bytes", "status"}, {"path", "raw_sha256", "size_bytes", "status", "canonical_sha256", "canonical_size_bytes"}):
+        _bad()
+    path, size, digest = item.get("path"), item.get("size_bytes"), item.get("raw_sha256")
+    if not isinstance(path, str) or not isinstance(size, int) or not isinstance(digest, str):
+        _bad()
+    raw = (workspace_root / path).read_bytes()
+    if len(raw) != size or _sha256(raw) != digest:
+        _bad()
+    return raw
+
+
+def _validate_decision_and_sources(workspace_root: Path, contract: Mapping[str, JSONValue]) -> None:
+    decision_raw = (workspace_root / _DECISION_PATH).read_bytes()
+    if len(decision_raw) != _DECISION_SIZE or decision_raw.endswith(b"\n") or _sha256(decision_raw) != _DECISION_SHA:
+        _bad()
+    decision = json.loads(decision_raw.decode("ascii"))
+    if not isinstance(decision, Mapping) or decision.get("decision_sha256") != _DECISION_INTERNAL_SHA:
+        _bad()
+    decision_without_digest = dict(decision)
+    if decision_without_digest.pop("decision_sha256", None) != _DECISION_INTERNAL_SHA:
+        _bad()
+    if _sha256(_canonical_json(decision_without_digest)) != _DECISION_INTERNAL_SHA:
+        _bad()
+    frozen = decision.get("frozen_inputs")
+    if not isinstance(frozen, Mapping) or len(frozen) != 14:
+        _bad()
+    frozen_raw = {name: _read_frozen(workspace_root, item) for name, item in frozen.items() if isinstance(name, str) and isinstance(item, Mapping)}
+    if len(frozen_raw) != 14:
+        _bad()
+    legacy = frozen.get("legacy_v0_2_contract")
+    if not isinstance(legacy, Mapping):
+        _bad()
+    legacy_raw = frozen_raw.get("legacy_v0_2_contract")
+    if legacy_raw is None:
+        _bad()
+    legacy_value = json.loads(legacy_raw.decode("utf-8"))
+    if not isinstance(legacy_value, Mapping):
+        _bad()
+    legacy_canonical = _canonical_json(legacy_value)
+    if len(legacy_canonical) != legacy.get("canonical_size_bytes") or _sha256(legacy_canonical) != legacy.get("canonical_sha256"):
+        _bad()
+    source_authority = contract.get("source_authority")
+    if not isinstance(source_authority, Mapping):
+        _bad()
+    source_map = {
+        "core_theory": "core_theory",
+        "legacy_v0_2_contract": "legacy_v0_2_contract",
+        "v0_2_1_addendum": "v0_2_1_addendum",
+        "semantic_source": "semantic_source",
+        "authority_bundle_spec": "authority_bundle_spec",
+    }
+    for contract_prefix, decision_name in source_map.items():
+        source = frozen.get(decision_name)
+        if not isinstance(source, Mapping):
+            _bad()
+        for suffix in ("path", "size_bytes", "raw_sha256"):
+            if source_authority.get(f"{contract_prefix}_{suffix}") != source.get(suffix):
+                _bad()
+    for suffix in ("canonical_size_bytes", "canonical_sha256"):
+        if source_authority.get(f"legacy_v0_2_contract_{suffix}") != legacy.get(suffix):
+            _bad()
+    semantic = frozen.get("semantic_source")
+    if not isinstance(semantic, Mapping):
+        _bad()
+    preimage = {
+        "core_raw_sha256": source_authority.get("core_theory_raw_sha256"),
+        "v0_2_contract_canonical_sha256": source_authority.get("legacy_v0_2_contract_canonical_sha256"),
+        "v0_2_1_addendum_raw_sha256": source_authority.get("v0_2_1_addendum_raw_sha256"),
+        "v0_2_2_delta_raw_sha256": source_authority.get("semantic_source_raw_sha256"),
+    }
+    composite = _sha256(_COMPOSITE_DOMAIN.encode("utf-8") + b"\x00" + _canonical_json(preimage))
+    if composite != contract.get("composite_theory_id") or composite != decision.get("successor_route", {}).get("composite_theory_id"):
+        _bad()
+    if contract.get("route_decision_raw_sha256") != _DECISION_SHA or semantic.get("raw_sha256") != preimage["v0_2_2_delta_raw_sha256"]:
+        _bad()
+
+
+def validate_contract_bytes(contract_bytes: bytes, workspace_root: Path) -> None:
+    try:
+        if not isinstance(contract_bytes, bytes) or contract_bytes.endswith(b"\n") or not contract_bytes.isascii():
+            _bad()
+        value = json.loads(contract_bytes.decode("ascii"))
+        if not isinstance(value, Mapping) or serialize_contract(value) != contract_bytes:
+            _bad()
+        _validate_decision_and_sources(workspace_root, value)
+    except Exception:
+        raise ContractValidationError() from None

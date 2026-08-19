@@ -1,0 +1,182 @@
+{
+  "report_id": "MSTA_HED_RESEARCH_SYSTEM_P0_VALIDATION_REPORT.v1_1",
+  "schema_version": "research-system-p0-validation-report.v1_1",
+  "created_at": "2026-07-27T09:33:06Z",
+  "scope": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "stage": "RSR-P0_REWORK_LOCAL_SUCCESSOR",
+    "root_cause": "P0_NESTED_SEMANTIC_CLAIM_BOUNDARY_NOT_EXECUTABLE",
+    "rework_round": 1,
+    "result_class": "LOCAL_REVIEW_READY_SUCCESSOR_AWAITING_SOL_REGATE"
+  },
+  "authority_binding": {
+    "initial_decision": {
+      "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION.v1",
+      "physical_sha256": "2cf37e54989d3fd09846cacdbe622de26a4c0bd60e46cb0650f67b2827bf5586",
+      "canonical_sha256": "2a434f542f58c6d43798e1562b7f203336eae7e5db4b6745095e3c9e7633ddb6"
+    },
+    "failed_gate_decision": {
+      "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION_P0_GATE.v1",
+      "decision_state": "REWORK_LOCAL",
+      "physical_sha256": "368dba95967e6abb85119728b1637a115c2c4553b39f3782db9c44b9dfd3a473",
+      "canonical_sha256": "45f2f9a3a7040a552b25e7249bd29c2e13de66277bacbd4266978cc6a0aa2482"
+    },
+    "frozen_predecessor_inventory": {
+      "path": "config/research_system.p0_artifact_inventory.v1.json",
+      "artifact_count": 21,
+      "physical_sha256": "bfffb9eda8e3cb5a4e0b562bbf532b0e9e72fff3f6064c82ee66a719c29af29c",
+      "canonical_sha256": "a64d0036f08f6849619562a0079d03ea64f436518eefa41b3fe5b48cdd3acf30"
+    }
+  },
+  "successor_input_identities": [
+    {
+      "role": "semantic_claim_boundary_overlay",
+      "path": "config/research_system.semantic_claim_boundary.v1_1.json",
+      "size_bytes": 4407,
+      "physical_sha256": "0cba2b1bd57143d1057fcc777180a08b0d7645d4b6286d6bfaa819e436d355f9",
+      "canonical_sha256": "1526f5769c094a32164dd2e243860a66226b45e66ed41466762b3f2d199b4530"
+    },
+    {
+      "role": "pure_successor_validator",
+      "path": "trade_system/research_system_contract_v1_1.py",
+      "size_bytes": 20988,
+      "physical_sha256": "f180ef633ae90e1abee761a6b559f1c9fbb970f311ba019046cd392750d3d6a4"
+    },
+    {
+      "role": "successor_contract_tests",
+      "path": "tests/test_research_system_contract_v1_1.py",
+      "size_bytes": 19067,
+      "physical_sha256": "270012827acae3db7b23c0dd4493c5dec7a079429e50eef310c9ce29e3dc0935"
+    },
+    {
+      "role": "independent_successor_adversarial_review",
+      "path": "artifacts/research_system_p0_adversarial_review.v1_1.json",
+      "size_bytes": 28519,
+      "physical_sha256": "305106acd2c14f45fded8dfd6b822ca394c91730683a51d2ea1d9490c60f2705",
+      "canonical_sha256": "6d7a41c43cde8fa5e1fccad46cb62110bb5e4fe756a4081c2eeb430ca121a413"
+    }
+  ],
+  "verification_results": [
+    {
+      "check_id": "R1-VAL-001",
+      "method": "Verify the frozen predecessor inventory artifact identities against current bytes, lengths and non-symlink paths.",
+      "result": "PASS_21_OF_21",
+      "exit_code": 0
+    },
+    {
+      "check_id": "R1-VAL-002",
+      "method": "python3 -m unittest -q tests.test_research_system_contract_v1 tests.test_research_system_contract_v1_1",
+      "result": "PASS_140_OF_140",
+      "exit_code": 0
+    },
+    {
+      "check_id": "R1-VAL-003",
+      "method": "PYTHONPYCACHEPREFIX=/tmp/agent-trade-emotion-pyc python3 -m py_compile trade_system/research_system_contract_v1_1.py tests/test_research_system_contract_v1_1.py",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    {
+      "check_id": "R1-VAL-004",
+      "method": "Validate exact eight-document successor through validate_research_system_bundle_v1_1.",
+      "result": "ACCEPTED_OK",
+      "predecessor_bundle_digest": "c4eb9da641ee6a8f2971d06174f9eaa2c970122fa106acc9a2e8f584833b085d",
+      "successor_bundle_digest": "8a607d9d472f5a26d05e4e74ddca27876621a52ec102a6088f723687c52950fe",
+      "exit_code": 0
+    },
+    {
+      "check_id": "R1-VAL-005",
+      "method": "Independent helper-free canonical re-sign and mutation harness.",
+      "result": "PASS_46_OF_46",
+      "sol_exact_cases": "PASS_4_OF_4",
+      "frozen_predecessor_byte_drift": "PASS_7_OF_7",
+      "stage_denials": "PASS_6_OF_6",
+      "evidence_path": "artifacts/research_system_p0_adversarial_review.v1_1.json",
+      "evidence_physical_sha256": "305106acd2c14f45fded8dfd6b822ca394c91730683a51d2ea1d9490c60f2705",
+      "exit_code": 0
+    },
+    {
+      "check_id": "R1-VAL-006",
+      "method": "Exact overlay authority, self digest, top-level claim boundary and nested E0 vocabulary closure.",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    {
+      "check_id": "R1-VAL-007",
+      "method": "Recompute failed gate decision physical/canonical identities and require REWORK_LOCAL.",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    {
+      "check_id": "R1-VAL-008",
+      "method": "Verify D0, D1, D2, D3, E2 and E3 remain exactly DENIED in the successor overlay and validator result.",
+      "result": "PASS_6_OF_6",
+      "exit_code": 0
+    }
+  ],
+  "root_cause_closure": {
+    "status": "LOCAL_CLOSED_AWAITING_SOL_REGATE",
+    "sol_case_results": [
+      "Hypothesis E5 escalation returns REJECTED/E_NESTED_CLAIM_BOUNDARY.",
+      "Claim E5 escalation returns REJECTED/E_NESTED_CLAIM_BOUNDARY.",
+      "Source VERIFIED status escalation returns REJECTED/E_NESTED_CLAIM_BOUNDARY.",
+      "Source live-trading usage escalation returns REJECTED/E_NESTED_CLAIM_BOUNDARY."
+    ],
+    "equivalence_variants": "Case, full-width Unicode, separator and wording variants are rejected because only externally pinned exact E0 vocabulary is accepted.",
+    "candidate_self_authorization": "Overlay vocabulary, authority, denials, canonicalization and predecessor identities are pinned outside candidate content by the v1.1 validator."
+  },
+  "deferred_blockers": [
+    {
+      "blocker_id": "BLOCK-D3-E2-MACHINE-PREDICATES",
+      "status": "DEFERRED_BLOCKING",
+      "condition": "Per-hypothesis natural-language hard falsifier and expiry rules require versioned executable predicate schemas and independent fixtures before D3 or E2.",
+      "blocks": ["D3", "E2"],
+      "does_not_block": "RSR-P0 contract-boundary foundation"
+    },
+    {
+      "blocker_id": "BLOCK-D0-SEPARATE-AUTHORITY",
+      "status": "NOT_AUTHORIZED",
+      "condition": "A separate exact acquisition plan and explicit Sol decision are required after P0 acceptance.",
+      "blocks": ["D0", "D1", "D2", "D3", "E2", "E3"],
+      "does_not_block": "RSR-P0 contract-boundary foundation"
+    }
+  ],
+  "forbidden_actions_confirmation": {
+    "frozen_predecessor_package_modified": false,
+    "market_rows_or_datasets_acquired": false,
+    "authenticated_or_paid_sources_used": false,
+    "raw_runtime_admission_performed": false,
+    "adapter_or_replay_executed": false,
+    "feature_dataset_or_label_built": false,
+    "backtest_calibration_or_holdout_run": false,
+    "paper_testnet_deployment_or_trading_run": false,
+    "active_application_support_root_accessed": false
+  },
+  "claim_boundary": {
+    "maximum_positive_claim": "The exact v1.1 successor locally closes the Sol-observed nested semantic claim-boundary defect over the byte-frozen v1 predecessor and passes the recorded unit and independent adversarial checks. This remains a review-ready P0 successor and does not accept P0 or authorize D0-E3.",
+    "p0_complete": false,
+    "source_data_validity": "NOT_EVALUATED",
+    "market_validity": "NOT_EVALUATED",
+    "predictive_validity": "NOT_EVALUATED",
+    "profitability": "NOT_EVALUATED",
+    "historical_data_acquisition": "NOT_AUTHORIZED",
+    "backtest": "NOT_AUTHORIZED",
+    "paper": "NOT_AUTHORIZED",
+    "deployment": "DENIED",
+    "trading": "DENIED"
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "domain": "msta-hed/research-system-p0-validation-report/v1_1",
+    "formula": "SHA256(domain_prefix_utf8 || HEX(domain_separator_hex) || canonical_json_utf8)",
+    "domain_prefix_utf8": "msta-hed/research-system-p0-validation-report/v1_1",
+    "domain_separator_hex": "00",
+    "exclude_fields": ["report_sha256"],
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [",", ":"],
+    "encoding": "UTF-8"
+  },
+  "report_sha256": "bdb34f1694bc4115d997b66cdf2f3843037995b27d5a35c48bdfcdd1a1a48ffb"
+}

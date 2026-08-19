@@ -1,0 +1,190 @@
+{
+  "artifact_id": "RESEARCH_SYSTEM_P0_ADVERSARIAL_REVIEW.v1",
+  "baseline": {
+    "bundle_digest": "c4eb9da641ee6a8f2971d06174f9eaa2c970122fa106acc9a2e8f584833b085d",
+    "details": {
+      "document_count": 7,
+      "validated_paths": [
+        "config/research_system.dispute_registry.v1.json",
+        "config/research_system.hypothesis_validation_queue.v1.json",
+        "config/research_system.measurement_contract.v1.json",
+        "config/research_system.object_dictionary.v1.json",
+        "config/research_system.parameter_registry.v1.json",
+        "config/research_system.source_authority_registry.v1.json",
+        "config/research_system.stage_contract.v1.json"
+      ]
+    },
+    "reason_code": "OK",
+    "status": "ACCEPTED"
+  },
+  "canonical_self_digest": "60d3d2b29d18c4f1ee3dc30df22c8a12cccba585fcb735ea189ff735a70ef9bf",
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "domain": "msta-hed/research-system-p0-adversarial-review/v1",
+    "domain_prefix_utf8": "msta-hed/research-system-p0-adversarial-review/v1",
+    "domain_separator_hex": "00",
+    "encoding": "UTF-8",
+    "ensure_ascii": true,
+    "exclude_fields": [
+      "canonical_self_digest"
+    ],
+    "formula": "SHA256(domain_prefix_utf8 || HEX(domain_separator_hex) || canonical_json_utf8)",
+    "separators": [
+      ",",
+      ":"
+    ],
+    "sort_keys": true
+  },
+  "commands": [
+    {
+      "command": "python3 -m unittest tests.test_research_system_contract_v1 -q",
+      "exit_code": 0,
+      "observed": "Ran 88 tests; OK"
+    },
+    {
+      "command": "python3 -m py_compile trade_system/research_system_contract_v1.py tests/test_research_system_contract_v1.py",
+      "exit_code": 0,
+      "observed": "no output"
+    },
+    {
+      "command": "independent in-memory Python adversarial harness; no test helper or validator private helper imported",
+      "exit_code": 0,
+      "observed": "14/14 mutation expectations passed"
+    }
+  ],
+  "generated_on_utc": "2026-07-27",
+  "independent_method": {
+    "forbidden_helpers_used": false,
+    "raw_read": "Path.cwd()/each fixed path with UTF-8 decoding",
+    "resign": "SHA256(domain_prefix_utf8 || bytes.fromhex(domain_separator_hex) || json.dumps(unsigned, ensure_ascii=True, sort_keys=True, separators=(comma,colon), allow_nan=False).encode(UTF-8))",
+    "validator_api_used": "trade_system.research_system_contract_v1.validate_research_system_bundle only"
+  },
+  "input_physical_sha256": {
+    "config/research_system.dispute_registry.v1.json": "ae137bcb46051dd7ddb0b71f8c2b01390fcf9ff21d3d409fc7776ef1cb791ba3",
+    "config/research_system.hypothesis_validation_queue.v1.json": "e76ab11983326ab53d209b6efd362deb91a00215a0c47b14d5930457c614b4cb",
+    "config/research_system.measurement_contract.v1.json": "2e8d162f9be5182fbe25fd4e5d0c96fd817edc010b92ac61aa03f991aac20651",
+    "config/research_system.object_dictionary.v1.json": "9a167daea7bf05d1022e65da40be5b87786139a9e0f74d52994cbc2fd4915fff",
+    "config/research_system.parameter_registry.v1.json": "a5321385626f2acd67063fed1cf8138b400c5911265ad333aed4da3958ca2a26",
+    "config/research_system.source_authority_registry.v1.json": "693cc7361c16fb154df97bf2c58a1e68807f990dc976df949658e7ce635abb12",
+    "config/research_system.stage_contract.v1.json": "ab81251c0ea70e945d9ea7176e9cb59e7353477212dcf36a2d9e4424f944674b",
+    "config/sol_decision.research-system-reconstruction.v1.json": "2cf37e54989d3fd09846cacdbe622de26a4c0bd60e46cb0650f67b2827bf5586",
+    "tests/test_research_system_contract_v1.py": "698b925ce7c9854d86b013df05adef43ec13d4b61027c425e579fbb8df643cd6",
+    "trade_system/research_system_contract_v1.py": "5101ca7b59182c51d4afbfc30e4208273a58eaf80589afb96b083295074d362d"
+  },
+  "manual_mutations": [
+    {
+      "expected": {"reason_code": "E_GATE_STATUS", "status": "REJECTED"},
+      "id": "M01",
+      "mutation": "replace D0 prerequisite content, then independently re-sign",
+      "observed": {"details": {"field": "gates[1].prerequisites", "path": "config/research_system.stage_contract.v1.json"}, "reason_code": "E_GATE_STATUS", "status": "REJECTED"},
+      "passed": true
+    },
+    {
+      "expected": {"reason_code": "E_GATE_STATUS", "status": "REJECTED"},
+      "id": "M02",
+      "mutation": "replace D1 deliverable content, then independently re-sign",
+      "observed": {"details": {"field": "gates[2].deliverables", "path": "config/research_system.stage_contract.v1.json"}, "reason_code": "E_GATE_STATUS", "status": "REJECTED"},
+      "passed": true
+    },
+    {
+      "expected": {"reason_code": "E_GATE_STATUS", "status": "REJECTED"},
+      "id": "M03",
+      "mutation": "swap two gate records in the gate list, then independently re-sign",
+      "observed": {"details": {"field": "gates", "path": "config/research_system.stage_contract.v1.json"}, "reason_code": "E_GATE_STATUS", "status": "REJECTED"},
+      "passed": true
+    },
+    {
+      "expected": {"reason_code": "E_GATE_STATUS", "status": "REJECTED"},
+      "id": "M04",
+      "mutation": "append D3 to D3 prerequisites as a self-cycle, then independently re-sign",
+      "observed": {"details": {"field": "gates[4].prerequisites", "path": "config/research_system.stage_contract.v1.json"}, "reason_code": "E_GATE_STATUS", "status": "REJECTED"},
+      "passed": true
+    },
+    {
+      "expected": {"reason_code": "E_ALIAS", "status": "REJECTED"},
+      "id": "M05",
+      "mutation": "inject nine-layer percent-encoded P1A candidate alias, then independently re-sign",
+      "observed": {"details": {"field": "$.sources[0].source_id", "path": "config/research_system.source_authority_registry.v1.json"}, "reason_code": "E_ALIAS", "status": "REJECTED"},
+      "passed": true
+    },
+    {
+      "expected": {"reason_code": "E_CANONICALIZATION", "status": "REJECTED"},
+      "id": "M06",
+      "mutation": "change canonicalization domain, then independently re-sign",
+      "observed": {"details": {"field": "canonicalization.domain", "path": "config/research_system.object_dictionary.v1.json"}, "reason_code": "E_CANONICALIZATION", "status": "REJECTED"},
+      "passed": true
+    },
+    {
+      "expected": {"reason_code": "E_CANONICALIZATION", "status": "REJECTED"},
+      "id": "M07",
+      "mutation": "change canonicalization separator, then independently re-sign",
+      "observed": {"details": {"field": "canonicalization.domain_separator_hex", "path": "config/research_system.object_dictionary.v1.json"}, "reason_code": "E_CANONICALIZATION", "status": "REJECTED"},
+      "passed": true
+    },
+    {
+      "expected": {"reason_code": "E_PERMISSION_MATRIX", "status": "REJECTED"},
+      "id": "M08",
+      "mutation": "escalate backtest permission, then independently re-sign",
+      "observed": {"details": {"field": "permission_matrix.backtest", "path": "config/research_system.stage_contract.v1.json"}, "reason_code": "E_PERMISSION_MATRIX", "status": "REJECTED"},
+      "passed": true
+    },
+    {
+      "expected": {"reason_code": "E_MEASUREMENT_BINDING", "status": "REJECTED"},
+      "id": "M09",
+      "mutation": "break a hypothesis to measurement-contract cross binding, then independently re-sign",
+      "observed": {"details": {"field": "hypotheses[0].measurement_contract_id", "path": "config/research_system.hypothesis_validation_queue.v1.json"}, "reason_code": "E_MEASUREMENT_BINDING", "status": "REJECTED"},
+      "passed": true
+    },
+    {
+      "expected": {"reason_code": "E_UNKNOWN_FIELD", "status": "REJECTED"},
+      "id": "M10",
+      "mutation": "add an unknown object-dictionary top-level field, then independently re-sign",
+      "observed": {"details": {"field": "$.candidate_unknown_field", "path": "config/research_system.object_dictionary.v1.json"}, "reason_code": "E_UNKNOWN_FIELD", "status": "REJECTED"},
+      "passed": true
+    },
+    {
+      "expected": {"reason_code": "E_JSON_DUPLICATE_KEY", "status": "REJECTED"},
+      "id": "M11",
+      "mutation": "supply raw duplicate JSON key without re-signing because duplicate detection precedes schema and digest work",
+      "observed": {"details": {"field": "registry_id", "path": "config/research_system.object_dictionary.v1.json"}, "reason_code": "E_JSON_DUPLICATE_KEY", "status": "REJECTED"},
+      "passed": true
+    },
+    {
+      "expected": {"reason_code": "E_INTERNAL_TOTALITY", "status": "REJECTED"},
+      "id": "M12",
+      "mutation": "supply an independently defined Mapping that raises RuntimeError on iteration",
+      "observed": {"details": {"error_type": "RuntimeError"}, "reason_code": "E_INTERNAL_TOTALITY", "status": "REJECTED"},
+      "passed": true
+    },
+    {
+      "expected": {"reason_code": "E_AUTHORITY_BINDING", "status": "REJECTED"},
+      "id": "M13",
+      "mutation": "change externally fixed authority head, then independently re-sign",
+      "observed": {"details": {"field": "authority_binding.head", "path": "config/research_system.object_dictionary.v1.json"}, "reason_code": "E_AUTHORITY_BINDING", "status": "REJECTED"},
+      "passed": true
+    },
+    {
+      "expected": {"reason_code": "E_RESIDUAL_PATH_POLICY", "status": "REJECTED"},
+      "id": "M14",
+      "mutation": "insert ABSTAIN into residual paths, then independently re-sign",
+      "observed": {"details": {"field": "active_path_policy.required_residual_paths", "path": "config/research_system.hypothesis_validation_queue.v1.json"}, "reason_code": "E_RESIDUAL_PATH_POLICY", "status": "REJECTED"},
+      "passed": true
+    }
+  ],
+  "schema_version": "research-system-p0-adversarial-review.v1",
+  "scope": {
+    "branch": "codex/s0-research-foundation",
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "no_market_data_adapter_backtest_or_library_access": true,
+    "read_only_inputs": true
+  },
+  "summary": {
+    "manual_mutation_count": 14,
+    "manual_mutations_passed": true,
+    "maximum_positive_claim": "At the recorded branch, HEAD, and physical input hashes, the public validator accepts the seven supplied raw documents and rejected all 14 independently constructed adversarial inputs. This is contract-validation evidence only; it does not establish source-data validity, market validity, predictive validity, profitability, execution readiness, or authorization for data acquisition, backtesting, paper trading, deployment, or live trading.",
+    "test_count": 88,
+    "test_suite_reproduced": true,
+    "unclosed_findings": []
+  }
+}

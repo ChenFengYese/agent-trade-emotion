@@ -1,0 +1,91 @@
+{
+  "protocol_id": "REPLACE_WITH_VERSIONED_PROTOCOL_ID",
+  "status": "DRAFT_TEMPLATE",
+  "notice": "Template only. Fill every REQUIRED value from observed data before changing status to FROZEN_RESEARCH_PROTOCOL.",
+  "instrument": "BTCUSDT",
+  "venue": "BINANCE_USDM",
+  "availability_policy": {
+    "allow_actual": true,
+    "allow_reconstructed_for_g2": false,
+    "require_actual_shadow_before_e3": true
+  },
+  "source_registry": {
+    "registry_id": "REQUIRED: frozen registry ID used by every eligible collection",
+    "sha256": "REQUIRED: lowercase 64-character frozen registry digest"
+  },
+  "risk_gate_profile": {
+    "profile_id": "REQUIRED: frozen paper risk-gate profile ID",
+    "digest": "REQUIRED: lowercase 64-character profile digest"
+  },
+  "data_eligibility": {
+    "required_g1_policy_id": "REQUIRED: passed frozen G1 policy ID",
+    "required_g1_report_sha256": "REQUIRED: lowercase SHA-256 of immutable PASS G1 report",
+    "require_g1_pass": true
+  },
+  "data_sources": [
+    {
+      "source_id": "SRC-BIN-FUT-WS",
+      "endpoint_or_channel": "REQUIRED: exact documented channels and capture window",
+      "schema_version": "binance-usdm-public-v1",
+      "instrument": "BTCUSDT",
+      "allowed_availability": "ACTUAL_ONLY"
+    }
+  ],
+  "episode_policy": {
+    "trigger": "REQUIRED: pre-specified extreme definition",
+    "decision_frequency_seconds": "REQUIRED: positive numeric value",
+    "max_holding_seconds": "REQUIRED: positive numeric value",
+    "overlap_policy": "REQUIRED: same/opposite direction handling"
+  },
+  "action_contract": {
+    "stages": ["ENTER_PROBE", "ADD_POSITION_CONFIRMED"],
+    "entry_policy": "REQUIRED: fixed entry rule",
+    "labels": ["TP", "SL", "STRUCTURE_EXIT", "TIMEOUT"],
+    "operational_overrides": ["RISK_KILL", "DATA_EXECUTION_HALT", "MANUAL_EMERGENCY"]
+  },
+  "label_policy": {
+    "barrier_rules": "REQUIRED: stage-specific TP/SL/structure/timeout barriers",
+    "same_timestamp_rule": "REQUIRED: deterministic TP/SL conflict rule",
+    "operational_override_rule": "REQUIRED: censoring rule"
+  },
+  "execution_priors": {
+    "latency_ms": "REQUIRED: non-negative numeric value",
+    "fee_rate": "REQUIRED: non-negative numeric value",
+    "funding_policy": "REQUIRED: source and accounting rule",
+    "cost_scenarios": ["REQUIRED: normal and stress scenario IDs"]
+  },
+  "evaluation_policy": {
+    "primary_metrics": ["REQUIRED: pre-specified metric"],
+    "min_effective_episodes": "REQUIRED: positive numeric value",
+    "calibration_rule": "REQUIRED: threshold and method",
+    "cost_after_utility_rule": "REQUIRED: pass/fail rule",
+    "confidence_interval_rule": "REQUIRED: interval and precision rule",
+    "concentration_limits": "REQUIRED: period/direction/trade concentration limits"
+  },
+  "state_coverage_policy": {
+    "classifier_id": "REQUIRED: predeclared state-classifier artifact ID",
+    "classifier_digest": "REQUIRED: lowercase SHA-256 of the frozen classifier/configuration",
+    "required_state_ids": ["REQUIRED: state ID one", "REQUIRED: state ID two"],
+    "min_effective_episodes_per_state": "REQUIRED: positive integer chosen before final labels/results",
+    "insufficient_coverage_result": "INCONCLUSIVE/WAIT_DATA"
+  },
+  "split_policy": {
+    "folds": "REQUIRED: positive integer",
+    "embargo_seconds": "REQUIRED: must be >= max_holding_seconds",
+    "training_calibration_policy": "REQUIRED: predeclared train/calibration/walk-forward boundary",
+    "final_holdout": {
+      "holdout_id": "REQUIRED: immutable one-time identifier",
+      "start": "REQUIRED: ISO-8601 UTC start",
+      "end": "REQUIRED: ISO-8601 UTC end",
+      "opened_at": null,
+      "reuse_policy": "ONE_TIME_ONLY"
+    }
+  },
+  "hypotheses": [
+    {
+      "hypothesis_id": "H-001",
+      "pass_condition": "REQUIRED: pre-specified evidence threshold",
+      "failure_condition": "REQUIRED: pre-specified stop/failure threshold"
+    }
+  ]
+}

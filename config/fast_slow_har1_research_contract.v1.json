@@ -1,0 +1,58 @@
+{
+  "contract_id": "FAST_SLOW_HAR1_RESEARCH_P0.v1",
+  "contract_sha256": "3b1f6f468f31d5803971d4b07b156c2171c85f5965d2c45021e01a25e9cfa8d7",
+  "contract_type": "STATIC_SYNTHETIC_INTERFACE_ONLY",
+  "data_and_execution": {
+    "data_acquisition": "DENIED",
+    "historical_result_read": "DENIED",
+    "paper_or_live_execution": "DENIED"
+  },
+  "fast_path": {
+    "input": "EXPLICIT_CLOSED_1M_BAR_FIXTURES_ONLY",
+    "properties": [
+      "DETERMINISTIC",
+      "NO_NETWORK",
+      "NO_AGENT_OR_MODEL_PROVIDER",
+      "NO_ORDER_OR_POSITION_INTERFACE",
+      "NO_RANDOMNESS"
+    ],
+    "supported_target_intervals": ["15m", "1h", "4h", "1d"],
+    "utc_interval_semantics": "HALF_OPEN"
+  },
+  "p0_scope": "STATIC_CONTRACT_AND_SYNTHETIC_INTERFACE_ONLY",
+  "route_binding": {
+    "decision_id": "SOL_FAST_SLOW_HAR1_RESEARCH_P0_STATIC_ROUTE.v1",
+    "decision_path": "config/sol_decision.fast-slow-har1-research-p0-static-route.v1.json",
+    "decision_sha256": "979ffbda9ff1493a91a8a91d62955413491cca3897cbed576433e94c195f2be7",
+    "physical_sha256": "dc34ae5949bb43bac90a867667a4bd911e92923a288ee938a508eab22c99eed8"
+  },
+  "schema_version": "fast-slow-har1-research-contract.v1",
+  "self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "separators": [",", ":"],
+      "sort_keys": true
+    },
+    "digest_field": "contract_sha256",
+    "domain_prefix_utf8": "msta-hed/fast-slow-har1-research-contract/v1",
+    "excluded_fields": ["/contract_sha256"],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_contract_sha256))"
+  },
+  "slow_context": {
+    "allowed_modes": ["OFF", "SHADOW"],
+    "availability_rule": "available_at_equals_maximum_consumed_evidence_available_at_and_validated_at",
+    "canonical_document_time_rule": "ALL_SNAPSHOT_AND_PROVENANCE_TIMESTAMPS_ARE_CANONICAL_UTC_Z",
+    "causal_time_rule": "max_evidence_available_at_lte_source_cutoff_at_lte_generated_at_lte_validated_at_lte_available_at_lt_expires_at",
+    "eligibility_rule": "available_at_lte_decision_at_lt_expires_at",
+    "hot_path_effect": "ZERO",
+    "minimum_provenance_fields": [
+      "source_owner", "source_url", "authority_grade", "published_at", "retrieved_at", "received_at",
+      "source_available_at", "observed_value", "unit", "methodology", "limitations", "content_sha256", "source_revision_id"
+    ],
+    "required_layers": ["facts", "inferences", "hypotheses", "unknowns", "conflicts", "provenance"],
+    "revision_rule": "NEW_VERSION_ONLY_NO_RETROACTIVE_CHANGE"
+  },
+  "status": "FROZEN_STATIC_P0_NO_DATA_NO_EXECUTION"
+}

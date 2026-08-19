@@ -1,0 +1,111 @@
+{
+  "schema_version": "pitar1-sd0-source-identity-terms-r2-measurement-contract.v1",
+  "contract_id": "PITAR1_SD0_SOURCE_IDENTITY_TERMS_R2_MEASUREMENT_CONTRACT.v1",
+  "namespace": "PITAR1SD0SITR2",
+  "stage": "R2_DRAFT_AND_OFFLINE_TEST_ONLY",
+  "activation_status": "DENIED_PENDING_INDEPENDENT_SOL_GATE",
+  "route_binding": {
+    "route_id": "RSR-PITAR1-SD0-SOURCE-IDENTITY-TERMS-R2-v1",
+    "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_SOURCE_IDENTITY_TERMS_R2_ROUTE.v1",
+    "decision_path": "config/sol_decision.research-system-pit-authority-replay-sd0-source-identity-terms-r2-route.v1.json",
+    "decision_physical_sha256": "8ef6022e737e0d5b3945c55f983cac3bd1557e9e7b5f87b8d079d735c282129e",
+    "decision_canonical_sha256": "bb1448a71983ffb080e85ec49b2e89f7940a72006e8e24ba7c01941644626f0b",
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "predecessor_negative_evidence": {
+    "run_id": "sd0-49211fafcb53408095ed4220f0b464f8",
+    "terminal_disposition": "HALT_PROTOCOL_VIOLATION",
+    "closure_report": {
+      "path": "artifacts/pit_authority_replay_sd0_closure_report.v1.json",
+      "physical_sha256": "14a92eebc44449678e977f9cb57838d306e2627caf38e63b39fc565bef502e2f"
+    },
+    "request_ledger": {
+      "path": ".runtime/pitar1-sd0-v1/receipts/requests.ndjson",
+      "physical_sha256": "ef50d386c54f7540acf0d9417391e29bc0a2cad606dd97d8d8a80482569d8cd8"
+    },
+    "response_header_ledger": {
+      "path": ".runtime/pitar1-sd0-v1/receipts/response_headers.ndjson",
+      "physical_sha256": "22d501419228dd43f5c91083023e3982694b14201fd1a53a723b954caadbacd0"
+    },
+    "fact_boundary": "The old floating-master LICENSE HEAD was HTTP 404. This is negative evidence only and cannot supply source identity or market-data terms."
+  },
+  "static_draft_paths": {
+    "measurement_contract_path": "config/pit_authority_replay.sd0_source_identity_terms_r2_measurement_contract.v1.json",
+    "request_plan_path": "config/pit_authority_replay.sd0_source_identity_terms_r2_request_plan.v1.json",
+    "client_path": "trade_system/pit_authority_replay_sd0_source_identity_terms_r2_metered_fetch_v1.py",
+    "test_path": "tests/test_pit_authority_replay_sd0_source_identity_terms_r2_metered_fetch_v1.py"
+  },
+  "reserved_runtime_root": ".runtime/pitar1-sd0-source-identity-terms-r2-v1",
+  "reserved_runtime_output_allowlist": [
+    "artifacts/pit_authority_replay_sd0_source_identity_terms_r2_preflight.v1.json",
+    ".runtime/pitar1-sd0-source-identity-terms-r2-v1/receipts/requests.ndjson",
+    ".runtime/pitar1-sd0-source-identity-terms-r2-v1/receipts/response_headers.ndjson",
+    ".runtime/pitar1-sd0-source-identity-terms-r2-v1/documents/official-repository-metadata.raw",
+    ".runtime/pitar1-sd0-source-identity-terms-r2-v1/documents/commit-or-blob-pinned-readme.raw",
+    ".runtime/pitar1-sd0-source-identity-terms-r2-v1/documents/official-data-portal.raw",
+    ".runtime/pitar1-sd0-source-identity-terms-r2-v1/documents/official-market-data-terms.raw",
+    ".runtime/pitar1-sd0-source-identity-terms-r2-v1/assessments/terms-scope-assessment.v1.json",
+    "artifacts/pit_authority_replay_sd0_source_identity_terms_r2_closure_report.v1.json",
+    "config/pit_authority_replay.sd0_source_identity_terms_r2_artifact_inventory.v1.json"
+  ],
+  "source_identity_required_fields": [
+    "official_repository_owner",
+    "official_repository_id",
+    "default_branch",
+    "commit_sha",
+    "tree_or_blob_sha",
+    "document_url",
+    "effective_url",
+    "body_sha256",
+    "body_bytes",
+    "retrieved_at_utc",
+    "response_validators"
+  ],
+  "terms_document_required_fields": [
+    "document_url",
+    "effective_url",
+    "redirect_chain",
+    "body_sha256",
+    "body_bytes",
+    "retrieved_at_utc",
+    "published_effective_or_revision_date",
+    "language",
+    "legal_entity",
+    "applicable_jurisdiction",
+    "document_scope"
+  ],
+  "intended_use_scopes": [
+    "AUTOMATED_DOWNLOAD_OF_EXACT_PUBLIC_MARKET_DATA_OBJECT",
+    "LOCAL_RESEARCH_RETENTION",
+    "INTERNAL_DERIVED_RESEARCH_ARTIFACTS",
+    "NO_REDISTRIBUTION_UNLESS_SEPARATELY_EXPLICITLY_ALLOWED"
+  ],
+  "scope_outcomes": ["EXPLICITLY_ALLOWED", "EXPLICITLY_PROHIBITED", "SILENT_OR_AMBIGUOUS", "NOT_APPLICABLE"],
+  "terms_rules": {
+    "repository_software_license_is_market_data_authority": false,
+    "silence_or_ambiguity_disposition": "WAIT_DATA_TERMS_D0_DENIED",
+    "conflict_disposition": "WAIT_DATA_TERMS_D0_DENIED_AND_REQUIRE_INDEPENDENT_REVIEW",
+    "no_self_acceptance": true,
+    "current_receipt_is_historical_available_at": false
+  },
+  "transport_observation_fields": [
+    "exact_url", "effective_url", "method", "status_code", "response_body_bytes", "response_header_bytes", "elapsed_monotonic_ns", "tls_validation_result", "proxy_endpoint", "redirect_chain", "response_body_sha256"
+  ],
+  "draft_prohibitions": [
+    "NO_NETWORK", "NO_RUNTIME_OUTPUT", "NO_DYNAMIC_URL_DISCOVERY", "NO_FALLBACK_FILENAME", "NO_COOKIE_OR_CREDENTIAL", "NO_CHECKSUM_OR_ARCHIVE", "NO_MARKET_ROW", "NO_SOURCE_ADAPTER_OR_REPLAY", "NO_PAPER_OR_LIVE", "NO_ACTIVE_G1_ACCESS"
+  ],
+  "failure_state_enum": ["WAIT_DATA_TERMS_D0_DENIED", "HALT_PROTOCOL_VIOLATION", "WAIT_DATA_SOURCE_IDENTITY_UNRESOLVED", "WAIT_DATA_PRODUCTION_ACTIVATION_DENIED"],
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "encoding": "UTF-8",
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [",", ":"],
+    "domain_prefix_utf8": "pitar1/sd0-source-identity-terms-r2-measurement-contract/v1",
+    "domain_separator_hex": "00",
+    "digest_field": "contract_sha256"
+  },
+  "contract_sha256": "b0773fd0481627c08dc749d4a091e5afe2d487b09708fd1a7612d58516fa6951"
+}

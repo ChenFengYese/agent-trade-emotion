@@ -1,0 +1,4 @@
+interface:
+  display_name: "Financial Market Analysis"
+  short_description: "Build source-grounded point-in-time market analysis"
+  default_prompt: "Use $analyze-financial-markets to analyze this market with point-in-time evidence and competing hypotheses."

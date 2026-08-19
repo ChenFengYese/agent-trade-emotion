@@ -1,0 +1,27 @@
+.runtime/
+# The active V3.2 authority is generated only after the committed workspace
+# has been frozen.  Ignore this exact runtime pointer; other config drift must
+# remain visible to the workspace verifier.
+config/theory_paper_v32.current_research_authority.v1.json
+.env
+.env.*
+!.env.example
+.venv/
+.DS_Store
+build/
+dist/
+coverage/
+htmlcov/
+.coverage
+*.egg-info/
+__pycache__/
+*.pyc
+
+# Durable experiment artifacts are versioned; ephemeral controller locks and
+# owner leases are never research evidence and must not enter commits.
+agent-cluster/experiments/**/*.lock
+agent-cluster/experiments/**/.v31-agent-owner-lease.json
+
+# Top-level Agent coordination records are transient owner state.  Keep the
+# coordination rules, but never freeze active work records into a commit.
+coordination/*--*.md

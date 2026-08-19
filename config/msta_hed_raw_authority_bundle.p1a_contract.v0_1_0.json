@@ -1,0 +1,320 @@
+{
+  "contract_id": "MSTA_HED_RAW_AUTHORITY_BUNDLE_P1A_CONTRACT.v0.1.0",
+  "contract_version": "0.1.0",
+  "stage": "V5-P1A",
+  "status": "DRAFT_AWAITING_SOL_P1A_GATE",
+  "implementation_authorized": false,
+  "io_authorized": false,
+  "market_or_outcome_access_authorized": false,
+  "created_at": "2026-07-26T00:00:00Z",
+  "authority_boundary": {
+    "allowed": [
+      "DESIGN_DOCUMENTS",
+      "STATIC_CONTRACT_ARTIFACTS",
+      "SYNTHETIC_FAIL_CLOSED_TESTS"
+    ],
+    "forbidden": [
+      "ACTIVE_G1_READ",
+      "ACTIVE_G1_MUTATION",
+      "SOURCE_ADAPTER_IMPLEMENTATION",
+      "SOURCE_ADAPTER_EXECUTION",
+      "NETWORK",
+      "FILESYSTEM_RUNTIME_IO",
+      "ENVIRONMENT_ACCESS",
+      "WALLCLOCK_ACCESS",
+      "RANDOMNESS",
+      "MARKET_DATA",
+      "OUTCOME_ACCESS",
+      "DOWNLOAD",
+      "BACKTEST",
+      "CALIBRATION",
+      "HOLDOUT",
+      "PAPER",
+      "LIVE",
+      "DEPLOYMENT",
+      "ACCOUNT_ACCESS",
+      "ORDER_SUBMISSION",
+      "TRADING"
+    ],
+    "v0_5_exact_carriers_modified": false,
+    "next_gate": "SOL_P1A_CONTRACT_DESIGN_GATE"
+  },
+  "canonicalization": {
+    "json": "UTF8_JSON_ENSURE_ASCII_TRUE_SORT_KEYS_TRUE_SEPARATORS_COMMA_COLON",
+    "digest": "LOWERCASE_SHA256_DOMAIN_SEPARATOR_NUL_CANONICAL_JSON",
+    "self_digest_rule": "EXCLUDE_ONLY_OWN_DIGEST_FIELD",
+    "timestamp": "UTC_Z_ONLY",
+    "decimal": "NONEMPTY_PLAIN_DECIMAL_STRING_NO_EXPONENT",
+    "unsafe_path": "REJECT_ABSOLUTE_PARENT_EMPTY_BACKSLASH_DEVICE"
+  },
+  "object_schemas": {
+    "SourceAuthoritySnapshotV1": {
+      "exact_fields": [
+        "schema_type",
+        "source_snapshot_id",
+        "source_id",
+        "source_generation_id",
+        "source_contract_id",
+        "source_contract_sha256",
+        "schema_version",
+        "capabilities",
+        "coverage_semantics",
+        "frozen_at",
+        "source_snapshot_digest"
+      ],
+      "digest_field": "source_snapshot_digest",
+      "domain": "msta-hed/source-authority-snapshot/v1"
+    },
+    "RawArtifactDescriptorV1": {
+      "exact_fields": [
+        "schema_type",
+        "artifact_id",
+        "source_snapshot_id",
+        "logical_path",
+        "content_sha256",
+        "byte_length",
+        "media_type",
+        "captured_at",
+        "artifact_digest"
+      ],
+      "digest_field": "artifact_digest",
+      "domain": "msta-hed/raw-artifact-descriptor/v1"
+    },
+    "RawRecordEnvelopeV1": {
+      "exact_fields": [
+        "schema_type",
+        "raw_record_id",
+        "logical_record_id",
+        "revision_id",
+        "revision_operation",
+        "predecessor_revision_id",
+        "revision_ordinal",
+        "revision_fork_id",
+        "source_generation_id",
+        "artifact_id",
+        "record_locator",
+        "event_at",
+        "published_at",
+        "received_at",
+        "available_at",
+        "availability_kind",
+        "reconstruction_basis",
+        "payload_sha256",
+        "raw_record_digest"
+      ],
+      "digest_field": "raw_record_digest",
+      "domain": "msta-hed/raw-record-envelope/v1"
+    },
+    "CoverageEventV1": {
+      "exact_fields": [
+        "schema_type",
+        "coverage_event_id",
+        "source_snapshot_id",
+        "source_generation_id",
+        "coverage_class",
+        "affected_scope",
+        "interval_start",
+        "interval_end",
+        "observed_at",
+        "observation_basis",
+        "sequence_proof_status",
+        "resolution_status",
+        "coverage_event_digest"
+      ],
+      "digest_field": "coverage_event_digest",
+      "domain": "msta-hed/coverage-event/v1"
+    },
+    "AdapterCursorV1": {
+      "exact_fields": [
+        "schema_type",
+        "cursor_id",
+        "source_snapshot_id",
+        "source_generation_id",
+        "stream_scope",
+        "cursor_token",
+        "cursor_ordinal",
+        "observed_at",
+        "predecessor_cursor_digest",
+        "cursor_digest"
+      ],
+      "digest_field": "cursor_digest",
+      "domain": "msta-hed/adapter-cursor/v1"
+    },
+    "AdapterReceiptV1": {
+      "exact_fields": [
+        "schema_type",
+        "adapter_receipt_id",
+        "request_id",
+        "source_snapshot_id",
+        "prior_cursor_digest",
+        "next_cursor_digest",
+        "input_payload_sha256",
+        "result_class",
+        "reason_code",
+        "record_digests",
+        "coverage_event_digests",
+        "idempotency_key",
+        "adapter_receipt_digest"
+      ],
+      "digest_field": "adapter_receipt_digest",
+      "domain": "msta-hed/adapter-receipt/v1"
+    },
+    "RawAuthorityBundleManifestV1": {
+      "exact_fields": [
+        "schema_type",
+        "bundle_id",
+        "lane",
+        "plan_id",
+        "registry_digest",
+        "evidence_root_id",
+        "source_snapshot_digest",
+        "artifact_digests",
+        "raw_record_digests",
+        "coverage_event_digests",
+        "cursor_digest",
+        "adapter_receipt_digest",
+        "created_at",
+        "bundle_digest"
+      ],
+      "digest_field": "bundle_digest",
+      "domain": "msta-hed/raw-authority-bundle/v1"
+    },
+    "RawAuthoritySealV1": {
+      "exact_fields": [
+        "schema_type",
+        "seal_id",
+        "seal_authority_id",
+        "external_tip_id",
+        "external_tip_digest",
+        "sealed_bundle_digest",
+        "sealed_at",
+        "expires_at",
+        "seal_signature_digest",
+        "seal_digest"
+      ],
+      "digest_field": "seal_digest",
+      "domain": "msta-hed/raw-authority-seal/v1"
+    },
+    "EvidenceAdmissionContextV1": {
+      "exact_fields": [
+        "schema_type",
+        "admission_context_id",
+        "v0_5_carrier_type",
+        "v0_5_carrier_digest",
+        "v0_5_result_digest",
+        "raw_record_digest",
+        "logical_record_id",
+        "revision_id",
+        "transform_id",
+        "transform_version",
+        "coverage_disposition",
+        "bundle_digest",
+        "seal_digest",
+        "expected_external_tip_digest",
+        "expires_at",
+        "decision_time",
+        "admission_status",
+        "reason_codes",
+        "admission_context_digest"
+      ],
+      "digest_field": "admission_context_digest",
+      "domain": "msta-hed/evidence-admission-context/v1"
+    }
+  },
+  "reference_direction": [
+    "CONTRACT_TO_SOURCE",
+    "SOURCE_TO_ARTIFACT_RECORD_COVERAGE",
+    "ARTIFACT_RECORD_COVERAGE_TO_CURSOR_RECEIPT",
+    "CURSOR_RECEIPT_TO_BUNDLE",
+    "BUNDLE_TO_EXTERNAL_SEAL",
+    "SEAL_TO_ADMISSION",
+    "ADMISSION_TO_UNCHANGED_V0_5_RESULT"
+  ],
+  "pit_and_revision_rules": {
+    "availability_kinds": ["ACTUAL", "RECONSTRUCTED"],
+    "actual_clock_rule": "EVENT_AND_PUBLICATION_IF_KNOWN_NOT_AFTER_AVAILABLE; RECEIVED_AT_LE_AVAILABLE_AT_LE_DECISION_TIME",
+    "reconstructed_rule": "RECONSTRUCTION_BASIS_REQUIRED_AND_NOT_ACTUAL_CONTEMPORANEOUS_ADMISSION",
+    "unknown_publication_rule": "PUBLISHED_AT_NULL_ONLY_NO_SUBSTITUTION",
+    "late_arrival_rule": "APPEND_ONLY_LATER_RECEIPT_OR_BUNDLE_NEVER_REWRITE_PREFIX",
+    "revision_operations": ["CORRECT", "CANCEL", "REORG_RETRACT", "REINSTATE"],
+    "revision_rule": "RAW_LOGICAL_REVISION_IDENTITIES_SEPARATE; EXACT_DUPLICATE_IDEMPOTENT; PREDECESSOR_AND_ORDINAL_REQUIRED_AFTER_GENESIS; GENERATION_RESET_REQUIRES_CURSOR_RESET_COVERAGE_EVENT"
+  },
+  "coverage_rules": {
+    "classes": [
+      "CONNECTIVITY_GAP",
+      "SOURCE_SEQUENCE_GAP",
+      "RECEIPT_LATENCY_BREACH",
+      "SCHEMA_REJECT",
+      "SOURCE_OUTAGE",
+      "RATE_LIMIT",
+      "CURSOR_RESET",
+      "ARTIFACT_INTEGRITY_FAILURE",
+      "COVERAGE_UNKNOWN"
+    ],
+    "silence_rule": "SILENCE_NEVER_IMPLIES_NO_TRADE_OR_ZERO_ACTIVITY",
+    "imputation": "FORBIDDEN",
+    "required_gap_admission": "FAIL_CLOSED"
+  },
+  "pure_adapter_boundary": {
+    "interface": "adapt(request, source_snapshot, prior_cursor_or_null, supplied_payload_bytes)->AdapterResultV1",
+    "forbidden_capabilities": ["FILESYSTEM", "NETWORK", "ENVIRONMENT", "WALLCLOCK", "RANDOM", "RETRY_LOOP", "GLOBAL_STATE"],
+    "empty_rule": "EMPTY_INPUT_BATCH_ONLY_NO_RECEIPT",
+    "nonempty_reject_rule": "FIRST_NONEMPTY_ALL_REJECT_INPUT_EMITS_TYPED_RECEIPT",
+    "result_classes": ["ACCEPTED", "REJECTED_PERMANENT", "REJECTED_RETRYABLE", "REJECTED_RESOURCE"],
+    "reason_codes": [
+      "MSTA_P1A_E_SCHEMA_EXACT",
+      "MSTA_P1A_E_DIGEST_INVALID",
+      "MSTA_P1A_E_DIGEST_CYCLE",
+      "MSTA_P1A_E_UNSAFE_PATH",
+      "MSTA_P1A_E_TIME_UTC_Z",
+      "MSTA_P1A_E_PIT_FUTURE",
+      "MSTA_P1A_E_PUBLICATION_UNKNOWN_SUBSTITUTED",
+      "MSTA_P1A_E_REVISION_INVALID",
+      "MSTA_P1A_E_EXACT_DUPLICATE_REPLAY",
+      "MSTA_P1A_E_GENERATION_RESET_REQUIRED",
+      "MSTA_P1A_E_COVERAGE_UNRESOLVED",
+      "MSTA_P1A_E_SILENCE_NOT_EVIDENCE",
+      "MSTA_P1A_E_CURSOR_INVALID",
+      "MSTA_P1A_E_IDEMPOTENCY_CONFLICT",
+      "MSTA_P1A_E_SOURCE_SCHEMA_INVALID",
+      "MSTA_P1A_E_SOURCE_RATE_LIMIT",
+      "MSTA_P1A_E_SOURCE_OUTAGE",
+      "MSTA_P1A_E_CAPABILITY_NOT_ALLOWLISTED",
+      "MSTA_P1A_E_ARTIFACT_HASH_MISMATCH",
+      "MSTA_P1A_E_SOURCE_AUTHORITY_MISMATCH",
+      "MSTA_P1A_E_EXTERNAL_SEAL_REQUIRED",
+      "MSTA_P1A_E_EXTERNAL_TIP_MISMATCH",
+      "MSTA_P1A_E_ADMISSION_EXPIRED",
+      "MSTA_P1A_E_LANE_ISOLATION",
+      "MSTA_P1A_E_ACTIVE_G1_FORBIDDEN"
+    ]
+  },
+  "seal_and_admission": {
+    "seal_rule": "EXTERNAL_SEAL_REQUIRED_FAIL_CLOSED_NO_SELF_ISSUED_BUNDLE_SEAL",
+    "admission_rule": "BIND_UNCHANGED_V0_5_CARRIER_RESULT_RAW_REVISION_TRANSFORM_COVERAGE_BUNDLE_SEAL_EXPECTED_TIP_EXPIRY",
+    "v0_5_exact_keys_addition": "FORBIDDEN",
+    "admission_statuses": ["ADMITTED", "REJECTED", "UNKNOWN"]
+  },
+  "lanes": {
+    "allowed": ["SYNTHETIC_CONTRACT", "METADATA_ONLY", "DEVELOPMENT", "CALIBRATION", "ONE_SHOT_HOLDOUT", "PAPER_SHADOW"],
+    "required_distinct_bindings": ["plan_id", "registry_digest", "evidence_root_id", "bundle_digest", "seal_digest"],
+    "seen_rule": "SEEN_INTERVAL_CANNOT_BE_RENAMED_OR_REUSED_AS_INDEPENDENT_HOLDOUT",
+    "active_g1": "FORBIDDEN_NOT_A_P1A_LANE"
+  },
+  "source_priority_plan": {
+    "p0_order": ["OFFICIAL_VENUE_DEPTH_TRADE", "OFFICIAL_MARK_FUNDING_OI", "OFFICIAL_VENUE_METADATA", "VERSIONED_MARKET_CONTEXT"],
+    "statement": "PLAN_ONLY_NOT_SOURCE_EVIDENCE_OR_HYPOTHESIS_SUPPORT"
+  },
+  "theory_test_plan": {
+    "order": ["H01", "H03", "H05", "H02", "H04", "H06", "H08", "H07"],
+    "statement": "FUTURE_PLAN_ONLY_NO_HYPOTHESIS_SUPPORTED"
+  },
+  "validation": {
+    "test_helper_status": "SYNTHETIC_REFERENCE_ONLY_NOT_RUNTIME",
+    "required_counterexamples": 12,
+    "market_validity_claim": "FORBIDDEN",
+    "runtime_readiness_claim": "FORBIDDEN",
+    "trading_authorization": "DENIED"
+  },
+  "contract_sha256": "53e8f13b72ef93f2ca0bdd1c26bc0fd934ebf283e7e4b39936a6c7ffc839c55d"
+}

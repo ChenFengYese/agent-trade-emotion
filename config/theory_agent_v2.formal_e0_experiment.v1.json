@@ -1,0 +1,118 @@
+{
+  "schema_id": "theory_agent_v2_formal_e0_experiment_contract",
+  "schema_version": "1.0.0",
+  "contract_id": "TA2-FORMAL-E0-20260731",
+  "frozen_before_first_generative_call": true,
+  "frozen_at": "2026-07-31T09:31:05Z",
+  "parent_theory_contract_sha256": "8442abe9bf94f358314221e2f97d8e94ce63aae8b560814c8f7f174da5c894b1",
+  "parent_canonical_manifest_digest": "e296d51105f32d3bb65b429ee0a0d6e3f4d6e0da3886c039711ea7a5ccc4e760",
+  "system_mode": "E0_OFFLINE_COUNTERFACTUAL",
+  "external_execution_authority": "NONE_E0",
+  "executable": false,
+  "data_contract": {
+    "source_owner": "BINANCE",
+    "product": "USD_M_FUTURES",
+    "symbol": "BTCUSDT",
+    "instrument_type": "PERPETUAL",
+    "server_time_endpoint": "https://fapi.binance.com/fapi/v1/time",
+    "kline_endpoint": "https://fapi.binance.com/fapi/v1/klines",
+    "base_interval": "1h",
+    "bar_alignment": "UTC_EPOCH",
+    "requested_closed_bar_count": 256,
+    "end_time_rule": "FLOOR_OFFICIAL_SERVER_TIME_TO_HOUR_MINUS_1_MILLISECOND",
+    "open_bar_disposition": "EXCLUDE",
+    "missing_value_disposition": "TYPED_UNKNOWN_NO_ZERO_FILL",
+    "future_data_disposition": "HARD_FAIL",
+    "source_response_storage": "WRITE_ONCE_EXACT_BYTES",
+    "derived_timeframes": [
+      "4h",
+      "1d"
+    ]
+  },
+  "sample_contract": {
+    "warmup_bar_count": 96,
+    "topology_selection_indices_inclusive": [
+      96,
+      127
+    ],
+    "policy_qualification_indices_inclusive": [
+      128,
+      159
+    ],
+    "formal_experiment_indices_inclusive": [
+      160,
+      191
+    ],
+    "outcome_horizons_hours": [
+      1,
+      4,
+      8,
+      24
+    ],
+    "selection_rule": "ALL_CONSECUTIVE_INDICES_NO_OUTCOME_BASED_FILTER",
+    "role_visible_history_rule": "ONLY_CLOSED_BARS_WITH_CLOSE_TIME_BEFORE_OR_EQUAL_DECISION_AT",
+    "paired_common_state_rule": "SAME_DETERMINISTIC_PRIOR_STATE_AND_MARKET_BYTES_PER_SESSION"
+  },
+  "topology_contract": {
+    "topology_ids": [
+      "SINGLE_STRONG",
+      "CLUSTER_POST_PROPOSAL",
+      "CLUSTER_BLIND"
+    ],
+    "minimum_complete_paired_sessions": 32,
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "provider_transport": "CODEX_EXEC_CHATGPT_LOGIN",
+    "cli_version_required": "codex-cli 0.146.0-alpha.3.1",
+    "calls_per_topology_limit": 3,
+    "total_token_limit_per_topology": 90000,
+    "timeout_seconds_per_call": 120,
+    "temperature": "PROVIDER_DEFAULT_UNEXPOSED",
+    "tool_policy": "NO_TOOLS",
+    "thread_policy": "EPHEMERAL_NO_RESUME",
+    "workspace_policy": "EMPTY_TEMP_DIRECTORY_READ_ONLY",
+    "input_equality": "BYTE_IDENTICAL_COMMON_CONTEXT",
+    "formal_output_requires_usage": true,
+    "synthetic_or_mock_disposition": "NOT_FORMAL_EVIDENCE"
+  },
+  "evaluation_contract": {
+    "topology_interval_method": "PAIRED_HOEFFDING_SCORE_RANGE_MINUS1_PLUS1",
+    "topology_interval_alpha": "0.05",
+    "dynamic_candidate_coverage_minimum_components": [
+      "PRIMARY",
+      "ALTERNATIVE",
+      "NULL",
+      "OTHER_OR_UNKNOWN"
+    ],
+    "material_challenge_categories": [
+      "STATE_CONTINUITY",
+      "TIME_SCALE_OVERREACH",
+      "EXIT_REENTRY_ASYMMETRY",
+      "UNKNOWN_COERCION",
+      "ACTION_SPACE_COLLAPSE",
+      "ROLE_OVERREACH"
+    ],
+    "action_quality_components": [
+      "SCHEMA_VALIDITY",
+      "PIT_VALIDITY",
+      "STATE_CONTINUITY",
+      "ACTION_FEASIBILITY",
+      "RISK_BUDGET_VALIDITY",
+      "REENTRY_SYMMETRY",
+      "OPPORTUNITY_COST_CONSIDERATION"
+    ],
+    "funding_status": "NOT_SIMULATED_UNLESS_SOURCE_FROZEN",
+    "unidentified_metric_disposition": "UNKNOWN_NOT_ZERO"
+  },
+  "advance_contract": {
+    "data_quality_required": "PASS",
+    "role_transport_contract_required": "PASS",
+    "topology_complete_pairs_required": 32,
+    "equal_model_input_budget_required": true,
+    "hard_safety_failures_allowed": 0,
+    "formal_experiment_creation_requires_prior_gates": true,
+    "second_round_101_percent_cost_instantiation_requires_behavior_and_economic_gate": true,
+    "gate_failure_disposition": "FREEZE_RESULT_NO_RULE_CHANGE"
+  },
+  "contract_digest": "92a3ef3cfb150e6f17bbc0ded71bdb5674531effab05990084e366397344ec3a"
+}

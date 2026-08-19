@@ -1,0 +1,66 @@
+{
+  "attestation_identity": {
+    "attestation_id": "RESEARCH_SYSTEM_P0_MATH_FINAL_ATTESTATION.v1",
+    "reviewer_role": "independent_mathematics_and_theory_reviewer",
+    "mode": "final_read_only_current_disk_attestation",
+    "attested_at": "2026-07-27T00:00:00Z",
+    "independence_statement": "No audit, dispute registry, changelog, market data, adapter, backtest, or Library/Application Support artifact was read."
+  },
+  "bound_inputs": [
+    {"path": "CORE_TRADING_THEORY_v2_1.md", "sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d"},
+    {"path": "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md", "sha256": "c7a5a3607936f4ac4ca05c9d8f05a32e06c0acccb7c5b36804a392e80911f348"},
+    {"path": "config/research_system.object_dictionary.v1.json", "sha256": "9a167daea7bf05d1022e65da40be5b87786139a9e0f74d52994cbc2fd4915fff"},
+    {"path": "config/research_system.hypothesis_validation_queue.v1.json", "sha256": "e76ab11983326ab53d209b6efd362deb91a00215a0c47b14d5930457c614b4cb"},
+    {"path": "config/research_system.measurement_contract.v1.json", "sha256": "2e8d162f9be5182fbe25fd4e5d0c96fd817edc010b92ac61aa03f991aac20651"},
+    {"path": "config/research_system.parameter_registry.v1.json", "sha256": "a5321385626f2acd67063fed1cf8138b400c5911265ad333aed4da3958ca2a26"},
+    {"path": "config/research_system.source_authority_registry.v1.json", "sha256": "693cc7361c16fb154df97bf2c58a1e68807f990dc976df949658e7ce635abb12"},
+    {"path": "config/research_system.stage_contract.v1.json", "sha256": "ab81251c0ea70e945d9ea7176e9cb59e7353477212dcf36a2d9e4424f944674b"},
+    {"path": "config/sol_decision.research-system-reconstruction.v1.json", "sha256": "2cf37e54989d3fd09846cacdbe622de26a4c0bd60e46cb0650f67b2827bf5586"}
+  ],
+  "attestation_checks": [
+    {
+      "check_id": "F-001-NO-REGRESSION",
+      "status": "CURRENT_CLOSED",
+      "evidence": "The six registry/stage artifacts each declare domain_prefix_utf8, domain_separator_hex=00 and the SHA-256 formula; the Sol decision declares the same semantic formula."
+    },
+    {
+      "check_id": "F-002-NO-REGRESSION",
+      "status": "CURRENT_CLOSED",
+      "evidence": "Challenger ER and RVOL totality clauses return typed UNKNOWN for zero/non-finite/ineligible inputs, and measurement global_rules.measurement_totality repeats the same downstream-blocking semantics."
+    },
+    {
+      "check_id": "F-003-NO-REGRESSION",
+      "status": "CURRENT_CLOSED",
+      "evidence": "EV defines R_j before execution-cost deduction; challenger q matches core v2.1 q with cost/tail per unit, same-unit quantity caps and UNKNOWN for unresolved dimensional conversion."
+    },
+    {
+      "check_id": "F-004-NO-REGRESSION",
+      "status": "CURRENT_CLOSED",
+      "evidence": "E0 forbids unregistered prior/weight, starts score at zero, uses registered frozen aggregator/caps/half-life and repeats those constraints in measurement global_rules.ordinal_aggregation."
+    },
+    {
+      "check_id": "F-005-CURRENT-STATUS",
+      "status": "DEFERRED_BLOCKING",
+      "evidence": "Natural-language hard falsifiers and expiry rules remain explicitly NOT_YET_EXECUTABLE_BLOCKS_D3_E2 until versioned observable/operator/threshold/clock/window/censoring/terminal predicates exist.",
+      "blocking_condition": "No per-hypothesis machine predicate implementation or independent fixture execution is established by this attestation."
+    },
+    {
+      "check_id": "O-001-EV-PROBABILITY-TOTALITY",
+      "status": "CURRENT_CLOSED",
+      "evidence": "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:561-564 now requires versioned mutually exclusive and exhaustive ActionOutcome, p_j>=0, sum_j p_j=1, retained OTHER/UNKNOWN residual, and returns EV_submit=UNKNOWN without partition proof, normalization or out-of-sample calibration. CORE_TRADING_THEORY_v2_1.md:1223 supplies the ActionOutcome vocabulary and equivalent numerical constraints; measurement global_rules.ev_outcome_partition states the identical gate."
+    }
+  ],
+  "cross_contract_consistency": {
+    "action_outcome_vocabulary": ["NO_FILL", "TP_FIRST", "SL_FIRST", "STRUCTURE_EXIT", "TIMEOUT"],
+    "residual_requirement": "OTHER/UNKNOWN must not be deleted from the EV eligibility route.",
+    "uncalibrated_ev": "UNKNOWN; interval stress testing may remain descriptive but cannot authorize action.",
+    "current_permission_boundary": "E0/P0 remains ABSTAIN with max_risk=0; no numeric EV or research geometry self-authorizes action."
+  },
+  "commands_and_exit_codes": [
+    {"command": "shasum -a 256 for nine bound inputs", "exit_code": 0, "result": "all bound hashes recorded"},
+    {"command": "rg targeted current-disk mathematical, outcome-partition and blocker terms", "exit_code": 0, "result": "all attested clauses located"},
+    {"command": "nl -ba targeted challenger and core sections", "exit_code": 0, "result": "equation and gate text inspected"}
+  ],
+  "maximum_positive_claim": "At the exact bound input identities, the E0 research-system mathematical contracts are internally consistent for the previously identified canonicalization, feature-totality, action-geometry, ordinal-aggregation and EV-probability-totality boundaries. They correctly fail closed where information, calibration, partition proof, unit closure or permission is absent. The remaining machine-predicate requirement is explicitly deferred and blocks D3/E2. This attestation is not market evidence, a backtest, calibration evidence, execution validation, profitability evidence or trading authorization.",
+  "canonical_self_digest": "d3bdb7fd854ad5fca7b5182938c74aa975b95d614d4d8e3455a39c41fae89387"
+}

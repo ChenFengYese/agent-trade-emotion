@@ -1,0 +1,20 @@
+{
+  "model_id": "baseline-five-factor-v1",
+  "required_sources": [
+    {
+      "source_id": "DATA-001",
+      "max_age_seconds": 3,
+      "missing_policy": "ABSTAIN"
+    },
+    {
+      "source_id": "DATA-002",
+      "max_age_seconds": 3,
+      "missing_policy": "ABSTAIN"
+    },
+    {
+      "source_id": "DATA-005",
+      "max_age_seconds": 120,
+      "missing_policy": "DISABLE_FEATURE"
+    }
+  ]
+}

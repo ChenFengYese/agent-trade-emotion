@@ -1,0 +1,923 @@
+{
+  "contract_id": "GENERALIZED_COMPETING_PATH_METHOD_CONTRACT.v0.5.0",
+  "contract_version": "0.5.0",
+  "stage": "V5-M00",
+  "status": "E0_NO_NEW_OUTCOME_ACCESS_SYNTHETIC_ONLY",
+  "created_at": "2026-07-26",
+  "theory_authority": {
+    "core_authority": {
+      "id": "CORE_TRADING_THEORY.v2.1",
+      "version": "2.1",
+      "path": "CORE_TRADING_THEORY_v2_1.md",
+      "raw_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d",
+      "size_bytes": 140126,
+      "status": "CURRENT_IMMUTABLE_AUTHORITY",
+      "root_mirror_path": "CORE_TRADING_THEORY.md"
+    },
+    "challenger": "GENERALIZED_COMPETING_PATH_THEORY_CHALLENGER_v0_5_0.md",
+    "v0_4_historical_only": true
+  },
+  "authority_boundary": {
+    "allowed": [
+      "NO_NEW_OUTCOME_ACCESS_THEORY_DESIGN",
+      "PURE_SYNTHETIC_HELPERS",
+      "STATIC_CONTRACT_VALIDATION"
+    ],
+    "forbidden": [
+      "ACTIVE_G1_MUTATION",
+      "REAL_MARKET_DATA",
+      "OUTCOME_ACCESS",
+      "B4",
+      "DOWNLOAD",
+      "SOURCE_ADAPTER",
+      "BACKTEST",
+      "CALIBRATION",
+      "HOLDOUT",
+      "PAPER",
+      "LIVE",
+      "TRADING_AUTHORIZATION"
+    ],
+    "general_theory_expands_v1_permission": false,
+    "next_gate": "AWAITING_SOL_V5_M00_REGATE"
+  },
+  "concept_separation": {
+    "ordered_kinds": [
+      "DATA_LAYER",
+      "STATE_AXIS",
+      "ANALYTICAL_PERSPECTIVE",
+      "MECHANISM_HYPOTHESIS",
+      "PATH",
+      "ACTION"
+    ],
+    "rule": "No kind is an alias for another. An anchor, event, state, perspective, mechanism, path, pattern or trigger never directly creates an action."
+  },
+  "object_schemas": {
+    "ObservationFrame": {
+      "exact_fields": [
+        "observation_frame_id",
+        "decision_time",
+        "available_at_cutoff",
+        "data_layers",
+        "quality_by_layer",
+        "missing_required",
+        "missing_optional",
+        "dependency_groups",
+        "provenance"
+      ],
+      "required_missing_action": "UNKNOWN",
+      "optional_missing_actions": [
+        "IGNORE_WITH_MISSING_FLAG",
+        "BLOCK_TARGET",
+        "UNKNOWN"
+      ],
+      "zero_imputation": "FORBIDDEN"
+    },
+    "MultiScaleStateBelief": {
+      "exact_fields": [
+        "state_belief_id",
+        "decision_time",
+        "ordered_role_profile_id",
+        "role_states",
+        "state_axes",
+        "uncertainty",
+        "unknown_reasons",
+        "provenance"
+      ]
+    },
+    "MechanismSpec": {
+      "exact_fields": [
+        "mechanism_id",
+        "required_evidence_types",
+        "optional_evidence_rules",
+        "support_rules",
+        "soft_contradictions",
+        "hard_falsifiers",
+        "expiry_rule",
+        "allowed_path_ids",
+        "dependence_group_policy",
+        "merge_equivalence_class"
+      ]
+    },
+    "PathSpec": {
+      "exact_fields": [
+        "path_id",
+        "primitive_mechanism_ids",
+        "milestone_vocabulary",
+        "observation_count_rule",
+        "event_time_stopping_rule",
+        "stopping_policy_id",
+        "frozen_horizon_seconds",
+        "path_event_schema_id",
+        "runtime_capacity_guard",
+        "required_partial_order_edges",
+        "optional_partial_order_edges",
+        "repeatable_milestones",
+        "skippable_milestones",
+        "horizon_rule",
+        "soft_contradictions",
+        "hard_falsifiers",
+        "expiry_rule",
+        "merge_equivalence_class"
+      ]
+    },
+    "PathEvent": {
+      "exact_fields": [
+        "path_event_id",
+        "path_instance_id",
+        "milestone",
+        "event_at",
+        "available_at",
+        "terminal_reason",
+        "terminal_trigger_id",
+        "source_version"
+      ]
+    },
+    "PathBeliefSet": {
+      "exact_fields": [
+        "belief_set_id",
+        "as_of",
+        "primitive_support_mode",
+        "primitive_support_by_mechanism",
+        "active_primitive_mechanism_ids",
+        "path_weight_mode",
+        "path_hypothesis_weights",
+        "competition_set",
+        "top_path_hypothesis_id",
+        "margin",
+        "entropy",
+        "other_disposition",
+        "unknown_reason",
+        "update_receipt_id"
+      ]
+    },
+    "ScenarioDistribution": {
+      "exact_fields": [
+        "distribution_id",
+        "as_of",
+        "mode",
+        "branches",
+        "values",
+        "normalization_status",
+        "calibration_version",
+        "unknown_reason"
+      ]
+    },
+    "ActionCandidate": {
+      "exact_fields": [
+        "candidate_id",
+        "as_of",
+        "action",
+        "side",
+        "entry_zone",
+        "stop",
+        "target",
+        "horizon",
+        "size",
+        "conservative_utility",
+        "reason_codes",
+        "scenario_distribution_id",
+        "scenario_distribution_digest",
+        "utility_receipt_id",
+        "utility_receipt_digest",
+        "permission_envelope_id",
+        "permission_envelope_digest",
+        "authority_version"
+      ]
+    },
+    "UtilityReceipt": {
+      "exact_fields": [
+        "utility_receipt_id",
+        "as_of",
+        "mode",
+        "scenario_distribution_id",
+        "scenario_distribution_digest",
+        "utility_by_scenario",
+        "stress_cost",
+        "tail",
+        "uncertainty_penalty",
+        "conservative_utility",
+        "authority_version",
+        "utility_receipt_digest"
+      ]
+    },
+    "PermissionEnvelope": {
+      "exact_fields": [
+        "envelope_id",
+        "as_of",
+        "permission_state",
+        "allowed_actions",
+        "max_risk",
+        "vetoes",
+        "authority_version"
+      ]
+    },
+    "UpdateReceipt": {
+      "exact_fields": [
+        "receipt_id",
+        "as_of",
+        "previous_belief_digest",
+        "observation_frame_id",
+        "accepted_evidence_ids",
+        "dependency_group_aggregates",
+        "rejected_evidence",
+        "updated_path_ids",
+        "new_belief_digest",
+        "previous_receipt_hash"
+      ]
+    },
+    "PatternInstance": {
+      "exact_fields": [
+        "pattern_instance_id",
+        "as_of",
+        "origin",
+        "instrument_id",
+        "time_range",
+        "truth_status",
+        "observed_sequence",
+        "observation_count",
+        "candidate_mechanism_ids",
+        "anchor_refs",
+        "outcome_visibility",
+        "not_for_holdout_selection",
+        "opportunity_universe_role",
+        "provenance"
+      ],
+      "opportunity_universe_role": "NONE_DIAGNOSTIC_ONLY",
+      "required_case_disposition": {
+        "origin": "USER_EXPERIENCE",
+        "instrument_id": "UNSPECIFIED",
+        "time_range": "UNSPECIFIED",
+        "truth_status": "ANECDOTAL_UNVERIFIED",
+        "outcome_visibility": "SEEN_NARRATIVE",
+        "not_for_holdout_selection": true
+      }
+    }
+  },
+  "finite_mechanism_library": {
+    "mechanism_ids": [
+      "CONTINUATION",
+      "ABSORPTION_REVERSAL",
+      "RANGE",
+      "LIQUIDATION_CASCADE_OR_LIQUIDITY_VACUUM",
+      "EVENT_REPRICING",
+      "ARTIFACT",
+      "OTHER"
+    ],
+    "other_required": true,
+    "runtime_or_llm_extension": "FORBIDDEN",
+    "mechanism_semantics": "NON_EXCLUSIVE_PRIMITIVE_MULTI_LABEL",
+    "primitive_support_normalization": "FORBIDDEN",
+    "coexistence_example": [
+      "EVENT_REPRICING",
+      "LIQUIDATION_CASCADE_OR_LIQUIDITY_VACUUM",
+      "CONTINUATION"
+    ],
+    "mechanism_roles": {
+      "MARKET_DYNAMICS": [
+        "CONTINUATION",
+        "ABSORPTION_REVERSAL",
+        "RANGE",
+        "LIQUIDATION_CASCADE_OR_LIQUIDITY_VACUUM",
+        "EVENT_REPRICING"
+      ],
+      "EPISTEMIC_DATA_QUALITY": [
+        "ARTIFACT"
+      ],
+      "RESIDUAL": [
+        "OTHER"
+      ]
+    },
+    "artifact_direct_utility_weight": "FORBIDDEN",
+    "truth_boundary": "Primitive support is an independent ordinal evidence state under the frozen information set, never a normalized mechanism probability or a claim that the real mechanism, participant identity or causal story is true.",
+    "volume_wick_rule": "A volume spike plus wick must remain compatible with at least CONTINUATION, ABSORPTION_REVERSAL, LIQUIDATION_CASCADE_OR_LIQUIDITY_VACUUM, ARTIFACT and OTHER until independent evidence changes support."
+  },
+  "evidence_contract": {
+    "exact_fields": [
+      "evidence_id",
+      "available_at",
+      "perspective_id",
+      "dependency_group",
+      "target_ids",
+      "direction",
+      "ordinal_strength",
+      "quality",
+      "source_version"
+    ],
+    "directions": [
+      "SUPPORT",
+      "SOFT_CONTRADICTION",
+      "HARD_FALSIFIER"
+    ],
+    "ordinal_strengths": [
+      "WEAK",
+      "MODERATE",
+      "STRONG"
+    ],
+    "valid_quality": "VALID",
+    "invalid_quality": [
+      "UNAVAILABLE",
+      "STALE",
+      "GAP",
+      "CONFLICT",
+      "DATA_INVALID",
+      "UNKNOWN"
+    ],
+    "dependency_group_rule": "Within one target and dependency_group, aggregate exactly one signed increment: greatest absolute ordinal increment, then lexicographically smallest evidence_id. The same underlying increment must never be counted twice. evidence_id is unique within the entire target-scoped batch, not merely within dependency_group; any duplicate evidence_id (same or conflicting payload, including SUPPORT plus HARD_FALSIFIER) rejects the relevant batch as UNKNOWN without support change.",
+    "validate_before_filter_rule": "Every row is exact-schema/type/enum/clock/quality/target validated before target filtering. If malformed target_ids prevents determining scope, every target-scoped aggregation fails closed as UNKNOWN without support change and records a rejection.",
+    "source_lineage_authority": {
+      "authority_id": "V5-M00-SYNTHETIC-EVIDENCE-LINEAGE-V1",
+      "mode": "SYNTHETIC_CANONICAL_PROJECTION_ONLY_NOT_RUNTIME_RAW_LINEAGE",
+      "evidence_id_prefix": "EVIDENCE-V5M00-",
+      "dependency_group_prefix": "DEPENDENCY-V5M00-",
+      "evidence_identity_fields": [
+        "available_at",
+        "perspective_id",
+        "dependency_group",
+        "target_ids",
+        "direction",
+        "ordinal_strength",
+        "quality",
+        "source_version"
+      ],
+      "underlying_increment_identity_fields": [
+        "available_at",
+        "source_version"
+      ],
+      "target_ids_canonicalization": "SORTED_UNIQUE_STRINGS",
+      "timestamp_canonicalization": "PARSE_TIMEZONE_AWARE_AND_RENDER_UTC_ISO8601_WITH_Z_BEFORE_IDENTITY_DIGEST",
+      "target_routing_identity_boundary": "target_ids is routing scope and participates in evidence_id but never raw-source underlying_increment_id. The E0 projection without a raw record identity is deliberately conservative.",
+      "allowed_perspective_ids": [
+        "PERSPECTIVE-SYNTHETIC-E0",
+        "PERSPECTIVE-SYNTHETIC-E0-ALT"
+      ],
+      "allowed_source_versions": [
+        "SYNTHETIC-SOURCE-V1"
+      ],
+      "digest_rule": "LOWERCASE_SHA256_OF_UTF8_CANONICAL_JSON_WITH_ENSURE_ASCII_TRUE_SORT_KEYS_TRUE_AND_SEPARATORS_COMMA_COLON",
+      "exact_carrier_limitation": "EvidenceEvent lacks raw source record identity and transform lineage. This synthetic authority is deliberately conservative and may merge distinct raw observations with identical admitted projections; it is not a runtime provenance claim.",
+      "future_runtime_requirement": "A separately frozen raw AuthorityBundle must bind exact contract_id, stage, source artifact/path/digest, raw record identity, transform identity/version and deterministic evidence/dependency/underlying identities before any runtime admission."
+    },
+    "causal_clock_rule": "Every evidence row must match the exact schema, have an aware available_at not later than decision_time, and use nonempty typed identity, target, perspective, dependency and source-version fields plus frozen enums.",
+    "rejected_evidence_rule": "Missing, malformed, naive or future available_at; schema/type/enum drift; and non-VALID quality never update support and are recorded in rejected_evidence. A batch with only rejected relevant evidence returns UNKNOWN.",
+    "qualitative_update_equation": "q_m(t)=clip(q_m(t-1)+sum_g A_g(delta_gm),-Q,Q), where A_g is the frozen one-increment dependency-group aggregator.",
+    "hard_falsifier_rule": "A valid HARD_FALSIFIER sets the current path instance and opportunity episode to FALSIFIED immediately; later SUPPORT in that episode cannot revive it or rewrite its receipt chain.",
+    "hard_falsifier_scope": "CURRENT_PATH_INSTANCE_AND_OPPORTUNITY_EPISODE_ONLY",
+    "new_episode_rule": "The mechanism remains registered. A new independent opportunity may instantiate it only from a new ObservationFrame with distinct nonempty episode_id and path_instance_id, ACTIVE support zero and an empty new receipt chain; same identity or old receipt-prefix reuse is forbidden and the old episode remains FALSIFIED.",
+    "expiry_rule": "An exact causally validated expiry becomes EXPIRED and the horizon is never extended. Missing, malformed or authority-uncertain expiry input remains nonterminal UNKNOWN; EXPIRED_OR_UNKNOWN has no V5-M00 synthetic transition source."
+  },
+  "evidence_ledger_contract": {
+    "receipt_schema_id": "EVIDENCE_LEDGER_RECEIPT_EXACT_V2",
+    "scope": "OPPORTUNITY_AND_PATH_INSTANCE_APPEND_ONLY",
+    "genesis_rule": "An empty chain is valid only for a registered mechanism in an exact nonempty scope with status ACTIVE and support 0. Reducer state starts with raw_support 0, no group winners, no admitted identities and tip GENESIS.",
+    "transition_kinds": [
+      "EVIDENCE_BATCH",
+      "LIFECYCLE_TERMINAL"
+    ],
+    "terminal_statuses": [
+      "FALSIFIED",
+      "EXPIRED",
+      "TERMINAL",
+      "EXPIRED_OR_UNKNOWN"
+    ],
+    "terminal_monotonicity": "A terminal state never returns to ACTIVE or UNKNOWN in the same opportunity/path instance. A later-arriving structurally valid terminal candidate may replace the stored terminal winner when its effective time and frozen semantic-priority rank is earlier. Under event-time semantics B, late ordinary evidence strictly before the winning cutoff may correct derived support without changing terminal class or authorizing action; ordinary evidence at or after cutoff is rejected.",
+    "terminal_derivation_rule": "At E0, FALSIFIED requires either an admitted HARD_FALSIFIER Evidence effect or a structurally valid complete PathEvent sequence whose last event is a predeclared HARD_FALSIFIER. EXPIRED and TERMINAL require a complete exact PathSpec-bound PathEvent sequence validated under the frozen earliest-stopping and exact-expiry rules. EXPIRED_OR_UNKNOWN has no V5-M00 synthetic transition source and cannot be caller-created. This proves synthetic structural derivability only; no external path-instance fact source is present.",
+    "terminal_winner_rule": "Terminal class is monotonic but terminal reason/status may be corrected by a later-arriving earlier structurally valid event. Lifecycle candidates use the last validated PathEvent.event_at; exact EXPIRY additionally requires event_at equal path_started_at plus requested_horizon_seconds. HARD_FALSIFIER Evidence lacks event_at at V5-M00 and therefore conservatively uses its canonical available_at. Winner rank is earliest aware UTC effective time, then frozen terminal reason priority, then stable method-bound terminal_authority_id. Carrier source digest and arbitrary PathEvent IDs never select between terminal reasons or synonymous carriers.",
+    "terminal_reason_priority": {
+      "HARD_FALSIFIER": 0,
+      "EXPIRY": 1,
+      "TERMINAL_MILESTONE": 2
+    },
+    "terminal_semantic_merge_rule": "Current terminal state stores a canonical semantic_terminal_id derived only from exact scope, target, terminal status, canonical terminal event time, frozen reason priority, reason code and stable method-bound authority ID. PathEvent IDs, lifecycle/evidence source digests and other carrier provenance remain receipt/effect audit data and never select a winner or change current state digest. Equal-rank synonymous carriers therefore merge to the same current winner; different reasons at one time still use frozen reason priority.",
+    "terminal_cutoff_compensation_rule": "Event-time semantics B: current derived state includes every valid ordinary dependency-group candidate with effective_at strictly earlier than the winning terminal cutoff, including late-arriving ordinary evidence admitted after terminal. Ordinary evidence at or after cutoff is rejected. When the winner changes, replay recomputes cutoff eligibility, underlying groups, group winners, raw support and clipped support from the complete supplied ledger while leaving prior receipt bytes unchanged. Terminal class never reactivates and late ordinary evidence never authorizes action. SUPPORT, SOFT_CONTRADICTION and HARD_FALSIFIER in one batch or any receipt segmentation converge under this rule; HARD_FALSIFIER remains a terminal candidate and ordinary rows are evaluated against the earliest winning cutoff.",
+    "lifecycle_fact_authority_boundary": "The complete PathSpec and PathEvents carrier is caller-provided synthetic input. Exact schema, method allowlist, episode scope/mechanism membership, causal clocks, stopping and expiry are validated, but V5-M00 has no independent path-instance event-log tip or external fact authority and does not prove that the terminal event occurred in a real source.",
+    "decision_time_chain_rule": "Every receipt decision_time is parsed as timezone-aware, rendered as canonical UTC ISO-8601 with Z, stored only in that canonical form and included in the receipt hash and idempotency key. Receipt decision_time is nondecreasing from genesis through the complete chain; equal instants and equivalent timezone inputs are allowed and canonicalize identically, while a regression fails closed at both append entry and reducer replay.",
+    "rejection_classes": [
+      "NONE",
+      "RETRYABLE_AT_LATER_DECISION_TIME",
+      "PERMANENT",
+      "RESOURCE_CAPACITY_REQUIRED"
+    ],
+    "rejection_retry_rule": "AVAILABLE_AT_FUTURE and lifecycle causally unavailable at the current decision time are RETRYABLE_AT_LATER_DECISION_TIME. The identical batch at the identical canonical decision time is a byte-identical no-op; at a later nondecreasing decision time it is rederived from current state. Exact schema, authority, identity drift, cutoff and other permanent rejections are not retried. COMPACT_REQUIRED_RECEIPT_CONTINUATION is RESOURCE_CAPACITY_REQUIRED and yields UNKNOWN_RESOURCE rejection, never a terminal effect.",
+    "idempotency_key_rule": "LOWERCASE_SHA256 of exact scope_digest, transition_kind, batch_digest, canonical decision_time and derived rejection_class. Rejection replay uses that complete key rather than batch_digest alone. An accepted exact lifecycle carrier replayed in the same canonical decision context is also a byte-identical no-op; an accepted Evidence replay retains the frozen evidence-identity audit rule.",
+    "identity_entry_exact_fields": [
+      "evidence_id",
+      "content_digest",
+      "underlying_increment_id",
+      "dependency_group"
+    ],
+    "lifecycle_identity_entry_exact_fields": [
+      "lifecycle_event_id",
+      "lifecycle_event_digest",
+      "semantic_terminal_id"
+    ],
+    "batch_member_exact_fields": [
+      "input_kind",
+      "typed_payload",
+      "member_digest"
+    ],
+    "batch_input_kinds": [
+      "EVIDENCE",
+      "LIFECYCLE_TERMINAL"
+    ],
+    "typed_payload_rule": "RECURSIVE_EXACT_TYPE_TAGGED_CANONICAL_VALUE_PRESERVING_DICT_LIST_TUPLE_STRING_BOOL_INT_FLOAT_NULL_AND_SORTING_DICT_KEYS",
+    "effect_exact_fields": [
+      "effect_kind",
+      "target_id",
+      "scope_digest",
+      "batch_digest",
+      "batch_member_digest",
+      "dependency_group",
+      "evidence_id",
+      "content_digest",
+      "underlying_increment_id",
+      "direction",
+      "signed_ordinal_delta",
+      "effective_at",
+      "terminal_status",
+      "terminal_event_at",
+      "terminal_source_digest",
+      "terminal_authority_id",
+      "semantic_terminal_id",
+      "reason_code",
+      "selected_evidence",
+      "effect_digest"
+    ],
+    "effect_kinds": [
+      "DEPENDENCY_GROUP_CANDIDATE",
+      "HARD_FALSIFIER",
+      "LIFECYCLE_TERMINAL",
+      "REJECTION"
+    ],
+    "group_winner_exact_fields": [
+      "dependency_group",
+      "evidence_id",
+      "content_digest",
+      "underlying_increment_id",
+      "direction",
+      "signed_ordinal_delta",
+      "effective_at"
+    ],
+    "terminal_winner_exact_fields": [
+      "terminal_status",
+      "terminal_event_at",
+      "terminal_authority_id",
+      "semantic_terminal_id",
+      "terminal_reason_priority",
+      "reason_code"
+    ],
+    "lifecycle_event_exact_fields": [
+      "lifecycle_event_id",
+      "target_id",
+      "scope_digest",
+      "terminal_reason",
+      "terminal_status",
+      "terminal_event_at",
+      "path_started_at",
+      "requested_horizon_seconds",
+      "path_spec",
+      "path_events",
+      "source_version",
+      "lifecycle_event_digest"
+    ],
+    "lifecycle_terminal_mapping": {
+      "EXPIRY": "EXPIRED",
+      "TERMINAL_MILESTONE": "TERMINAL",
+      "HARD_FALSIFIER": "FALSIFIED"
+    },
+    "lifecycle_source_version": "SYNTHETIC-PATH-LIFECYCLE-V2",
+    "lifecycle_event_id_rule": "LIFECYCLE-V5M00- plus lowercase SHA-256 of exact target, scope, terminal reason/status/event time, path start, requested horizon, complete PathSpec, complete ordered PathEvents and source version; lifecycle_event_digest then binds the complete carrier excluding only itself.",
+    "receipt_exact_fields": [
+      "receipt_id",
+      "receipt_schema_id",
+      "scope_digest",
+      "method_authority_id",
+      "method_authority_raw_sha256",
+      "previous_receipt_hash",
+      "expected_prefix_hash",
+      "decision_time",
+      "transition_kind",
+      "idempotency_key",
+      "rejection_class",
+      "canonical_batch",
+      "batch_digest",
+      "validated_effects",
+      "effects_digest",
+      "accepted_evidence_ids",
+      "rejected_evidence",
+      "admitted_identity_entries",
+      "admitted_lifecycle_identity_entries",
+      "group_winners_after",
+      "group_candidates_after",
+      "terminal_winner_after",
+      "raw_support_before",
+      "raw_support_after",
+      "status_before",
+      "status_after",
+      "support_before",
+      "support_after",
+      "state_before_digest",
+      "state_after_digest",
+      "receipt_hash"
+    ],
+    "receipt_hash_rule": "LOWERCASE_SHA256_OF_COMPLETE_EXACT_RECEIPT_CANONICAL_JSON_EXCLUDING_ONLY_receipt_hash. The receipt binds full pinned method contract ID/raw SHA-256, canonical decision time, idempotency key, rejection class, exact typed transition input, effects, evidence/lifecycle identity admissions, before/after state digests, sequential receipt ID and previous prefix hash.",
+    "batch_digest_rule": "LOWERCASE_SHA256_OF_THE_SORTED_EXACT_TYPE_TAGGED_CANONICAL_BATCH_MEMBERS; input order is not semantic and tuple/list or other pseudotype differences remain distinguishable.",
+    "effect_digest_rule": "Each effect digest is lowercase SHA-256 of its complete exact canonical object excluding only effect_digest. effects_digest is lowercase SHA-256 of the exact deterministically ordered validated_effects array.",
+    "transition_derivation_rule": "Reducer starts from authoritative genesis or the prior replayed state, re-decodes canonical_batch, revalidates Evidence or complete PathSpec-bound PathEvent lifecycle carriers against the pinned method authority, recomputes retry/permanent/resource rejection class, idempotency key, all candidate effects, accepted/rejected projections, evidence and lifecycle identity admissions, cutoff-eligible ordinary identities, group winners, earliest semantic terminal winner, raw/clipped support and status, then exact-compares every receipt declaration. Empty effects with no rejection are a byte-identical no-op; rejection-only transitions never change support.",
+    "group_winner_rule": "Across the complete opportunity ledger, each dependency_group has one winner chosen by greatest absolute signed ordinal delta then lexicographically smallest evidence_id. A stronger later candidate replaces the prior contribution by new_delta minus old_delta; a weaker candidate never lowers it. raw_support is the unclipped sum of current winners and support is clip(raw_support,-9,9).",
+    "batch_segmentation_invariant": "For ordinary evidence and HARD_FALSIFIER terminal candidates, one batch or any nondecreasing-decision-time sequential segmentation yields the same cutoff-eligible identities, terminal winner, group winners, raw_support, clipped support, status and current state digest. Same absolute opposite ordinary directions use the frozen evidence_id lexical tie break.",
+    "cross_receipt_identity_rule": "Replayed evidence_id or same-ID content drift is rejected. The same underlying_increment_id under a different dependency_group is rejected. A distinct authority-valid evidence_id with the same underlying_increment_id and same dependency_group may compete only as a replacement candidate and never creates an additive second group contribution.",
+    "idempotency_rule": "An empty transition is a byte-identical no-op. The first exact replay of already admitted Evidence appends one derived permanent rejection receipt; repeating the identical rejection context returns the byte-identical episode and receipt chain. Exact accepted lifecycle replay in the same canonical decision context is immediately byte-identical. Retryable causal rejection is idempotent only at the same canonical decision time and is rederived at a later nondecreasing decision time.",
+    "prefix_boundary": "E0 validates only the canonical chain supplied to the current pure call. A caller-supplied expected_tip_hash, when present, must equal the replayed tip before mutation. Without an external immutable tip or seal, E0 cannot detect cross-process suffix truncation, canonical full-chain replacement or a fork that is internally rehashed.",
+    "canonical_batch_boundary": "Effects are recomputed only from the exact typed canonical_batch stored in the receipt, so an effect absent from that batch fails. Without an external raw batch commitment and immutable tip, a caller can replace both the canonical batch and complete chain and recompute hashes; that future runtime boundary is not claimed closed.",
+    "raw_provenance_boundary": "The synthetic projection is not raw source/transform provenance. target_ids is routing identity rather than raw source identity. A future runtime AuthorityBundle must bind raw records, transforms, source artifacts and an external ledger tip/seal."
+  },
+  "belief_contract": {
+    "primitive_support_mode": "QUALITATIVE_E0_MULTI_LABEL",
+    "qualitative_values": [
+      "LEADING",
+      "SUPPORTED",
+      "WEAK",
+      "UNSUPPORTED",
+      "FALSIFIED",
+      "EXPIRED",
+      "UNKNOWN"
+    ],
+    "qualitative_probability_output": "FORBIDDEN",
+    "primitive_support_rule": "Each registered primitive q_m updates independently by the qualitative evidence equation. The vector is multi-label and is never normalized or required to sum to one.",
+    "primitive_probability_output": "FORBIDDEN_AT_V5_M00",
+    "path_weight_modes": [
+      "ABSENT_NO_VALID_COMPETITION_SET",
+      "CALIBRATED_COMPOUND_PATHS"
+    ],
+    "competition_set_exact_fields": [
+      "competition_set_id",
+      "path_hypothesis_ids",
+      "partition_proof_id",
+      "partition_proof_digest",
+      "partition_version",
+      "exhaustive",
+      "residual_path_id",
+      "calibration_version"
+    ],
+    "partition_proof_exact_fields": [
+      "partition_proof_id",
+      "partition_proof_digest",
+      "competition_set_id",
+      "path_registry_digest",
+      "partition_version",
+      "partition_domain_id",
+      "domain_values",
+      "path_hypothesis_ids",
+      "partition_cells",
+      "mutually_exclusive",
+      "exhaustive",
+      "residual_path_id",
+      "residual_domain_values",
+      "calibration_version",
+      "verification_scope"
+    ],
+    "partition_cell_exact_fields": [
+      "path_hypothesis_id",
+      "domain_values"
+    ],
+    "partition_proof_authority_exact_fields": [
+      "partition_proof_id",
+      "partition_proof_digest",
+      "competition_set_id",
+      "path_registry_digest",
+      "partition_version",
+      "partition_domain_id",
+      "domain_values",
+      "path_hypothesis_ids",
+      "residual_path_id",
+      "residual_domain_values",
+      "calibration_version",
+      "verification_scope"
+    ],
+    "partition_proof_authority_registry": [
+      {
+        "partition_proof_id": "PP-SYNTHETIC-COMPOUND-TERMINAL-V1",
+        "partition_proof_digest": "57c5886f18d7d4527b9d4a98e5bb8e38314f63ce75c94f15e70bcea31a5fa0b6",
+        "competition_set_id": "PCS-SYNTHETIC-001",
+        "path_registry_digest": "8ff84c801693037e904dae1d74c3a02aa4c11103dcb54bbeedc1e761aa17a664",
+        "partition_version": "1.0.0",
+        "partition_domain_id": "SYNTHETIC_COMPOUND_TERMINAL_CLASS_V1",
+        "domain_values": [
+          "EVENT_STRESS_CONTINUATION_TERMINAL",
+          "ABSORPTION_REVERSAL_TERMINAL",
+          "RANGE_TERMINAL",
+          "OTHER_OR_UNRESOLVED_TERMINAL"
+        ],
+        "path_hypothesis_ids": [
+          "PATH-GENERIC-COMPETING-001",
+          "PATH-ABSORPTION-REVERSAL-001",
+          "PATH-RANGE-001",
+          "OTHER_PATH"
+        ],
+        "residual_path_id": "OTHER_PATH",
+        "residual_domain_values": [
+          "OTHER_OR_UNRESOLVED_TERMINAL"
+        ],
+        "calibration_version": "SYNTHETIC-CAL-V1",
+        "verification_scope": "SYNTHETIC_FINITE_DOMAIN_PARTITION_ONLY_NOT_REAL_MARKET_MATHEMATICAL_PROOF"
+      }
+    ],
+    "partition_proof_digest_rule": "LOWERCASE_SHA256_OF_UTF8_CANONICAL_JSON_OF_THE_COMPLETE_EXACT_PROOF_OBJECT_EXCLUDING_ONLY_partition_proof_digest_WITH_ENSURE_ASCII_TRUE_SORT_KEYS_TRUE_AND_SEPARATORS_COMMA_COLON; every ordered domain/path/cell and all identity/version/boolean/residual/scope/path-registry fields are bound.",
+    "path_registry_digest_rule": "LOWERCASE_SHA256_OF_UTF8_JSON_DUMPS_ON_THE_EXACT_ORDERED_PATH_REGISTRY_ARRAY_WITH_ENSURE_ASCII_TRUE_SORT_KEYS_TRUE_AND_SEPARATORS_COMMA_COLON; rows have exact path_hypothesis_id, primitive_mechanism_ids, role fields and list order is significant.",
+    "partition_proof_registry_rule": "FINITE_PREDECLARED_CONTRACT_LOCAL_REGISTRY_ONLY; each proof binds one exact competition_set_id, exact recomputed path_registry_digest and ordered path_hypothesis_ids, must partition its frozen finite domain_values into one nonempty ordered cell per registered path, compute pairwise disjointness and full-union equality, and bind the residual path cell exactly to residual_domain_values=[OTHER_OR_UNRESOLVED_TERMINAL].",
+    "partition_proof_claim_boundary": "SYNTHETIC_FINITE_DOMAIN_PARTITION_EVIDENCE_NOT_A_REAL_MARKET_MATHEMATICAL_PROOF",
+    "competition_set_requirements": [
+      "NONEMPTY_COMPETITION_SET_ID",
+      "NONEMPTY_UNIQUE_REGISTERED_PATH_HYPOTHESIS_IDS",
+      "REGISTERED_PARTITION_PROOF_ID",
+      "EXACT_PARTITION_PROOF_CONTENT_DIGEST_MATCH",
+      "METHOD_AUTHORITY_ID_AND_DIGEST_ALLOWLIST_MATCH",
+      "EXACT_AUTHORITY_ELIGIBLE_PATH_AND_DOMAIN_SCOPE_MATCH",
+      "AT_LEAST_ONE_AUTHORIZED_MARKET_PATH_PLUS_RESIDUAL",
+      "EXACT_PROOF_COMPETITION_SET_ID_MATCH",
+      "EXACT_RECOMPUTED_PATH_REGISTRY_DIGEST_MATCH",
+      "EXACT_PARTITION_VERSION_MATCH",
+      "EXACT_PROOF_PATH_IDS_MATCH",
+      "PROOF_CELLS_DISJOINT_AND_DOMAIN_EXHAUSTIVE",
+      "PROOF_MUTUALLY_EXCLUSIVE_EXACT_BOOLEAN_TRUE",
+      "EXHAUSTIVE_EXACT_BOOLEAN_TRUE",
+      "RESIDUAL_PATH_ID_REGISTERED_INCLUDED_AND_MATCHES_PROOF",
+      "RESIDUAL_PATH_PRIMITIVES_EXACT_OTHER_ONLY",
+      "RESIDUAL_DOMAIN_VALUES_EXACT_OTHER_OR_UNRESOLVED_TERMINAL",
+      "OTHER_PRIMITIVE_FORBIDDEN_IN_MARKET_PATH",
+      "NO_MIXTURE_ELIGIBLE_PATH_CONTAINS_ARTIFACT",
+      "NONEMPTY_CALIBRATION_VERSION_MATCHES_PROOF"
+    ],
+    "path_calibrated_update_equation": "alpha_h(t)=alpha_h(t-1)*exp(delta_h)/sum_j_in_HC(alpha_j(t-1)*exp(delta_j)); only a valid compound PathHypothesis competition set H_C may be normalized.",
+    "path_weight_requirements": [
+      "VALID_COMPETITION_SET",
+      "FINITE_NON_BOOLEAN_WEIGHTS",
+      "EXACT_COMPETITION_SET_PATH_KEYS",
+      "EACH_WEIGHT_IN_0_1",
+      "SUM_EXACT_WITHIN_1E_12"
+    ],
+    "summary_fields": [
+      "active_primitive_mechanism_ids",
+      "top_path_hypothesis_id",
+      "margin",
+      "entropy",
+      "unknown_reason"
+    ],
+    "qualitative_margin": "UNKNOWN_UNCALIBRATED",
+    "qualitative_entropy": "UNKNOWN_UNCALIBRATED",
+    "no_valid_competition_set_rule": "path_hypothesis_weights is empty, top_path_hypothesis_id is UNKNOWN, and unknown_reason is UNKNOWN_NO_VALID_COMPETITION_SET.",
+    "all_weak_rule": "If every covered primitive or path is WEAK/UNSUPPORTED/UNKNOWN, disposition is OTHER_OR_UNKNOWN, never a forced named path.",
+    "tie_rule": "A tied valid competition-set top weight returns top_path_hypothesis_id=UNKNOWN."
+  },
+  "path_contract": {
+    "primitive_mechanism_ids_rule": "NONEMPTY_UNIQUE_SUBSET_OF_REGISTERED_PRIMITIVE_MECHANISMS",
+    "compound_template_registry": "FINITE_PREDECLARED_ONLY",
+    "runtime_power_set_or_cartesian_product": "FORBIDDEN",
+    "runtime_or_llm_compound_injection": "FORBIDDEN",
+    "qualifier_storage": "PREFER_PREDECLARED_MULTI_HOT_QUALIFIERS_OVER_TEMPLATE_DUPLICATION",
+    "canonical_dedup_key": "path_template_id + sorted primitive_mechanism_ids + scope",
+    "residual_path_required_for_competition": "OTHER_PATH_WITH_ROLE_RESIDUAL_PATH_AND_PRIMITIVE_MECHANISM_IDS_EXACT_OTHER_ONLY",
+    "normalized_mixture_artifact_rule": "Every market or residual path eligible for normalized weights must exclude ARTIFACT from primitive_mechanism_ids.",
+    "observation_count_rule": "VARIABLE_POSITIVE_COUNT_DETERMINED_BY_FROZEN_EVENT_TIME_STOPPING_OR_EXPIRY_NOT_BY_DAY_COUNT",
+    "path_event_schema_id": "PATH_EVENT_EXACT_V1",
+    "path_event_source_versions": [
+      "SYNTHETIC-PATH-EVENT-V1"
+    ],
+    "path_event_exact_fields": [
+      "path_event_id",
+      "path_instance_id",
+      "milestone",
+      "event_at",
+      "available_at",
+      "terminal_reason",
+      "terminal_trigger_id",
+      "source_version"
+    ],
+    "path_spec_authority_exact_fields": [
+      "path_id",
+      "path_spec_digest"
+    ],
+    "path_spec_authority_registry": [
+      {
+        "path_id": "PATH-GENERIC-COMPETING-001",
+        "path_spec_digest": "3b9579abfc05ff4f785b2012b2de65207ba29af3237908f2860f1dee342e4e1b"
+      }
+    ],
+    "path_spec_authority_rule": "FINITE_METHOD_CONTRACT_ALLOWLIST_ONLY. Before validating any PathEvent, recompute lowercase SHA-256 over the complete exact PathSpec canonical JSON with ensure_ascii=true, sort_keys=true and separators comma/colon, preserving every list order. Match path_id and digest against this independently loaded allowlist; a pending PathSpec cannot supply, amend or self-sign its authority digest.",
+    "causal_clock_rule": "event_at <= available_at <= decision_time; every timestamp is timezone-aware and every event_at is strictly increasing after path_started_at.",
+    "stopping_policy_id": "EARLIEST_OF_TERMINAL_EXPIRY_HARD_FALSIFIER_V1",
+    "stopping_rule": "The last and only terminal PathEvent must identify TERMINAL_MILESTONE, a predeclared HARD_FALSIFIER, or exact frozen EXPIRY. Events after the first terminal condition are invalid.",
+    "expiry_rule": "NO_EXTENSION; EXPIRY must occur exactly at path_started_at + requested_horizon_seconds and requested_horizon_seconds cannot exceed frozen_horizon_seconds.",
+    "forbidden_stopping_or_horizon_policies": [
+      "NEVER_STOP",
+      "FIXED_8_DAY"
+    ],
+    "required_supported_lengths": [
+      2,
+      8,
+      20
+    ],
+    "runtime_capacity_guard": {
+      "max_in_memory_observations": 256,
+      "semantic_boundary": "RESOURCE_ONLY_NOT_A_MARKET_PATH_LENGTH_OR_TERMINAL_RULE",
+      "overflow_disposition": "COMPACT_OR_CONTINUE_RECEIPT_ELSE_UNKNOWN_RESOURCE",
+      "forbidden_overflow_dispositions": [
+        "FALSIFIED",
+        "EXPIRED",
+        "TERMINAL"
+      ]
+    },
+    "ordering": "PARTIAL_ORDER",
+    "skip_rule": "Only milestones listed in skippable_milestones may be absent.",
+    "repeat_rule": "Only milestones listed in repeatable_milestones may repeat.",
+    "merge_rule": "Paths may merge only when their pre-outcome merge_equivalence_class is identical and nonempty.",
+    "late_event_rule": "A later event creates a new UpdateReceipt and never rewrites an earlier prefix receipt.",
+    "path_switch_rule": "A top-path switch updates belief only and cannot auto-reverse, auto-add or create a new opportunity."
+  },
+  "scenario_contract": {
+    "branches": [
+      "UPSIDE",
+      "DOWNSIDE",
+      "RANGE",
+      "UNRESOLVED"
+    ],
+    "mutually_exclusive": true,
+    "mechanism_or_qualifier_as_terminal": "FORBIDDEN",
+    "action_outcome_branches": [
+      "NO_FILL",
+      "TP_FIRST",
+      "SL_FIRST",
+      "STRUCTURE_EXIT",
+      "TIMEOUT"
+    ],
+    "action_outcome_separation": "ActionOutcome is submission-relative and separate from the mutually exclusive price ScenarioDistribution.",
+    "qualitative_mode": {
+      "mode": "QUALITATIVE_E0",
+      "allowed_values": [
+        "LEADING",
+        "SUPPORTED",
+        "WEAK",
+        "UNSUPPORTED",
+        "UNKNOWN"
+      ],
+      "normalization_status": "NOT_APPLICABLE_UNCALIBRATED",
+      "numeric_probability": "FORBIDDEN"
+    },
+    "synthetic_counterfactual_mode": {
+      "mode": "SYNTHETIC_COUNTERFACTUAL_ONLY",
+      "normalization_status": "NORMALIZED",
+      "calibration_version": "SYNTHETIC-CAL-V1",
+      "probability_rule": "Exact branch keys; finite non-boolean numbers in [0,1]; sum equals 1 within 1e-12.",
+      "action_authority": "NONE_COUNTERFACTUAL_MATH_ONLY"
+    },
+    "future_calibrated_probability_mode": "FORBIDDEN_AT_V5_M00_REQUIRES_SEPARATE_CALIBRATION_AUTHORITY",
+    "unknown_mode": {
+      "mode": "UNKNOWN",
+      "values": {},
+      "normalization_status": "UNKNOWN"
+    }
+  },
+  "evaluation_contract": {
+    "trigger_reasons": [
+      "SCHEDULED",
+      "STATE_CHANGE",
+      "EVENT_ARRIVAL",
+      "DATA_QUALITY_CHANGE",
+      "POSITION_RISK"
+    ],
+    "rsi_role": "OPTIONAL_TRIGGER",
+    "rsi_absent_rule": "SCHEDULED, STATE_CHANGE, EVENT_ARRIVAL, DATA_QUALITY_CHANGE and POSITION_RISK evaluations all still run when RSI is absent.",
+    "uncovered_feed_silence": "UNKNOWN",
+    "required_missing": "UNKNOWN",
+    "optional_missing": "APPLY_FROZEN_FIELD_RULE_NEVER_ZERO"
+  },
+  "ordered_role_profiles": {
+    "BTC_V1_ORDERED_ROLE_PROFILE": {
+      "instrument_scope": [
+        "BTCUSDT_BINANCE_USDM_V1"
+      ],
+      "ordered_roles": [
+        {
+          "timeframe": "1w",
+          "role": "RISK_BACKGROUND"
+        },
+        {
+          "timeframe": "1d",
+          "role": "STRUCTURAL_BACKGROUND"
+        },
+        {
+          "timeframe": "4h",
+          "role": "OPERATIONAL_REGIME"
+        },
+        {
+          "timeframe": "1h",
+          "role": "SETUP"
+        },
+        {
+          "timeframe": "15m",
+          "role": "EVALUATION_OR_OPTIONAL_TRIGGER"
+        }
+      ],
+      "cross_profile_reuse": "FORBIDDEN_WITHOUT_NEW_CONTRACT"
+    }
+  },
+  "four_layer_roles": {
+    "L1_CURRENT_PRESSURE_DATA": "Confirmation, veto, liquidity and execution risk only.",
+    "L2_MULTI_SCALE_STATE": "Structure, location, volatility and ordered role state.",
+    "L3_PAST_ONLY_ANALOG": "Past-only comparator or conditional challenger only.",
+    "L4_POINT_IN_TIME_EVENT": "Risk, conflict and general event-timing hypothesis only."
+  },
+  "action_contract": {
+    "new_risk_actions": [
+      "ABSTAIN"
+    ],
+    "v5_m00_forbidden_new_risk_action": "EVALUATE_NEW_RISK",
+    "permission_states": [
+      "DENY",
+      "UNKNOWN"
+    ],
+    "permission_envelope_rule": "EXACT_SCHEMA_AWARE_CAUSAL_AS_OF_ALLOWED_ACTIONS_EXACT_ABSTAIN_MAX_RISK_ZERO_NONEMPTY_VETOES_AUTHORITY_V5_M00_E0_NO_NEW_RISK",
+    "utility_receipt_rule": "CANONICAL_DIGEST_BINDS_COMPLETE_VALIDATED_SYNTHETIC_COUNTERFACTUAL_SCENARIO_DISTRIBUTION_ID_AND_DIGEST_UTILITY_VECTOR_COST_TAIL_UNCERTAINTY_AS_OF_AND_AUTHORITY; NEVER_ACTION_PERMISSION",
+    "raw_scenario_map_calibrated_bool_permission_string_or_utility_scalar": "FORBIDDEN",
+    "entry_zone_formula": "EntryZone=intersection(CausalStructuralZone,LiquidityFeasibleZone,RiskGeometryZone,VenueRuleZone).",
+    "empty_entry_zone_action": "ABSTAIN",
+    "permission_deny_or_unknown_action": "ABSTAIN",
+    "p0_conservative_utility_formula": "SYNTHETIC_COUNTERFACTUAL_ONLY receipt: LCB_U(a)=sum_s probability(s)*U(a,s)-Cost_stress(a)-Tail(a)-Penalty_uncertainty(a), using only an exact validated four-branch ScenarioDistribution; no action authority.",
+    "optional_future_path_conditioned_formula": "sum_h alpha_h*sum_s probability(s|h)*U(a,s)-Cost_stress-Tail-Penalty; forbidden unless alpha_h belongs to a valid compound PathHypothesis competition set.",
+    "primitive_support_as_mixture_weight": "FORBIDDEN",
+    "artifact_support_in_market_utility": "FORBIDDEN",
+    "artifact_path_direct_or_indirect_utility": "FORBIDDEN_FOR_MARKET_AND_RESIDUAL_PATHS",
+    "v5_m00_new_risk_action": "ALWAYS_ABSTAIN_EVEN_WITH_STRUCTURALLY_VALID_COUNTERFACTUAL_SCENARIO_UTILITY_AND_GEOMETRY",
+    "uncalibrated_action": "ABSTAIN",
+    "nonpositive_utility_action": "ABSTAIN",
+    "long_geometry": "stop < entry_zone.low <= entry_zone.high < target",
+    "short_geometry": "target < entry_zone.low <= entry_zone.high < stop",
+    "size_formula": "size=min(risk_budget/(abs(entry_reference-stop)+worst_cost_per_unit+tail_per_unit),liquidity_cap,venue_cap,margin_cap).",
+    "positive_capacity_rule": "risk_budget, liquidity_cap, venue_cap, margin_cap and final size must each be finite non-boolean and strictly greater than zero.",
+    "size_confidence_multiplier": "FORBIDDEN",
+    "horizon_rule": "Choose within the frozen selected-path range; never extend after entry."
+  },
+  "post_position_contract": {
+    "allowed_actions": [
+      "KEEP",
+      "TIGHTEN",
+      "REDUCE",
+      "EXIT"
+    ],
+    "forbidden_actions": [
+      "ADD",
+      "AUTO_REVERSE",
+      "WIDEN_STOP",
+      "EXTEND_HORIZON"
+    ],
+    "long_stop_rule": "updated_stop >= prior_stop",
+    "short_stop_rule": "updated_stop <= prior_stop",
+    "size_rule": "updated_size <= prior_size",
+    "long_target_rule": "updated_target <= prior_target",
+    "short_target_rule": "updated_target >= prior_target",
+    "horizon_rule": "updated_horizon <= prior_horizon",
+    "reverse_rule": "Opposite direction requires a new opportunity, EntryZone, risk budget and PermissionEnvelope."
+  },
+  "pattern_instance_contract": {
+    "case_id": "CASE-USER-EXPERIENCE-SHOCK-COMPRESSION-001",
+    "origin": "USER_EXPERIENCE",
+    "instrument_id": "UNSPECIFIED",
+    "time_range": "UNSPECIFIED",
+    "truth_status": "ANECDOTAL_UNVERIFIED",
+    "outcome_visibility": "SEEN_NARRATIVE",
+    "not_for_holdout_selection": true,
+    "role": "E0_ANECDOTAL_SEEN_CASE_DIAGNOSTIC_ONLY",
+    "candidate_field": "candidate_mechanism_ids",
+    "candidate_membership": "NONEMPTY_UNIQUE_EXACT_SUBSET_OF_FROZEN_MECHANISM_LIBRARY",
+    "known_result_adjusts_rules_or_synthetic_assertions": false,
+    "fixed_length": false,
+    "defines_opportunity_universe": false,
+    "provides_prior": false,
+    "development_role": "FORBIDDEN",
+    "calibration_role": "FORBIDDEN",
+    "defines_holdout": false,
+    "defines_market_support": false,
+    "defines_action": false
+  },
+  "future_validation_contract": {
+    "current_authorization": "FORBIDDEN",
+    "split": "WALK_FORWARD_WITH_POINT_IN_TIME_INPUTS",
+    "proper_scoring": [
+      "BRIER",
+      "LOG_SCORE",
+      "PREDECLARED_STRICTLY_PROPER_SCORE"
+    ],
+    "error_attribution": [
+      "DATA_AVAILABILITY",
+      "STATE",
+      "MECHANISM_LIBRARY",
+      "PATH_SPEC",
+      "DEPENDENCE",
+      "CALIBRATION",
+      "ACTION_GEOMETRY",
+      "COST_EXECUTION",
+      "PERMISSION_RISK"
+    ],
+    "theory_delta_rule": "One attribution class per new theory version; every opened window is permanently SEEN and cannot be reused as independent holdout."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "protocol-supersession-guard.v2",
+  "guard_id": "research-protocol-supersession.v2",
+  "status": "FROZEN_PROTOCOL_SUPERSESSION_GUARD",
+  "frozen_at": "2026-07-22T10:30:00Z",
+  "supersedes_guard": {
+    "guard_id": "research-protocol-supersession.v1",
+    "sha256": "81090942bba517a60f695f00604099f4b815d831bf39a57f943c58a064ce2160"
+  },
+  "superseded_protocols": [
+    {
+      "protocol_id": "btc-usdt-absorption-research-v1",
+      "preregistered_protocol_sha256": "4645fc18567e72c843e3e45d19cf0d5d0f72add025e17490d04f3ee282476d68",
+      "superseded_before_g1_pass": true,
+      "outcomes_inspected": false,
+      "holdout_opened": false,
+      "allowed_successor_id": "btc-usdt-absorption-research-v2",
+      "reason_code": "V1_REPLACED_BEFORE_G1_FOR_VERSIONED_COLLECTION_ADMISSION"
+    }
+  ],
+  "notice": "Frozen v2 lineage authority. It replaces the semantically ambiguous v1 guard while retaining that file as historical evidence; v1 was superseded before a G1 PASS, outcome inspection, or final-holdout opening."
+}

@@ -1,0 +1,32 @@
+{
+  "schema": "har1.source-contract.v1",
+  "route_physical_sha256": "a2fbc648ea89906da62bc821ecfc5af693b7572478d5908ad8e5fd0fce574c0c",
+  "route_canonical_sha256": "0cf2c13a4b0663b93b902a4cfd7e76fb340cb821c7ae507b1d6c28615b056c74",
+  "source": {
+    "venue": "BINANCE",
+    "product_family": "USD_M_FUTURES",
+    "instrument_id": "BTCUSDT",
+    "actor": "NATURAL_PERSON",
+    "jurisdiction": "JP",
+    "purpose": "INTERNAL_RESEARCH_AND_DERIVED_ANALYSIS",
+    "redistribution": "NOT_REQUESTED"
+  },
+  "terms_review": {
+    "status": "PENDING",
+    "permission_conclusion": "DENIED_PENDING_NEW_SOL_REVIEW",
+    "reason": "Preflight can collect source evidence only; it cannot establish terms permission."
+  },
+  "network_preflight": {
+    "authorized_only_after_parent_instruction": "execute preflight",
+    "request_count": 5,
+    "proxy": "http://127.0.0.1:7897",
+    "zip_get_or_body": "DENIED",
+    "market_row_read": "DENIED"
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "domain_prefix_utf8": "msta-hed/har1/source-contract/v1",
+    "digest_field": "source_contract_sha256"
+  },
+  "source_contract_sha256": "TO_BE_FILLED_BY_STATIC_FINALIZATION"
+}

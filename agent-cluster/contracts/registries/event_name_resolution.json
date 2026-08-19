@@ -1,0 +1,1 @@
+{"coexistence_policy":"WORK_ARTIFACT_AND_DOMAIN_TRANSITION_NAMES_MAY_COEXIST_ONLY_WHEN_TRIGGER_CLASS_AND_PAYLOAD_DIFFER","same_batch_commit_receipt_reference":"FORBIDDEN","unit_of_work_committed_phase":"POST_COMMIT_NOTIFICATION"}

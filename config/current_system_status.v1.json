@@ -1,0 +1,206 @@
+{
+  "schema_version": "current-system-status.v1",
+  "status_id": "CURRENT_SYSTEM_STATUS.v1",
+  "as_of_date": "2026-07-30",
+  "status": "VERSIONED_RESEARCH_BASELINE_WITH_ISOLATED_PAPER_EXPERIMENT",
+  "precedence": [
+    "This overlay is the current reader entrypoint and reconciles later decisions without rewriting hash-bound historical artifacts.",
+    "An exact gate controls only its declared lane; a pre-gate candidate header remains historical evidence, not the current acceptance result.",
+    "The independently user-authorized theory-paper lane is isolated from legacy research gates and never grants live-trading authority."
+  ],
+  "core": {
+    "current_id": "CORE_TRADING_THEORY.v2.1",
+    "current_status": "CURRENT_IMMUTABLE_AUTHORITY",
+    "authority_registry_path": "config/core_trading_theory.authority.v2_1.json",
+    "versioned_path": "CORE_TRADING_THEORY_v2_1.md",
+    "root_mirror_path": "CORE_TRADING_THEORY.md",
+    "raw_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d",
+    "size_bytes": 140126
+  },
+  "decision_timeline": {
+    "dynamic_hypothesis_graph_p0_1": {
+      "path": "config/sol_decision.research-system-dynamic-hypothesis-graph-p0_1-gate.v1.json",
+      "decision_state": "ACCEPT_P0_1",
+      "current_interpretation": "EXACT_BOUND_E0_PACKAGE_ACCEPTED_CORE_V2_1_UNCHANGED_NO_MARKET_PROOF"
+    },
+    "pit_authority_replay_e0": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-e0-gate.v1.json",
+      "decision_state": "ACCEPT_PITAR1_E0_CONTRACT_SD0_WAIT_DATA_D0_DENIED",
+      "current_interpretation": "EXACT_E0_CONTRACT_ACCEPTED_SOURCE_AND_D0_REMAIN_WAIT_DATA"
+    },
+    "sd0_r8": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r8-activation-route-completion.v1.json",
+      "decision_state": "ACCEPT_R8_EXACT_POST_PATCH_CALL_LAYER_ROUTE_AUTHORIZE_CAPABILITY_SCOPED_SD0_PREFLIGHT_AND_SEVEN_REQUESTS",
+      "activation_expired_at": "2026-07-29T17:21:36Z",
+      "current_interpretation": "HISTORICAL_TIME_BOUND_CAPABILITY_COMPLETION_OUTPUTS_MAY_NOW_EXIST_NO_D0_OR_MARKET_ROW_AUTHORITY"
+    },
+    "har1r4": {
+      "path": "har1r4/evidence/manifest.json",
+      "aggregate_outcome": "FAILURE",
+      "repository_state": "WAIT_DATA_SOURCE_CONTRACT_MISMATCH",
+      "terms_state": "WAIT_DATA_TERMS_D0_DENIED",
+      "legal_conclusion": false,
+      "current_interpretation": "SEALED_R4_REQUEST_RESULT_FAILED_NO_SOURCE_TERMS_OR_LEGAL_AUTHORITY"
+    },
+    "har1r5": {
+      "path": "config/sol_decision.har1r5-raw-license-candidate-route.v1.json",
+      "decision_state": "AUTHORIZE_HAR1R5_STATIC_GATE_ONLY_NO_NETWORK",
+      "current_interpretation": "STATIC_ROUTE_ONLY_NETWORK_ACTIVATION_DATA_BACKTEST_AND_TRADING_DENIED"
+    },
+    "active_g1": {
+      "path": "config/sol_decision.active-g1-plan-unreachable.v2.json",
+      "decision_state": "TERMINAL_WAIT_DATA_PLAN_UNREACHABLE",
+      "current_interpretation": "FROZEN_ACTIVE_G1_PLAN_PRESERVED_NO_BACKFILL_OR_RECOVERY_AUTHORITY"
+    },
+    "february_historical_diagnostic": {
+      "decision_path": "config/sol_decision.s0-009-r1-acquisition-gap-censoring.a2f1.json",
+      "decision_state": "FEB2025_TERMINAL_WAIT_DATA_NOT_SCORED",
+      "execution_gate": "HOLD_BEFORE_ANY_NEW_ACQUISITION_OR_SCORING",
+      "guard_path": "config/s0_009_february_terminal_seen_guard.a3e1.json",
+      "guard_status": "ACTIVE_FAIL_CLOSED",
+      "current_interpretation": "TERMINAL_SEEN_GUARD_REMAINS_ACTIVE_TEST_FIXTURES_MUST_NOT_WEAKEN_PRODUCTION"
+    }
+  },
+  "rsi_v0_2_2_lineage": {
+    "status": "IMMUTABLE_LEGACY_PACKAGE_REPRODUCIBLE_IN_ISOLATED_WORKSPACE",
+    "strategy_contract_path": "config/rsi_mtf_drl_pm.strategy_contract.v0_2_2.json",
+    "route_decision_path": "config/rsi_mtf_drl_pm.route_b_decision.v0_2_2.json",
+    "research_contract_path": "config/rsi_mtf_drl_pm.research_contract.v0_2.json",
+    "declared_core_path": "CORE_TRADING_THEORY.md",
+    "declared_core_raw_sha256": "06014b2f9e2665abef55e816616661951b35cb766ab9a49aadfad6841d7f822d",
+    "declared_core_size_bytes": 110738,
+    "archived_core_path": "archive/authority/CORE_TRADING_THEORY_v2_0.rsi-v0_2_2.md",
+    "archived_legacy_test_path": "archive/authority/tests/test_rsi_research_contract.v0_2.py",
+    "physical_research_contract_status": "REVIEW_READY",
+    "physical_research_contract_freeze_eligibility": "REJECT_FREEZE",
+    "current_route_status": "SOL_ROUTE_B_ADOPTED",
+    "current_route_phase": "AUTHORITY_BUNDLE_CONTRACT_DRAFTING",
+    "direct_ast_disposition": "HISTORICAL_REWORK_NON_AUTHORITY",
+    "immutable_contract_bytes_changed": false,
+    "validation_mode": "COPY_FROZEN_INPUTS_TO_ISOLATED_WORKSPACE_THEN_VALIDATE_BASELINE_BEFORE_TAMPER"
+  },
+  "runtime": {
+    "python_requires": ">=3.11,<3.14",
+    "primary_validation_runtime": "Python 3.12",
+    "dependency_policy": "STDLIB_FIRST"
+  },
+  "lane_boundaries": {
+    "legacy_hash_bound_research": {
+      "paper_authorized": false,
+      "live_trading_authorized": false,
+      "maximum_claim": "LOCAL_CONTRACT_SYNTHETIC_AND_RECORDED_OPERATIONAL_EVIDENCE_ONLY"
+    },
+    "new_theory_paper_experiment": {
+      "authority_basis": "EXPLICIT_USER_REQUEST_2026-07-30",
+      "scope": "ISOLATED_PUBLIC_DATA_PAPER_ONLY",
+      "paper_authorized": true,
+      "live_trading_authorized": false,
+      "profit_guaranteed": false,
+      "maximum_claim": "PRACTICE_EVIDENCE_FOR_HYPOTHESIS_SCORING_AND_METHOD_IMPROVEMENT_NOT_MARKET_TRUTH"
+    }
+  },
+  "release_contract": {
+    "source_of_truth": "VERSIONED_COMMIT_PLUS_THIS_VALIDATED_OVERLAY",
+    "full_suite_required": true,
+    "working_tree_snapshot_alone_is_release": false,
+    "historical_documents_rewritten_for_status_sync": false
+  },
+  "evidence_bindings": [
+    {
+      "role": "CORE_AUTHORITY_REGISTRY",
+      "path": "config/core_trading_theory.authority.v2_1.json",
+      "size_bytes": 299,
+      "sha256": "a3e174c616b176253f4aef2ce267a932d43f7e64db3490db815a27f007df12d4"
+    },
+    {
+      "role": "CORE_VERSIONED_BYTES",
+      "path": "CORE_TRADING_THEORY_v2_1.md",
+      "size_bytes": 140126,
+      "sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d"
+    },
+    {
+      "role": "CORE_ROOT_MIRROR_BYTES",
+      "path": "CORE_TRADING_THEORY.md",
+      "size_bytes": 140126,
+      "sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d"
+    },
+    {
+      "role": "DYNAMIC_HYPOTHESIS_GRAPH_P0_1_GATE",
+      "path": "config/sol_decision.research-system-dynamic-hypothesis-graph-p0_1-gate.v1.json",
+      "size_bytes": 27090,
+      "sha256": "c5a8e2a99d81c9b6729e5eb6c696e669c44fdba7af8c84ae9e743ff089edf446"
+    },
+    {
+      "role": "PIT_AUTHORITY_REPLAY_E0_GATE",
+      "path": "config/sol_decision.research-system-pit-authority-replay-e0-gate.v1.json",
+      "size_bytes": 27219,
+      "sha256": "7cdc9791742b837440281bf08f05be454ce1d23c0a7fdadd7bcb95dca01d9047"
+    },
+    {
+      "role": "SD0_R8_COMPLETION",
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r8-activation-route-completion.v1.json",
+      "size_bytes": 10687,
+      "sha256": "dbe9aa7633e6748c55fc026119c9a42f4d2b218dfd6a72107050eacdfdea2bf7"
+    },
+    {
+      "role": "HAR1R4_EVIDENCE_MANIFEST",
+      "path": "har1r4/evidence/manifest.json",
+      "size_bytes": 1872,
+      "sha256": "a6628b7d10141bb4107ba2b17c8918b0854ee2a02fc948af480ad470bf507ade"
+    },
+    {
+      "role": "HAR1R5_STATIC_ROUTE",
+      "path": "config/sol_decision.har1r5-raw-license-candidate-route.v1.json",
+      "size_bytes": 2978,
+      "sha256": "139131d3f0d06361f1acb6242d197ae07427afc1422bf88f446978ec1f28f00c"
+    },
+    {
+      "role": "ACTIVE_G1_TERMINAL",
+      "path": "config/sol_decision.active-g1-plan-unreachable.v2.json",
+      "size_bytes": 10768,
+      "sha256": "3417205afc38247bc8463ddd6e18cf54dffe51724571100a974f9572309127c8"
+    },
+    {
+      "role": "FEBRUARY_A2F1_TERMINAL_DECISION",
+      "path": "config/sol_decision.s0-009-r1-acquisition-gap-censoring.a2f1.json",
+      "size_bytes": 3873,
+      "sha256": "9ef2ca7d75ca714cb85a8afa76f1115c7ff37e0b520a6bc983736441c895095d"
+    },
+    {
+      "role": "FEBRUARY_TERMINAL_GUARD",
+      "path": "config/s0_009_february_terminal_seen_guard.a3e1.json",
+      "size_bytes": 2525,
+      "sha256": "5cdc23c6d0db3c84c89016920835265faba5c70f0c8520a1328b652029bd5e8a"
+    },
+    {
+      "role": "RSI_V0_2_2_STRATEGY_CONTRACT",
+      "path": "config/rsi_mtf_drl_pm.strategy_contract.v0_2_2.json",
+      "size_bytes": 23636,
+      "sha256": "26ab29e08968518a758a45ce872dd748543e59b93e2909b19e35052d2bdd4cdc"
+    },
+    {
+      "role": "RSI_V0_2_2_ROUTE_DECISION",
+      "path": "config/rsi_mtf_drl_pm.route_b_decision.v0_2_2.json",
+      "size_bytes": 9210,
+      "sha256": "631f8187e9eb81465718156736045c3ca5cc7ec5e33bbba7b063354cefeb792c"
+    },
+    {
+      "role": "RSI_V0_2_RESEARCH_CONTRACT",
+      "path": "config/rsi_mtf_drl_pm.research_contract.v0_2.json",
+      "size_bytes": 23206,
+      "sha256": "33d84ce8fdfa7766fbce340beac9916344655c002e39ed6c8db29cefaaa6b047"
+    },
+    {
+      "role": "RSI_V0_2_FROZEN_CORE",
+      "path": "archive/authority/CORE_TRADING_THEORY_v2_0.rsi-v0_2_2.md",
+      "size_bytes": 110738,
+      "sha256": "06014b2f9e2665abef55e816616661951b35cb766ab9a49aadfad6841d7f822d"
+    },
+    {
+      "role": "RSI_V0_2_FROZEN_LEGACY_TEST",
+      "path": "archive/authority/tests/test_rsi_research_contract.v0_2.py",
+      "size_bytes": 14270,
+      "sha256": "9bb86d8cce5c975f873e1a372a878356117519902c9c0aac220ee18a564e9e25"
+    }
+  ]
+}

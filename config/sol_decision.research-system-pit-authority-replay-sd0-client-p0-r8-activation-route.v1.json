@@ -1,0 +1,803 @@
+{
+  "schema_version": "sol-research-system-pit-authority-replay-sd0-client-p0-r8-activation-route-decision.v1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R8_ACTIVATION_ROUTE.v1",
+  "issued_at": "2026-07-28T16:27:27Z",
+  "issued_by": "GPT-5.6-SOL_ULTRA_R8_ACTIVATION_ROUTE_AUTHORIZATION",
+  "decision_state": "AUTHORIZE_TWO_FILE_R8_CALL_LAYER_ACTIVATION_ROUTE_KEEP_PRODUCTION_SUSPENDED_PENDING_EXTERNAL_SOL_COMPLETION",
+  "decision_class": "P0_R8_OFFLINE_ACTIVATION_ROUTE_IMPLEMENTATION_AUTHORIZATION_NO_CURRENT_EXECUTION_PERMISSION",
+  "evidence_level": "LOCAL_STATIC_AUTHORITY_AND_SOURCE_AUDIT_ONLY_NO_TEST_NO_PREFLIGHT_NO_NETWORK",
+  "decision_sha256": "6b6c7605a19e464de16db2507fb9389a2bd8a3da083ce79728f643985b7c813c",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "audited_at": "2026-07-28T16:27:27Z"
+  },
+  "workspace_storage_observation": {
+    "client_git_tracking_at_audit": "UNTRACKED",
+    "test_git_tracking_at_audit": "UNTRACKED",
+    "r7_completion_git_tracking_at_audit": "UNTRACKED",
+    "client_test_and_r7_completion_mode_at_audit": "0644_OWNER_WRITABLE",
+    "head_binding_effect": "The recorded HEAD identifies workspace context but does not content-bind these untracked files.",
+    "integrity_effect": "Their exact physical hashes remain valid candidate facts for this collaborative audit, but neither Git HEAD nor local file mode provides an immutable trust root against a malicious local writer.",
+    "route_consequence": "This observation reinforces the explicit accidental-activation threat model and forbids any claim that local hash checks alone resist a hostile local principal."
+  },
+  "authority_bindings": {
+    "accepted_r7_completion": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r7-gate-rebinding-completion.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R7_GATE_REBINDING_COMPLETION.v1",
+      "decision_state": "ACCEPT_GATE_REBOUND_CANDIDATE_KEEP_PRODUCTION_SUSPENDED",
+      "size_bytes": 16410,
+      "physical_sha256": "ae40e89edef9494f5167cbfa60f4c43457e7aac26513c5618f8c36b8e8ec96e2",
+      "canonical_sha256": "a8a091e1129f7b79eeee75bb51ae362d68af72b42c59a0d31b4c6521ec384c10",
+      "binding_result": "MATCH",
+      "effect": "The exact post-R7 client and test are accepted only as an offline gate-rebound candidate. Production remains suspended and automatic next permission remains NONE."
+    },
+    "r7_gate_rebinding_authorization": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r7-gate-rebinding.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R7_GATE_REBINDING.v1",
+      "decision_state": "AUTHORIZE_TWO_FILE_R7_GATE_REBINDING_KEEP_PRODUCTION_UNCONDITIONALLY_SUSPENDED_PENDING_FUTURE_SOL_FINAL_DECISION",
+      "size_bytes": 24580,
+      "physical_sha256": "a709e7f05d25d7fff2dd08730e1ca7caa16789de9b23801f419073fdd2565783",
+      "canonical_sha256": "c36327f4e67aee112b07e985ab71a49c40095cfe0a7ee32efd6a944abf10196f",
+      "binding_result": "MATCH",
+      "effect": "IMMUTABLE_AUTHENTICATED_PREDECESSOR"
+    },
+    "phased_route": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-d0-phased-route.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_D0_PHASED_ROUTE.v1",
+      "decision_state": "AUTHORIZED_METERED_SD0_CLOSURE_ROUTE_NETWORK_WAIT_D0_AND_LATER_GATES_LOCKED",
+      "size_bytes": 39834,
+      "physical_sha256": "776a7b69c2655dd76eb84ccab12b3fbac30aef6a81b0f6ebad27ab391b129ec0",
+      "canonical_sha256": "a777dc9411f638f1d3728f7f98f4ccbb64673f06b8f344dd3489efcdc5b79eeb",
+      "binding_result": "MATCH",
+      "effect": "FROZEN_SD0_ONLY_PERMISSION_CEILING"
+    },
+    "measurement_contract": {
+      "path": "config/pit_authority_replay.sd0_measurement_contract.v1.json",
+      "size_bytes": 17452,
+      "physical_sha256": "e2cd42a3930e0ede4d5d003742c2abdc76faa755ae86d20074c9d1f60f79e681",
+      "canonical_sha256": "4ed9f22451ede5c834c20e4f1786d344847166b646f9a1b17d2948e16c617a5b",
+      "binding_result": "MATCH",
+      "effect": "FROZEN_NO_CHANGE"
+    },
+    "request_plan": {
+      "path": "config/pit_authority_replay.sd0_request_plan.v1.json",
+      "plan_id": "PITAR1_SD0_EXACT_REQUEST_PLAN.v1",
+      "size_bytes": 4942,
+      "physical_sha256": "3f2f487f824643d870bb9d023e6d883e4c7d28bc9fb0bc769cb5d21253a7079c",
+      "canonical_sha256": "a334816cca1cbdf676e1b935a3404f5803d4ee892c25d2e1d7d34d3a02ea6fe7",
+      "binding_result": "MATCH",
+      "effect": "FROZEN_EXACT_SEVEN_REQUEST_CEILING_NO_ZIP_GET"
+    }
+  },
+  "authorized_input_pair": {
+    "client": {
+      "path": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 63411,
+      "physical_sha256": "be12b46da91ef0e0744db733d7022e79b303fdf6756228c9219ba2f40a1532c3",
+      "input_disposition": "EXACT_ACCEPTED_R7_GATE_REBOUND_CLIENT_PRODUCTION_SUSPENSION_REMAINS"
+    },
+    "test": {
+      "path": "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 95497,
+      "physical_sha256": "0c53a12a8dcf76edeeae0181844bb60d8b634a6fafcbbb491f5c8e18b5d8b79d",
+      "input_disposition": "EXACT_ACCEPTED_R7_OFFLINE_GATE_REGRESSION_BASE"
+    },
+    "exact_input_pair_sha256": "06c9b5d65f23be154598c458afca604a9262715048d61b074f31c728f8e95d00",
+    "pair_formula": "sha256(client_path_utf8 || 0x00 || client_physical_sha256_ascii || 0x00 || test_path_utf8 || 0x00 || test_physical_sha256_ascii)",
+    "binding_result": "MATCH",
+    "hard_rule": "The implementer must stop without editing if either input path, byte size, physical SHA-256, workspace, branch, or HEAD differs."
+  },
+  "scope_interpretation": {
+    "current_user_intent": "Choose and authorize the smallest fail-closed route that can be implemented and tested offline now, independently reviewed later, and only after a separate final Sol completion permit at most the existing SD0 production preflight and exact seven bounded requests.",
+    "authorization_now_means": "Only the exact current client and test may be modified and tested offline to implement the selected call-layer route. Every production entrypoint must remain suspended until an exact future external Sol completion is explicitly presented at the call boundary.",
+    "authorization_now_does_not_mean": [
+      "permission to run production preflight",
+      "permission to make any network request",
+      "permission to create a marker, resume file, capability file, or completion file",
+      "permission to fetch the ZIP body or any market row",
+      "permission to enter D0 or build an adapter, replay, dataset, backtest, paper, testnet, deployment, or trading path",
+      "permission to read or use Active G1",
+      "permission to install a dependency, provision a key, use Keychain, or create a signing service"
+    ],
+    "current_positive_effect": "A future implementer may create an offline-only two-file candidate that knows how to authenticate this R8 route, the accepted R7 completion, and a caller-supplied future Sol completion without pinning that future completion digest in source."
+  },
+  "authoritative_threat_model": {
+    "authoritative_scope": "PREVENT_ACCIDENTAL_PRODUCTION_ACTIVATION_AND_DETECT_NON_ADVERSARIAL_LOCAL_AUTHORITY_OR_SOURCE_DRIFT",
+    "trusted_components_and_principals": [
+      "The exact reviewed Python verifier and interpreter are assumed not to be maliciously rewritten during an activation session.",
+      "The external caller who receives the future Sol final report and explicitly supplies completion bytes plus the independently reported physical and canonical digests is a trusted authorization principal.",
+      "The operating-system process and exact resolved workspace root are assumed free of hostile debugger, memory-injection, and interpreter-replacement control during the bounded run."
+    ],
+    "covered_threats": [
+      "An ordinary caller invokes main, preflight, persist_ready, or execute without an explicit activation capability.",
+      "A stale, missing, malformed, duplicate-key, symlinked, nonregular, physically drifted, canonically drifted, wrong-id, wrong-state, or wrong-binding local authority is presented.",
+      "A caller accidentally supplies completion bytes without independently supplied expected physical and canonical digests.",
+      "A capability is absent, the wrong type, process-stale, root-stale, source-stale, decision-stale, or used outside its exact SD0 permission scope.",
+      "An implementer accidentally widens the request allowlist, request order, retry, concurrency, redirects, body caps, output paths, proxy policy, or stage boundary.",
+      "A test accidentally reaches a real TCP probe, socket, configured proxy, workspace preflight, workspace runtime, Active G1, market data, or trading action."
+    ],
+    "explicitly_out_of_scope": [
+      "A malicious local actor who can modify and execute the Python client or replace the interpreter.",
+      "A malicious local actor who can rewrite both local decision files and the code that verifies them.",
+      "A caller who intentionally fabricates completion bytes and matching expected digests and then invokes the private capability minting path.",
+      "OS-level compromise, debugger or runtime memory injection, monkeypatching in the production process, or hostile dependency replacement."
+    ],
+    "why_this_is_the_authoritative_scope": "The existing authority chain is unsigned local content-addressed JSON authenticated by hashes embedded in mutable Python source. It provides strong accidental-use and non-adversarial drift closure but no immutable or cryptographic external root that could distinguish a genuine Sol issuer from a malicious actor who controls both local code and local files.",
+    "no_false_security_claim": "The selected route is safe only for the covered accidental-activation and non-adversarial-drift model. It is not a security boundary against a hostile local principal with code execution and write access.",
+    "trusted_caller_handoff_semantics": "When the same trusted caller supplies both completion bytes and expected digests, the handoff proves explicit caller intent and exact-byte agreement; it does not cryptographically prove that Sol authored the bytes.",
+    "if_local_malicious_tampering_becomes_in_scope": {
+      "disposition": "STOP_BEFORE_ACTIVATION",
+      "minimum_new_authority_primitive_for_DECISION_FILE_TAMPERING_ONLY": "A stable verification public key anchored outside the writable decision set, a future Sol completion signed by the corresponding externally held private key, and an audited verifier that checks the signature before capability minting.",
+      "additional_primitive_for_CLIENT_TAMPERING": "An externally immutable launcher or verifier, signed immutable client artifact, execution isolation, or equivalent root that the same local actor cannot rewrite.",
+      "key_custody_boundary": "Any private signing key must remain external to this repository, client, tests, runtime outputs, Active G1, and this route. This decision does not authorize Keychain integration.",
+      "new_sol_decision_required": true
+    }
+  },
+  "route_options_comparison": [
+    {
+      "option": "A",
+      "name": "CALL_LAYER_EXPLICIT_PROCESS_LOCAL_CAPABILITY_PLUS_EXTERNAL_SOL_COMPLETION",
+      "mechanism": "After a future completion exists, a trusted caller explicitly supplies its raw bytes plus independently obtained expected physical and canonical digests. Strict validation mints an opaque process-local, root-bound capability that must be passed as a keyword-only argument to production entrypoints.",
+      "dependency_cost": "NONE_STANDARD_LIBRARY_ONLY",
+      "persistent_secret_or_state": false,
+      "circular_hash_risk": "NONE_IF_THE_CLIENT_DOES_NOT_PIN_THE_FUTURE_COMPLETION_DIGEST",
+      "accidental_activation_resistance": "HIGH_WITHIN_CURRENT_TRUST_MODEL",
+      "local_malicious_tamper_resistance": "NO",
+      "operational_complexity": "LOW",
+      "decision": "SELECTED",
+      "selection_reason": "It creates an explicit, auditable call boundary, preserves default suspension, needs no marker or secret lifecycle, and lets the future completion bind actual post-patch identities without requiring another client edit."
+    },
+    {
+      "option": "B",
+      "name": "PREDECLARED_ONE_TIME_CAPABILITY",
+      "mechanism": "Publish or precompute a token now and require it later, optionally attempting to mark it consumed.",
+      "dependency_cost": "LOW_CODE_BUT_REQUIRES_SECRET_OR_DURABLE_CONSUMPTION_STATE_TO_BE_MEANINGFUL",
+      "persistent_secret_or_state": true,
+      "circular_hash_risk": "LOW",
+      "accidental_activation_resistance": "WEAKER_THAN_A_BECAUSE_THE_PREDECLARED_VALUE_IS_VISIBLE_BEFORE_FINAL_REVIEW",
+      "local_malicious_tamper_resistance": "NO_WHEN_THE_TOKEN_IS_IN_LOCAL_SOURCE_OR_JSON",
+      "operational_complexity": "MEDIUM_DUE_TO_REPLAY_AND_CONSUMPTION_SEMANTICS",
+      "decision": "REJECTED",
+      "rejection_reason": "A public predeclared token is not a secret, does not prove future Sol completion, and cannot be honestly called one-time across processes without a marker, database, external service, or other durable authority that is outside this task."
+    },
+    {
+      "option": "C",
+      "name": "SIGNED_COMPLETION_WITH_KEY_OR_KEYCHAIN_MECHANISM",
+      "mechanism": "Pin a verification key and require a signature over the future completion and post-patch identities.",
+      "dependency_cost": "KEY_PROVISIONING_CUSTODY_ROTATION_REVOCATION_AND_AUDITED_SIGNATURE_VERIFICATION",
+      "persistent_secret_or_state": true,
+      "circular_hash_risk": "NONE_IF_ONLY_THE_PUBLIC_KEY_IS_PINNED_BEFORE_IMPLEMENTATION",
+      "accidental_activation_resistance": "HIGH",
+      "local_malicious_tamper_resistance": "PARTIAL_ONLY_UNLESS_THE_CLIENT_VERIFIER_IS_ALSO_IMMUTABLE",
+      "operational_complexity": "HIGHER_THAN_A",
+      "decision": "REJECTED_FOR_CURRENT_SCOPE",
+      "rejection_reason": "The authoritative scope is accidental activation and non-adversarial drift, so a signing system has no current net benefit relative to its custody and verifier complexity. No dependency, Keychain integration, or Active G1 coupling is justified. Reconsider only through a new Sol decision if the threat model expands."
+    }
+  ],
+  "selected_activation_route": {
+    "route_id": "PITAR1-SD0-R8-EXTERNAL-COMPLETION-CALL-CAPABILITY-v1",
+    "selected_option": "A",
+    "implementation_status_now": "NOT_IMPLEMENTED",
+    "activation_status_now": "SUSPENDED",
+    "capability_created_by_this_decision": false,
+    "completion_created_by_this_decision": false,
+    "automatic_resume": false,
+    "dynamic_completion_discovery": false,
+    "environment_or_cli_token_override": false,
+    "marker_or_resume_lookup": false,
+    "capability_form_after_future_completion": "OPAQUE_NON_SERIALIZABLE_PROCESS_LOCAL_ROOT_AND_SOURCE_BOUND_OBJECT",
+    "capability_transport": "EXPLICIT_KEYWORD_ONLY_CALL_ARGUMENT",
+    "capability_persistence": "FORBIDDEN",
+    "capability_string_or_path_form": "FORBIDDEN",
+    "capability_scope": [
+      "PRODUCTION_SD0_PREFLIGHT",
+      "PRODUCTION_SD0_EXACT_SEVEN_REQUEST_ROUTE"
+    ],
+    "capability_out_of_scope": [
+      "D0",
+      "MARKET_ROW_BODY",
+      "ARCHIVE_ZIP_GET",
+      "ADAPTER",
+      "REPLAY",
+      "DATASET",
+      "BACKTEST",
+      "PAPER",
+      "TESTNET",
+      "DEPLOYMENT",
+      "TRADING",
+      "ACTIVE_G1",
+      "CREDENTIALS",
+      "ACCOUNT",
+      "ORDER",
+      "FUNDS"
+    ],
+    "entrypoint_policy": {
+      "main": "May accept only an already minted capability as a keyword-only in-process argument; command-line strings, paths, environment values, and flags cannot construct one.",
+      "preflight": "Requires the exact valid capability before tests evidence, TCP probe, proxy interaction, or output creation.",
+      "persist_ready": "Requires the same exact valid capability and a ReadyPreflight bound to the same root, authority chain, completion, and source identities before output creation.",
+      "execute": "Requires the same exact valid capability and ready binding before opener construction or the first logical request."
+    },
+    "capability_lifecycle": {
+      "states": [
+        "MINTED",
+        "PREFLIGHT_STARTED",
+        "PREFLIGHT_READY",
+        "READY_PERSISTED",
+        "EXECUTION_STARTED",
+        "CONSUMED_OR_INVALIDATED"
+      ],
+      "mint_rule": "Within one process, the private registry must reject a second live or previously consumed capability for the same resolved root, R8 identity, completion physical digest, completion canonical digest, and post-patch pair.",
+      "preflight_rule": "The first preflight atomically changes MINTED to PREFLIGHT_STARTED before the injected or real TCP callback. A non-READY result or exception invalidates the capability; a READY result advances to PREFLIGHT_READY.",
+      "persist_rule": "persist_ready accepts only the same capability in PREFLIGHT_READY with its exact bound ReadyPreflight and atomically advances to READY_PERSISTED. Any mismatch or failure invalidates it.",
+      "execute_rule": "execute accepts only READY_PERSISTED, atomically advances to EXECUTION_STARTED before creating runtime outputs or constructing or calling an opener, and advances to CONSUMED_OR_INVALIDATED on every success or failure path.",
+      "main_rule": "main may inspect but must not advance the capability before delegating to preflight, persist_ready, and optional execute; the delegated entrypoints own the transitions.",
+      "reuse_rule": "A repeated, reordered, concurrent, or post-failure use of the same capability fails closed before callbacks or new outputs.",
+      "cross_process_limit": "No global or cross-process one-time guarantee is claimed because no durable consumption authority is authorized."
+    },
+    "production_callback_policy": {
+      "production_root_tcp_probe_injection": "FORBIDDEN",
+      "production_root_opener_injection": "FORBIDDEN",
+      "production_root_custom_transport_or_callback": "FORBIDDEN",
+      "required_production_tcp_probe": "EXISTING_BUILT_IN_EXACT_PROXY_PROBE_ONLY",
+      "required_production_opener": "EXISTING_StdlibProxyOpener_ONLY",
+      "temporary_root_offline_test_injection": "ALLOWED_ONLY_BY_THE_EXACT_TEST_CONTRACT",
+      "hard_rule": "A valid production capability paired with any caller-supplied TCP probe, opener, alternate root, custom proxy, transport, or callback fails closed before the callback is invoked or an output is created."
+    },
+    "activation_session_binding": {
+      "private_registry_lock": "REQUIRED_STANDARD_LIBRARY_THREAD_LOCK",
+      "bound_fields": [
+        "opaque capability object identity",
+        "resolved root path device and inode",
+        "process id",
+        "accepted R7 completion physical and canonical digests",
+        "R8 authorization physical and canonical digests",
+        "future completion raw-byte snapshot physical and canonical digests",
+        "future completion unique activation id and validity window",
+        "post-patch client and test physical identities and pair hash",
+        "exact permission vector",
+        "ReadyPreflight object identity, digest, and run_id after successful preflight"
+      ],
+      "stage_revalidation": "Before every production-stage transition, re-authenticate the local R7 completion and R8 bytes, recompute client and test identities, revalidate the stored completion snapshot and time window, and compare the exact private registry binding.",
+      "ready_context_rule": "The internal READY context must bind the activation session, completion identities, capability object identity, and generated run_id. No new persisted preflight field is authorized because the frozen measurement contract has an exact field set.",
+      "decision_or_source_swap_rule": "Any authority, completion, client, test, root, READY, run_id, permission, or time-window drift between mint, preflight, persist_ready, and execute invalidates the session before the next callback or output."
+    },
+    "default_and_failure_behavior": "Absent, malformed, forged, copied, stale, wrong-root, wrong-process, wrong-source, wrong-completion, wrong-permission, or already-invalidated capability raises WAIT_DATA_NO_FALLBACK before callbacks, sockets, or outputs.",
+    "positive_permission_ceiling": "After an exact future Sol completion and explicit successful capability minting, at most one bounded SD0 production flow using the frozen preflight and existing seven-request client path is eligible. Existing create-once, stop-on-first-failure, no-overwrite, retry-zero, redirect-zero, concurrency-one, timeout, byte, disk, and cost guards remain mandatory.",
+    "no_global_one_time_claim": "The capability is process-local and must not be described as globally one-time. Cross-process one-time enforcement would require durable external state that this decision does not authorize."
+  },
+  "anti_circular_hash_contract": {
+    "r8_contains_future_client_hash": false,
+    "r8_contains_future_test_hash": false,
+    "r8_contains_future_completion_hash": false,
+    "r8_predicts_post_patch_pair_hash": false,
+    "r8_binds_only_exact_pre_change_inputs": true,
+    "required_one_way_binding_graph": [
+      "This R8 authorization binds the exact accepted R7 client and test inputs.",
+      "The post-patch client hard-pins the externally measured path, physical SHA-256, canonical SHA-256, decision id, and decision state of this already-issued R8 authorization and the already-issued R7 completion.",
+      "A future Sol completion binds this R8 authorization and the actual measured post-patch client and test paths, sizes, physical hashes, and pair hash.",
+      "The post-patch client does not pin or predict the future completion physical or canonical digest.",
+      "At actual invocation, the trusted external caller supplies the exact future completion raw bytes and the physical and canonical digests published by the final Sol review.",
+      "The client validates those explicit inputs, its own current identity, the test identity, the R8 chain, and the permission ceiling before minting the in-memory capability."
+    ],
+    "cycle_absence_explanation": "The source hash is an input to the future completion, but the future completion hash is not an input to the source file. The completion is authenticated at the call boundary by externally supplied expected digests, so no post-completion client patch is required.",
+    "forbidden_cycle_creators": [
+      "Adding the future completion digest to client source after final review",
+      "Adding a predicted post-patch client or test digest to this R8 decision",
+      "Making the completion path or digest discoverable through an environment variable, directory scan, latest-file rule, marker, resume file, or mutable configuration",
+      "Treating the completion document's self-reported digest by itself as external authentication"
+    ],
+    "hard_rule": "Any implementation that requires changing the client after the future completion binds the post-patch client is outside this authorization and must return to Sol."
+  },
+  "external_sol_completion_contract": {
+    "completion_status_now": "DOES_NOT_EXIST_NOT_AUTHORIZED_TO_CREATE_IN_THIS_TURN",
+    "future_schema_version": "sol-research-system-pit-authority-replay-sd0-client-p0-r8-activation-route-completion-decision.v1",
+    "future_decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R8_ACTIVATION_ROUTE_COMPLETION.v1",
+    "sole_accept_state": "ACCEPT_R8_EXACT_POST_PATCH_CALL_LAYER_ROUTE_AUTHORIZE_CAPABILITY_SCOPED_SD0_PREFLIGHT_AND_SEVEN_REQUESTS",
+    "reject_state": "REJECT_R8_ROUTE_KEEP_PRODUCTION_SUSPENDED",
+    "required_external_call_inputs": [
+      "completion_raw_bytes",
+      "expected_completion_physical_sha256",
+      "expected_completion_canonical_sha256",
+      "exact_resolved_repository_root"
+    ],
+    "digest_authority_rule": "The expected physical and canonical digests must be explicit values obtained from the future Sol final report by the trusted caller. They must not be read from the completion itself, inferred from a path, discovered dynamically, supplied through the environment, or defaulted.",
+    "issuer_field_semantics": "schema_version, decision_id, issued_by, and issuer-like fields are authenticated content only after the trusted caller supplies the external expected digests. Their names or self-reported values alone are metadata, not cryptographic proof of Sol identity.",
+    "required_completion_control_fields": {
+      "unique_activation_id": "PITAR1-SD0-R8-ACT-[0-9a-f]{32}",
+      "not_before_utc": "REQUIRED_RFC3339_UTC",
+      "expires_at_utc": "REQUIRED_RFC3339_UTC_STRICTLY_AFTER_NOT_BEFORE",
+      "maximum_validity_window_seconds": 86400,
+      "clock_rule": "Capability minting requires not_before_utc <= current UTC < expires_at_utc. The remaining lifetime is converted to a process-local monotonic deadline, which every later stage must check.",
+      "replay_scope": "The same activation id and completion digest tuple may mint at most one session per process. No cross-process replay claim is made."
+    },
+    "required_validation_order": [
+      "Authenticate the full existing R3-through-R7 chain, the exact accepted R7 completion, and this exact R8 authorization before considering completion bytes.",
+      "Require all external call inputs as explicit keyword-only values and reject missing, non-string, non-lowercase-hex, or extra authority inputs.",
+      "Hash the raw completion bytes and compare to the externally supplied expected physical SHA-256 before JSON parsing or field reliance.",
+      "Parse strict UTF-8 JSON with duplicate-key rejection, finite-number enforcement, exact top-level type, and no trailing or alternate document.",
+      "Recompute the domain-separated canonical digest after removing only decision_sha256 and compare it both to decision_sha256 and the externally supplied expected canonical SHA-256.",
+      "Authenticate the exact future schema version, decision id, sole accept state, workspace, branch, HEAD, R8 predecessor binding, frozen route, measurement contract, and request plan bindings.",
+      "Authenticate the unique activation id, validity-window syntax and ordering, maximum 86400-second window, current UTC eligibility, and process-local monotonic expiry.",
+      "Authenticate the future completion's exact post-patch client and test paths, sizes, physical hashes, pair hash, and pair formula against files read without symlink following from the exact resolved root.",
+      "Authenticate the required independent implementation review, exact offline test facts, zero-network boundary, output-absence boundary, and permission matrix.",
+      "Recompute the current client and test identities immediately before minting and bind them, the root device and inode, process id, R8 identity, completion physical digest, completion canonical digest, and exact permission vector into a private in-process registry entry.",
+      "Return only an opaque capability object whose validity is established by object identity plus the private registry entry. Do not return a string, digest, path, boolean, mapping, or serializable token."
+    ],
+    "required_completion_bindings": [
+      "This exact R8 authorization path, physical SHA-256 measured after issuance, canonical SHA-256, decision id, and decision state",
+      "The exact actual post-patch client path, size, and physical SHA-256",
+      "The exact actual post-patch test path, size, and physical SHA-256",
+      "The exact post-patch pair SHA-256 using the frozen pair formula",
+      "The exact frozen phased route, measurement contract, and request plan physical and canonical identities",
+      "The exact existing preflight and eight runtime output paths, create-once and no-overwrite semantics, and prohibition on every alternate output",
+      "The final reviewed call-layer API and capability validation invariants",
+      "The exact offline test commands, counts, exit codes, failures, errors, skips, and zero-external-action facts",
+      "The exact permission ceiling and every continuing denial"
+    ],
+    "required_accept_permission_vector": {
+      "production_sd0_preflight_via_exact_capability": true,
+      "production_sd0_exact_seven_request_route_via_same_capability": true,
+      "automatic_resume": false,
+      "permission_without_capability": false,
+      "permission_from_completion_path_alone": false,
+      "permission_from_self_reported_completion_digest_alone": false,
+      "dynamic_completion_discovery": false,
+      "environment_or_cli_token": false,
+      "marker_resume_or_capability_file": false,
+      "exact_existing_output_allowlist_only": true,
+      "overwrite_or_alternate_output": false,
+      "production_alternate_root": false,
+      "production_injected_tcp_probe_opener_or_callback": false,
+      "zip_get": false,
+      "market_row_body": false,
+      "d0": false,
+      "adapter_replay_dataset": false,
+      "backtest_paper_testnet_deployment_trading": false,
+      "active_g1": false,
+      "credentials_account_orders_funds": false
+    },
+    "completion_issuance_effect": "The future accept completion makes the exact call-layer capability factory eligible to mint only when a trusted caller explicitly supplies the exact completion bytes and externally published expected digests. The completion file appearing on disk has no automatic effect.",
+    "completion_rejection_or_absence_effect": "All production entrypoints remain WAIT_DATA_NO_FALLBACK before callbacks, sockets, or outputs."
+  },
+  "mandatory_two_file_implementation_contract": {
+    "authorized": true,
+    "implementation_agent": "GPT-5.6-TERRA_HIGH_OR_EQUIVALENT_INDEPENDENT_IMPLEMENTER",
+    "exact_mutable_file_allowlist": [
+      "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py"
+    ],
+    "maximum_mutable_files": 2,
+    "existing_files_only": true,
+    "new_production_files": 0,
+    "new_test_files": 0,
+    "new_helper_files": 0,
+    "new_marker_files": 0,
+    "new_resume_files": 0,
+    "new_capability_files": 0,
+    "new_completion_files": 0,
+    "new_runtime_files": 0,
+    "dependency_changes": 0,
+    "client_changes_allowed": [
+      "Add exact constants and strict authentication for the already-issued accepted R7 completion and this already-issued R8 authorization after their physical and canonical identities are externally measured.",
+      "Refactor the current production suspension gate only as needed to separate exact chain authentication from capability validation while preserving fail-closed order.",
+      "Add a standard-library-only strict validator for explicit future completion raw bytes plus externally supplied expected physical and canonical digests.",
+      "Add a private opaque process-local capability type and private registry whose positive object can only be minted after the exact validation sequence.",
+      "Protect capability minting and every lifecycle transition with a standard-library lock; reject duplicate, concurrent, reordered, expired, or reused sessions.",
+      "Add keyword-only capability parameters to main, preflight, persist_ready, and execute without accepting strings, paths, mappings, environment values, or CLI flags as capabilities.",
+      "Bind every capability to the exact root, root device and inode, process id, current client and test identities, R8 identity, completion identities, and exact SD0 permission vector.",
+      "Bind the private READY context to the capability object, completion digests, activation id, validity deadline, and run_id without changing any frozen persisted artifact schema.",
+      "At every stage re-read and revalidate R7 completion, R8, client, test, completion snapshot, permission scope, root, READY, run_id, and expiry before callbacks or outputs.",
+      "Reject any production-root caller-supplied tcp_probe, opener, alternate root, proxy, transport, or callback; retain injections only for exact temporary-root offline tests.",
+      "Preserve the exact request plan, resource caps, output paths, create-once behavior, failure semantics, proxy endpoint, and all prior R2-through-R7 safety invariants."
+    ],
+    "test_changes_allowed": [
+      "Add only the minimum in-file offline tests required by this decision.",
+      "Construct synthetic future completion bytes only in memory or under a temporary root and supply explicit synthetic expected digests directly to the validator.",
+      "Use temporary byte-for-byte authority trees and injected TCP or opener callbacks for positive offline simulation.",
+      "Prove that no synthetic fixture, test callback, patched root, or nonproduction shortcut creates a production-root bypass."
+    ],
+    "forbidden_mutations": [
+      "Any R2-through-R8 decision, including this R8 authorization",
+      "The phased route, measurement contract, request plan, schema, specification, dependency, or lock file",
+      "Any helper, marker, resume, capability, completion, preflight, runtime, receipt, closure, or inventory file in the workspace",
+      "Any Active G1 path or data",
+      "Any file outside the exact two-file allowlist"
+    ],
+    "forbidden_implementation_shortcuts": [
+      "Environment variable, CLI string, file path, marker, resume file, latest-file scan, mutable configuration, or import side effect that creates or validates a capability",
+      "A public constructor that accepts caller-controlled fields without private registry identity",
+      "Trusting a completion's self-reported digest without explicit externally supplied expected digests",
+      "A test-only production-root bypass, capability constant, embedded future completion digest, predeclared token, or default allow branch",
+      "A third-party package, Keychain lookup, signing key, network authority service, or Active G1 dependency",
+      "Any widening or rebuilding of the frozen seven-request route"
+    ],
+    "scope_stop_rule": "If the route cannot be implemented in the exact two files with the standard library and without a marker, resume artifact, completion file, dependency, secret, Keychain, external service, route change, or weaker fail-closed invariant, stop and return to Sol."
+  },
+  "offline_test_authorization": {
+    "tests_run_by_this_decision": false,
+    "preflight_run_by_this_decision": false,
+    "network_run_by_this_decision": false,
+    "future_implementer_may_run_after_exact_two_file_edit": true,
+    "future_tests_must_be_offline": true,
+    "real_tcp_probe": false,
+    "real_socket_or_opener": false,
+    "configured_proxy_access": false,
+    "workspace_preflight": false,
+    "workspace_runtime": false,
+    "active_g1_access": false,
+    "market_data_or_archive_access": false,
+    "backtest_paper_live_or_funds_action": false,
+    "required_commands": [
+      {
+        "purpose": "SYNTAX",
+        "command": "PYTHONPYCACHEPREFIX=/tmp/pitar1-sd0-r8-pycache python3 -m py_compile trade_system/pit_authority_replay_sd0_metered_fetch_v1.py tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+        "required_result": "PASS_EXIT_0"
+      },
+      {
+        "purpose": "SCOPED",
+        "command": "python3 -m unittest -v tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+        "minimum_tests_run": 68,
+        "required_result": "PASS_ZERO_FAILURE_ZERO_ERROR_ZERO_SKIP"
+      },
+      {
+        "purpose": "COMBINED_REGRESSION",
+        "command": "python3 -m unittest -v tests.test_pit_authority_replay_contract_v1 tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+        "minimum_tests_run": 137,
+        "required_result": "PASS_ZERO_FAILURE_ZERO_ERROR_ZERO_SKIP"
+      }
+    ],
+    "accepted_baseline_counts": {
+      "r7_scoped_tests": 61,
+      "r7_combined_tests": 130,
+      "minimum_new_r8_scoped_test_methods": 7
+    },
+    "required_new_cases": [
+      {
+        "test_id": "R8-T43",
+        "subject": "Exact R3-through-R8 chain with absent completion or absent capability still suspends main, preflight, persist_ready, and execute.",
+        "required_assertions": [
+          "terminal state WAIT_DATA_NO_FALLBACK",
+          "TCP calls zero",
+          "opener calls zero",
+          "workspace outputs zero"
+        ]
+      },
+      {
+        "test_id": "R8-T44",
+        "subject": "Accepted R7 completion and R8 authority structural and semantic failure matrix.",
+        "required_variants": [
+          "missing",
+          "symlink",
+          "directory",
+          "malformed",
+          "duplicate key",
+          "physical drift",
+          "canonical drift",
+          "wrong id",
+          "wrong state",
+          "wrong workspace",
+          "wrong predecessor",
+          "wrong permission boundary"
+        ],
+        "required_assertion": "Every variant fails before completion parsing callbacks, TCP, opener, or outputs as applicable."
+      },
+      {
+        "test_id": "R8-T45",
+        "subject": "External completion byte and digest authentication matrix.",
+        "required_variants": [
+          "missing expected physical digest",
+          "missing expected canonical digest",
+          "invalid digest syntax",
+          "physical mismatch before JSON reliance",
+          "malformed JSON",
+          "duplicate key",
+          "self canonical mismatch",
+          "external canonical mismatch",
+          "wrong schema",
+          "wrong decision id",
+          "non-accept state",
+          "missing or malformed activation id",
+          "not-before in the future",
+          "expired completion",
+          "window longer than 86400 seconds"
+        ],
+        "required_assertion": "No capability object or positive boolean is returned."
+      },
+      {
+        "test_id": "R8-T46",
+        "subject": "Future completion binding and permission failure matrix.",
+        "required_variants": [
+          "wrong R8 binding",
+          "wrong client path size or hash",
+          "wrong test path size or hash",
+          "wrong pair hash or formula",
+          "wrong route contract or plan binding",
+          "missing final audit facts",
+          "automatic resume true",
+          "permission without capability true",
+          "ZIP GET true",
+          "market row true",
+          "D0 true",
+          "adapter replay or trading true",
+          "Active G1 or funds true"
+        ],
+        "required_assertion": "Every variant fails before capability minting."
+      },
+      {
+        "test_id": "R8-T47",
+        "subject": "Opaque capability identity and binding matrix.",
+        "required_variants": [
+          "None",
+          "plain object",
+          "string",
+          "mapping",
+          "copied or reconstructed object",
+          "wrong process binding",
+          "wrong root path device or inode",
+          "client drift after mint",
+          "test drift after mint",
+          "completion digest drift",
+          "permission vector drift",
+          "duplicate mint in one process",
+          "repeated preflight",
+          "execute before persist_ready",
+          "concurrent or reordered transition",
+          "reuse after failure or consumption"
+        ],
+        "required_assertion": "Every invalid capability fails before callbacks or outputs."
+      },
+      {
+        "test_id": "R8-T48",
+        "subject": "Positive offline capability route in a temporary exact authority tree.",
+        "required_assertions": [
+          "Synthetic completion exists only in memory or the temporary tree.",
+          "Explicit synthetic expected physical and canonical digests are required.",
+          "A valid opaque capability is accepted only for its bound temporary root and process.",
+          "Injected TCP and opener callbacks are the only callbacks used.",
+          "The exact SD0-001 through SD0-007 order is preserved.",
+          "The eighth logical request is impossible.",
+          "Failure stops the sequence immediately with retry zero and redirect zero.",
+          "No real network, configured proxy, workspace output, or Active G1 access occurs."
+        ]
+      },
+      {
+        "test_id": "R8-T49",
+        "subject": "Permission ceiling and negative route scan.",
+        "required_assertions": [
+          "No ZIP GET method and URL tuple exists.",
+          "No market-row body reader exists.",
+          "No D0, adapter, replay, dataset, backtest, paper, testnet, deploy, trading, account, order, or funds path is reachable from the capability.",
+          "No environment, CLI token, marker, resume, dynamic discovery, Keychain, dependency, or Active G1 hook exists.",
+          "Production-root alternate roots, injected TCP probes, injected openers, custom transports, and callbacks are rejected before invocation.",
+          "R7 completion, R8, completion snapshot, client, test, READY, run_id, activation id, permission, and expiry swaps between stages are rejected.",
+          "All nine workspace preflight and runtime paths are absent before and after offline tests."
+        ]
+      }
+    ],
+    "workspace_paths_that_must_remain_absent": [
+      "artifacts/pit_authority_replay_sd0_preflight.v1.json",
+      ".runtime/pitar1-sd0-v1/receipts/requests.ndjson",
+      ".runtime/pitar1-sd0-v1/receipts/response_headers.ndjson",
+      ".runtime/pitar1-sd0-v1/documents/binance-public-data-readme.md",
+      ".runtime/pitar1-sd0-v1/documents/binance-public-data-license.txt",
+      ".runtime/pitar1-sd0-v1/documents/btcusdt-1m-2024-03.zip.checksum.txt",
+      ".runtime/pitar1-sd0-v1/receipts/btcusdt-1m-2024-03-zip-head.v1.json",
+      "artifacts/pit_authority_replay_sd0_closure_report.v1.json",
+      "config/pit_authority_replay.sd0_artifact_inventory.v1.json"
+    ],
+    "test_integrity_rules": [
+      "Production gate tests must execute the real R3-through-R8 validation path; patching it to a no-op or unconditional success is not evidence.",
+      "The positive synthetic completion may be used only with an exact temporary authority root and injected callbacks; it is not a production completion.",
+      "No test may read, write, rename, or patch a workspace authority decision.",
+      "No test may invoke the real TCP probe, socket, opener, configured proxy, workspace preflight, workspace runtime, Active G1, market-data source, or trading component.",
+      "Passing tests create evidence only and cannot change production suspension."
+    ]
+  },
+  "future_sol_final_review_contract": {
+    "review_owner": "NEW_INDEPENDENT_GPT-5.6-SOL_ULTRA_OR_EQUIVALENT_SOL_FINAL_GATE",
+    "final_review_status_now": "NOT_STARTED",
+    "final_review_may_create_completion": true,
+    "final_review_may_run_network": false,
+    "final_review_may_run_production_preflight": false,
+    "final_review_may_create_workspace_runtime": false,
+    "required_implementer_fact_package": [
+      "Exact before and after client and test byte sizes and physical SHA-256 identities.",
+      "Exact post-patch pair SHA-256 under the frozen pair formula.",
+      "A path audit proving only the exact two existing allowlisted files changed and no file was created.",
+      "Source evidence for exact R3-through-R8 authentication, strict external completion validation, opaque capability minting, capability checks at all four production entrypoints, and default pre-side-effect suspension.",
+      "Exact syntax, scoped, and combined commands, exit codes, tests-run counts, pass counts, failures, errors, and skips.",
+      "A case-by-case result for R8-T43 through R8-T49.",
+      "Before and after absence of all nine workspace preflight and runtime paths.",
+      "Network requests zero, real TCP probes zero, configured proxy access zero, workspace preflight runs zero, workspace runtime runs zero, Active G1 access zero, market-data access zero, and trading or funds actions zero.",
+      "Confirmation that route, contract, plan, schema, specification, dependency, authority, marker, resume, capability, completion, runtime, and Active G1 files were not changed or created.",
+      "An explicit PRECHECK_SAFE assessment limited to the offline R8 activation-route candidate and current accidental-activation threat model."
+    ],
+    "required_sol_actions": [
+      "Recompute the post-patch client, test, and pair identities and verify the exact two-file diff.",
+      "Recompute this R8 authorization and the accepted R7 completion physical and canonical identities.",
+      "Audit the full validation order, default suspension path, capability minting path, capability binding checks, and exact permission ceiling.",
+      "Confirm that the client pins this already-issued R8 authorization but does not pin, predict, discover, or default the future completion digest.",
+      "Review or independently run only the exact offline test commands without production preflight or network.",
+      "Confirm all nine workspace output paths remain absent and no Active G1 or external action occurred.",
+      "Choose ACCEPT or REJECT and issue exactly one separately content-addressed completion decision binding the actual post-patch pair and exact audit facts."
+    ],
+    "possible_results": [
+      "ACCEPT_R8_EXACT_POST_PATCH_CALL_LAYER_ROUTE_AUTHORIZE_CAPABILITY_SCOPED_SD0_PREFLIGHT_AND_SEVEN_REQUESTS",
+      "REJECT_R8_ROUTE_KEEP_PRODUCTION_SUSPENDED"
+    ],
+    "accept_effect": "Only the explicit call-layer factory may consider the exact completion raw bytes plus externally published expected digests. No path, file presence, import, test result, or decision issuance automatically resumes production.",
+    "reject_or_no_decision_effect": "Production remains unconditionally suspended before callbacks, sockets, or outputs.",
+    "anti_cycle_final_call_procedure": [
+      "Sol reviews and hashes the already-finished post-patch client and test.",
+      "Sol issues the completion binding those hashes and this R8 authorization.",
+      "Sol reports the completion physical and canonical digests externally.",
+      "No source file changes after that review.",
+      "A trusted operator explicitly supplies the completion bytes and those reported digests to the call-layer factory.",
+      "Only the returned opaque in-process capability may be passed to the production SD0 entrypoints."
+    ]
+  },
+  "production_permission_ceiling": {
+    "effective_now": "ZERO_PRODUCTION_PERMISSION",
+    "effective_only_after_future_accept_completion_and_explicit_capability": "SD0_PREFLIGHT_PLUS_EXISTING_EXACT_SEVEN_REQUEST_ROUTE_ONLY",
+    "exact_request_sequence": [
+      {
+        "request_id": "SD0-001",
+        "method": "HEAD",
+        "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/README.md",
+        "body_cap_bytes": 0
+      },
+      {
+        "request_id": "SD0-002",
+        "method": "GET",
+        "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/README.md",
+        "body_cap_bytes": 1048576
+      },
+      {
+        "request_id": "SD0-003",
+        "method": "HEAD",
+        "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/LICENSE",
+        "body_cap_bytes": 0
+      },
+      {
+        "request_id": "SD0-004",
+        "method": "GET",
+        "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/LICENSE",
+        "body_cap_bytes": 1048576
+      },
+      {
+        "request_id": "SD0-005",
+        "method": "HEAD",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2024-03.zip.CHECKSUM",
+        "body_cap_bytes": 0
+      },
+      {
+        "request_id": "SD0-006",
+        "method": "GET",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2024-03.zip.CHECKSUM",
+        "body_cap_bytes": 65536
+      },
+      {
+        "request_id": "SD0-007",
+        "method": "HEAD",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2024-03.zip",
+        "body_cap_bytes": 0
+      }
+    ],
+    "frozen_resource_caps": {
+      "maximum_logical_requests": 7,
+      "request_order": "SD0-001_THROUGH_SD0-007_SEQUENTIAL_STOP_ON_FIRST_FAILURE",
+      "concurrency": 1,
+      "retry_count": 0,
+      "redirect_count": 0,
+      "per_request_timeout_seconds": 15,
+      "total_wall_clock_cap_seconds": 120,
+      "maximum_total_response_body_bytes": 2162688,
+      "maximum_response_header_bytes_per_request": 65536,
+      "maximum_total_local_artifact_bytes": 10485760,
+      "minimum_free_disk_bytes": 16106127360,
+      "maximum_external_cost_usd": 0,
+      "protocol": "HTTPS_ONLY",
+      "proxy_endpoint": "http://127.0.0.1:7897",
+      "direct_bypass": false,
+      "environment_proxy_override": false
+    },
+    "continuing_hard_denials": {
+      "zip_get": true,
+      "market_row_body_access": true,
+      "source_listing_or_search": true,
+      "fallback_url_or_host": true,
+      "credentials_or_cookies": true,
+      "browser_or_web_tool": true,
+      "curl_or_general_purpose_fetcher": true,
+      "d0": true,
+      "adapter": true,
+      "replay": true,
+      "dataset": true,
+      "backtest": true,
+      "calibration_or_holdout": true,
+      "shadow_or_paper": true,
+      "testnet_or_deployment": true,
+      "trading": true,
+      "active_g1": true,
+      "credentials_account_orders_funds": true
+    },
+    "semantic_boundary": "Even a successful seven-request SD0 run can establish only bounded source-document, license, checksum-sidecar, and ZIP-header metadata evidence. It does not establish D0, market-row point-in-time validity, adapter or replay correctness, predictive validity, profitability, deployment readiness, or trading authority."
+  },
+  "permission_matrix": {
+    "create_this_r8_authorization_decision": true,
+    "modify_exact_client_after_this_decision": true,
+    "modify_exact_test_after_this_decision": true,
+    "run_exact_future_offline_tests": true,
+    "future_sol_create_separate_completion_after_review": true,
+    "modify_r2_r3_r4_r5_r6_r7_or_r8_decision": false,
+    "modify_route_contract_plan_schema_or_spec": false,
+    "modify_dependency_or_lock_file": false,
+    "create_helper_marker_resume_capability_or_completion_now": false,
+    "create_workspace_preflight_now": false,
+    "create_workspace_runtime_now": false,
+    "tcp_probe_or_network_request_now": false,
+    "proxy_access_change_or_bypass": false,
+    "active_g1_read_copy_or_modify": false,
+    "archive_zip_get_or_market_row_access": false,
+    "d0_adapter_replay_dataset": false,
+    "backtest_calibration_holdout": false,
+    "shadow_paper_testnet_deploy": false,
+    "credentials_account_orders_funds": false,
+    "production_preflight_now": false,
+    "production_seven_request_route_now": false,
+    "automatic_resume": false,
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "claim_boundary": {
+    "r7_gate_rebinding_completion": "ACCEPTED_FOR_EXACT_CURRENT_PAIR",
+    "r8_activation_route_design": "AUTHORIZED_FOR_EXACT_TWO_FILE_OFFLINE_IMPLEMENTATION",
+    "r8_implementation_completion": "NOT_YET_IMPLEMENTED_OR_EVALUATED",
+    "production_activation": "SUSPENDED_PENDING_EXTERNAL_SOL_COMPLETION_AND_EXPLICIT_CALL_CAPABILITY",
+    "network_transport_success": "NOT_TESTED_NOT_AUTHORIZED_NOW",
+    "source_authority_or_terms": "NOT_EVALUATED",
+    "market_data_or_pit_validity": "NOT_EVALUATED_NOT_AUTHORIZED",
+    "d0_adapter_or_replay": "NOT_AUTHORIZED",
+    "predictive_or_profitability_validity": "NOT_EVALUATED",
+    "paper_or_live_readiness": "NOT_AUTHORIZED",
+    "local_malicious_tamper_resistance": "NOT_PROVIDED",
+    "maximum_positive_claim": "The exact accepted R7 client and test may be modified offline to implement Option A: an explicit standard-library call-layer capability gated by a future external Sol completion. This R8 decision creates no completion or capability, runs no test or network, keeps all production entrypoints suspended, and preserves D0, ZIP GET, market-row, adapter, replay, data, model, paper, deployment, trading, Active G1, credential, order, and funds denial."
+  },
+  "stage_disposition": {
+    "pitar1_sd0_r7_gate_rebinding": "ACCEPTED_OFFLINE_PREDECESSOR",
+    "pitar1_sd0_r8_activation_route": "AUTHORIZED_TWO_FILE_OFFLINE_IMPLEMENTATION_NOT_COMPLETED",
+    "pitar1_sd0_route": "FROZEN_VALID_NOT_YET_ACTIVATED",
+    "pitar1_sd0_contract": "FROZEN_VALID",
+    "pitar1_sd0_plan": "FROZEN_VALID",
+    "pitar1_sd0_production_gate": "SUSPENDED",
+    "pitar1_sd0_production_preflight": "DENIED_NOW",
+    "pitar1_sd0_production_requests": "DENIED_NOW",
+    "pitar1_d0_and_later": "DENIED_UNCHANGED",
+    "active_g1": "ISOLATED_NO_ACCESS",
+    "paper_testnet_deployment_live": "DENIED_UNCHANGED",
+    "next_action": "INDEPENDENT_IMPLEMENTER_MODIFIES_ONLY_EXACT_CLIENT_AND_TEST_RUNS_ONLY_EXACT_OFFLINE_TESTS_AND_RETURNS_FACT_PACKAGE_TO_A_NEW_SOL_FINAL_GATE",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-research-system-pit-authority-replay-sd0-client-p0-r8-activation-route/v1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  }
+}

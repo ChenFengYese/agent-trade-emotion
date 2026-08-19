@@ -1,0 +1,19 @@
+{
+  "policy_id": "btc-usdt-absorption-episode-v2",
+  "status": "FROZEN_EPISODE_POLICY",
+  "frozen_at": "2026-07-22T09:45:00Z",
+  "feature_version": "five-factor-proxy-v2-decision-clock",
+  "derived_semantics_version": "episode-feature-decision-clock-v2",
+  "trigger_feature": "D_directional_pressure",
+  "trigger_threshold": 1.5,
+  "decision_frequency_seconds": 1,
+  "min_seconds_between_episodes": 30,
+  "state_machine": {
+    "pressure_threshold": 0.5,
+    "resilience_threshold": 0,
+    "response_fraction": 0.0003,
+    "max_observation_seconds": 300,
+    "confirmation_updates": 3
+  },
+  "notice": "v2 preserves every raw-derived feature row but advances or triggers the episode state machine only once per UTC-aligned one-second decision bucket. It is a new derived-feature semantic version and must not be substituted for v1 evidence."
+}

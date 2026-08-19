@@ -1,0 +1,21 @@
+{
+  "fixture_id": "MSTA_HED_RAW_AUTHORITY_BUNDLE_P1A_SYNTHETIC_CONTRACT.v0.1.1",
+  "stage": "V5-P1A-R1",
+  "status": "DRAFT_AWAITING_SOL_P1A_R1_GATE",
+  "implementation_authorized": false,
+  "io_authorized": false,
+  "market_or_outcome_access_authorized": false,
+  "lane": "SYNTHETIC_CONTRACT",
+  "fixture_scope": "SYNTHETIC_ONLY_NO_MARKET_ROWS_NO_OUTCOMES_NO_RUNTIME_ADAPTER",
+  "counterexamples": [
+    {"case_id": "R1-C01-INVALID-REVISION", "expected_reason": "MSTA_P1A_E_INVALID_REVISION"},
+    {"case_id": "R1-C02-RECONSTRUCTED-ADMITTED", "expected_reason": "MSTA_P1A_E_RECONSTRUCTED_ADMITTED"},
+    {"case_id": "R1-C03-SCHEMA-REJECT-CLEAR", "expected_reason": "MSTA_P1A_E_SCHEMA_REJECT_CLEAR"},
+    {"case_id": "R1-C04-RAW-NOT-IN-BUNDLE", "expected_reason": "MSTA_P1A_E_RAW_NOT_IN_BUNDLE"},
+    {"case_id": "R1-C05-UNTRUSTED-FAKE-SEAL", "expected_reason": "MSTA_P1A_E_UNTRUSTED_FAKE_SEAL"},
+    {"case_id": "R1-C06-ADAPTER-SCHEMA-MISSING", "expected_reason": "MSTA_P1A_E_SCHEMA_EXACT"},
+    {"case_id": "R1-C07-IDEMPOTENCY-FORMULA", "expected_reason": "MSTA_P1A_E_IDEMPOTENCY_FORMULA"},
+    {"case_id": "R1-C08-ACTIVE-G1-ALIAS", "expected_reason": "MSTA_P1A_E_ACTIVE_G1_FORBIDDEN"}
+  ],
+  "fixture_sha256": "3351251a81de708fce015e4eed31de7ccd76acbb36e614d28c7a580f7e6690ef"
+}

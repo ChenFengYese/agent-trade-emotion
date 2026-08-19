@@ -1,0 +1,580 @@
+{
+  "contract_id": "MSTA_HED_RUNTIME_EVIDENCE_EVALUATION_CONTRACT.v1_2",
+  "schema_version": "research-system-runtime-evidence-evaluation-contract.v1_2",
+  "created_at": "2026-07-27T11:22:00Z",
+  "status": "E0_P0_1_CANDIDATE_NOT_ACCEPTED",
+  "evidence_level": "E0_STATIC_AND_SYNTHETIC_EVIDENCE_CONTRACT_ONLY",
+  "authority_binding": {
+    "route_decision": {
+      "path": "config/sol_decision.research-system-dynamic-hypothesis-graph-p0_1-route.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_DYNAMIC_HYPOTHESIS_GRAPH_P0_1_ROUTE.v1",
+      "physical_sha256": "eb1ded24b8cb2792135422bc2cc28c52344e0a299354449fecfce43a83614e17",
+      "canonical_sha256": "d2550e5eacd6a304eda141977eefec280d478c86bd3a13189277cc7c9ecfc1d2"
+    },
+    "graph_contract": {
+      "path": "config/research_system.runtime_hypothesis_graph_contract.v1_2.json",
+      "contract_id": "MSTA_HED_RUNTIME_HYPOTHESIS_GRAPH_CONTRACT.v1_2",
+      "canonical_sha256": "ecffaef260232b2e16eac8f2d80e49c44f97006a8cf8a1ca948a588f3ca1672b"
+    },
+    "template_registry": {
+      "path": "config/research_system.runtime_hypothesis_template_registry.v1_2.json",
+      "registry_id": "MSTA_HED_RUNTIME_HYPOTHESIS_TEMPLATE_REGISTRY.v1_2",
+      "canonical_sha256": "11b9f1e85cbc7d0e8a1c4ad4b8cc90b8878eb335bd26d098503bbc1b44b02f6c"
+    }
+  },
+  "evidence_item_schema": [
+    "evidence_id",
+    "source_or_measurement_id",
+    "available_at",
+    "quality",
+    "lineage_root_id",
+    "dependency_group_id",
+    "expiry_at",
+    "target_effects",
+    "evidence_digest"
+  ],
+  "target_effect_schema": [
+    "target_instance_id",
+    "target_kind",
+    "effect_kind",
+    "ordinal_delta",
+    "predicate_id",
+    "effective_at"
+  ],
+  "update_receipt_schema": [
+    "receipt_id",
+    "opportunity_id",
+    "graph_revision_id",
+    "decision_at",
+    "target_instance_id",
+    "target_kind",
+    "prior_target_digest",
+    "accepted_evidence_ids",
+    "rejected_evidence_with_reasons",
+    "applied_atomic_effects",
+    "material_conflicts",
+    "status_before",
+    "status_after",
+    "ordinal_support_before",
+    "ordinal_support_after",
+    "terminal_reason",
+    "new_target_digest",
+    "previous_receipt_digest",
+    "receipt_digest"
+  ],
+  "evidence_semantics": {
+    "target_kinds": ["MHI", "PHI", "THI"],
+    "effect_kinds": ["SUPPORT", "SOFT_CONTRADICTION", "HARD_INVALIDATION", "NO_EFFECT"],
+    "quality_values": ["VALID_COMPLETE", "VALID_OPTIONAL_UNKNOWN", "STALE", "GAP", "CONFLICT", "DATA_INVALID", "UNKNOWN"],
+    "ordinal_delta_domain": [-2, -1, 0, 1, 2],
+    "atomic_per_target": true,
+    "one_lineage_per_target_update": true,
+    "copied_alias_independent_support": false,
+    "dependency_group_aliasing": "REJECT_DUPLICATE_LINEAGE",
+    "future_available_at": "REJECT_UNKNOWN_NO_UPDATE",
+    "expired_evidence": "REJECT_EXPIRED_NO_UPDATE",
+    "invalid_quality": "REJECT_UNKNOWN_NO_UPDATE",
+    "hard_invalidation_precedence": 0,
+    "hard_invalidation_dominates_ordinal": true,
+    "terminal_revival": "FORBIDDEN",
+    "expiry_extension": "FORBIDDEN",
+    "cross_target_implicit_effect": "FORBIDDEN",
+    "mechanism_to_path_score_transfer": "FORBIDDEN",
+    "idempotent_exact_replay": true,
+    "receipt_chain_append_only_within_supplied_prefix": true,
+    "runtime_raw_lineage_claim": "NOT_ESTABLISHED_AT_P0_1"
+  },
+  "conflict_contract": {
+    "conflict_id_fields": ["target_instance_id", "dependency_group_id", "absolute_strength", "effective_at"],
+    "equal_opposing_effect_disposition": "MATERIAL_CONFLICT_UNKNOWN",
+    "identifier_tie_break_as_semantic_winner": "FORBIDDEN",
+    "conflict_remains_visible": true,
+    "conflict_cannot_authorize_trade": true,
+    "conflict_cannot_be_removed_by_score": true
+  },
+  "mechanism_identifiability_classes": [
+    {
+      "identifiability_class_id": "MIC-PRESSURE-RESPONSE-OBSERVATIONAL-01",
+      "mechanism_template_ids": ["MHT-ABSORPTION-REVERSAL-01", "MHT-SUPPORT-CONSUMPTION-01"],
+      "status": "OBSERVATIONALLY_OVERLAPPING_REQUIRES_DISCRIMINATION",
+      "unique_causal_choice": "FORBIDDEN",
+      "truth_label": "NONE"
+    },
+    {
+      "identifiability_class_id": "MIC-REBOUND-DRIVER-NONIDENTIFIABLE-01",
+      "mechanism_template_ids": ["MHT-SQUEEZE-CONTINUATION-01", "MHT-SUPPORT-CONSUMPTION-01"],
+      "status": "PARTICIPANT_AND_DRIVER_NOT_IDENTIFIABLE",
+      "unique_causal_choice": "FORBIDDEN",
+      "truth_label": "NONE"
+    },
+    {
+      "identifiability_class_id": "MIC-BOUNDED-RESPONSE-01",
+      "mechanism_template_ids": ["MHT-RANGE-BALANCE-01"],
+      "status": "OBSERVABLE_PATH_CONTEXT_NOT_CONTROL_INTENT",
+      "unique_causal_choice": "FORBIDDEN",
+      "truth_label": "NONE"
+    }
+  ],
+  "path_discrimination_contracts": [
+    {
+      "discriminator_id": "DISC-ABS-UP-VS-SQUEEZE-DOWN-01",
+      "path_a_id": "PHT-SHOCK-ABSORPTION-UP-01",
+      "path_b_id": "PHT-SHOCK-SQUEEZE-FAIL-DOWN-01",
+      "terminal_identifiable": true,
+      "decision_identifiable": true,
+      "predicate_ids_for_a": ["PRED-STRUCTURE-RECLAIM-01", "PRED-HIGHER-LOW-ACCEPTED-01"],
+      "predicate_ids_for_b": ["PRED-LOWER-HIGH-01", "PRED-EVENT-VWAP-LOSS-01"],
+      "deadline_rule": "BEFORE_MIN_PATH_EXPIRY",
+      "next_observation_plan_id": "NOP-ABS-VS-SQUEEZE-01",
+      "unavailable_disposition": "UNKNOWN_NOT_DECISION_IDENTIFIABLE"
+    },
+    {
+      "discriminator_id": "DISC-ABS-UP-VS-BALANCE-01",
+      "path_a_id": "PHT-SHOCK-ABSORPTION-UP-01",
+      "path_b_id": "PHT-SHOCK-BALANCE-01",
+      "terminal_identifiable": true,
+      "decision_identifiable": true,
+      "predicate_ids_for_a": ["PRED-UPWARD-TRANSITION-RESOLVE-01"],
+      "predicate_ids_for_b": ["PRED-OVERLAP-ROTATION-01", "PRED-RANGE-PERSIST-RESOLVE-01"],
+      "deadline_rule": "BEFORE_MIN_PATH_EXPIRY",
+      "next_observation_plan_id": "NOP-ABS-VS-BALANCE-01",
+      "unavailable_disposition": "UNKNOWN_NOT_DECISION_IDENTIFIABLE"
+    },
+    {
+      "discriminator_id": "DISC-ABS-UP-VS-SUPPORT-DOWN-01",
+      "path_a_id": "PHT-SHOCK-ABSORPTION-UP-01",
+      "path_b_id": "PHT-SHOCK-SUPPORT-CONSUME-DOWN-01",
+      "terminal_identifiable": true,
+      "decision_identifiable": true,
+      "predicate_ids_for_a": ["PRED-STRUCTURE-RECLAIM-01", "PRED-HIGHER-LOW-ACCEPTED-01"],
+      "predicate_ids_for_b": ["PRED-EFFECTIVE-BREAK-01", "PRED-FAILED-RECLAIM-01"],
+      "deadline_rule": "BEFORE_MIN_PATH_EXPIRY",
+      "next_observation_plan_id": "NOP-ABS-VS-SUPPORT-01",
+      "unavailable_disposition": "UNKNOWN_NOT_DECISION_IDENTIFIABLE"
+    },
+    {
+      "discriminator_id": "DISC-SQUEEZE-DOWN-VS-BALANCE-01",
+      "path_a_id": "PHT-SHOCK-SQUEEZE-FAIL-DOWN-01",
+      "path_b_id": "PHT-SHOCK-BALANCE-01",
+      "terminal_identifiable": true,
+      "decision_identifiable": true,
+      "predicate_ids_for_a": ["PRED-DOWNSIDE-RESUMPTION-RESOLVE-01"],
+      "predicate_ids_for_b": ["PRED-OVERLAP-ROTATION-01", "PRED-RANGE-PERSIST-RESOLVE-01"],
+      "deadline_rule": "BEFORE_MIN_PATH_EXPIRY",
+      "next_observation_plan_id": "NOP-SQUEEZE-VS-BALANCE-01",
+      "unavailable_disposition": "UNKNOWN_NOT_DECISION_IDENTIFIABLE"
+    },
+    {
+      "discriminator_id": "DISC-SQUEEZE-DOWN-VS-SUPPORT-DOWN-01",
+      "path_a_id": "PHT-SHOCK-SQUEEZE-FAIL-DOWN-01",
+      "path_b_id": "PHT-SHOCK-SUPPORT-CONSUME-DOWN-01",
+      "terminal_identifiable": true,
+      "decision_identifiable": true,
+      "predicate_ids_for_a": ["PRED-NO-HTF-ACCEPTANCE-01", "PRED-LOWER-HIGH-01", "PRED-EVENT-VWAP-LOSS-01"],
+      "predicate_ids_for_b": ["PRED-DECLINING-REACTION-01", "PRED-EFFECTIVE-BREAK-01", "PRED-FAILED-RECLAIM-01"],
+      "deadline_rule": "BEFORE_MIN_PATH_EXPIRY",
+      "next_observation_plan_id": "NOP-SAME-DOWNSIDE-SHORT-01",
+      "unavailable_disposition": "UNKNOWN_NOT_DECISION_IDENTIFIABLE"
+    },
+    {
+      "discriminator_id": "DISC-BALANCE-VS-SUPPORT-DOWN-01",
+      "path_a_id": "PHT-SHOCK-BALANCE-01",
+      "path_b_id": "PHT-SHOCK-SUPPORT-CONSUME-DOWN-01",
+      "terminal_identifiable": true,
+      "decision_identifiable": true,
+      "predicate_ids_for_a": ["PRED-OVERLAP-ROTATION-01", "PRED-RANGE-PERSIST-RESOLVE-01"],
+      "predicate_ids_for_b": ["PRED-EFFECTIVE-BREAK-01", "PRED-FAILED-RECLAIM-01"],
+      "deadline_rule": "BEFORE_MIN_PATH_EXPIRY",
+      "next_observation_plan_id": "NOP-BALANCE-VS-SUPPORT-01",
+      "unavailable_disposition": "UNKNOWN_NOT_DECISION_IDENTIFIABLE"
+    }
+  ],
+  "next_observation_plans": [
+    {"plan_id": "NOP-ABS-VS-SQUEEZE-01", "unresolved_path_ids": ["PHT-SHOCK-ABSORPTION-UP-01", "PHT-SHOCK-SQUEEZE-FAIL-DOWN-01"], "ranked_predicate_ids": ["PRED-HIGHER-LOW-ACCEPTED-01", "PRED-LOWER-HIGH-01", "PRED-EVENT-VWAP-LOSS-01"], "ranking_mode": "DETERMINISTIC_ORDINAL", "numeric_information_gain": "FORBIDDEN_UNCALIBRATED", "deadline_rule": "BEFORE_MIN_PATH_EXPIRY"},
+    {"plan_id": "NOP-ABS-VS-BALANCE-01", "unresolved_path_ids": ["PHT-SHOCK-ABSORPTION-UP-01", "PHT-SHOCK-BALANCE-01"], "ranked_predicate_ids": ["PRED-UPWARD-TRANSITION-RESOLVE-01", "PRED-OVERLAP-ROTATION-01"], "ranking_mode": "DETERMINISTIC_ORDINAL", "numeric_information_gain": "FORBIDDEN_UNCALIBRATED", "deadline_rule": "BEFORE_MIN_PATH_EXPIRY"},
+    {"plan_id": "NOP-ABS-VS-SUPPORT-01", "unresolved_path_ids": ["PHT-SHOCK-ABSORPTION-UP-01", "PHT-SHOCK-SUPPORT-CONSUME-DOWN-01"], "ranked_predicate_ids": ["PRED-STRUCTURE-RECLAIM-01", "PRED-EFFECTIVE-BREAK-01", "PRED-FAILED-RECLAIM-01"], "ranking_mode": "DETERMINISTIC_ORDINAL", "numeric_information_gain": "FORBIDDEN_UNCALIBRATED", "deadline_rule": "BEFORE_MIN_PATH_EXPIRY"},
+    {"plan_id": "NOP-SQUEEZE-VS-BALANCE-01", "unresolved_path_ids": ["PHT-SHOCK-SQUEEZE-FAIL-DOWN-01", "PHT-SHOCK-BALANCE-01"], "ranked_predicate_ids": ["PRED-DOWNSIDE-RESUMPTION-RESOLVE-01", "PRED-OVERLAP-ROTATION-01"], "ranking_mode": "DETERMINISTIC_ORDINAL", "numeric_information_gain": "FORBIDDEN_UNCALIBRATED", "deadline_rule": "BEFORE_MIN_PATH_EXPIRY"},
+    {"plan_id": "NOP-SAME-DOWNSIDE-SHORT-01", "unresolved_path_ids": ["PHT-SHOCK-SQUEEZE-FAIL-DOWN-01", "PHT-SHOCK-SUPPORT-CONSUME-DOWN-01"], "ranked_predicate_ids": ["PRED-EFFECTIVE-BREAK-01", "PRED-FAILED-RECLAIM-01", "PRED-EVENT-VWAP-LOSS-01", "PRED-LOWER-HIGH-01"], "ranking_mode": "DETERMINISTIC_ORDINAL", "numeric_information_gain": "FORBIDDEN_UNCALIBRATED", "deadline_rule": "BEFORE_MIN_PATH_EXPIRY"},
+    {"plan_id": "NOP-BALANCE-VS-SUPPORT-01", "unresolved_path_ids": ["PHT-SHOCK-BALANCE-01", "PHT-SHOCK-SUPPORT-CONSUME-DOWN-01"], "ranked_predicate_ids": ["PRED-OVERLAP-ROTATION-01", "PRED-EFFECTIVE-BREAK-01", "PRED-FAILED-RECLAIM-01"], "ranking_mode": "DETERMINISTIC_ORDINAL", "numeric_information_gain": "FORBIDDEN_UNCALIBRATED", "deadline_rule": "BEFORE_MIN_PATH_EXPIRY"}
+  ],
+  "probability_contract": {
+    "modes": [
+      {
+        "mode": "QUALITATIVE_E0",
+        "allowed_values": ["LEADING", "SUPPORTED", "WEAK", "UNSUPPORTED", "UNKNOWN"],
+        "numeric_probability_fields": "FORBIDDEN",
+        "normalization": "FORBIDDEN",
+        "calibration_version": null
+      },
+      {
+        "mode": "UNKNOWN",
+        "allowed_values": [],
+        "numeric_probability_fields": "FORBIDDEN",
+        "normalization": "FORBIDDEN",
+        "calibration_version": null
+      },
+      {
+        "mode": "CALIBRATED_PROBABILITY",
+        "allowed_values": [],
+        "numeric_probability_fields": "FUTURE_ONLY",
+        "normalization": "REQUIRES_PARTITION_PROOF_AND_E2",
+        "calibration_version": "UNSET_BLOCKS_E2"
+      }
+    ],
+    "forbidden_transformations": ["SOFTMAX_ORDINAL", "NORMALIZE_ORDINAL", "CANDIDATE_ASSERTED_PROBABILITY", "MECHANISM_SUPPORT_TO_PROBABILITY", "PSEUDO_INFORMATION_GAIN", "UNCALIBRATED_EXPECTED_VALUE"],
+    "future_probability_members": "NAMED_OBSERVABLE_PATH_TERMINAL_CELLS_PLUS_OTHER_PATH_ONLY",
+    "unknown_path_in_probability_simplex": false,
+    "censored_in_probability_simplex": false,
+    "abstain_in_probability_simplex": false,
+    "artifact_in_probability_simplex": false,
+    "mechanism_probability": "FORBIDDEN_WITHOUT_AUTHORITY_TRUTH_LABEL",
+    "trade_success_probability": "SEPARATE_CONDITIONAL_ON_EXACT_TRIGGER_AND_ONE_PARENT_PATH",
+    "numeric_information_gain": "FORBIDDEN_UNTIL_PATH_AND_CONDITIONAL_OBSERVATION_CALIBRATION"
+  },
+  "terminal_scenario_aggregation_contract": {
+    "terminal_scenarios": ["UPSIDE", "DOWNSIDE", "RANGE", "UNRESOLVED"],
+    "multiple_paths_same_terminal_scenario": true,
+    "source_path_provenance_required": true,
+    "source_path_receipt_tip_required": true,
+    "aggregation_rewrites_path": false,
+    "aggregation_merges_path_history": false,
+    "ordinal_only_at_p0_1": true,
+    "probability_values_at_p0_1": {}
+  },
+  "synthetic_fixture_contract": {
+    "fixture_set_fields": ["fixture_set_id", "template_kind", "template_id", "cases"],
+    "fixture_case_fields": ["case_id", "case_kind", "decision_at", "predicate_inputs", "expected_template_disposition"],
+    "predicate_input_fields": ["predicate_id", "observed_value", "available_at", "quality", "has_gap", "expected_result"],
+    "required_case_kinds": ["POSITIVE", "BOUNDARY", "CLOCK", "GAP", "HARD_INVALIDATION", "EXPIRY"],
+    "case_result_values": ["TRUE", "FALSE", "UNKNOWN_FUTURE", "UNKNOWN_GAP", "CENSORED_GAP"],
+    "template_dispositions": ["ACTIVE_OR_SUPPORTED", "BOUNDARY_ACCEPTED", "UNKNOWN_CLOCK", "UNKNOWN_OR_CENSORED_GAP", "HARD_INVALIDATED", "EXPIRED"],
+    "fixtures_are_market_evidence": false,
+    "fixtures_close_f005_dsp022": false
+  },
+  "synthetic_fixture_sets": [
+    {
+      "fixture_set_id": "FIXSET-MHT-ABSORPTION-01",
+      "template_kind": "MECHANISM",
+      "template_id": "MHT-ABSORPTION-REVERSAL-01",
+      "cases": [
+        {"case_id": "FX-MA-POS", "case_kind": "POSITIVE", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SHOCK-DOWNSIDE-ACTIVATE-01", "observed_value": 2.4, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-LOW-DOWNSIDE-EFFICIENCY-01", "observed_value": 0.3, "available_at": "2026-01-01T03:10:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-STRUCTURE-RECLAIM-01", "observed_value": true, "available_at": "2026-01-01T03:20:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-DECLINING-REACTION-01", "observed_value": 0.1, "available_at": "2026-01-01T03:30:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "FALSE"}], "expected_template_disposition": "ACTIVE_OR_SUPPORTED"},
+        {"case_id": "FX-MA-BOUND", "case_kind": "BOUNDARY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SHOCK-DOWNSIDE-ACTIVATE-01", "observed_value": 2.0, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "BOUNDARY_ACCEPTED"},
+        {"case_id": "FX-MA-CLOCK", "case_kind": "CLOCK", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SHOCK-DOWNSIDE-ACTIVATE-01", "observed_value": 2.4, "available_at": "2026-01-01T05:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "UNKNOWN_FUTURE"}], "expected_template_disposition": "UNKNOWN_CLOCK"},
+        {"case_id": "FX-MA-GAP", "case_kind": "GAP", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-LOW-DOWNSIDE-EFFICIENCY-01", "observed_value": 0.3, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": true, "expected_result": "UNKNOWN_GAP"}], "expected_template_disposition": "UNKNOWN_OR_CENSORED_GAP"},
+        {"case_id": "FX-MA-HARD", "case_kind": "HARD_INVALIDATION", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-ZONE-LOSS-HARD-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "HARD_INVALIDATED"},
+        {"case_id": "FX-MA-EXP", "case_kind": "EXPIRY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-ABSORPTION-EXPIRY-01", "observed_value": 12, "available_at": "2026-01-01T04:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "EXPIRED"}
+      ]
+    },
+    {
+      "fixture_set_id": "FIXSET-MHT-SQUEEZE-01",
+      "template_kind": "MECHANISM",
+      "template_id": "MHT-SQUEEZE-CONTINUATION-01",
+      "cases": [
+        {"case_id": "FX-MS-POS", "case_kind": "POSITIVE", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SHOCK-REBOUND-ACTIVATE-01", "observed_value": 1.5, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-NO-HTF-ACCEPTANCE-01", "observed_value": false, "available_at": "2026-01-01T03:10:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-LOWER-HIGH-01", "observed_value": true, "available_at": "2026-01-01T03:20:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-HIGHER-LOW-ACCEPTED-01", "observed_value": false, "available_at": "2026-01-01T03:30:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "FALSE"}], "expected_template_disposition": "ACTIVE_OR_SUPPORTED"},
+        {"case_id": "FX-MS-BOUND", "case_kind": "BOUNDARY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SHOCK-REBOUND-ACTIVATE-01", "observed_value": 1.3, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "BOUNDARY_ACCEPTED"},
+        {"case_id": "FX-MS-CLOCK", "case_kind": "CLOCK", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SHOCK-REBOUND-ACTIVATE-01", "observed_value": 1.5, "available_at": "2026-01-01T05:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "UNKNOWN_FUTURE"}], "expected_template_disposition": "UNKNOWN_CLOCK"},
+        {"case_id": "FX-MS-GAP", "case_kind": "GAP", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-LOWER-HIGH-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": true, "expected_result": "UNKNOWN_GAP"}], "expected_template_disposition": "UNKNOWN_OR_CENSORED_GAP"},
+        {"case_id": "FX-MS-HARD", "case_kind": "HARD_INVALIDATION", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-UPWARD-ACCEPTANCE-HARD-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "HARD_INVALIDATED"},
+        {"case_id": "FX-MS-EXP", "case_kind": "EXPIRY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SQUEEZE-EXPIRY-01", "observed_value": 10, "available_at": "2026-01-01T04:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "EXPIRED"}
+      ]
+    },
+    {
+      "fixture_set_id": "FIXSET-MHT-RANGE-01",
+      "template_kind": "MECHANISM",
+      "template_id": "MHT-RANGE-BALANCE-01",
+      "cases": [
+        {"case_id": "FX-MR-POS", "case_kind": "POSITIVE", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-COMPRESSION-LOW-ER-01", "observed_value": 0.2, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-OVERLAP-ROTATION-01", "observed_value": 0.8, "available_at": "2026-01-01T03:10:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-LOWER-HIGH-01", "observed_value": false, "available_at": "2026-01-01T03:20:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "FALSE"}], "expected_template_disposition": "ACTIVE_OR_SUPPORTED"},
+        {"case_id": "FX-MR-BOUND", "case_kind": "BOUNDARY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-COMPRESSION-LOW-ER-01", "observed_value": 0.25, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "BOUNDARY_ACCEPTED"},
+        {"case_id": "FX-MR-CLOCK", "case_kind": "CLOCK", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-COMPRESSION-LOW-ER-01", "observed_value": 0.2, "available_at": "2026-01-01T05:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "UNKNOWN_FUTURE"}], "expected_template_disposition": "UNKNOWN_CLOCK"},
+        {"case_id": "FX-MR-GAP", "case_kind": "GAP", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-OVERLAP-ROTATION-01", "observed_value": 0.8, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": true, "expected_result": "UNKNOWN_GAP"}], "expected_template_disposition": "UNKNOWN_OR_CENSORED_GAP"},
+        {"case_id": "FX-MR-HARD", "case_kind": "HARD_INVALIDATION", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-DIRECTIONAL-ACCEPTANCE-HARD-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "HARD_INVALIDATED"},
+        {"case_id": "FX-MR-EXP", "case_kind": "EXPIRY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-BALANCE-EXPIRY-01", "observed_value": 16, "available_at": "2026-01-01T04:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "EXPIRED"}
+      ]
+    },
+    {
+      "fixture_set_id": "FIXSET-MHT-SUPPORT-CONSUME-01",
+      "template_kind": "MECHANISM",
+      "template_id": "MHT-SUPPORT-CONSUMPTION-01",
+      "cases": [
+        {"case_id": "FX-MC-POS", "case_kind": "POSITIVE", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-ZONE-TOUCHES-ACTIVATE-01", "observed_value": 4, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-DECLINING-REACTION-01", "observed_value": -0.2, "available_at": "2026-01-01T03:10:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-EFFECTIVE-BREAK-01", "observed_value": true, "available_at": "2026-01-01T03:20:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-STRUCTURE-RECLAIM-01", "observed_value": false, "available_at": "2026-01-01T03:30:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "FALSE"}], "expected_template_disposition": "ACTIVE_OR_SUPPORTED"},
+        {"case_id": "FX-MC-BOUND", "case_kind": "BOUNDARY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-ZONE-TOUCHES-ACTIVATE-01", "observed_value": 3, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "BOUNDARY_ACCEPTED"},
+        {"case_id": "FX-MC-CLOCK", "case_kind": "CLOCK", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-ZONE-TOUCHES-ACTIVATE-01", "observed_value": 4, "available_at": "2026-01-01T05:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "UNKNOWN_FUTURE"}], "expected_template_disposition": "UNKNOWN_CLOCK"},
+        {"case_id": "FX-MC-GAP", "case_kind": "GAP", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-DECLINING-REACTION-01", "observed_value": -0.2, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": true, "expected_result": "UNKNOWN_GAP"}], "expected_template_disposition": "UNKNOWN_OR_CENSORED_GAP"},
+        {"case_id": "FX-MC-HARD", "case_kind": "HARD_INVALIDATION", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-RAPID-RECLAIM-HIGHER-LOW-HARD-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "HARD_INVALIDATED"},
+        {"case_id": "FX-MC-EXP", "case_kind": "EXPIRY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SUPPORT-CONSUME-EXPIRY-01", "observed_value": 14, "available_at": "2026-01-01T04:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "EXPIRED"}
+      ]
+    },
+    {
+      "fixture_set_id": "FIXSET-PHT-ABSORPTION-UP-01",
+      "template_kind": "PATH",
+      "template_id": "PHT-SHOCK-ABSORPTION-UP-01",
+      "cases": [
+        {"case_id": "FX-PA-POS", "case_kind": "POSITIVE", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SHOCK-DOWNSIDE-ACTIVATE-01", "observed_value": 2.4, "available_at": "2026-01-01T02:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-LOW-DOWNSIDE-EFFICIENCY-01", "observed_value": 0.3, "available_at": "2026-01-01T02:10:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-STRUCTURE-RECLAIM-01", "observed_value": true, "available_at": "2026-01-01T02:20:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-HIGHER-LOW-ACCEPTED-01", "observed_value": true, "available_at": "2026-01-01T02:30:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-NO-HTF-ACCEPTANCE-01", "observed_value": true, "available_at": "2026-01-01T02:40:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "FALSE"}, {"predicate_id": "PRED-UPWARD-TRANSITION-RESOLVE-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "ACTIVE_OR_SUPPORTED"},
+        {"case_id": "FX-PA-BOUND", "case_kind": "BOUNDARY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SHOCK-DOWNSIDE-ACTIVATE-01", "observed_value": 2.0, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-TERMINAL-CELL-ABS-UP-01", "observed_value": "TCELL-SHOCK-ABSORPTION-UP-01", "available_at": "2026-01-01T03:10:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "BOUNDARY_ACCEPTED"},
+        {"case_id": "FX-PA-CLOCK", "case_kind": "CLOCK", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-STRUCTURE-RECLAIM-01", "observed_value": true, "available_at": "2026-01-01T05:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "UNKNOWN_FUTURE"}], "expected_template_disposition": "UNKNOWN_CLOCK"},
+        {"case_id": "FX-PA-GAP", "case_kind": "GAP", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-UPWARD-TRANSITION-RESOLVE-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": true, "expected_result": "CENSORED_GAP"}], "expected_template_disposition": "UNKNOWN_OR_CENSORED_GAP"},
+        {"case_id": "FX-PA-HARD", "case_kind": "HARD_INVALIDATION", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-ZONE-LOSS-HARD-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "HARD_INVALIDATED"},
+        {"case_id": "FX-PA-EXP", "case_kind": "EXPIRY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-ABSORPTION-EXPIRY-01", "observed_value": 12, "available_at": "2026-01-01T04:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "EXPIRED"}
+      ]
+    },
+    {
+      "fixture_set_id": "FIXSET-PHT-SQUEEZE-FAIL-DOWN-01",
+      "template_kind": "PATH",
+      "template_id": "PHT-SHOCK-SQUEEZE-FAIL-DOWN-01",
+      "cases": [
+        {"case_id": "FX-PS-POS", "case_kind": "POSITIVE", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SHOCK-REBOUND-ACTIVATE-01", "observed_value": 1.5, "available_at": "2026-01-01T02:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-NO-HTF-ACCEPTANCE-01", "observed_value": false, "available_at": "2026-01-01T02:10:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-LOWER-HIGH-01", "observed_value": true, "available_at": "2026-01-01T02:20:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-EVENT-VWAP-LOSS-01", "observed_value": true, "available_at": "2026-01-01T02:30:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-HIGHER-LOW-ACCEPTED-01", "observed_value": false, "available_at": "2026-01-01T02:40:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "FALSE"}, {"predicate_id": "PRED-DOWNSIDE-RESUMPTION-RESOLVE-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "ACTIVE_OR_SUPPORTED"},
+        {"case_id": "FX-PS-BOUND", "case_kind": "BOUNDARY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SHOCK-REBOUND-ACTIVATE-01", "observed_value": 1.3, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-TERMINAL-CELL-SQUEEZE-DOWN-01", "observed_value": "TCELL-SHOCK-SQUEEZE-FAIL-DOWN-01", "available_at": "2026-01-01T03:10:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "BOUNDARY_ACCEPTED"},
+        {"case_id": "FX-PS-CLOCK", "case_kind": "CLOCK", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-LOWER-HIGH-01", "observed_value": true, "available_at": "2026-01-01T05:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "UNKNOWN_FUTURE"}], "expected_template_disposition": "UNKNOWN_CLOCK"},
+        {"case_id": "FX-PS-GAP", "case_kind": "GAP", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-DOWNSIDE-RESUMPTION-RESOLVE-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": true, "expected_result": "CENSORED_GAP"}], "expected_template_disposition": "UNKNOWN_OR_CENSORED_GAP"},
+        {"case_id": "FX-PS-HARD", "case_kind": "HARD_INVALIDATION", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-UPWARD-ACCEPTANCE-HARD-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "HARD_INVALIDATED"},
+        {"case_id": "FX-PS-EXP", "case_kind": "EXPIRY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SQUEEZE-EXPIRY-01", "observed_value": 10, "available_at": "2026-01-01T04:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "EXPIRED"}
+      ]
+    },
+    {
+      "fixture_set_id": "FIXSET-PHT-BALANCE-01",
+      "template_kind": "PATH",
+      "template_id": "PHT-SHOCK-BALANCE-01",
+      "cases": [
+        {"case_id": "FX-PB-POS", "case_kind": "POSITIVE", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SHOCK-DOWNSIDE-ACTIVATE-01", "observed_value": 2.2, "available_at": "2026-01-01T02:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-COMPRESSION-LOW-ER-01", "observed_value": 0.2, "available_at": "2026-01-01T02:10:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-OVERLAP-ROTATION-01", "observed_value": 0.8, "available_at": "2026-01-01T02:20:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-LOWER-HIGH-01", "observed_value": false, "available_at": "2026-01-01T02:30:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "FALSE"}, {"predicate_id": "PRED-RANGE-PERSIST-RESOLVE-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "ACTIVE_OR_SUPPORTED"},
+        {"case_id": "FX-PB-BOUND", "case_kind": "BOUNDARY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-COMPRESSION-LOW-ER-01", "observed_value": 0.25, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-TERMINAL-CELL-BALANCE-01", "observed_value": "TCELL-SHOCK-BALANCE-RANGE-01", "available_at": "2026-01-01T03:10:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "BOUNDARY_ACCEPTED"},
+        {"case_id": "FX-PB-CLOCK", "case_kind": "CLOCK", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-OVERLAP-ROTATION-01", "observed_value": 0.8, "available_at": "2026-01-01T05:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "UNKNOWN_FUTURE"}], "expected_template_disposition": "UNKNOWN_CLOCK"},
+        {"case_id": "FX-PB-GAP", "case_kind": "GAP", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-RANGE-PERSIST-RESOLVE-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": true, "expected_result": "CENSORED_GAP"}], "expected_template_disposition": "UNKNOWN_OR_CENSORED_GAP"},
+        {"case_id": "FX-PB-HARD", "case_kind": "HARD_INVALIDATION", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-DIRECTIONAL-ACCEPTANCE-HARD-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "HARD_INVALIDATED"},
+        {"case_id": "FX-PB-EXP", "case_kind": "EXPIRY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-BALANCE-EXPIRY-01", "observed_value": 16, "available_at": "2026-01-01T04:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "EXPIRED"}
+      ]
+    },
+    {
+      "fixture_set_id": "FIXSET-PHT-SUPPORT-CONSUME-DOWN-01",
+      "template_kind": "PATH",
+      "template_id": "PHT-SHOCK-SUPPORT-CONSUME-DOWN-01",
+      "cases": [
+        {"case_id": "FX-PC-POS", "case_kind": "POSITIVE", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-ZONE-TOUCHES-ACTIVATE-01", "observed_value": 4, "available_at": "2026-01-01T02:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-DECLINING-REACTION-01", "observed_value": -0.2, "available_at": "2026-01-01T02:10:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-EFFECTIVE-BREAK-01", "observed_value": true, "available_at": "2026-01-01T02:20:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-FAILED-RECLAIM-01", "observed_value": true, "available_at": "2026-01-01T02:30:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-STRUCTURE-RECLAIM-01", "observed_value": false, "available_at": "2026-01-01T02:40:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "FALSE"}, {"predicate_id": "PRED-DOWNSIDE-EXPANSION-RESOLVE-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "ACTIVE_OR_SUPPORTED"},
+        {"case_id": "FX-PC-BOUND", "case_kind": "BOUNDARY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-ZONE-TOUCHES-ACTIVATE-01", "observed_value": 3, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-TERMINAL-CELL-SUPPORT-DOWN-01", "observed_value": "TCELL-SHOCK-SUPPORT-CONSUME-DOWN-01", "available_at": "2026-01-01T03:10:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "BOUNDARY_ACCEPTED"},
+        {"case_id": "FX-PC-CLOCK", "case_kind": "CLOCK", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-EFFECTIVE-BREAK-01", "observed_value": true, "available_at": "2026-01-01T05:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "UNKNOWN_FUTURE"}], "expected_template_disposition": "UNKNOWN_CLOCK"},
+        {"case_id": "FX-PC-GAP", "case_kind": "GAP", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-DOWNSIDE-EXPANSION-RESOLVE-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": true, "expected_result": "CENSORED_GAP"}], "expected_template_disposition": "UNKNOWN_OR_CENSORED_GAP"},
+        {"case_id": "FX-PC-HARD", "case_kind": "HARD_INVALIDATION", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-RAPID-RECLAIM-HIGHER-LOW-HARD-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "HARD_INVALIDATED"},
+        {"case_id": "FX-PC-EXP", "case_kind": "EXPIRY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SUPPORT-CONSUME-EXPIRY-01", "observed_value": 14, "available_at": "2026-01-01T04:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "EXPIRED"}
+      ]
+    },
+    {
+      "fixture_set_id": "FIXSET-THT-ABSORPTION-LONG-01",
+      "template_kind": "TRADE",
+      "template_id": "THT-ABSORPTION-RECLAIM-LONG-01",
+      "cases": [
+        {"case_id": "FX-TA-POS", "case_kind": "POSITIVE", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-STRUCTURE-RECLAIM-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-HIGHER-LOW-ACCEPTED-01", "observed_value": true, "available_at": "2026-01-01T03:10:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "ACTIVE_OR_SUPPORTED"},
+        {"case_id": "FX-TA-BOUND", "case_kind": "BOUNDARY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-STRUCTURE-RECLAIM-01", "observed_value": true, "available_at": "2026-01-01T04:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "BOUNDARY_ACCEPTED"},
+        {"case_id": "FX-TA-CLOCK", "case_kind": "CLOCK", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-HIGHER-LOW-ACCEPTED-01", "observed_value": true, "available_at": "2026-01-01T05:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "UNKNOWN_FUTURE"}], "expected_template_disposition": "UNKNOWN_CLOCK"},
+        {"case_id": "FX-TA-GAP", "case_kind": "GAP", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-HIGHER-LOW-ACCEPTED-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": true, "expected_result": "UNKNOWN_GAP"}], "expected_template_disposition": "UNKNOWN_OR_CENSORED_GAP"},
+        {"case_id": "FX-TA-HARD", "case_kind": "HARD_INVALIDATION", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-ZONE-LOSS-HARD-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "HARD_INVALIDATED"},
+        {"case_id": "FX-TA-EXP", "case_kind": "EXPIRY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-ABSORPTION-EXPIRY-01", "observed_value": 12, "available_at": "2026-01-01T04:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "EXPIRED"}
+      ]
+    },
+    {
+      "fixture_set_id": "FIXSET-THT-SQUEEZE-FAIL-SHORT-01",
+      "template_kind": "TRADE",
+      "template_id": "THT-SQUEEZE-FAIL-SHORT-01",
+      "cases": [
+        {"case_id": "FX-TS-POS", "case_kind": "POSITIVE", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-NO-HTF-ACCEPTANCE-01", "observed_value": false, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-LOWER-HIGH-01", "observed_value": true, "available_at": "2026-01-01T03:10:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-EVENT-VWAP-LOSS-01", "observed_value": true, "available_at": "2026-01-01T03:20:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "ACTIVE_OR_SUPPORTED"},
+        {"case_id": "FX-TS-BOUND", "case_kind": "BOUNDARY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-NO-HTF-ACCEPTANCE-01", "observed_value": false, "available_at": "2026-01-01T04:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "BOUNDARY_ACCEPTED"},
+        {"case_id": "FX-TS-CLOCK", "case_kind": "CLOCK", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-LOWER-HIGH-01", "observed_value": true, "available_at": "2026-01-01T05:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "UNKNOWN_FUTURE"}], "expected_template_disposition": "UNKNOWN_CLOCK"},
+        {"case_id": "FX-TS-GAP", "case_kind": "GAP", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-EVENT-VWAP-LOSS-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": true, "expected_result": "UNKNOWN_GAP"}], "expected_template_disposition": "UNKNOWN_OR_CENSORED_GAP"},
+        {"case_id": "FX-TS-HARD", "case_kind": "HARD_INVALIDATION", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-UPWARD-ACCEPTANCE-HARD-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "HARD_INVALIDATED"},
+        {"case_id": "FX-TS-EXP", "case_kind": "EXPIRY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SQUEEZE-EXPIRY-01", "observed_value": 10, "available_at": "2026-01-01T04:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "EXPIRED"}
+      ]
+    },
+    {
+      "fixture_set_id": "FIXSET-THT-SUPPORT-BREAK-SHORT-01",
+      "template_kind": "TRADE",
+      "template_id": "THT-SUPPORT-BREAK-RETEST-SHORT-01",
+      "cases": [
+        {"case_id": "FX-TC-POS", "case_kind": "POSITIVE", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-EFFECTIVE-BREAK-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}, {"predicate_id": "PRED-FAILED-RECLAIM-01", "observed_value": true, "available_at": "2026-01-01T03:10:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "ACTIVE_OR_SUPPORTED"},
+        {"case_id": "FX-TC-BOUND", "case_kind": "BOUNDARY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-EFFECTIVE-BREAK-01", "observed_value": true, "available_at": "2026-01-01T04:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "BOUNDARY_ACCEPTED"},
+        {"case_id": "FX-TC-CLOCK", "case_kind": "CLOCK", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-FAILED-RECLAIM-01", "observed_value": true, "available_at": "2026-01-01T05:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "UNKNOWN_FUTURE"}], "expected_template_disposition": "UNKNOWN_CLOCK"},
+        {"case_id": "FX-TC-GAP", "case_kind": "GAP", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-FAILED-RECLAIM-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": true, "expected_result": "UNKNOWN_GAP"}], "expected_template_disposition": "UNKNOWN_OR_CENSORED_GAP"},
+        {"case_id": "FX-TC-HARD", "case_kind": "HARD_INVALIDATION", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-RAPID-RECLAIM-HIGHER-LOW-HARD-01", "observed_value": true, "available_at": "2026-01-01T03:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "HARD_INVALIDATED"},
+        {"case_id": "FX-TC-EXP", "case_kind": "EXPIRY", "decision_at": "2026-01-01T04:00:00Z", "predicate_inputs": [{"predicate_id": "PRED-SUPPORT-CONSUME-EXPIRY-01", "observed_value": 14, "available_at": "2026-01-01T04:00:00Z", "quality": "VALID_COMPLETE", "has_gap": false, "expected_result": "TRUE"}], "expected_template_disposition": "EXPIRED"}
+      ]
+    }
+  ],
+  "failure_diagnosis_and_versioning": {
+    "diagnosis_order": ["DATA_AVAILABILITY", "MEASUREMENT", "STATE", "STRUCTURAL_POSITION", "TEMPLATE_GENERATION", "MECHANISM", "PATH", "DISCRIMINATION", "TRADE_TRIGGER", "COST_EXECUTION", "CALIBRATION_SELECTION", "PERMISSION_RISK"],
+    "local_failure_only": true,
+    "path_failure_invalidates_same_direction_siblings": false,
+    "mechanism_nonidentifiability_invalidates_observable_path": false,
+    "trade_failure_rewrites_parent_path": false,
+    "single_primary_layer_delta_per_research_revision": true,
+    "immutable_prior_versions": true,
+    "new_chronology_required": true,
+    "post_outcome_rule_rewrite": "FORBIDDEN"
+  },
+  "event_driven_pit_replay_contract": {
+    "contract_id": "MSTA_HED_EVENT_DRIVEN_PIT_REPLAY_INTERFACE.v1_2",
+    "status": "E0_INTERFACE_ONLY_NOT_IMPLEMENTED_NOT_AUTHORIZED",
+    "policy_event_order": [
+      "available_at_ASC",
+      "source_sequence_ASC",
+      "event_id_ASC"
+    ],
+    "admission_requires_available_at_lte_decision_at": true,
+    "full_bar_backfill_into_earlier_decision": "FORBIDDEN",
+    "future_high_low_close_mfe_or_mae_in_policy_information_set": "FORBIDDEN",
+    "unclosed_higher_timeframe_bar": "NOT_ADMITTED_AS_CLOSED_BAR",
+    "late_source_revision": "NEW_POLICY_EVENT_NEVER_OVERWRITE_PRIOR_EVENT_OR_RECEIPT",
+    "same_bar_or_same_timestamp_barrier_order_unknown": "CENSORED_AMBIGUOUS_NO_FAVORABLE_FIRST",
+    "duplicate_event": "IDEMPOTENT_NO_SECOND_STATE_CHANGE_RECEIPT_OR_EFFECT",
+    "transition_function_contract": "MSTA_HED_DYNAMIC_POLICY_TRAJECTORY.v1_2",
+    "event_update_chain": [
+      "POLICY_EVENT",
+      "POINT_IN_TIME_INFORMATION_SET",
+      "STATE_SNAPSHOT",
+      "GRAPH_REVISION_OR_NO_CHANGE_RECEIPT",
+      "TRADE_HYPOTHESIS_REVISION_OR_NO_CHANGE_RECEIPT",
+      "POLICY_ACTION",
+      "DECISION_RECEIPT",
+      "ORDER_INTENT_OR_POSITION_TRANSITION_IF_APPLICABLE"
+    ],
+    "outcome_conditioned_policy_revision": "FORBIDDEN",
+    "graph_or_position_lock_rewrite": "FORBIDDEN",
+    "runtime_or_replay_engine": "NOT_IMPLEMENTED",
+    "backtest_execution": "NOT_AUTHORIZED",
+    "e2_proxy_or_synthetic_result_is_execution_proof": false
+  },
+  "policy_trajectory_evaluation_contract": {
+    "contract_id": "MSTA_HED_POLICY_TRAJECTORY_EVALUATION_INTERFACE.v1_2",
+    "status": "E0_INTERFACE_ONLY_THRESHOLDS_UNSET_NOT_EXECUTED",
+    "candidate_policy": "DYNAMIC_HYPOTHESIS_POLICY",
+    "required_baselines": [
+      {
+        "baseline_id": "FROZEN_ENTRY_STATIC_EXIT",
+        "interface_semantics": "ENTRY_DECISION_FROZEN_AT_ELIGIBILITY_AND_STOP_TARGET_HORIZON_NOT_DYNAMICALLY_REVISED",
+        "exact_parameters": "UNSET_BLOCKS_E2"
+      },
+      {
+        "baseline_id": "SINGLE_PATH",
+        "interface_semantics": "ONE_PREREGISTERED_PATH_ONLY_WITHOUT_PATH_SWITCH",
+        "exact_parameters": "UNSET_BLOCKS_E2"
+      },
+      {
+        "baseline_id": "NO_TRADE",
+        "interface_semantics": "ALWAYS_ABSTAIN_ZERO_MARKET_EXPOSURE",
+        "exact_parameters": "UNSET_BLOCKS_E2"
+      }
+    ],
+    "comparison_fairness": {
+      "same_policy_events": true,
+      "same_point_in_time_information": true,
+      "same_opportunity_denominator": true,
+      "same_permission_and_risk_budget": true,
+      "same_fee_funding_slippage_and_fill_model": true,
+      "same_barrier_ambiguity_rule": true,
+      "unequal_information_or_cost_advantage": "FORBIDDEN"
+    },
+    "required_trajectory_metrics": [
+      "PATH_REVISION_COUNT",
+      "PATH_LEADER_SWITCH_COUNT",
+      "GRAPH_REVISION_LATENCY",
+      "DECISION_LATENCY",
+      "ENTRY_INTENT_COUNT",
+      "CANCEL_INTENT_COUNT",
+      "REPLACE_INTENT_COUNT",
+      "FILL_AND_PARTIAL_FILL_STATE",
+      "STOP_REVISION_COUNT",
+      "TARGET_REVISION_COUNT",
+      "HORIZON_REVISION_COUNT",
+      "MFE",
+      "MAE",
+      "FEES",
+      "SLIPPAGE",
+      "FUNDING",
+      "TAIL_LOSS",
+      "INTRATRAJECTORY_RISK_BREACH_COUNT",
+      "ABSTAIN_RATE",
+      "COVERAGE",
+      "UNKNOWN_RATE",
+      "CENSORED_RATE"
+    ],
+    "metric_thresholds": {
+      "path_revision_and_switch": "UNSET_BLOCKS_E2",
+      "latency": "UNSET_BLOCKS_E2",
+      "entry_cancel_replace_fill": "UNSET_BLOCKS_E2",
+      "stop_target_horizon_revision": "UNSET_BLOCKS_E2",
+      "mfe_mae": "UNSET_BLOCKS_E2",
+      "cost_and_funding": "UNSET_BLOCKS_E2",
+      "tail_and_risk_breach": "UNSET_BLOCKS_E2",
+      "abstain_coverage_unknown_censored": "UNSET_BLOCKS_E2"
+    },
+    "endpoint_pnl_may_rescue_intratrajectory_risk_breach": false,
+    "same_side_paths_reported_separately": true,
+    "pooled_directional_rescue": "FORBIDDEN",
+    "implementation": "NOT_IMPLEMENTED",
+    "evaluation_run": "NOT_AUTHORIZED"
+  },
+  "future_oos_gate": {
+    "status": "UNSET_BLOCKS_E2",
+    "evaluation_semantics": "E0_DYNAMIC_INTERFACE_DEFINED_IMPLEMENTATION_AND_THRESHOLDS_UNSET",
+    "event_driven_pit_replay_contract": "E0_INTERFACE_DEFINED_NOT_IMPLEMENTED",
+    "policy_trajectory_contract": "E0_INTERFACE_DEFINED_NOT_IMPLEMENTED",
+    "dynamic_order_and_position_management_contract": "E0_INTERFACE_DEFINED_NOT_IMPLEMENTED",
+    "static_baseline_contract": "E0_COMPARATOR_FAMILIES_DEFINED_PARAMETERS_UNSET_BLOCKS_E2",
+    "master_opportunity_denominator": "UNSET_BLOCKS_E2",
+    "sample_unit": "UNSET_BLOCKS_E2",
+    "minimum_total_independent_episodes": "UNSET_BLOCKS_E2",
+    "minimum_stratified_support": "UNSET_BLOCKS_E2",
+    "effect_or_noninferiority_margin": "UNSET_BLOCKS_E2",
+    "coverage_and_abstain_limit": "UNSET_BLOCKS_E2",
+    "unknown_and_censored_limit": "UNSET_BLOCKS_E2",
+    "calibration_error_limit": "UNSET_BLOCKS_E2",
+    "multiplicity_budget": "UNSET_BLOCKS_E2",
+    "stability_neighborhood": "UNSET_BLOCKS_E2",
+    "chronology_contract": "UNSET_BLOCKS_E2",
+    "one_time_holdout_receipt": "UNSET_BLOCKS_E2",
+    "same_side_path_separate_reporting": "REQUIRED_FUTURE_GATE_UNSET_THRESHOLD",
+    "pooled_directional_rescue": "FORBIDDEN"
+  },
+  "denominator_contract": {
+    "master_opportunity_membership_frozen_before_outcome": true,
+    "policy_event_membership_frozen_by_point_in_time_admission": true,
+    "all_admitted_events_retained_in_trajectory": true,
+    "unknown_opportunities_reported": true,
+    "abstained_opportunities_reported": true,
+    "censored_opportunities_reported": true,
+    "other_path_outcomes_reported": true,
+    "dropped_from_denominator": "FORBIDDEN",
+    "same_side_path_results_pooled_for_acceptance": false,
+    "endpoint_pnl_hides_risk_breach": false
+  },
+  "stage_denials": {
+    "D0": "DENIED",
+    "D1": "DENIED",
+    "D2": "DENIED",
+    "D3": "DENIED",
+    "E2": "DENIED",
+    "E3": "DENIED"
+  },
+  "claim_boundary": {
+    "evidence_contract": "E0_SYNTHETIC_STRUCTURE_ONLY",
+    "runtime_raw_lineage": "NOT_ESTABLISHED",
+    "machine_predicate_market_validity": "NOT_EVALUATED",
+    "identifiability_market_validity": "NOT_EVALUATED",
+    "probability_calibration": "NOT_AUTHORIZED",
+    "numeric_information_gain": "FORBIDDEN",
+    "future_evaluation_semantics": "E0_INTERFACE_ONLY_NO_EVALUATION",
+    "backtest": "NOT_AUTHORIZED",
+    "holdout": "NOT_AUTHORIZED",
+    "paper": "NOT_AUTHORIZED",
+    "deployment": "DENIED",
+    "trading": "DENIED",
+    "f005_dsp022": "REMAINS_OPEN_DEFERRED_BLOCKING"
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "domain": "msta-hed/research-system-runtime-evidence-evaluation-contract/v1_2",
+    "domain_separator_hex": "00",
+    "exclude_fields": ["contract_sha256"],
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [",", ":"],
+    "encoding": "UTF-8"
+  },
+  "contract_sha256": "7005944011f19ebde8f60f3fe481e7922890eb167c1eb3a062c0ebdf747a1932"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Trading Research Validation"
+  short_description: "Audit backtests and research for false confidence"
+  default_prompt: "Use $validate-trading-research to test whether this backtest or trading claim is decision-ready."

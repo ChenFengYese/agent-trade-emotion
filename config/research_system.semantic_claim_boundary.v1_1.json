@@ -1,0 +1,112 @@
+{
+  "overlay_id": "MSTA_HED_RESEARCH_SYSTEM_SEMANTIC_CLAIM_BOUNDARY.v1_1",
+  "schema_version": "research-system-semantic-claim-boundary.v1_1",
+  "created_at": "2026-07-27T09:17:43Z",
+  "status": "REWORK_LOCAL_SUCCESSOR_CANDIDATE_E0_ONLY",
+  "evidence_level": "E0_STATIC_SEMANTIC_BOUNDARY_NO_MARKET_PROOF",
+  "authority_binding": {
+    "initial_sol_decision": {
+      "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION.v1",
+      "decision_state": "AUTHORIZED_P0_E0_RESEARCH_SYSTEM_RECONSTRUCTION",
+      "path": "config/sol_decision.research-system-reconstruction.v1.json",
+      "physical_sha256": "2cf37e54989d3fd09846cacdbe622de26a4c0bd60e46cb0650f67b2827bf5586",
+      "canonical_sha256": "2a434f542f58c6d43798e1562b7f203336eae7e5db4b6745095e3c9e7633ddb6"
+    },
+    "failed_p0_gate_decision": {
+      "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION_P0_GATE.v1",
+      "decision_state": "REWORK_LOCAL",
+      "path": "config/sol_decision.research-system-reconstruction-p0-gate.v1.json",
+      "physical_sha256": "368dba95967e6abb85119728b1637a115c2c4553b39f3782db9c44b9dfd3a473",
+      "canonical_sha256": "45f2f9a3a7040a552b25e7249bd29c2e13de66277bacbd4266978cc6a0aa2482"
+    },
+    "frozen_p0_inventory": {
+      "inventory_id": "MSTA_HED_RESEARCH_SYSTEM_P0_ARTIFACT_INVENTORY.v1",
+      "status": "REVIEW_READY_CANDIDATE_AWAITING_EXTERNAL_SOL_GATE",
+      "path": "config/research_system.p0_artifact_inventory.v1.json",
+      "artifact_count": 21,
+      "physical_sha256": "bfffb9eda8e3cb5a4e0b562bbf532b0e9e72fff3f6064c82ee66a719c29af29c",
+      "canonical_sha256": "a64d0036f08f6849619562a0079d03ea64f436518eefa41b3fe5b48cdd3acf30"
+    },
+    "predecessor_bundle": {
+      "schema_version": "research-system-contract-bundle.v1",
+      "document_count": 7,
+      "bundle_digest": "c4eb9da641ee6a8f2971d06174f9eaa2c970122fa106acc9a2e8f584833b085d"
+    }
+  },
+  "trusted_semantic_ceilings": {
+    "claim_evidence_status": [
+      "CONFIRMED_CONSTRAINT",
+      "QUEUED_HYPOTHESIS",
+      "TEMPORARILY_SUPPORTED"
+    ],
+    "hypothesis_evidence_level": [
+      "E0_CONFIRMED_CAUSAL_CONSTRAINT_EFFECT_SIZE_UNTESTED",
+      "E0_STRICT_VERSION_UNTESTED_PRIOR_PROXY_INCONCLUSIVE",
+      "E0_UNTESTED",
+      "E0_UNTESTED_HIGH_PRIORITY",
+      "E0_USER_CLARIFICATION",
+      "E0_USER_EXPERIENCE_DERIVED_UNTESTED"
+    ],
+    "source_integrity_status": [
+      "DOCUMENT_IDENTITY_DISCOVERED"
+    ],
+    "source_coverage_status": [
+      "UNKNOWN_NOT_ACQUIRED",
+      "NOT_APPLICABLE_TARGET_DATA"
+    ],
+    "source_revision_status": [
+      "UNKNOWN_NOT_VERIFIED",
+      "PUBLISHED_VERSION_IDENTIFIED"
+    ],
+    "source_pit_status": [
+      "DOCUMENT_SEMANTICS_ONLY",
+      "NOT_MARKET_DATA_SOURCE"
+    ],
+    "source_usage_status": [
+      "DISCOVERED_NOT_ACQUIRED_NOT_ADMITTED",
+      "DISCOVERED_NO_ENTITLEMENT_NO_PURCHASE",
+      "METHOD_EVIDENCE_DISCOVERED",
+      "THEORY_EVIDENCE_DISCOVERED_NOT_TARGET_VALIDATION"
+    ]
+  },
+  "stage_denials": {
+    "D0": "DENIED",
+    "D1": "DENIED",
+    "D2": "DENIED",
+    "D3": "DENIED",
+    "E2": "DENIED",
+    "E3": "DENIED"
+  },
+  "claim_boundary": {
+    "p0_design_package": "VERSIONED_SUCCESSOR_CANDIDATE_NOT_ACCEPTED",
+    "semantic_contract_scope": "E0_NESTED_CLAIM_MONOTONICITY_ONLY",
+    "source_data_validity": "NOT_EVALUATED",
+    "market_validity": "NOT_EVALUATED",
+    "predictive_validity": "NOT_EVALUATED",
+    "profitability": "NOT_EVALUATED",
+    "historical_data_acquisition": "NOT_AUTHORIZED",
+    "backtest": "NOT_AUTHORIZED",
+    "paper": "NOT_AUTHORIZED",
+    "deployment": "DENIED",
+    "trading": "DENIED",
+    "maximum_positive_claim": "The v1.1 overlay only enforces the exact clean E0 nested semantic ceiling over the frozen v1 predecessor; it does not accept P0 or authorize data, backtest, paper, deployment or trading."
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "domain": "msta-hed/research-system-semantic-claim-boundary/v1_1",
+    "formula": "SHA256(domain_prefix_utf8 || HEX(domain_separator_hex) || canonical_json_utf8)",
+    "domain_prefix_utf8": "msta-hed/research-system-semantic-claim-boundary/v1_1",
+    "domain_separator_hex": "00",
+    "exclude_fields": [
+      "overlay_sha256"
+    ],
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "encoding": "UTF-8"
+  },
+  "overlay_sha256": "1526f5769c094a32164dd2e243860a66226b45e66ed41466762b3f2d199b4530"
+}

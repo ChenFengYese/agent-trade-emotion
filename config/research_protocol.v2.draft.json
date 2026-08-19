@@ -1,0 +1,136 @@
+{
+  "schema_version": "research-protocol.v2",
+  "protocol_id": "btc-usdt-absorption-research-v2",
+  "status": "DRAFT_RESEARCH_PROTOCOL_V2",
+  "notice": "S0 design draft only. This artifact is not preregistered, not finalizable, not a research authorization, and not a trading authorization. REQUIRED bindings must be resolved only after the component implementation and predeclared collection plans are stable.",
+  "instrument": "BTCUSDT",
+  "venue": "BINANCE_USDM",
+  "availability_policy": {
+    "allow_actual": true,
+    "allow_reconstructed_for_g2": false,
+    "require_actual_shadow_before_e3": true
+  },
+  "protocol_lineage": {
+    "supersedes": {
+      "protocol_id": "btc-usdt-absorption-research-v1",
+      "preregistered_protocol_sha256": "4645fc18567e72c843e3e45d19cf0d5d0f72add025e17490d04f3ee282476d68"
+    },
+    "finalization_guard": {
+      "guard_id": "research-protocol-supersession.v2",
+      "sha256": "b748791371e436f35be9f217f89428722c242e39752fbcea25d252955c74bf75"
+    }
+  },
+  "source_registry": {
+    "registry_id": "source-registry.v3",
+    "sha256": "3aa28782ff3c0af5be5ad0bc98e690af87dbe2c57687d6ab61b1549bae74ec4b"
+  },
+  "risk_gate_profile": {
+    "profile_id": "paper-risk-gate-profile.v1",
+    "digest": "cd548e4be7694eb13f341a2ea570db9157cc90badc8b177474b482752508dac1"
+  },
+  "data_eligibility": {
+    "g1_qualification": {
+      "role": "QUALIFICATION_ONLY",
+      "required_g1_policy_id": "g1-binance-usdm-btcusdt-forward-v1",
+      "required_g1_policy_sha256": "5d8f43024f0e9e07198ad2546220a674f6afc2b2f160c10cee7364395e318d32",
+      "required_g1_report_sha256": "PENDING_VERIFIED_PASS_REPORT",
+      "require_g1_pass": true
+    },
+    "admitted_collection_roles": [
+      {
+        "role": "DEVELOPMENT",
+        "capture_plan": {"id": "REQUIRED: frozen development capture plan ID", "sha256": "REQUIRED: frozen development capture plan SHA-256"},
+        "acceptance_policy": {"id": "REQUIRED: frozen development acceptance policy ID", "sha256": "REQUIRED: frozen development acceptance policy SHA-256"},
+        "acceptance_report": {"schema_version": "data_acceptance_report.v1", "require_pass": true},
+        "quality_equivalence": {"baseline_g1_policy_id": "g1-binance-usdm-btcusdt-forward-v1", "baseline_g1_policy_sha256": "5d8f43024f0e9e07198ad2546220a674f6afc2b2f160c10cee7364395e318d32", "comparison_rule": "EQUAL_OR_STRICTER_THAN_G1"},
+        "allowed_availability": "ACTUAL_ONLY",
+        "time_window": {"decision_start": "REQUIRED: UTC decision start", "decision_end": "REQUIRED: UTC decision end before final holdout", "label_horizon_seconds": "REQUIRED: at least frozen max holding seconds"}
+      },
+      {
+        "role": "HOLDOUT",
+        "capture_plan": {"id": "REQUIRED: frozen final-holdout capture plan ID", "sha256": "REQUIRED: frozen final-holdout capture plan SHA-256"},
+        "acceptance_policy": {"id": "REQUIRED: frozen final-holdout acceptance policy ID", "sha256": "REQUIRED: frozen final-holdout acceptance policy SHA-256"},
+        "acceptance_report": {"schema_version": "data_acceptance_report.v1", "require_pass": true},
+        "quality_equivalence": {"baseline_g1_policy_id": "g1-binance-usdm-btcusdt-forward-v1", "baseline_g1_policy_sha256": "5d8f43024f0e9e07198ad2546220a674f6afc2b2f160c10cee7364395e318d32", "comparison_rule": "EQUAL_OR_STRICTER_THAN_G1"},
+        "allowed_availability": "ACTUAL_ONLY",
+        "time_window": {"decision_start": "2026-09-01T00:00:00Z", "decision_end": "2026-09-08T00:00:00Z", "label_horizon_seconds": 300}
+      }
+    ]
+  },
+  "data_sources": [
+    {"source_id": "SRC-BIN-FUT-WS", "endpoint_or_channel": "wss://fstream.binance.com public/market combined streams", "schema_version": "binance-usdm-ws-2026-07-22", "instrument": "BTCUSDT", "allowed_availability": "ACTUAL_ONLY"},
+    {"source_id": "SRC-BIN-FUT-REST", "endpoint_or_channel": "https://fapi.binance.com/fapi/v1/depth, /openInterest, /exchangeInfo", "schema_version": "binance-usdm-rest-2026-07-22.2", "instrument": "BTCUSDT", "allowed_availability": "ACTUAL_ONLY"}
+  ],
+  "episode_policy": {
+    "policy_id": "btc-usdt-absorption-episode-v2",
+    "digest": "d919eb5bd8eaf3a01e9a6e316a8d0876f00cbe9a55e14826b4c48f13440b2242",
+    "trigger": "abs(D_directional_pressure) >= 1.5 on the UTC-aligned v2 decision clock",
+    "decision_frequency_seconds": 1,
+    "max_holding_seconds": 300,
+    "overlap_policy": "one active episode per instrument; reject overlap and enforce 30-second terminal cooldown"
+  },
+  "action_contract": {"stages": ["ENTER_PROBE"], "entry_policy": "COUNTERFACTUAL_ENTRY_FOR_LABEL_ONLY", "labels": ["TP", "SL", "STRUCTURE_EXIT", "TIMEOUT"], "operational_overrides": ["RISK_KILL", "DATA_EXECUTION_HALT", "MANUAL_EMERGENCY"]},
+  "label_policy": {"barrier_rules": "BUY and SELL use symmetric 20 bps take-profit, 12 bps stop-loss and 300-second timeout", "same_timestamp_rule": "TP/SL same timestamp is conservative SL", "operational_override_rule": "data/risk/operational interruption censors the path"},
+  "execution_priors": {"latency_ms": 250, "fee_rate": 0.0005, "funding_policy": "not included in current G2; a future execution study requires separately admitted ACTUAL funding evidence", "cost_scenarios": ["BASE_COUNTERFACTUAL_ALL_IN_10BPS_ROUND_TRIP_PROXY", "STRESS_COUNTERFACTUAL_ALL_IN_20BPS_ROUND_TRIP_PROXY"]},
+  "evaluation_policy": {"primary_metrics": ["multiclass_log_loss", "multiclass_brier", "counterfactual_market_path_utility_after_proxy_cost"], "min_effective_episodes": 600, "calibration_rule": "fixed probability deciles", "cost_after_utility_rule": "base lower 95% bound above zero; stress point estimate non-negative", "confidence_interval_rule": "95% UTC-day block bootstrap with seven distinct blocks", "concentration_limits": "no UTC day or declared liquidity state above 40 percent; no direction above 70 percent"},
+  "state_coverage_policy": {"classifier_id": "btc-usdt-visible-liquidity-state-v1", "classifier_digest": "f6176cd40f75e20d94caf87c47ee8ff0af3f986ec921580ecea368dd7b6ff2d0", "required_state_ids": ["THIN_BOOK", "NORMAL_BOOK", "DEEP_BOOK"], "min_effective_episodes_per_state": 100, "insufficient_coverage_result": "INCONCLUSIVE/WAIT_DATA"},
+  "split_policy": {"folds": 5, "embargo_seconds": 300, "training_calibration_policy": "purged expanding-window walk-forward", "final_holdout": {"holdout_id": "btc-usdt-final-holdout-20260901-v2", "start": "2026-09-01T00:00:00Z", "end": "2026-09-08T00:00:00Z", "opened_at": null, "reuse_policy": "ONE_TIME_ONLY"}},
+  "g2_evaluator": {
+    "folds": 5, "embargo_seconds": 300, "calibration_fraction": 0.20,
+    "min_effective_episodes": 600, "min_effective_episodes_per_state": 100,
+    "required_state_ids": ["THIN_BOOK", "NORMAL_BOOK", "DEEP_BOOK"],
+    "required_sides": ["BUY", "SELL"], "modeling_policy": "SEPARATE_MODELS",
+    "min_effective_episodes_per_side": 300, "min_effective_episodes_per_state_per_side": 50,
+    "min_successful_folds": 4, "relative_logloss_improvement_min": 0.02,
+    "utility_feature_group": "full_absorption_response",
+    "bootstrap": {"min_utc_days": 7, "iterations": 400, "seed": 20260722},
+    "cost_scenarios": {"base": {"round_trip_bps": 10}, "stress": {"round_trip_bps": 20}},
+    "payoff_proxy_bps": {"TP": 20, "SL": -12},
+    "concentration_limits": {"utc_day": 0.40, "state": 0.40, "direction": 0.70},
+    "feature_groups": {
+      "full_absorption_response": [{"name":"D","sources":["D_directional_pressure"]},{"name":"price_impact_1s","sources":["price_impact_1s"]},{"name":"R_directional","sources":["R_directional"]}],
+      "extreme_only": [{"name":"D","sources":["D_directional_pressure"]},{"name":"price_impact_1s","sources":["price_impact_1s"]}],
+      "d_plus_r": [{"name":"D","sources":["D_directional_pressure"]},{"name":"R_directional","sources":["R_directional"]}],
+      "d_only": [{"name":"D","sources":["D_directional_pressure"]}],
+      "d_l_state_interaction": [{"name":"D","sources":["D_directional_pressure"]},{"name":"L","sources":["L_log_oi_change"]},{"name":"state_THIN","transform":"STATE_INDICATOR","sources":["THIN_BOOK"]},{"name":"state_NORMAL","transform":"STATE_INDICATOR","sources":["NORMAL_BOOK"]},{"name":"state_DEEP","transform":"STATE_INDICATOR","sources":["DEEP_BOOK"]},{"name":"D_x_L_THIN","transform":"PRODUCT","sources":["D_directional_pressure","L_log_oi_change","STATE:THIN_BOOK"]},{"name":"D_x_L_NORMAL","transform":"PRODUCT","sources":["D_directional_pressure","L_log_oi_change","STATE:NORMAL_BOOK"]},{"name":"D_x_L_DEEP","transform":"PRODUCT","sources":["D_directional_pressure","L_log_oi_change","STATE:DEEP_BOOK"]}],
+      "d_l_state_main": [{"name":"D","sources":["D_directional_pressure"]},{"name":"L","sources":["L_log_oi_change"]},{"name":"state_THIN","transform":"STATE_INDICATOR","sources":["THIN_BOOK"]},{"name":"state_NORMAL","transform":"STATE_INDICATOR","sources":["NORMAL_BOOK"]},{"name":"state_DEEP","transform":"STATE_INDICATOR","sources":["DEEP_BOOK"]}],
+      "forced_oi_r_improvement": [{"name":"F","sources":["F_forced_pressure"]},{"name":"L","sources":["L_log_oi_change"]},{"name":"R_improvement","sources":["R_directional_improvement"]},{"name":"F_x_L_x_R_improvement","transform":"PRODUCT","sources":["F_forced_pressure","L_log_oi_change","R_directional_improvement"]}],
+      "forced_oi": [{"name":"F","sources":["F_forced_pressure"]},{"name":"L","sources":["L_log_oi_change"]}]
+    },
+    "ablation_pairs": {
+      "H-001":{"candidate_group":"full_absorption_response","control_group":"extreme_only"},
+      "H-002":{"candidate_group":"d_plus_r","control_group":"d_only"},
+      "H-003":{"candidate_group":"d_l_state_interaction","control_group":"d_l_state_main"},
+      "H-004":{"candidate_group":"forced_oi_r_improvement","control_group":"forced_oi"}
+    }
+  },
+  "context_evidence": {
+    "policy": {"id": "REQUIRED: frozen closed-UTC-second context policy ID", "sha256": "REQUIRED: frozen context policy SHA-256"},
+    "artifact": {"sha256": "REQUIRED: role context artifact SHA-256", "manifest_sha256": "REQUIRED: role context manifest SHA-256"},
+    "role_window": {"id": "REQUIRED: role capture window ID", "sha256": "REQUIRED: role capture window SHA-256"},
+    "archive_receipts": {"schema_version": "evidence-archive-receipt.v1", "require_verified_per_collection": true}
+  },
+  "theory_hypotheses": [
+    {"hypothesis_id": "H-001", "statement": "The post-extreme absorption-response chain predicts cost-adjusted TP-first better than an extreme-only baseline.", "mechanism": "Directional pressure must be followed by observable absorption and response; an extreme alone only creates observation, not a position.", "population": "Actual-only BTCUSDT development episodes admitted by this protocol.", "falsifiability_note": "A locked out-of-sample absorption-response model has no stable incremental value over the declared extreme-only control."},
+    {"hypothesis_id": "H-002", "statement": "Resilience R provides independent information beyond directional pressure D.", "mechanism": "Liquidity repair/resilience can distinguish durable absorption from a transient pressure move even when D is held fixed.", "population": "Actual-only BTCUSDT development episodes admitted by this protocol.", "falsifiability_note": "Adding R to a D-only control does not improve calibration or utility outside training."},
+    {"hypothesis_id": "H-003", "statement": "The D times L interaction is state-dependent rather than a fixed linear effect.", "mechanism": "Directional pressure has different implications under thin, normal and deep visible liquidity states.", "population": "Actual-only BTCUSDT development episodes admitted by this protocol.", "falsifiability_note": "The interaction is unstable, changes sign repeatedly, or adds no cost-adjusted value versus a regularized no-interaction control."},
+    {"hypothesis_id": "H-004", "statement": "Liquidation plus open-interest contraction supports repair only when resilience R improves.", "mechanism": "Forced deleveraging and OI contraction are context signals, not standalone confirmation; their repair implication is conditional on improving resilience.", "population": "Actual-only BTCUSDT development episodes with complete liquidation, OI and resilience inputs.", "falsifiability_note": "A liquidation/OI-only control is equally stable, or adding the resilience condition has no incremental value."}
+  ],
+  "gate_criteria": [
+    {"gate_id": "G2-H001-ABSORPTION_RESPONSE-VS-EXTREME", "stage": "DEVELOPMENT", "gate_kind": "THEORY_ABLATION_CONTROL", "hypothesis_ids": ["H-001"], "required_inputs": "five purged walk-forward folds, declared extreme-only control and state/sample gates", "metric_definition": "out-of-sample multiclass log loss, Brier and base-cost utility incremental to extreme-only control", "pass_rule": "predeclared incremental metrics improve in four of five folds", "fail_rule": "no stable incremental improvement after sample and state coverage", "insufficient_data_result": "INCONCLUSIVE/WAIT_DATA"},
+    {"gate_id": "G2-H002-R-INCREMENTAL-BEYOND-D", "stage": "DEVELOPMENT", "gate_kind": "THEORY_ABLATION_CONTROL", "hypothesis_ids": ["H-002"], "required_inputs": "five purged walk-forward folds and declared D-only control", "metric_definition": "out-of-sample log-loss increment from adding R to D-only model", "pass_rule": "the machine-declared log-loss increment passes in at least four of five folds", "fail_rule": "increment is absent or limited to training", "insufficient_data_result": "INCONCLUSIVE/WAIT_DATA"},
+    {"gate_id": "G2-H003-DXL-STATE-INTERACTION", "stage": "DEVELOPMENT", "gate_kind": "THEORY_ABLATION_CONTROL", "hypothesis_ids": ["H-003"], "required_inputs": "five purged walk-forward folds, frozen liquidity states and regularized no-interaction control", "metric_definition": "out-of-sample log-loss increment of D times L interaction", "pass_rule": "the machine-declared log-loss increment passes in at least four of five folds without prohibited concentration", "fail_rule": "interaction is unstable, changes sign repeatedly or lacks cost-adjusted increment", "insufficient_data_result": "INCONCLUSIVE/WAIT_DATA"},
+    {"gate_id": "G2-H004-LIQUIDATION-OI-CONDITIONAL-ON-R", "stage": "DEVELOPMENT", "gate_kind": "THEORY_ABLATION_CONTROL", "hypothesis_ids": ["H-004"], "required_inputs": "five purged walk-forward folds, complete liquidation/OI/R inputs and liquidation/OI-only control", "metric_definition": "out-of-sample log-loss increment from the resilience condition", "pass_rule": "the machine-declared log-loss increment passes in at least four of five folds", "fail_rule": "liquidation/OI-only control is equally stable or resilience adds no increment", "insufficient_data_result": "INCONCLUSIVE/WAIT_DATA"},
+    {"gate_id": "G2-ECONOMIC-BASE-COST", "stage": "DEVELOPMENT", "gate_kind": "ECONOMIC", "hypothesis_ids": ["H-001", "H-002", "H-003", "H-004"], "required_inputs": "base-cost utility and at least seven UTC-day blocks", "metric_definition": "base-cost net utility lower 95 percent UTC-day block-bootstrap bound", "pass_rule": "lower bound exceeds zero", "fail_rule": "upper bound is at or below zero after precision and concentration gates", "insufficient_data_result": "INCONCLUSIVE/WAIT_DATA"},
+    {"gate_id": "G2-STABILITY-STRESS-AND-CONCENTRATION", "stage": "DEVELOPMENT", "gate_kind": "STABILITY", "hypothesis_ids": ["H-001", "H-002", "H-003", "H-004"], "required_inputs": "stress-cost utility, declared liquidity states and concentration checks", "metric_definition": "stress-cost utility point estimate, state confidence bounds and contribution concentration", "pass_rule": "aggregate stress point estimate non-negative, no state upper bound negative and concentration limits pass", "fail_rule": "aggregate upper bound below zero, a state upper bound negative or concentration limit fails", "insufficient_data_result": "INCONCLUSIVE/WAIT_DATA"},
+    {"gate_id": "HOLDOUT-GENERALIZATION", "stage": "HOLDOUT", "gate_kind": "FINAL_HOLDOUT", "hypothesis_ids": ["H-001", "H-002", "H-003", "H-004"], "required_inputs": "one-time verified holdout release and frozen development champion", "metric_definition": "base-cost utility and log loss versus frozen development benchmark", "pass_rule": "base-cost utility positive and log loss no worse than 10 percent", "fail_rule": "base-cost utility non-positive or log loss worsens more than 10 percent", "insufficient_data_result": "INCONCLUSIVE/WAIT_DATA"}
+  ],
+  "software_bindings": {
+    "pipeline": {"component_id": "REQUIRED: feature pipeline component ID", "entrypoint": "trade_system.pipeline.FeaturePipeline", "source_sha256": "REQUIRED: frozen pipeline source SHA-256"},
+    "episode": {"component_id": "REQUIRED: episode component ID", "entrypoint": "trade_system.episode.EpisodeMachine", "source_sha256": "REQUIRED: frozen episode source SHA-256"},
+    "action": {"component_id": "REQUIRED: action component ID", "entrypoint": "trade_system.action_bundle.build_action_bundle", "source_sha256": "REQUIRED: frozen action source SHA-256"},
+    "label": {"component_id": "REQUIRED: label component ID", "entrypoint": "trade_system.label_bundle.build_label_bundle", "source_sha256": "REQUIRED: frozen label source SHA-256"},
+    "evaluator": {"component_id": "REQUIRED: evaluator component ID", "entrypoint": "trade_system.research.run_walk_forward_baseline", "source_sha256": "REQUIRED: frozen evaluator source SHA-256"}
+  },
+  "live_trading_authorization": "DENIED_BY_PROTOCOL"
+}

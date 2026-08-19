@@ -1,0 +1,215 @@
+{
+  "artifact_id": "RESEARCH_SYSTEM_P0_ADVERSARIAL_REVIEW.v1_1",
+  "schema_version": "research-system-p0-adversarial-review.v1_1",
+  "generated_at": "2026-07-27T09:29:22Z",
+  "scope": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "successor_document_count": 8,
+    "read_only_inputs": true,
+    "only_added_path": "artifacts/research_system_p0_adversarial_review.v1_1.json",
+    "market_data_accessed": false,
+    "adapter_accessed": false,
+    "backtest_run": false,
+    "library_accessed": false
+  },
+  "independent_method": {
+    "test_resign_or_helper_used": false,
+    "validator_private_helper_used": false,
+    "validator_api_used": "trade_system.research_system_contract_v1_1.validate_research_system_bundle_v1_1 only",
+    "raw_read": "Each of the eight fixed relative paths was read directly as UTF-8 text.",
+    "resign": "For a mutated document, deep-copy it, remove its digest field, encode json.dumps(unsigned, ensure_ascii=True, sort_keys=True, separators=(comma,colon), allow_nan=False) as UTF-8, then SHA256(domain_prefix_utf8 || bytes.fromhex(domain_separator_hex) || canonical_json_utf8).",
+    "duplicate_and_nonfinite_method": "Duplicate-key and NaN cases were constructed in raw JSON text so rejection occurred before digest or schema admission.",
+    "byte_drift_method": "One LF byte was appended independently to each frozen predecessor raw document."
+  },
+  "input_physical_sha256": {
+    "trade_system/research_system_contract_v1.py": "5101ca7b59182c51d4afbfc30e4208273a58eaf80589afb96b083295074d362d",
+    "tests/test_research_system_contract_v1.py": "698b925ce7c9854d86b013df05adef43ec13d4b61027c425e579fbb8df643cd6",
+    "trade_system/research_system_contract_v1_1.py": "f180ef633ae90e1abee761a6b559f1c9fbb970f311ba019046cd392750d3d6a4",
+    "tests/test_research_system_contract_v1_1.py": "270012827acae3db7b23c0dd4493c5dec7a079429e50eef310c9ce29e3dc0935",
+    "config/research_system.object_dictionary.v1.json": "9a167daea7bf05d1022e65da40be5b87786139a9e0f74d52994cbc2fd4915fff",
+    "config/research_system.hypothesis_validation_queue.v1.json": "e76ab11983326ab53d209b6efd362deb91a00215a0c47b14d5930457c614b4cb",
+    "config/research_system.measurement_contract.v1.json": "2e8d162f9be5182fbe25fd4e5d0c96fd817edc010b92ac61aa03f991aac20651",
+    "config/research_system.parameter_registry.v1.json": "a5321385626f2acd67063fed1cf8138b400c5911265ad333aed4da3958ca2a26",
+    "config/research_system.source_authority_registry.v1.json": "693cc7361c16fb154df97bf2c58a1e68807f990dc976df949658e7ce635abb12",
+    "config/research_system.dispute_registry.v1.json": "ae137bcb46051dd7ddb0b71f8c2b01390fcf9ff21d3d409fc7776ef1cb791ba3",
+    "config/research_system.stage_contract.v1.json": "ab81251c0ea70e945d9ea7176e9cb59e7353477212dcf36a2d9e4424f944674b",
+    "config/research_system.semantic_claim_boundary.v1_1.json": "0cba2b1bd57143d1057fcc777180a08b0d7645d4b6286d6bfaa819e436d355f9",
+    "config/sol_decision.research-system-reconstruction.v1.json": "2cf37e54989d3fd09846cacdbe622de26a4c0bd60e46cb0650f67b2827bf5586",
+    "config/sol_decision.research-system-reconstruction-p0-gate.v1.json": "368dba95967e6abb85119728b1637a115c2c4553b39f3782db9c44b9dfd3a473",
+    "config/research_system.p0_artifact_inventory.v1.json": "bfffb9eda8e3cb5a4e0b562bbf532b0e9e72fff3f6064c82ee66a719c29af29c"
+  },
+  "commands": [
+    {
+      "command": "git branch --show-current && git rev-parse HEAD",
+      "exit_code": 0,
+      "observed": "codex/s0-research-foundation; 7ca3fc4f99a57f98217e703f222b295653ace87e"
+    },
+    {
+      "command": "PYTHONPYCACHEPREFIX=/private/tmp/agent-trade-emotion-v11-review-pyc python3 -m unittest -q tests.test_research_system_contract_v1 tests.test_research_system_contract_v1_1",
+      "exit_code": 0,
+      "observed": "Ran 140 tests in 0.716s; OK",
+      "old_test_count": 88,
+      "successor_test_count": 52
+    },
+    {
+      "command": "PYTHONPYCACHEPREFIX=/private/tmp/agent-trade-emotion-v11-review-pyc python3 -m py_compile trade_system/research_system_contract_v1.py tests/test_research_system_contract_v1.py trade_system/research_system_contract_v1_1.py tests/test_research_system_contract_v1_1.py",
+      "exit_code": 0,
+      "observed": "PASS_NO_OUTPUT"
+    },
+    {
+      "command": "Independent in-memory eight-raw canonical re-sign and adversarial harness",
+      "exit_code": 0,
+      "observed": "46 of 46 expected status/reason pairs matched"
+    },
+    {
+      "command": "Independent frozen inventory and failed-gate physical/canonical identity recomputation",
+      "exit_code": 0,
+      "observed": "Inventory entries 21 of 21 matched; inventory and failed-gate physical/canonical identities matched overlay authority"
+    }
+  ],
+  "clean_successor": {
+    "expected": {
+      "status": "ACCEPTED",
+      "reason_code": "OK",
+      "bundle_digest": "8a607d9d472f5a26d05e4e74ddca27876621a52ec102a6088f723687c52950fe"
+    },
+    "observed": {
+      "status": "ACCEPTED",
+      "reason_code": "OK",
+      "bundle_digest": "8a607d9d472f5a26d05e4e74ddca27876621a52ec102a6088f723687c52950fe",
+      "document_count": 8,
+      "predecessor_bundle_digest": "c4eb9da641ee6a8f2971d06174f9eaa2c970122fa106acc9a2e8f584833b085d",
+      "overlay_digest": "1526f5769c094a32164dd2e243860a66226b45e66ed41466762b3f2d199b4530",
+      "stage_denials": {
+        "D0": "DENIED",
+        "D1": "DENIED",
+        "D2": "DENIED",
+        "D3": "DENIED",
+        "E2": "DENIED",
+        "E3": "DENIED"
+      }
+    },
+    "passed": true
+  },
+  "manual_mutations": [
+    {"case_id":"M01","category":"SOL_EXACT_HYPOTHESIS","variant":"E5_LIVE_VALIDATED","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.hypothesis_validation_queue.v1.json","field":"hypotheses[0].evidence_level"},"passed":true},
+    {"case_id":"M02","category":"SOL_EXACT_CLAIM","variant":"E5_MARKET_CONFIRMED","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.object_dictionary.v1.json","field":"claims[0].evidence_status"},"passed":true},
+    {"case_id":"M03","category":"SOL_EXACT_SOURCE_VERIFIED","variant":"VERIFIED plus VERIFIED_COMPLETE plus VERIFIED_VERSIONED plus VERIFIED_AVAILABLE_AT","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.source_authority_registry.v1.json","field":"sources[0].integrity_status"},"passed":true},
+    {"case_id":"M04","category":"SOL_EXACT_SOURCE_LIVE","variant":"ADMITTED_FOR_LIVE_TRADING","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.source_authority_registry.v1.json","field":"sources[0].replacement_or_usage_status"},"passed":true},
+    {"case_id":"M05","category":"CLAIM_VARIANT","variant":"casefold e5_market_confirmed","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.object_dictionary.v1.json","field":"claims[0].evidence_status"},"passed":true},
+    {"case_id":"M06","category":"HYPOTHESIS_VARIANT","variant":"casefold e5_live_validated","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.hypothesis_validation_queue.v1.json","field":"hypotheses[0].evidence_level"},"passed":true},
+    {"case_id":"M07","category":"SOURCE_VERIFIED_VARIANT","variant":"casefold verified","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.source_authority_registry.v1.json","field":"sources[0].integrity_status"},"passed":true},
+    {"case_id":"M08","category":"SOURCE_LIVE_VARIANT","variant":"casefold admitted_for_live_trading","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.source_authority_registry.v1.json","field":"sources[0].replacement_or_usage_status"},"passed":true},
+    {"case_id":"M09","category":"CLAIM_VARIANT","variant":"fullwidth E5_MARKET_CONFIRMED","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.object_dictionary.v1.json","field":"claims[0].evidence_status"},"passed":true},
+    {"case_id":"M10","category":"HYPOTHESIS_VARIANT","variant":"fullwidth E5_LIVE_VALIDATED","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.hypothesis_validation_queue.v1.json","field":"hypotheses[0].evidence_level"},"passed":true},
+    {"case_id":"M11","category":"SOURCE_VERIFIED_VARIANT","variant":"fullwidth VERIFIED","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.source_authority_registry.v1.json","field":"sources[0].integrity_status"},"passed":true},
+    {"case_id":"M12","category":"SOURCE_LIVE_VARIANT","variant":"fullwidth ADMITTED_FOR_LIVE_TRADING","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.source_authority_registry.v1.json","field":"sources[0].replacement_or_usage_status"},"passed":true},
+    {"case_id":"M13","category":"CLAIM_VARIANT","variant":"hyphen E5-MARKET-CONFIRMED","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.object_dictionary.v1.json","field":"claims[0].evidence_status"},"passed":true},
+    {"case_id":"M14","category":"HYPOTHESIS_VARIANT","variant":"space E5 LIVE VALIDATED","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.hypothesis_validation_queue.v1.json","field":"hypotheses[0].evidence_level"},"passed":true},
+    {"case_id":"M15","category":"SOURCE_VERIFIED_VARIANT","variant":"underscore VERIFIED_COMPLETE","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.source_authority_registry.v1.json","field":"sources[0].coverage_status"},"passed":true},
+    {"case_id":"M16","category":"SOURCE_LIVE_VARIANT","variant":"hyphen ADMITTED-FOR-LIVE-TRADING","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.source_authority_registry.v1.json","field":"sources[0].replacement_or_usage_status"},"passed":true},
+    {"case_id":"M17","category":"CLAIM_VARIANT","variant":"prefix CLAIM_E5_MARKET_CONFIRMED","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.object_dictionary.v1.json","field":"claims[0].evidence_status"},"passed":true},
+    {"case_id":"M18","category":"HYPOTHESIS_VARIANT","variant":"suffix E5_LIVE_VALIDATED_NOW","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.hypothesis_validation_queue.v1.json","field":"hypotheses[0].evidence_level"},"passed":true},
+    {"case_id":"M19","category":"SOURCE_VERIFIED_VARIANT","variant":"prefix CURRENTLY_VERIFIED","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.source_authority_registry.v1.json","field":"sources[0].integrity_status"},"passed":true},
+    {"case_id":"M20","category":"SOURCE_LIVE_VARIANT","variant":"suffix ADMITTED_FOR_LIVE_TRADING_NOW","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.source_authority_registry.v1.json","field":"sources[0].replacement_or_usage_status"},"passed":true},
+    {"case_id":"M21","category":"CLAIM_VARIANT","variant":"near synonym MARKET_EVIDENCE_ESTABLISHED","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.object_dictionary.v1.json","field":"claims[0].evidence_status"},"passed":true},
+    {"case_id":"M22","category":"HYPOTHESIS_VARIANT","variant":"near synonym PRODUCTION_VALIDATED","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.hypothesis_validation_queue.v1.json","field":"hypotheses[0].evidence_level"},"passed":true},
+    {"case_id":"M23","category":"SOURCE_VERIFIED_VARIANT","variant":"near synonym AUTHENTICATED","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.source_authority_registry.v1.json","field":"sources[0].integrity_status"},"passed":true},
+    {"case_id":"M24","category":"SOURCE_LIVE_VARIANT","variant":"near synonym APPROVED_FOR_PRODUCTION_TRADING","expected":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY"},"observed":{"status":"REJECTED","reason_code":"E_NESTED_CLAIM_BOUNDARY","path":"config/research_system.source_authority_registry.v1.json","field":"sources[0].replacement_or_usage_status"},"passed":true},
+    {"case_id":"M25","category":"OVERLAY_AUTHORITY","variant":"initial Sol decision id","expected":{"status":"REJECTED","reason_code":"E_AUTHORITY_BINDING"},"observed":{"status":"REJECTED","reason_code":"E_AUTHORITY_BINDING","path":"config/research_system.semantic_claim_boundary.v1_1.json","field":"authority_binding.initial_sol_decision.decision_id"},"passed":true},
+    {"case_id":"M26","category":"OVERLAY_AUTHORITY","variant":"failed gate decision state","expected":{"status":"REJECTED","reason_code":"E_AUTHORITY_BINDING"},"observed":{"status":"REJECTED","reason_code":"E_AUTHORITY_BINDING","path":"config/research_system.semantic_claim_boundary.v1_1.json","field":"authority_binding.failed_p0_gate_decision.decision_state"},"passed":true},
+    {"case_id":"M27","category":"OVERLAY_AUTHORITY","variant":"frozen inventory artifact count","expected":{"status":"REJECTED","reason_code":"E_AUTHORITY_BINDING"},"observed":{"status":"REJECTED","reason_code":"E_AUTHORITY_BINDING","path":"config/research_system.semantic_claim_boundary.v1_1.json","field":"authority_binding.frozen_p0_inventory.artifact_count"},"passed":true},
+    {"case_id":"M28","category":"OVERLAY_AUTHORITY","variant":"predecessor bundle digest","expected":{"status":"REJECTED","reason_code":"E_AUTHORITY_BINDING"},"observed":{"status":"REJECTED","reason_code":"E_AUTHORITY_BINDING","path":"config/research_system.semantic_claim_boundary.v1_1.json","field":"authority_binding.predecessor_bundle.bundle_digest"},"passed":true},
+    {"case_id":"M29","category":"OVERLAY_SELF_DIGEST","variant":"valid clock with stale digest","expected":{"status":"REJECTED","reason_code":"E_SELF_DIGEST"},"observed":{"status":"REJECTED","reason_code":"E_SELF_DIGEST","path":"config/research_system.semantic_claim_boundary.v1_1.json","field":"overlay_sha256"},"passed":true},
+    {"case_id":"M30","category":"OVERLAY_UNKNOWN","variant":"unknown authorization field with fresh digest","expected":{"status":"REJECTED","reason_code":"E_UNKNOWN_FIELD"},"observed":{"status":"REJECTED","reason_code":"E_UNKNOWN_FIELD","path":"config/research_system.semantic_claim_boundary.v1_1.json","field":"$.candidate_authorization"},"passed":true},
+    {"case_id":"M31","category":"OVERLAY_DUPLICATE_JSON","variant":"duplicate raw overlay_id","expected":{"status":"REJECTED","reason_code":"E_JSON_DUPLICATE_KEY"},"observed":{"status":"REJECTED","reason_code":"E_JSON_DUPLICATE_KEY","path":"config/research_system.semantic_claim_boundary.v1_1.json","field":"overlay_id"},"passed":true},
+    {"case_id":"M32","category":"OVERLAY_NAN","variant":"NaN artifact_count","expected":{"status":"REJECTED","reason_code":"E_JSON_NONFINITE"},"observed":{"status":"REJECTED","reason_code":"E_JSON_NONFINITE","path":"config/research_system.semantic_claim_boundary.v1_1.json"},"passed":true},
+    {"case_id":"M33","category":"PREDECESSOR_BYTE_DRIFT","variant":"object dictionary plus one LF","expected":{"status":"REJECTED","reason_code":"E_PREDECESSOR_BYTES"},"observed":{"status":"REJECTED","reason_code":"E_PREDECESSOR_BYTES","path":"config/research_system.object_dictionary.v1.json"},"passed":true},
+    {"case_id":"M34","category":"PREDECESSOR_BYTE_DRIFT","variant":"hypothesis queue plus one LF","expected":{"status":"REJECTED","reason_code":"E_PREDECESSOR_BYTES"},"observed":{"status":"REJECTED","reason_code":"E_PREDECESSOR_BYTES","path":"config/research_system.hypothesis_validation_queue.v1.json"},"passed":true},
+    {"case_id":"M35","category":"PREDECESSOR_BYTE_DRIFT","variant":"measurement contracts plus one LF","expected":{"status":"REJECTED","reason_code":"E_PREDECESSOR_BYTES"},"observed":{"status":"REJECTED","reason_code":"E_PREDECESSOR_BYTES","path":"config/research_system.measurement_contract.v1.json"},"passed":true},
+    {"case_id":"M36","category":"PREDECESSOR_BYTE_DRIFT","variant":"parameter registry plus one LF","expected":{"status":"REJECTED","reason_code":"E_PREDECESSOR_BYTES"},"observed":{"status":"REJECTED","reason_code":"E_PREDECESSOR_BYTES","path":"config/research_system.parameter_registry.v1.json"},"passed":true},
+    {"case_id":"M37","category":"PREDECESSOR_BYTE_DRIFT","variant":"source registry plus one LF","expected":{"status":"REJECTED","reason_code":"E_PREDECESSOR_BYTES"},"observed":{"status":"REJECTED","reason_code":"E_PREDECESSOR_BYTES","path":"config/research_system.source_authority_registry.v1.json"},"passed":true},
+    {"case_id":"M38","category":"PREDECESSOR_BYTE_DRIFT","variant":"dispute registry plus one LF","expected":{"status":"REJECTED","reason_code":"E_PREDECESSOR_BYTES"},"observed":{"status":"REJECTED","reason_code":"E_PREDECESSOR_BYTES","path":"config/research_system.dispute_registry.v1.json"},"passed":true},
+    {"case_id":"M39","category":"PREDECESSOR_BYTE_DRIFT","variant":"stage contract plus one LF","expected":{"status":"REJECTED","reason_code":"E_PREDECESSOR_BYTES"},"observed":{"status":"REJECTED","reason_code":"E_PREDECESSOR_BYTES","path":"config/research_system.stage_contract.v1.json"},"passed":true},
+    {"case_id":"M40","category":"STAGE_DENIAL","variant":"D0=AUTHORIZED","expected":{"status":"REJECTED","reason_code":"E_STAGE_DENIAL"},"observed":{"status":"REJECTED","reason_code":"E_STAGE_DENIAL","path":"config/research_system.semantic_claim_boundary.v1_1.json","field":"stage_denials.D0"},"passed":true},
+    {"case_id":"M41","category":"STAGE_DENIAL","variant":"D1=AUTHORIZED","expected":{"status":"REJECTED","reason_code":"E_STAGE_DENIAL"},"observed":{"status":"REJECTED","reason_code":"E_STAGE_DENIAL","path":"config/research_system.semantic_claim_boundary.v1_1.json","field":"stage_denials.D1"},"passed":true},
+    {"case_id":"M42","category":"STAGE_DENIAL","variant":"D2=AUTHORIZED","expected":{"status":"REJECTED","reason_code":"E_STAGE_DENIAL"},"observed":{"status":"REJECTED","reason_code":"E_STAGE_DENIAL","path":"config/research_system.semantic_claim_boundary.v1_1.json","field":"stage_denials.D2"},"passed":true},
+    {"case_id":"M43","category":"STAGE_DENIAL","variant":"D3=AUTHORIZED","expected":{"status":"REJECTED","reason_code":"E_STAGE_DENIAL"},"observed":{"status":"REJECTED","reason_code":"E_STAGE_DENIAL","path":"config/research_system.semantic_claim_boundary.v1_1.json","field":"stage_denials.D3"},"passed":true},
+    {"case_id":"M44","category":"STAGE_DENIAL","variant":"E2=AUTHORIZED","expected":{"status":"REJECTED","reason_code":"E_STAGE_DENIAL"},"observed":{"status":"REJECTED","reason_code":"E_STAGE_DENIAL","path":"config/research_system.semantic_claim_boundary.v1_1.json","field":"stage_denials.E2"},"passed":true},
+    {"case_id":"M45","category":"STAGE_DENIAL","variant":"E3=AUTHORIZED","expected":{"status":"REJECTED","reason_code":"E_STAGE_DENIAL"},"observed":{"status":"REJECTED","reason_code":"E_STAGE_DENIAL","path":"config/research_system.semantic_claim_boundary.v1_1.json","field":"stage_denials.E3"},"passed":true},
+    {"case_id":"M46","category":"PUBLIC_TOTALITY","variant":"Mapping raises RuntimeError on iteration","expected":{"status":"REJECTED","reason_code":"E_INTERNAL_TOTALITY"},"observed":{"status":"REJECTED","reason_code":"E_INTERNAL_TOTALITY","error_type":"RuntimeError"},"passed":true}
+  ],
+  "frozen_prior_verification": {
+    "inventory": {
+      "path": "config/research_system.p0_artifact_inventory.v1.json",
+      "entry_count_expected": 21,
+      "entry_count_observed": 21,
+      "entries_matching_size_physical_sha_and_non_symlink": 21,
+      "physical_sha256_expected_from_overlay": "bfffb9eda8e3cb5a4e0b562bbf532b0e9e72fff3f6064c82ee66a719c29af29c",
+      "physical_sha256_observed": "bfffb9eda8e3cb5a4e0b562bbf532b0e9e72fff3f6064c82ee66a719c29af29c",
+      "canonical_sha256_supplied": "a64d0036f08f6849619562a0079d03ea64f436518eefa41b3fe5b48cdd3acf30",
+      "canonical_sha256_recomputed": "a64d0036f08f6849619562a0079d03ea64f436518eefa41b3fe5b48cdd3acf30",
+      "identity_unchanged": true,
+      "entries": [
+        {"path":"config/sol_decision.research-system-reconstruction.v1.json","size_bytes":45579,"physical_sha256":"2cf37e54989d3fd09846cacdbe622de26a4c0bd60e46cb0650f67b2827bf5586","matched":true},
+        {"path":"RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md","size_bytes":28683,"physical_sha256":"c7a5a3607936f4ac4ca05c9d8f05a32e06c0acccb7c5b36804a392e80911f348","matched":true},
+        {"path":"RESEARCH_TEAM_GOVERNANCE_v1_0.md","size_bytes":11800,"physical_sha256":"d31f6bf8581a16614eccd57fe3c96a0a6211f881412cd0957e910f4e2f37263f","matched":true},
+        {"path":"DATA_AUTHORITY_STANDARD_v1_0.md","size_bytes":6933,"physical_sha256":"03a38e2e4fa5f299b9ed698b0e0d185addf67984bb5e4712d9cc2bd742fd9f72","matched":true},
+        {"path":"RESEARCH_SYSTEM_AUDIT_v1_0.md","size_bytes":13436,"physical_sha256":"15f7015a907d48621631efd420361b80519c6cf32e92d7a8ac1b434a60b366b8","matched":true},
+        {"path":"RESEARCH_SYSTEM_ROADMAP_v1_0.md","size_bytes":13004,"physical_sha256":"74f61b2e1381d751638da05664fea3e0691699a9e405814a51509132dc1d183f","matched":true},
+        {"path":"RESEARCH_SYSTEM_CHANGELOG_v1_0.md","size_bytes":6899,"physical_sha256":"6df8f6d9f2a626e4ac05cc0645fc72992d4517bb40070683d6b6ac36d977abde","matched":true},
+        {"path":"config/research_system.object_dictionary.v1.json","size_bytes":27667,"physical_sha256":"9a167daea7bf05d1022e65da40be5b87786139a9e0f74d52994cbc2fd4915fff","matched":true},
+        {"path":"config/research_system.hypothesis_validation_queue.v1.json","size_bytes":41358,"physical_sha256":"e76ab11983326ab53d209b6efd362deb91a00215a0c47b14d5930457c614b4cb","matched":true},
+        {"path":"config/research_system.measurement_contract.v1.json","size_bytes":34948,"physical_sha256":"2e8d162f9be5182fbe25fd4e5d0c96fd817edc010b92ac61aa03f991aac20651","matched":true},
+        {"path":"config/research_system.parameter_registry.v1.json","size_bytes":28793,"physical_sha256":"a5321385626f2acd67063fed1cf8138b400c5911265ad333aed4da3958ca2a26","matched":true},
+        {"path":"config/research_system.dispute_registry.v1.json","size_bytes":19321,"physical_sha256":"ae137bcb46051dd7ddb0b71f8c2b01390fcf9ff21d3d409fc7776ef1cb791ba3","matched":true},
+        {"path":"config/research_system.source_authority_registry.v1.json","size_bytes":46188,"physical_sha256":"693cc7361c16fb154df97bf2c58a1e68807f990dc976df949658e7ce635abb12","matched":true},
+        {"path":"config/research_system.stage_contract.v1.json","size_bytes":8581,"physical_sha256":"ab81251c0ea70e945d9ea7176e9cb59e7353477212dcf36a2d9e4424f944674b","matched":true},
+        {"path":"trade_system/research_system_contract_v1.py","size_bytes":61830,"physical_sha256":"5101ca7b59182c51d4afbfc30e4208273a58eaf80589afb96b083295074d362d","matched":true},
+        {"path":"tests/test_research_system_contract_v1.py","size_bytes":30473,"physical_sha256":"698b925ce7c9854d86b013df05adef43ec13d4b61027c425e579fbb8df643cd6","matched":true},
+        {"path":"artifacts/research_system_p0_independent_math_review.v1.json","size_bytes":14636,"physical_sha256":"907d967f684e873166ec9477c40634ebadccfccbd3be47006b23c07eb6e10d92","matched":true},
+        {"path":"artifacts/research_system_p0_independent_math_recheck.v1.json","size_bytes":8927,"physical_sha256":"f81c1128822c691da8f47ef631b2c1c7cc605d251e4cb9e435d353b50ff6a511","matched":true},
+        {"path":"artifacts/research_system_p0_math_final_attestation.v1.json","size_bytes":5607,"physical_sha256":"cbbceaa23fc871d4e840ab8ce1b28658139d7471533e9017f789e9c5b9add3e4","matched":true},
+        {"path":"artifacts/research_system_p0_adversarial_review.v1.json","size_bytes":10401,"physical_sha256":"b3a4cf459b32e7720ec8e3b2348156322378cf48c040e9edf9f898df3ae0c8d8","matched":true},
+        {"path":"artifacts/research_system_p0_validation_report.v1.json","size_bytes":9773,"physical_sha256":"11269856184b0e7bd1f275bd7cce0e0e3f1f2bc3660a20c8176c1b2fd415f722","matched":true}
+      ]
+    },
+    "failed_gate_decision": {
+      "path": "config/sol_decision.research-system-reconstruction-p0-gate.v1.json",
+      "decision_state_expected": "REWORK_LOCAL",
+      "decision_state_observed": "REWORK_LOCAL",
+      "physical_sha256_expected_from_overlay": "368dba95967e6abb85119728b1637a115c2c4553b39f3782db9c44b9dfd3a473",
+      "physical_sha256_observed": "368dba95967e6abb85119728b1637a115c2c4553b39f3782db9c44b9dfd3a473",
+      "canonical_sha256_supplied": "45f2f9a3a7040a552b25e7249bd29c2e13de66277bacbd4266978cc6a0aa2482",
+      "canonical_sha256_recomputed": "45f2f9a3a7040a552b25e7249bd29c2e13de66277bacbd4266978cc6a0aa2482",
+      "identity_unchanged": true
+    }
+  },
+  "summary": {
+    "test_count": 140,
+    "test_suite_reproduced": true,
+    "manual_mutation_count": 46,
+    "manual_mutations_passed": 46,
+    "sol_exact_cases_passed": "4/4",
+    "frozen_predecessor_byte_drift_cases_passed": "7/7",
+    "stage_denial_cases_passed": "6/6",
+    "old_inventory_entries_passed": "21/21",
+    "unclosed_findings": [],
+    "maximum_positive_claim": "At the recorded cwd, branch, HEAD and physical input hashes, the clean eight-document v1.1 successor returns ACCEPTED/OK with bundle digest 8a607d9d472f5a26d05e4e74ddca27876621a52ec102a6088f723687c52950fe; all 46 independently constructed adversarial cases return their expected fail-closed status and reason; and the frozen old inventory and failed P0 gate decision remain byte- and canonical-identity exact. This establishes only the tested contract-boundary behavior of this versioned successor. It does not accept P0, authorize D0-E3, establish source-data, market, predictive or profitability validity, or authorize acquisition, adapter, dataset, backtest, paper, deployment or trading work."
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "domain": "msta-hed/research-system-p0-adversarial-review/v1_1",
+    "domain_prefix_utf8": "msta-hed/research-system-p0-adversarial-review/v1_1",
+    "domain_separator_hex": "00",
+    "encoding": "UTF-8",
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [",", ":"],
+    "exclude_fields": ["canonical_self_digest"],
+    "formula": "SHA256(domain_prefix_utf8 || HEX(domain_separator_hex) || canonical_json_utf8)"
+  },
+  "canonical_self_digest": "6d7a41c43cde8fa5e1fccad46cb62110bb5e4fe756a4081c2eeb430ca121a413"
+}

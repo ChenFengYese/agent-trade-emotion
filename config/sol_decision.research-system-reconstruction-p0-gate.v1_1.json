@@ -1,0 +1,315 @@
+{
+  "schema_version": "sol-research-system-reconstruction-p0-gate-decision.v1_1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION_P0_GATE.v1_1",
+  "issued_at": "2026-07-27T09:41:59Z",
+  "issued_by": "GPT-5.6-SOL_ULTRA_EXTERNAL_STAGE_GATE_REVIEWER",
+  "decision_state": "ACCEPT_P0",
+  "decision_class": "RSR_P0_REWORK_SUCCESSOR_EXTERNAL_STAGE_GATE",
+  "evidence_level": "E0_CONTRACT_IDENTITY_AND_ADVERSARIAL_VALIDATION_ONLY_NO_MARKET_PROOF",
+  "decision_scope": {
+    "scope_id": "RSR_P0_V1_1_EXACT_VERSIONED_SUCCESSOR_STAGE_GATE",
+    "included": [
+      "Bind the exact v1.1 successor inventory, integrated validation report, failed-gate negative evidence, frozen predecessor package and all successor artifact identities.",
+      "Independently re-evaluate P0-RS-01 through P0-RS-05 after the first REWORK_LOCAL root cause.",
+      "Reproduce the combined validator tests and independently re-sign nested semantic escalation, equivalent-variant, overlay self-rebinding, predecessor-byte-drift, claim-boundary and stage-denial mutations.",
+      "Issue ACCEPT_P0 or REWORK_LOCAL for this exact versioned successor only."
+    ],
+    "excluded": [
+      "Reading or modifying /Users/wt/Library/Application Support/agent-trade-emotion.",
+      "Modifying the frozen failed P0 package, active G1 package, plan, registry, evidence, old P1A or immutable theory artifacts.",
+      "Creating, authorizing or executing D0, D1, D2, D3, E2 or E3.",
+      "Acquiring market rows, invoking a data adapter, replaying a dataset, building features or labels, running a backtest, calibration, holdout, paper test, deployment or trading operation.",
+      "Evaluating or claiming market validity, predictive validity, profitability, execution readiness or live-trading readiness."
+    ],
+    "workspace_identity": {
+      "cwd": "/Users/wt/Documents/agent-trade-emotion",
+      "branch": "codex/s0-research-foundation",
+      "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+      "route_id": "RSR-P0-NEW-PROGRAM-ROUTE-v1_1",
+      "rework_round": 1
+    },
+    "active_application_support_root_accessed": false,
+    "market_rows_accessed": false,
+    "data_adapter_executed": false,
+    "backtest_performed": false,
+    "paper_or_trading_operation_performed": false
+  },
+  "authority_binding": {
+    "initial_route_decision": {
+      "path": "config/sol_decision.research-system-reconstruction.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION.v1",
+      "decision_state": "AUTHORIZED_P0_E0_RESEARCH_SYSTEM_RECONSTRUCTION",
+      "physical_sha256": "2cf37e54989d3fd09846cacdbe622de26a4c0bd60e46cb0650f67b2827bf5586",
+      "canonical_sha256": "2a434f542f58c6d43798e1562b7f203336eae7e5db4b6745095e3c9e7633ddb6"
+    },
+    "failed_predecessor_gate": {
+      "path": "config/sol_decision.research-system-reconstruction-p0-gate.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION_P0_GATE.v1",
+      "decision_state": "REWORK_LOCAL",
+      "size_bytes": 20764,
+      "physical_sha256": "368dba95967e6abb85119728b1637a115c2c4553b39f3782db9c44b9dfd3a473",
+      "canonical_sha256": "45f2f9a3a7040a552b25e7249bd29c2e13de66277bacbd4266978cc6a0aa2482"
+    },
+    "frozen_predecessor_inventory": {
+      "path": "config/research_system.p0_artifact_inventory.v1.json",
+      "inventory_id": "MSTA_HED_RESEARCH_SYSTEM_P0_ARTIFACT_INVENTORY.v1",
+      "artifact_count": 21,
+      "size_bytes": 10079,
+      "physical_sha256": "bfffb9eda8e3cb5a4e0b562bbf532b0e9e72fff3f6064c82ee66a719c29af29c",
+      "canonical_sha256": "a64d0036f08f6849619562a0079d03ea64f436518eefa41b3fe5b48cdd3acf30",
+      "identity_recheck": "PASS_21_OF_21"
+    },
+    "successor_inventory": {
+      "path": "config/research_system.p0_artifact_inventory.v1_1.json",
+      "inventory_id": "MSTA_HED_RESEARCH_SYSTEM_P0_ARTIFACT_INVENTORY.v1_1",
+      "status_at_submission": "REVIEW_READY_REWORK_SUCCESSOR_AWAITING_EXTERNAL_SOL_REGATE",
+      "size_bytes": 5823,
+      "physical_sha256": "dc78634eb373aef988cc7a13a5bfdb87d03303b452b22b896d95c02d88a2ee26",
+      "canonical_sha256": "c6cb8e84e37d858b971d02b2cf4aed7878804327922482460701ea4ef214cbc1"
+    },
+    "integrated_successor_validation_report": {
+      "path": "artifacts/research_system_p0_validation_report.v1_1.json",
+      "report_id": "MSTA_HED_RESEARCH_SYSTEM_P0_VALIDATION_REPORT.v1_1",
+      "size_bytes": 8292,
+      "physical_sha256": "f723dbc624eb37efab263e51407fbae698d216ede22eee3d3b1d050934a122a0",
+      "canonical_sha256": "bdb34f1694bc4115d997b66cdf2f3843037995b27d5a35c48bdfcdd1a1a48ffb"
+    },
+    "binding_effect": "This decision accepts only the exact successor inventory bytes and the exact artifacts transitively bound below. The prior v1 candidate remains REWORK_LOCAL. Any byte, canonical identity, authority binding or bundle-digest change creates a new candidate with no disposition under this decision."
+  },
+  "exact_successor_artifacts": [
+    {
+      "role": "failed_gate_authority_and_negative_evidence",
+      "path": "config/sol_decision.research-system-reconstruction-p0-gate.v1.json",
+      "size_bytes": 20764,
+      "physical_sha256": "368dba95967e6abb85119728b1637a115c2c4553b39f3782db9c44b9dfd3a473",
+      "canonical_sha256": "45f2f9a3a7040a552b25e7249bd29c2e13de66277bacbd4266978cc6a0aa2482"
+    },
+    {
+      "role": "semantic_claim_boundary_overlay",
+      "path": "config/research_system.semantic_claim_boundary.v1_1.json",
+      "size_bytes": 4407,
+      "physical_sha256": "0cba2b1bd57143d1057fcc777180a08b0d7645d4b6286d6bfaa819e436d355f9",
+      "canonical_sha256": "1526f5769c094a32164dd2e243860a66226b45e66ed41466762b3f2d199b4530"
+    },
+    {
+      "role": "pure_successor_validator",
+      "path": "trade_system/research_system_contract_v1_1.py",
+      "size_bytes": 20988,
+      "physical_sha256": "f180ef633ae90e1abee761a6b559f1c9fbb970f311ba019046cd392750d3d6a4"
+    },
+    {
+      "role": "successor_unit_and_adversarial_tests",
+      "path": "tests/test_research_system_contract_v1_1.py",
+      "size_bytes": 19067,
+      "physical_sha256": "270012827acae3db7b23c0dd4493c5dec7a079429e50eef310c9ce29e3dc0935"
+    },
+    {
+      "role": "independent_helper_free_successor_review",
+      "path": "artifacts/research_system_p0_adversarial_review.v1_1.json",
+      "size_bytes": 28519,
+      "physical_sha256": "305106acd2c14f45fded8dfd6b822ca394c91730683a51d2ea1d9490c60f2705",
+      "canonical_sha256": "6d7a41c43cde8fa5e1fccad46cb62110bb5e4fe756a4081c2eeb430ca121a413"
+    },
+    {
+      "role": "integrated_successor_validation_report",
+      "path": "artifacts/research_system_p0_validation_report.v1_1.json",
+      "size_bytes": 8292,
+      "physical_sha256": "f723dbc624eb37efab263e51407fbae698d216ede22eee3d3b1d050934a122a0",
+      "canonical_sha256": "bdb34f1694bc4115d997b66cdf2f3843037995b27d5a35c48bdfcdd1a1a48ffb"
+    }
+  ],
+  "bundle_identities": {
+    "frozen_predecessor_document_count": 7,
+    "frozen_predecessor_bundle_status": "ACCEPTED",
+    "frozen_predecessor_bundle_reason_code": "OK",
+    "frozen_predecessor_bundle_digest": "c4eb9da641ee6a8f2971d06174f9eaa2c970122fa106acc9a2e8f584833b085d",
+    "successor_document_count": 8,
+    "successor_bundle_status": "ACCEPTED",
+    "successor_bundle_reason_code": "OK",
+    "successor_bundle_digest": "8a607d9d472f5a26d05e4e74ddca27876621a52ec102a6088f723687c52950fe"
+  },
+  "independent_review_results": {
+    "deterministic_checks": [
+      {
+        "command": "PYTHONPYCACHEPREFIX=/tmp/agent-trade-emotion-rsr-p0-regate-pyc python3 -m unittest -q tests.test_research_system_contract_v1 tests.test_research_system_contract_v1_1",
+        "exit_code": 0,
+        "result": "PASS_140_OF_140"
+      },
+      {
+        "command": "PYTHONPYCACHEPREFIX=/tmp/agent-trade-emotion-rsr-p0-regate-pyc python3 -m py_compile trade_system/research_system_contract_v1.py trade_system/research_system_contract_v1_1.py tests/test_research_system_contract_v1.py tests/test_research_system_contract_v1_1.py",
+        "exit_code": 0,
+        "result": "PASS_NO_OUTPUT"
+      },
+      {
+        "command": "Independent strict-JSON, physical/canonical identity and public-entry re-signing harness over the exact recorded inputs, without importing builder test helpers.",
+        "exit_code": 0,
+        "result": "PASS_45_OF_45_ADVERSARIAL_CASES"
+      }
+    ],
+    "submitted_independent_review": {
+      "result": "PASS_46_OF_46",
+      "sol_exact_cases": "PASS_4_OF_4",
+      "frozen_predecessor_byte_drift": "PASS_7_OF_7",
+      "stage_denials": "PASS_6_OF_6",
+      "artifact_physical_sha256": "305106acd2c14f45fded8dfd6b822ca394c91730683a51d2ea1d9490c60f2705",
+      "artifact_canonical_sha256": "6d7a41c43cde8fa5e1fccad46cb62110bb5e4fe756a4081c2eeb430ca121a413"
+    },
+    "external_sol_regate": {
+      "identity_checks": "PASS",
+      "frozen_predecessor_artifacts": "PASS_21_OF_21",
+      "exact_original_escalations": {
+        "claim_E5_MARKET_CONFIRMED": "REJECTED_E_NESTED_CLAIM_BOUNDARY",
+        "hypothesis_E5_LIVE_VALIDATED": "REJECTED_E_NESTED_CLAIM_BOUNDARY",
+        "source_VERIFIED_axes": "REJECTED_E_NESTED_CLAIM_BOUNDARY",
+        "source_ADMITTED_FOR_LIVE_TRADING": "REJECTED_E_NESTED_CLAIM_BOUNDARY"
+      },
+      "equivalent_case_fullwidth_separator_space_and_near_synonym_variants": "PASS_REJECTED_20_OF_20",
+      "candidate_overlay_self_rebinding": "PASS_REJECTED_4_OF_4_E_AUTHORITY_BINDING",
+      "candidate_overlay_invalid_self_digest": "PASS_REJECTED_1_OF_1_E_SELF_DIGEST",
+      "frozen_predecessor_byte_drift": "PASS_REJECTED_7_OF_7_E_PREDECESSOR_BYTES",
+      "claim_boundary_escalations": "PASS_REJECTED_3_OF_3",
+      "stage_D0_D1_D2_D3_E2_E3_self_authorization": "PASS_REJECTED_6_OF_6_E_STAGE_DENIAL",
+      "total": "PASS_REJECTED_45_OF_45"
+    },
+    "reviewer_harness_correction": {
+      "initial_exit_code": 1,
+      "candidate_acceptance_observed": false,
+      "cause": "The first reviewer assertion expected a direct claim-boundary reason for a re-signed predecessor stage-contract escalation; the public successor correctly returned E_V1_BASE_CONTRACT wrapping the predecessor E_PERMISSION_MATRIX rejection.",
+      "classification": "REVIEWER_EXPECTED_REASON_ALLOWLIST_TOO_NARROW",
+      "corrected_rerun": "PASS_REJECTED_45_OF_45"
+    },
+    "validator_boundary": [
+      "The public successor validator is pure and total over its supplied mapping; no filesystem, network, data, adapter, backtest, paper or execution I/O is performed.",
+      "The seven predecessor raw byte streams and predecessor bundle digest are fixed outside candidate content.",
+      "The overlay authority roots, exact E0 nested vocabularies, stage denials, claim boundary and canonicalization are fixed outside candidate content.",
+      "A candidate self-digest proves identity only and cannot expand semantic or stage authority.",
+      "All clean-input acceptance and mutation-rejection results are reproducible from the exact bound artifacts."
+    ]
+  },
+  "root_cause_disposition": {
+    "root_cause_id": "P0_NESTED_SEMANTIC_CLAIM_BOUNDARY_NOT_EXECUTABLE",
+    "prior_effect": "The frozen v1 validator accepted independently re-signed nested claim, hypothesis and source semantic escalations despite its top-level E0 and document-only boundary.",
+    "successor_control": "The v1.1 validator pins the exact frozen predecessor bytes, independently fixed clean-E0 nested vocabularies, overlay authority roots, stage denials and claim boundary, then fails closed on any mismatch.",
+    "closure_evidence": [
+      "All four exact prior exploit classes now reject with E_NESTED_CLAIM_BOUNDARY.",
+      "Twenty equivalent spelling and Unicode variants reject.",
+      "Candidate-signed changes to semantic ceilings, candidate status, failed-gate state and predecessor bundle authority reject with E_AUTHORITY_BINDING.",
+      "Every one of the seven frozen predecessor byte streams rejects on drift.",
+      "Overlay and predecessor claim-boundary escalations reject.",
+      "D0, D1, D2, D3, E2 and E3 remain non-self-authorizable."
+    ],
+    "status": "CLOSED_FOR_EXACT_V1_1_SUCCESSOR"
+  },
+  "p0_goal_disposition": [
+    {
+      "goal_id": "P0-RS-01",
+      "status": "PASS",
+      "basis": "The route, initial authority, failed-gate history, frozen 21-artifact predecessor and exact successor inventory identities close without modifying the predecessor or aliasing later-stage authority."
+    },
+    {
+      "goal_id": "P0-RS-02",
+      "status": "PASS_WITH_DECLARED_LATER_STAGE_BLOCKER",
+      "basis": "Typed objects, finite hypotheses, weak-evidence preservation, measurement bindings, hard-falsifier and expiry prose close at E0 design scope. F-005/DSP-022 remains explicitly non-executable and blocks D3 and E2."
+    },
+    {
+      "goal_id": "P0-RS-03",
+      "status": "PASS_FOR_DOCUMENT_DISCOVERY_ONLY",
+      "basis": "The source registry remains a document-identity discovery registry with unknown acquisition, coverage and point-in-time validity; it contains no admitted market rows and makes no empirical strategy-validity claim."
+    },
+    {
+      "goal_id": "P0-RS-04",
+      "status": "PASS",
+      "basis": "The prior semantic-authority defect is closed by externally pinned exact nested vocabularies, predecessor bytes, authority roots, stage denials and a total public validator; builder and independent adversarial checks reproduce the closure."
+    },
+    {
+      "goal_id": "P0-RS-05",
+      "status": "PASS",
+      "basis": "The dependency-ordered route, evidence index, unresolved-risk register, exact inventory, integrated report and external Sol disposition are complete while every later stage remains explicitly closed."
+    }
+  ],
+  "deferred_blockers": [
+    {
+      "finding_id": "F-005",
+      "dispute_id": "DSP-022",
+      "status": "DEFERRED_BLOCKING",
+      "condition": "Per-hypothesis hard falsifier and expiry rules remain natural-language design inputs. Versioned observable, operator, threshold, clock, window, censoring and terminal predicate schemas plus independent fixtures are required before D3 or E2.",
+      "blocks": [
+        "D3",
+        "E2"
+      ],
+      "does_not_block": "The exact RSR-P0 E0 contract-boundary foundation."
+    },
+    {
+      "blocker_id": "BLOCK-D0-SEPARATE-AUTHORITY",
+      "status": "NOT_AUTHORIZED",
+      "condition": "Any D0 acquisition plan requires a new exact, bounded plan and a separate explicit Sol decision. P0 acceptance is not D0 authorization.",
+      "blocks": [
+        "D0",
+        "D1",
+        "D2",
+        "D3",
+        "E2",
+        "E3"
+      ],
+      "does_not_block": "The exact RSR-P0 E0 contract-boundary foundation."
+    }
+  ],
+  "stage_disposition": {
+    "failed_predecessor_v1_status": "REWORK_LOCAL_UNCHANGED",
+    "successor_v1_1_status": "ACCEPT_P0",
+    "p0_accepted": true,
+    "p0_complete_for_exact_bound_successor": true,
+    "d0_authorized": false,
+    "d1_authorized": false,
+    "d2_authorized": false,
+    "d3_authorized": false,
+    "e2_authorized": false,
+    "e3_authorized": false,
+    "historical_data_acquisition_authorized": false,
+    "market_data_admission_authorized": false,
+    "adapter_or_replay_authorized": false,
+    "backtest_authorized": false,
+    "paper_authorized": false,
+    "deployment_authorized": false,
+    "trading_authorized": false,
+    "permission_effect": "ACCEPT_EXACT_P0_E0_DESIGN_AND_CONTRACT_FOUNDATION_ONLY",
+    "next_action": "STOP_AT_P0. Do not begin D0. A later D0 candidate must be separately scoped, identity-bound and explicitly authorized by a new Sol decision."
+  },
+  "claim_boundary": {
+    "p0_design_package": "ACCEPTED_FOR_EXACT_E0_CONTRACT_FOUNDATION",
+    "contract_authority_closure": "ESTABLISHED_FOR_EXACT_V1_1_SUCCESSOR",
+    "frozen_predecessor_theory_authority": "UNCHANGED",
+    "new_theory_market_validity": "NOT_EVALUATED",
+    "source_document_identity": "DISCOVERY_ONLY",
+    "source_data_validity": "NOT_EVALUATED",
+    "market_validity": "NOT_EVALUATED",
+    "predictive_validity": "NOT_EVALUATED",
+    "profitability": "NOT_EVALUATED",
+    "historical_data_acquisition": "NOT_AUTHORIZED",
+    "backtest": "NOT_AUTHORIZED",
+    "paper": "NOT_AUTHORIZED",
+    "deployment": "DENIED",
+    "trading": "DENIED",
+    "maximum_positive_claim": "The exact v1.1 successor is accepted as the RSR-P0 E0 research-system design and non-self-authorizing contract foundation because its fixed identities, frozen-predecessor binding, clean eight-document validator result and nested semantic-authority repair are independently reproducible. This acceptance supplies no market data, backtest, predictive, profitability, paper, deployment or trading evidence and grants no D0 or later-stage permission."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-research-system-reconstruction-p0-gate-decision/v1_1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "d0968a40d33cea693cd2ad979a656b7897c30fe58b3cd94d85b6f1ce5afd6a58"
+}

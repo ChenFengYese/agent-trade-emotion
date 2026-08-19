@@ -1,0 +1,4 @@
+interface:
+  display_name: "Trading Position Management"
+  short_description: "Size and manage exposure from explicit risk constraints"
+  default_prompt: "Use $manage-trading-positions to assess this exposure and compare hold, add, reduce, exit, or wait."

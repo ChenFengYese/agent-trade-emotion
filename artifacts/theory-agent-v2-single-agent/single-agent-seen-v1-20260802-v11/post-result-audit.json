@@ -1,0 +1,159 @@
+{
+  "schema_id": "single_agent_seen_v1_post_result_audit",
+  "schema_version": "1.0.0",
+  "audit_digest": "8185ef1ea8b573f0fea6e05490aadf50290276857ade41278f9053363d1cf9e2",
+  "run_id": "single-agent-seen-v1-20260802-v11",
+  "raw_binding": {
+    "evaluation_digest": "fd4ec5cfaf257882c2cefcdad960560015eb2de5ef9ca6efd82cbd6992d0d84e",
+    "physical_sha256": "d787557a38cab9e05056a8b760e050daef51ef952afeeab54b8a1e034b8d9a84",
+    "terminal_receipt_digest": "c93cb635e0c04571a50668b30dce159a024e830df2789c5cb3bb85c425c76ac9",
+    "terminal_state_digest": "0d74ec2f6d6159b06f3b21dc055a1cfc36525aa864be7de44a6ffa942616e217",
+    "raw_file_modified_by_audit": false
+  },
+  "corrected_evaluation_findings": {
+    "candidate_maximum_drawdown": {
+      "raw_fraction": "0.001416253656638536333302499615",
+      "corrected_genesis_inclusive_fraction": "0.0135283180386308957212121212",
+      "root_cause": "RAW_EQUITY_CURVE_STARTED_AFTER_CYCLE_1_AND_DID_NOT_PREPEND_INITIAL_EQUITY"
+    },
+    "v1_maximum_drawdown": {
+      "raw_mislabeled_terminal_fraction": "0.00704692",
+      "corrected_genesis_inclusive_fraction": "0.013497620622",
+      "root_cause": "RAW_BASELINE_COPIED_TERMINAL_CURRENT_DRAWDOWN_INTO_A_MAXIMUM_DRAWDOWN_FIELD"
+    },
+    "candidate_minus_v1_net_pnl_usdt": "-40.4235301078247668874751057",
+    "candidate_minus_initial_hold_usdt": "-236.9666060389358779985862168",
+    "funding_status": "UNKNOWN_NOT_IN_V1_PNL",
+    "slippage_status": "EMBEDDED_IN_FILL_PRICES_NOT_SEPARATELY_RECONCILED_IN_RAW_EVALUATION",
+    "v1_comparator_difference": "V1_TOTAL_INCLUDES_CHAOS_AUTO_NET_MINUS_6.30617538_USDT_WHILE_CANDIDATE_HAS_NO_CHAOS_INJECTION"
+  },
+  "candidate_attribution": {
+    "EXOGENOUS": {
+      "realized_pnl_before_fee_usdt": "-88.20526099697065293560606061",
+      "fees_usdt": "2.005897369501514673532196969",
+      "net_realized_pnl_usdt": "-90.21115836647216760913825758",
+      "fill_count": 8
+    },
+    "STRATEGY": {
+      "realized_pnl_before_fee_usdt": "-18.67270457142949369745696581",
+      "fees_usdt": "2.00881948992310558087988246",
+      "net_realized_pnl_usdt": "-20.68152406135259927833684827",
+      "fill_count": 14
+    },
+    "comparison": "CANDIDATE_REDUCED_EXOGENOUS_DAMAGE_VERSUS_V1_BUT_REPLACED_V1_POSITIVE_STRATEGY_ATTRIBUTION_WITH_A_STRATEGY_LOSS"
+  },
+  "candidate_by_symbol": {
+    "BTCUSDT": {
+      "net_realized_pnl_usdt": "9.128636595628577417912228381",
+      "initial_hold_pnl_before_cost_usdt": "13.1453125"
+    },
+    "ETHUSDT": {
+      "net_realized_pnl_usdt": "1.075672922837112764447380682",
+      "initial_hold_pnl_before_cost_usdt": "2.604166666666666666666666666"
+    },
+    "HYPEUSDT": {
+      "net_realized_pnl_usdt": "-21.75202874711618909090909092",
+      "initial_hold_pnl_before_cost_usdt": "14.08"
+    },
+    "MUUSDT": {
+      "net_realized_pnl_usdt": "-12.43512050732048503878031734",
+      "initial_hold_pnl_before_cost_usdt": null
+    },
+    "SNDKUSDT": {
+      "net_realized_pnl_usdt": "-68.63959548103442218702826411",
+      "initial_hold_pnl_before_cost_usdt": "99.44444444444444444444444443"
+    },
+    "SOLUSDT": {
+      "net_realized_pnl_usdt": "-18.27024721081936075311704255",
+      "initial_hold_pnl_before_cost_usdt": "-3.2"
+    }
+  },
+  "mechanism_findings": {
+    "selected_actions": 166,
+    "applied_actions": 166,
+    "risk_vetoes": 0,
+    "new_risk_actions": 7,
+    "protective_stop_fills": 11,
+    "tactical_target_fills": 0,
+    "core_checkpoint_events": 2,
+    "core_checkpoint_automatic_exits": 0,
+    "reentry_contracts_created": 4,
+    "reentry_contracts_fulfilled": 0,
+    "reentry_contracts_cancelled_by_invalidation": 4,
+    "sndk_flat_hours_terminal_inclusive": "24.581417345000002",
+    "sndk_long_reentry_count": 0,
+    "sndk_short_probe_count": 1,
+    "news_items_in_v1_source": 841,
+    "news_items_rfc_parseable": 841,
+    "news_items_visible_to_candidate_agent": 0
+  },
+  "known_problem_verdicts": {
+    "FIXED_TARGET_FULL_EXIT": {
+      "verdict": "STRUCTURALLY_RESOLVED_MARKET_VALUE_NOT_SUPPORTED",
+      "reason": "CORE checkpoints emitted review events and caused no automatic exit; tactical targets retained exact barrier semantics."
+    },
+    "STRATEGIC_STATE_CONTINUITY": {
+      "verdict": "RESOLVED_AFTER_HOLD_SUCCESSOR",
+      "reason": "Twenty-four accepted revisions preserved episode and path identity; the HOLD versus WAIT validator defect was fixed in a fresh run."
+    },
+    "CORE_TACTICAL_POSITION_SEMANTICS": {
+      "verdict": "STRUCTURALLY_RESOLVED",
+      "reason": "Core and tactical lots had distinct checkpoint or target behavior and lineage."
+    },
+    "DYNAMIC_EXIT_AND_PROFIT_CAPTURE": {
+      "verdict": "NOT_SUPPORTED",
+      "reason": "All seven new-risk lots ended through protection, no tactical target filled, and strategy attribution was negative."
+    },
+    "REENTRY": {
+      "verdict": "PARTIALLY_RESOLVED",
+      "reason": "Four obligations persisted across cycles, but none was fulfilled and SNDK never restored long exposure."
+    },
+    "OLD_GEOMETRY_ABSORBING_STATE": {
+      "verdict": "STRUCTURALLY_RESOLVED",
+      "reason": "All eleven inherited orders were explicitly cancelled and replacement episodes used new identities and geometry."
+    },
+    "MARKET_SENTIMENT_ANALYSIS": {
+      "verdict": "NOT_ACCEPTED_DATA_VISIBILITY_FAILURE",
+      "reason": "Price, flow, leverage, crowding, and cross-market dimensions were analyzed, but all 841 available public news items were discarded by a timestamp parser mismatch."
+    },
+    "WAIT_AND_OPPORTUNITY_COST": {
+      "verdict": "NOT_RESOLVED",
+      "reason": "SNDK was flat for about 24.58 hours and raw path capture excluded its neutral-direction missed rally from directional opportunities."
+    },
+    "ALL_NEW_BAR_MATCHING": {
+      "verdict": "RESOLVED_FOR_REPLAYED_15M_BARS",
+      "reason": "Every new closed 15-minute bar was processed with stop-first precedence; no one-hour target-delay fill occurred."
+    },
+    "PROFITABILITY_OR_PREDICTIVE_VALIDITY": {
+      "verdict": "NOT_SUPPORTED",
+      "reason": "The candidate lost more than V1 and the static initial-position hold benchmark in a seen diagnostic window."
+    }
+  },
+  "authorized_minimum_successor_fix": {
+    "changes": [
+      "PARSE_RFC_PUBLIC_NEWS_TIMESTAMPS_WITH_THE_SAME_PIT_CUTOFF",
+      "PREPEND_GENESIS_TO_CANDIDATE_AND_V1_MAXIMUM_DRAWDOWN",
+      "REPORT_CANDIDATE_ATTRIBUTION_AND_SYMBOL_RESULTS",
+      "INCLUDE_TERMINAL_IN_FLAT_DURATION_AND_REENTRY_HISTORY",
+      "COUNT_NEUTRAL_OR_FLAT_MISSED_MARKET_MOVES",
+      "ADD_DESCRIPTIVE_1H_4H_8H_24H_OUTCOMES",
+      "DISCLOSE_EMBEDDED_SLIPPAGE_UNKNOWN_FUNDING_AND_V1_CHAOS_DIFFERENCE"
+    ],
+    "forbidden_changes": [
+      "SNDK_OR_MU_OUTCOME_DERIVED_DIRECTION_RULE",
+      "STOP_OR_ENTRY_THRESHOLD_TUNING",
+      "FIXED_CORE_RETENTION_SELECTION",
+      "RISK_COST_OR_MATCHING_CHANGE",
+      "RAW_ARTIFACT_REWRITE"
+    ],
+    "rerun_requirement": "FULL_NEW_SINGLE_AGENT_RUN_FROM_GENESIS_BECAUSE_NEWS_VISIBILITY_CHANGES_AGENT_EVIDENCE"
+  },
+  "claims_boundary": {
+    "evidence_class": "SEEN_V1_DIAGNOSTIC_REPLAY",
+    "predictive_validity": "NOT_ESTABLISHED",
+    "profitability": "NOT_ESTABLISHED",
+    "latest_market_validity": "NOT_ESTABLISHED",
+    "external_execution_authority": "NONE_LOCAL_SIMULATION",
+    "executable": false
+  }
+}

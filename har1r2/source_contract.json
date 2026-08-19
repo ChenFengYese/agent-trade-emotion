@@ -1,0 +1,1060 @@
+{
+  "canonical_self_digest": {
+    "algorithm": "SHA-256_CANONICAL_JSON",
+    "digest_field": "source_contract_sha256",
+    "domain_prefix_utf8": "msta-hed/har1r2-source-contract/v1"
+  },
+  "future_five_request_plan": {
+    "concurrency": 1,
+    "market_row_read": false,
+    "proxy": "http://127.0.0.1:7897",
+    "redirects": 0,
+    "request_timeout_seconds": 20,
+    "retries": 0,
+    "total_elapsed_cap_seconds": 90,
+    "requests": [
+      {"sequence": 1, "method": "GET", "url": "https://www.binance.com/ja", "body_cap_bytes": 2097152},
+      {"sequence": 2, "method": "GET", "url": "https://www.binance.com/ja/terms", "body_cap_bytes": 2097152},
+      {"sequence": 3, "method": "GET", "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/README.md", "body_cap_bytes": 1048576},
+      {"sequence": 4, "method": "HEAD", "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-07.zip", "body_cap_bytes": 0},
+      {"sequence": 5, "method": "GET", "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-07.zip.CHECKSUM", "body_cap_bytes": 512}
+    ],
+    "zip_get_or_body": false
+  },
+  "object_manifest": {
+    "all_download_authorized": false,
+    "checksum_objects": 72,
+    "objects": [
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "ZIP",
+        "month": "2025-04",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-04.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "CHECKSUM",
+        "month": "2025-04",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-04.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "ZIP",
+        "month": "2025-05",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-05.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "CHECKSUM",
+        "month": "2025-05",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-05.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "ZIP",
+        "month": "2025-06",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-06.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "CHECKSUM",
+        "month": "2025-06",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-06.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "ZIP",
+        "month": "2025-07",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-07.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "CHECKSUM",
+        "month": "2025-07",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-07.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "ZIP",
+        "month": "2025-08",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-08.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "CHECKSUM",
+        "month": "2025-08",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-08.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "ZIP",
+        "month": "2025-09",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-09.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "CHECKSUM",
+        "month": "2025-09",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-09.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "ZIP",
+        "month": "2025-10",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-10.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "CHECKSUM",
+        "month": "2025-10",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-10.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "ZIP",
+        "month": "2025-11",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-11.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "CHECKSUM",
+        "month": "2025-11",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-11.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "ZIP",
+        "month": "2025-12",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-12.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "CHECKSUM",
+        "month": "2025-12",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-12.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "ZIP",
+        "month": "2026-01",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2026-01.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "CHECKSUM",
+        "month": "2026-01",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2026-01.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "ZIP",
+        "month": "2026-02",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2026-02.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "CHECKSUM",
+        "month": "2026-02",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2026-02.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "ZIP",
+        "month": "2026-03",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2026-03.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "CHECKSUM",
+        "month": "2026-03",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2026-03.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "ZIP",
+        "month": "2026-04",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2026-04.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "CHECKSUM",
+        "month": "2026-04",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2026-04.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "ZIP",
+        "month": "2026-05",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2026-05.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "CHECKSUM",
+        "month": "2026-05",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2026-05.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "ZIP",
+        "month": "2026-06",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2026-06.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "1m",
+        "kind": "CHECKSUM",
+        "month": "2026-06",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2026-06.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2020-07",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2020-07.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2020-07",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2020-07.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2020-08",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2020-08.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2020-08",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2020-08.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2020-09",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2020-09.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2020-09",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2020-09.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2020-10",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2020-10.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2020-10",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2020-10.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2020-11",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2020-11.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2020-11",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2020-11.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2020-12",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2020-12.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2020-12",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2020-12.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2021-01",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-01.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2021-01",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-01.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2021-02",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-02.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2021-02",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-02.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2021-03",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-03.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2021-03",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-03.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2021-04",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-04.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2021-04",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-04.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2021-05",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-05.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2021-05",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-05.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2021-06",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-06.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2021-06",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-06.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2021-07",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-07.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2021-07",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-07.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2021-08",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-08.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2021-08",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-08.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2021-09",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-09.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2021-09",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-09.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2021-10",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-10.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2021-10",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-10.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2021-11",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-11.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2021-11",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-11.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2021-12",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-12.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2021-12",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2021-12.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2022-01",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-01.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2022-01",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-01.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2022-02",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-02.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2022-02",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-02.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2022-03",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-03.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2022-03",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-03.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2022-04",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-04.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2022-04",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-04.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2022-05",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-05.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2022-05",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-05.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2022-06",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-06.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2022-06",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-06.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2022-07",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-07.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2022-07",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-07.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2022-08",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-08.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2022-08",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-08.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2022-09",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-09.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2022-09",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-09.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2022-10",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-10.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2022-10",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-10.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2022-11",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-11.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2022-11",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-11.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2022-12",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-12.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2022-12",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2022-12.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2023-01",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-01.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2023-01",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-01.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2023-02",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-02.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2023-02",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-02.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2023-03",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-03.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2023-03",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-03.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2023-04",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-04.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2023-04",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-04.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2023-05",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-05.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2023-05",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-05.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2023-06",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-06.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2023-06",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-06.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2023-07",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-07.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2023-07",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-07.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2023-08",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-08.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2023-08",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-08.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2023-09",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-09.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2023-09",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-09.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2023-10",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-10.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2023-10",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-10.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2023-11",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-11.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2023-11",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-11.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2023-12",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-12.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2023-12",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2023-12.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2024-01",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-01.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2024-01",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-01.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2024-02",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-02.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2024-02",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-02.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2024-03",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-03.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2024-03",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-03.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2024-04",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-04.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2024-04",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-04.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2024-05",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-05.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2024-05",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-05.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2024-06",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-06.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2024-06",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-06.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2024-07",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-07.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2024-07",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-07.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2024-08",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-08.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2024-08",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-08.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2024-09",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-09.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2024-09",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-09.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2024-10",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-10.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2024-10",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-10.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2024-11",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-11.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2024-11",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-11.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2024-12",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-12.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2024-12",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2024-12.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2025-01",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2025-01.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2025-01",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2025-01.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2025-02",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2025-02.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2025-02",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2025-02.zip.CHECKSUM"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "ZIP",
+        "month": "2025-03",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2025-03.zip"
+      },
+      {
+        "download_authorized": false,
+        "interval": "4h",
+        "kind": "CHECKSUM",
+        "month": "2025-03",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/4h/BTCUSDT-4h-2025-03.zip.CHECKSUM"
+      }
+    ],
+    "ordering": "INTERVAL_ASC_THEN_MONTH_ASC_ZIP_THEN_CHECKSUM",
+    "zip_objects": 72
+  },
+  "route_canonical_sha256": "6979a3ec4b2df46d81d48533ed3ed2147d78f68ec9595fe7bbb7a9a1d3beafa0",
+  "route_id": "HAR1R2_SOURCE_PREFLIGHT_STATIC_v1",
+  "route_physical_sha256": "1512149ca8f2f9df3fa66490636db9f0f3e340873087a8c989c5093eea1f2057",
+  "schema_version": "har1r2-source-contract.v1",
+  "source": {
+    "instrument_id": "BTCUSDT",
+    "product_family": "USD_M_FUTURES",
+    "venue": "BINANCE"
+  },
+  "source_contract_sha256": "42cd256a574f7ddeb1c8930c9ba4d43c4e177dadb1470eada832801cfb7dfafe",
+  "source_terms": {
+    "permission": "DENIED_PENDING_NEW_SOL_REVIEW",
+    "state": "PREFLIGHT_PENDING_NO_LEGAL_CONCLUSION"
+  },
+  "user_scope": {
+    "actor": "NATURAL_PERSON",
+    "jurisdiction": "JP",
+    "purpose": "INTERNAL_RESEARCH_AND_DERIVED_ANALYSIS",
+    "redistribution": "NOT_REQUESTED"
+  }
+}

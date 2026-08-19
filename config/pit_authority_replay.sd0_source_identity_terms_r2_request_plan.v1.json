@@ -1,0 +1,48 @@
+{
+  "schema_version": "pitar1-sd0-source-identity-terms-r2-request-plan.v1",
+  "plan_id": "PITAR1_SD0_SOURCE_IDENTITY_TERMS_R2_REQUEST_PLAN.v1",
+  "namespace": "PITAR1SD0SITR2",
+  "activation_status": "DENIED_PENDING_INDEPENDENT_SOL_GATE",
+  "route_binding": {
+    "route_id": "RSR-PITAR1-SD0-SOURCE-IDENTITY-TERMS-R2-v1",
+    "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_SOURCE_IDENTITY_TERMS_R2_ROUTE.v1",
+    "decision_path": "config/sol_decision.research-system-pit-authority-replay-sd0-source-identity-terms-r2-route.v1.json",
+    "decision_physical_sha256": "8ef6022e737e0d5b3945c55f983cac3bd1557e9e7b5f87b8d079d735c282129e",
+    "decision_canonical_sha256": "bb1448a71983ffb080e85ec49b2e89f7940a72006e8e24ba7c01941644626f0b",
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "measurement_contract": {
+    "path": "config/pit_authority_replay.sd0_source_identity_terms_r2_measurement_contract.v1.json",
+    "physical_sha256": "683fe8356efa351e10171d6e8da111bb903a475a658bb10add606e7c414e58e2",
+    "canonical_sha256": "b0773fd0481627c08dc749d4a091e5afe2d487b09708fd1a7612d58516fa6951"
+  },
+  "predecessor_run_id": "sd0-49211fafcb53408095ed4220f0b464f8",
+  "draft_state": "UNRESOLVED_EXACT_URLS_PENDING_LATER_SOL_ACTIVATION",
+  "requests": [],
+  "required_later_frozen_request_dimensions": [
+    "exact_url", "host", "method", "order", "allowed_status", "content_type", "redirect_policy", "body_cap_bytes", "official_source_role", "effective_url_rule"
+  ],
+  "required_source_roles": [
+    "OFFICIAL_REPOSITORY_METADATA", "COMMIT_OR_BLOB_PINNED_README", "OFFICIAL_DATA_PORTAL_DOCUMENT", "OFFICIAL_MARKET_DATA_TERMS_DOCUMENT"
+  ],
+  "no_inferred_resources": ["NO_ASSUMED_LICENSE_FILENAME", "NO_FLOATING_BRANCH_AS_ONLY_IDENTITY", "NO_DYNAMIC_FALLBACK", "NO_REDIRECT_FOLLOW", "NO_CHECKSUM_OR_ARCHIVE_OR_MARKET_ROW"],
+  "resource_caps_for_later_gate_only": {
+    "maximum_concurrency": 1,
+    "maximum_external_cost_usd": 0,
+    "credentials_or_cookies": false,
+    "runtime_output_create_once": true
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "encoding": "UTF-8",
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [",", ":"],
+    "domain_prefix_utf8": "pitar1/sd0-source-identity-terms-r2-request-plan/v1",
+    "domain_separator_hex": "00",
+    "digest_field": "plan_sha256"
+  },
+  "plan_sha256": "295f21dec27fe23753a44ba668db2dc96f2b0c323603a92ea93e5b1d1af253f0"
+}

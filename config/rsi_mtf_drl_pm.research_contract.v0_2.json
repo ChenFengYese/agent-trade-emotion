@@ -1,0 +1,345 @@
+{
+  "schema_version": "rsi-mtf-drl-pm.research-contract.v0.2",
+  "contract_id": "rsi-mtf-drl-pm-v0-2-outcome-free-contract",
+  "status": "REVIEW_READY",
+  "evidence_level": "E0",
+  "scope": "OUTCOME_FREE_RESEARCH_CONTRACT_ONLY",
+  "authorization": {
+    "strategy_primitives": "FORBIDDEN",
+    "market_data": "FORBIDDEN",
+    "historical_data": "FORBIDDEN",
+    "backtest": "FORBIDDEN",
+    "calibration": "FORBIDDEN",
+    "holdout": "FORBIDDEN",
+    "paper": "FORBIDDEN",
+    "trading": "FORBIDDEN"
+  },
+  "freeze_eligibility": "REJECT_FREEZE",
+  "market_data_policy": "FORBIDDEN",
+  "outcome_policy": "FORBIDDEN",
+  "execution_policy": "FORBIDDEN",
+  "strategy_implementation_binding": {
+    "authorization_status": "NOT_AUTHORIZED",
+    "implementation_status": "ABSENT_BY_DESIGN",
+    "bindings": [],
+    "freeze_eligibility": "REJECT_FREEZE"
+  },
+  "review_tooling_binding": {
+    "bindings": [
+      {
+        "id": "core-trading-theory.v2.0",
+        "path": "CORE_TRADING_THEORY.md",
+        "sha256": "06014b2f9e2665abef55e816616661951b35cb766ab9a49aadfad6841d7f822d"
+      },
+      {
+        "id": "rsi-research-contract-static-validator.v0.2",
+        "path": "trade_system/rsi_research_contract.py",
+        "sha256": "cb60b051bf919b58c9b5657d32273fe3a361ed00f12ea596a781047b8fd3dded"
+      }
+    ]
+  },
+  "role_lane_policy": {
+    "DEVELOPMENT": {"lane": "RECONSTRUCTED_CAUSAL_DEVELOPMENT", "availability_kind": "RECONSTRUCTED", "as_of_field": "reconstructed_available_at", "authorization": "NOT_AUTHORIZED", "purpose": "CANDIDATE_ONLY", "release_policy": {"policy_id": "rsi-reconstructed-causal-release.v0.2", "sha256": "d383208d3274b1d5b038ad865f582ee209504bb0ef4701408afa2aadc78ccb1d", "authorization": "NOT_AUTHORIZED", "purpose": "CANDIDATE_ONLY", "source_schema_rules": [{"source_id": "MARK_PRICE_15M", "schema_version": "mark-price-v1", "lag_seconds": 60, "formula_id": "FIXED_RELEASE_LAG_V1", "ordering_key": "SOURCE_SEQUENCE_OR_FROZEN_IMPORT_KEY", "missing_action": "UNKNOWN_ABSTAIN"}, {"source_id": "MARK_PRICE_4H", "schema_version": "mark-price-v1", "lag_seconds": 60, "formula_id": "FIXED_RELEASE_LAG_V1", "ordering_key": "SOURCE_SEQUENCE_OR_FROZEN_IMPORT_KEY", "missing_action": "UNKNOWN_ABSTAIN"}, {"source_id": "AGG_TRADE", "schema_version": "agg-trade-v1", "lag_seconds": 60, "formula_id": "FIXED_RELEASE_LAG_V1", "ordering_key": "SOURCE_SEQUENCE_OR_FROZEN_IMPORT_KEY", "missing_action": "UNKNOWN_ABSTAIN"}, {"source_id": "BOOK_DEPTH", "schema_version": "book-depth-v1", "lag_seconds": 60, "formula_id": "FIXED_RELEASE_LAG_V1", "ordering_key": "SOURCE_SEQUENCE_OR_FROZEN_IMPORT_KEY", "missing_action": "UNKNOWN_ABSTAIN"}, {"source_id": "OPEN_INTEREST", "schema_version": "open-interest-v1", "lag_seconds": 60, "formula_id": "FIXED_RELEASE_LAG_V1", "ordering_key": "SOURCE_SEQUENCE_OR_FROZEN_IMPORT_KEY", "missing_action": "UNKNOWN_ABSTAIN"}]}},
+    "CALIBRATION": {"lane": "NONE", "availability_kind": "NONE", "as_of_field": "NONE", "authorization": "NOT_AUTHORIZED", "purpose": "NO_ACCESS", "release_policy": {"policy_id": "NO_RELEASE_POLICY", "sha256": "16b0cc41131bd8fcff440914c3ab7f5b7cdc84f576acfc1542f2ca0d24e436cb", "authorization": "NOT_AUTHORIZED", "purpose": "NO_ACCESS", "source_schema_rules": []}},
+    "HOLDOUT": {"lane": "NONE", "availability_kind": "NONE", "as_of_field": "NONE", "authorization": "NOT_AUTHORIZED", "purpose": "NO_ACCESS", "release_policy": {"policy_id": "NO_RELEASE_POLICY", "sha256": "16b0cc41131bd8fcff440914c3ab7f5b7cdc84f576acfc1542f2ca0d24e436cb", "authorization": "NOT_AUTHORIZED", "purpose": "NO_ACCESS", "source_schema_rules": []}}
+  },
+  "chronology": {
+    "windows": [
+      {
+        "role": "DEVELOPMENT",
+        "start": "2024-03-01T00:00:00Z",
+        "end": "2024-06-01T00:00:00Z",
+        "warmup_seconds": 604800,
+        "embargo_seconds": 1209600,
+        "label_tail_seconds": 86400
+      },
+      {
+        "role": "CALIBRATION",
+        "start": "2024-07-01T00:00:00Z",
+        "end": "2024-09-01T00:00:00Z",
+        "warmup_seconds": 604800,
+        "embargo_seconds": 1209600,
+        "label_tail_seconds": 86400
+      },
+      {
+        "role": "HOLDOUT",
+        "start": "2024-10-01T00:00:00Z",
+        "end": "2024-12-01T00:00:00Z",
+        "warmup_seconds": 604800,
+        "embargo_seconds": 1209600,
+        "label_tail_seconds": 86400
+      }
+    ],
+    "pre_access_seen_registry": {
+      "status": "UNREAD_CANDIDATE_ONLY",
+      "conflict_action": "REJECT"
+    }
+  },
+  "controls": [
+    {
+      "control_id": "C0",
+      "required_gates": [],
+      "forbidden_gates": ["RSI", "4H_RSI", "K", "RESPONDING", "D", "R", "L"],
+      "lane_roles": ["DEVELOPMENT", "CALIBRATION", "HOLDOUT"],
+      "anchor_source": "GATE_NEUTRAL_U_ANCHOR",
+      "action_clock": "NO_ACTION",
+      "ttl_source": "NO_TTL",
+      "entry_policy": "NO_ENTRY",
+      "exit_policy": "NO_EXIT",
+      "inherits_submission_fill_from": "NONE",
+      "action_kind": "NO_ACTION"
+    },
+    {
+      "control_id": "C1",
+      "required_gates": ["RSI", "COMMON_QUALITY", "COMMON_EXECUTION", "COMMON_GEOMETRY", "COMMON_EV", "COMMON_RISK"],
+      "forbidden_gates": ["4H_RSI", "K", "RESPONDING", "D", "R", "L"],
+      "lane_roles": ["DEVELOPMENT", "CALIBRATION", "HOLDOUT"],
+      "anchor_source": "GATE_NEUTRAL_U_ANCHOR",
+      "action_clock": "FIRST_LANE_AWARE_GATE_PASS",
+      "ttl_source": "ENTRY_TTL_SECONDS",
+      "entry_policy": "CONTROL_INDEXED_ENTRYZONE",
+      "exit_policy": "FIXED_EXIT",
+      "inherits_submission_fill_from": "NONE",
+      "action_kind": "CONTROL_ACTION"
+    },
+    {
+      "control_id": "C2",
+      "required_gates": ["RSI", "4H_RSI", "COMMON_QUALITY", "COMMON_EXECUTION", "COMMON_GEOMETRY", "COMMON_EV", "COMMON_RISK"],
+      "forbidden_gates": ["K", "REGIME", "RESPONDING", "D", "R", "L"],
+      "lane_roles": ["DEVELOPMENT", "CALIBRATION", "HOLDOUT"],
+      "anchor_source": "GATE_NEUTRAL_U_ANCHOR",
+      "action_clock": "FIRST_LANE_AWARE_GATE_PASS",
+      "ttl_source": "C2_OPPORTUNITY_OBSERVATION_TTL",
+      "entry_policy": "CONTROL_INDEXED_ENTRYZONE",
+      "exit_policy": "FIXED_EXIT",
+      "inherits_submission_fill_from": "NONE",
+      "action_kind": "CONTROL_ACTION"
+    },
+    {
+      "control_id": "C3",
+      "required_gates": ["RSI", "4H_RSI", "K", "COMMON_QUALITY", "COMMON_EXECUTION", "COMMON_GEOMETRY", "COMMON_EV", "COMMON_RISK"],
+      "forbidden_gates": ["RESPONDING", "D", "R", "L"],
+      "lane_roles": ["DEVELOPMENT", "CALIBRATION", "HOLDOUT"],
+      "anchor_source": "C2_U_ANCHOR",
+      "action_clock": "FIRST_LANE_AWARE_GATE_PASS",
+      "ttl_source": "C2_OPPORTUNITY_OBSERVATION_TTL",
+      "entry_policy": "CONTROL_INDEXED_ENTRYZONE",
+      "exit_policy": "FIXED_EXIT",
+      "inherits_submission_fill_from": "NONE",
+      "action_kind": "CONTROL_ACTION"
+    },
+    {
+      "control_id": "C4",
+      "required_gates": ["RSI", "4H_RSI", "K", "RESPONDING", "D", "R", "L", "COMMON_QUALITY", "COMMON_EXECUTION", "COMMON_GEOMETRY", "COMMON_EV", "COMMON_RISK"],
+      "forbidden_gates": [],
+      "lane_roles": ["DEVELOPMENT", "CALIBRATION", "HOLDOUT"],
+      "anchor_source": "C2_U_ANCHOR",
+      "action_clock": "FIRST_LANE_AWARE_GATE_PASS",
+      "ttl_source": "C2_OPPORTUNITY_OBSERVATION_TTL",
+      "entry_policy": "CONTROL_INDEXED_ENTRYZONE",
+      "exit_policy": "FIXED_EXIT",
+      "inherits_submission_fill_from": "NONE",
+      "action_kind": "RESEARCH_ACTION_ONLY"
+    },
+    {
+      "control_id": "Cmu",
+      "required_gates": ["K", "RESPONDING", "D", "R", "L", "COMMON_QUALITY", "COMMON_EXECUTION", "COMMON_GEOMETRY", "COMMON_EV", "COMMON_RISK"],
+      "forbidden_gates": ["RSI", "4H_RSI"],
+      "lane_roles": ["DEVELOPMENT", "CALIBRATION", "HOLDOUT"],
+      "anchor_source": "GATE_NEUTRAL_U_ANCHOR",
+      "action_clock": "FIRST_LANE_AWARE_GATE_PASS",
+      "ttl_source": "ENTRY_TTL_SECONDS",
+      "entry_policy": "CONTROL_INDEXED_ENTRYZONE_WITHOUT_RSI",
+      "exit_policy": "FIXED_EXIT",
+      "inherits_submission_fill_from": "NONE",
+      "action_kind": "RESEARCH_ACTION_ONLY"
+    },
+    {
+      "control_id": "C5",
+      "required_gates": ["EXACT_C4_SUBMISSION", "EXACT_C4_FILL"],
+      "forbidden_gates": [],
+      "lane_roles": ["DEVELOPMENT", "CALIBRATION", "HOLDOUT"],
+      "anchor_source": "EXACT_C4_ANCHOR",
+      "action_clock": "EXACT_C4_SUBMISSION_AND_FILL_CLOCK",
+      "ttl_source": "EXACT_C4_TTL",
+      "entry_policy": "INHERIT_EXACT_C4_SUBMISSION_FILL",
+      "exit_policy": "DYNAMIC_EXIT_ONLY",
+      "inherits_submission_fill_from": "C4",
+      "action_kind": "INHERITED_C4_RESEARCH_ACTION"
+    }
+  ],
+  "signal_contract": {
+    "rsi": {
+      "period": 14,
+      "long": {"threshold": 30, "operator": "LTE"},
+      "short": {"threshold": 70, "operator": "GTE"},
+      "c1_c2_event_ledger": "INDEPENDENT_FALSE_TRUE_UNKNOWN_REARM_PER_CONTROL"
+    },
+    "lane_clock": {
+      "actual_only": {"availability_kind": "ACTUAL", "as_of_field": "available_at"},
+      "reconstructed_causal_development": {
+        "availability_kind": "RECONSTRUCTED",
+        "as_of_field": "reconstructed_available_at",
+        "pure_function_inputs": ["raw_exchange_time", "source_sequence_or_frozen_import_key", "schema_version", "fixed_release_lag"],
+        "forbidden_clock_inputs": ["replay_wall_clock", "mtime", "later_capture_time"],
+        "authorization": "SEPARATE_FUTURE_AUTHORIZATION_REQUIRED"
+      }
+    },
+    "drl": {
+      "tuple": ["D", "R_POST_PRESSURE", "L"],
+      "new_factor_or_score": "FORBIDDEN",
+      "long": {"d_formula_id": "SIGNED_IMBALANCE_60S", "d_source": "DETERMINISTIC_RESEARCH_PROXY", "d_window_seconds": 60, "d_threshold": "0.1", "r_formula_id": "DEPTH_RECOVERY_RATIO_300S", "r_source": "DETERMINISTIC_RESEARCH_PROXY", "r_window_seconds": 300, "r_threshold": "0.6", "l_formula_id": "DELTA_LOG_OI_900S", "l_source": "DETERMINISTIC_RESEARCH_PROXY", "l_window_seconds": 900, "l_threshold": "-0.0005", "responding_formula_id": "FAVORABLE_EXECUTABLE_MOVE_BPS_300S", "responding_source": "DETERMINISTIC_RESEARCH_PROXY", "responding_window_seconds": 300, "responding_threshold": "5", "staleness_seconds": 60, "zero_denominator_action": "UNKNOWN_ABSTAIN", "missing_action": "UNKNOWN_ABSTAIN", "production_authorization": "FORBIDDEN"},
+      "short": {"d_formula_id": "SIGNED_IMBALANCE_60S", "d_source": "DETERMINISTIC_RESEARCH_PROXY", "d_window_seconds": 60, "d_threshold": "-0.1", "r_formula_id": "DEPTH_RECOVERY_RATIO_300S", "r_source": "DETERMINISTIC_RESEARCH_PROXY", "r_window_seconds": 300, "r_threshold": "0.6", "l_formula_id": "DELTA_LOG_OI_900S", "l_source": "DETERMINISTIC_RESEARCH_PROXY", "l_window_seconds": 900, "l_threshold": "-0.0005", "responding_formula_id": "FAVORABLE_EXECUTABLE_MOVE_BPS_300S", "responding_source": "DETERMINISTIC_RESEARCH_PROXY", "responding_window_seconds": 300, "responding_threshold": "5", "staleness_seconds": 60, "zero_denominator_action": "UNKNOWN_ABSTAIN", "missing_action": "UNKNOWN_ABSTAIN", "production_authorization": "FORBIDDEN"},
+      "staleness_seconds": 60,
+      "missing_action": "UNKNOWN_ABSTAIN"
+    },
+    "regime": {
+      "k_gate_window_seconds": 14400,
+      "formula_id": "ABS_4H_RETURN_DIV_MAX_4H_REALIZED_VOL_1E_MINUS_8",
+      "source": "DETERMINISTIC_RESEARCH_PROXY",
+      "long_threshold": "1.5",
+      "short_threshold": "1.5",
+      "staleness_seconds": 900,
+      "missing_action": "UNKNOWN_ABSTAIN",
+      "zero_denominator_action": "USE_1E_MINUS_8_FLOOR",
+      "production_authorization": "FORBIDDEN"
+    },
+    "u_lifecycle": {
+      "generation": "GATE_NEUTRAL_CANDIDATE_NEUTRAL_COOLDOWN_DEDUP",
+      "c2_opportunity": {
+        "observation_ttl_seconds": 1800,
+        "overlap_rule": "SAME_OPPORTUNITY_ID_BY_CANDIDATE_NEUTRAL_DEDUP",
+        "terminal_priority": ["OBSERVATION_TTL", "CONTROL_ACTION_OR_ABSTAIN", "EPISODE_TERMINAL", "COOLDOWN_START"]
+      },
+      "control_specific_lifecycle": true
+    }
+  },
+  "entry_contract": {
+    "z_regime_control_indexed": true,
+    "c1_c2_read_k": false,
+    "p_tau": {"long_lower_bps_from_anchor": "-15", "long_upper_bps_from_anchor": "5", "short_lower_bps_from_anchor": "-5", "short_upper_bps_from_anchor": "15", "tick_size": "0.1", "tick_source": "FROZEN_INSTRUMENT_RULE_PROXY", "production_authorization": "FORBIDDEN"},
+    "entryzone_sets": ["Z_ANCHOR", "Z_REGIME", "Z_LIQ", "Z_GEOM", "Z_EV"],
+    "ttl_seconds": 30,
+    "z_liq": {"max_spread_bps": "5", "max_slippage_bps": "5", "min_capacity_multiple_of_q": "3", "quote_freshness_seconds": 1},
+    "ev": {"epsilon_ev_r_multiple": "0.05", "lcb_confidence": "0.95"},
+    "candidate_tie_break": ["max_lcb_ev_submit", "min_worst_risk", "long_lower_short_higher_price", "canonical_tick_index"],
+    "i0_path": {"window": "ANCHOR_AT_TO_ACTION_AT", "exit_side": "LONG_BID_SHORT_ASK", "tie_break": ["signed_extreme", "lane_clock", "capture_seq", "event_id"]},
+    "g0_selection": {"structure_window_seconds": 1800, "minimum_favorable_bps": "4", "tie_break": ["min_favorable_distance", "priority", "lane_clock", "stable_id"]},
+    "rounding": {
+      "round_out": "LONG_FLOOR_SHORT_CEIL",
+      "round_toward_entry": "LONG_FLOOR_SHORT_CEIL",
+      "round_protective": "LONG_CEIL_SHORT_FLOOR"
+    },
+    "geometry": {"b0": {"max_ticks": 2, "min_bps": "2"}, "r_min": "1.25", "r_cap": "3", "h0_seconds": 3600, "t_cap_r_multiple": "3", "revalidate_after_round": true, "missing_action": "ABSTAIN"}
+  },
+  "risk_execution_contract": {
+    "initial_levels": ["I0", "G0", "S0", "T0", "H0", "T_CAP"],
+    "sizing_inputs": {"formula_id": "Q_FLOOR_LOT_MIN_RISK_LIQUIDITY_MARGIN_VENUE", "reference_equity_usdt": "100000", "episode_risk_budget_bps": "25", "max_notional_usdt": "20000", "max_leverage": "2", "fee_bps_per_side": "5", "base_slippage_bps_per_side": "3", "stress_slippage_bps_per_side": "10", "funding_buffer_bps": "5", "tail_bps": "10", "lot_step": "0.001", "min_notional_usdt": "5", "initial_margin_rate": "0.5", "max_venue_qty": "10", "source": "DETERMINISTIC_RESEARCH_PROXY", "missing_action": "ABSTAIN", "production_authorization": "FORBIDDEN"},
+    "rsi_in_sizing": "FORBIDDEN",
+    "first_fill": "AUTHORITATIVE_CUMULATIVE_Q_AUTH_VWAP_AND_FIXED_LEVELS",
+    "protection": {
+      "pending_caps": {"FIRST_FILL_PENDING": {"max_seconds": 2, "max_quantity_fraction": "1", "fraction_denominator": "Q_AUTH", "max_risk_equivalent_usdt": "5", "all_caps_must_hold": true}, "EXCESS_FILL_PENDING": {"max_seconds": 2, "max_quantity_fraction": "0.1", "fraction_denominator": "Q_AUTH", "max_risk_equivalent_usdt": "5", "all_caps_must_hold": true}},
+      "pending_cap_feasibility": {"formula_id": "NONZERO_Q_AUTH_TIMES_CAP_FRACTION_IS_POSITIVE", "requirement": "NONZERO_Q_AUTH_MUST_HAVE_NONZERO_FEASIBLE_PENDING_CAP"},
+      "sequence": ["FIRST_FILL", "CANCEL_REMAINDER", "STOP_PROTECT_REQUEST", "STOP_PRICE_QTY_ORDER_ID_REDUCE_ONLY_ACK", "OPEN_PROTECTED"],
+      "failure_action": "REDUCE_ONLY_EXIT_AND_HALT_RECONCILE",
+      "valid_stop_ack_invariant": {"formula_id": "EFFECTIVE_PROTECTED_QTY_GTE_ABS_RECONCILED_POSITION_QTY", "effective_protected_qty": "ACKED_REDUCE_ONLY_STOP_QTY", "reconciled_position_qty": "RECONCILED_POSITION_QTY", "enforcement": "SUFFICIENT_STOP_ACK_OPEN_PROTECTED_ONLY"},
+      "transient_window": {"start": "FIRST_FILL_OR_ANY_RECONCILED_POSITION_INCREASE_ABOVE_EFFECTIVE_PROTECTED_QTY", "end": "SUFFICIENT_STOP_ACK_OR_REDUCE_ONLY_EXIT_AND_HALT_RECONCILE"},
+      "risk_equivalent_formula_id": "ABS_UNPROTECTED_QTY_TIMES_WORST_CASE_EXIT_DISTANCE_PLUS_FEES_SLIPPAGE_TAIL",
+      "barrier_authority": "OLD_ACKED_BARRIER_UNTIL_NEW_ACK",
+      "after_q_auth": "QUANTITY_ONLY_DECREASES_NO_ADD",
+      "fill_transitions": [
+        {"event": "FIRST_FILL", "pending_cap": "FIRST_FILL_PENDING", "pe_update": "FREEZE_FROM_FIRST_AUTHORITATIVE_CUMULATIVE_NONZERO_FILL", "q_auth_update": "FREEZE_FROM_FIRST_AUTHORITATIVE_CUMULATIVE_NONZERO_FILL", "protected_update": "PENDING_STOP_ACK", "pending_update": "STOP_PROTECT_REQUEST_PENDING", "next_action": "CANCEL_REMAINDER_THEN_STOP_PROTECT"},
+        {"event": "SUBSEQUENT_FILL_SAME_IOC", "pending_cap": "EXCESS_FILL_PENDING", "pe_update": "UNCHANGED_FROZEN_AT_FIRST_AUTHORITATIVE_NONZERO_FILL", "q_auth_update": "UNCHANGED_FROZEN_AT_FIRST_AUTHORITATIVE_NONZERO_FILL", "protected_update": "ENTER_PROTECTION_PENDING_EXTEND_STOP_TO_RECONCILED_POSITION", "pending_update": "RECORD_EXCESS_FILL_REDUCE_ONLY_TO_Q_AUTH_AND_RECONCILE", "next_action": "OLD_ACKED_BARRIER_REMAINS_AUTHORITY"},
+        {"event": "CANCEL_PENDING_FILL", "pending_cap": "EXCESS_FILL_PENDING", "pe_update": "UNCHANGED_FROZEN_AT_FIRST_AUTHORITATIVE_NONZERO_FILL", "q_auth_update": "UNCHANGED_FROZEN_AT_FIRST_AUTHORITATIVE_NONZERO_FILL", "protected_update": "ENTER_PROTECTION_PENDING_EXTEND_STOP_TO_RECONCILED_POSITION", "pending_update": "RECORD_EXCESS_FILL_REDUCE_ONLY_TO_Q_AUTH_AND_RECONCILE", "next_action": "OLD_ACKED_BARRIER_REMAINS_AUTHORITY"},
+        {"event": "LATE_FILL_AFTER_CANCEL", "pending_cap": "EXCESS_FILL_PENDING", "pe_update": "UNCHANGED_FROZEN_AT_FIRST_AUTHORITATIVE_NONZERO_FILL", "q_auth_update": "UNCHANGED_FROZEN_AT_FIRST_AUTHORITATIVE_NONZERO_FILL", "protected_update": "ENTER_PROTECTION_PENDING_EXTEND_STOP_TO_RECONCILED_POSITION", "pending_update": "RECORD_EXCESS_FILL_REDUCE_ONLY_TO_Q_AUTH_AND_HALT_RECONCILE", "next_action": "PROTECT_THEN_REDUCE_ONLY_AND_HALT_RECONCILE"}
+      ]
+    },
+    "late_fill": "PROTECT_THEN_REDUCE_ONLY_TO_Q_AUTH_THEN_RECONCILE"
+  },
+  "management_contract": {
+    "pivot": {
+      "serialization": {"window_seconds": 300, "exit_side_field": "LONG_BID_SHORT_ASK", "eligible_predicate": "LANE_QUALITY_VALID", "extreme": "LONG_MIN_SHORT_MAX", "tie_break": ["lane_clock", "capture_seq", "event_id"], "buffer": {"max_ticks": 2, "min_bps": "1"}, "rounding": "ROUND_OUT", "staleness_seconds": 2},
+      "missing_action": "NO_CHANGE_OR_FROZEN_HEALTH_EXIT_HALT"
+    },
+    "stop": {
+      "candidate_set": ["S_ACK", "S_STRUCT", "S_BE_IF_QUALITY_DATA_ACK_HEALTHY_AND_NONCROSSING"],
+      "s_struct_formula_id": "ROUND_OUT_PIVOT_MINUS_SIGNED_BUFFER",
+      "s_be_formula_id": "ROUND_PROTECTIVE_PE_PLUS_SIGNED_EXCLUSIVE_COST_OVER_Q",
+      "s_be_cost_components": ["C_INCURRED", "C_EXIT_WORST", "TAIL"],
+      "s_be_quantity_denominator": "OPEN_Q",
+      "monotonic_rule": "SIGNED_STOP_NONDECREASING_AFTER_ACK",
+      "locked_net_condition": "ACK_AND_LOCKED_NET_NONNEGATIVE",
+      "crossing_action": "REDUCE_ONLY_EXIT",
+      "ack_required": true,
+      "rounding": "ROUND_PROTECTIVE",
+      "old_barrier_authority": "OLD_ACKED_BARRIER_UNTIL_NEW_ACK"
+    },
+    "locked_net": {"formula_id": "GROSS_REALIZED_PLUS_Q_TIMES_SIGNED_STOP_MINUS_INCURRED_MINUS_EXIT_WORST_MINUS_TAIL", "exclusive_cost_accounting": true, "cost_scope": "INCURRED_PLUS_FUTURE_EXIT_WORST_PLUS_TAIL_EXACTLY_ONCE"},
+    "target": {
+      "boundary": {"window_seconds": 300, "max_extension_r_multiple": "0.5", "t_cap_r_multiple": "3", "lane_aware": true, "stable_id_required": true, "as_of_required": true, "rounding": "ROUND_TOWARD_ENTRY"},
+      "absolute_ev_rule": "LCB_EV_HOLD_GT_ZERO",
+      "relative_ev_rule": "LCB_EV_HOLD_MINUS_EV_EXIT_NOW_GTE_EPSILON_HOLD_0_05R",
+      "epsilon_hold_r_multiple": "0.05",
+      "tie_break": ["max_lcb_relative_ev", "min_extension", "min_priority_rank", "lex_stable_id"],
+      "crossing_action": "REDUCE_ONLY_EXIT",
+      "ack_required": true,
+      "ack_identity": "PRICE_QTY_ORDER_ID_REDUCE_ONLY_ACK",
+      "old_barrier_authority": "OLD_ACKED_BARRIER_UNTIL_NEW_ACK"
+    },
+    "horizon_extension": "FORBIDDEN",
+    "management_cadence_seconds": 1,
+    "same_timestamp_rule": "STOP_FIRST",
+    "target_ack_required": true,
+    "priority": ["KILL_ACCOUNT_MISMATCH", "STOP_HIT", "PROTECTION_REPAIR", "STRUCTURE_EXIT", "TARGET_HIT", "TIMEOUT", "BARRIER_UPDATE", "NO_CHANGE"]
+  },
+  "ledger_contract": {
+    "write_mode": "IMMUTABLE_HASH_CHAIN",
+    "required_fields": ["EVENT_ID", "PARENT_ID", "EPISODE_ID", "OPPORTUNITY_ID", "THEORY_CONTRACT_POLICY_CODE_DIGEST", "SIDE", "STATE_BEFORE_AFTER", "DECISION_AVAILABLE_EVALUATED_TIME", "ANCHOR_ZONE", "P_PE_I0_G0_S_T_H", "Q_AUTH_POSITION_PROTECTION_PENDING_RISK", "REQUEST_ACK_FILL_CANCEL_REDUCE_ONLY_ORDER_IDS", "FEE_FUNDING", "BARRIER_AUTHORITY", "RECONCILE_SNAPSHOT_HASH", "REASON_PRIORITY", "NO_CHANGE", "OPERATOR_ID", "PREVIOUS_HASH", "WRITTEN_AT"]
+  },
+  "label_contract": {
+    "policy_definition": {"market_path": "DISPATCH_LABEL_POLICY_BY_CONTROL", "submission": "NO_FILL_SEPARATE_FROM_MARKET_PATH", "execution": "PARTIAL_FILL_AND_OPERATIONAL_OVERRIDE_SEPARATE", "late_partial_fill": "KEEP_FROZEN_PE_Q_AUTH_RECORD_EXCESS_PROTECT_REDUCE_RECONCILE"},
+    "policy_sha256": "8d9b4dc90c6d0c2fd7037378f5df0057836c00059f44a736d411beeb8efd045f",
+    "market_path_labels": ["TP", "SL", "STRUCTURE_EXIT", "TIMEOUT"],
+    "submission_label": "NO_FILL",
+    "execution_labels": ["PARTIAL_FILL", "OPERATIONAL_OVERRIDE"],
+    "path_selection": "LABEL_POLICY_BY_CONTROL_IS_SOLE_AUTHORITY",
+    "same_timestamp_rule": "STOP_FIRST",
+    "horizon": {"h0_seconds": 3600, "label_tail_source": "CHRONOLOGY_ROLE_LABEL_TAIL_SECONDS", "extension": "FORBIDDEN"},
+    "late_partial_fill_semantics": "FROZEN_PE_Q_AUTH_RECORD_EXCESS_PROTECT_REDUCE_RECONCILE",
+    "label_policy_by_control": {"C0": "NO_MARKET_PATH", "C1": "FIRST_HIT_FIXED_S0_T0_H0", "C2": "FIRST_HIT_FIXED_S0_T0_H0", "C3": "FIRST_HIT_FIXED_S0_T0_H0", "C4": "FIRST_HIT_FIXED_S0_T0_H0", "Cmu": "FIRST_HIT_FIXED_S0_T0_H0", "C5": "FIRST_HIT_DYNAMIC_PI_EXIT_EXACT_C4_FILL"}
+  },
+  "experiment_contract": {
+    "hypothesis_mapping": {
+      "H-010": "C2-C1",
+      "H-011": "C3-C2",
+      "H-012": "C4-C3",
+      "H-013": "C5-C4",
+      "H-014": "C4-Cmu"
+    },
+    "comparison_scope": {"H-013": "EXIT_ONLY_EXACT_C4_SUBMISSION_FILL"},
+    "one_candidate_only": true,
+    "error_attribution_rule": "ONE_LAYER_PER_NEW_VERSION"
+  },
+  "error_attribution": {
+    "layers": ["DATA_AVAILABILITY", "RSI", "REGIME", "DRL", "ENTRY", "EXIT", "COST", "TAIL", "COVERAGE"],
+    "same_seen_window_reuse": "FORBIDDEN",
+    "cross_layer_delta": "FORBIDDEN",
+    "backtest_risk_cost_rewrite": "FORBIDDEN"
+  },
+  "acceptance_contract": {
+    "contract_review": "STATIC_VALIDATOR_AND_CANONICAL_SHA256_ONLY",
+    "synthetic_fixture_policy": "PURE_SYNTHETIC_NO_OUTCOME",
+    "market_validity_claim": "FORBIDDEN",
+    "strategy_execution_claim": "FORBIDDEN",
+    "metrics": {"primary": ["LOG_LOSS", "BRIER", "LCB_EV"], "minimum_effective_episodes": 600, "minimum_per_direction": 100, "folds": 5, "minimum_fold_passes": 4, "confidence_level": "0.95", "one_candidate_only": true, "hypothesis_status": "E0_UNTESTED_NOT_OPTIMAL"}
+  },
+  "holdout_receipt": {
+    "status": "UNOPENED",
+    "reuse_policy": "ONE_TIME_ONLY",
+    "opened": false,
+    "issuance": "NOT_AUTHORIZED",
+    "future_receipt_schema": {"required_binding_names": ["contract_digest", "candidate_digest", "code_digest", "data_digest", "labels_digest", "chronology_digest", "registry_digest"], "binding_value_rule": "UNPOPULATED_UNTIL_FUTURE_AUTHORIZATION", "digest_rule": "LOWERCASE_SHA256_ONLY_WHEN_OPENED"},
+    "state_machine": ["UNOPENED", "OPENED_ONCE", "CONSUMED_ONCE"],
+    "transitions": [{"from": "UNOPENED", "to": "OPENED_ONCE", "rule": "FUTURE_AUTHORIZED_ISSUANCE_ONLY"}, {"from": "OPENED_ONCE", "to": "CONSUMED_ONCE", "rule": "ONE_TIME_EVALUATION_ONLY"}]
+  }
+}

@@ -1,0 +1,411 @@
+{
+  "schema_version": "sol-fast-slow-har1-research-p0-static-route-decision.v1",
+  "decision_id": "SOL_FAST_SLOW_HAR1_RESEARCH_P0_STATIC_ROUTE.v1",
+  "decision_class": "SIX_FILE_STATIC_IMPLEMENTATION_ROUTE_NO_DATA_NETWORK_RUNTIME_OR_TRADING",
+  "decision_state": "AUTHORIZE_SIX_FILE_FAST_SLOW_HAR1_P0_STATIC_IMPLEMENTATION_AND_OFFLINE_SYNTHETIC_TESTS_NO_DATA",
+  "issued_by": "GPT-5.6-SOL_ULTRA_ROUTE_AUDITOR",
+  "issued_at": "2026-07-29T07:52:32Z",
+  "evidence_level": "E0_STATIC_CONTRACT_AND_SYNTHETIC_INTERFACE_AUTHORIZATION_ONLY",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "route_identity": {
+    "route_id": "RSR-FAST-SLOW-HAR1-P0-STATIC-v1",
+    "namespace": "FASTSLOWHAR1P0",
+    "route_type": "OUTCOME_FREE_STATIC_IMPLEMENTATION_AND_OFFLINE_SYNTHETIC_TEST_ROUTE",
+    "automatic_promotion": false,
+    "one_gate_one_permission_rule": true,
+    "production_activation": "DENIED",
+    "data_acquisition": "DENIED"
+  },
+  "user_scope_freeze": {
+    "actor_type": "NATURAL_PERSON",
+    "operating_jurisdiction": "JP",
+    "purpose": "INTERNAL_RESEARCH_AND_DERIVED_ANALYSIS",
+    "redistribution": "NOT_REQUESTED",
+    "legal_effect": "DECLARED_INTENDED_USE_ONLY_NOT_SOURCE_PERMISSION_OR_LEGAL_ELIGIBILITY",
+    "source_terms_still_required_before_data_access": true
+  },
+  "authority_bindings": {
+    "program_governance": {
+      "path": "PROGRAM_GOVERNANCE.md",
+      "physical_sha256": "69125790fa36c0c4f72ebdecea4f5415be73a9e4fba78c6c1aa53b9639ef6f09",
+      "role": "STAGE_EVIDENCE_AGENT_AND_TRADING_GOVERNANCE"
+    },
+    "system_design_roadmap": {
+      "path": "SYSTEM_DESIGN_ROADMAP.md",
+      "physical_sha256": "ede84088294e0608cb211f22e7878141d13d59737a1cdd5a6e56ec81d8e3e251",
+      "role": "CURRENT_SYSTEM_AND_DATA_BOUNDARY"
+    },
+    "data_authority_standard": {
+      "path": "DATA_AUTHORITY_STANDARD_v1_0.md",
+      "physical_sha256": "03a38e2e4fa5f299b9ed698b0e0d185addf67984bb5e4712d9cc2bd742fd9f72",
+      "role": "SOURCE_TERMS_PIT_REVISION_AND_GAP_BOUNDARY"
+    },
+    "core_theory": {
+      "path": "CORE_TRADING_THEORY_v2_1.md",
+      "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d",
+      "role": "CURRENT_IMMUTABLE_THEORY_AUTHORITY"
+    },
+    "source_identity_terms_predecessor": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-source-identity-terms-r2-route.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_SOURCE_IDENTITY_TERMS_R2_ROUTE.v1",
+      "physical_sha256": "8ef6022e737e0d5b3945c55f983cac3bd1557e9e7b5f87b8d079d735c282129e",
+      "canonical_sha256": "bb1448a71983ffb080e85ec49b2e89f7940a72006e8e24ba7c01941644626f0b",
+      "effect": "SOURCE_PERMISSION_NETWORK_AND_PRODUCTION_ACTIVATION_REMAIN_DENIED"
+    },
+    "active_g1_terminal_authority": {
+      "path": "config/sol_decision.active-g1-plan-unreachable.v2.json",
+      "decision_id": "SOL_ACTIVE_G1_PLAN_UNREACHABLE.v2",
+      "physical_sha256": "3417205afc38247bc8463ddd6e18cf54dffe51724571100a974f9572309127c8",
+      "canonical_sha256": "e143fae7d8c8094298f65bc6724de35f368f25e739e6fe2a35cfdf69fd1d6272",
+      "effect": "ACTIVE_G1_REMAINS_IMMUTABLE_UNREACHABLE_AND_OUT_OF_SCOPE"
+    }
+  },
+  "scope_interpretation": {
+    "confirmed_architecture": "DETERMINISTIC_FAST_PATH_PLUS_EVIDENCE_BACKED_SLOW_CONTEXT_SEPARATED_FROM_HAR1_AND_FCR1_CLAIMS",
+    "current_p0": "BUILD_ONLY_THE_STATIC_CONTRACT_DATASET_PLAN_DETERMINISTIC_BAR_RESAMPLER_AND_OFF_SHADOW_SLOW_CONTEXT_INTERFACE",
+    "not_current_p0": [
+      "discover or fetch any source",
+      "download or read any historical outcome data",
+      "build a downloader",
+      "execute an LLM or network agent",
+      "run a historical backtest",
+      "train or calibrate a model",
+      "open a historical holdout",
+      "create runtime evidence",
+      "run paper or live execution",
+      "access active G1"
+    ],
+    "hot_path_rule": "NO_LLM_NO_NETWORK_NO_ORDER_AND_IDENTICAL_VALIDATED_INPUTS_MUST_PRODUCE_IDENTICAL_OUTPUTS",
+    "slow_context_rule": "P0_SUPPORTS_ONLY_OFF_OR_SHADOW_SYNTHETIC_CONTEXT_AND_MUST_NOT_AFFECT_ORDER_OR_RISK",
+    "research_lane": "HAR1_RECONSTRUCTED_RESEARCH_PLAN_ONLY_NO_CURRENT_DATA",
+    "true_pit_lane": "FCR1_REQUIRES_SEPARATE_FUTURE_ROUTE_AND_IS_NOT_IMPLEMENTED_HERE"
+  },
+  "authorized_static_build_scope": {
+    "required_implementer": "GPT-5.6-TERRA_HIGH",
+    "new_file_allowlist": [
+      {
+        "path": "config/fast_slow_har1_research_contract.v1.json",
+        "role": "MACHINE_READABLE_FAST_SLOW_BOUNDARY_AND_CLAIM_CONTRACT"
+      },
+      {
+        "path": "config/har1_btcusdt_dataset_plan.v1.json",
+        "role": "NON_EXECUTING_BTCUSDT_HAR1_WINDOW_ROLE_AND_PURGE_PLAN"
+      },
+      {
+        "path": "trade_system/bar_resampler.py",
+        "role": "PURE_DETERMINISTIC_CLOSED_BAR_RESAMPLER"
+      },
+      {
+        "path": "trade_system/slow_context.py",
+        "role": "PURE_OFF_SHADOW_SYNTHETIC_CONTEXT_VALIDATOR"
+      },
+      {
+        "path": "tests/test_bar_resampler.py",
+        "role": "OFFLINE_SYNTHETIC_RESAMPLER_RISK_TESTS"
+      },
+      {
+        "path": "tests/test_slow_context.py",
+        "role": "OFFLINE_SYNTHETIC_CONTEXT_TIME_PROVENANCE_AND_MODE_TESTS"
+      }
+    ],
+    "all_six_paths_absent_at_route_issue": true,
+    "may_create_only_allowlisted_paths": true,
+    "may_iterate_within_new_allowlisted_paths_before_completion_gate": true,
+    "may_modify_any_preexisting_path": false,
+    "may_create_runtime_output": false,
+    "dependency_installation": false,
+    "allowed_actions": [
+      "CREATE_AND_VALIDATE_JSON_SELF_HASHES",
+      "IMPLEMENT_PURE_LOCAL_DETERMINISTIC_FUNCTIONS",
+      "RUN_PYTHON_SYNTAX_OR_IMPORT_CHECKS_WITHOUT_WORKSPACE_CACHE",
+      "RUN_OFFLINE_SYNTHETIC_UNIT_TESTS",
+      "RUN_STATIC_AST_PROHIBITION_CHECKS",
+      "REPORT_FACTUAL_COMMAND_TEST_COUNTS_AND_HASHES"
+    ]
+  },
+  "fast_path_contract": {
+    "inputs": [
+      "EXPLICIT_CLOSED_MARKET_BAR_FIXTURES",
+      "EXPLICIT_FROZEN_PARAMETERS",
+      "OPTIONAL_VALIDATED_SLOW_CONTEXT_FIXTURE_IN_OFF_OR_SHADOW_MODE"
+    ],
+    "properties": [
+      "PURE_OR_LOCALLY_DETERMINISTIC",
+      "NO_WALL_CLOCK_DEPENDENT_DECISION",
+      "NO_ENVIRONMENT_DEPENDENT_DECISION",
+      "NO_NETWORK_OR_BROWSER",
+      "NO_LLM_MODEL_OR_AGENT",
+      "NO_ORDER_ACCOUNT_CREDENTIAL_OR_FUND_INTERFACE",
+      "NO_RANDOMNESS",
+      "SAME_INPUT_BYTES_AND_PARAMETERS_PRODUCE_SAME_OUTPUT_BYTES_OR_CANONICAL_HASH"
+    ],
+    "slow_context_effect_in_p0": "ZERO_OFF_OR_SHADOW_OBSERVATION_ONLY",
+    "missing_invalid_conflicted_or_expired_context": "CONTEXT_INELIGIBLE_NO_HOT_PATH_EFFECT",
+    "future_hot_path_activation": "REQUIRES_NEW_SOL_GATE_AFTER_ACTUAL_FORWARD_CONTEXT_EVIDENCE"
+  },
+  "slow_context_p0_contract": {
+    "allowed_modes": [
+      "OFF",
+      "SHADOW"
+    ],
+    "forbidden_modes": [
+      "ADVISORY",
+      "ACTIVE",
+      "EXECUTE"
+    ],
+    "minimum_snapshot_fields": [
+      "snapshot_id",
+      "schema_version",
+      "instrument_id",
+      "context_horizon",
+      "source_cutoff_at",
+      "generated_at",
+      "validated_at",
+      "available_at",
+      "expires_at",
+      "facts",
+      "inferences",
+      "hypotheses",
+      "unknowns",
+      "conflicts",
+      "provenance",
+      "snapshot_sha256"
+    ],
+    "eligibility_rule": "available_at <= decision_at < expires_at",
+    "available_at_rule": "MUST_NOT_PRECEDE_ANY_CONSUMED_EVIDENCE_AVAILABLE_AT_OR_SNAPSHOT_VALIDATED_AT",
+    "revision_rule": "NEW_VERSION_NO_OVERWRITE_AND_NO_RETROACTIVE_DECISION_CHANGE",
+    "evidence_rule": "FACT_INFERENCE_HYPOTHESIS_AND_CONTRADICTION_MUST_BE_SEPARATE_AND_SCORES_ARE_NOT_PROBABILITIES",
+    "synthetic_fixture_rule": "SYNTHETIC_CONTEXT_MAY_TEST_INTERFACE_ONLY_AND_MUST_NOT_ENTER_MARKET_PERFORMANCE_METRICS",
+    "network_or_llm_provider": "ABSENT_BY_DESIGN"
+  },
+  "bar_resampler_contract": {
+    "source_interval": "1m",
+    "supported_target_intervals": [
+      "15m",
+      "1h",
+      "4h",
+      "1d"
+    ],
+    "timestamp_semantics": "UTC_HALF_OPEN_INTERVALS",
+    "source_bar_eligibility": "ONLY_COMPLETE_CLOSED_1M_BARS",
+    "target_bar_availability": "NOT_BEFORE_TARGET_INTERVAL_CLOSE",
+    "aggregation": {
+      "open": "FIRST_ELIGIBLE_SOURCE_OPEN",
+      "high": "MAX_SOURCE_HIGH",
+      "low": "MIN_SOURCE_LOW",
+      "close": "LAST_ELIGIBLE_SOURCE_CLOSE",
+      "volume": "SUM_SOURCE_VOLUME"
+    },
+    "gap_rule": "MISSING_DUPLICATE_OUT_OF_ORDER_OR_PARTIAL_SOURCE_WINDOW_MUST_NOT_EMIT_A_NORMAL_COMPLETE_TARGET_BAR",
+    "floating_point_rule": "NO_UNDECLARED_BINARY_FLOAT_ROUNDING_OR_NONFINITE_VALUES",
+    "lookahead_rule": "TARGET_HIGH_LOW_CLOSE_OR_VOLUME_CANNOT_BE_VISIBLE_BEFORE_TARGET_CLOSE",
+    "production_data_use": false
+  },
+  "har1_dataset_plan_freeze": {
+    "status": "PLAN_ONLY_NO_DOWNLOAD_NO_READ_NO_SCORE",
+    "venue": "BINANCE",
+    "product_family": "USD_M_FUTURES",
+    "instrument_id": "BTCUSDT",
+    "long_context": {
+      "interval": "4h",
+      "start_inclusive": "2020-07-01T00:00:00Z",
+      "end_exclusive": "2025-07-01T00:00:00Z",
+      "human_window": "2020-07-01..2025-06-30",
+      "role": "SEEN_LONG_CONTEXT_REFERENCE_ONLY",
+      "may_be_calibration_or_holdout": false
+    },
+    "pilot": {
+      "interval": "1m",
+      "start_inclusive": "2025-07-01T00:00:00Z",
+      "end_exclusive": "2026-07-01T00:00:00Z",
+      "human_window": "2025-07-01..2026-06-30",
+      "status": "UNACQUIRED_UNREAD_PLAN_ONLY"
+    },
+    "role_windows_before_purge": [
+      {
+        "role": "DEVELOPMENT",
+        "start_inclusive": "2025-07-01T00:00:00Z",
+        "end_exclusive": "2026-01-01T00:00:00Z",
+        "human_window": "2025-07-01..2025-12-31"
+      },
+      {
+        "role": "CALIBRATION",
+        "start_inclusive": "2026-01-01T00:00:00Z",
+        "end_exclusive": "2026-04-01T00:00:00Z",
+        "human_window": "2026-01-01..2026-03-31"
+      },
+      {
+        "role": "LOCKED_HISTORICAL_HOLDOUT",
+        "start_inclusive": "2026-04-01T00:00:00Z",
+        "end_exclusive": "2026-07-01T00:00:00Z",
+        "human_window": "2026-04-01..2026-06-30"
+      }
+    ],
+    "purge_contract": {
+      "maximum_lookback_must_be_explicit": true,
+      "maximum_holding_must_be_explicit": true,
+      "units_must_be_explicit": true,
+      "each_boundary_exclusion_must_be_derived_and_recorded": true,
+      "label_overlap_must_be_impossible": true,
+      "feature_history_cross_role_policy_must_be_explicit": true,
+      "exact_eligible_role_windows_must_be_frozen_before_any_download_or_result_read": true,
+      "current_exact_purge_duration": "UNSET_BLOCKS_DOWNLOADER_GATE"
+    },
+    "source_terms": "NOT_YET_CLOSED_FOR_JP_NATURAL_PERSON_INTERNAL_RESEARCH",
+    "exact_object_urls": [],
+    "checksum_expectations": [],
+    "requests": [],
+    "download_permission": "DENIED",
+    "read_result_permission": "DENIED",
+    "score_permission": "DENIED",
+    "holdout_open_permission": "DENIED"
+  },
+  "offline_test_requirements": {
+    "bar_resampler": [
+      "CORRECT_OHLCV_AGGREGATION_FOR_EACH_SUPPORTED_INTERVAL",
+      "NO_EMISSION_BEFORE_TARGET_CLOSE",
+      "UTC_BOUNDARY_ALIGNMENT",
+      "GAP_REJECT_OR_EXPLICIT_INCOMPLETE_STATUS",
+      "DUPLICATE_AND_OUT_OF_ORDER_REJECT",
+      "PARTIAL_FINAL_WINDOW_NOT_NORMAL_COMPLETE",
+      "INVALID_NONFINITE_AND_MALFORMED_INPUT_REJECT",
+      "DETERMINISTIC_REPEAT_OUTPUT"
+    ],
+    "slow_context": [
+      "ONLY_OFF_AND_SHADOW_ACCEPTED",
+      "OFF_AND_SHADOW_HAVE_ZERO_HOT_PATH_EFFECT",
+      "AVAILABLE_AT_AND_EXPIRY_BOUNDARIES",
+      "AVAILABLE_AT_NOT_BEFORE_VALIDATION_OR_CONSUMED_EVIDENCE",
+      "MISSING_UNKNOWN_CONFLICTED_OR_EXPIRED_CONTEXT_INELIGIBLE",
+      "FACT_INFERENCE_HYPOTHESIS_AND_COUNTEREVIDENCE_SEPARATION",
+      "DUPLICATE_KEYS_NONFINITE_AND_HASH_DRIFT_REJECT",
+      "DETERMINISTIC_REPEAT_OUTPUT",
+      "NO_LLM_NETWORK_ORDER_OR_RUNTIME_WRITER_IMPORTS"
+    ],
+    "dataset_plan": [
+      "EXACT_HALF_OPEN_WINDOWS_AND_ROLES_MATCH_THIS_DECISION",
+      "LONG_CONTEXT_ENDS_BEFORE_PILOT_START",
+      "ROLE_WINDOWS_COVER_PILOT_BEFORE_PURGE_WITHOUT_OVERLAP",
+      "PURGE_VALUES_UNSET_AND_BLOCK_DATA_GATE",
+      "REQUESTS_AND_OBJECT_URLS_EMPTY",
+      "ALL_DATA_PERMISSIONS_DENIED"
+    ],
+    "scope": "OFFLINE_SYNTHETIC_ONLY_NO_HISTORICAL_DATA_OR_OUTCOME"
+  },
+  "explicit_prohibitions": [
+    "NETWORK",
+    "WEB_OR_BROWSER",
+    "CURL_OR_GENERAL_FETCHER",
+    "LLM_API_OR_AGENT_EXECUTION",
+    "DATA_DOWNLOAD",
+    "HISTORICAL_RESULT_READ",
+    "EXISTING_JANUARY_OR_FEBRUARY_ARTIFACT_READ",
+    "EXISTING_JANUARY_OR_FEBRUARY_SCORE",
+    "RUNTIME_OUTPUT",
+    "DATASET_BUILD",
+    "BACKTEST",
+    "MODEL_TRAINING_OR_CALIBRATION",
+    "HOLDOUT_OPEN",
+    "PAPER_OR_TESTNET",
+    "ORDER_ACCOUNT_CREDENTIAL_OR_FUND_ACTION",
+    "DEPLOYMENT_OR_LIVE_TRADING",
+    "ACTIVE_G1_ACCESS_COPY_OR_MODIFICATION",
+    "MODIFY_ANY_PREEXISTING_FILE",
+    "CREATE_ANY_FILE_OUTSIDE_THE_SIX_STATIC_BUILD_PATHS",
+    "SELF_ACCEPTANCE"
+  ],
+  "permission_matrix": {
+    "create_this_sol_decision": true,
+    "terra_create_six_static_allowlisted_files": true,
+    "terra_iterate_only_within_new_allowlisted_files_before_gate": true,
+    "terra_run_offline_synthetic_tests": true,
+    "terra_run_static_checks": true,
+    "network_or_browser": false,
+    "data_download_or_result_read": false,
+    "existing_january_or_february_access_or_score": false,
+    "runtime_output": false,
+    "historical_backtest_or_model_training": false,
+    "paper_testnet_order_or_live": false,
+    "active_g1_access_copy_or_modification": false,
+    "existing_file_modification": false,
+    "self_acceptance": false
+  },
+  "completion_and_next_gate": {
+    "current_milestone": "SIX_FILE_STATIC_IMPLEMENTATION_AND_OFFLINE_SYNTHETIC_TESTS",
+    "completion_requires": [
+      "ALL_SIX_PATHS_EXIST_AND_NO_OTHER_PATH_WAS_CREATED_OR_MODIFIED_BY_THIS_ROUTE",
+      "JSON_CONTRACT_AND_PLAN_PARSE_STRICTLY_AND_SELF_HASH",
+      "ROUTE_WORKSPACE_AND_AUTHORITY_BINDINGS_MATCH",
+      "BAR_RESAMPLER_AND_SLOW_CONTEXT_TESTS_PASS_WITH_REPORTED_COMMANDS_COUNTS_AND_RESULTS",
+      "STATIC_CHECK_PROVES_NO_LLM_NETWORK_ORDER_RUNTIME_WRITER_OR_IMPLICIT_PRODUCTION_ENTRYPOINT",
+      "DATASET_PLAN_HAS_EMPTY_REQUESTS_OBJECT_URLS_AND_CHECKSUMS",
+      "DATASET_PLAN_RETAINS_DOWNLOAD_READ_SCORE_AND_HOLDOUT_DENIAL",
+      "ALL_FUTURE_RUNTIME_AND_DATA_OUTPUTS_REMAIN_ABSENT",
+      "OLD_JANUARY_FEBRUARY_ACTIVE_G1_AND_SEALED_EVIDENCE_IDENTITIES_REMAIN_UNCHANGED"
+    ],
+    "automatic_next_permission": "NONE",
+    "required_next_gate": "NEW_INDEPENDENT_GPT-5.6-SOL_ULTRA_HAR1_DOWNLOADER_AND_DATA_FETCH_GATE",
+    "next_gate_must_add_new_paths": true,
+    "next_gate_must_bind": [
+      "FINAL_PHYSICAL_AND_CANONICAL_IDENTITIES_OF_THIS_DECISION_CONTRACT_AND_PLAN",
+      "FINAL_PHYSICAL_IDENTITIES_OF_BAR_RESAMPLER_SLOW_CONTEXT_AND_TESTS",
+      "EXACT_MAXIMUM_LOOKBACK_MAXIMUM_HOLDING_AND_DERIVED_PURGE_WINDOWS",
+      "EXACT_SOURCE_OWNER_TERMS_AND_JP_NATURAL_PERSON_INTERNAL_RESEARCH_PERMISSION",
+      "EXACT_OBJECT_URLS_CHECKSUMS_SCHEMA_TIMESTAMP_UNIT_AND_REVISION_RULES",
+      "EXACT_CREATE_ONCE_RAW_ROOT_OUTPUT_ALLOWLIST_AND_RESOURCE_CAPS",
+      "EXACT_DOWNLOADER_CLIENT_AND_OFFLINE_RISK_TEST_IDENTITIES",
+      "UNIQUE_TIME_BOUNDED_ACTIVATION_CAPABILITY"
+    ],
+    "next_gate_maximum_possible_permission": "BOUNDED_HAR1_DATA_FETCH_ONLY_NO_SCORE_HOLDOUT_PAPER_OR_TRADE"
+  },
+  "stage_disposition": {
+    "static_contract_and_plan": "AUTHORIZED",
+    "bar_resampler": "AUTHORIZED_SYNTHETIC_ONLY",
+    "slow_context": "AUTHORIZED_OFF_SHADOW_SYNTHETIC_ONLY",
+    "data_source_terms": "WAIT_DATA",
+    "data_download": "DENIED",
+    "historical_result_read": "DENIED",
+    "backtest_training_calibration": "DENIED",
+    "locked_historical_holdout": "CLOSED",
+    "fcr1": "NOT_IMPLEMENTED_REQUIRES_FUTURE_ROUTE",
+    "paper_live_trading": "DENIED",
+    "active_g1": "IMMUTABLE_OUT_OF_SCOPE"
+  },
+  "claim_boundary": {
+    "maximum_positive_claim_after_local_completion": "A six-file static candidate defines a deterministic closed-bar resampler, an OFF or SHADOW synthetic slow-context interface, and a non-executing BTCUSDT HAR1 window and role plan under the declared JP natural-person internal-research scope. Passing offline tests would establish only local contract and synthetic behavior.",
+    "data_acquired": false,
+    "historical_results_read": false,
+    "market_data_validity": "NOT_EVALUATED",
+    "source_permission": "NOT_ESTABLISHED",
+    "historical_available_at": "NOT_ESTABLISHED",
+    "point_in_time_validity": "NOT_EVALUATED",
+    "agent_context_accuracy": "NOT_EVALUATED",
+    "backtest_or_training_validity": "NOT_EVALUATED",
+    "predictive_or_economic_validity": "NOT_EVALUATED",
+    "paper_or_live_readiness": "DENIED"
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-fast-slow-har1-research-p0-static-route/v1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "979ffbda9ff1493a91a8a91d62955413491cca3897cbed576433e94c195f2be7"
+}

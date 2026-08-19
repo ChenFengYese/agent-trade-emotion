@@ -1,0 +1,26 @@
+{
+  "contract_id": "paper-run-contract.REPLACE",
+  "schema_version": "paper-run-contract.v1",
+  "status": "DRAFT_REPLACE_AFTER_ALL_BINDINGS_ARE_FROZEN",
+  "frozen_at": "REPLACE_WITH_UTC_ISO8601",
+  "scope": "PAPER_ONLY",
+  "permissions": {
+    "credentials": "FORBIDDEN",
+    "orders": "FORBIDDEN",
+    "withdrawals": "FORBIDDEN"
+  },
+  "bindings": {
+    "model": {"id": "REPLACE", "sha256": "REPLACE_WITH_64_LOWERCASE_HEX"},
+    "action_policy": {"id": "REPLACE", "sha256": "REPLACE_WITH_64_LOWERCASE_HEX"},
+    "risk_gate_profile": {"id": "REPLACE", "sha256": "REPLACE_WITH_64_LOWERCASE_HEX"},
+    "source_registry": {"id": "REPLACE", "sha256": "REPLACE_WITH_64_LOWERCASE_HEX"},
+    "state_classifier": {"id": "REPLACE", "sha256": "REPLACE_WITH_64_LOWERCASE_HEX"},
+    "input_evidence": {"id": "REPLACE", "sha256": "REPLACE_WITH_64_LOWERCASE_HEX"}
+  },
+  "execution": {
+    "broker": "LOCAL_PAPER_IOC",
+    "allow_live_execution": false,
+    "allow_testnet_execution": false
+  },
+  "notice": "Copy to a new versioned file, fill every actual artifact identity/digest, then set status to FROZEN_PAPER_RUN_CONTRACT before starting a new local paper audit. This template is intentionally invalid and cannot authorize a run."
+}

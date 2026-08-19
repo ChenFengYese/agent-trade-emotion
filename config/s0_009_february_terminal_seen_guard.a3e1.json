@@ -1,0 +1,53 @@
+{
+  "record_type": "s0_009_february_terminal_seen_guard_policy.a3e1",
+  "policy_id": "S0-009-FEBRUARY-TERMINAL-SEEN-GUARD-A3E1",
+  "status": "ACTIVE_FAIL_CLOSED",
+  "diagnostic_identity": {
+    "diagnostic_id": "XH-CM-btcusd-perp-2025-02-v2",
+    "plan_path": "config/binance_cm_historical_diagnostic.v2.frozen_before_download.json",
+    "receipt_path": ".runtime/historical-diagnostic-s0-009-release/authorization-receipt.v1.json",
+    "dates": [
+      "2025-02-01", "2025-02-02", "2025-02-03", "2025-02-04",
+      "2025-02-05", "2025-02-06", "2025-02-07", "2025-02-08",
+      "2025-02-09", "2025-02-10", "2025-02-11", "2025-02-12",
+      "2025-02-13", "2025-02-14", "2025-02-15", "2025-02-16",
+      "2025-02-17", "2025-02-18", "2025-02-19", "2025-02-20",
+      "2025-02-21", "2025-02-22", "2025-02-23", "2025-02-24",
+      "2025-02-25", "2025-02-26", "2025-02-27", "2025-02-28"
+    ],
+    "receipt_id": "S0-009-FEB2025-FRESH-FALSIFICATION-85A95D08-R1-ONE-TIME",
+    "target_set_canonical_sha256": "a98d9a21b1a82685932a32ebb2ddff575c2a263866af401cfd7a3bf0850cf50b"
+  },
+  "deterministic_authority_artifacts": {
+    "a2f1_config": {
+      "path": "config/sol_decision.s0-009-r1-acquisition-gap-censoring.a2f1.json",
+      "sha256": "9ef2ca7d75ca714cb85a8afa76f1115c7ff37e0b520a6bc983736441c895095d"
+    },
+    "a2f1_terminal": {
+      "path": ".runtime/historical-diagnostic-s0-009-subordinate-resource-guard-v1/february-terminal-wait-data-not-scored.a2f1.json",
+      "sha256": "2a66f1b47c4ca319c3ce36c47fd6b295b683569fd1d9429f41b85d3729c7d266"
+    },
+    "a2f1_supersession": {
+      "path": ".runtime/historical-diagnostic-s0-009-subordinate-resource-guard-v1/acquisition-gap-censoring-a2f1-supersession-record.json",
+      "sha256": "86e905cd35c589e2ce2540160f8e32b1497be7a0c8e921ddeeb82189f60d01e4"
+    }
+  },
+  "required_terminal_state": {
+    "decision_id": "SOL-S0-009-R1-ACQUISITION-GAP-CENSORING-A2",
+    "artifact_revision": "A2F1",
+    "state": "FEB2025_TERMINAL_WAIT_DATA_NOT_SCORED",
+    "execution_gate": "HOLD_BEFORE_ANY_NEW_ACQUISITION_OR_SCORING",
+    "input_role": "SEEN",
+    "independent_evaluation_role": "PERMANENTLY_CONSUMED",
+    "score_executed": false,
+    "g2_eligibility": false,
+    "trading_authorization": "DENIED"
+  },
+  "enforcement": {
+    "authority_root": "MODULE_WORKSPACE_ROOT_ONLY",
+    "symlinked_authority_artifacts": "REJECT",
+    "alternate_workspace_root": "REJECT",
+    "market_input_access_before_rejection": "FORBIDDEN",
+    "output_or_registry_path": "NOT_AN_OVERRIDE"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "version": "4.0.0",
+  "status": "current-methodology-baseline",
+  "authority": "decision-architecture",
+  "execution_authority": "none",
+  "benchmark_layers": ["4-A-canonical", "4-B-adversarial", "4-C-repeatability-mutation", "4-D-oos-validation"],
+  "risk_formula": "position_notional <= trade_risk_budget / structural_stop_distance, additionally bounded by stress and tail risk",
+  "probability_policy": "ordinal-or-banded-until-calibrated",
+  "pit_policy": "decision_time_information_only"
+}

@@ -1,0 +1,214 @@
+{
+  "plan_id": "btc-usdt-g1-forward-20260723-v1",
+  "status": "FROZEN_FORWARD_CAPTURE_PLAN",
+  "frozen_at": "2026-07-22T08:29:00Z",
+  "instrument": "BTCUSDT",
+  "source_registry": {
+    "registry_id": "source-registry.v3",
+    "sha256": "3aa28782ff3c0af5be5ad0bc98e690af87dbe2c57687d6ab61b1549bae74ec4b"
+  },
+  "collector_software_sha256": "c9b3d829e2fc62fb978cfdfc0af0c92e877d33f8bc0d94af1be02fcc05454240",
+  "resource_budget": {
+    "min_free_bytes": 16106127360,
+    "max_plan_bytes": 12884901888
+  },
+  "slots": [
+    {
+      "slot_id": "d1-h00",
+      "start": "2026-07-23T00:00:00Z",
+      "end": "2026-07-23T01:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_1", "UTC_HOUR_00", "ROTATION_GROUP_A"]
+    },
+    {
+      "slot_id": "d1-h06",
+      "start": "2026-07-23T06:00:00Z",
+      "end": "2026-07-23T07:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_1", "UTC_HOUR_06", "ROTATION_GROUP_A"]
+    },
+    {
+      "slot_id": "d1-h12",
+      "start": "2026-07-23T12:00:00Z",
+      "end": "2026-07-23T13:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_1", "UTC_HOUR_12", "ROTATION_GROUP_A"]
+    },
+    {
+      "slot_id": "d1-h18",
+      "start": "2026-07-23T18:00:00Z",
+      "end": "2026-07-23T19:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_1", "UTC_HOUR_18", "ROTATION_GROUP_A"]
+    },
+    {
+      "slot_id": "d2-h02",
+      "start": "2026-07-24T02:00:00Z",
+      "end": "2026-07-24T03:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_2", "UTC_HOUR_02", "ROTATION_GROUP_B"]
+    },
+    {
+      "slot_id": "d2-h08",
+      "start": "2026-07-24T08:00:00Z",
+      "end": "2026-07-24T09:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_2", "UTC_HOUR_08", "ROTATION_GROUP_B"]
+    },
+    {
+      "slot_id": "d2-h14",
+      "start": "2026-07-24T14:00:00Z",
+      "end": "2026-07-24T15:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_2", "UTC_HOUR_14", "ROTATION_GROUP_B"]
+    },
+    {
+      "slot_id": "d2-h20",
+      "start": "2026-07-24T20:00:00Z",
+      "end": "2026-07-24T21:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_2", "UTC_HOUR_20", "ROTATION_GROUP_B"]
+    },
+    {
+      "slot_id": "d3-h04",
+      "start": "2026-07-25T04:00:00Z",
+      "end": "2026-07-25T05:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_3", "UTC_HOUR_04", "ROTATION_GROUP_C"]
+    },
+    {
+      "slot_id": "d3-h10",
+      "start": "2026-07-25T10:00:00Z",
+      "end": "2026-07-25T11:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_3", "UTC_HOUR_10", "ROTATION_GROUP_C"]
+    },
+    {
+      "slot_id": "d3-h16",
+      "start": "2026-07-25T16:00:00Z",
+      "end": "2026-07-25T17:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_3", "UTC_HOUR_16", "ROTATION_GROUP_C"]
+    },
+    {
+      "slot_id": "d3-h22",
+      "start": "2026-07-25T22:00:00Z",
+      "end": "2026-07-25T23:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_3", "UTC_HOUR_22", "ROTATION_GROUP_C"]
+    },
+    {
+      "slot_id": "d4-h00",
+      "start": "2026-07-26T00:00:00Z",
+      "end": "2026-07-26T01:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_4", "UTC_HOUR_00", "ROTATION_GROUP_A"]
+    },
+    {
+      "slot_id": "d4-h06",
+      "start": "2026-07-26T06:00:00Z",
+      "end": "2026-07-26T07:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_4", "UTC_HOUR_06", "ROTATION_GROUP_A"]
+    },
+    {
+      "slot_id": "d4-h12",
+      "start": "2026-07-26T12:00:00Z",
+      "end": "2026-07-26T13:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_4", "UTC_HOUR_12", "ROTATION_GROUP_A"]
+    },
+    {
+      "slot_id": "d4-h18",
+      "start": "2026-07-26T18:00:00Z",
+      "end": "2026-07-26T19:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_4", "UTC_HOUR_18", "ROTATION_GROUP_A"]
+    },
+    {
+      "slot_id": "d5-h02",
+      "start": "2026-07-27T02:00:00Z",
+      "end": "2026-07-27T03:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_5", "UTC_HOUR_02", "ROTATION_GROUP_B"]
+    },
+    {
+      "slot_id": "d5-h08",
+      "start": "2026-07-27T08:00:00Z",
+      "end": "2026-07-27T09:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_5", "UTC_HOUR_08", "ROTATION_GROUP_B"]
+    },
+    {
+      "slot_id": "d5-h14",
+      "start": "2026-07-27T14:00:00Z",
+      "end": "2026-07-27T15:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_5", "UTC_HOUR_14", "ROTATION_GROUP_B"]
+    },
+    {
+      "slot_id": "d5-h20",
+      "start": "2026-07-27T20:00:00Z",
+      "end": "2026-07-27T21:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_5", "UTC_HOUR_20", "ROTATION_GROUP_B"]
+    },
+    {
+      "slot_id": "d6-h04",
+      "start": "2026-07-28T04:00:00Z",
+      "end": "2026-07-28T05:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_6", "UTC_HOUR_04", "ROTATION_GROUP_C"]
+    },
+    {
+      "slot_id": "d6-h10",
+      "start": "2026-07-28T10:00:00Z",
+      "end": "2026-07-28T11:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_6", "UTC_HOUR_10", "ROTATION_GROUP_C"]
+    },
+    {
+      "slot_id": "d6-h16",
+      "start": "2026-07-28T16:00:00Z",
+      "end": "2026-07-28T17:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_6", "UTC_HOUR_16", "ROTATION_GROUP_C"]
+    },
+    {
+      "slot_id": "d6-h22",
+      "start": "2026-07-28T22:00:00Z",
+      "end": "2026-07-28T23:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_6", "UTC_HOUR_22", "ROTATION_GROUP_C"]
+    },
+    {
+      "slot_id": "d7-h00",
+      "start": "2026-07-29T00:00:00Z",
+      "end": "2026-07-29T01:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_7", "UTC_HOUR_00", "ROTATION_GROUP_A"]
+    },
+    {
+      "slot_id": "d7-h06",
+      "start": "2026-07-29T06:00:00Z",
+      "end": "2026-07-29T07:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_7", "UTC_HOUR_06", "ROTATION_GROUP_A"]
+    },
+    {
+      "slot_id": "d7-h12",
+      "start": "2026-07-29T12:00:00Z",
+      "end": "2026-07-29T13:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_7", "UTC_HOUR_12", "ROTATION_GROUP_A"]
+    },
+    {
+      "slot_id": "d7-h18",
+      "start": "2026-07-29T18:00:00Z",
+      "end": "2026-07-29T19:15:00Z",
+      "min_duration_seconds": 3660,
+      "coverage_intent": ["FORWARD_ONLY", "CALENDAR_DAY_7", "UTC_HOUR_18", "ROTATION_GROUP_A"]
+    }
+  ],
+  "notice": "Frozen before every slot. Calendar rotation prevents concentrated sampling but does not assert market-state coverage. Slots are never shifted or retried; resource limits fail closed."
+}

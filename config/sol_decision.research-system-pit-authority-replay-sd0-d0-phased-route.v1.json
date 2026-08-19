@@ -1,0 +1,796 @@
+{
+  "schema_version": "sol-research-system-pit-authority-replay-sd0-d0-phased-route-decision.v1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_D0_PHASED_ROUTE.v1",
+  "issued_at": "2026-07-27T16:15:10Z",
+  "issued_by": "GPT-5.6-SOL_ULTRA_ROUTE_AUDITOR",
+  "decision_state": "AUTHORIZED_METERED_SD0_CLOSURE_ROUTE_NETWORK_WAIT_D0_AND_LATER_GATES_LOCKED",
+  "decision_class": "NEW_SD0_CLOSURE_AND_DUAL_LANE_EVIDENCE_ROUTE_NOT_ACTIVE_G1_RECOVERY",
+  "evidence_level": "E0_ACCEPTED_LOCAL_CONTRACT_PLUS_READ_ONLY_OPERATIONAL_AUDIT_NO_EXTERNAL_SOURCE_RESPONSE",
+  "route_identity": {
+    "route_id": "RSR-PITAR1-SD0-DUAL-LANE-PHASED-v1",
+    "namespace": "PITAR1SD0",
+    "workspace": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head_at_issue": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "route_type": "PHASED_SUCCESSOR_RESEARCH_ROUTE",
+    "not_a_recovery_of": [
+      "P1A",
+      "ACTIVE_G1_btc-usdt-g1-forward-20260723-v1"
+    ],
+    "automatic_promotion": false,
+    "one_gate_one_permission_rule": true
+  },
+  "scope_interpretation": {
+    "user_authorization_interpreted_as": "Proceed phase by phase from authoritative source evidence to historical engineering replay and actual forward evidence, then to preregistered comparison, paper, and only after independent gates to a separately owner-approved minimal canary.",
+    "authorization_does_not_mean": [
+      "permission to bypass an unavailable proxy",
+      "permission to fetch market rows before D0",
+      "permission to relabel historical archive timestamps as true received_at or available_at",
+      "permission to overwrite or recover the active G1 package",
+      "permission to bundle D0, D1, D2, D3, E2, paper, deployment, or live trading into this decision",
+      "permission to place orders or expose funds"
+    ],
+    "current_p0": "Create and validate a minimal, fully metered, official-source-document SD0 closure package with zero market-row body access.",
+    "current_safe_progress": "Terra high may build and test the exact local SD0 allowlist now. Network execution remains fail-closed until the exact proxy preflight succeeds."
+  },
+  "authority_bindings": {
+    "program_governance": {
+      "path": "PROGRAM_GOVERNANCE.md",
+      "physical_sha256": "69125790fa36c0c4f72ebdecea4f5415be73a9e4fba78c6c1aa53b9639ef6f09",
+      "role": "PROGRAM_STAGE_AND_AGENT_GOVERNANCE"
+    },
+    "system_design_roadmap": {
+      "path": "SYSTEM_DESIGN_ROADMAP.md",
+      "physical_sha256": "ede84088294e0608cb211f22e7878141d13d59737a1cdd5a6e56ec81d8e3e251",
+      "role": "STAGE_DEPENDENCY_AND_FUNDS_BOUNDARY"
+    },
+    "data_authority_standard": {
+      "path": "DATA_AUTHORITY_STANDARD_v1_0.md",
+      "physical_sha256": "03a38e2e4fa5f299b9ed698b0e0d185addf67984bb5e4712d9cc2bd742fd9f72",
+      "role": "DATA_AUTHORITY_AND_POINT_IN_TIME_SEMANTICS"
+    },
+    "stage_contract": {
+      "path": "config/research_system.stage_contract.v1.json",
+      "physical_sha256": "ab81251c0ea70e945d9ea7176e9cb59e7353477212dcf36a2d9e4424f944674b",
+      "canonical_sha256": "d84c8ba50d828688020a5197202a58985079cdc64938c58fe9c54e3cb69b6fba",
+      "role": "RESEARCH_STAGE_CONTRACT"
+    },
+    "source_authority_registry": {
+      "path": "config/research_system.source_authority_registry.v1.json",
+      "physical_sha256": "693cc7361c16fb154df97bf2c58a1e68807f990dc976df949658e7ce635abb12",
+      "canonical_sha256": "faa6f33577d71275939b7bdf56fa850aecb3b75eed8df5ee175fb9340a3d4324",
+      "role": "CURRENT_DOCUMENT_DISCOVERY_AUTHORITY_ONLY"
+    },
+    "core_theory": {
+      "path": "CORE_TRADING_THEORY_v2_1.md",
+      "authority_id": "CORE_TRADING_THEORY.v2.1",
+      "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d",
+      "role": "CURRENT_IMMUTABLE_THEORY_AUTHORITY"
+    },
+    "accepted_p0": {
+      "path": "config/sol_decision.research-system-reconstruction-p0-gate.v1_1.json",
+      "decision_state": "ACCEPT_P0",
+      "physical_sha256": "ff9f2b608fe387b953e5d18e1a3cd0a246fcc43bf209f694ffab53f867a8f4cf",
+      "canonical_sha256": "d0968a40d33cea693cd2ad979a656b7897c30fe58b3cd94d85b6f1ce5afd6a58"
+    },
+    "accepted_p0_1": {
+      "path": "config/sol_decision.research-system-dynamic-hypothesis-graph-p0_1-gate.v1.json",
+      "decision_state": "ACCEPT_P0_1",
+      "physical_sha256": "c5a8e2a99d81c9b6729e5eb6c696e669c44fdba7af8c84ae9e743ff089edf446",
+      "canonical_sha256": "adcc574e67c70eae33fc9c56cc4285566646c07c44fef2ccfb56d8a4959f21f2",
+      "composed_bundle_sha256": "f730d9f712001ec603a33e26977efaadf8db1a7492cba2e4d24acaee7ba10625"
+    },
+    "predecessor_route": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-route.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_ROUTE.v1",
+      "decision_state": "AUTHORIZED_PITAR1_E0_AND_BOUNDED_SOURCE_DISCOVERY_PHASED_SUCCESSOR_ROUTE",
+      "size_bytes": 52048,
+      "physical_sha256": "a3dcb124477ac4f54189d659b7438431ea62ba6785f4c248fe2448e55f28035f",
+      "canonical_sha256": "7e141bd47a728078c3a4dca02d231eae2bcbe6a3f12ff39c6e01c37e92556932"
+    },
+    "accepted_e0_gate": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-e0-gate.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_E0_GATE.v1",
+      "decision_state": "ACCEPT_PITAR1_E0_CONTRACT_SD0_WAIT_DATA_D0_DENIED",
+      "size_bytes": 27219,
+      "physical_sha256": "7cdc9791742b837440281bf08f05be454ce1d23c0a7fdadd7bcb95dca01d9047",
+      "canonical_sha256": "5adb8079bef7fc62fc092b32823a5cb058427b355ae6d6119b9436c898b3003c",
+      "effect": "E0 remains accepted only as local contract and synthetic fail-closed evidence. This route replaces neither its negative SD0 finding nor its D0 denial; it defines a new measurable way to close SD0."
+    },
+    "active_g1_terminal_authority": {
+      "path": "config/sol_decision.active-g1-plan-unreachable.v2.json",
+      "decision_id": "SOL_ACTIVE_G1_PLAN_UNREACHABLE.v2",
+      "decision_state": "TERMINAL_WAIT_DATA_PLAN_UNREACHABLE",
+      "physical_sha256": "3417205afc38247bc8463ddd6e18cf54dffe51724571100a974f9572309127c8",
+      "canonical_sha256": "e143fae7d8c8094298f65bc6724de35f368f25e739e6fe2a35cfdf69fd1d6272",
+      "effect": "Terminal mathematical unreachability remains binding. Subsequent files cannot repair the frozen plan."
+    }
+  },
+  "read_only_operational_audit": {
+    "observed_at": "2026-07-27T16:07:37Z",
+    "network_environment": {
+      "configured_http_proxy": "http://127.0.0.1:7897",
+      "configured_https_proxy": "http://127.0.0.1:7897",
+      "tcp_listener_probe": "NO_LISTENER_OBSERVED",
+      "process_listing": "UNAVAILABLE_SANDBOX_OPERATION_NOT_PERMITTED",
+      "external_requests_made_by_this_audit": 0,
+      "current_network_execution_disposition": "WAIT_DATA_NETWORK_TRANSPORT_NO_REQUESTS",
+      "direct_network_bypass_allowed": false
+    },
+    "active_g1_root": "/Users/wt/Library/Application Support/agent-trade-emotion",
+    "active_g1_mutated": false,
+    "active_g1_plan": {
+      "path": "config/forward_capture_plan.g1.v1.json",
+      "plan_id": "btc-usdt-g1-forward-20260723-v1",
+      "state": "FROZEN_FORWARD_CAPTURE_PLAN",
+      "size_bytes": 7637,
+      "physical_sha256": "189317fdff53d9f0ca64747d48690a283a3328b04df539f53307eb1370c3cb6d",
+      "canonical_sha256": "bfc2f96d8432135c81e04b8c50227dce81280cb5cc941fbdd052b979c7ba973d"
+    },
+    "active_g1_registry": {
+      "path": "config/source_registry.v3.json",
+      "size_bytes": 1783,
+      "physical_sha256": "b3848092824dc65e9fea6ac524811453b8abf4783b865d8c057089cb5603453f",
+      "canonical_sha256": "3aa28782ff3c0af5be5ad0bc98e690af87dbe2c57687d6ab61b1549bae74ec4b"
+    },
+    "volatile_non_authoritative_snapshot": {
+      "purpose": "Operational awareness only; not a seal, authority, G1 recovery, cohort assignment, or permission input.",
+      "collection_manifests_observed": [
+        {
+          "slot": "d4-h06",
+          "status": "UNQUALIFIED",
+          "size_bytes": 4034,
+          "physical_sha256": "63d77336f1387f9a43e2db899a4b2f532e0993059b779d37283cacd7f8ebdda0"
+        },
+        {
+          "slot": "d4-h12",
+          "status": "QUALIFIED_SMOKE",
+          "size_bytes": 2845,
+          "physical_sha256": "993a5cab4bfb7ca924f4b139dbaefb6f2a9517eb48e4b190846d46b6f4cd69c9"
+        },
+        {
+          "slot": "d4-h18",
+          "status": "UNQUALIFIED",
+          "size_bytes": 5206,
+          "physical_sha256": "a52ace3cee8bf4a035e71feecb42254875a9cc32c549cff9afeae76b6c5ab5a6"
+        },
+        {
+          "slot": "d5-h08",
+          "status": "QUALIFIED_SMOKE",
+          "size_bytes": 2845,
+          "physical_sha256": "5ca6a1c834babcfe4758d03f4734f90d3951aa1d3198b22e6f23bebd1517ccf4"
+        },
+        {
+          "slot": "d5-h14",
+          "status": "QUALIFIED_SMOKE",
+          "size_bytes": 2847,
+          "physical_sha256": "f48ac89d10d384eb972ea597f08ffd9fab3d178ac94108ae42ee9fefc69e6b13"
+        }
+      ],
+      "raw_files_count_stat_only": 6,
+      "raw_total_bytes_stat_only": 783217397,
+      "raw_path_size_mtime_manifest_sha256": "dce68002447818f7adbd0327e76f8f7628aca5991db786a61b49ee3676597167",
+      "safe_metadata_files_count": 23,
+      "safe_metadata_total_bytes": 604425829,
+      "safe_metadata_path_size_physical_sha_manifest_sha256": "002b6c7f03cbda96d319f1500b85ef22263c92533d210949883a6002b2d180c8",
+      "interpretation": "Later observations do not repair the plan's terminal upper-bound proof. Because this package may still be written, this snapshot is volatile and must not be treated as a content-addressed data seal."
+    },
+    "immutability_rule": "No file under the active G1 root may be created, modified, deleted, renamed, copied out, or used by SD0. A future exact D1 decision may authorize a separately sealed, content-addressed read-only copy into a new evidence root, but it cannot relabel the data as recovered G1, calibration, or holdout."
+  },
+  "route_decision": {
+    "feasible": true,
+    "why_feasible": "The source-authority gap can be closed without market-row bodies by using an exact, sequential, resource-metered client against a small fixed official-document and checksum/HEAD allowlist. The archive and actual-forward chronology limits can be kept in separate evidence lanes.",
+    "current_blocker": "The configured proxy endpoint has no observed listener, so no external SD0 request is presently measurable or executable under this route.",
+    "current_action": "BUILD_LOCAL_SD0_MEASUREMENT_PACKAGE_THEN_WAIT_FOR_EXACT_PROXY_PREFLIGHT",
+    "not_current_action": [
+      "download the archive ZIP",
+      "read market rows",
+      "build a historical trading-validity dataset",
+      "run a backtest",
+      "use the active G1 package",
+      "run paper or testnet",
+      "deploy",
+      "trade"
+    ]
+  },
+  "sd0_exact_artifact_allowlist": [
+    {
+      "path": "PIT_AUTHORITY_REPLAY_SD0_CLOSURE_SPEC_v1_0.md",
+      "role": "HUMAN_READABLE_MEASUREMENT_AND_CLAIM_BOUNDARY"
+    },
+    {
+      "path": "config/pit_authority_replay.sd0_measurement_contract.v1.json",
+      "role": "MACHINE_READABLE_RESOURCE_AND_FAIL_CLOSED_CONTRACT"
+    },
+    {
+      "path": "config/pit_authority_replay.sd0_request_plan.v1.json",
+      "role": "EXACT_REQUEST_ORDER_AND_URL_ALLOWLIST"
+    },
+    {
+      "path": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "role": "STANDARD_LIBRARY_METERED_CLIENT"
+    },
+    {
+      "path": "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+      "role": "SYNTHETIC_CAP_REDIRECT_PROXY_CONTENT_TYPE_AND_NO_ROW_TESTS"
+    },
+    {
+      "path": "artifacts/pit_authority_replay_sd0_preflight.v1.json",
+      "role": "NETWORK_AND_RESOURCE_PREFLIGHT_RESULT"
+    },
+    {
+      "path": ".runtime/pitar1-sd0-v1/receipts/requests.ndjson",
+      "role": "WRITE_ONCE_LOGICAL_REQUEST_LEDGER"
+    },
+    {
+      "path": ".runtime/pitar1-sd0-v1/receipts/response_headers.ndjson",
+      "role": "WRITE_ONCE_RESPONSE_METADATA_LEDGER"
+    },
+    {
+      "path": ".runtime/pitar1-sd0-v1/documents/binance-public-data-readme.md",
+      "role": "BOUNDED_SOURCE_DOCUMENT_SNAPSHOT"
+    },
+    {
+      "path": ".runtime/pitar1-sd0-v1/documents/binance-public-data-license.txt",
+      "role": "BOUNDED_LICENSE_DOCUMENT_SNAPSHOT"
+    },
+    {
+      "path": ".runtime/pitar1-sd0-v1/documents/btcusdt-1m-2024-03.zip.checksum.txt",
+      "role": "OFFICIAL_CHECKSUM_SIDECAR_SNAPSHOT_NO_MARKET_ROWS"
+    },
+    {
+      "path": ".runtime/pitar1-sd0-v1/receipts/btcusdt-1m-2024-03-zip-head.v1.json",
+      "role": "ARCHIVE_HEADER_METADATA_ONLY"
+    },
+    {
+      "path": "artifacts/pit_authority_replay_sd0_closure_report.v1.json",
+      "role": "FAIL_CLOSED_SD0_RESULT"
+    },
+    {
+      "path": "config/pit_authority_replay.sd0_artifact_inventory.v1.json",
+      "role": "CONTENT_IDENTITY_INVENTORY"
+    }
+  ],
+  "sd0_artifact_scope_rules": {
+    "create_new_allowlisted_files": true,
+    "modify_existing_files": false,
+    "delete_or_rename_files": false,
+    "create_files_outside_allowlist": false,
+    "dependency_installation": false,
+    "application_support_access": false,
+    "market_row_body_access": false,
+    "archive_zip_body_access": false,
+    "source_listing_or_search": false,
+    "browser_or_web_tool_access": false,
+    "curl_or_general_purpose_fetcher": false,
+    "credentials_or_cookies": false,
+    "external_writes": false,
+    "paper_or_order_actions": false,
+    "local_runtime_root": ".runtime/pitar1-sd0-v1",
+    "runtime_write_semantics": "CREATE_ONCE_FAIL_IF_EXISTS_NO_OVERWRITE",
+    "partial_run_semantics": "Preserve receipts and report WAIT_DATA or FAIL_CLOSED. Do not retry under the same run ID.",
+    "self_acceptance": false,
+    "required_implementer": "GPT-5.6-TERRA_HIGH",
+    "required_completion_gate": "NEW_GPT-5.6-SOL_ULTRA_SD0_GATE"
+  },
+  "sd0_source_contract": {
+    "source_owner_candidate": "Binance",
+    "repository_candidate": "binance/binance-public-data",
+    "status_before_execution": "UNVERIFIED_CANDIDATE",
+    "instrument_candidate": {
+      "venue": "BINANCE",
+      "market": "USD_M_FUTURES",
+      "symbol": "BTCUSDT",
+      "data_family": "KLINES",
+      "interval": "1m",
+      "window_start_inclusive": "2024-03-01T00:00:00Z",
+      "window_end_exclusive": "2024-04-01T00:00:00Z",
+      "chronology_role_consumed_at_first_successful_metadata_response": "SEEN_ENGINEERING_REPLAY_QA_ONLY"
+    },
+    "exact_urls": [
+      {
+        "request_id": "SD0-001",
+        "method": "HEAD",
+        "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/README.md",
+        "body_cap_bytes": 0
+      },
+      {
+        "request_id": "SD0-002",
+        "method": "GET",
+        "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/README.md",
+        "body_cap_bytes": 1048576
+      },
+      {
+        "request_id": "SD0-003",
+        "method": "HEAD",
+        "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/LICENSE",
+        "body_cap_bytes": 0
+      },
+      {
+        "request_id": "SD0-004",
+        "method": "GET",
+        "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/LICENSE",
+        "body_cap_bytes": 1048576
+      },
+      {
+        "request_id": "SD0-005",
+        "method": "HEAD",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2024-03.zip.CHECKSUM",
+        "body_cap_bytes": 0
+      },
+      {
+        "request_id": "SD0-006",
+        "method": "GET",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2024-03.zip.CHECKSUM",
+        "body_cap_bytes": 65536
+      },
+      {
+        "request_id": "SD0-007",
+        "method": "HEAD",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2024-03.zip",
+        "body_cap_bytes": 0
+      }
+    ],
+    "hostname_allowlist": [
+      "raw.githubusercontent.com",
+      "data.binance.vision"
+    ],
+    "protocol": "HTTPS_ONLY",
+    "redirect_policy": "ZERO_REDIRECTS_FAIL_CLOSED",
+    "request_order": "SD0-001_THROUGH_SD0-007_SEQUENTIAL_STOP_ON_FIRST_FAILURE",
+    "maximum_logical_requests": 7,
+    "concurrency": 1,
+    "retry_count": 0,
+    "per_request_timeout_seconds": 15,
+    "total_wall_clock_cap_seconds": 120,
+    "maximum_total_response_body_bytes": 2162688,
+    "maximum_response_header_bytes_per_request": 65536,
+    "maximum_total_local_artifact_bytes": 10485760,
+    "maximum_external_cost_usd": 0,
+    "paywall_auth_or_rate_limit_action": "WAIT_DATA_NO_FALLBACK",
+    "tls_certificate_validation": "REQUIRED",
+    "proxy_policy": {
+      "exact_endpoint": "http://127.0.0.1:7897",
+      "tcp_preflight_required": true,
+      "direct_bypass": false,
+      "environment_unset_or_override": false,
+      "proxy_change": "REQUIRES_NEW_SOL_ROUTE_DECISION"
+    },
+    "head_semantics": "No response body is accepted. Any body byte is discarded and the run fails closed.",
+    "get_semantics": "A HEAD success with an acceptable declared content length is required before its paired GET. Streaming stops before exceeding the per-object cap; cap exceedance is FAIL_CLOSED.",
+    "content_type_allowlist": {
+      "readme_and_license": [
+        "text/plain",
+        "text/markdown"
+      ],
+      "checksum": [
+        "text/plain",
+        "application/octet-stream"
+      ],
+      "archive_head_only": [
+        "application/zip",
+        "application/octet-stream",
+        "binary/octet-stream"
+      ]
+    },
+    "required_request_receipt_fields": [
+      "run_id",
+      "request_id",
+      "method",
+      "exact_url",
+      "hostname",
+      "proxy_endpoint",
+      "started_at_utc",
+      "finished_at_utc",
+      "elapsed_monotonic_ns",
+      "status_code",
+      "redirect_count",
+      "declared_content_length",
+      "response_body_bytes",
+      "response_body_sha256",
+      "response_headers_sha256",
+      "tls_validation_result",
+      "client_version",
+      "error_class",
+      "terminal_disposition"
+    ],
+    "source_authority_pass_conditions": [
+      "All seven exact requests complete once in order with zero redirects and no fallback.",
+      "The complete request, response byte, elapsed, status, content-type, proxy, and error ledger is sealed.",
+      "README identifies the exact repository and exact supported archive layout used by the candidate.",
+      "The checksum sidecar contains exactly one syntactically valid SHA-256 digest bound to the exact ZIP basename.",
+      "The ZIP HEAD identifies a bounded nonzero content length within the future D0 compressed cap.",
+      "The stored documents and all receipts have physical SHA-256 identities.",
+      "No market-row body or ZIP body was requested or persisted.",
+      "License/terms evidence explicitly permits the intended download, local research retention, derived research artifacts, and intended jurisdiction, or the result remains WAIT_DATA_TERMS."
+    ],
+    "license_rule": "A repository software license alone must not be interpreted as a market-data reuse license. Ambiguity yields WAIT_DATA_TERMS and blocks D0.",
+    "maximum_sd0_positive_claim": "The exact source documents, checksum sidecar, and archive header metadata were retrieved under the declared request and resource caps without market-row body access. This does not establish data-row validity, point-in-time validity, backtest validity, expected value, profitability, or trading permission."
+  },
+  "sd0_preflight_and_stop_rules": {
+    "required_before_any_external_request": [
+      "Workspace path, branch, and HEAD match this decision.",
+      "All authority binding hashes match.",
+      "Every existing allowlisted output path that is expected to be new is absent.",
+      "No path resolves through a symlink.",
+      "The exact proxy TCP listener responds.",
+      "Available workspace disk is at least 15 GiB.",
+      "The standard-library client and its tests pass locally.",
+      "The request-plan canonical digest is recorded in the preflight artifact."
+    ],
+    "network_preflight_failure": "WAIT_DATA_NETWORK_TRANSPORT_NO_REQUESTS",
+    "existing_output_failure": "FAIL_CLOSED_NO_OVERWRITE",
+    "authority_hash_mismatch": "HALT_ROUTE_DRIFT_NEW_SOL_REVIEW",
+    "unexpected_url_host_method_or_redirect": "HALT_PROTOCOL_VIOLATION",
+    "body_or_header_cap_exceeded": "HALT_RESOURCE_CAP",
+    "market_row_or_zip_body_observed": "HALT_NO_ROW_LEAK_VIOLATION",
+    "license_or_terms_ambiguous": "WAIT_DATA_TERMS_D0_DENIED",
+    "unexpected_content_or_schema": "WAIT_DATA_SOURCE_CONTRACT_MISMATCH",
+    "two_same_root_cause_failures": "STOP_AND_ESCALATE_TO_SOL_WITH_PROBLEM_BUNDLE",
+    "no_safe_external_action": "Produce only the local preflight WAIT_DATA artifact and stop. Do not widen URLs, change proxies, use a browser, or access another source."
+  },
+  "dual_evidence_lane_contract": {
+    "lane_har1_historical_archive_engineering": {
+      "lane_id": "HAR1",
+      "name": "HISTORICAL_ARCHIVE_ENGINEERING_REPLAY",
+      "allowed_future_purpose": [
+        "archive adapter correctness",
+        "deterministic replay mechanics",
+        "feature and state sanity checks",
+        "historical mechanism exploration",
+        "predeclared assumed-delay sensitivity",
+        "failure and gap handling"
+      ],
+      "forbidden_claims": [
+        "true per-event received_at",
+        "true per-event available_at",
+        "true live feed latency",
+        "true cross-stream arrival order",
+        "queue position or production fill quality",
+        "actual point-in-time market validity",
+        "calibrated trading validity",
+        "paper or live readiness",
+        "profitability"
+      ],
+      "required_clock_fields": {
+        "event_time": "SOURCE_EVENT_TIME_IF_PRESENT",
+        "archive_acquired_received_at": "ACTUAL_2026_ACQUISITION_RECEIPT_TIME",
+        "archive_publication_metadata": "SOURCE_HEADER_OR_DOCUMENT_EVIDENCE_IF_AVAILABLE",
+        "scenario_available_at": "RECONSTRUCTED_SCENARIO_ONLY_FROM_PREDECLARED_DELAY_GRID",
+        "actual_available_at": "UNAVAILABLE"
+      },
+      "hard_rule": "event_time must never be copied into, aliased as, or used as evidence for received_at or available_at.",
+      "future_result_label": "RECONSTRUCTED_ENGINEERING_EVIDENCE_ONLY",
+      "may_advance_true_pit_gate": false
+    },
+    "lane_fcr1_forward_actual": {
+      "lane_id": "FCR1",
+      "name": "FORWARD_CAPTURE_ACTUAL_AVAILABILITY",
+      "required_purpose": [
+        "actual received_at and ingested_at evidence",
+        "actual admission_validated_at and available_at evidence",
+        "nonoverlapping development calibration and holdout cohorts",
+        "offline/live equivalence",
+        "shadow and paper readiness"
+      ],
+      "required_clock_fields": [
+        "source_event_time",
+        "received_at_utc",
+        "received_monotonic_ns",
+        "ingested_at_utc",
+        "admission_validated_at_utc",
+        "available_at_utc",
+        "decision_at_utc"
+      ],
+      "required_identity": "A new immutable plan, source registry, collector digest, evidence root, cohort map, and separately sealed bundle authorized by a future Sol gate.",
+      "active_g1_treatment": "The existing active G1 may only be admitted after a separate exact D1 decision and immutable seal as SEEN_DEVELOPMENT_ONLY. It cannot become recovered G1, calibration, holdout, or proof that the original plan passed.",
+      "future_result_label": "ACTUAL_FORWARD_EVIDENCE",
+      "may_advance_true_pit_gate": true
+    },
+    "cross_lane_rules": [
+      "HAR1 and FCR1 artifacts, clocks, cohort roles, reports, and conclusions remain separately named.",
+      "HAR1 cannot backfill missing FCR1 received_at or available_at.",
+      "FCR1 cannot retroactively make HAR1 point-in-time.",
+      "Any mixed analysis reports each lane separately before an explicitly labeled sensitivity synthesis.",
+      "Only preassigned nonoverlapping FCR1 cohorts may support calibration, locked holdout, shadow, or paper claims."
+    ]
+  },
+  "conditional_d0_plan_contract": {
+    "current_authorization": "PLAN_ONLY_NO_ARCHIVE_GET",
+    "future_d0_object": {
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2024-03.zip",
+      "sidecar_url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2024-03.zip.CHECKSUM",
+      "venue": "BINANCE",
+      "market": "USD_M_FUTURES",
+      "symbol": "BTCUSDT",
+      "interval": "1m",
+      "window": "[2024-03-01T00:00:00Z,2024-04-01T00:00:00Z)",
+      "preassigned_role": "SEEN_ENGINEERING_REPLAY_QA_ONLY"
+    },
+    "required_before_new_sol_d0_decision": [
+      "A separate Sol SD0 completion gate accepts the exact metered evidence.",
+      "Source ownership and document identity are explicit and content-addressed.",
+      "Terms and intended jurisdiction are explicitly closed without inference from a software-only license.",
+      "ZIP content length is known, nonzero, and within the compressed cap.",
+      "The official sidecar SHA-256 is syntactically and semantically bound to the exact ZIP basename.",
+      "Product, symbol, interval, timestamp unit, column schema, UTC boundary, and canonical row key are frozen.",
+      "Missing rows, duplicate rows, corrections, replacement objects, late publication, and delisting rules are frozen.",
+      "The chronology role is already consumed as SEEN_ENGINEERING_REPLAY_QA_ONLY before any market-row access.",
+      "A new content-addressed D0 evidence root and exact artifact allowlist are defined.",
+      "Disk and extraction resource preflight is demonstrated.",
+      "No active G1 path is an input or output."
+    ],
+    "future_d0_resource_ceiling": {
+      "archive_objects": 1,
+      "logical_get_requests": 1,
+      "retries": 0,
+      "concurrency": 1,
+      "maximum_compressed_bytes": 536870912,
+      "maximum_uncompressed_bytes": 4294967296,
+      "maximum_archive_members": 2,
+      "maximum_rows": 2000000,
+      "maximum_total_d0_artifact_bytes": 6442450944,
+      "minimum_free_disk_before_bytes": 16106127360,
+      "minimum_projected_free_disk_after_bytes": 10737418240,
+      "maximum_external_cost_usd": 0
+    },
+    "future_d0_download_rules": [
+      "Use the exact object URL only through the separately accepted metered client.",
+      "Stream to a create-once temporary object inside the new D0 evidence root.",
+      "Abort before cap exceedance.",
+      "Verify the official SHA-256 before atomic seal.",
+      "Do not extract before checksum acceptance.",
+      "Reject symlinks, absolute paths, traversal, encrypted members, unexpected member count, and decompression ratio above the frozen cap.",
+      "Persist acquisition receipt times and headers; do not invent historical receipt times."
+    ],
+    "d0_completion_effect": "At most one verified historical archive may become a HAR1 raw-admission candidate. D0 does not admit rows, authorize an adapter, authorize scoring, or establish true PIT.",
+    "current_d0_state": "DENIED_REQUIRES_NEW_SOL_D0_DECISION"
+  },
+  "independent_future_gate_plan": {
+    "D1_RAW_ADMISSION": {
+      "authorization_now": false,
+      "required_input": "A D0-verified HAR1 archive or an explicitly supplied, immutable, separately sealed FCR1 artifact plus a new exact Sol decision.",
+      "minimum_pass_evidence": [
+        "Container and member checksums match.",
+        "Schema, timestamp units, interval alignment, coverage, duplicates, gaps, corrections, and replacement semantics are measured.",
+        "Every row has a stable source key and provenance.",
+        "Clock semantics and lane role are explicit.",
+        "No event_time-as-available_at alias is possible.",
+        "Any active G1 input is sealed after capture and labeled SEEN_DEVELOPMENT_ONLY."
+      ],
+      "automatic_next_permission": "NONE"
+    },
+    "D2_ADAPTER_AND_EVENT_REPLAY": {
+      "authorization_now": false,
+      "required_input": "D1 PASS and a new exact Sol D2 decision.",
+      "minimum_pass_evidence": [
+        "Pure deterministic adapter and replay interface.",
+        "Gap, duplicate, correction, out-of-order, restart, and clock tests.",
+        "Content-addressed input-to-output reproducibility.",
+        "HAR1 assumed-delay grid remains separate from FCR1 actual arrival order.",
+        "No score, model selection, or trading action."
+      ],
+      "automatic_next_permission": "NONE"
+    },
+    "D3_DATASET_CONSTRUCTION": {
+      "authorization_now": false,
+      "required_input": "D2 PASS, frozen feature/action/label/state contracts, frozen cohort roles, and a new exact Sol D3 decision.",
+      "minimum_pass_evidence": [
+        "Dataset construction only; no policy scoring while labels or gates can still change.",
+        "Point-in-time feature eligibility is machine checked.",
+        "Development, calibration, locked holdout, and actual-forward cohorts do not overlap.",
+        "HAR1 outputs remain engineering/sensitivity datasets and cannot occupy true-PIT calibration or holdout roles.",
+        "Insufficient episode or state coverage returns WAIT_DATA without lowering thresholds."
+      ],
+      "automatic_next_permission": "NONE"
+    },
+    "E2_FOUR_POLICY_COMPARISON": {
+      "authorization_now": false,
+      "required_input": "D3 PASS, preregistered metrics/costs/thresholds, frozen code and datasets, and a new exact Sol E2 decision.",
+      "exact_policy_set": [
+        "DYNAMIC_MULTI_PATH",
+        "FROZEN_ENTRY_STATIC_EXIT",
+        "SINGLE_PATH",
+        "NO_TRADE"
+      ],
+      "minimum_pass_evidence": [
+        "All four policies use identical eligible observations, costs, latency scenarios, splits, and risk budgets.",
+        "Report state/hypothesis metrics, Brier score, log loss, calibration, MFE, MAE, expected value after fees/slippage/funding, drawdown, tail loss, concentration, and bootstrap uncertainty.",
+        "Report HAR1 results only as reconstructed engineering/sensitivity evidence.",
+        "Any market-validity or predictive claim must come from an eligible actual-forward locked cohort.",
+        "Evidence-sufficient failure simplifies or rejects theory; it does not trigger feature expansion to rescue a result."
+      ],
+      "automatic_next_permission": "NONE"
+    },
+    "E3_SHADOW_PAPER_TESTNET": {
+      "authorization_now": false,
+      "required_input": "E2 PASS on eligible actual-forward evidence, independent risk/OMS contracts, and a new exact Sol E3 decision.",
+      "minimum_pass_evidence": [
+        "Offline/live decision equivalence.",
+        "Duplicate intent, partial fill, reject, unknown order, disconnect, protection race, position-mode, reconciliation, and recovery drills pass.",
+        "Every open simulated/testnet position is protected or the system is in highest-severity halt/exit.",
+        "Zero unexplained order, fill, and position differences after reconciliation.",
+        "Paper/testnet evidence does not claim production liquidity, fill quality, or profitability."
+      ],
+      "funds_at_risk": 0,
+      "automatic_next_permission": "NONE"
+    },
+    "G4A_LIVE_SAFETY_ADMISSION": {
+      "authorization_now": false,
+      "required_input": "Complete G3/E3 evidence plus a separately signed owner and Sol G4A decision.",
+      "minimum_external_conditions": [
+        "Jurisdiction and account eligibility confirmed.",
+        "Dedicated account or subaccount with account, collateral, orders, and BTCUSDT position exclusivity.",
+        "Withdrawal permission disabled at the venue and API-key level.",
+        "Exact production source SLA, stale-data actions, private stream, account reconciliation, collateral, halt, and exit policy.",
+        "Named human operator and monitoring window.",
+        "Funds owner signs all numeric limits and expiry."
+      ],
+      "effect_if_passed": "Still E3; authorizes at most one separately defined M6B canary proposal, not an order."
+    },
+    "M6B_LIMITED_CANARY": {
+      "authorization_now": false,
+      "required_input": "G4A PASS plus a separate exact owner-signed and Sol-authorized canary decision.",
+      "frozen_limits_required": [
+        "maximum funded capital",
+        "maximum risk per order",
+        "maximum daily loss",
+        "maximum cumulative loss",
+        "maximum cumulative traded notional",
+        "maximum orders",
+        "maximum episodes",
+        "maximum calendar duration",
+        "maximum concurrent positions",
+        "maximum leverage"
+      ],
+      "hard_rules": [
+        "Stop when the first limit or expiry is reached.",
+        "No martingale, loss-chasing, leverage increase, online retuning, model replacement, capital expansion, or automatic extension.",
+        "Any critical data, protection, reconciliation, or permission anomaly halts new risk and returns to shadow/paper.",
+        "Run completion does not itself establish E4."
+      ]
+    },
+    "G4B_CANARY_EVIDENCE_REVIEW": {
+      "authorization_now": false,
+      "required_input": "A completed bounded M6B evidence package and a new Sol gate.",
+      "possible_results": [
+        "PASS_E4",
+        "INCONCLUSIVE_STOP",
+        "FAIL_RETURN_TO_SHADOW_PAPER"
+      ],
+      "automatic_capital_extension": false
+    }
+  },
+  "live_funds_hard_boundary": {
+    "live_trading_authorized": false,
+    "deployment_authorized": false,
+    "paper_authorized": false,
+    "testnet_authorized": false,
+    "api_key_request_authorized": false,
+    "account_connection_authorized": false,
+    "order_submission_authorized": false,
+    "fund_transfer_authorized": false,
+    "current_maximum_funds_at_risk": 0,
+    "current_maximum_order_notional": 0,
+    "current_maximum_orders": 0,
+    "current_action": "ABSTAIN",
+    "future_canary_numeric_limits": "UNSET_BLOCK_LIVE_UNTIL_FUNDS_OWNER_SIGNATURE",
+    "interpretive_rule": "Research and engineering autonomy does not create authority over credentials, accounts, orders, funds, jurisdictional eligibility, or deployment."
+  },
+  "agent_and_route_management": {
+    "terra_high": {
+      "role": "DAILY_IMPLEMENTATION_TESTING_DATA_QA_AND_FACT_REPORTING",
+      "currently_allowed": [
+        "Build the exact SD0 local allowlist.",
+        "Run local synthetic and risk-driven tests.",
+        "Run the exact SD0 request plan only after every preflight condition passes.",
+        "Report WAIT_DATA without widening scope when the proxy or source contract fails."
+      ],
+      "currently_forbidden": [
+        "Self-accept SD0.",
+        "Download the archive ZIP.",
+        "Access or modify active G1.",
+        "Run D1 through M6B work.",
+        "Change this route or its allowlist."
+      ]
+    },
+    "sol_ultra": {
+      "role": "INITIAL_ROUTE_AUDIT_AND_INDEPENDENT_STAGE_GATE",
+      "invoke_only_when": [
+        "SD0 package is complete and ready for its gate.",
+        "A true route blocker exists.",
+        "The same root cause remains unclosed for two Terra rounds.",
+        "An independent D0, D1, D2, D3, E2, E3, G4A, M6B, or G4B gate is ready.",
+        "A complete S0, G1, G2, or G3 phase is ready for stage review."
+      ],
+      "not_for": "Ordinary implementation, ordinary local test repair, slot polling, or routine data QA."
+    },
+    "dynamic_route_change_rule": "A route change must be caused by explicit new evidence, preserve prior negative evidence, define exact changed permissions and artifacts, and receive a new Sol decision. Ordinary failure cannot silently widen sources, windows, thresholds, or claims."
+  },
+  "permission_matrix": {
+    "create_this_sol_decision": true,
+    "terra_build_exact_local_sd0_allowlist": true,
+    "terra_run_local_sd0_tests": true,
+    "execute_exact_sd0_network_plan_after_all_preflights": true,
+    "use_only_configured_proxy": true,
+    "read_official_documents_within_sd0_caps": true,
+    "read_checksum_sidecar_within_sd0_caps": true,
+    "head_exact_archive_without_body": true,
+    "browse_search_or_expand_sources": false,
+    "bypass_or_change_proxy": false,
+    "download_archive_zip": false,
+    "acquire_market_rows": false,
+    "access_active_g1_for_sd0": false,
+    "copy_active_g1": false,
+    "modify_active_g1": false,
+    "admit_raw_rows": false,
+    "implement_or_execute_real_adapter_replay": false,
+    "construct_real_scored_dataset": false,
+    "run_four_policy_comparison": false,
+    "run_backtest_or_calibration": false,
+    "open_or_score_holdout": false,
+    "run_shadow_paper_or_testnet": false,
+    "request_credentials": false,
+    "deploy": false,
+    "trade_or_use_live_funds": false
+  },
+  "stage_disposition": {
+    "e0_contract": "ACCEPTED_PREDECESSOR_SCOPE_ONLY",
+    "sd0_local_builder": "AUTHORIZED_EXACT_ALLOWLIST",
+    "sd0_network_execution": "CONDITIONALLY_AUTHORIZED_AFTER_PROXY_AND_RESOURCE_PREFLIGHT_CURRENTLY_WAIT_DATA",
+    "sd0_completion": "NOT_YET_EVALUATED_REQUIRES_NEW_SOL_GATE",
+    "d0_plan_definition": "ACCEPTED_AS_NON_EXECUTING_PLAN",
+    "d0_actual_acquisition": "DENIED_REQUIRES_NEW_SOL_D0_DECISION",
+    "d1_raw_admission": "DENIED",
+    "d2_adapter_replay": "DENIED",
+    "d3_dataset": "DENIED",
+    "e2_four_policy_comparison": "DENIED",
+    "e3_shadow_paper_testnet": "DENIED",
+    "g4a_live_safety_admission": "DENIED",
+    "m6b_limited_canary": "DENIED",
+    "g4b_canary_evidence_review": "DENIED",
+    "deployment": "DENIED",
+    "live_trading": "DENIED",
+    "current_next_step": "GPT-5.6-TERRA_HIGH_BUILDS_AND_TESTS_EXACT_SD0_PACKAGE; IF_PROXY_PREFLIGHT_STILL_FAILS_REPORT_WAIT_DATA_NO_REQUESTS"
+  },
+  "claim_boundary": {
+    "route_feasibility": "ACCEPTED_FOR_EXACT_PHASED_ROUTE",
+    "sd0_source_authority": "NOT_YET_EVALUATED",
+    "license_and_terms": "NOT_YET_CLOSED",
+    "historical_archive_data_validity": "NOT_EVALUATED",
+    "historical_true_point_in_time_validity": "STRUCTURALLY_UNAVAILABLE_FROM_ARCHIVE_RECEIPTS",
+    "historical_archive_role": "ENGINEERING_REPLAY_AND_SENSITIVITY_ONLY_IF_FUTURE_GATES_PASS",
+    "actual_forward_point_in_time_validity": "REQUIRES_NEW_FCR1_LANE_AND_FUTURE_GATES",
+    "active_g1_completion": "TERMINALLY_UNREACHABLE_UNCHANGED",
+    "adapter_or_replay_validity": "NOT_EVALUATED",
+    "real_dataset_validity": "NOT_EVALUATED",
+    "four_policy_market_validity": "NOT_EVALUATED",
+    "predictive_validity": "NOT_EVALUATED",
+    "probability_calibration": "NOT_AUTHORIZED",
+    "positive_expected_value": "NOT_EVALUATED",
+    "profitability": "NOT_EVALUATED",
+    "paper_readiness": "NOT_EVALUATED",
+    "live_readiness": "NOT_EVALUATED",
+    "maximum_positive_claim": "A feasible fail-closed successor route now exists: Terra high may build and locally test fourteen exact SD0 artifacts and may execute seven fixed, sequential, resource-metered official-source document/checksum/HEAD requests only after the configured proxy and all preflights pass. No market-row body, archive ZIP, active G1 data, raw admission, adapter, dataset, comparison, backtest, holdout, paper, deployment, order, credential, or fund permission is granted. Historical archives remain reconstructed engineering evidence only; true point-in-time progression requires a separately authorized actual-forward lane."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-research-system-pit-authority-replay-sd0-d0-phased-route/v1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "a777dc9411f638f1d3728f7f98f4ccbb64673f06b8f344dd3489efcdc5b79eeb"
+}

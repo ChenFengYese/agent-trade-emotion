@@ -1,0 +1,4 @@
+interface:
+  display_name: "Trade Execution Planning"
+  short_description: "Plan a cost-aware trade without placing any orders"
+  default_prompt: "Use $plan-trade-execution to turn this thesis into an executable, cost-aware plan without placing orders."

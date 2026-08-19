@@ -1,0 +1,257 @@
+{
+  "schema_version": "pitar1-source-discovery-record.v1",
+  "record_id": "pitar1.source-discovery-record.v1",
+  "namespace": "pitar1",
+  "artifact_role": "bounded_official_source_discovery_record",
+  "status": "WAIT_DATA",
+  "route_binding": {
+    "route_id": "RSR-PITAR1-POINT_IN_TIME-AUTHORITY-REPLAY-v1",
+    "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_ROUTE.v1",
+    "decision_physical_sha256": "a3dcb124477ac4f54189d659b7438431ea62ba6785f4c248fe2448e55f28035f",
+    "decision_canonical_sha256": "7e141bd47a728078c3a4dca02d231eae2bcbe6a3f12ff39c6e01c37e92556932"
+  },
+  "discovery_method": {
+    "fact_provider": "INDEPENDENT_TERRA_HIGH_SOURCE_AUDITOR_WITH_ROOT_WEB_REVIEW",
+    "builder_network_requests": 0,
+    "market_or_macro_rows_accessed": false,
+    "archive_or_bulk_objects_accessed": false,
+    "authenticated_or_paid_access_used": false,
+    "eligible_source_count": 9,
+    "source_records_completed": 9,
+    "exact_request_count": 34,
+    "exact_total_response_bytes": null,
+    "largest_response_bytes": null,
+    "redirect_hop_count": 1,
+    "resource_accounting_status": "PARTIAL_REQUEST_COUNT_AND_ONE_REDIRECT_ONLY_OTHER_CAPS_UNKNOWN_WAIT_DATA",
+    "tool_call_count": 4,
+    "aggregate_tool_call_wall_seconds": [
+      3.2,
+      5.0,
+      2.8,
+      2.8
+    ],
+    "http_status_accounting": "UNKNOWN_NOT_CAPTURED",
+    "content_type_accounting": "PARTIAL_NOT_COMPLETE",
+    "physical_document_digests": "UNKNOWN_NOT_CAPTURED",
+    "per_request_elapsed_and_internal_concurrency": "UNKNOWN_NOT_EXPOSED"
+  },
+  "resource_caps": {
+    "maximum_requests": 64,
+    "maximum_total_bytes": 33554432,
+    "maximum_single_response_bytes": 4194304,
+    "maximum_concurrency": 1,
+    "maximum_elapsed_seconds_per_request": 30,
+    "maximum_cost_usd": 0,
+    "redirect_policy": "NO_REDIRECT_UNLESS_EXACT_SAME_OWNER_HTTPS_AND_EVERY_HOP_RECORDED"
+  },
+  "sources": [
+    {
+      "source_id": "SRC-BINANCE-PUBLIC-DATA-README",
+      "authority_grade": "A",
+      "authority_owner": "Binance",
+      "canonical_document_url": "https://github.com/binance/binance-public-data/blob/master/README.md",
+      "official_evidence_urls": [
+        "https://github.com/binance/binance-public-data/blob/master/README.md"
+      ],
+      "documentation_facts": [
+        "Daily archives are documented as becoming available on the next day.",
+        "Monthly archives are documented as becoming available on the first Monday of the month.",
+        "Each ZIP is documented with a colocated SHA-256 CHECKSUM object.",
+        "The update log documents that archive objects may be replaced and records old and new checksums.",
+        "The repository declares an MIT license for repository code and documentation."
+      ],
+      "unresolved_facts": [
+        "Market-data reuse and jurisdiction terms are not closed by the repository license.",
+        "Exact historical available_at for each archive object is not established.",
+        "Exact pre-2025 instrument, window, object URLs, byte sizes and checksum expectations are not frozen.",
+        "Gap and replacement handling are not yet bound to an executable acquisition plan."
+      ],
+      "d0_disposition": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-BINANCE-USDM-MARKET-DOCS",
+      "authority_grade": "A",
+      "authority_owner": "Binance",
+      "canonical_document_url": "https://developers.binance.com/en/docs/catalog/core-trading-derivatives-trading-usd-s-m-futures/api/ws-api/market-data",
+      "official_evidence_urls": [
+        "https://developers.binance.com/en/docs/catalog/core-trading-derivatives-trading-usd-s-m-futures/api/ws-api/market-data"
+      ],
+      "documentation_facts": [
+        "Current documentation describes limited order-book output and excludes RPI orders.",
+        "Documented fields include lastUpdateId, E, T, bids and asks.",
+        "The registry URL redirected to the current catalog URL."
+      ],
+      "unresolved_facts": [
+        "Historical object identities and checksums are not supplied by the current WebSocket documentation.",
+        "The redirect chain and effective documentation version are not frozen.",
+        "Historical schema and point-in-time availability are not established."
+      ],
+      "d0_disposition": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-OKX-API-ORDERBOOK-DOCS",
+      "authority_grade": "A",
+      "authority_owner": "OKX",
+      "canonical_document_url": "https://www.okx.com/docs-v5/en/",
+      "official_evidence_urls": [
+        "https://www.okx.com/docs-v5/en/"
+      ],
+      "documentation_facts": [
+        "Official API documentation describes snapshot and incremental market-data semantics."
+      ],
+      "unresolved_facts": [
+        "Exact historical object, checksum, schema-version and point-in-time availability closure is absent.",
+        "Terms, cost and jurisdiction eligibility for an exact zero-cost plan are not closed."
+      ],
+      "d0_disposition": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-OKX-HISTORICAL-DATA-PAGE",
+      "authority_grade": "A",
+      "authority_owner": "OKX",
+      "canonical_document_url": "https://www.okx.com/en-gb/historical-data",
+      "official_evidence_urls": [
+        "https://www.okx.com/en-gb/historical-data"
+      ],
+      "documentation_facts": [
+        "The catalog states trade history from September 2021.",
+        "The catalog states candle history from July 2023.",
+        "The catalog states funding history from March 2022.",
+        "The catalog states level-two history from March 2023."
+      ],
+      "unresolved_facts": [
+        "Download entitlement, cost, exact schema, checksum, revision and historical point-in-time semantics are not closed.",
+        "Catalog coverage dates do not establish exact object available_at."
+      ],
+      "d0_disposition": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-BYBIT-V5-ORDERBOOK-DOCS",
+      "authority_grade": "A",
+      "authority_owner": "Bybit",
+      "canonical_document_url": "https://bybit-exchange.github.io/docs/v5/market/orderbook",
+      "official_evidence_urls": [
+        "https://bybit-exchange.github.io/docs/v5/market/orderbook"
+      ],
+      "documentation_facts": [
+        "The documentation describes snapshots and omits RPI orders.",
+        "Documented fields include b, a, ts, u, seq and cts."
+      ],
+      "unresolved_facts": [
+        "Historical object, checksum, replacement and point-in-time semantics are not provided.",
+        "Exact zero-cost historical acquisition eligibility is not closed."
+      ],
+      "d0_disposition": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-CFTC-COT-OFFICIAL",
+      "authority_grade": "A",
+      "authority_owner": "U.S. Commodity Futures Trading Commission",
+      "canonical_document_url": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm",
+      "official_evidence_urls": [
+        "https://www.cftc.gov/MarketReports/CommitmentsofTraders/ReleaseSchedule/index.htm",
+        "https://www.cftc.gov/MarketReports/CommitmentsofTraders/AbouttheCOTReports/index.htm"
+      ],
+      "documentation_facts": [
+        "Reports are usually released Friday at 3:30 p.m. Eastern Time using prior-Tuesday data.",
+        "Holiday schedules can delay release.",
+        "Historical coverage is described from 1986 for futures-only, 1995 for futures-and-options, and 2006 for supplementary reports.",
+        "The official FAQ states that historical reports are not backdated with later updates."
+      ],
+      "unresolved_facts": [
+        "An exact historical release-time list beyond thirteen months is not available from the reviewed schedule.",
+        "Exact object checksums, publication timestamps and revision evidence for a frozen window are not closed."
+      ],
+      "d0_disposition": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-FRED-ALFRED-API",
+      "authority_grade": "A",
+      "authority_owner": "Federal Reserve Bank of St. Louis",
+      "canonical_document_url": "https://fred.stlouisfed.org/docs/api/fred/series_observations.html",
+      "official_evidence_urls": [
+        "https://fred.stlouisfed.org/docs/api/fred/series_observations.html"
+      ],
+      "documentation_facts": [
+        "The API documentation requires a registered api_key."
+      ],
+      "unresolved_facts": [
+        "The no-authentication requirement is not met.",
+        "No exact zero-cost public object and checksum plan is established."
+      ],
+      "d0_disposition": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-BLS-OFFICIAL",
+      "authority_grade": "A",
+      "authority_owner": "U.S. Bureau of Labor Statistics",
+      "canonical_document_url": "https://www.bls.gov/developers/home.htm",
+      "official_evidence_urls": [
+        "https://www.bls.gov/developers/home.htm"
+      ],
+      "documentation_facts": [
+        "Version 1 is documented as open without registration.",
+        "Version 2 is documented as requiring registration."
+      ],
+      "unresolved_facts": [
+        "Exact terms, object hashes, revisions and point-in-time publication identity are not closed.",
+        "No exact instrument, series, window and checksum plan is frozen."
+      ],
+      "d0_disposition": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-BEA-OFFICIAL",
+      "authority_grade": "A",
+      "authority_owner": "U.S. Bureau of Economic Analysis",
+      "canonical_document_url": "https://apps.bea.gov/api/signup/",
+      "official_evidence_urls": [
+        "https://apps.bea.gov/api/signup/",
+        "https://www.bea.gov/data"
+      ],
+      "documentation_facts": [
+        "API signup requires a name, email address and terms agreement."
+      ],
+      "unresolved_facts": [
+        "The no-authentication and no-registration requirement is not met.",
+        "Exact terms, revision, checksum and point-in-time object semantics are not closed."
+      ],
+      "d0_disposition": "WAIT_DATA"
+    }
+  ],
+  "summary": {
+    "source_count": 9,
+    "ready_count": 0,
+    "wait_data_count": 9,
+    "rework_local_count": 0,
+    "lowest_cost_conditional_candidate": "SRC-BINANCE-PUBLIC-DATA-README",
+    "lowest_cost_candidate_status": "WAIT_DATA",
+    "market_or_point_in_time_validity": "NOT_EVALUATED",
+    "data_acquisition_permission": "DENIED",
+    "discovery_cap_compliance": "NOT_FULLY_PROVEN_BYTES_STATUS_TIMING_CONCURRENCY_AND_REDIRECT_CHAIN_UNKNOWN"
+  },
+  "claim_boundary": {
+    "maximum_positive_claim": "Official documentation facts were boundedly summarized for nine route-eligible sources; all nine remain WAIT_DATA and no market or macro rows, archive objects, authenticated data or paid data were accessed by the builder.",
+    "source_completeness": "NOT_ESTABLISHED",
+    "point_in_time_validity": "NOT_ESTABLISHED",
+    "d0_ready": false,
+    "candidate_may_accept_itself": false,
+    "trading": "DENIED"
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "encoding": "UTF-8",
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "domain_prefix_utf8": "pitar1/source-discovery-record/v1",
+    "domain_separator_hex": "00",
+    "digest_field": "record_sha256",
+    "excluded_fields": [
+      "record_sha256"
+    ]
+  },
+  "record_sha256": "7aecbf426befa8efae10e55e4998fb5431d172b7a7b4a27372971af2119f2d10"
+}

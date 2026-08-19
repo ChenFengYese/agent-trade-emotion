@@ -1,0 +1,190 @@
+{
+  "schema_version": "pitar1-pit-admission-contract.v1",
+  "contract_id": "pitar1.pit-admission-contract.v1",
+  "namespace": "pitar1",
+  "artifact_role": "point_in_time_admission_contract",
+  "stage": "E0_CONTRACT_ONLY_NOT_RUNTIME",
+  "route_binding": {
+    "route_id": "RSR-PITAR1-POINT_IN_TIME-AUTHORITY-REPLAY-v1",
+    "route_version": "1.0.0",
+    "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_ROUTE.v1",
+    "decision_physical_sha256": "a3dcb124477ac4f54189d659b7438431ea62ba6785f4c248fe2448e55f28035f",
+    "decision_canonical_sha256": "7e141bd47a728078c3a4dca02d231eae2bcbe6a3f12ff39c6e01c37e92556932",
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "admission_mode": "SYNTHETIC_E0_SEMANTICS_ONLY",
+  "row_identity_schema": {
+    "exact_fields": [
+      "source_id",
+      "authority_grade",
+      "instrument_id",
+      "source_event_id",
+      "event_id",
+      "logical_id",
+      "revision_id",
+      "supersedes_revision_id",
+      "operation",
+      "revision_ordinal",
+      "revision_fork_id",
+      "event_time",
+      "published_at",
+      "received_at",
+      "ingested_at",
+      "admission_validated_at",
+      "available_at",
+      "raw_artifact_sha256",
+      "raw_byte_offset_or_member_id",
+      "payload_sha256",
+      "parser_version",
+      "source_sequence",
+      "source_sequence_kind",
+      "coverage_state"
+    ],
+    "authority_grade_values": [
+      "A",
+      "B"
+    ],
+    "operation_values": [
+      "INITIAL",
+      "CORRECT",
+      "RETRACT",
+      "TOMBSTONE",
+      "REINSTATE"
+    ],
+    "source_sequence_kind_values": [
+      "NATIVE",
+      "LOCAL_RECEIPT_ORDINAL"
+    ]
+  },
+  "clock_schema": {
+    "required_clocks": [
+      "event_time",
+      "published_at",
+      "received_at",
+      "ingested_at",
+      "admission_validated_at",
+      "available_at"
+    ],
+    "clock_classes": [
+      "REALTIME_PUSH",
+      "SCHEDULED_PUBLICATION",
+      "BATCH_ARCHIVE",
+      "RETROSPECTIVE_SNAPSHOT",
+      "UNKNOWN"
+    ],
+    "latency_evidence_classes": [
+      "ACTUAL_MEASURED",
+      "AUTHORITATIVE_SCHEDULED",
+      "BATCH_RECEIPT_BOUND",
+      "UNKNOWN"
+    ],
+    "unknown_publication_representation": null,
+    "received_lte_ingested": true,
+    "ingested_lte_admission_validated": true
+  },
+  "available_at_contract": {
+    "formula": "MAX_OF_VERIFIED_PUBLISHED_RECEIVED_INGESTED_ADMISSION_VALIDATED",
+    "event_time_is_availability": false,
+    "archive_date_is_availability": false,
+    "bar_open_is_availability": false,
+    "bar_close_alone_is_availability": false,
+    "latest_revision_timestamp_is_availability": false,
+    "unknown_clock_disposition": "DELAY_CENSOR_OR_SUSPEND_NEVER_EARLIER",
+    "batch_archive_disposition": "BATCH_ARCHIVE_RECEIPT_ONLY_NOT_DECISION_TIME_EVIDENCE"
+  },
+  "revision_contract": {
+    "append_only": true,
+    "acyclic": true,
+    "initial_ordinal": 0,
+    "successor_ordinal_increment": 1,
+    "same_logical_id_required": true,
+    "supersedes_required_after_initial": true,
+    "initial_supersedes_revision_id": null,
+    "revision_visible_only_at_own_available_at": true,
+    "latest_revision_backfill": "FORBIDDEN",
+    "fork_conflict_disposition": "QUARANTINE_AND_SUSPEND"
+  },
+  "as_of_selection_contract": {
+    "selection_key": [
+      "logical_id",
+      "available_at",
+      "revision_ordinal",
+      "revision_id"
+    ],
+    "decision_filter": "available_at_lte_decision_at",
+    "terminal_operations": [
+      "RETRACT",
+      "TOMBSTONE"
+    ],
+    "prior_receipt_rewrite": "FORBIDDEN"
+  },
+  "duplicate_conflict_contract": {
+    "exact_identity_and_payload": "IDEMPOTENT_NO_SECOND_EFFECT",
+    "same_identity_different_payload": "QUARANTINE_AND_SUSPEND",
+    "out_of_order_arrival": "RETAIN_REAL_CLOCKS_REPLAY_BY_AVAILABLE_AT",
+    "event_time_reordering_for_visibility": "FORBIDDEN"
+  },
+  "coverage_contract": {
+    "typed_states": [
+      "CONTINUOUS_OBSERVED",
+      "MARKET_INACTIVE_PROVEN",
+      "SEQUENCE_GAP",
+      "SOURCE_OUTAGE",
+      "ACQUISITION_FAILURE",
+      "SCHEDULED_NON_PUBLICATION",
+      "CENSORED_OBSERVATION",
+      "UNKNOWN_COVERAGE",
+      "QUARANTINED"
+    ],
+    "states_are_semantically_distinct": true,
+    "silence_means_zero": false,
+    "silence_means_no_activity": false,
+    "forward_fill": "FORBIDDEN",
+    "zero_fill": "FORBIDDEN",
+    "interpolation": "FORBIDDEN",
+    "unknown_abstain_quarantine_censor_retained_in_denominator": true
+  },
+  "quarantine_contract": {
+    "required_reasons": [
+      "RAW_HASH_MISMATCH",
+      "IDENTITY_PAYLOAD_CONFLICT",
+      "REVISION_FORK_CONFLICT",
+      "SCHEMA_REJECT",
+      "CLOCK_INVALID",
+      "AUTHORITY_MISMATCH",
+      "GAP_UNRESOLVED"
+    ],
+    "quarantined_row_is_decision_visible": false,
+    "quarantine_may_be_silently_dropped": false,
+    "affected_lane_action": "SUSPEND"
+  },
+  "permission_ceiling": {
+    "runtime_admission": "DENIED",
+    "adapter_or_replay": "DENIED",
+    "dataset": "DENIED",
+    "evaluation": "DENIED",
+    "paper": "DENIED",
+    "trading": "DENIED",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "encoding": "UTF-8",
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "domain_prefix_utf8": "pitar1/pit-admission-contract/v1",
+    "domain_separator_hex": "00",
+    "digest_field": "contract_sha256",
+    "excluded_fields": [
+      "contract_sha256"
+    ]
+  },
+  "contract_sha256": "4a0e5715b0fcb97917149a0fabfd489318f31c0580e5896ee90e71d51cbaa3e5"
+}

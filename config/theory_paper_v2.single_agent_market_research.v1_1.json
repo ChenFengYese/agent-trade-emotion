@@ -1,0 +1,105 @@
+{
+  "schema_id": "theory_paper_v2_single_agent_market_research_successor",
+  "schema_version": "1.1.0",
+  "contract_id": "SINGLE_AGENT_SEEN_V1_DIAGNOSTIC_HOLD_SUCCESSOR_20260802",
+  "evidence_class": "SEEN_V1_DIAGNOSTIC_REPLAY",
+  "source_run_id": "msta-paper-20260729T212716Z-87cc29bb",
+  "source_tree_digest": "aba02e17eca90ab4b4ae652c485940523e6c0f0ae2f78eae485c8a5019264085",
+  "predecessor_contract": {
+    "path": "config/theory_paper_v2.single_agent_market_research.v1.json",
+    "canonical_digest": "027ba9cdce927a44b857f0883d9ae521a27a78e808da04c6ce298806adffde09",
+    "status": "SUPERSEDED_ONLY_FOR_HOLD_SEMANTICS_VALIDATION"
+  },
+  "failed_predecessor_run": {
+    "run_id": "single-agent-seen-v1-20260802-v1",
+    "last_completed_cycle": 20,
+    "failed_cycle": 21,
+    "failure_receipt_digest": "6ea18a54f40c85555630c6f20fcbaf69f210f79a2ac9fabc41323136182f3491",
+    "failure_phase": "PURE_STRUCTURE_VALIDATION_BEFORE_ACCEPT",
+    "recorded_v1_decisions_opened": false,
+    "recorded_v1_outcomes_opened": false,
+    "status": "FAILED_CLOSED_IMMUTABLE_NOT_RESUMABLE"
+  },
+  "root_cause": {
+    "error_code": "INACTIVITY_REQUIRES_WAIT_OBLIGATION",
+    "incorrect_semantics": "An exposed HOLD was classified as WAIT-like inactivity even though the episode already carried review_by and pending_observations.",
+    "market_effect": "Forced redundant HOLD plus WAIT actions and blocked a semantically valid protected hold at cycle 21.",
+    "scope": "VALIDATOR_ONLY"
+  },
+  "only_change": {
+    "before": "When every selected action was HOLD or WAIT, at least one WAIT action with a second review obligation was mandatory.",
+    "after": "Every actual WAIT action still requires wait_basis, required_observations, and review_by; HOLD relies on the mandatory episode review obligation and needs no fake WAIT.",
+    "new_market_rule": false,
+    "new_indicator": false,
+    "risk_or_cost_change": false,
+    "evaluation_change": false,
+    "matching_change": false
+  },
+  "unchanged_from_predecessor": [
+    "ONE_STRATEGY_AGENT_NO_CRITIC_NO_CLUSTER",
+    "OPEN_AGENT_MARKET_ANALYSIS_AND_SENTIMENT_SPACE",
+    "FOUR_COMPETING_PATH_CLASSES",
+    "SIX_ACTION_COMPARISON_CLASSES",
+    "PIT_CONTEXTS_AND_SOURCE_TREE",
+    "CORE_AND_TACTICAL_SEMANTICS",
+    "CORE_CHECKPOINT_NOT_AUTOMATIC_EXIT",
+    "REENTRY_OBLIGATION",
+    "RISK_LIMITS",
+    "COST_AND_SLIPPAGE",
+    "ALL_NEW_15M_BAR_MATCHING",
+    "EVALUATION_AND_SENSITIVITY",
+    "NO_EXTERNAL_EXECUTION_AUTHORITY"
+  ],
+  "accepted_prefix_replay": {
+    "source_candidate_run": "single-agent-seen-v1-20260802-v1",
+    "cycles": "1_THROUGH_20",
+    "source_decisions_created_before_v1_outcome_access": true,
+    "source_decisions_were_accepted_under_PREDECESSOR": true,
+    "transformation": "REPLACE_ONLY_SOURCE_RUN_ID_LINEAGE_STRINGS_AND_BIND_NEW_AGENT_CONTEXT_AND_PRE_DECISION_STATE_DIGESTS",
+    "market_analysis_or_action_change": false,
+    "revalidation": "OPEN_AND_ACCEPT_EACH_CYCLE_FROM_NEW_GENESIS_IN_ORDER",
+    "checkpoint_reuse": false,
+    "failed_cycle_21_draft_reuse": false
+  },
+  "remaining_strategy_agent_run": {
+    "agent_identity": "SAME_SINGLE_STRATEGY_AGENT",
+    "cycles": "21_THROUGH_24",
+    "terminal_observation_cycle": 25,
+    "future_context_access": false,
+    "recorded_v1_outcome_access_before_terminal": false,
+    "critic_enabled": false,
+    "cluster_enabled": false
+  },
+  "claims_boundary": {
+    "evidence": "SEEN_V1_DIAGNOSTIC_ONLY",
+    "predictive_validity": "NOT_ESTABLISHED",
+    "profitability": "NOT_ESTABLISHED",
+    "system_mode": "LOCAL_PAPER_RESEARCH_NON_EXECUTABLE",
+    "external_execution_authority": "NONE_LOCAL_SIMULATION",
+    "automation_authority": false,
+    "account_or_credential_authority": false,
+    "paper_or_live_order_authority": false,
+    "executable": false
+  },
+  "implementation_bindings": [
+    {
+      "path": "trade_system/theory_paper_v2/application/single_agent_research.py",
+      "physical_sha256": "310ebac2ab5c91bd0e7c727613ebc457ab3f683fd1bc0c7099160b4fe13af3c8"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/presentation/single_agent_research_cli.py",
+      "physical_sha256": "afe00e5426623ba938aa2646640d8f9aaa2a8b3195ffd97152a3a5222dc6a74e"
+    },
+    {
+      "path": "tests/test_theory_paper_v2_single_agent_research.py",
+      "physical_sha256": "acbd1c7883395b50baf8a76db365e61d1b07b0a0a506b95886b9b6370d74f0e9"
+    }
+  ],
+  "pre_freeze_attestation": {
+    "successor_candidate_cycles_before_freeze": 0,
+    "recorded_v1_decisions_opened": false,
+    "recorded_v1_outcomes_opened": false,
+    "theory_or_evaluation_changed_to_fit_results": false,
+    "active_main_task": "COMPLETE_SINGLE_AGENT_SEEN_V1_RAW_RESULT"
+  }
+}

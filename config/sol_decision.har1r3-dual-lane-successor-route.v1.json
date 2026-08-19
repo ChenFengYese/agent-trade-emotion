@@ -1,0 +1,246 @@
+{
+  "schema_version": "sol-har1r3-dual-lane-successor-route.v1",
+  "decision_id": "SOL_HAR1R3_DUAL_LANE_SUCCESSOR_ROUTE.v1",
+  "decision_state": "CLOSE_HAR1R2_AS_SEALED_PROTOCOL_FAILURE_NO_RETRY_AUTHORIZE_HAR1R3_DUAL_LANE_STATIC_NO_NETWORK",
+  "issued_by": "GPT-5.6-SOL_ULTRA_BLOCKER_ROUTE_PLANNER",
+  "issued_at": "2026-07-29T10:35:00Z",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "closed_r2_binding": {
+    "namespace": "har1r2",
+    "run_id": "har1r2-source-preflight-20260729-v1",
+    "activation_path": "config/sol_activation.har1-btcusdt-source-preflight-r2f.v1.json",
+    "activation_raw_physical_sha256": "c1b4b3b68fe8787d36a7b08fe2b76cf679fca9e3785678e8bf751b41e7fbae18",
+    "activation_canonical_sha256": "784c864f23d604ed890d218229e5346d964fa8eda3d5b1e3ea8e61f48b35a897",
+    "evidence_path": "har1r2/evidence.jsonl",
+    "evidence_physical_sha256": "01a3705f0e4baf45082d01d5447b727638a5259ede63792eef4cd75033fbafbe",
+    "evidence_bytes": 4304,
+    "record_count": 2,
+    "terminal_fact": {
+      "sequence": 1,
+      "method": "GET",
+      "url": "https://www.binance.com/ja",
+      "status_code": 202,
+      "response_bytes": 0,
+      "request_elapsed_ms": 1262,
+      "outcome": "FAILURE",
+      "error": "ContractError"
+    },
+    "later_requests": 0,
+    "zip_body_bytes": 0,
+    "market_rows": 0,
+    "state": "SEALED_PROTOCOL_FAILURE",
+    "overwrite_delete_append_retry_or_success_reinterpretation": "DENIED",
+    "causal_or_legal_inference": "NOT_ESTABLISHED"
+  },
+  "r3_identity": {
+    "namespace": "har1r3",
+    "technical_run_id": "har1r3-tech-reachability-20260729-v1",
+    "terms_run_id": "har1r3-terms-evidence-20260729-v1",
+    "automatic_promotion": false
+  },
+  "static_creation_allowlist": [
+    "har1r3/technical_plan.json",
+    "har1r3/terms_evidence_contract.json",
+    "har1r3/technical_client.py",
+    "har1r3/test_technical_client.py"
+  ],
+  "future_network_output_allowlist": [
+    "config/sol_activation.har1r3-tech-reachability.v1.json",
+    "har1r3/technical_evidence.jsonl",
+    "config/sol_activation.har1r3-terms-evidence.v1.json",
+    "har1r3/terms_evidence/manifest.json",
+    "har1r3/terms_evidence/binance-terms.png",
+    "har1r3/terms_evidence/github-public-data.png"
+  ],
+  "technical_lane": {
+    "run_id": "har1r3-tech-reachability-20260729-v1",
+    "proxy": "http://127.0.0.1:7897",
+    "concurrency": 1,
+    "redirects": 0,
+    "retries": 0,
+    "cookies": false,
+    "authentication": false,
+    "per_probe_network_read_timeout_seconds": 20,
+    "total_network_read_budget_seconds": 60,
+    "probes": [
+      {
+        "sequence": 1,
+        "method": "GET",
+        "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/README.md",
+        "body_cap_bytes": 1048576
+      },
+      {
+        "sequence": 2,
+        "method": "HEAD",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-07.zip",
+        "body_cap_bytes": 0
+      },
+      {
+        "sequence": 3,
+        "method": "GET",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-07.zip.CHECKSUM",
+        "body_cap_bytes": 512
+      }
+    ],
+    "independent_probe_rule": "A_DURABLY_RECORDED_HTTP_PROTOCOL_OR_TIMEOUT_FAILURE_MAY_CONTINUE_TO_THE_NEXT_DISTINCT_PROBE_AND_IS_NOT_A_RETRY",
+    "evidence_durability_failure_rule": "STOP_ALL_REMAINING_NETWORK_IMMEDIATELY_NO_AGGREGATE_UPGRADE_NO_RETRY",
+    "record_sequence": [
+      "ACTIVATION",
+      "PROBE_1",
+      "PROBE_2",
+      "PROBE_3",
+      "AGGREGATE_TERMINAL"
+    ],
+    "aggregate_success_condition": "ALL_THREE_PROBES_PASS_THEIR_FROZEN_STATUS_BODY_AND_CHECKSUM_CONTRACTS",
+    "aggregate_failure_condition": "ONE_OR_MORE_PROBES_FAIL_OR_A_PROBE_IS_NOT_ATTEMPTED_BECAUSE_THE_TOTAL_BUDGET_IS_EXHAUSTED",
+    "zip_get": false,
+    "zip_body": false,
+    "market_row_read_or_parse": false,
+    "maximum_claim": "SAMPLE_README_ZIP_METADATA_AND_CHECKSUM_ENDPOINT_TECHNICAL_REACHABILITY_ONLY"
+  },
+  "technical_client_requirements": {
+    "activation": {
+      "raw_bytes_only": true,
+      "strict_utf8_no_bom": true,
+      "duplicate_and_nonfinite": "DENIED",
+      "exact_json_scalar_types": true,
+      "maximum_ttl_seconds": 900,
+      "opaque_single_process_single_use": true,
+      "must_bind_final_route_plan_contract_client_and_test_hashes": true
+    },
+    "pre_tcp": [
+      "ROUTE_PHYSICAL_AND_CANONICAL_RECHECK",
+      "R2_ACTIVATION_AND_EVIDENCE_PHYSICAL_RECHECK",
+      "TECHNICAL_PLAN_PHYSICAL_AND_CANONICAL_RECHECK",
+      "TERMS_CONTRACT_PHYSICAL_AND_CANONICAL_RECHECK",
+      "CLIENT_AND_TEST_PHYSICAL_RECHECK",
+      "EXACT_PROBE_PLAN_RECHECK",
+      "EVIDENCE_TARGET_ABSENT_NON_SYMLINK_REGULAR_CREATION_PATH"
+    ],
+    "transport": [
+      "FORCED_HTTPS_PROXY_WITHOUT_PROXY_BYPASS",
+      "NO_REDIRECT_RETRY_COOKIE_OR_AUTH",
+      "ABSOLUTE_PER_PROBE_AND_TOTAL_NETWORK_READ_DEADLINES",
+      "RESPONSE_CLOSE_BEFORE_EVIDENCE_WRITE",
+      "NO_NETWORK_DURING_EVIDENCE_WRITE_FSYNC_OR_READBACK"
+    ],
+    "evidence": {
+      "path": "har1r3/technical_evidence.jsonl",
+      "create": "O_EXCL_NOFOLLOW_MODE_0600",
+      "hash_chain": "SHA256_OVER_EXACT_PREVIOUS_RAW_LINE_WITH_LF",
+      "fsync": "AFTER_EACH_RECORD",
+      "terminal_definition": "AGGREGATE_PROTOCOL_TERMINAL_NOT_WHOLE_FILE_SEAL",
+      "close_failure_state": "REVIEW_REQUIRED_CLOSE_ERROR",
+      "sealed_state": "ONLY_AFTER_CLOSE_SUCCESS_AND_STRICT_READ_ONLY_REOPEN",
+      "readback": [
+        "REGULAR_NOFOLLOW",
+        "STRICT_UTF8_JSONL",
+        "ACTIVATION_FIRST_AND_UNIQUE",
+        "EXACT_RAW_LINE_HASH_CHAIN",
+        "EXACT_THREE_PROBES_IN_ORDER",
+        "EXACT_ONE_AGGREGATE_TERMINAL_LAST",
+        "ACTIVATION_AND_PLAN_BINDINGS_EXACT"
+      ]
+    },
+    "reuse_rule": "READ_ONLY_REUSE_OF_R2_CLIENT_SAFETY_UTILITIES_IS_ALLOWED_ONLY_WHILE_BOUND_TO_ITS_FINAL_PHYSICAL_HASH; R2_CAPABILITY_RUN_OR_EVIDENCE_REUSE_IS_DENIED"
+  },
+  "terms_lane": {
+    "run_id": "har1r3-terms-evidence-20260729-v1",
+    "session": "NEW_ISOLATED_UNAUTHENTICATED_NO_EXISTING_COOKIE",
+    "top_level_navigation_limit": 2,
+    "session_budget_seconds": 240,
+    "navigations": [
+      "https://www.binance.com/ja/terms",
+      "https://github.com/binance/binance-public-data"
+    ],
+    "same_origin_redirect": "RECORD_AND_ALLOW",
+    "cross_origin_redirect_login_wall_or_empty_page": "RECORD_UNRESOLVED_AND_STOP_THAT_NAVIGATION",
+    "login_form_submit_accept_button_account_access_or_download": false,
+    "subresource_requests": "NOT_ACCEPTED_AS_BOUNDED_REQUEST_COUNT_OR_AUTHORITY_EVIDENCE",
+    "required_manifest_fields": [
+      "requested_url",
+      "final_url",
+      "captured_at_utc",
+      "page_title",
+      "visible_version_or_effective_date",
+      "bounded_visible_excerpt",
+      "visible_license_or_terms_links_not_opened",
+      "screenshot_path",
+      "screenshot_sha256",
+      "status",
+      "limitations"
+    ],
+    "legal_conclusion": false,
+    "maximum_claim": "VISIBLE_PAGE_AND_PROVENANCE_EVIDENCE_PENDING_HUMAN_AND_SOL_REVIEW"
+  },
+  "offline_acceptance": [
+    "R2_CLOSED_ARTIFACTS_HASH_MATCH_AND_ARE_NEVER_WRITTEN",
+    "EXACT_THREE_PROBE_ORDER_METHOD_URL_CAP",
+    "PROBE_FAILURE_DURABLY_RECORDED_THEN_NEXT_DISTINCT_PROBE_CONTINUES",
+    "DURABILITY_FAILURE_CAUSES_ZERO_FURTHER_NETWORK",
+    "EXACT_ONE_AGGREGATE_TERMINAL_LAST",
+    "AGGREGATE_SUCCESS_REQUIRES_ALL_THREE_PROBES",
+    "HEAD_NONZERO_BODY_AND_BAD_CHECKSUM_FAIL_ONLY_THEIR_PROBE",
+    "PER_PROBE_20_AND_TOTAL_60_NETWORK_READ_BUDGET",
+    "FORCED_PROXY_NO_BYPASS_REDIRECT_RETRY_COOKIE_AUTH",
+    "WRITE_FSYNC_CLOSE_READBACK_STATES_REMAIN_DISTINCT",
+    "RAW_ACTIVATION_EXACT_TYPES_TTL_SINGLE_USE_AND_FINAL_HASH_BINDING",
+    "IMPORT_TIME_SOCKET_TRIPWIRE_AND_ZERO_REAL_NETWORK_DURING_TESTS",
+    "TERMS_CONTRACT_HAS_TWO_NAVIGATION_AND_NO_INTERACTION_BOUNDARY"
+  ],
+  "permission_matrix": {
+    "create_static_allowlist": true,
+    "offline_tests": true,
+    "technical_network_now": false,
+    "terms_browser_now": false,
+    "create_future_evidence_now": false,
+    "zip_get_or_body": false,
+    "market_rows": false,
+    "backtest_training_score_or_holdout": false,
+    "paper_order_account_or_live": false,
+    "active_g1_access": false
+  },
+  "next_gate": {
+    "required_reviewer": "GPT-5.6-SOL_ULTRA",
+    "required_state": "HAR1R3_STATIC_CLIENT_PLAN_CONTRACT_AND_OFFLINE_TESTS_COMPLETE",
+    "must_bind_full_final_hashes": true,
+    "maximum_technical_permission": "ONE_THREE_PROBE_DIAGNOSTIC_BATCH_NO_ZIP_BODY",
+    "maximum_terms_permission": "ONE_TWO_NAVIGATION_ISOLATED_BROWSER_SESSION_NO_INTERACTION",
+    "automatic_permission": "NONE"
+  },
+  "wait_data_rule": {
+    "state": "WAIT_DATA",
+    "remains_until_all": [
+      "ALL_CORE_TECHNICAL_PROBES_SEALED_AND_SUCCESSFUL",
+      "TERMS_AND_SOURCE_IDENTITY_VISIBLE_OR_EXPLICITLY_RESOLVED",
+      "TERMS_EVIDENCE_REVIEWED_BY_USER_AND_SOL",
+      "EXACT_ZIP_ACQUISITION_LIST_QUOTA_CHECKSUM_DESTINATION_AND_PURGE_RULE_APPROVED",
+      "SEPARATE_ZIP_ACQUISITION_ACTIVATION_ISSUED"
+    ],
+    "highest_successor_state": "READY_FOR_BOUNDED_DATA_ACQUISITION_REVIEW"
+  },
+  "maximum_claim": "This decision closes R2 as a sealed protocol failure and authorizes only R3 static artifacts and offline tests. It authorizes no new network, download, market row, backtest, training or trading action.",
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-har1r3-dual-lane-successor-route/v1",
+    "domain_separator_hex": "00",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "excluded_fields": [
+      "/decision_sha256"
+    ]
+  },
+  "decision_sha256": "a21411873c7a793dc9d51983c4717ac3afad422bfe0d4f744679e9a51673b604"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Financial Trading Router"
+  short_description: "Route trading tasks to the safest focused workflow"
+  default_prompt: "Use $route-financial-trading to select the smallest safe workflow for this financial trading task."

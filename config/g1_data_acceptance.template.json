@@ -1,0 +1,44 @@
+{
+  "policy_id": "REPLACE_WITH_VERSIONED_G1_POLICY_ID",
+  "status": "DRAFT_TEMPLATE",
+  "instrument": "BTCUSDT",
+  "required_streams": [
+    "btcusdt@depth@100ms",
+    "snapshot",
+    "btcusdt@aggTrade",
+    "btcusdt@markPrice@1s",
+    "openInterest",
+    "exchangeInfo"
+  ],
+  "required_configured_streams": [
+    "btcusdt@forceOrder"
+  ],
+  "required_source_registry_id": "REPLACE_WITH_FROZEN_SOURCE_REGISTRY_ID",
+  "required_source_registry_sha256": "REPLACE_WITH_FROZEN_SOURCE_REGISTRY_SHA256",
+  "min_total_observed_seconds": 0,
+  "min_qualified_collections": 0,
+  "min_distinct_utc_days": 0,
+  "min_distinct_utc_hour_buckets": 0,
+  "min_exchange_info_observations": 0,
+  "max_exchange_info_gap_seconds": 0,
+  "min_stream_observations": {
+    "btcusdt@depth@100ms": 0,
+    "snapshot": 0,
+    "btcusdt@aggTrade": 0,
+    "btcusdt@markPrice@1s": 0,
+    "openInterest": 0
+  },
+  "max_stream_gap_seconds": {
+    "btcusdt@depth@100ms": 0,
+    "btcusdt@aggTrade": 0,
+    "btcusdt@markPrice@1s": 0,
+    "openInterest": 0
+  },
+  "require_exchange_info_trading": true,
+  "max_parse_errors": 0,
+  "max_book_gaps": 0,
+  "require_actual_only": true,
+  "require_sealed_raw_segments": true,
+  "allow_reconnects": false,
+  "notice": "Template only. Set observed-duration, collection-count, distinct UTC date/hour-bucket coverage, each required stream observation/gap threshold, exchangeInfo cadence, reconnect and error thresholds before changing status to FROZEN_G1_DATA_ACCEPTANCE. Calendar coverage is not a substitute for predeclared market-state coverage. forceOrder is configuration-only because no event is not evidence of zero liquidation."
+}

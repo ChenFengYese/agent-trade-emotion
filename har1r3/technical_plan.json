@@ -1,0 +1,82 @@
+{
+  "schema_version": "har1r3-technical-plan.v1",
+  "route_id": "SOL_HAR1R3_DUAL_LANE_SUCCESSOR_ROUTE.v1",
+  "route_physical_sha256": "6b23ca9248233929023b29c606466af7063929e23fe70e89d01e0f1b2fca8c8d",
+  "route_canonical_sha256": "a21411873c7a793dc9d51983c4717ac3afad422bfe0d4f744679e9a51673b604",
+  "closed_r2": {
+    "run_id": "har1r2-source-preflight-20260729-v1",
+    "activation_path": "config/sol_activation.har1-btcusdt-source-preflight-r2f.v1.json",
+    "activation_raw_physical_sha256": "c1b4b3b68fe8787d36a7b08fe2b76cf679fca9e3785678e8bf751b41e7fbae18",
+    "activation_canonical_sha256": "784c864f23d604ed890d218229e5346d964fa8eda3d5b1e3ea8e61f48b35a897",
+    "evidence_path": "har1r2/evidence.jsonl",
+    "evidence_physical_sha256": "01a3705f0e4baf45082d01d5447b727638a5259ede63792eef4cd75033fbafbe",
+    "evidence_bytes": 4304,
+    "record_count": 2,
+    "state": "SEALED_PROTOCOL_FAILURE",
+    "terminal_sequence": 1,
+    "terminal_method": "GET",
+    "terminal_url": "https://www.binance.com/ja",
+    "terminal_status_code": 202,
+    "terminal_response_bytes": 0,
+    "terminal_request_elapsed_ms": 1262,
+    "terminal_outcome": "FAILURE",
+    "terminal_error": "ContractError",
+    "later_requests": 0,
+    "zip_body_bytes": 0,
+    "market_rows": 0
+  },
+  "run_id": "har1r3-tech-reachability-20260729-v1",
+  "evidence_path": "har1r3/technical_evidence.jsonl",
+  "proxy": "http://127.0.0.1:7897",
+  "concurrency": 1,
+  "redirects": 0,
+  "retries": 0,
+  "cookies": false,
+  "authentication": false,
+  "per_probe_network_read_timeout_seconds": 20,
+  "total_network_read_budget_seconds": 60,
+  "probes": [
+    {
+      "sequence": 1,
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/README.md",
+      "body_cap_bytes": 1048576,
+      "success_contract": "HTTP_200_AND_NONEMPTY_BODY"
+    },
+    {
+      "sequence": 2,
+      "method": "HEAD",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-07.zip",
+      "body_cap_bytes": 0,
+      "success_contract": "HTTP_200_AND_ZERO_BODY"
+    },
+    {
+      "sequence": 3,
+      "method": "GET",
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-07.zip.CHECKSUM",
+      "body_cap_bytes": 512,
+      "success_contract": "HTTP_200_AND_EXACT_SHA256_BASENAME_PAIR"
+    }
+  ],
+  "execution_semantics": {
+    "independent_probe_failure": "DURABLY_RECORD_THEN_CONTINUE_NEXT_DISTINCT_PROBE_NOT_A_RETRY",
+    "evidence_durability_failure": "STOP_ALL_REMAINING_NETWORK_NO_AGGREGATE_UPGRADE",
+    "budget_exhausted": "WRITE_ATTEMPTED_FALSE_FAILURE_FOR_EACH_REMAINING_PROBE",
+    "aggregate_success": "ALL_THREE_PROBES_SUCCESS",
+    "response_close": "BEFORE_PROBE_RECORD_WRITE",
+    "terminal": "AGGREGATE_PROTOCOL_TERMINAL_NOT_WHOLE_FILE_SEAL",
+    "seal": "ONLY_AFTER_CLOSE_SUCCESS_AND_STRICT_READ_ONLY_READBACK"
+  },
+  "prohibitions": {
+    "zip_get": false,
+    "zip_body": false,
+    "market_row_read_or_parse": false,
+    "network_without_future_activation": false
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256_CANONICAL_JSON",
+    "digest_field": "technical_plan_sha256",
+    "domain_prefix_utf8": "msta-hed/har1r3-technical-plan/v1"
+  },
+  "technical_plan_sha256": "19c161282927712248cd0682b307dcb5bebcd5b8084d871ce3c173f86e52d7bc"
+}

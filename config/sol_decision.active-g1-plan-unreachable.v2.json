@@ -1,0 +1,219 @@
+{
+  "schema_version": "sol-decision.active-g1-plan-unreachable.v2",
+  "decision_id": "SOL_ACTIVE_G1_PLAN_UNREACHABLE.v2",
+  "issued_at": "2026-07-26T14:40:19Z",
+  "issued_by": "GPT-5.6-SOL-ULTRA_STAGE_GATE",
+  "decision_state": "TERMINAL_WAIT_DATA_PLAN_UNREACHABLE",
+  "decision_class": "PLAN_MATHEMATICAL_UNREACHABILITY",
+  "evidence_level": "E0_OPERATIONAL_FACT_SERIALIZATION",
+  "decision_scope": {
+    "scope_id": "ACTIVE_G1_FROZEN_PLAN_MATHEMATICAL_REACHABILITY_ONLY",
+    "included": [
+      "Bind the already-recorded frozen G1 plan baseline to immutable digests and timestamps.",
+      "Determine whether the frozen plan can still satisfy its declared slot-count, duration, and distinct-day gates without backfill or plan mutation.",
+      "Serialize the Sol stage-gate disposition and its authority boundary."
+    ],
+    "excluded": [
+      "Reading or re-verifying the active G1 root.",
+      "Changing the active package, plan, registry, evidence, schedule, or old decision record.",
+      "Downloading data, adapting data, backtesting, paper trading, or live trading.",
+      "Evaluating market validity, theory validity, strategy profitability, or execution readiness.",
+      "Authorizing a replacement lane, recovery lane, deployment, paper execution, or live execution."
+    ],
+    "workspace_context": {
+      "cwd": "/Users/wt/Documents/agent-trade-emotion",
+      "branch": "codex/s0-research-foundation",
+      "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+    }
+  },
+  "authority_binding": {
+    "authority_type": "SOL_STAGE_GATE",
+    "governance_artifact": {
+      "path": "PROGRAM_GOVERNANCE.md",
+      "physical_sha256": "69125790fa36c0c4f72ebdecea4f5415be73a9e4fba78c6c1aa53b9639ef6f09"
+    },
+    "issuer_assertion": "This record is issued by GPT-5.6-SOL-ULTRA_STAGE_GATE and is authoritative only for the decision_scope stated above.",
+    "delegation_boundary": "No field in this record delegates Sol authority to another model, process, artifact, or future lane."
+  },
+  "supersession": {
+    "superseded_artifact": {
+      "path": "config/sol_decision.active-g1-plan-unreachable.v1.json",
+      "schema_version": "sol-decision.active-g1-plan-unreachable.v1",
+      "decision_id": "SOL_ACTIVE_G1_PLAN_UNREACHABLE.v1",
+      "physical_sha256": "ebc737a83dd86e7a6d7ff767a5f352c91f947cc7c31af036759aeab17a77ed77"
+    },
+    "status": "SUPERSEDED_AND_QUARANTINED_FOR_AUTHORITY",
+    "reasons": [
+      "The producer was reported as GPT-5.6-TERRA-HIGH despite the Sol-labelled filename and decision_id.",
+      "The record does not contain an issued_by field.",
+      "The record does not bind a Sol stage-gate authority.",
+      "The record does not contain a canonical self digest."
+    ],
+    "preservation": "The v1 bytes remain unchanged and are retained only as hash-bound historical baseline input.",
+    "authority_effect": "v1 is not a Sol authorization, stage-gate decision, or future permission. This v2 record supersedes v1 only within the stated decision_scope."
+  },
+  "baseline_fact_source": {
+    "source_artifact": "config/sol_decision.active-g1-plan-unreachable.v1.json",
+    "source_physical_sha256": "ebc737a83dd86e7a6d7ff767a5f352c91f947cc7c31af036759aeab17a77ed77",
+    "baseline_as_of": "2026-07-26T13:55:00Z",
+    "recorded_at": "2026-07-26T14:23:53Z",
+    "verification_mode": "HASH_BOUND_BASELINE_SERIALIZATION_NO_LIVE_ACTIVE_ROOT_READ",
+    "active_g1_root_read_for_v2": false,
+    "live_source_reobservation_for_v2": false,
+    "use_boundary": "Only exact baseline facts required by the mathematical reachability proof are admitted; v1 conclusions and volatile observations are not inherited as authority."
+  },
+  "immutable_artifact_bindings_as_recorded": {
+    "binding_recorded_at": "2026-07-26T14:23:53Z",
+    "active_plan": {
+      "plan_id": "btc-usdt-g1-forward-20260723-v1",
+      "physical_sha256": "189317fdff53d9f0ca64747d48690a283a3328b04df539f53307eb1370c3cb6d",
+      "canonical_sha256": "bfc2f96d8432135c81e04b8c50227dce81280cb5cc941fbdd052b979c7ba973d"
+    },
+    "active_registry": {
+      "physical_sha256": "b3848092824dc65e9fea6ac524811453b8abf4783b865d8c057089cb5603453f",
+      "canonical_sha256": "3aa28782ff3c0af5be5ad0bc98e690af87dbe2c57687d6ab61b1549bae74ec4b"
+    },
+    "active_collector_package": {
+      "source_sha256": "c9b3d829e2fc62fb978cfdfc0af0c92e877d33f8bc0d94af1be02fcc05454240",
+      "source_file_count": 56,
+      "active_use": "BOUND_AS_RECORDED"
+    },
+    "workspace_collector_package": {
+      "source_sha256": "88190a534f7c04d031e53ee3b581920c0654034c579653bcdb6b5fce3a406122",
+      "source_file_count": 78,
+      "active_use": "FORBIDDEN"
+    },
+    "binding_limit": "These digests are bound exactly as recorded in the hash-bound v1 baseline; v2 does not assert a live reread of their source paths."
+  },
+  "frozen_plan_inputs": {
+    "instrument": "BTCUSDT",
+    "total_slots": 28,
+    "qualified_slots_recorded": 1,
+    "unqualified_slots_recorded": 1,
+    "missed_slots_recorded": 13,
+    "future_slots_recorded": 13,
+    "active_slots_recorded": 0,
+    "slot_accounting_check": "1 + 1 + 13 + 13 + 0 = 28",
+    "qualified_slot_duration_minutes": 61,
+    "qualified_slot_duration_seconds": 3660,
+    "required_qualified_slots": 24,
+    "required_qualified_duration_seconds": 86400,
+    "required_distinct_utc_days": 7,
+    "maximum_distinct_utc_days_recorded": 4,
+    "frozen_constraints": [
+      "Missed and unqualified slots cannot be converted into qualified slots by backfill or rerun.",
+      "The active plan, registry, evidence, schedule, and qualification gates cannot be mutated to recover reachability.",
+      "Only already-qualified, active, or future slots may contribute to the mathematical upper bound."
+    ]
+  },
+  "unreachability_proof": {
+    "proof_type": "FINITE_UPPER_BOUND",
+    "primary_sufficient_condition": {
+      "formula": "Q_max = Q_qualified_recorded + Q_active_recorded + Q_future_recorded",
+      "substitution": "Q_max = 1 + 0 + 13 = 14",
+      "required": "Q_required = 24",
+      "comparison": "14 < 24",
+      "result": "UNREACHABLE"
+    },
+    "duration_upper_bound": {
+      "formula": "T_max_seconds = Q_max * qualified_slot_duration_seconds",
+      "substitution": "T_max_seconds = 14 * 3660 = 51240",
+      "required": "T_required_seconds = 86400",
+      "comparison": "51240 < 86400",
+      "result": "UNREACHABLE"
+    },
+    "distinct_day_upper_bound": {
+      "maximum_distinct_utc_days_recorded": 4,
+      "required_distinct_utc_days": 7,
+      "comparison": "4 < 7",
+      "result": "UNREACHABLE",
+      "role": "AUXILIARY_RECORDED_BOUND_NOT_NEEDED_FOR_PRIMARY_PROOF"
+    },
+    "logic": "Because at least one mandatory gate has a finite maximum below its required threshold, the frozen plan cannot pass. Here both the slot-count gate and duration gate independently fail their upper bounds.",
+    "depends_on_volatile_launch_or_disk_observations": false,
+    "result": "ACTIVE_G1_FROZEN_PLAN_MATHEMATICALLY_UNREACHABLE"
+  },
+  "volatile_observations": {
+    "authority": "NON_AUTHORITATIVE",
+    "excluded_from_proof": true,
+    "excluded_from_future_permission": true,
+    "v1_snapshot": {
+      "recorded_at": "2026-07-26T14:23:53Z",
+      "launchd_loaded": true,
+      "launchd_running": false,
+      "launchd_runs": 3,
+      "launchd_last_exit_code": 0,
+      "disk_free_gib": "15.228"
+    },
+    "later_unverified_report": {
+      "recorded_at": null,
+      "launchd_runs": 1,
+      "disk_free_gib_approx": "82",
+      "source": "ORCHESTRATOR_HANDOFF",
+      "verified_for_v2": false
+    },
+    "interpretation": "The differing observations demonstrate that launch state and free disk are volatile snapshots. Neither snapshot changes the frozen slot upper bound, repairs the plan, authorizes work, or grants permission to a future lane.",
+    "future_rule": "Any separately authorized future lane must obtain fresh operational observations under its own plan and authority; this record supplies none."
+  },
+  "stage_gate_disposition": {
+    "state": "TERMINAL_WAIT_DATA_PLAN_UNREACHABLE",
+    "active_g1_recovery_authorized": false,
+    "new_lane_authorized": false,
+    "deployment_authorized": false,
+    "paper_trading_authorized": false,
+    "live_trading_authorized": false,
+    "next_action": "WAIT_DATA",
+    "permitted_action": "Preserve the frozen active G1 package, plan, registry, and evidence unchanged.",
+    "prohibited_actions": [
+      "Backfill, rerun, or relabel missed or unqualified slots.",
+      "Lower, reinterpret, or bypass any G1 qualification gate.",
+      "Overwrite the active G1 package with the workspace package.",
+      "Modify the active plan, registry, evidence, schedule, or seal.",
+      "Treat volatile launch or disk observations as proof, recovery, or authorization.",
+      "Treat this v2 record as authorization for a new or replacement lane."
+    ]
+  },
+  "future_lane_boundary": {
+    "authorized": false,
+    "relationship_to_active_g1": "A future lane, if separately authorized, must be a new evidence program and cannot be represented as recovery or completion of the frozen active G1 plan.",
+    "minimum_separate_authority_requirements": [
+      "A new explicit GPT-5.6-SOL-ULTRA_STAGE_GATE decision.",
+      "A new plan identity and schedule.",
+      "A new registry and evidence root.",
+      "A separately sealed collector bundle and storage boundary.",
+      "Fresh operational and resource observations.",
+      "No mutation or overwrite of the frozen active G1 artifacts."
+    ],
+    "permission_effect_of_this_record": "NONE"
+  },
+  "claim_boundary": {
+    "market_validity": "NOT_EVALUATED",
+    "theory_validity": "NOT_EVALUATED",
+    "strategy_profitability": "NOT_EVALUATED",
+    "paper_result": "NOT_EVALUATED",
+    "live_result": "NOT_EVALUATED",
+    "data_adapter_readiness": "NOT_EVALUATED",
+    "trading_authorization": "DENIED",
+    "maximum_positive_claim": "The hash-bound frozen-plan baseline admits at most 14 qualified slots and 51240 qualified seconds, both below mandatory G1 thresholds; therefore that exact frozen plan is mathematically unreachable without prohibited mutation or backfill."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "digest_field": "decision_sha256",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "canonical_json": {
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ],
+      "encoding": "UTF-8"
+    },
+    "domain_prefix_utf8": "msta-hed/sol-active-g1-plan-unreachable-decision/v2",
+    "domain_separator_hex": "00",
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "e143fae7d8c8094298f65bc6724de35f368f25e739e6fe2a35cfdf69fd1d6272"
+}

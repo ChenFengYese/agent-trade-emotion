@@ -1,0 +1,159 @@
+{
+  "schema_version": "sol-har1-btcusdt-source-preflight-r2c-route.v1",
+  "decision_id": "SOL_HAR1_BTCUSDT_SOURCE_PREFLIGHT_R2C_ROUTE.v1",
+  "decision_state": "ACCEPT_R2B_STATIC_STAGE_COMPLETE_KEEP_PRODUCTION_SUSPENDED_AUTHORIZE_R2C_TWO_FILE_PATCH_ONLY",
+  "issued_by": "GPT-5.6-SOL_ULTRA_STAGE_GATE",
+  "issued_at": "2026-07-29T09:04:17Z",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "r2_route_binding": {
+    "path": "config/sol_decision.har1-btcusdt-source-preflight-r2-route.v1.json",
+    "physical_sha256": "1512149ca8f2f9df3fa66490636db9f0f3e340873087a8c989c5093eea1f2057",
+    "canonical_sha256": "6979a3ec4b2df46d81d48533ed3ed2147d78f68ec9595fe7bbb7a9a1d3beafa0"
+  },
+  "accepted_r2b_artifacts": [
+    {
+      "path": "har1r2/baseline.json",
+      "physical_sha256": "8e4c9c7ad50eaa9061bbca6cd2c4e691628974da322faac3803222184df340d6",
+      "canonical_sha256": "5873a0d363c2746799fbc8019cddd0af020e998013cea48e608838e4a05bbf2b",
+      "raw_status_bytes": 12279,
+      "raw_records": 201,
+      "projected_paths": 199
+    },
+    {
+      "path": "har1r2/source_contract.json",
+      "physical_sha256": "87f23ab76b243341f26844f17ae582c502a3322943a241f2c94b3c110179df4b",
+      "canonical_sha256": "42cd256a574f7ddeb1c8930c9ba4d43c4e177dadb1470eada832801cfb7dfafe"
+    },
+    {
+      "path": "har1r2/purge_plan.json",
+      "physical_sha256": "caeb09d8b756980fdcc9fca5998da978d26cbbafaa100ae186178962b6b09031",
+      "canonical_sha256": "a9d4d3ed55a1354613a3c641be6478372a692ddcb87077187e5e5f56e0e74c3f"
+    },
+    {
+      "path": "har1r2/preflight_client.py",
+      "physical_sha256": "01b738acf8fc22d83978464fc8e0be8e996a7a08e8f185009eb7e9e66ae4701e"
+    },
+    {
+      "path": "har1r2/test_preflight_client.py",
+      "physical_sha256": "283ead8de19787e8182bae5b790c0c4e0f1a305d7c69f9bbab388de69d374e9f"
+    }
+  ],
+  "r2b_verification": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest har1r2.test_preflight_client -v",
+    "result": "12_OF_12_PASS",
+    "evidence_jsonl_absent": true,
+    "network_requests": 0,
+    "limitation": "Tests were executed by Terra and independently rerun by the main agent, not by the Sol reviewer. They establish static local behavior only."
+  },
+  "r2c_patch_scope": {
+    "required_implementer": "GPT-5.6-TERRA_HIGH",
+    "only_modifiable_paths": [
+      "har1r2/preflight_client.py",
+      "har1r2/test_preflight_client.py"
+    ],
+    "all_other_existing_paths_immutable": true,
+    "har1r2_evidence_jsonl_must_remain_absent": true,
+    "network": false,
+    "runtime_execution": false
+  },
+  "required_client_behavior": {
+    "default_state": "WAIT_SOL_R2_ACTIVATION",
+    "activation": {
+      "future_decision_id": "SOL_HAR1R2_SOURCE_PREFLIGHT_ACTIVATION.v1",
+      "strict_self_hashed_document": true,
+      "capability": "OPAQUE_SINGLE_PROCESS_SINGLE_USE_CONCURRENCY_ATOMIC",
+      "missing_wrong_copied_or_reused_action": "FAIL_BEFORE_TCP_CALLBACK_OR_WRITE",
+      "environment_cli_boolean_or_marker": "DENIED"
+    },
+    "transport": {
+      "library": "PYTHON_STDLIB_URLLIB",
+      "proxy": "http://127.0.0.1:7897",
+      "request_count": 5,
+      "redirects": 0,
+      "retries": 0,
+      "concurrency": 1,
+      "cookies": false,
+      "authentication": false,
+      "request_timeout_seconds": 20,
+      "total_elapsed_cap_seconds": 90,
+      "production_injected_opener": "DENIED",
+      "fake_transport": "TEST_ONLY_EXPLICITLY_SEPARATED"
+    },
+    "pre_tcp_identity_recheck": [
+      "R2_ROUTE_PHYSICAL_AND_CANONICAL",
+      "BASELINE_PHYSICAL_AND_CANONICAL",
+      "SOURCE_CONTRACT_PHYSICAL_AND_CANONICAL",
+      "PURGE_PLAN_PHYSICAL_AND_CANONICAL",
+      "CLIENT_PHYSICAL",
+      "TEST_PHYSICAL"
+    ],
+    "evidence_writer": {
+      "path": "har1r2/evidence.jsonl",
+      "creation": "FUTURE_ACTIVATION_ONLY_O_EXCL",
+      "mode": "SINGLE_FD_APPEND_ONLY_CANONICAL_JSONL_HASH_CHAIN",
+      "fsync": "AFTER_EACH_RECORD",
+      "failure": "WRITE_ONE_TERMINAL_RECORD_THEN_STOP_NO_RETRY",
+      "existing_symlink_or_nonregular": "FAIL_CLOSED"
+    },
+    "protocol": {
+      "five_requests": "EXACT_SOURCE_CONTRACT_ORDER_URL_METHOD_AND_CAPS",
+      "zip": "HEAD_ONLY_ZERO_BODY",
+      "checksum": "LOWERCASE_OR_UPPERCASE_64_HEX_PLUS_EXACT_FROZEN_ZIP_BASENAME",
+      "body_cap_excess": "FAIL_CLOSED",
+      "redirect_cookie_auth_or_retry": "FAIL_CLOSED"
+    }
+  },
+  "offline_acceptance": [
+    "EXACT_FIVE_REQUEST_ORDER_URL_METHOD_AND_CAPS",
+    "IDENTITY_HASH_DRIFT_BEFORE_TCP",
+    "ACTIVATION_SELF_HASH_PERMISSION_ESCALATION_AND_WRONG_BINDING",
+    "CAPABILITY_COPY_CONCURRENT_USE_AND_REUSE",
+    "EXISTING_SYMLINK_OR_NONREGULAR_EVIDENCE",
+    "REDIRECT_COOKIE_AUTH_PRODUCTION_OPENER_INJECTION",
+    "PER_REQUEST_TOTAL_TIMEOUT_AND_BODY_CAP",
+    "HEAD_NONZERO_BODY_AND_BAD_CHECKSUM",
+    "PARTIAL_WRITE_FSYNC_FAILURE_AND_HASH_CHAIN",
+    "ZERO_REAL_SOCKET_AND_ZERO_WORKSPACE_EVIDENCE_DURING_TESTS"
+  ],
+  "permission_matrix": {
+    "modify_two_r2c_files": true,
+    "offline_tests": true,
+    "network": false,
+    "create_evidence_jsonl": false,
+    "zip_body_or_market_row": false,
+    "backtest_training_score_or_holdout": false,
+    "paper_order_account_or_live": false,
+    "active_g1_access": false
+  },
+  "next_gate": {
+    "required_reviewer": "GPT-5.6-SOL_ULTRA",
+    "required_state": "R2C_IMPLEMENTATION_AND_OFFLINE_TESTS_COMPLETE",
+    "must_bind_full_final_hashes": true,
+    "maximum_permission": "ONE_BOUNDED_FIVE_REQUEST_PREFLIGHT_EXECUTION_NO_ZIP_BODY",
+    "automatic_permission": "NONE"
+  },
+  "maximum_claim": "R2B static contracts and validators are complete for the tested cases. R2C may implement a dormant bounded executor, but no network, source permission, market data, backtest or trading claim is authorized by this decision.",
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-har1-btcusdt-source-preflight-r2c-route/v1",
+    "domain_separator_hex": "00",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "excluded_fields": [
+      "/decision_sha256"
+    ]
+  },
+  "decision_sha256": "8029157f453ba8f6bf91b980f066f02723ff14e25f2b5c19f5f9a8d85b3002df"
+}

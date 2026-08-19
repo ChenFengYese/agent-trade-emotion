@@ -1,0 +1,464 @@
+{
+  "schema_id": "hype-opportunity-trader.resume-state",
+  "schema_version": "1.1.0",
+  "updated_at": "2026-08-16T19:45:02.130961Z",
+  "status": "RUN_CLOSED_AT_USER_CUTOFF_COHORT_STOPPED_3_OF_12_CASH_FLAT_ZERO_ACTIVE_OR_HELD_ORDERS_NO_LIVE_INTENT_BJ_CENSORED_BEFORE_OUTCOME_DUE_E026_CLOSED_E025_MEASUREMENT_INSUFFICIENT",
+  "logical_agent_id": "HYPE_OPPORTUNITY_TRADER",
+  "physical_goal_id": "codex-thread:01a00141-c70b-7350-8a3a-f380a0ce766b",
+  "symbol": "HYPE-USDT-SWAP",
+  "authority": {
+    "experiment_active": false,
+    "user_stop_at": "2026-08-16T19:30:00Z",
+    "heartbeat_status": "PAUSED",
+    "public_pit_market_data": true,
+    "isolated_local_paper": true,
+    "private_account": false,
+    "testnet": false,
+    "live": false,
+    "external_orders": false,
+    "funds": false
+  },
+  "run": {
+    "run_id": "hype-trader-20260815T175058Z-01a00141-r3",
+    "runtime_root": "/Users/wt/.local/state/agent-trade-emotion/market-cycle/hype-trader-20260815T175058Z-01a00141-r3",
+    "status": "CLOSED",
+    "phase": "CAPABILITY_PILOT",
+    "starts_at": "2026-08-15T17:50:58Z",
+    "authorization_ends_at": "2026-08-17T17:50:58Z",
+    "closed_at": "2026-08-16T19:30:56.262320Z",
+    "closure_reason": "USER_MANDATED_BEIJING_2026_08_17_03_30_STOP",
+    "closure_marker_sha256": "d56d602eca5ce7b6eb4c59d93e1512569c0db5195c935a8cc8cd5ced153819c3",
+    "decision_horizon_seconds": 3600,
+    "outcome_tolerance_seconds": 300,
+    "run_manifest_identity_sha256": "c52298a3fa36975d981d9a740de30d7bfcc495afaef1385a48e5df6b9955d56b",
+    "experiment_policy_sha256": "b380204dff3eafcc9e252421483f928cecb54aa7ad0a5098726c72b190a69cff",
+    "implementation_sha256": "87e82fc632ba0689eebe02596000ba47ae94422aaa89937dbbd2fdc86d30f568",
+    "theory_manifest_sha256": "a6487a1bcad4a06c9d0c26d82f925da1754f36c435bcc2c504907967e0efdd24",
+    "source_change_rule": "STOP_THIS_RUN_AND_START_A_NEW_IDENTITY_BEFORE_MORE_SAMPLE_DECISIONS"
+  },
+  "operating_revision": {
+    "revision_id": "L2_MULTI_TIMEFRAME_LOWER_TURNOVER_WITH_HYSTERESIS",
+    "cohort_id": "HYPE_L2_20260815_R1",
+    "status": "FROZEN_COHORT_STOPPED_AT_3_OF_12_NOT_ENOUGH_FOR_E025_DECISION",
+    "strategic_timeframe": "4H",
+    "hypothesis_timeframe": "1H",
+    "activation_and_management_timeframe": "15m",
+    "micro_role": "EXECUTION_OR_EMERGENCY_RISK_ONLY",
+    "episode_requirements": [
+      "DYNAMIC_ACTIVATION_ZONE",
+      "SOFT_WARNING",
+      "HARD_INVALIDATION",
+      "INDEPENDENT_REARM",
+      "COST_SUFFICIENCY",
+      "INVERSE_SIZING_TO_COMPLETE_PRESSURE_LOSS"
+    ],
+    "reversal_rule": "FLATTEN_PRIOR_EXPOSURE_CANCEL_OR_TERMINALIZE_ORDERS_THEN_REQUIRE_INDEPENDENT_REARM"
+  },
+  "paper_state": {
+    "account_id": "hype-trader-paper-01a00141-r3",
+    "account_version": 162,
+    "initial_cash_balance": "10000",
+    "cash_balance": "9995.38696216415",
+    "available_balance": "9995.38696216415",
+    "signed_quantity_contracts": "0",
+    "positions": [],
+    "open_orders": [],
+    "held_exit_orders": [],
+    "terminal_order_count": 28,
+    "paper_fill_count": 11,
+    "fees_paid": "1.23377379585",
+    "realized_pnl": "-3.37926404",
+    "known_realized_pnl_after_cash_costs": "-4.61303783585",
+    "ledger_head_sha256": "ca0bd4d343279db812a2da4d7afed41add1a86742cc780819c90ca2c9ef6035c",
+    "cost_model_id": "hype-trader-conservative-public-proxy-v1",
+    "funding_status": "COMPLETE_THROUGH_2026-08-16T15:59:59.999999Z;POST_WINDOW_FUNDING_UNKNOWN",
+    "active_episode_id": null,
+    "pending_review_episode_id": null
+  },
+  "market_state": {
+    "as_of": "2026-08-16T18:45:38.162981Z",
+    "mark": "57.7",
+    "strategic_4h": "R2_STRATEGIC_CONTROL_PERSISTS;LATEST_CONTIGUOUS_4H_OPEN_57.263_HIGH_58.025_LOW_57.149_CLOSE_57.668_ABOVE_57.52;IMMEDIATE_C2_REMAINS_RETIRED",
+    "hypothesis_1h": "R2_FRAGILE_1H_LEAD;LATEST_1H_OPEN_57.784_HIGH_57.813_LOW_57.39_CLOSE_57.668_ABOVE_57.36_BUT_FAILED_R2_SUPPORT_TEST;E3_CLOSE_RUNNER_UP_NOT_CONTROL",
+    "activation_15m": "COMPLETED_PATH_57.725_TO_57.552_TO_57.634_TO_57.668;NO_COMPLETED_15M_CLOSE_BELOW_57.52;NO_LIVE_ENTRY_ZONE;WAIT_NEXT_1H_REARM_OR_CONTROL_GATE",
+    "micro_execution_only": {
+      "status": "POINT_MARK_57.7_TOP_57.697_57.698_RECENT_BUY_TAKER_1242_VS_SELL_392_DEPTH20_BID18761_ASK11323_POINT_OI_12452345_EXECUTION_ONLY_ZERO_ACTIVE_ORDERS",
+      "active_orders": 0,
+      "held_exit_orders": 0,
+      "position_contracts": "0"
+    },
+    "lead": "R2_BREAKDOWN_EXHAUSTION_RECOVERY_RETAINS_4H_CONTROL_AND_FRAGILE_1H_LEAD_WITHOUT_ENTRY_AUTHORITY",
+    "runner_up": "E3_BREAKOUT_EXHAUSTION_FAILED_ACCEPTANCE_CLOSE_RUNNER_UP_REQUIRES_COMPLETED_1H_AT_OR_BELOW_57.36_FOR_CONTROL_AND_INDEPENDENT_REARM_FOR_SHORT",
+    "other": "UNOBSERVED_CATALYST_OR_POSITIONING_SQUEEZE_AFFECTS_SIZE_NOT_DIRECTIONAL_FACT",
+    "current_action": "EXPERIMENT_CLOSED_CASH_FLAT_ZERO_ACTIVE_ORDERS_NO_FURTHER_MARKET_COLLECTION_ANALYSIS_OR_TRADE;LAST_SEALED_STATE_ONLY"
+  },
+  "latest_decision": {
+    "cycle_id": "hype-trader-bj-20260816T184521Z",
+    "stage": "PLAN_SEALED",
+    "input_snapshot_sha256": "c467c7d8566e15959d4a75a3aeb28779061d351f1f9468afc6c864cc96ea3a2f",
+    "agent_decision_sha256": "55ff324dd1806838fe7ae6724c9c69216eeac304e8883d22014589f873074420",
+    "hypothesis_record_sha256": "ed77e5a1e91666ab2b1a8a92129b0353fb9e83d9972b88b028ec94c252d0a3f6",
+    "behavior_plan_sha256": "f93822b0330774db249d38446efda91ddb93738c96c6ed9172c074de95701904",
+    "outcome_sha256": null,
+    "review_sha256": null,
+    "projection_status": "UNKNOWN_NON_BLOCKING_AGENT_VERBATIM_IS_AUTHORITATIVE",
+    "reference_action": "CASH_FLAT_WAIT_NO_COMMAND_R2_4H_CONTROL_FRAGILE_1H_LEAD_E3_CLOSE_RUNNER_UP_NO_THRESHOLD_SWITCH_NO_LIVE_ENTRY_ZONE_RELEASE_TO_NEXT_COMPLETED_1H"
+  },
+  "formal_cycle_obligations": {
+    "authority": "NON_AUTHORITATIVE_RECOVERY_INDEX_CYCLE_REPOSITORY_IS_SOLE_FORMAL_OWNER",
+    "reconcile_before_market_analysis": false,
+    "items": [
+      {
+        "cycle_id": "hype-trader-bj-20260816T184521Z",
+        "stage": "PLAN_SEALED",
+        "next_action": "NONE_RUN_CLOSED_AT_USER_CUTOFF_BEFORE_DUE_NO_POST_CUTOFF_COLLECTION_OR_BACKFILL",
+        "decision_at": "2026-08-16T18:45:38.162981Z",
+        "outcome_due_at": "2026-08-16T19:45:38.162981Z",
+        "outcome_latest_at": "2026-08-16T19:50:38.162981Z",
+        "outcome_tolerance_seconds": 300
+      }
+    ],
+    "earliest_due_at": null,
+    "last_reconciled_at": "2026-08-16T19:30:56.262320Z",
+    "terminal_summary": {
+      "complete_cycle_count": 59,
+      "failed_cycle_count": 1,
+      "input_sealed_cycle_count": 2,
+      "user_censored_plan_sealed_cycle_count": 1,
+      "last_complete_cycle_id": "hype-trader-bi-20260816T174934Z",
+      "failed_cycles": [
+        {
+          "cycle_id": "hype-trader-h-20260815T203010Z",
+          "stage": "ANALYSIS_FAILED",
+          "reason": "MARKET_CYCLE_AGENT_REQUEST_CONFLICT_AFTER_REQUEST_WAS_MATERIALIZED_BEFORE_SAME_CYCLE_PAPER_PROCESSING"
+        }
+      ],
+      "preserved_nonterminal_cycles": [
+        {
+          "cycle_id": "hype-trader-setup-20260815T175058Z",
+          "stage": "INPUT_SEALED",
+          "reason": "INTENTIONAL_SETUP_SNAPSHOT_NOT_A_DECISION_SAMPLE"
+        },
+        {
+          "cycle_id": "hype-trader-bc-20260816T142125Z",
+          "stage": "INPUT_SEALED",
+          "reason": "FOLLOW_THROUGH_GAP_NO_AGENT_REQUEST_OR_DELIVERY_NO_TRADE_OR_PNL_EFFECT"
+        },
+        {
+          "cycle_id": "hype-trader-bj-20260816T184521Z",
+          "stage": "PLAN_SEALED",
+          "reason": "USER_CUTOFF_PRECEDED_OUTCOME_DUE_NO_POST_CUTOFF_COLLECTION"
+        }
+      ]
+    }
+  },
+  "continuity_evidence": {
+    "issue_id": "E-026",
+    "status": "CLOSED",
+    "cycle_a": "hype-trader-a-20260815T175210Z",
+    "cycle_a_stage": "COMPLETE",
+    "cycle_a_outcome_sha256": "84699dedf043c2a7202c2376742c40442f58682ed55d5d3b7b4dd30ea77f26eb",
+    "cycle_a_review_sha256": "a2c8a8de0e4196c9f7a6d21166eac06cd15142424ac441b6c163a1bd98a445d4",
+    "cycle_b": "hype-trader-b-20260815T185600Z",
+    "cycle_b_agent_request_transport_sha256": "8dd22be270b51d0be9e83d807a9ed50c4f44576023aee8f8141430de9c1ab825",
+    "paper_context_sha256": "6d35afa42de268dc92c18da8436dbdcd46f697a0ffcb4309573c6032923614e2",
+    "decision_verbatim_sha256": "9e17f15d9337bec753d8fb3a094a2af87e5b52c9ddce063c8f27675eb584e2ae",
+    "decision_verbatim_size_bytes": 4150,
+    "review_verbatim_sha256": "a2c8a8de0e4196c9f7a6d21166eac06cd15142424ac441b6c163a1bd98a445d4",
+    "review_verbatim_size_bytes": 4015,
+    "checks": "EXACT_TEXT_SIZE_SHA_ARTIFACT_REFS_PIT_SINGLE_LATEST_BOUNDARY_ALL_PASS",
+    "verified_at": "2026-08-15T18:57:18Z"
+  },
+  "prior_sample": {
+    "baseline_run_id": "hype-trader-20260814T172000Z-01a00141",
+    "baseline_status": "CLOSED_IMMUTABLE_NO_BACKFILL",
+    "closure_marker_sha256_identity": "de88f70610e66687c9af68b05fca472b05cffdda9872e26822c6c67dafc0df99",
+    "cycles_tree_sha256_at_close": "a2a2c2c4ebde79e1d7981c69d695cdb24b914f81b6321337cdbc9f47ac960186",
+    "paper_tree_sha256_at_close": "9d963ca8209ad2b25bcdc7f8dcd2d08189c71cf302eafebe8b73efe9439c1025",
+    "filled_episode_count": 12,
+    "win_count": 2,
+    "loss_count": 10,
+    "entry_episode_count": 39,
+    "entry_intent_count": 42,
+    "operational_lead_switch_count": 41,
+    "paper_fill_count": 38,
+    "known_net_cash_pnl_before_unknown_costs": "-15.65894110667",
+    "modeled_fees": "7.17571342667",
+    "formal_outcome_review_count": 0,
+    "correction": "DETERMINISTIC_CALCULATIONS_CONTAINED_1D_4H_1H_15M_DESPITE_INPUT_TYPED_UNKNOWN_MULTI_TIMEFRAME_NOT_REQUESTED",
+    "excluded_runs": [
+      {
+        "run_id": "hype-trader-20260815T173942Z-01a00141-r2",
+        "status": "CLOSED_IMMUTABLE_EXCLUDED_CONFIGURATION_MISMATCH",
+        "reason": "FIRST_DECISION_USED_60_SECOND_TOLERANCE_INSTEAD_OF_APPROVED_300",
+        "position_count": 0,
+        "open_order_count": 0,
+        "filled_episode_count": 0
+      }
+    ]
+  },
+  "sample_evaluation": {
+    "cohort_id": "HYPE_L2_20260815_R1",
+    "strategy_revision": "L2_MULTI_TIMEFRAME_LOWER_TURNOVER_WITH_HYSTERESIS",
+    "implementation_sha256": "87e82fc632ba0689eebe02596000ba47ae94422aaa89937dbbd2fdc86d30f568",
+    "cost_model_id": "hype-trader-conservative-public-proxy-v1",
+    "target_natural_filled_complete_reviewed_episodes": 12,
+    "qualifying_episode_count": 3,
+    "win_count": 0,
+    "loss_count": 3,
+    "gross_profit_known": "0",
+    "gross_loss_known": "4.613037835850",
+    "profit_factor_known": "0",
+    "known_net_pnl": "-4.613037835850",
+    "modeled_fee_total": "1.233773795850",
+    "embedded_impact_total": "0.74026404",
+    "embedded_spread_total": "0.02160",
+    "modeled_friction_total": "1.995637835850",
+    "modeled_friction_share_of_known_loss": "0.4326081655652154561766274484",
+    "reversal_count": 0,
+    "episodes": [
+      {
+        "episode_id": "hype-l2-episode-001-f",
+        "root_cycle_id": "hype-trader-f-20260815T201601Z",
+        "root_review_sha256": "aff25c1e7ab36bafc55758122d643908e024490e225d19f240907eda7ac83312",
+        "result": "LOSS",
+        "planned_entry_contracts": "690",
+        "filled_entry_contracts": "100",
+        "filled_exit_contracts": "100",
+        "weighted_entry_price": "57.194673256",
+        "weighted_exit_price": "57.05707774",
+        "first_fill_at": "2026-08-15T20:19:12.054000Z",
+        "flat_at": "2026-08-15T21:00:18.819025Z",
+        "holding_duration_seconds": "2466.765025",
+        "main_hypothesis_switch_count": 2,
+        "all_orders_terminal": true,
+        "formal_review_complete": true,
+        "funding_and_carry_status": "UNKNOWN"
+      },
+      {
+        "episode_id": "hype-l2-episode-002-r",
+        "root_cycle_id": "hype-trader-r-20260816T010044Z",
+        "root_review_sha256": "7e0e1a724ff0ad8df90a751e076f081e96e4f7e0e92192d7af5dc8c15cc3b754",
+        "result": "LOSS",
+        "planned_entry_contracts": "250",
+        "filled_entry_contracts": "73",
+        "filled_exit_contracts": "73",
+        "weighted_entry_price": "56.9149204",
+        "weighted_exit_price": "57.0651144",
+        "first_fill_at": "2026-08-16T01:15:19.862095Z",
+        "flat_at": "2026-08-16T01:30:40.931192Z",
+        "holding_duration_seconds": "921.069097",
+        "known_net_pnl": "-1.51244332702",
+        "modeled_friction_total": "0.67294332702",
+        "modeled_friction_share_of_known_loss": "0.4449378796532593927778523712",
+        "main_hypothesis_switch_count": 1,
+        "all_orders_terminal": true,
+        "formal_review_complete": true,
+        "funding_and_carry_status": "UNKNOWN_AFTER_2026-08-15T23:59:59.999999Z"
+      },
+      {
+        "episode_id": "hype-l2-episode-005-af",
+        "root_cycle_id": "hype-trader-af-20260816T091700Z",
+        "root_review_sha256": "b5371489b308ba3e1a1578223b5bd59d18daf9642eae7d7f2b38452f30c80aa4",
+        "formal_review_cycle_id": "hype-trader-aq-20260816T120436Z",
+        "formal_review_artifact_sha256": "8c4312adc7d522d0e2c7e0f9717021e0eaded419156e4c7592596396b25e29a4",
+        "result": "LOSS",
+        "planned_entry_contracts": "100",
+        "filled_entry_contracts": "43",
+        "filled_exit_contracts": "43",
+        "weighted_entry_price": "57.4282233",
+        "weighted_exit_price": "57.21731802558139534883720930",
+        "first_fill_at": "2026-08-16T09:30:47.004060Z",
+        "flat_at": "2026-08-16T12:54:17.746752Z",
+        "holding_duration_seconds": "12210.742692",
+        "gross_realized_pnl": "-0.90689268",
+        "known_net_pnl": "-1.153380593850",
+        "modeled_fee_total": "0.246487913850",
+        "embedded_impact_total": "0.14789268",
+        "embedded_spread_total": "0.00430",
+        "modeled_friction_total": "0.398680593850",
+        "modeled_friction_share_of_known_loss": "0.3456626511455327968452275863",
+        "stop_distance_from_actual_entry": "0.3082233",
+        "entry_signal_15m_range": "0.154",
+        "stop_to_entry_signal_15m_range_ratio": "2.00145",
+        "main_hypothesis_switch_count": 1,
+        "reversal_count": 0,
+        "all_orders_terminal": true,
+        "formal_review_complete": true,
+        "funding_and_carry_status": "UNKNOWN_AFTER_2026-08-16T07:59:59.999999Z",
+        "execution_semantics": "FIRST_57.24_GTC_EXPIRED_ZERO_FILL_WITHOUT_LIMIT_CROSS;INDEPENDENT_57.20_GTC_FILLED_TWO_STRICTLY_FORWARD_SLICES_ABOVE_LIMIT"
+      }
+    ],
+    "forced_trade_allowed": false,
+    "cross_run_allowed_only_if_revision_unchanged": true,
+    "sample_collection_status": "STOPPED_BY_USER_BEFORE_TARGET_NO_ACTIVE_RUN",
+    "status": "MEASUREMENT_INSUFFICIENT",
+    "required_comparison_metrics": [
+      "EPISODE_DENSITY",
+      "MAIN_HYPOTHESIS_SWITCH_RATE",
+      "REVERSAL_COUNT",
+      "HOLDING_DURATION",
+      "STOP_TO_15M_VOLATILITY_RELATION",
+      "WIN_LOSS_COUNTS",
+      "PROFIT_FACTOR",
+      "NET_PNL",
+      "FEE_SPREAD_IMPACT_AND_FRICTION_SHARE"
+    ],
+    "e025_allowed_conclusions": [
+      "SUPPORTED_WITHIN_SAMPLE",
+      "REJECTED_WITHIN_SAMPLE",
+      "MEASUREMENT_INSUFFICIENT"
+    ]
+  },
+  "round_review": {
+    "review_cutoff_at": "2026-08-16T19:30:00Z",
+    "review_completed_at": "2026-08-16T19:45:02.130961Z",
+    "evidence_boundary": "ONLY_PRE_CUTOFF_IMMUTABLE_CYCLES_RAW_AGENT_TEXT_OUTCOME_REVIEW_AND_PAPER_LEDGER_NO_POST_CUTOFF_MARKET_COLLECTION",
+    "cycle_counts": {
+      "complete": 59,
+      "analysis_failed": 1,
+      "input_sealed": 2,
+      "plan_sealed_user_censored": 1,
+      "valid_sealed_decisions": 60
+    },
+    "decision_interval_minutes": {
+      "gap_count": 59,
+      "minimum": "1.826203",
+      "median": "14.11784315",
+      "mean": "25.295829848305086",
+      "maximum": "120.90935525",
+      "less_than_5_count": 14,
+      "5_to_15_count": 19,
+      "15_to_30_count": 12,
+      "30_to_60_count": 4,
+      "at_least_60_count": 10
+    },
+    "entry_activity": {
+      "opening_order_submission_count": 7,
+      "zero_fill_entry_count": 4,
+      "naturally_filled_entry_count": 3,
+      "entry_submission_gap_minutes": [
+        "6.7342167",
+        "286.2586921833333",
+        "105.36903281666667",
+        "316.9248383166667",
+        "75.31029948333334",
+        "297.30171616666667"
+      ],
+      "planned_contract_sequence": [
+        "690",
+        "690",
+        "250",
+        "120",
+        "140",
+        "100",
+        "40"
+      ],
+      "filled_contract_sequence": [
+        "0",
+        "100",
+        "73",
+        "0",
+        "0",
+        "43",
+        "0"
+      ],
+      "hard_stop_exit_episode_count": 1,
+      "structural_agent_exit_episode_count": 2,
+      "reversal_count": 0
+    },
+    "performance": {
+      "qualifying_episode_count": 3,
+      "win_count": 0,
+      "loss_count": 3,
+      "profit_factor": "0",
+      "realized_price_pnl": "-3.3792640400",
+      "known_net_pnl": "-4.613037835850",
+      "modeled_friction_total": "1.995637835850",
+      "modeled_friction_share_of_known_loss": "0.4326081655652154561766274484",
+      "direction_and_path_residual_loss": "2.617400000000",
+      "direction_and_path_share_of_known_loss": "0.5673918344347845438233725516",
+      "main_hypothesis_switch_count_across_qualifying_episodes": 4,
+      "holding_duration_seconds": [
+        "2466.765025",
+        "921.069097",
+        "12210.742692"
+      ]
+    },
+    "stop_width_observations": {
+      "episode_001_stop_distance_to_entry_signal_15m_range_ratio": "1.914836511278195488721804511",
+      "episode_002_stop_trigger_distance_to_entry_signal_15m_range_ratio": "0.9548061068702290076335877863",
+      "episode_005_stop_distance_to_entry_signal_15m_range_ratio": "2.00145",
+      "assessment": "ONLY_EPISODE_002_HARD_STOPPED;WIDER_EPISODES_001_AND_005_EXITED_STRUCTURALLY_SO_FREQUENT_TIGHT_STOP_OUT_NOT_OBSERVED_BUT_ALL_THREE_ENTRIES_LOST"
+    },
+    "validated_capabilities": [
+      "PIT_AND_FUTURE_ISOLATION",
+      "MULTI_TIMEFRAME_HYPOTHESIS_CONTINUITY",
+      "STRICT_LIMIT_PRICE_PROTECTION_AND_GTC_IOC_LIFETIME_SEMANTICS",
+      "PARTIAL_FILL_ORDER_AND_POSITION_TRUTH",
+      "DYNAMIC_SIZE_REDUCTION_WITHOUT_ADD_AVERAGE_OR_REVERSAL",
+      "SOFT_HARD_AND_STRUCTURAL_EXIT_MANAGEMENT",
+      "EXACT_LATEST_COMPLETE_DECISION_REVIEW_CONTINUITY_E026",
+      "LATER_HOUR_SCALE_REST_WITHOUT_FORCED_TRADE"
+    ],
+    "not_demonstrated": [
+      "PROFITABLE_DIRECTION_OR_ACTIVATION_SELECTION",
+      "RELIABLE_REGIME_ADAPTIVE_ANALYSIS_CADENCE_ACROSS_THE_FULL_RUN",
+      "PERSISTENT_LIQUIDITY_PARTICIPANT_OR_CATALYST_CLASSIFICATION",
+      "LIVE_VENUE_EXECUTION_OR_FULL_TIMING_AND_CARRY_COST",
+      "E025_MODEL_EFFECTIVENESS_AT_THE_REQUIRED_12_EPISODE_GATE"
+    ],
+    "defect_attribution": {
+      "agent_primary_loss_cause": "THREE_OF_THREE_FILLED_EPISODES_USED_WRONG_OR_INSUFFICIENTLY_CONFIRMED_PATH_ACTIVATION_MARGINAL_REARM_FALSE_BREAK_CONTINUATION_AND_UNPROVEN_HIGHER_TIMEFRAME_EXTENSION",
+      "friction_secondary_loss_cause": "FEES_SPREAD_AND_IMPACT_AMPLIFIED_LOSS_BY_43.26_PERCENT_BUT_DID_NOT_CREATE_THE_WRONG_DIRECTION",
+      "theory_limitation": "FRAMEWORK_SUPPORTED_HIERARCHY_AND_HYSTERESIS_BUT_LEFT_REARM_STRENGTH_AND_SOFT_WARNING_ACTION_CALIBRATION_UNDERSPECIFIED",
+      "system_process_defects": "H_REQUEST_BEFORE_PAPER_FAILED_BC_WAS_LEFT_INPUT_SEALED_U_OUTCOME_COLLECTION_FLAG_WAS_OMITTED_AND_ATTENTION_JSON_BECAME_STALE;NONE_CHANGED_THE_THREE_REALIZED_PNL_PATHS",
+      "environment_limit": "PUBLIC_DISCRETE_QUOTES_BARS_OI_AND_FUNDING_CANNOT_PROVE_PERSISTENT_LIQUIDITY_PARTICIPANT_INTENT_CATALYST_LIQUIDATIONS_OR_LIVE_EXECUTION"
+    },
+    "context_forgetting_assessment": "NO_EVIDENCE_THAT_CONTEXT_FORGETTING_CAUSED_REALIZED_LOSSES;E026_EXACT_CONTINUITY_PASSED_AND_TRADE_DECISIONS_EXTENDED_STABLE_HYPOTHESIS_IDS_AND_THRESHOLDS. BC_AND_STALE_ATTENTION_WERE_REAL_NON_AUTHORITATIVE_MEMORY_HYGIENE_DEFECTS_WITH_NO_OBSERVED_TRADE_OR_PNL_EFFECT."
+  },
+  "context_policy": {
+    "paper_context_schema_version": "1.5.0",
+    "latest_complete_decision_review_limit": 1,
+    "exact_verbatim_text_with_size_sha_and_artifact_ref": true,
+    "authority": "NON_AUTHORITATIVE_CONTINUITY_CONTEXT",
+    "static_theory_read_once": true,
+    "per_cycle_reads": [
+      "FRESH_INPUT_SNAPSHOT",
+      "DETERMINISTIC_4H_1H_15M_CALCULATIONS",
+      "CURRENT_PAPER_STATE",
+      "LATEST_COMPLETE_DECISION_REVIEW",
+      "RELEVANT_HYPOTHESIS_CHAIN"
+    ]
+  },
+  "next_attention": {
+    "heartbeat_automation_id": "hype-l2-prospective-cohort-heartbeat",
+    "heartbeat_status": "PAUSED",
+    "request_id": "hype-trader-attn-20260816T193056Z-stop",
+    "mode": "RELEASE",
+    "earliest_wake_at": "2026-08-16T19:30:56.262320Z",
+    "latest_useful_at": "2026-08-16T19:31:56.262320Z",
+    "request_sha256": "905ce23606bb71ed3bb6f3a4dbbb4a0b7102da6c06e6b710d04e97584d837117",
+    "checkpoint_event_sha256": null,
+    "stream_revision": 83,
+    "resume_condition": "NONE_CURRENT_RUN_CLOSED_NO_FURTHER_WAKE_COLLECTION_ANALYSIS_PAPER_OR_TRADE_WITHOUT_NEW_USER_AUTHORITY_AND_FRESH_RUN"
+  },
+  "authorization_end_protocol": {
+    "new_entry_cutoff_rule": "NO_NEW_EXPOSURE_WHEN_REMAINING_AUTHORITY_IS_SHORTER_THAN_ONE_COMPLETE_MANAGEMENT_WINDOW",
+    "required_terminal_check": "CANCEL_OPEN_ORDERS_FLATTEN_EXPOSURE_AND_CLOSE_RUN_BEFORE_AUTHORITY_END",
+    "analysis_frequency": "STATE_DRIVEN_NOT_FIXED",
+    "actual_end_state": "CLOSED_CASH_FLAT_ZERO_ACTIVE_OR_HELD_ORDERS_HEARTBEAT_PAUSED"
+  },
+  "known_unknowns": [
+    "event catalyst",
+    "participant identity and intent",
+    "liquidation stream",
+    "long-short ratio",
+    "persistent order-book resilience",
+    "funding after 2026-08-16T15:59:59.999999Z",
+    "complete timing cost",
+    "discrete execution observations can leave an OHLC limit cross unfilled when no admitted post-impact executable touch proves the fill",
+    "Cycles H through O used a stricter 60-second Outcome tolerance instead of the approved 300 seconds; none is eligible as a new cohort episode root",
+    "Cycle U market Outcome is immutable TYPED_MISSING because public collection was omitted on the actual CAPTURE_OUTCOME transition; its paper zero-fill facts remain observed"
+  ]
+}

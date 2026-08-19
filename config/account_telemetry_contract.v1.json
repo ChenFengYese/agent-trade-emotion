@@ -1,0 +1,60 @@
+{
+  "contract_id": "account-telemetry-contract.v1",
+  "schema_version": "account-telemetry-contract-v1",
+  "status": "FROZEN_ACCOUNT_TELEMETRY_CONTRACT",
+  "frozen_at": "2026-07-22T00:00:00Z",
+  "scope": {
+    "venue": "BINANCE_USDM",
+    "environment": "PAPER_OR_TESTNET_ONLY",
+    "instrument_scope": ["BTCUSDT"]
+  },
+  "permissions": {
+    "private_rest": "READ_ONLY_REQUIRED",
+    "user_stream": "READ_ONLY_REQUIRED",
+    "trading": "FORBIDDEN",
+    "withdrawal": "FORBIDDEN"
+  },
+  "event_contracts": [
+    {
+      "name": "order_update",
+      "source_id": "SRC-BIN-USER",
+      "ordering": "Preserve source_event_time, local_receive_time and source sequence when supplied; never overwrite a prior raw event.",
+      "required_fields": ["local_receive_time", "source_event_time", "submit_time", "ack_time", "reject_reason", "client_order_id", "exchange_order_id", "status", "side", "order_type", "original_quantity", "executed_quantity", "raw_payload_sha256"]
+    },
+    {
+      "name": "execution_fill",
+      "source_id": "SRC-BIN-USER",
+      "ordering": "Deduplicate only by immutable exchange fill identity after raw capture; retain local receive order for latency measurement.",
+      "required_fields": ["local_receive_time", "source_event_time", "fill_time", "client_order_id", "exchange_order_id", "fill_id", "fill_quantity", "fill_price", "fee_amount", "fee_asset", "raw_payload_sha256"]
+    },
+    {
+      "name": "account_update",
+      "source_id": "SRC-BIN-USER",
+      "ordering": "Account updates are observations, not a substitute for REST recovery; retain both source and local times.",
+      "required_fields": ["local_receive_time", "source_event_time", "asset", "wallet_balance", "available_balance", "instrument", "position_quantity", "entry_price", "raw_payload_sha256"]
+    },
+    {
+      "name": "funding_update",
+      "source_id": "SRC-BIN-PRIVATE-REST",
+      "ordering": "Retain the immutable funding settlement time and source/local observation times; funding records may not be inferred from balances or rewritten into prior account updates.",
+      "required_fields": ["local_receive_time", "source_event_time", "funding_time", "asset", "funding_amount", "raw_payload_sha256"]
+    },
+    {
+      "name": "rest_recovery_snapshot",
+      "source_id": "SRC-BIN-PRIVATE-REST",
+      "ordering": "Use source_as_of plus local_receive_time; snapshot reconciliation may not rewrite user-stream history.",
+      "required_fields": ["local_receive_time", "source_as_of", "open_orders", "positions", "balances", "commission_schedule", "income_history_cursor", "raw_payload_sha256"]
+    }
+  ],
+  "reconciliation": {
+    "required_before_new_risk": true,
+    "max_unexplained_position_differences": 0,
+    "required_snapshot_fields": ["open_orders", "positions", "balances", "commission_schedule", "income_history_cursor"]
+  },
+  "cost_calibration": {
+    "required_fields": ["fee_amount", "fee_asset", "funding_amount", "fill_price", "fill_quantity", "submit_time", "ack_time", "fill_time", "reject_reason"],
+    "may_calibrate_live_execution": false,
+    "notice": "Only future approved E4 evidence may calibrate live fill or tail-cost assumptions; this contract itself is not evidence."
+  },
+  "notice": "Contract only. No credential, signing, user-stream connection, REST request, order submission, withdrawal or live-funds capability is implemented."
+}

@@ -1,0 +1,303 @@
+{
+  "schema_version": "pitar1-e0-artifact-inventory.v1",
+  "inventory_id": "pitar1.e0-artifact-inventory.v1",
+  "namespace": "pitar1",
+  "artifact_role": "exact_e0_inventory",
+  "stage": "E0_LOCAL_CANDIDATE_INVENTORY_NOT_ACCEPTANCE",
+  "candidate_state": "LOCAL_REVIEW_READY_AWAITING_EXTERNAL_SOL",
+  "route_binding": {
+    "route_id": "RSR-PITAR1-POINT_IN_TIME-AUTHORITY-REPLAY-v1",
+    "route_version": "1.0.0",
+    "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_ROUTE.v1",
+    "decision_physical_sha256": "a3dcb124477ac4f54189d659b7438431ea62ba6785f4c248fe2448e55f28035f",
+    "decision_canonical_sha256": "7e141bd47a728078c3a4dca02d231eae2bcbe6a3f12ff39c6e01c37e92556932",
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "exact_allowlist": [
+    {
+      "role": "successor_theory_and_technical_specification",
+      "path": "PIT_AUTHORITY_REPLAY_SUCCESSOR_SPEC_v1_0.md"
+    },
+    {
+      "role": "bundle_authority_contract",
+      "path": "config/pit_authority_replay.authority_bundle_contract.v1.json"
+    },
+    {
+      "role": "point_in_time_admission_contract",
+      "path": "config/pit_authority_replay.pit_admission_contract.v1.json"
+    },
+    {
+      "role": "source_inventory_and_d0_plan_candidate",
+      "path": "config/pit_authority_replay.source_inventory.v1.json"
+    },
+    {
+      "role": "chronology_contract",
+      "path": "config/pit_authority_replay.chronology_contract.v1.json"
+    },
+    {
+      "role": "adapter_and_replay_interface_contract",
+      "path": "config/pit_authority_replay.adapter_replay_contract.v1.json"
+    },
+    {
+      "role": "future_development_comparison_contract",
+      "path": "config/pit_authority_replay.development_comparison_contract.v1.json"
+    },
+    {
+      "role": "pure_total_e0_validator",
+      "path": "trade_system/pit_authority_replay_contract_v1.py"
+    },
+    {
+      "role": "synthetic_and_adversarial_tests",
+      "path": "tests/test_pit_authority_replay_contract_v1.py"
+    },
+    {
+      "role": "bounded_official_source_discovery_record",
+      "path": "artifacts/pit_authority_replay_source_discovery.v1.json"
+    },
+    {
+      "role": "independent_adversarial_review",
+      "path": "artifacts/pit_authority_replay_e0_adversarial_review.v1.json"
+    },
+    {
+      "role": "integrated_validation_report",
+      "path": "artifacts/pit_authority_replay_e0_validation_report.v1.json"
+    },
+    {
+      "role": "exact_e0_inventory",
+      "path": "config/pit_authority_replay.e0_artifact_inventory.v1.json"
+    }
+  ],
+  "artifact_identities": [
+    {
+      "role": "successor_theory_and_technical_specification",
+      "path": "PIT_AUTHORITY_REPLAY_SUCCESSOR_SPEC_v1_0.md",
+      "size_bytes": 19550,
+      "physical_sha256": "11295b12f5bb67ade5ef954977f15f48d5293ba8d5f0e0c79ca930f94eed966e",
+      "canonical_sha256": null
+    },
+    {
+      "role": "bundle_authority_contract",
+      "path": "config/pit_authority_replay.authority_bundle_contract.v1.json",
+      "size_bytes": 5826,
+      "physical_sha256": "f567f29cbf5b4ed91ca916927d802314da6dc81acf1f45b64a303fdd44a35215",
+      "canonical_sha256": "5352ece7122480723cfc069b987663ccb089a5887688e30f52204e3179c3f722"
+    },
+    {
+      "role": "point_in_time_admission_contract",
+      "path": "config/pit_authority_replay.pit_admission_contract.v1.json",
+      "size_bytes": 5620,
+      "physical_sha256": "90b97b90473c10042cca981ee1aebde726b18f67f282cc2d6245f3c8b42fb04f",
+      "canonical_sha256": "4a0e5715b0fcb97917149a0fabfd489318f31c0580e5896ee90e71d51cbaa3e5"
+    },
+    {
+      "role": "source_inventory_and_d0_plan_candidate",
+      "path": "config/pit_authority_replay.source_inventory.v1.json",
+      "size_bytes": 7202,
+      "physical_sha256": "dd9cddb650764c7aec038d4c489158ab020e3f6d1de05b5939222ff05a432835",
+      "canonical_sha256": "32764ee39297ddcb9f64ef32f0a5734a34f085045f14087e3cc886e597f6f9b8"
+    },
+    {
+      "role": "chronology_contract",
+      "path": "config/pit_authority_replay.chronology_contract.v1.json",
+      "size_bytes": 3505,
+      "physical_sha256": "d267e6f7dd089c897a6d127a330328357b7c9a42d01072ef6b8e488760889e73",
+      "canonical_sha256": "40338cbac39e4a25ebdab9e710fcb11370c95e929acfc0ea62a9ec292a7ca913"
+    },
+    {
+      "role": "adapter_and_replay_interface_contract",
+      "path": "config/pit_authority_replay.adapter_replay_contract.v1.json",
+      "size_bytes": 5127,
+      "physical_sha256": "aa82005f4a55334641d1f562c369a037d3e11d89b4df88b11ea6c92bf8cd9370",
+      "canonical_sha256": "2da2595895f27029d970217b5d34e91285159b74aaf7fd0c77c15ce84f0e3550"
+    },
+    {
+      "role": "future_development_comparison_contract",
+      "path": "config/pit_authority_replay.development_comparison_contract.v1.json",
+      "size_bytes": 4713,
+      "physical_sha256": "e2284000ddde3a51912cef1709f46a81f9c939c429b3d46af292a82336bbdf2d",
+      "canonical_sha256": "bb4046b84f18ab5fd368e3cec658aae6c197abaac34ca1871206972aab2998c3"
+    },
+    {
+      "role": "pure_total_e0_validator",
+      "path": "trade_system/pit_authority_replay_contract_v1.py",
+      "size_bytes": 65471,
+      "physical_sha256": "b53779ac12bdb01bb085b5b79da1a1e17b1b3bddc4eab0c1e20e07fa7f8c0166",
+      "canonical_sha256": null
+    },
+    {
+      "role": "synthetic_and_adversarial_tests",
+      "path": "tests/test_pit_authority_replay_contract_v1.py",
+      "size_bytes": 51845,
+      "physical_sha256": "677d2dba8363c472a1b7bb121f5dde69553a6f3d25976b3025e593401cb30384",
+      "canonical_sha256": null
+    },
+    {
+      "role": "bounded_official_source_discovery_record",
+      "path": "artifacts/pit_authority_replay_source_discovery.v1.json",
+      "size_bytes": 11268,
+      "physical_sha256": "69650257dc90dd8c9a6c2ebcd86c7d98e121f6b49120061a89ee91fb76b63278",
+      "canonical_sha256": "7aecbf426befa8efae10e55e4998fb5431d172b7a7b4a27372971af2119f2d10"
+    },
+    {
+      "role": "independent_adversarial_review",
+      "path": "artifacts/pit_authority_replay_e0_adversarial_review.v1.json",
+      "size_bytes": 8594,
+      "physical_sha256": "969b0d8900b3e5872eb5392dc8da81d31427a61dee73c23fcb2ff027cfe94cd4",
+      "canonical_sha256": "ed932ead749a3f5300dfbe73cf2ddc2ab2171aecfb6ddc2df11bb7f3132c6012"
+    },
+    {
+      "role": "integrated_validation_report",
+      "path": "artifacts/pit_authority_replay_e0_validation_report.v1.json",
+      "size_bytes": 14610,
+      "physical_sha256": "09a3da03faf6d7edd1273e6dca453334cd61eacb83a2dc775a9627b98ada5a8c",
+      "canonical_sha256": "1ff7fb9d2cd0408559c1e10073462a3bcc987a252ddb4e8f8701345ed9516cb0"
+    }
+  ],
+  "self_identity_rule": {
+    "role": "exact_e0_inventory",
+    "path": "config/pit_authority_replay.e0_artifact_inventory.v1.json",
+    "canonical_identity_field": "inventory_sha256",
+    "canonical_identity_is_embedded": true,
+    "physical_identity_is_embedded": false,
+    "reason": "A file cannot contain its own final byte length and physical SHA-256 without changing those values. The external reviewer must compute the inventory file size and physical SHA-256 after materialization while independently recomputing inventory_sha256.",
+    "external_self_physical_identity_required": true
+  },
+  "baseline_bindings": [
+    {
+      "binding_id": "route_decision",
+      "physical_sha256": "a3dcb124477ac4f54189d659b7438431ea62ba6785f4c248fe2448e55f28035f",
+      "canonical_sha256": "7e141bd47a728078c3a4dca02d231eae2bcbe6a3f12ff39c6e01c37e92556932"
+    },
+    {
+      "binding_id": "program_governance",
+      "physical_sha256": "69125790fa36c0c4f72ebdecea4f5415be73a9e4fba78c6c1aa53b9639ef6f09"
+    },
+    {
+      "binding_id": "data_authority_standard",
+      "physical_sha256": "03a38e2e4fa5f299b9ed698b0e0d185addf67984bb5e4712d9cc2bd742fd9f72"
+    },
+    {
+      "binding_id": "research_stage_contract",
+      "physical_sha256": "ab81251c0ea70e945d9ea7176e9cb59e7353477212dcf36a2d9e4424f944674b",
+      "canonical_sha256": "d84c8ba50d828688020a5197202a58985079cdc64938c58fe9c54e3cb69b6fba"
+    },
+    {
+      "binding_id": "source_authority_registry",
+      "physical_sha256": "693cc7361c16fb154df97bf2c58a1e68807f990dc976df949658e7ce635abb12",
+      "canonical_sha256": "faa6f33577d71275939b7bdf56fa850aecb3b75eed8df5ee175fb9340a3d4324"
+    },
+    {
+      "binding_id": "accepted_research_foundation",
+      "physical_sha256": "ff9f2b608fe387b953e5d18e1a3cd0a246fcc43bf209f694ffab53f867a8f4cf",
+      "canonical_sha256": "d0968a40d33cea693cd2ad979a656b7897c30fe58b3cd94d85b6f1ce5afd6a58"
+    },
+    {
+      "binding_id": "accepted_dynamic_policy",
+      "physical_sha256": "c5a8e2a99d81c9b6729e5eb6c696e669c44fdba7af8c84ae9e743ff089edf446",
+      "canonical_sha256": "adcc574e67c70eae33fc9c56cc4285566646c07c44fef2ccfb56d8a4959f21f2",
+      "composed_bundle_sha256": "f730d9f712001ec603a33e26977efaadf8db1a7492cba2e4d24acaee7ba10625"
+    },
+    {
+      "binding_id": "current_core_theory",
+      "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d"
+    },
+    {
+      "binding_id": "current_core_manifest",
+      "physical_sha256": "a3e174c616b176253f4aef2ce267a932d43f7e64db3490db815a27f007df12d4"
+    },
+    {
+      "binding_id": "terminal_negative_authority",
+      "physical_sha256": "26355176199bde8cc20e73e2183b43a14bf6210b3a3c41c9480c51b204b9d759",
+      "canonical_sha256": "ceda54e7a7f6c37fc691096ce851b7ae9e079336e525db5d9da16e023772478f",
+      "use": "NEGATIVE_AUTHORITY_ONLY"
+    },
+    {
+      "binding_id": "isolated_active_package_decision",
+      "physical_sha256": "3417205afc38247bc8463ddd6e18cf54dffe51724571100a974f9572309127c8",
+      "canonical_sha256": "e143fae7d8c8094298f65bc6724de35f368f25e739e6fe2a35cfdf69fd1d6272",
+      "use": "ISOLATION_AUTHORITY_ONLY"
+    },
+    {
+      "binding_id": "terminal_chronology_route",
+      "physical_sha256": "9ef2ca7d75ca714cb85a8afa76f1115c7ff37e0b520a6bc983736441c895095d",
+      "use": "CHRONOLOGY_ISOLATION_AUTHORITY_ONLY"
+    },
+    {
+      "binding_id": "terminal_chronology_guard",
+      "physical_sha256": "5cdc23c6d0db3c84c89016920835265faba5c70f0c8520a1328b652029bd5e8a",
+      "use": "CHRONOLOGY_ISOLATION_AUTHORITY_ONLY"
+    }
+  ],
+  "scope_accounting": {
+    "declared_artifact_count": 13,
+    "present_artifact_count": 13,
+    "allowlist_match_count": 13,
+    "embedded_physical_identity_count": 12,
+    "embedded_physical_identity_total_bytes": 203331,
+    "external_self_physical_identity_count": 1,
+    "candidate_path_outside_allowlist_count": 0,
+    "candidate_existing_file_modification_count": 0,
+    "candidate_paths_absent_from_head_count": 13,
+    "route_forbidden_token_match_count": 0,
+    "old_implementation_import_count": 0,
+    "market_or_macro_row_artifact_count": 0,
+    "runtime_adapter_or_replay_artifact_count": 0,
+    "real_dataset_or_evaluation_artifact_count": 0,
+    "global_workspace_dirty_state_excluded_from_candidate_scope": true
+  },
+  "validation_summary": {
+    "builder_unit_tests": "69_OF_69_PASS",
+    "independent_unit_tests": "69_OF_69_PASS",
+    "independent_historical_attack_rejections": "11_OF_11",
+    "contract_and_source_self_digests": "7_OF_7_MATCH",
+    "json_contract_and_report_canonical_digest_count_including_inventory": 10,
+    "source_discovery": "WAIT_DATA_9_OF_9",
+    "d0_plan": "WAIT_DATA_NON_EXECUTING",
+    "candidate_acceptance": "NOT_AUTHORIZED",
+    "external_sol_gate_required": true
+  },
+  "permission_ceiling": {
+    "d0_acquisition": "DENIED",
+    "d1_runtime_admission": "DENIED",
+    "d2_adapter_or_replay": "DENIED",
+    "d3_dataset": "DENIED",
+    "e2_evaluation": "DENIED",
+    "e3_paper": "DENIED",
+    "deployment": "DENIED",
+    "trading": "DENIED",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "claim_boundary": {
+    "candidate_status": "LOCAL_REVIEW_READY_AWAITING_EXTERNAL_SOL",
+    "source_data_validity": "NOT_EVALUATED",
+    "point_in_time_real_data_validity": "NOT_EVALUATED",
+    "adapter_or_replay_runtime_validity": "NOT_EVALUATED",
+    "market_validity": "NOT_EVALUATED",
+    "predictive_validity": "NOT_EVALUATED",
+    "positive_expected_value": "NOT_EVALUATED",
+    "profitability": "NOT_EVALUATED",
+    "paper": "NOT_AUTHORIZED",
+    "deployment": "DENIED",
+    "trading": "DENIED"
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "encoding": "UTF-8",
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "domain_prefix_utf8": "pitar1/e0-artifact-inventory/v1",
+    "domain_separator_hex": "00",
+    "digest_field": "inventory_sha256",
+    "excluded_fields": [
+      "inventory_sha256"
+    ]
+  },
+  "inventory_sha256": "8c29edcf40f9ba603e495f0fa109f3cc1ee770d4af432dfc62641684f0a455e3"
+}

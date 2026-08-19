@@ -1,0 +1,22 @@
+{
+  "schema_version": "har1r2-purge-plan.v1",
+  "route_id": "HAR1R2_SOURCE_PREFLIGHT_STATIC_v1",
+  "parameter_status": "UNVALIDATED_INITIAL_BOUNDARIES",
+  "maximum_lookback_days": 90,
+  "maximum_holding_days": 7,
+  "feature_history_policy": "PAST_ONLY_EARLIER_ROLE_CARRY_IN",
+  "role_end_purge_days": 7,
+  "role_windows_before_purge": [
+    {"role": "DEVELOPMENT", "start_inclusive": "2025-07-01T00:00:00Z", "end_exclusive": "2026-01-01T00:00:00Z"},
+    {"role": "CALIBRATION", "start_inclusive": "2026-01-01T00:00:00Z", "end_exclusive": "2026-04-01T00:00:00Z"},
+    {"role": "LOCKED_HISTORICAL_HOLDOUT", "start_inclusive": "2026-04-01T00:00:00Z", "end_exclusive": "2026-07-01T00:00:00Z"}
+  ],
+  "eligible_decision_windows_after_purge": [
+    {"role": "DEVELOPMENT", "start_inclusive": "2025-07-01T00:00:00Z", "end_exclusive": "2025-12-25T00:00:00Z"},
+    {"role": "CALIBRATION", "start_inclusive": "2026-01-01T00:00:00Z", "end_exclusive": "2026-03-25T00:00:00Z"},
+    {"role": "LOCKED_HISTORICAL_HOLDOUT", "start_inclusive": "2026-04-01T00:00:00Z", "end_exclusive": "2026-06-24T00:00:00Z"}
+  ],
+  "label_rule": "NO_LABEL_OR_MAXIMUM_HOLDING_WINDOW_MAY_CROSS_A_ROLE_END",
+  "canonical_self_digest": {"domain_prefix_utf8": "msta-hed/har1r2-purge-plan/v1", "digest_field": "purge_plan_sha256", "algorithm": "SHA-256_CANONICAL_JSON"},
+  "purge_plan_sha256": "a9d4d3ed55a1354613a3c641be6478372a692ddcb87077187e5e5f56e0e74c3f"
+}

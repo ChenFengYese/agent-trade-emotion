@@ -1,0 +1,1261 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "SNDK 交易 Agent 执行事故审计",
+    "description": "只读、点时、不可后见修改的逐小时执行事故审计。范围为 cycle-0001 至 cycle-0024；cycle-0025 未提交，不计入动作与收益。",
+    "generatedAt": "2026-07-30T23:54:48Z",
+    "filters": [],
+    "cards": [
+      {
+        "id": "incident_metrics",
+        "description": "冻结运行的关键事故与收益指标。",
+        "dataset": "metrics",
+        "sourceId": "run_artifacts",
+        "metrics": [
+          {
+            "label": "SNDK 首次空仓轮",
+            "field": "first_sndk_flat_cycle"
+          },
+          {
+            "label": "空仓已提交轮数",
+            "field": "flat_committed_cycles"
+          },
+          {
+            "label": "SNDK 实际净收益",
+            "field": "actual_net_pnl",
+            "format": "currency"
+          },
+          {
+            "label": "lot-000007 机会差",
+            "field": "lot7_opportunity_gap",
+            "format": "currency"
+          }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "price_chart",
+        "title": "SNDK 参考价：逐轮点时路径",
+        "subtitle": "第16轮清空后，参考价从 1215.71 上升至第24轮 1342.06；后续价格只用于评价，不用于补写早期规则。",
+        "type": "line",
+        "dataset": "timeline",
+        "sourceId": "run_artifacts",
+        "valueFormat": "number",
+        "encodings": {
+          "x": {
+            "field": "cycle",
+            "type": "ordinal",
+            "label": "运行轮次"
+          },
+          "y": {
+            "field": "reference_price",
+            "type": "quantitative",
+            "label": "SNDK 参考价"
+          },
+          "tooltip": [
+            {
+              "field": "decision_at",
+              "type": "nominal",
+              "label": "数据截止"
+            },
+            {
+              "field": "action",
+              "type": "nominal",
+              "label": "建议动作"
+            },
+            {
+              "field": "selected_phi",
+              "type": "nominal",
+              "label": "当轮假说"
+            }
+          ]
+        }
+      },
+      {
+        "id": "position_chart",
+        "title": "SNDK 提交后总名义仓位",
+        "subtitle": "历史 schema 没有核心/战术仓位分类；图中只能呈现可验证的总名义仓位。",
+        "type": "line",
+        "dataset": "timeline",
+        "sourceId": "run_artifacts",
+        "valueFormat": "currency",
+        "encodings": {
+          "x": {
+            "field": "cycle",
+            "type": "ordinal",
+            "label": "运行轮次"
+          },
+          "y": {
+            "field": "position_notional",
+            "type": "quantitative",
+            "label": "SNDK 名义仓位（USDT）"
+          },
+          "tooltip": [
+            {
+              "field": "actual_action",
+              "type": "nominal",
+              "label": "实际模拟动作"
+            }
+          ]
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "timeline_table",
+        "title": "逐小时五层决策时间线",
+        "subtitle": "核心/战术仓位均为 NOT_RECORDED；不得事后分配。每行证据来自同编号 analysis.json 与 decision.json。",
+        "dataset": "timeline",
+        "sourceId": "run_artifacts",
+        "columns": [
+          {
+            "field": "cycle",
+            "label": "轮次",
+            "type": "number"
+          },
+          {
+            "field": "decision_at",
+            "label": "数据截止（UTC）",
+            "type": "text"
+          },
+          {
+            "field": "reference_price",
+            "label": "参考价",
+            "format": "number"
+          },
+          {
+            "field": "timeframes",
+            "label": "1D/4H/1H/15M",
+            "type": "text"
+          },
+          {
+            "field": "strategic_trend",
+            "label": "战略/运营趋势",
+            "type": "text"
+          },
+          {
+            "field": "market_phase",
+            "label": "市场阶段",
+            "type": "text"
+          },
+          {
+            "field": "selected_phi",
+            "label": "有效假说",
+            "type": "text"
+          },
+          {
+            "field": "support",
+            "label": "支持等级",
+            "type": "text"
+          },
+          {
+            "field": "confidence_change",
+            "label": "较上轮变化",
+            "type": "text"
+          },
+          {
+            "field": "core_position",
+            "label": "核心仓位",
+            "type": "text"
+          },
+          {
+            "field": "tactical_position",
+            "label": "战术仓位",
+            "type": "text"
+          },
+          {
+            "field": "position_notional",
+            "label": "总名义仓位",
+            "format": "currency"
+          },
+          {
+            "field": "action",
+            "label": "建议动作",
+            "type": "text"
+          },
+          {
+            "field": "actual_action",
+            "label": "实际模拟动作",
+            "type": "text"
+          },
+          {
+            "field": "trigger",
+            "label": "触发条件",
+            "type": "text"
+          },
+          {
+            "field": "evidence",
+            "label": "引用证据",
+            "type": "text"
+          },
+          {
+            "field": "previous_state",
+            "label": "上一周期状态",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "deviation_table",
+        "title": "首次偏离与不可识别节点",
+        "subtitle": "“首次清除核心仓位”和“原假说仍满足时拒绝重入”受历史 schema 限制，报告明确保留不可识别性。",
+        "dataset": "deviation_nodes",
+        "sourceId": "run_artifacts",
+        "columns": [
+          {
+            "field": "node",
+            "label": "审计节点",
+            "type": "text"
+          },
+          {
+            "field": "cycle",
+            "label": "最早轮次",
+            "type": "text"
+          },
+          {
+            "field": "finding",
+            "label": "事实",
+            "type": "text"
+          },
+          {
+            "field": "trigger",
+            "label": "触发数据",
+            "type": "text"
+          },
+          {
+            "field": "classification",
+            "label": "信号分类",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "rule_table",
+        "title": "六项规则忠实性",
+        "subtitle": "冻结 v1 合同与用户提出的多时间尺度治理原则分开裁决。",
+        "dataset": "rule_fidelity",
+        "sourceId": "frozen_theory",
+        "columns": [
+          {
+            "field": "rule",
+            "label": "原则",
+            "type": "text"
+          },
+          {
+            "field": "frozen_v1",
+            "label": "对冻结 v1",
+            "type": "text"
+          },
+          {
+            "field": "governance",
+            "label": "对治理目标",
+            "type": "text"
+          },
+          {
+            "field": "evidence",
+            "label": "具体证据",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "pnl_table",
+        "title": "SNDK 收益账本",
+        "subtitle": "机会差不计入实际亏损；滑点已进入成交价，不重复扣减。",
+        "dataset": "pnl_lots",
+        "sourceId": "run_artifacts",
+        "columns": [
+          {
+            "field": "lot",
+            "label": "lot",
+            "type": "text"
+          },
+          {
+            "field": "attribution",
+            "label": "归因",
+            "type": "text"
+          },
+          {
+            "field": "entry",
+            "label": "入场价",
+            "format": "number"
+          },
+          {
+            "field": "exit",
+            "label": "出场价",
+            "format": "number"
+          },
+          {
+            "field": "gross_pnl",
+            "label": "毛已实现",
+            "format": "currency"
+          },
+          {
+            "field": "fees",
+            "label": "费用",
+            "format": "currency"
+          },
+          {
+            "field": "net_pnl",
+            "label": "净已实现",
+            "format": "currency"
+          }
+        ]
+      },
+      {
+        "id": "counterfactual_table",
+        "title": "冻结反事实回放",
+        "subtitle": "仅原 Agent 与机械 v1 可精确复放；战略持有和战术减仓因历史规则缺失只能作为敏感性。",
+        "dataset": "counterfactuals",
+        "sourceId": "audit_math",
+        "columns": [
+          {
+            "field": "lane",
+            "label": "路径",
+            "type": "text"
+          },
+          {
+            "field": "identifiability",
+            "label": "可识别性",
+            "type": "text"
+          },
+          {
+            "field": "first_exit",
+            "label": "首次退出",
+            "type": "text"
+          },
+          {
+            "field": "flat_duration",
+            "label": "空仓持续",
+            "type": "text"
+          },
+          {
+            "field": "reentry_delay",
+            "label": "重入延迟",
+            "type": "text"
+          },
+          {
+            "field": "max_drawdown",
+            "label": "局部最大回撤",
+            "type": "text"
+          },
+          {
+            "field": "final_result",
+            "label": "cycle-0024 结果",
+            "type": "text"
+          },
+          {
+            "field": "theory_fidelity",
+            "label": "对理论忠实度",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "responsibility_table",
+        "title": "五层责任裁决",
+        "subtitle": "“理论是否产生有效候选”“理论是否要求持有”“Agent 是否忠实执行”是三个不同命题。",
+        "dataset": "responsibility",
+        "sourceId": "runtime_code",
+        "columns": [
+          {
+            "field": "layer",
+            "label": "层级",
+            "type": "text"
+          },
+          {
+            "field": "verdict",
+            "label": "裁决",
+            "type": "text"
+          },
+          {
+            "field": "reason",
+            "label": "证据化原因",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "run_artifacts",
+        "label": "冻结 paper run 工件",
+        "path": ".runtime/theory-paper-v1/current",
+        "query": {
+          "engine": "artifact-snapshot",
+          "language": "sql",
+          "sql": "SELECT * FROM artifact_snapshot WHERE source_family = 'frozen_run_artifacts'",
+          "description": "The artifact_snapshot relation is the bounded, point-in-time dataset embedded in this report and transcribed from the cited immutable cycle artifacts.",
+          "executed_at": "2026-07-30T23:54:48Z"
+        }
+      },
+      {
+        "id": "frozen_theory",
+        "label": "冻结交易理论与 v1 提示",
+        "path": "CORE_TRADING_THEORY_v2_1.md",
+        "query": {
+          "engine": "artifact-snapshot",
+          "language": "sql",
+          "sql": "SELECT * FROM artifact_snapshot WHERE source_family = 'frozen_theory_contract'",
+          "description": "Bounded rule-fidelity rows derived from the frozen theory sections cited in the evidence index.",
+          "executed_at": "2026-07-30T23:54:48Z"
+        }
+      },
+      {
+        "id": "runtime_code",
+        "label": "当前理论分析、决策与组合运行实现",
+        "path": "trade_system/theory_paper",
+        "query": {
+          "engine": "artifact-snapshot",
+          "language": "sql",
+          "sql": "SELECT * FROM artifact_snapshot WHERE source_family = 'runtime_implementation'",
+          "description": "Bounded implementation findings derived from the exact source lines cited in the evidence index.",
+          "executed_at": "2026-07-30T23:54:48Z"
+        }
+      },
+      {
+        "id": "audit_math",
+        "label": "审计计算与证据索引",
+        "path": "audits/2026-07-31-sndk-execution-incident/EVIDENCE_INDEX.md",
+        "query": {
+          "engine": "artifact-snapshot",
+          "language": "sql",
+          "sql": "SELECT * FROM artifact_snapshot WHERE source_family = 'deterministic_audit_math'",
+          "description": "Bounded PnL and counterfactual rows calculated with the formulas and source values documented in the evidence index.",
+          "executed_at": "2026-07-30T23:54:48Z"
+        }
+      }
+    ],
+    "blocks": [
+      {
+        "id": "scope",
+        "type": "markdown",
+        "sourceId": "run_artifacts",
+        "body": "## 审计边界\n\n本报告是**只读、点时、不可后见修改**的执行事故审计。仅分析 cycle-0001 至 cycle-0024 已提交的行情输入、判断、状态、决策和模拟执行；cycle-0025 没有提交决策，不计入动作或收益。核心理论、提示词、代码、阈值、仓位、历史输出、账本和事务链均未修改。\n\n这里的“原始市场数据 → 理论分析 → 假说状态 → 决策政策 → 仓位执行”被分别核对，不能用后续上涨替代退出时证据。"
+      },
+      {
+        "id": "executive_verdict",
+        "type": "markdown",
+        "sourceId": "run_artifacts",
+        "body": "## 结论\n\n**SNDK 不是从第22轮才空仓，而是在第16轮已被完全清空；第22轮只是最后一个 SOL 仓位退出后，整个组合首次空仓。** 第16轮退出由事前冻结的 1124.99 目标触发，符合冻结 v1 的退出规则，不能因后来上涨而事后判成规则违规。\n\n真正的执行事故发生在退出后的恢复链：系统保存了历史假说与仓位，却没有把它们作为下一轮决策输入；每轮重新生成 PHI 和静态几何。第17轮起 SNDK 没有 re-entry contract，第19轮和第21轮即使分别选出 `PHI_UPWARD_CONTINUATION / WEAK` 与 `/ MODERATE`，仍因多头几何被拒、现价不在旧 support zone 而 `ABSTAIN`。空仓由此成为事实上的吸收状态。\n\n首次潜在根因从第1轮就存在：无状态重算。首次可观察偏离是第11轮，观点从 `PHI_RANGE` 切为 `PHI_DOWNWARD_CONTINUATION`，但既有多头继续持有且没有状态转换回执。首次不可逆操作节点是第16轮：全量退出最后 SNDK lot，同时写明“不重启已关闭 lot”，却没有战略状态与再入场条件。"
+      },
+      {
+        "id": "metrics",
+        "type": "metric-strip",
+        "cardIds": [
+          "incident_metrics"
+        ]
+      },
+      {
+        "id": "five_layers",
+        "type": "markdown",
+        "sourceId": "runtime_code",
+        "body": "## 五层事故链\n\n1. **原始市场数据**：点时边界无前视；1D/4H 到第18轮仍 DOWN，15M 自第14轮 UP，1H 第21轮转 UP。F 强平窗口、严格 R 补单序列和 1W 数据为 UNKNOWN，但不是第16轮退出或后续 abstention 的触发项。\n2. **理论分析**：冻结 v1 产生了 support-retest/range-reversion 的多头路径，并在预设 8 小时内得到支持；但 V1 明示不交易趋势延续。\n3. **假说状态**：每轮创建 `cycle-NNNN:SNDKUSDT` 新实例；相邻轮可同时保存相反 PHI，没有一个持久战略对象及版本链。\n4. **决策政策**：新增风险必须依赖当轮研究就绪静态几何，现价必须在 entry zone；`CLOSE` schema 不含动作意图或再入场合同；机会成本未进入机器目标。\n5. **仓位执行**：lot-000009 第15轮到目标自动减仓，lot-000007 第16轮因目标已被标记价越过而显式全平；此后没有任何 SNDK 条件单或恢复仓位。"
+      },
+      {
+        "id": "price_chart_block",
+        "type": "chart",
+        "chartId": "price_chart"
+      },
+      {
+        "id": "position_chart_block",
+        "type": "chart",
+        "chartId": "position_chart"
+      },
+      {
+        "id": "timeline_block",
+        "type": "table",
+        "tableId": "timeline_table"
+      },
+      {
+        "id": "deviation_intro",
+        "type": "markdown",
+        "sourceId": "run_artifacts",
+        "body": "## 首次偏离点\n\n历史 schema 没有 `core_position`、`tactical_position` 或持久“超跌反弹”对象。因此，“首次清除核心仓位”只能严谨表述为**第16轮清除最后一笔 SNDK 仓位**；“原假说仍满足时首次拒绝重入”不能唯一识别。原 `PHI_RANGE` 有明确的 8 小时到期和 1124.99 目标，review-002 将其评为 `SUPPORTED_AT_EXPIRY`，不是第17轮后仍开放的无限期多头假说。"
+      },
+      {
+        "id": "deviation_block",
+        "type": "table",
+        "tableId": "deviation_table"
+      },
+      {
+        "id": "rule_block",
+        "type": "table",
+        "tableId": "rule_table"
+      },
+      {
+        "id": "state_continuity",
+        "type": "markdown",
+        "sourceId": "runtime_code",
+        "body": "## 状态连续性与实际决策函数\n\n`experiment.py` 每轮调用分析器时不传 `open_hypotheses`、上一决策或 review update；完整 portfolio 随后被 `_safe_portfolio_context` 压缩为 digest、计数和少量 ID。模板没有 previous instance、revision、invalidator 或 re-entry 字段。提交时又为每轮建立新假说实例，八轮 review 的结果不会回灌下一轮。\n\n所以实际函数不是“上一战略状态 + 新证据 → 受控更新”，而是“当轮快照 → 新 PHI/几何 → 当轮合法动作”。它优先优化**当前动作的可验证性、风险门合规和短期可见损失控制**，没有证据表明在数值上优化趋势捕获、风险调整收益或相对基准机会差。\n\n空仓几乎无机器成本：inactivity 是全组合计数，其他标的或退出成交可重置；即使达到阈值，typed `NOT_ACTIONABLE` 也能满足 gate。退出只需既定 target 或当前风险理由；重入却要求新 PHI、研究就绪几何、现价位于 zone、精确 stop/target、净 RR 至少 1.5 和风险授权。退出与重入门槛因此结构性不对称。"
+      },
+      {
+        "id": "timer",
+        "type": "markdown",
+        "sourceId": "runtime_code",
+        "body": "## 定时系统责任\n\n自动任务为每小时一次，但已提交槽缺少 07:00Z 与 18:00Z。调度器只检查“当前槽是否合法且未重复”，不要求上一槽已完成或补跑；八轮 review 按 cycle 数计数，而 PHI 按真实 8 小时到期，漏槽后两种时钟漂移。cycle-0010 至 0011 间隔 2.069 小时，恰与首次 PHI 切换同窗，但不能据此证明因果。\n\n保护障碍仅由闭合 1H bar 驱动。第16轮标记价已高于目标、15M high 已越过目标，但最新闭合 1H high 未越过，所以需要 Agent 约 15 分钟后显式市价平仓。小时采样加上不支持 stop-entry 的静态 zone 编译，解释了第15轮尚未触发的突破多头几何为何在第16轮直接被价格跨过。\n\n当前还存在两项控制面分裂：automation 已 `PAUSED`，runtime state 却仍是 `ACTIVE / pending_decision_cycle=25`；manifest 只绑定 3655-byte 基础 v1 prompt，而实际 automation prompt 为 8726 bytes（基础提示加中文记录附录）。它们没有证据可被认定为本次 SNDK 事故原因，但属于机器授权和可追溯性缺口。调度是实质放大因素，不是“永久无状态”的首要根因。"
+      },
+      {
+        "id": "pnl_intro",
+        "type": "markdown",
+        "sourceId": "audit_math",
+        "body": "## 收益账本\n\nSNDK 四笔 lot 合计毛已实现 6.61483915 USDT，费用 0.92426258 USDT，实际净已实现 5.69057657 USDT，未实现为 0。策略归因净收益 62.18337755 USDT，外生初始仓位净收益 -56.49280098 USDT。funding 为 `NOT_SIMULATED_V0_1`，不得写成 0。\n\nlot-000007 若以真实数量和入场持有到第24轮，假设按冻结 2 bps 滑点与 0.05% 退出费平仓，净收益为 74.08719257 USDT，相对实际 43.55852512 的机会差为 30.52866745 USDT。它是反事实机会差，**不是实际亏损**，也不能用来事后证明第16轮在当时违反冻结规则。"
+      },
+      {
+        "id": "pnl_block",
+        "type": "table",
+        "tableId": "pnl_table"
+      },
+      {
+        "id": "counterfactual_block",
+        "type": "table",
+        "tableId": "counterfactual_table"
+      },
+      {
+        "id": "counterfactual_note",
+        "type": "markdown",
+        "sourceId": "audit_math",
+        "body": "### 反事实解释\n\n机械执行冻结 v1 并不会持有上涨趋势：若取消第16轮显式市价平仓，下一轮闭合 1H barrier 仍会按冻结目标 1124.99 平仓。用户要求的“严格保持战略假说”与“仅战术减仓”在历史规则中缺少持久假说、核心比例、减仓比例和重入合同，因此只能做敏感性，不能给出伪精确的唯一回放。\n\n对战术减仓比例 α：第24轮 mark 净值 = `74.31430265 - 30.75577753 × α`；假设平仓净值 = `74.08719257 - 30.52866745 × α`。α=1 对应全退，α=0 对应全持有敏感性。"
+      },
+      {
+        "id": "responsibility_block",
+        "type": "table",
+        "tableId": "responsibility_table"
+      },
+      {
+        "id": "root_cause",
+        "type": "markdown",
+        "sourceId": "runtime_code",
+        "body": "## 根因裁决\n\n- **首次潜在根因节点**：cycle-0001 起即存在的无状态分析接口。\n- **首次可观察偏离节点**：cycle-0011，PHI 从 RANGE 切到 DOWNWARD_CONTINUATION，但多头仓位继续持有且无状态转换回执。\n- **首次不可逆操作节点**：cycle-0016，全量清除最后 SNDK lot，没有再入场合同。\n- **直接原因**：冻结目标触发全平；退出后上涨方向无法通过静态 support geometry 与当轮 validator 编译成多头动作。\n- **系统性原因**：跨轮战略状态未被消费；核心/战术、退出意图、假说失效与再入场没有正式语义；空仓机会成本缺席；symbol inactivity 被全组合时钟稀释。\n- **受影响规则**：退出附带回归合同、每轮只更新上一状态、风险动作与观点变化隔离，均缺失；大周期/小周期权限只有描述，缺少跨轮机器约束。\n\n**不是数据根因，也不能判为理论预测失败。** 冻结 `PHI_RANGE` 在预设期限内获支持且目标兑现；单例不能证明理论稳定有效。若产品目标是捕捉超跌后的持续趋势，则 V1 明示“不交易趋势延续”，属于理论范围与产品目标错配。主要事故责任属于实现和状态管理，定时系统为重要放大因素。"
+      },
+      {
+        "id": "minimum_repair",
+        "type": "markdown",
+        "sourceId": "runtime_code",
+        "body": "## 最小修复方案（本次不实施）\n\n只增加一个不可绕过的持久治理对象，并接入现有提交门：\n\n1. `StrategicHypothesisState` 保存同一 episode 的版本链、目标 horizon、硬失效、待验证项和 A/B/C/D 状态；\n2. lot 必须标记 `CORE/TACTICAL` 与退出意图；固定目标或风险减仓不自动等于战略失效；\n3. 未到战略失效状态的退出必须原子生成 `ReentryContract` 与最迟复核时钟；\n4. 下一轮只能消费上一 accepted state 并输出 delta/transition receipt；\n5. inactivity 和机会差按 symbol 计量，退出成交及其他标的成交不得重置 SNDK；\n6. 战略时钟绑定闭合 4H/1D bar 或合格事件，hourly scheduler 仅唤醒并必须识别漏槽；突破执行需要条件入场或事件驱动能力。\n\n这是一项修复建议，不是已完成修复，也不授权恢复自动任务或进行真实交易。"
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "sourceId": "audit_math",
+        "body": "## 已知限制\n\n- 没有核心/战术仓位字段，不能事后分配比例。\n- 没有开放式“超跌反弹”战略对象；正式路径是有到期、有目标的 `PHI_RANGE`。\n- 没有每轮模型实际读取清单、token 数或截断位置，不能声称发生模型上下文截断；可证的是结构化接口主动压缩。\n- cycle-0022 至 0024 没有独立 `agent-decision.json`，但权威规范化决策存在。\n- 反事实的最大回撤是 lot-000007 局部口径，不等于全组合风险调整回报。\n- 本次单例只能审计执行忠实性，不能证明理论具有稳定预测能力或可盈利性。"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-07-30T23:54:48Z",
+    "status": "ready",
+    "datasets": {
+      "metrics": [
+        {
+          "first_sndk_flat_cycle": 16,
+          "flat_committed_cycles": 8,
+          "actual_net_pnl": 5.69057657,
+          "lot7_opportunity_gap": 30.52866745
+        }
+      ],
+      "timeline": [
+        {
+          "cycle": 1,
+          "decision_at": "2026-07-29T21:27:27.899882Z",
+          "reference_price": 986.84365119,
+          "timeframes": "DOWN / DOWN / TRANSITION / DOWN",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_DOWNWARD_CONTINUATION",
+          "support": "WEAK",
+          "confidence_change": "基线",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 438.59717831,
+          "action": "MODIFY_ORDERS",
+          "actual_action": "保护外生 lot-000001；无策略新仓",
+          "trigger": "研究几何未触发",
+          "evidence": "1D/4H/15M DOWN；同轮 measurement/structure refs",
+          "previous_state": "初始外生多头"
+        },
+        {
+          "cycle": 2,
+          "decision_at": "2026-07-29T22:40:49.789758Z",
+          "reference_price": 1013.37,
+          "timeframes": "DOWN / DOWN / RANGE / DOWN",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_DOWNWARD_CONTINUATION",
+          "support": "WEAK",
+          "confidence_change": "无变化",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 450.38666667,
+          "action": "MODIFY_ORDERS",
+          "actual_action": "提高外生 lot 保护",
+          "trigger": "价格位于所有研究就绪区之外",
+          "evidence": "4H DOWN；1H RANGE；15M DOWN",
+          "previous_state": "DOWN/WEAK；外生多头受保护"
+        },
+        {
+          "cycle": 3,
+          "decision_at": "2026-07-29T23:41:32.981607Z",
+          "reference_price": 997.96647285,
+          "timeframes": "DOWN / DOWN / RANGE / DOWN",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_RANGE",
+          "support": "WEAK",
+          "confidence_change": "PHI DOWN → RANGE",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 250.0,
+          "action": "OPEN_LONG",
+          "actual_action": "lot-000001 止损；开 lot-000006",
+          "trigger": "支撑回测几何触发并通过风险门",
+          "evidence": "1H RANGE；现价进入冻结多头区",
+          "previous_state": "DOWN/WEAK；仅外生多头"
+        },
+        {
+          "cycle": 4,
+          "decision_at": "2026-07-30T00:41:44.133306Z",
+          "reference_price": 1014.09,
+          "timeframes": "DOWN / DOWN / RANGE / TRANSITION",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_RANGE",
+          "support": "WEAK",
+          "confidence_change": "无变化",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 254.0390954,
+          "action": "MODIFY_ORDERS",
+          "actual_action": "收紧 lot-000006 保护",
+          "trigger": "价格高于支撑回测区",
+          "evidence": "1H RANGE；15M TRANSITION",
+          "previous_state": "RANGE/WEAK；策略多头"
+        },
+        {
+          "cycle": 5,
+          "decision_at": "2026-07-30T01:43:24.948259Z",
+          "reference_price": 1069.36,
+          "timeframes": "DOWN / DOWN / RANGE / TRANSITION",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_RANGE",
+          "support": "WEAK",
+          "confidence_change": "无变化",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 267.88475091,
+          "action": "MODIFY_ORDERS",
+          "actual_action": "继续收紧保护",
+          "trigger": "价格在支撑与阻力之间",
+          "evidence": "4H DOWN；1H RANGE；15M TRANSITION",
+          "previous_state": "RANGE/WEAK；策略多头"
+        },
+        {
+          "cycle": 6,
+          "decision_at": "2026-07-30T02:43:23.874545Z",
+          "reference_price": 1033.97853615,
+          "timeframes": "DOWN / DOWN / RANGE / TRANSITION",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_RANGE",
+          "support": "WEAK",
+          "confidence_change": "无变化；新 8h 实例",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 250.0,
+          "action": "OPEN_LONG",
+          "actual_action": "lot-000006 止损；开 lot-000007",
+          "trigger": "1028.28–1039.62 支撑回测触发",
+          "evidence": "1H RANGE；冻结 stop 994.2652、target 1124.99",
+          "previous_state": "RANGE/WEAK；lot-000006"
+        },
+        {
+          "cycle": 7,
+          "decision_at": "2026-07-30T03:42:49.239842Z",
+          "reference_price": 1028.31,
+          "timeframes": "DOWN / DOWN / RANGE / DOWN",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_RANGE",
+          "support": "WEAK",
+          "confidence_change": "无变化",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 248.62943573,
+          "action": "KEEP",
+          "actual_action": "持有 lot-000007",
+          "trigger": "现有策略 lot 受保护",
+          "evidence": "1H RANGE；15M DOWN；stop 未触发",
+          "previous_state": "RANGE/WEAK；策略多头"
+        },
+        {
+          "cycle": 8,
+          "decision_at": "2026-07-30T04:43:01.050195Z",
+          "reference_price": 1019.65,
+          "timeframes": "DOWN / DOWN / RANGE / TRANSITION",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_RANGE",
+          "support": "WEAK",
+          "confidence_change": "无变化",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 246.53558182,
+          "action": "KEEP",
+          "actual_action": "持有 lot-000007",
+          "trigger": "价格在冻结区间且保护有效",
+          "evidence": "1H RANGE；15M TRANSITION",
+          "previous_state": "RANGE/WEAK；策略多头"
+        },
+        {
+          "cycle": 9,
+          "decision_at": "2026-07-30T05:45:23.897587Z",
+          "reference_price": 1027.7320819,
+          "timeframes": "DOWN / DOWN / RANGE / TRANSITION",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_RANGE",
+          "support": "WEAK",
+          "confidence_change": "无变化",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 248.48970408,
+          "action": "KEEP",
+          "actual_action": "持有 lot-000007",
+          "trigger": "价格在冻结区间且保护有效",
+          "evidence": "1H RANGE；15M TRANSITION",
+          "previous_state": "RANGE/WEAK；策略多头"
+        },
+        {
+          "cycle": 10,
+          "decision_at": "2026-07-30T06:45:21.186272Z",
+          "reference_price": 1013.03,
+          "timeframes": "DOWN / DOWN / RANGE / DOWN",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_RANGE",
+          "support": "WEAK",
+          "confidence_change": "无变化；新增实例",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 494.93496832,
+          "action": "ADD_LONG",
+          "actual_action": "开 lot-000009；保留 lot-000007",
+          "trigger": "支撑回测再次触发并通过风险门",
+          "evidence": "1H RANGE；15M DOWN；现价进入多头区",
+          "previous_state": "RANGE/WEAK；单笔策略多头"
+        },
+        {
+          "cycle": 11,
+          "decision_at": "2026-07-30T08:49:28.975651Z",
+          "reference_price": 1015.73,
+          "timeframes": "DOWN / DOWN / RANGE / DOWN",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_DOWNWARD_CONTINUATION",
+          "support": "MODERATE",
+          "confidence_change": "PHI RANGE/WEAK → DOWN/MODERATE",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 496.2541044,
+          "action": "KEEP",
+          "actual_action": "保留两笔多头",
+          "trigger": "新风险几何未触发；现有 lot 有保护",
+          "evidence": "1D/4H DOWN；15M DOWN；短窗负压力",
+          "previous_state": "RANGE/WEAK；双多头"
+        },
+        {
+          "cycle": 12,
+          "decision_at": "2026-07-30T09:49:09.611077Z",
+          "reference_price": 1027.04,
+          "timeframes": "DOWN / DOWN / RANGE / TRANSITION",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_DOWNWARD_CONTINUATION",
+          "support": "MODERATE",
+          "confidence_change": "无变化",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 501.77981883,
+          "action": "KEEP",
+          "actual_action": "持有并收紧保护",
+          "trigger": "新仓区未触发",
+          "evidence": "1D/4H DOWN；1H RANGE；15M TRANSITION",
+          "previous_state": "DOWN/MODERATE；双多头"
+        },
+        {
+          "cycle": 13,
+          "decision_at": "2026-07-30T10:49:50.877640Z",
+          "reference_price": 1047.56158949,
+          "timeframes": "DOWN / DOWN / RANGE / TRANSITION",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_DOWNWARD_CONTINUATION",
+          "support": "MODERATE",
+          "confidence_change": "无变化",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 511.80602955,
+          "action": "KEEP",
+          "actual_action": "持有两笔多头",
+          "trigger": "价格在注册区之间",
+          "evidence": "4H DOWN；1H RANGE；保护未触发",
+          "previous_state": "DOWN/MODERATE；双多头"
+        },
+        {
+          "cycle": 14,
+          "decision_at": "2026-07-30T11:51:12.472285Z",
+          "reference_price": 1076.93552078,
+          "timeframes": "DOWN / DOWN / RANGE / UP",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_DOWNWARD_CONTINUATION",
+          "support": "MODERATE",
+          "confidence_change": "无变化；15M 转 UP",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 526.1572193,
+          "action": "KEEP",
+          "actual_action": "持有两笔多头",
+          "trigger": "新仓几何未触发；现有 lot 有保护",
+          "evidence": "1D/4H DOWN；1H RANGE；15M UP",
+          "previous_state": "DOWN/MODERATE；双多头"
+        },
+        {
+          "cycle": 15,
+          "decision_at": "2026-07-30T12:51:43.301920Z",
+          "reference_price": 1103.08031018,
+          "timeframes": "DOWN / DOWN / TRANSITION / UP",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_DOWNWARD_CONTINUATION",
+          "support": "WEAK",
+          "confidence_change": "MODERATE → WEAK",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 266.70773899,
+          "action": "KEEP",
+          "actual_action": "lot-000009 达 1069.69 目标；lot-000007 保留",
+          "trigger": "预注册 target fill",
+          "evidence": "1H TRANSITION；15M UP；冻结目标",
+          "previous_state": "DOWN/MODERATE；双多头"
+        },
+        {
+          "cycle": 16,
+          "decision_at": "2026-07-30T13:54:16.952943Z",
+          "reference_price": 1215.70761844,
+          "timeframes": "DOWN / DOWN / TRANSITION / UP",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_DOWNWARD_CONTINUATION",
+          "support": "MODERATE",
+          "confidence_change": "WEAK → MODERATE",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 0.0,
+          "action": "EXIT",
+          "actual_action": "全量关闭 lot-000007，fill 1215.46447692",
+          "trigger": "标记价越过冻结目标 1124.99",
+          "evidence": "15M UP；1H TRANSITION；冻结 target 与 CLOSE 回执",
+          "previous_state": "DOWN/WEAK；仅 lot-000007"
+        },
+        {
+          "cycle": 17,
+          "decision_at": "2026-07-30T14:53:34.368799Z",
+          "reference_price": 1239.48,
+          "timeframes": "DOWN / DOWN / TRANSITION / UP",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_DOWNWARD_CONTINUATION",
+          "support": "WEAK",
+          "confidence_change": "MODERATE → WEAK",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 0.0,
+          "action": "ABSTAIN",
+          "actual_action": "无 SNDK 动作",
+          "trigger": "研究就绪空头区未触发；现价高于区间",
+          "evidence": "1D/4H DOWN；15M UP；静态空头几何",
+          "previous_state": "SNDK 已空仓；无重入合同"
+        },
+        {
+          "cycle": 18,
+          "decision_at": "2026-07-30T15:56:39.766747Z",
+          "reference_price": 1255.13992177,
+          "timeframes": "DOWN / DOWN / TRANSITION / UP",
+          "strategic_trend": "DOWN",
+          "market_phase": "DOWN",
+          "selected_phi": "PHI_DOWNWARD_CONTINUATION",
+          "support": "WEAK",
+          "confidence_change": "无变化",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 0.0,
+          "action": "ABSTAIN",
+          "actual_action": "无 SNDK 动作",
+          "trigger": "研究就绪空头区未触发",
+          "evidence": "1D/4H DOWN；1H TRANSITION；15M UP",
+          "previous_state": "DOWN/WEAK；空仓"
+        },
+        {
+          "cycle": 19,
+          "decision_at": "2026-07-30T16:57:42.874646Z",
+          "reference_price": 1254.87,
+          "timeframes": "DOWN / TRANSITION / TRANSITION / UP",
+          "strategic_trend": "TRANSITION",
+          "market_phase": "TRANSITION",
+          "selected_phi": "PHI_UPWARD_CONTINUATION",
+          "support": "WEAK",
+          "confidence_change": "PHI DOWN → UP",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 0.0,
+          "action": "ABSTAIN",
+          "actual_action": "无 SNDK 动作",
+          "trigger": "多头几何被拒；空头区未触发",
+          "evidence": "4H/1H TRANSITION；15M UP；long target UNKNOWN",
+          "previous_state": "DOWN/WEAK；空仓"
+        },
+        {
+          "cycle": 20,
+          "decision_at": "2026-07-30T17:59:02.779941Z",
+          "reference_price": 1258.0739137,
+          "timeframes": "DOWN / TRANSITION / TRANSITION / UP",
+          "strategic_trend": "TRANSITION",
+          "market_phase": "TRANSITION",
+          "selected_phi": "PHI_DOWNWARD_CONTINUATION",
+          "support": "WEAK",
+          "confidence_change": "PHI UP → DOWN",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 0.0,
+          "action": "ABSTAIN",
+          "actual_action": "无 SNDK 动作",
+          "trigger": "空头下破区未触发",
+          "evidence": "4H/1H TRANSITION；15M UP；静态 support-breakdown",
+          "previous_state": "UP/WEAK；空仓"
+        },
+        {
+          "cycle": 21,
+          "decision_at": "2026-07-30T19:00:28.148379Z",
+          "reference_price": 1258.2361003,
+          "timeframes": "DOWN / TRANSITION / UP / UP",
+          "strategic_trend": "TRANSITION",
+          "market_phase": "TRANSITION",
+          "selected_phi": "PHI_UPWARD_CONTINUATION",
+          "support": "MODERATE",
+          "confidence_change": "PHI DOWN/WEAK → UP/MODERATE",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 0.0,
+          "action": "ABSTAIN",
+          "actual_action": "无 SNDK 动作",
+          "trigger": "多头几何未研究就绪；空头区未触发",
+          "evidence": "1H/15M UP；4H TRANSITION；long target UNKNOWN",
+          "previous_state": "DOWN/WEAK；空仓"
+        },
+        {
+          "cycle": 22,
+          "decision_at": "2026-07-30T20:00:20.403634Z",
+          "reference_price": 1277.23,
+          "timeframes": "DOWN / TRANSITION / UP / UP",
+          "strategic_trend": "TRANSITION",
+          "market_phase": "TRANSITION",
+          "selected_phi": "PHI_DOWNWARD_CONTINUATION",
+          "support": "WEAK",
+          "confidence_change": "PHI UP/MODERATE → DOWN/WEAK",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 0.0,
+          "action": "ABSTAIN",
+          "actual_action": "SNDK 无动作；全组合在本轮后空仓",
+          "trigger": "现价高于全部研究就绪 entry zones",
+          "evidence": "1H/15M UP；静态 zones 远低于现价",
+          "previous_state": "UP/MODERATE；SNDK 空仓"
+        },
+        {
+          "cycle": 23,
+          "decision_at": "2026-07-30T21:01:54.482449Z",
+          "reference_price": 1322.49096018,
+          "timeframes": "DOWN / TRANSITION / UP / UP",
+          "strategic_trend": "TRANSITION",
+          "market_phase": "TRANSITION",
+          "selected_phi": "PHI_UPWARD_CONTINUATION",
+          "support": "WEAK",
+          "confidence_change": "PHI DOWN → UP",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 0.0,
+          "action": "ABSTAIN",
+          "actual_action": "无 SNDK 动作",
+          "trigger": "现价高于全部研究就绪 entry zones",
+          "evidence": "1H/15M UP；多头几何仍被拒",
+          "previous_state": "DOWN/WEAK；空仓"
+        },
+        {
+          "cycle": 24,
+          "decision_at": "2026-07-30T22:02:08.011922Z",
+          "reference_price": 1342.06,
+          "timeframes": "DOWN / TRANSITION / UP / UP",
+          "strategic_trend": "TRANSITION",
+          "market_phase": "TRANSITION",
+          "selected_phi": "PHI_UPWARD_CONTINUATION",
+          "support": "MODERATE",
+          "confidence_change": "WEAK → MODERATE",
+          "core_position": "NOT_RECORDED",
+          "tactical_position": "NOT_RECORDED",
+          "position_notional": 0.0,
+          "action": "ABSTAIN",
+          "actual_action": "无 SNDK 动作",
+          "trigger": "所有注册 entry zones 未触发",
+          "evidence": "1H/15M UP；4H TRANSITION；静态几何",
+          "previous_state": "UP/WEAK；空仓"
+        }
+      ],
+      "deviation_nodes": [
+        {
+          "node": "首次降低/切换反弹路径权重",
+          "cycle": "cycle-0011",
+          "finding": "PHI_RANGE/WEAK → PHI_DOWNWARD_CONTINUATION/MODERATE；多头仓位未变",
+          "trigger": "1D/4H DOWN、15M DOWN、短窗负主动压力",
+          "classification": "结构性背景 + 确认/战术信号；缺少跨层状态转换证明"
+        },
+        {
+          "node": "首次策略减仓",
+          "cycle": "cycle-0015",
+          "finding": "lot-000009 在 1069.69 冻结目标成交",
+          "trigger": "预注册 take-profit",
+          "classification": "风险/退出规则；不是战略失效"
+        },
+        {
+          "node": "首次清除核心仓位",
+          "cycle": "不可识别；最近似 cycle-0016",
+          "finding": "历史无 CORE/TACTICAL 字段；cycle-0016 清除最后 SNDK lot",
+          "trigger": "标记价越过 lot-000007 冻结目标 1124.99",
+          "classification": "退出规则；核心语义缺失"
+        },
+        {
+          "node": "首次完全空仓",
+          "cycle": "SNDK: cycle-0016；组合: cycle-0022",
+          "finding": "SNDK 从第16轮后为 0；第22轮仅是全组合也归零",
+          "trigger": "SNDK target exit；后续 SOL exit",
+          "classification": "仓位执行"
+        },
+        {
+          "node": "首次满足原假说仍拒绝重入",
+          "cycle": "不可唯一识别；方向断裂见 0019/0021",
+          "finding": "原 PHI_RANGE 已到期并达目标；0019/0021 选 UP 仍 ABSTAIN",
+          "trigger": "多头几何 REJECTED、target UNKNOWN、现价不在静态 zone",
+          "classification": "决策政策/状态缺失，不是单一噪音"
+        }
+      ],
+      "rule_fidelity": [
+        {
+          "rule": "大周期决定方向，小周期只负责执行",
+          "frozen_v1": "部分忠实",
+          "governance": "机器层缺失",
+          "evidence": "有 ordered roles；但每轮 PHI 可随 1H/15M 切换且无跨层 transition receipt。第16轮退出由 target，不是小周期噪音。"
+        },
+        {
+          "rule": "核心假说未硬失效不得被局部波动清除",
+          "frozen_v1": "不适用/未定义核心仓位",
+          "governance": "无法验证且语义缺失",
+          "evidence": "历史没有 core tag；lot-000007 因 frozen target 退出，符合 T-023。"
+        },
+        {
+          "rule": "风险减仓不等于观点失效",
+          "frozen_v1": "字段缺失",
+          "governance": "违反结构要求",
+          "evidence": "CLOSE schema 无 action_intent；target、风险、战术、战略退出无法区分。"
+        },
+        {
+          "rule": "退出必须建立重新进入条件",
+          "frozen_v1": "未要求",
+          "governance": "明确违反",
+          "evidence": "cycle-0016 写明不重启 lot，未提供 re-entry contract 或复核时钟。"
+        },
+        {
+          "rule": "每小时更新上一状态而非从零分析",
+          "frozen_v1": "实现不忠实于 episode 连续性",
+          "governance": "明确违反",
+          "evidence": "上一 open_hypotheses 不传入分析；每轮新建 cycle-N:SNDK 实例。"
+        },
+        {
+          "rule": "短期确认不能证明长期假说失效",
+          "frozen_v1": "忠实",
+          "governance": "未见结果倒写",
+          "evidence": "cycle-0016 明示盈利不重写 PHI_RANGE thesis；review 后评估不作为退出原因。"
+        }
+      ],
+      "pnl_lots": [
+        {
+          "lot": "lot-000001",
+          "attribution": "EXOGENOUS",
+          "entry": 1125.0,
+          "exit": 998.390393,
+          "gross_pnl": -56.27093644,
+          "fees": 0.22186453,
+          "net_pnl": -56.49280098
+        },
+        {
+          "lot": "lot-000006",
+          "attribution": "STRATEGY",
+          "entry": 998.16606614,
+          "exit": 1018.614324,
+          "gross_pnl": 5.12248117,
+          "fees": 0.25261124,
+          "net_pnl": 4.86986993
+        },
+        {
+          "lot": "lot-000007",
+          "attribution": "STRATEGY",
+          "entry": 1034.18533186,
+          "exit": 1215.46447692,
+          "gross_pnl": 43.83049036,
+          "fees": 0.27196525,
+          "net_pnl": 43.55852512
+        },
+        {
+          "lot": "lot-000009",
+          "attribution": "STRATEGY",
+          "entry": 1013.232606,
+          "exit": 1069.69,
+          "gross_pnl": 13.93280406,
+          "fees": 0.17782156,
+          "net_pnl": 13.7549825
+        },
+        {
+          "lot": "合计",
+          "attribution": "ALL SNDK",
+          "entry": 0,
+          "exit": 0,
+          "gross_pnl": 6.61483915,
+          "fees": 0.92426258,
+          "net_pnl": 5.69057657
+        }
+      ],
+      "counterfactuals": [
+        {
+          "lane": "原 Agent 实际路径",
+          "identifiability": "精确",
+          "first_exit": "cycle-0016 @ 1215.46447692",
+          "flat_duration": "cycle-0017–0024，8 个已提交轮次，约 8.13h",
+          "reentry_delay": "未重入",
+          "max_drawdown": "lot-000007 局部约 5.24005668 USDT",
+          "final_result": "lot-000007 净 43.55852512；全部 SNDK 净 5.69057657",
+          "theory_fidelity": "冻结 target 忠实；跨轮治理失败"
+        },
+        {
+          "lane": "机械执行冻结 v1 动作契约",
+          "identifiability": "精确控制",
+          "first_exit": "cycle-0017 closed-1H target @ 1124.99",
+          "flat_duration": "之后空仓",
+          "reentry_delay": "v1 无重入义务",
+          "max_drawdown": "标记峰值到 target 实现约 21.98851651 USDT",
+          "final_result": "lot-000007 净 21.77573671",
+          "theory_fidelity": "最高；同样不会持有趋势"
+        },
+        {
+          "lane": "严格保持战略超跌反弹",
+          "identifiability": "历史规则缺失；仅敏感性",
+          "first_exit": "假设 cycle-0024",
+          "flat_duration": "0",
+          "reentry_delay": "不适用；保留敞口",
+          "max_drawdown": "同口径约 5.24005668 USDT",
+          "final_result": "mark 净 74.31430265；假设平仓净 74.08719257",
+          "theory_fidelity": "不属于冻结 v1；属于用户新治理假设"
+        },
+        {
+          "lane": "仅允许战术减仓",
+          "identifiability": "α 未冻结，参数化",
+          "first_exit": "cycle-0016 减仓 α",
+          "flat_duration": "α<1 时为 0；α=1 同实际",
+          "reentry_delay": "历史无合同，无法唯一计算",
+          "max_drawdown": "取决于 α；不能给唯一值",
+          "final_result": "mark = 74.31430265 - 30.75577753α",
+          "theory_fidelity": "历史无 CORE/TACTICAL，不能称原理论回放"
+        }
+      ],
+      "responsibility": [
+        {
+          "layer": "理论",
+          "verdict": "未被本例否定；存在范围/产品目标缺口",
+          "reason": "PHI_RANGE 在期限内获支持并达目标；但 V1 不交易趋势延续，也没有核心/战术/再入场语义。"
+        },
+        {
+          "layer": "Agent 实施",
+          "verdict": "主要责任",
+          "reason": "每轮新算 PHI 与几何；validator 只验证当轮自洽；退出后无恢复编译。"
+        },
+        {
+          "layer": "数据",
+          "verdict": "非根因，次要不确定性",
+          "reason": "点时检查通过；F/R/1W 缺口限制机制判断，但未触发第16轮退出和后续 abstention。"
+        },
+        {
+          "layer": "状态管理",
+          "verdict": "主要责任",
+          "reason": "历史保存却不输入下一轮；每轮独立实例；review 不回灌；无 re-entry state。"
+        },
+        {
+          "layer": "定时系统",
+          "verdict": "重要放大因素，非首要根因",
+          "reason": "漏两个小时槽；1H barrier；review cycle/hour 漂移；小时采样跨过突破 zone。"
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "run_artifacts",
+      "query": {
+        "engine": "local-json",
+        "language": "shell+jq",
+        "sql": "for d in .runtime/theory-paper-v1/current/cycles/cycle-{0001..0024}; do jq '{cycle_id,decision_at,sndk:(.symbols[]|select(.symbol==\"SNDKUSDT\"))}' \"$d/analysis.json\"; jq '.validated_decision.symbol_decisions[]|select(.symbol==\"SNDKUSDT\")' \"$d/decision.json\"; done",
+        "description": "逐轮读取已提交的 market、analysis、decision、execution、state、review 与 ledger 工件；所有字段受各轮 decision_at 点时边界约束。",
+        "executed_at": "2026-07-30T23:54:48Z"
+      }
+    },
+    {
+      "id": "frozen_theory",
+      "query": {
+        "engine": "local-source-review",
+        "language": "shell",
+        "sql": "nl -ba CORE_TRADING_THEORY_v2_1.md | sed -n '150,172p;343,353p;379,421p;425,459p;486,501p'",
+        "description": "检查冻结理论中的时间尺度、episode、动作契约、target/horizon 与 abstention 规则。",
+        "executed_at": "2026-07-30T23:54:48Z"
+      }
+    },
+    {
+      "id": "runtime_code",
+      "query": {
+        "engine": "local-source-review",
+        "language": "shell",
+        "sql": "nl -ba trade_system/theory_paper/experiment.py trade_system/theory_paper/theory.py trade_system/theory_paper/portfolio.py trade_system/theory_paper/market.py",
+        "description": "只读追踪分析入口、状态压缩、假说实例、validator、barrier 与 scheduler 调用链。",
+        "executed_at": "2026-07-30T23:54:48Z"
+      }
+    },
+    {
+      "id": "audit_math",
+      "query": {
+        "engine": "deterministic-audit",
+        "language": "formula",
+        "sql": "net_realized = gross_realized - entry_fee - exit_fee; hold_mark_net = quantity * (cycle24_price - entry_price) - entry_fee; hypothetical_exit_net = quantity * (cycle24_price * (1 - 0.0002) - entry_price) - entry_fee - quantity * cycle24_price * (1 - 0.0002) * 0.0005",
+        "description": "按真实数量、成交、手续费、冻结滑点和 cycle-0024 终值分开计算实际 PnL、基准与机会差。",
+        "executed_at": "2026-07-30T23:54:48Z"
+      }
+    }
+  ],
+  "package_info": {
+    "originUrl": "artifact://sndk-execution-incident-audit",
+    "controls": {
+      "edit": false,
+      "refresh": false
+    }
+  }
+}

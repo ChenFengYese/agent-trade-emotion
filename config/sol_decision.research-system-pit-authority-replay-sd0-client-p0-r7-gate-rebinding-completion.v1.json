@@ -1,0 +1,333 @@
+{
+  "schema_version": "sol-research-system-pit-authority-replay-sd0-client-p0-r7-gate-rebinding-completion-decision.v1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R7_GATE_REBINDING_COMPLETION.v1",
+  "issued_at": "2026-07-28T16:18:16Z",
+  "issued_by": "GPT-5.6-SOL_ULTRA_R7_GATE_REBINDING_COMPLETION_REVIEW",
+  "decision_state": "ACCEPT_GATE_REBOUND_CANDIDATE_KEEP_PRODUCTION_SUSPENDED",
+  "decision_class": "P0_R7_OFFLINE_GATE_REBINDING_COMPLETION_ACCEPTANCE_NO_ACTIVATION_PERMISSION",
+  "evidence_level": "LOCAL_STATIC_AUDIT_ROOT_REPORTED_OFFLINE_TEST_FACTS_AND_INDEPENDENT_TERRA_REVIEW_ONLY",
+  "completion_scope": {
+    "issue_id": "PITAR1-SD0-CLIENT-P0-R7-GATE-REBINDING-COMPLETION",
+    "completed_authorization_issue": "PITAR1-SD0-CLIENT-P0-R7-GATE-REBINDING",
+    "stage": "SD0",
+    "completion_result": "ACCEPT",
+    "accepted_r7_possible_result": "ACCEPT_GATE_REBOUND_CANDIDATE_KEEP_PRODUCTION_SUSPENDED",
+    "offline_gate_rebinding_safe": true,
+    "production_gate_suspended": true,
+    "production_preflight_authorized": false,
+    "production_runtime_authorized": false,
+    "network_authorized": false,
+    "activation_authorized": false,
+    "automatic_next_permission": "NONE",
+    "active_g1_access": false,
+    "market_data_access": false,
+    "adapter_replay_dataset": false,
+    "backtest_paper_live": false,
+    "credentials_orders_funds": false,
+    "maximum_positive_effect": "The exact post-patch client and test are accepted as the completed offline R7 gate-rebound candidate. The client still unconditionally suspends every production entrypoint, and this completion decision creates no activation or execution capability."
+  },
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "audited_at": "2026-07-28T16:18:16Z"
+  },
+  "accepted_post_patch_candidate": {
+    "client": {
+      "path": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 63411,
+      "physical_sha256": "be12b46da91ef0e0744db733d7022e79b303fdf6756228c9219ba2f40a1532c3",
+      "disposition": "ACCEPT_R7_GATE_REBOUND_CLIENT_PRODUCTION_SUSPENSION_REMAINS"
+    },
+    "test": {
+      "path": "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 95497,
+      "physical_sha256": "0c53a12a8dcf76edeeae0181844bb60d8b634a6fafcbbb491f5c8e18b5d8b79d",
+      "disposition": "ACCEPT_R7_OFFLINE_GATE_REGRESSION_BASE"
+    },
+    "exact_candidate_pair_sha256": "06c9b5d65f23be154598c458afca604a9262715048d61b074f31c728f8e95d00",
+    "pair_formula": "sha256(client_path_utf8 || 0x00 || client_physical_sha256_ascii || 0x00 || test_path_utf8 || 0x00 || test_physical_sha256_ascii)",
+    "pair_use": "EXACT_POST_PATCH_IDENTITY_BINDING_NOT_EXECUTION_AUTHORITY"
+  },
+  "authority_bindings": {
+    "r7_gate_rebinding_authorization": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r7-gate-rebinding.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R7_GATE_REBINDING.v1",
+      "decision_state": "AUTHORIZE_TWO_FILE_R7_GATE_REBINDING_KEEP_PRODUCTION_UNCONDITIONALLY_SUSPENDED_PENDING_FUTURE_SOL_FINAL_DECISION",
+      "size_bytes": 24580,
+      "physical_sha256": "a709e7f05d25d7fff2dd08730e1ca7caa16789de9b23801f419073fdd2565783",
+      "canonical_sha256": "c36327f4e67aee112b07e985ab71a49c40095cfe0a7ee32efd6a944abf10196f",
+      "binding_result": "MATCH",
+      "authorized_result": "ACCEPT_GATE_REBOUND_CANDIDATE_KEEP_PRODUCTION_SUSPENDED",
+      "automatic_next_permission": "NONE"
+    },
+    "r6_completion_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r6-completion.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R6_COMPLETION.v1",
+      "decision_state": "ACCEPT_R6_REPAIR_KEEP_NETWORK_SUSPENDED_PENDING_SEPARATE_RESUME_BINDING",
+      "size_bytes": 18769,
+      "physical_sha256": "fee4bbae7410ba29dd58b253885c19682834520085a5a8cdfdcbc58007f0266b",
+      "canonical_sha256": "65477842be4b90700f08b7e217f9c798815c4ad4ec6780cb5cdffcbc4556ec0b",
+      "binding_result": "MATCH",
+      "effect": "R6 accepted the exact pre-change offline baseline and retained production suspension."
+    },
+    "r6_repair_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r6-repair.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R6_REPAIR.v1",
+      "decision_state": "REJECT_R5_CANDIDATE_CONTINUE_R3_R4_R5_SUSPENSION_AUTHORIZE_TWO_FILE_R6_REPAIR",
+      "size_bytes": 35592,
+      "physical_sha256": "8c736c54273075065fa56757614e95554666ec6dadae831a57652f5bfbdb7b50",
+      "canonical_sha256": "a15e4e51c2f3a1f7a643d72865cecaaa691d8218b3f28d0cec2bfdeffe3fad44",
+      "binding_result": "MATCH",
+      "effect": "IMMUTABLE_AUTHENTICATED_PREDECESSOR"
+    },
+    "phased_route": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-d0-phased-route.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_D0_PHASED_ROUTE.v1",
+      "decision_state": "AUTHORIZED_METERED_SD0_CLOSURE_ROUTE_NETWORK_WAIT_D0_AND_LATER_GATES_LOCKED",
+      "size_bytes": 39834,
+      "physical_sha256": "776a7b69c2655dd76eb84ccab12b3fbac30aef6a81b0f6ebad27ab391b129ec0",
+      "canonical_sha256": "a777dc9411f638f1d3728f7f98f4ccbb64673f06b8f344dd3489efcdc5b79eeb",
+      "binding_result": "MATCH",
+      "effect": "FROZEN_STRUCTURALLY_VALID_NOT_ACTIVATED"
+    },
+    "measurement_contract": {
+      "path": "config/pit_authority_replay.sd0_measurement_contract.v1.json",
+      "size_bytes": 17452,
+      "physical_sha256": "e2cd42a3930e0ede4d5d003742c2abdc76faa755ae86d20074c9d1f60f79e681",
+      "canonical_sha256": "4ed9f22451ede5c834c20e4f1786d344847166b646f9a1b17d2948e16c617a5b",
+      "binding_result": "MATCH",
+      "effect": "FROZEN_NO_CHANGE"
+    },
+    "request_plan": {
+      "path": "config/pit_authority_replay.sd0_request_plan.v1.json",
+      "size_bytes": 4942,
+      "physical_sha256": "3f2f487f824643d870bb9d023e6d883e4c7d28bc9fb0bc769cb5d21253a7079c",
+      "canonical_sha256": "a334816cca1cbdf676e1b935a3404f5803d4ee892c25d2e1d7d34d3a02ea6fe7",
+      "binding_result": "MATCH",
+      "effect": "FROZEN_NO_CHANGE"
+    }
+  },
+  "root_reported_fact_package": {
+    "source": "ROOT_AGENT_FACT_PACKAGE_SUPPLIED_TO_SOL",
+    "syntax": {
+      "command": "PYTHONPYCACHEPREFIX=/tmp/pitar1-sd0-r7-pycache python3 -m py_compile trade_system/pit_authority_replay_sd0_metered_fetch_v1.py tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    "scoped": {
+      "command": "python3 -m unittest -v tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+      "tests_run": 61,
+      "passed": 61,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "combined": {
+      "command": "python3 -m unittest -v tests.test_pit_authority_replay_contract_v1 tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+      "tests_run": 130,
+      "passed": 130,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "post_patch_client_identity": {
+      "size_bytes": 63411,
+      "physical_sha256": "be12b46da91ef0e0744db733d7022e79b303fdf6756228c9219ba2f40a1532c3"
+    },
+    "post_patch_test_identity": {
+      "size_bytes": 95497,
+      "physical_sha256": "0c53a12a8dcf76edeeae0181844bb60d8b634a6fafcbbb491f5c8e18b5d8b79d"
+    },
+    "r6_completion_physical_and_canonical": "MATCH",
+    "r7_physical_and_canonical": "MATCH",
+    "workspace_preflight_runtime_paths_checked": 9,
+    "workspace_preflight_runtime_paths_present": 0,
+    "active_g1_root_identity": "REPORTED_UNCHANGED",
+    "network_requests": 0,
+    "workspace_preflight_runs": 0,
+    "workspace_runtime_runs": 0,
+    "active_g1_access": 0,
+    "market_data_access": 0,
+    "backtest_paper_live_actions": 0,
+    "credentials_orders_funds_actions": 0
+  },
+  "independent_terra_completion_audit": {
+    "auditor": "GPT-5.6-TERRA_HIGH",
+    "decision": "ACCEPT",
+    "assertions": 34,
+    "precheck_safe": "YES_OFFLINE_GATE_REBINDING_ONLY",
+    "observation_matrix": [
+      {
+        "observation_id": "R7-O1",
+        "subject": "Valid exact R3-through-R7 chain across all production entrypoints",
+        "entrypoints": [
+          "main",
+          "preflight",
+          "persist_ready",
+          "execute"
+        ],
+        "terminal_results": [
+          "WAIT_DATA_NO_FALLBACK",
+          "WAIT_DATA_NO_FALLBACK",
+          "WAIT_DATA_NO_FALLBACK",
+          "WAIT_DATA_NO_FALLBACK"
+        ],
+        "tcp_probe_calls": 0,
+        "opener_calls": 0,
+        "workspace_outputs": 0,
+        "result": "PASS_UNCONDITIONAL_SUSPENSION"
+      },
+      {
+        "observation_id": "R7-O2",
+        "subject": "R6 completion and R7 shape and physical identity failures",
+        "result": "ALL_REJECTED_BEFORE_SIDE_EFFECTS"
+      },
+      {
+        "observation_id": "R7-O3",
+        "subject": "Deep field mutations with recomputed canonical self-digests",
+        "result": "ALL_REJECTED_BEFORE_SIDE_EFFECTS"
+      },
+      {
+        "observation_id": "R7-O4",
+        "subject": "Static bypass scan",
+        "environment_override": false,
+        "dynamic_decision_discovery": false,
+        "marker_lookup": false,
+        "resume_lookup": false,
+        "unconditional_raise_present": true,
+        "result": "PASS"
+      },
+      {
+        "observation_id": "R7-O5",
+        "subject": "External action boundary",
+        "network_requests": 0,
+        "active_g1_access": 0,
+        "data_actions": 0,
+        "trading_or_funds_actions": 0,
+        "result": "PASS"
+      }
+    ],
+    "remaining_counterexample": "NONE_REPORTED_WITHIN_R7_OFFLINE_GATE_REBINDING_SCOPE"
+  },
+  "sol_static_completion_audit": {
+    "tests_executed_by_sol": false,
+    "preflight_executed_by_sol": false,
+    "network_executed_by_sol": false,
+    "active_g1_read_by_sol": false,
+    "reason_not_executed": "The completion instruction prohibited tests, preflight, and network. Sol performed exact hash, canonical identity, source-order, test-structure, and output-absence inspection only.",
+    "exact_hash_results": {
+      "post_patch_client": "MATCH",
+      "post_patch_test": "MATCH",
+      "r6_completion_physical_and_canonical": "MATCH",
+      "r7_physical_and_canonical": "MATCH",
+      "r6_repair_route_contract_plan_physical": "MATCH"
+    },
+    "static_discoverable_scoped_test_methods": 61,
+    "r7_test_methods": 2,
+    "verified_source_properties": [
+      "The client hard-pins R6 completion and R7 paths, physical hashes, canonical hashes, decision ids, and decision states.",
+      "_read_exact_gate_document rejects unavailable, symlinked, nonregular, physically drifted, and malformed authority inputs before relying on their content.",
+      "The R6 completion check binds workspace identity, the accepted pre-change pair, suspension fields, and the exact R6 predecessor.",
+      "The R7 check binds workspace identity, the pre-change input pair, two-file allowlist, zero marker/resume/runtime counts, zero execution permissions, and the exact R6 completion predecessor.",
+      "After all R3-through-R7 checks pass, the gate unconditionally raises WAIT_DATA_NO_FALLBACK and returns no capability.",
+      "main, preflight, persist_ready, and execute invoke the production gate before their downstream input, TCP, opener, or output work.",
+      "No environment override, dynamic authority discovery, marker lookup, resume lookup, or activation branch exists in the client.",
+      "R7-T41 covers the valid chain across all four entrypoints; R7-T42 covers missing, malformed, and byte-drifted temporary R6-completion/R7 copies without mutating workspace authority files."
+    ],
+    "workspace_output_absence_observed": {
+      "paths_checked": 9,
+      "paths_present": 0
+    },
+    "static_completion_result": "ACCEPT_WITHIN_OFFLINE_GATE_REBINDING_SCOPE"
+  },
+  "completion_decision": {
+    "r7_gate_rebound_candidate": "ACCEPTED_FOR_EXACT_POST_PATCH_PAIR",
+    "r7_possible_result": "ACCEPT_GATE_REBOUND_CANDIDATE_KEEP_PRODUCTION_SUSPENDED",
+    "production_gate": "UNCONDITIONALLY_SUSPENDED",
+    "production_preflight": "DENIED",
+    "production_runtime": "DENIED",
+    "network": "DENIED",
+    "activation": "NOT_SELECTED_NOT_AUTHORIZED",
+    "marker_or_resume": "NOT_CREATED_NOT_AUTHORIZED",
+    "automatic_effect_on_client_gate": "NONE",
+    "automatic_next_permission": "NONE",
+    "required_next_route": "A_NEW_SEPARATE_SOL_DECISION_IS_REQUIRED;_THIS_FILE_GRANTS_NO_NEXT_STAGE_OR_EXECUTION_PERMISSION"
+  },
+  "permission_matrix": {
+    "create_this_completion_decision": true,
+    "modify_client_or_test": false,
+    "modify_r2_r3_r4_r5_r6_r7_decision": false,
+    "modify_route_contract_plan_schema_or_spec": false,
+    "modify_dependency_or_lock_file": false,
+    "create_activation_marker_resume_or_authorization_file": false,
+    "select_activation_mechanism": false,
+    "run_tests_or_preflight": false,
+    "create_workspace_preflight": false,
+    "create_workspace_runtime": false,
+    "tcp_probe_or_network_request": false,
+    "proxy_access_change_or_bypass": false,
+    "active_g1_read_copy_or_modify": false,
+    "archive_zip_or_market_row_access": false,
+    "d0_adapter_replay_dataset": false,
+    "backtest_calibration_holdout": false,
+    "shadow_paper_testnet_deploy": false,
+    "credentials_account_orders_funds": false,
+    "production_preflight": false,
+    "production_seven_request_route": false,
+    "automatic_next_permission": "NONE",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "stage_disposition": {
+    "pitar1_sd0_r6_completion": "ACCEPTED_PREDECESSOR",
+    "pitar1_sd0_r7_gate_rebinding": "ACCEPTED_OFFLINE_FOR_EXACT_POST_PATCH_PAIR",
+    "pitar1_sd0_route": "FROZEN_STRUCTURALLY_VALID_NOT_ACTIVATED",
+    "pitar1_sd0_contract": "FROZEN_VALID",
+    "pitar1_sd0_plan": "FROZEN_VALID",
+    "pitar1_sd0_production_gate": "UNCONDITIONALLY_SUSPENDED",
+    "pitar1_sd0_production_preflight": "DENIED",
+    "pitar1_sd0_production_requests": "DENIED",
+    "pitar1_d0_and_later": "DENIED_UNCHANGED",
+    "active_g1": "ISOLATED_UNCHANGED",
+    "paper_testnet_deployment_live": "DENIED_UNCHANGED",
+    "automatic_next_permission": "NONE",
+    "next_action": "STOP;_ONLY_A_NEW_SEPARATE_SOL_DECISION_MAY_DEFINE_ANY_LATER_PERMISSION",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "claim_boundary": {
+    "r6_offline_completion": "ACCEPTED_FOR_EXACT_PRE_CHANGE_PAIR",
+    "r7_gate_rebinding_completion": "ACCEPTED_FOR_EXACT_POST_PATCH_PAIR",
+    "production_activation": "NOT_SELECTED_NOT_AUTHORIZED",
+    "network_transport_success": "NOT_TESTED_NOT_AUTHORIZED",
+    "source_authority_or_terms": "NOT_EVALUATED",
+    "market_data_or_pit_validity": "NOT_EVALUATED",
+    "d0_adapter_or_replay": "NOT_AUTHORIZED",
+    "predictive_or_profitability_validity": "NOT_EVALUATED",
+    "paper_or_live_readiness": "NOT_AUTHORIZED",
+    "maximum_positive_claim": "The exact post-patch client and test are accepted as the offline R7 gate-rebound candidate: the client authenticates the exact R6 completion and R7 authorization, rejects malformed, drifted, or semantically re-signed authorities, and still unconditionally suspends all production entrypoints before side effects. This decision grants automatic next permission NONE and does not select or create activation, marker, resume, preflight, runtime, network, Active G1, data, adapter, replay, backtest, paper, deployment, credential, order, or funds authority."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-research-system-pit-authority-replay-sd0-client-p0-r7-gate-rebinding-completion/v1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "a8a091e1129f7b79eeee75bb51ae362d68af72b42c59a0d31b4c6521ec384c10"
+}

@@ -1,0 +1,378 @@
+{
+  "schema_version": "sol-decision.research-system-reconstruction-p0-gate.v1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION_P0_GATE.v1",
+  "issued_at": "2026-07-27T09:10:01Z",
+  "issued_by": "GPT-5.6-SOL-ULTRA_STAGE_GATE",
+  "decision_state": "REWORK_LOCAL",
+  "decision_class": "RSR_P0_FULL_STAGE_GATE",
+  "evidence_level": "E0_STATIC_CONTRACT_AND_AUTHORITY_AUDIT",
+  "decision_scope": {
+    "scope_id": "RSR_P0_EXACT_FROZEN_PACKAGE_STAGE_GATE",
+    "included": [
+      "Bind the exact P0 inventory, integrated validation report, package identities, validator bundle and immutable baselines.",
+      "Independently evaluate P0-RS-01 through P0-RS-05 acceptance, identity, cross-binding, route-alias, authority, claim-boundary and hidden-data or backtest boundaries.",
+      "Reproduce deterministic tests and independently construct semantic privilege and claim mutations.",
+      "Issue ACCEPT_P0 or REWORK_LOCAL for this exact P0 candidate."
+    ],
+    "excluded": [
+      "Reading or modifying /Users/wt/Library/Application Support/agent-trade-emotion.",
+      "Editing the frozen P0 candidate, old active-G1, old P1A or immutable theory artifacts.",
+      "Creating or authorizing D0, D1, D2, D3, E2 or E3.",
+      "Acquiring market rows, running an adapter, replay, dataset build, backtest, calibration, holdout, paper, deployment or trading.",
+      "Evaluating market validity, predictive validity, profitability or execution readiness."
+    ],
+    "workspace_identity": {
+      "cwd": "/Users/wt/Documents/agent-trade-emotion",
+      "branch": "codex/s0-research-foundation",
+      "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+    },
+    "active_application_support_root_accessed": false,
+    "market_rows_accessed": false,
+    "backtest_performed": false,
+    "trading_operation_performed": false
+  },
+  "authority_binding": {
+    "route_decision": {
+      "path": "config/sol_decision.research-system-reconstruction.v1.json",
+      "physical_sha256": "2cf37e54989d3fd09846cacdbe622de26a4c0bd60e46cb0650f67b2827bf5586",
+      "canonical_sha256": "2a434f542f58c6d43798e1562b7f203336eae7e5db4b6745095e3c9e7633ddb6",
+      "decision_state": "AUTHORIZED_P0_E0_RESEARCH_SYSTEM_RECONSTRUCTION"
+    },
+    "p0_inventory": {
+      "path": "config/research_system.p0_artifact_inventory.v1.json",
+      "physical_sha256": "bfffb9eda8e3cb5a4e0b562bbf532b0e9e72fff3f6064c82ee66a719c29af29c",
+      "canonical_sha256": "a64d0036f08f6849619562a0079d03ea64f436518eefa41b3fe5b48cdd3acf30",
+      "size_bytes": 10079,
+      "inventory_id": "MSTA_HED_RESEARCH_SYSTEM_P0_ARTIFACT_INVENTORY.v1",
+      "status": "REVIEW_READY_CANDIDATE_AWAITING_EXTERNAL_SOL_GATE"
+    },
+    "integrated_validation_report": {
+      "path": "artifacts/research_system_p0_validation_report.v1.json",
+      "physical_sha256": "11269856184b0e7bd1f275bd7cce0e0e3f1f2bc3660a20c8176c1b2fd415f722",
+      "canonical_sha256": "d061894eab87f7679ce7283334192aebae7edf6de65e24ecfda1e110c351ad42",
+      "size_bytes": 9773,
+      "report_id": "MSTA_HED_RESEARCH_SYSTEM_P0_VALIDATION_REPORT.v1"
+    },
+    "binding_effect": "This decision applies only to the exact inventory bytes and all exact package identities transitively bound by that inventory. Any changed artifact is a new candidate and has no disposition under this decision."
+  },
+  "exact_package_identities": {
+    "immutable_baseline_count": 10,
+    "immutable_baseline_recomputation": "PASS_10_OF_10",
+    "p0_artifact_count": 21,
+    "p0_artifacts": [
+      {
+        "path": "config/sol_decision.research-system-reconstruction.v1.json",
+        "physical_sha256": "2cf37e54989d3fd09846cacdbe622de26a4c0bd60e46cb0650f67b2827bf5586"
+      },
+      {
+        "path": "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md",
+        "physical_sha256": "c7a5a3607936f4ac4ca05c9d8f05a32e06c0acccb7c5b36804a392e80911f348"
+      },
+      {
+        "path": "RESEARCH_TEAM_GOVERNANCE_v1_0.md",
+        "physical_sha256": "d31f6bf8581a16614eccd57fe3c96a0a6211f881412cd0957e910f4e2f37263f"
+      },
+      {
+        "path": "DATA_AUTHORITY_STANDARD_v1_0.md",
+        "physical_sha256": "03a38e2e4fa5f299b9ed698b0e0d185addf67984bb5e4712d9cc2bd742fd9f72"
+      },
+      {
+        "path": "RESEARCH_SYSTEM_AUDIT_v1_0.md",
+        "physical_sha256": "15f7015a907d48621631efd420361b80519c6cf32e92d7a8ac1b434a60b366b8"
+      },
+      {
+        "path": "RESEARCH_SYSTEM_ROADMAP_v1_0.md",
+        "physical_sha256": "74f61b2e1381d751638da05664fea3e0691699a9e405814a51509132dc1d183f"
+      },
+      {
+        "path": "RESEARCH_SYSTEM_CHANGELOG_v1_0.md",
+        "physical_sha256": "6df8f6d9f2a626e4ac05cc0645fc72992d4517bb40070683d6b6ac36d977abde"
+      },
+      {
+        "path": "config/research_system.object_dictionary.v1.json",
+        "physical_sha256": "9a167daea7bf05d1022e65da40be5b87786139a9e0f74d52994cbc2fd4915fff"
+      },
+      {
+        "path": "config/research_system.hypothesis_validation_queue.v1.json",
+        "physical_sha256": "e76ab11983326ab53d209b6efd362deb91a00215a0c47b14d5930457c614b4cb"
+      },
+      {
+        "path": "config/research_system.measurement_contract.v1.json",
+        "physical_sha256": "2e8d162f9be5182fbe25fd4e5d0c96fd817edc010b92ac61aa03f991aac20651"
+      },
+      {
+        "path": "config/research_system.parameter_registry.v1.json",
+        "physical_sha256": "a5321385626f2acd67063fed1cf8138b400c5911265ad333aed4da3958ca2a26"
+      },
+      {
+        "path": "config/research_system.dispute_registry.v1.json",
+        "physical_sha256": "ae137bcb46051dd7ddb0b71f8c2b01390fcf9ff21d3d409fc7776ef1cb791ba3"
+      },
+      {
+        "path": "config/research_system.source_authority_registry.v1.json",
+        "physical_sha256": "693cc7361c16fb154df97bf2c58a1e68807f990dc976df949658e7ce635abb12"
+      },
+      {
+        "path": "config/research_system.stage_contract.v1.json",
+        "physical_sha256": "ab81251c0ea70e945d9ea7176e9cb59e7353477212dcf36a2d9e4424f944674b"
+      },
+      {
+        "path": "trade_system/research_system_contract_v1.py",
+        "physical_sha256": "5101ca7b59182c51d4afbfc30e4208273a58eaf80589afb96b083295074d362d"
+      },
+      {
+        "path": "tests/test_research_system_contract_v1.py",
+        "physical_sha256": "698b925ce7c9854d86b013df05adef43ec13d4b61027c425e579fbb8df643cd6"
+      },
+      {
+        "path": "artifacts/research_system_p0_independent_math_review.v1.json",
+        "physical_sha256": "907d967f684e873166ec9477c40634ebadccfccbd3be47006b23c07eb6e10d92"
+      },
+      {
+        "path": "artifacts/research_system_p0_independent_math_recheck.v1.json",
+        "physical_sha256": "f81c1128822c691da8f47ef631b2c1c7cc605d251e4cb9e435d353b50ff6a511"
+      },
+      {
+        "path": "artifacts/research_system_p0_math_final_attestation.v1.json",
+        "physical_sha256": "cbbceaa23fc871d4e840ab8ce1b28658139d7471533e9017f789e9c5b9add3e4"
+      },
+      {
+        "path": "artifacts/research_system_p0_adversarial_review.v1.json",
+        "physical_sha256": "b3a4cf459b32e7720ec8e3b2348156322378cf48c040e9edf9f898df3ae0c8d8"
+      },
+      {
+        "path": "artifacts/research_system_p0_validation_report.v1.json",
+        "physical_sha256": "11269856184b0e7bd1f275bd7cce0e0e3f1f2bc3660a20c8176c1b2fd415f722"
+      }
+    ],
+    "registry_bundle": {
+      "status": "ACCEPTED",
+      "reason_code": "OK",
+      "bundle_digest": "c4eb9da641ee6a8f2971d06174f9eaa2c970122fa106acc9a2e8f584833b085d",
+      "canonical_identities": [
+        {
+          "path": "config/research_system.object_dictionary.v1.json",
+          "canonical_sha256": "6f69d94c81f81d174f9d39a8fdfeb0cdf5d52cc753a0dc20b3847cbb5adb8f8e"
+        },
+        {
+          "path": "config/research_system.hypothesis_validation_queue.v1.json",
+          "canonical_sha256": "a4675f506a617fc9b871088f2926a3a5f204c37cc7230222459e999bd3f57704"
+        },
+        {
+          "path": "config/research_system.measurement_contract.v1.json",
+          "canonical_sha256": "004652f83c7873f0fb958258a9f10404d8d379eff1a768cc8b84c406061c9b5a"
+        },
+        {
+          "path": "config/research_system.parameter_registry.v1.json",
+          "canonical_sha256": "ef537b706599b22a10a385c43632435c763f9a9db4e6143670862c391989af39"
+        },
+        {
+          "path": "config/research_system.dispute_registry.v1.json",
+          "canonical_sha256": "434d9169c8c5bb030ea05007e124e179e90e5e5e14671ae9d30d5a38b42d0609"
+        },
+        {
+          "path": "config/research_system.source_authority_registry.v1.json",
+          "canonical_sha256": "faa6f33577d71275939b7bdf56fa850aecb3b75eed8df5ee175fb9340a3d4324"
+        },
+        {
+          "path": "config/research_system.stage_contract.v1.json",
+          "canonical_sha256": "d84c8ba50d828688020a5197202a58985079cdc64938c58fe9c54e3cb69b6fba"
+        }
+      ]
+    }
+  },
+  "independent_review_results": {
+    "passed_facts": [
+      "Entry physical and canonical identities match the supplied inventory, report and external route decision.",
+      "All 31 inventory path, size and physical SHA-256 bindings are exact, unique, relative, non-symlink workspace files.",
+      "All seven registry canonical digests and the exact bundle digest independently recompute.",
+      "Eighteen claims, nineteen hypotheses, nineteen one-to-one measurement contracts, forty-three parameters, twenty-one sources and twenty-two disputes close their declared cross-references.",
+      "The same-decision object graph is acyclic after separating the explicitly later RESULT-to-EVIDENCE feedback edge; only PERMISSION can authorize an order.",
+      "Weak evidence and immutable result history are preserved; OTHER_PATH and UNKNOWN_PATH remain required and ABSTAIN remains an action.",
+      "The exact current source registry is document discovery only: eighteen grade-A and three grade-B entries, zero locally preserved content, no admitted market rows.",
+      "The exact stage contract denies D0 through E3, all market, adapter, backtest, paper, deployment and trading permissions, and all roles deny self-acceptance.",
+      "Independent normalized and repeated-percent-decoded identity scanning finds no new-route alias to active-G1, Application Support or P1A outside the immutable terminal baseline bindings.",
+      "The public validator is standard-library-only, has no filesystem, network, process or dynamic-code call, and the exact P0 package contains only Markdown, JSON and Python artifacts.",
+      "F001 through F004 and O001 are current-closed. F005 remains explicit DEFERRED_BLOCKING for D3 and E2 and does not itself block P0 design."
+    ],
+    "test_commands": [
+      {
+        "command": "PYTHONPYCACHEPREFIX=/tmp/agent-trade-emotion-rsr-p0-sol-pyc python3 -m unittest -q tests.test_research_system_contract_v1",
+        "exit_code": 0,
+        "result": "Ran 88 tests; OK"
+      },
+      {
+        "command": "PYTHONPYCACHEPREFIX=/tmp/agent-trade-emotion-rsr-p0-sol-pyc python3 -m py_compile trade_system/research_system_contract_v1.py tests/test_research_system_contract_v1.py",
+        "exit_code": 0,
+        "result": "PASS_NO_OUTPUT"
+      },
+      {
+        "command": "python3 independent read-only inventory, digest, cross-binding, time-unrolled graph, source-boundary, alias, AST-purity and semantic-escalation harness over the exact recorded inputs",
+        "exit_code": 0,
+        "result": "All current-input facts passed; four independently re-signed unauthorized semantic escalations were accepted."
+      }
+    ],
+    "reviewer_harness_correction": {
+      "initial_check": "The first inline reviewer harness treated the complete lifecycle feedback graph as a single-time DAG.",
+      "initial_exit_code": 1,
+      "attribution": "REVIEWER_TEST_ASSUMPTION",
+      "correction": "The RESULT-to-EVIDENCE_ITEM edge is explicitly later-time feedback. Removing that edge yields an acyclic seventeen-node same-decision graph, and the RESULT and EVIDENCE_ITEM clock rules enforce the time ordering.",
+      "candidate_finding_inferred": false
+    },
+    "web_document_identity_check": {
+      "source_count": 21,
+      "scope": "Canonical document URLs only; no dataset or market-row endpoint was queried.",
+      "result": "The registered official, regulator, vendor-documentation, DOI, NBER, JSTOR and arXiv identities are consistent with document-discovery use. Several publisher or vendor pages returned access or rendering errors, which is consistent with UNKNOWN_NOT_VERIFIED and does not promote source evidence."
+    }
+  },
+  "blocking_finding": {
+    "finding_id": "P0_NESTED_SEMANTIC_CLAIM_BOUNDARY_NOT_EXECUTABLE",
+    "severity": "P0_BLOCKING",
+    "error_class": "PERMISSION_RISK_AND_CONTRACT_AUTHORITY",
+    "root_cause": "The validator pins top-level E0, document-discovery and NOT_EVALUATED boundaries, but nested hypothesis evidence_level, claim evidence_status and source verification or usage fields are free or only broad-enum values. It does not enforce that nested claims are no stronger than the top-level authority and current stage.",
+    "current_candidate_facts": [
+      "The exact frozen candidate contains no E5, verified source-data, live-use, backtest or trading claim.",
+      "The defect is an executable authority and claim-consistency gap, not evidence that the current theory or market claim is false.",
+      "The exact package remains frozen and is not eligible for in-place rescue."
+    ],
+    "independent_mutations": [
+      {
+        "case_id": "SOL-P0-A01-HYPOTHESIS-E5",
+        "mutation": "Set hypotheses[0].evidence_level to E5_LIVE_VALIDATED and independently recompute the registry digest.",
+        "required": "REJECTED",
+        "observed": "ACCEPTED",
+        "observed_bundle_digest": "74b150638f3178cece477415290a18dc9c7b119cd48d9a5cb6fa9c2464165b1b"
+      },
+      {
+        "case_id": "SOL-P0-A02-CLAIM-E5",
+        "mutation": "Set claims[0].evidence_status to E5_MARKET_CONFIRMED and independently recompute the registry digest.",
+        "required": "REJECTED",
+        "observed": "ACCEPTED",
+        "observed_bundle_digest": "f7f975fd86f8a4bb5aa515295133cfa9691291c2318b7db53ef97d4819ab6e94"
+      },
+      {
+        "case_id": "SOL-P0-A03-SOURCE-VERIFIED",
+        "mutation": "Set one document-only source to integrity VERIFIED, coverage VERIFIED_COMPLETE, revision VERIFIED_VERSIONED and PIT VERIFIED_AVAILABLE_AT, then independently recompute the registry digest.",
+        "required": "REJECTED",
+        "observed": "ACCEPTED",
+        "observed_bundle_digest": "a062e204c297e31a8b8e0ef79f906596d2052a84500566f74cdbe23db9cd0f8e"
+      },
+      {
+        "case_id": "SOL-P0-A04-SOURCE-LIVE-USAGE",
+        "mutation": "Set one source replacement_or_usage_status to ADMITTED_FOR_LIVE_TRADING and independently recompute the registry digest.",
+        "required": "REJECTED",
+        "observed": "ACCEPTED",
+        "observed_bundle_digest": "0a5ecb98d6e8324a63416c9ef4105561dfb60d7245fd0969b8f6e7ca605b2807"
+      }
+    ],
+    "violated_acceptance": [
+      "P0-RS-04 requires authority roots and expected authority meanings outside the candidate object.",
+      "P0-RS-04 requires malformed or unauthorized candidates to reject without admission or privilege expansion.",
+      "RSR-P0 requires claim-boundary consistency and cannot allow nested evidence or usage text to contradict E0, document-only and NOT_EVALUATED."
+    ]
+  },
+  "p0_goal_disposition": [
+    {
+      "goal_id": "P0-RS-01",
+      "status": "PASS",
+      "basis": "Exact immutable baseline, route fork, inventory and denial bindings close."
+    },
+    {
+      "goal_id": "P0-RS-02",
+      "status": "PASS_WITH_DECLARED_FUTURE_BLOCKER",
+      "basis": "Typed objects, finite hypotheses, weak-evidence preservation and measurement bindings close at E0. F005 remains a declared D3/E2 blocker."
+    },
+    {
+      "goal_id": "P0-RS-03",
+      "status": "PASS_FOR_DOCUMENT_DISCOVERY_ONLY",
+      "basis": "Twenty-one source documents retain explicit unknown, no-acquisition and no-market-proof boundaries."
+    },
+    {
+      "goal_id": "P0-RS-04",
+      "status": "NOT_PASS",
+      "basis": "Four independently re-signed nested semantic authority escalations are incorrectly accepted."
+    },
+    {
+      "goal_id": "P0-RS-05",
+      "status": "NOT_PASS_DEPENDENCY",
+      "basis": "The integrated route is otherwise closed, but P0-RS-05 depends on P0-RS-04."
+    }
+  ],
+  "stage_disposition": {
+    "rsr_p0_status": "REWORK_LOCAL",
+    "p0_accepted": false,
+    "d0_authorized": false,
+    "d1_authorized": false,
+    "d2_authorized": false,
+    "d3_authorized": false,
+    "e2_authorized": false,
+    "e3_authorized": false,
+    "market_data_authorized": false,
+    "backtest_authorized": false,
+    "paper_authorized": false,
+    "deployment_authorized": false,
+    "trading_authorized": false,
+    "permission_effect": "NONE",
+    "next_action": "Create a new versioned P0 successor candidate that closes only the blocking semantic-boundary root cause, then produce a new inventory, independent adversarial report and integrated validation report for a new Sol P0 gate."
+  },
+  "bounded_rework_contract": {
+    "in_place_mutation_of_bound_package": false,
+    "allowed_under_existing_p0_authority": [
+      "Create new versioned successor object, hypothesis, source, stage, validator and test artifacts only as required to close this root cause.",
+      "Define closed, versioned E0 evidence-status and source-usage vocabularies or an equivalent machine-enforced partial order.",
+      "Enforce top-level-to-nested monotonicity: nested claims cannot exceed the bundle evidence level, source registry state, stage permission or claim boundary.",
+      "Under DOCUMENT_DISCOVERY_ONLY_NO_DATA_ACQUIRED, reject source VERIFIED integrity, verified coverage, verified PIT, admission, live, trading or equivalent usage claims.",
+      "Add direct tests and an independent helper-free mutation report for the four exact cases and equivalence variants.",
+      "Generate new package identities, new inventory and a new integrated report without rewriting this failed candidate."
+    ],
+    "required_retest": [
+      "All existing 88 tests and 14 independent mutations remain passing.",
+      "The four Sol cases return stable REJECTED results with specific reason codes.",
+      "Equivalent Unicode, case, separator and wording variants cannot bypass status or usage semantics.",
+      "The exact clean successor bundle remains accepted.",
+      "All later gates and claim boundaries remain denied."
+    ],
+    "forbidden": [
+      "D0 preparation that performs acquisition or accesses market rows.",
+      "Any adapter, replay, dataset, backtest, calibration, holdout, paper, deployment or trading work.",
+      "Weakening the top-level claim boundary, broadening an enum to hide the defect or deleting the negative mutation evidence.",
+      "Modifying the old active-G1, old P1A, current core authority or this exact frozen P0 package."
+    ],
+    "escalation": "This is the first Sol-observed round for this root cause. If a versioned Terra-high repair fails the same root cause twice, stop and return to Sol."
+  },
+  "claim_boundary": {
+    "p0_design_package": "REWORK_LOCAL_NOT_ACCEPTED",
+    "current_exact_package_clean_at_e0": true,
+    "contract_authority_closure": "NOT_ESTABLISHED",
+    "source_data_validity": "NOT_EVALUATED",
+    "market_validity": "NOT_EVALUATED",
+    "predictive_validity": "NOT_EVALUATED",
+    "profitability": "NOT_EVALUATED",
+    "historical_data_acquisition": "NOT_AUTHORIZED",
+    "backtest": "NOT_AUTHORIZED",
+    "paper": "NOT_AUTHORIZED",
+    "deployment": "DENIED",
+    "trading": "DENIED",
+    "maximum_positive_claim": "The exact frozen P0 candidate has reproducible identities, clean E0/document-only contents, closed current cross-bindings, 88 passing unit tests and fourteen previously reported passing mutations. Independent Sol review nevertheless found one P0-blocking executable authority gap: four re-signed nested evidence or source-usage escalations are accepted despite the top-level E0, document-only and NOT_EVALUATED boundary. Therefore P0 is not accepted and no later-stage permission exists."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "digest_field": "decision_sha256",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "canonical_json": {
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ],
+      "encoding": "UTF-8"
+    },
+    "domain_prefix_utf8": "msta-hed/sol-research-system-reconstruction-p0-gate-decision/v1",
+    "domain_separator_hex": "00",
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "45f2f9a3a7040a552b25e7249bd29c2e13de66277bacbd4266978cc6a0aa2482"
+}

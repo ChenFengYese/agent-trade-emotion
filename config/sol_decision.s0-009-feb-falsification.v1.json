@@ -1,0 +1,194 @@
+{
+  "record_type": "sol_stage_decision.v1",
+  "decision_id": "SOL-S0-009-FEB2025-FRESH-FALSIFICATION-85A95D08-R1",
+  "issued_at": "2026-07-22T18:54:12Z",
+  "issued_by": "gpt-5.6-sol-ultra",
+  "stage": "S0-009",
+  "decision": "CONDITIONAL_AUTHORIZE",
+  "execution_state": "HOLD_BEFORE_DOWNLOAD",
+  "decision_meaning": "Only the exact one-time 2025-02 fresh falsification may proceed after all seven P0 requirements are mechanically verified. This record alone is not download permission.",
+  "authorization_release_rule": {
+    "required_state": "ALL_SEVEN_P0_VERIFIED_AND_RECEIPT_BOUND",
+    "download_allowed_now": false,
+    "second_sol_review_required_if_only_listed_p0_repairs_are_made": false,
+    "automatic_invalidation": [
+      "frozen plan or any bound artifact digest changes",
+      "identity calibration changes or any calibration fit is introduced",
+      "candidate, control, cohort, action, threshold, cost, state boundary, gate, date, or claim boundary changes",
+      "any February target is read or downloaded before the release rule is satisfied"
+    ],
+    "invalidated_state": "REWORK"
+  },
+  "exact_bindings": {
+    "frozen_february_plan": {
+      "path": "config/binance_cm_historical_diagnostic.v2.frozen_before_download.json",
+      "file_sha256": "75ee48cb7abb9374ebae65929ac5eec6148f21bdfc2a13eea19607a931c9d6fb",
+      "canonical_sha256": "85a95d0845ca0c78b9bc3be12d8dcafd051625fab5be318398ace2f92531087b"
+    },
+    "january_v4_rows": {
+      "path": ".runtime/historical-experiments/binance-cm-2025-01-v4-final.rows.ndjson",
+      "file_sha256": "72664e1bce597073cceeb9e30998bcdea25bee043ea74f0de9c340d6fc1346cd"
+    },
+    "january_v4_model": {
+      "path": ".runtime/historical-experiments/binance-cm-2025-01-v4-final.model.json",
+      "file_sha256": "be4ce118827ae680242348c4ef821f06b865121a07dc40adebf66fff29e967e1",
+      "model_canonical_sha256": "0e1e6db9752c4920a75d778a8d78497c9f7c3a2b25fb6463dfc3cd26e637ee35"
+    },
+    "january_v4_manifest": {
+      "path": ".runtime/historical-experiments/binance-cm-2025-01-v4-final.manifest.json",
+      "file_sha256": "6c43d5164c98d83403e6cb3f52e8bcfb8ee000279ac2d4baa514ca25fa67d2ba",
+      "manifest_canonical_sha256": "e4d8cef74fc291d66e5129698956260804e79a9dcb6756d73003b33043dc54bd",
+      "january_plan_canonical_sha256": "04ad6bd7125d6dfd92d96e37f2cc06a10801fca268413f350d25b68883029949"
+    },
+    "january_v4_development_source": {
+      "path": "trade_system/historical_diagnostic_development.py",
+      "file_sha256": "d149cbc38f96fcef2d68176ec26cd1f28bbfd97031eb86d2ea72547716dbc664"
+    }
+  },
+  "frozen_scope": {
+    "venue": "BINANCE_COINM",
+    "instrument": "BTCUSD_PERP",
+    "dates": {
+      "start": "2025-02-01",
+      "end": "2025-02-28",
+      "count": 28
+    },
+    "mode": "FRESH_SCORE_ONLY",
+    "authorization_receipt_limit": 1,
+    "scoring_attempt_limit": 1,
+    "candidate": "D+post-pressure-R+persistence+deceleration",
+    "control": "D-only extreme",
+    "cohort": "ALL_EXTREMES_SHARED",
+    "selection": "FROZEN_POSITIVE_BASE_EV_ONLY",
+    "calibration": {
+      "kind": "IDENTITY_TEMPERATURE_1",
+      "temperature": 1.0,
+      "fit_permitted": false,
+      "reason": "A post-hoc calibration fit after viewing negative January development results would be model rescue."
+    },
+    "base_cost_bps": 10,
+    "stress_cost_bps": 20,
+    "model_fit_permitted": false,
+    "parameter_tuning_permitted": false,
+    "candidate_replacement_permitted": false,
+    "active_g1_change_permitted": false,
+    "maximum_evidence_stage": "E0-X"
+  },
+  "p0_requirements": [
+    {
+      "id": "S0-009-P0-1",
+      "name": "VERSIONED_GOVERNANCE_DISAMBIGUATION",
+      "status": "REQUIRED_UNVERIFIED",
+      "acceptance": "Retain the Jan-only rule as historical v1 and add S0-009-FEB-FALSIFICATION-v1, superseding only the statement that every February use is a scope breach."
+    },
+    {
+      "id": "S0-009-P0-2",
+      "name": "REAL_BOOKDEPTH_SCHEMA_COMPATIBILITY",
+      "status": "REQUIRED_UNVERIFIED",
+      "acceptance": "Require exactly one -1 and one +1 level per timestamp, allow other levels, do not require 0, and reject duplicate +/-1 levels."
+    },
+    {
+      "id": "S0-009-P0-3",
+      "name": "UNPATCHED_84_ZIP_INTEGRATION",
+      "status": "REQUIRED_UNVERIFIED",
+      "acceptance": "A real-schema fixture must complete 84 ZIP plus 84 CHECKSUM through acquisition, verification, authorized execution, and SCORING_COMPLETE without patching fresh rows; it must prove no model or calibration fit."
+    },
+    {
+      "id": "S0-009-P0-4",
+      "name": "POST_CONSUMPTION_FAILURE_SEALING",
+      "status": "REQUIRED_UNVERIFIED",
+      "acceptance": "Every model-load, parser, digest, or scoring failure after consumption must write SCORING_FAILED_CONSUMED and terminally synchronize the registry, including a consume-then-model-delete test."
+    },
+    {
+      "id": "S0-009-P0-5",
+      "name": "ALL_FROZEN_COVERAGE_GATES",
+      "status": "REQUIRED_UNVERIFIED",
+      "acceptance": "Execute and test UTC-day, state, and direction concentration limits; map zero effective episodes to STOP_DATA_INVALID under frozen precedence."
+    },
+    {
+      "id": "S0-009-P0-6",
+      "name": "EXACT_AUTHORIZATION_AND_ARTIFACT_ALLOWLIST",
+      "status": "REQUIRED_UNVERIFIED",
+      "acceptance": "Verify this exact decision ID plus the bound v4 paths, file digests, and development-source digest; reject wrong decision IDs and old v3 artifacts."
+    },
+    {
+      "id": "S0-009-P0-7",
+      "name": "PRE_DOWNLOAD_FACT_ARTIFACTS",
+      "status": "REQUIRED_UNVERIFIED",
+      "acceptance": "Cross-bind this decision, the amendment, a newly generated ALL_TARGETS_ABSENT inventory, authorization receipt, execution contract, P0 test-report SHA, and post-fix runner, evaluator, and package SHAs."
+    }
+  ],
+  "required_pre_download_artifacts": {
+    "governance_amendment": {
+      "id": "S0-009-FEB-FALSIFICATION-v1",
+      "path": "config/governance_amendment.s0-009-feb-falsification.v1.json",
+      "status": "REQUIRED"
+    },
+    "all_targets_absent_inventory": {
+      "status": "REQUIRED_FRESH_REGENERATION"
+    },
+    "authorization_receipt": {
+      "status": "REQUIRED"
+    },
+    "authorized_execution_contract": {
+      "status": "REQUIRED"
+    },
+    "p0_test_report_sha256": {
+      "status": "REQUIRED"
+    },
+    "post_fix_runner_evaluator_package_sha256": {
+      "status": "REQUIRED"
+    }
+  },
+  "one_time_result_mapping": [
+    {
+      "condition": "inputs incomplete and scoring not started",
+      "result": "WAIT_DATA_NOT_SCORED",
+      "consumes_scoring_attempt": false,
+      "terminal_for_authorization_receipt": true,
+      "consumes_independent_evaluation_role_after_any_input_read": true
+    },
+    {
+      "condition": "zero effective episodes or structural invalidity",
+      "result": "STOP_DATA_INVALID",
+      "consumes_scoring_attempt": true
+    },
+    {
+      "condition": "coverage or concentration gate fails",
+      "result": "INCONCLUSIVE_CONSUMED / WAIT_DATA_COVERAGE",
+      "consumes_scoring_attempt": true
+    },
+    {
+      "condition": "predictive gate fails",
+      "result": "STOP_CURRENT_V2_PROXY / STOP_PREDICTIVE",
+      "consumes_scoring_attempt": true
+    },
+    {
+      "condition": "economic gate fails",
+      "result": "STOP_CURRENT_V2_PROXY / STOP_ECONOMIC",
+      "consumes_scoring_attempt": true
+    },
+    {
+      "condition": "all frozen gates pass",
+      "result": "E0-X_COMPLETE_DESCRIPTIVE",
+      "consumes_scoring_attempt": true
+    },
+    {
+      "condition": "runtime failure after consumption",
+      "result": "SCORING_FAILED_CONSUMED",
+      "consumes_scoring_attempt": true
+    }
+  ],
+  "one_time_mapping_rule": "No terminal WAIT, STOP, FAILED, or COMPLETE result may be followed by tuning and another evaluation on the same February window. WAIT_DATA_NOT_SCORED does not claim that scoring ran, but its receipt is terminal and any read input is permanently SEEN.",
+  "maximum_positive_claim": "The fixed January model was not rejected by the preregistered diagnostic gates on one frozen February proxy cohort.",
+  "forbidden_claims": [
+    "any H hypothesis is supported or disproved",
+    "market validity or profitability is established",
+    "a champion is selected",
+    "G1, G2, paper, deployment, or trading readiness is achieved",
+    "the system may trade or use real funds"
+  ],
+  "g2_eligibility": false,
+  "trading_authorization": "DENIED",
+  "notice": "CONDITIONAL_AUTHORIZE is a governance decision, not proof that any P0 is closed, any February input was downloaded, or any test report, receipt, contract, or package digest exists."
+}

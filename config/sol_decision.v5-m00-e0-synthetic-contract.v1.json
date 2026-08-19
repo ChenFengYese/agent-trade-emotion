@@ -1,0 +1,167 @@
+{
+  "record_type": "sol_stage_decision.v1",
+  "decision_id": "SOL-V5-M00-E0-PURE-SYNTHETIC-CONTRACT-V1",
+  "issued_at": "2026-07-26T12:00:45Z",
+  "issued_by": "gpt-5.6-sol-ultra",
+  "stage": "V5-M00",
+  "evidence_stage": "E0",
+  "decision": "PASS",
+  "decision_scope": "PURE_SYNTHETIC_CONTRACT_ONLY",
+  "execution_state": "V5_M00_E0_PURE_SYNTHETIC_CONTRACT_PASS",
+  "decision_meaning": "The exact bound V5-M00 artifacts pass the E0 pure synthetic contract gate. This decision accepts internal contract derivability and fail-closed synthetic counterexamples only; it does not establish market validity, predictive validity, causal truth, profitability, runtime readiness, production readiness, execution safety or trading authorization.",
+  "serialization_boundary": {
+    "authoritative": true,
+    "external_session_dependency": "NONE",
+    "artifact_scope": "THIS_RECORD_ONLY",
+    "reviewed_artifact_mutation_required": false
+  },
+  "workspace_binding": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "exact_bindings": {
+    "program_governance": {
+      "path": "PROGRAM_GOVERNANCE.md",
+      "sha256": "69125790fa36c0c4f72ebdecea4f5415be73a9e4fba78c6c1aa53b9639ef6f09"
+    },
+    "core_root_mirror": {
+      "path": "CORE_TRADING_THEORY.md",
+      "sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d"
+    },
+    "core_versioned_authority": {
+      "path": "CORE_TRADING_THEORY_v2_1.md",
+      "sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d"
+    },
+    "core_authority_record": {
+      "path": "config/core_trading_theory.authority.v2_1.json",
+      "sha256": "a3e174c616b176253f4aef2ce267a932d43f7e64db3490db815a27f007df12d4"
+    },
+    "theory": {
+      "path": "GENERALIZED_COMPETING_PATH_THEORY_CHALLENGER_v0_5_0.md",
+      "sha256": "3d3d62e6d2a55e25acee6552930b464410af8806a408cdfc0dafd96427526853"
+    },
+    "method": {
+      "path": "config/generalized_competing_path.method_contract.v0_5_0.json",
+      "sha256": "18ef5234cb018d1a89252733a6d66903a145864031a2c8d663f021abe79740b0"
+    },
+    "registry": {
+      "path": "config/generalized_competing_path.hypothesis_registry.v0_5_0.json",
+      "sha256": "fed1bcceac87582f811f57f420b83481e1621dbd8eb6627ab2fc5ee2357a33b3"
+    },
+    "synthetic_contract": {
+      "path": "config/generalized_competing_path.synthetic_measurement_contract.v0_5_0.json",
+      "sha256": "4159cb6bfb82022db15a95951dcc9e60e53779c900892c48196139f07140d628"
+    },
+    "synthetic_tests": {
+      "path": "tests/test_generalized_competing_path_v0_5_0_contract.py",
+      "sha256": "5e81ca8264d4844c5a230e609f6b881c92118cd05e17596a81c763cbec687412"
+    },
+    "validation_report": {
+      "path": "artifacts/generalized_competing_path_v0_5_0_validation_report.md",
+      "sha256": "d72862bd19d039f95bcca58a2279595a335871853be2d6db13ee715fa15d0ca8"
+    },
+    "technical_guidance": {
+      "path": "MSTA_HED_TECHNICAL_GUIDANCE_v0_6_0.md",
+      "sha256": "04cc1ec6c5a7701fd8af6dc1f923e57cd11c9e9de458a043ce4f7548f8f81825"
+    }
+  },
+  "reviewed_source_status": {
+    "result_status": "NOT_RUN",
+    "test_execution_status": "SYNTHETIC_TESTS_PASS_AWAITING_SOL_REGATE",
+    "next_state": "AWAITING_SOL_V5_M00_REGATE",
+    "resolution": "THIS_SOL_DECISION_RECORD_PERSISTS_THE_INDEPENDENT_E0_GATE_PASS_WITHOUT_REWRITING_REVIEWED_ARTIFACTS"
+  },
+  "validation_facts": {
+    "v5_synthetic_tests": {
+      "executed": 58,
+      "passed": 58,
+      "failed": 0
+    },
+    "v5_declarative_fixtures": {
+      "total": 103,
+      "unique": 103,
+      "executable_test_equivalence_claimed": false
+    },
+    "v0_4_regression": {
+      "executed": 26,
+      "passed": 26,
+      "failed": 0
+    },
+    "v5_plus_v0_4": {
+      "executed": 84,
+      "passed": 84,
+      "failed": 0
+    },
+    "legacy_compatibility": {
+      "executed": 59,
+      "passed": 56,
+      "errors": 3,
+      "classification": "LEGACY_AUTHORITY_BYTES_UNAVAILABLE",
+      "interpretation": "EXPECTED_FAIL_CLOSED_LEGACY_ROOT_AUTHORITY_MISMATCH_NOT_A_NEW_V5_FAILURE"
+    }
+  },
+  "permitted_next": [
+    {
+      "stage": "V5-P1A",
+      "name": "PURE_LOCAL_NO_IO_RUNTIME_ADMISSION_CONTRACT_DESIGN_FREEZE",
+      "scope": "V5-P1A pure local no-I/O runtime admission contract-design freeze",
+      "permitted_outputs": [
+        "design documents",
+        "static JSON schema or contract artifacts",
+        "synthetic fail-closed tests"
+      ],
+      "implementation_authorized": false,
+      "io_authorized": false,
+      "market_or_outcome_access_authorized": false
+    }
+  ],
+  "p1_contract_wording_refinement": {
+    "topic": "EMPTY_TRANSITION",
+    "required_refinement": "Use EMPTY_INPUT_BATCH_ONLY for the byte-identical no-op that appends no receipt. A nonempty canonical batch that derives only rejected effects is not an empty transition: its first derived permanent, retryable or resource rejection follows the frozen receipt and idempotency rules. Repeating the identical rejection context is byte-identical only after that first derived rejection has been recorded.",
+    "semantic_change_to_v5_m00": false,
+    "runtime_implementation_authorized": false
+  },
+  "known_boundaries": {
+    "raw_provenance": "ABSENT",
+    "external_immutable_ledger_tip_or_seal": "ABSENT",
+    "global_observation_frame_or_opportunity_registry": "ABSENT",
+    "lifecycle_external_fact_authority": "ABSENT",
+    "mixed_clock_semantics": "HARD Evidence uses canonical available_at because the exact Evidence carrier has no event_at; PathEvent lifecycle uses event_at. P1A may freeze a contract boundary but may not claim the production clock model is resolved.",
+    "runtime_compaction_continuation_and_resource_recovery": "UNIMPLEMENTED",
+    "test_helper_status": "SYNTHETIC_REFERENCE_ONLY_NOT_RUNTIME"
+  },
+  "forbidden_actions": [
+    "copying or promoting the test helper into production",
+    "runtime or production implementation",
+    "market data access",
+    "outcome access",
+    "B4 access or mutation",
+    "download",
+    "source adapter implementation or execution",
+    "backtest",
+    "calibration",
+    "holdout evaluation",
+    "paper trading",
+    "live trading",
+    "deployment",
+    "account access",
+    "broker integration or broker access",
+    "order submission",
+    "trading",
+    "active G1 mutation"
+  ],
+  "maximum_positive_claim": "The exact bound V5-M00 E0 pure synthetic contract is internally executable, its reviewed synthetic fail-closed counterexamples pass, and V5-P1A contract-design freeze may begin within the stated no-I/O boundary.",
+  "forbidden_claims": [
+    "market validity is established",
+    "predictive validity is established",
+    "causal truth is established",
+    "profitability or positive trading expectancy is established",
+    "runtime or production readiness is established",
+    "paper, live, deployment, broker or trading authorization is granted",
+    "active G1 is passed, failed, superseded or mutable under this decision"
+  ],
+  "g1_mutation_authorized": false,
+  "g2_eligibility": false,
+  "trading_authorization": "DENIED"
+}

@@ -1,0 +1,120 @@
+{
+  "protocol_id": "btc-usdt-absorption-research-v1",
+  "status": "PREREGISTERED_PENDING_G1",
+  "notice": "All research choices below were fixed before a PASS G1 report and before labels/outcomes. Finalization may only add frozen_at, replace the pending G1 report digest, and change status to FROZEN_RESEARCH_PROTOCOL.",
+  "instrument": "BTCUSDT",
+  "venue": "BINANCE_USDM",
+  "availability_policy": {
+    "allow_actual": true,
+    "allow_reconstructed_for_g2": false,
+    "require_actual_shadow_before_e3": true
+  },
+  "source_registry": {
+    "registry_id": "source-registry.v3",
+    "sha256": "3aa28782ff3c0af5be5ad0bc98e690af87dbe2c57687d6ab61b1549bae74ec4b"
+  },
+  "risk_gate_profile": {
+    "profile_id": "paper-risk-gate-profile.v1",
+    "digest": "cd548e4be7694eb13f341a2ea570db9157cc90badc8b177474b482752508dac1"
+  },
+  "data_eligibility": {
+    "required_g1_policy_id": "g1-binance-usdm-btcusdt-forward-v1",
+    "required_g1_policy_sha256": "5d8f43024f0e9e07198ad2546220a674f6afc2b2f160c10cee7364395e318d32",
+    "required_g1_report_sha256": "PENDING_VERIFIED_PASS_REPORT",
+    "require_g1_pass": true
+  },
+  "data_sources": [
+    {
+      "source_id": "SRC-BIN-FUT-WS",
+      "endpoint_or_channel": "wss://fstream.binance.com public/market combined streams: btcusdt@depth@100ms, btcusdt@aggTrade, btcusdt@markPrice@1s, btcusdt@forceOrder",
+      "schema_version": "binance-usdm-ws-2026-07-22",
+      "instrument": "BTCUSDT",
+      "allowed_availability": "ACTUAL_ONLY"
+    },
+    {
+      "source_id": "SRC-BIN-FUT-REST",
+      "endpoint_or_channel": "https://fapi.binance.com/fapi/v1/depth, /openInterest, /exchangeInfo",
+      "schema_version": "binance-usdm-rest-2026-07-22.2",
+      "instrument": "BTCUSDT",
+      "allowed_availability": "ACTUAL_ONLY"
+    }
+  ],
+  "episode_policy": {
+    "policy_id": "btc-usdt-absorption-episode-v1",
+    "digest": "534f5e96fd5a055898cf754db2f24ba8f9e0e59a776e47bcd1d0c624e5fd3f4c",
+    "trigger": "abs(D_directional_pressure) >= 1.5; pressure <= -1.5 maps to BUY reversal candidate and pressure >= 1.5 maps to SELL reversal candidate",
+    "decision_frequency_seconds": 1,
+    "max_holding_seconds": 300,
+    "overlap_policy": "one active episode per instrument; reject overlap and enforce 30-second terminal cooldown"
+  },
+  "action_contract": {
+    "stages": ["ENTER_PROBE", "ADD_POSITION_CONFIRMED"],
+    "entry_policy": "research labels assume counterfactual marketable-limit IOC at the first eligible point; no fill claim and no live order",
+    "labels": ["TP", "SL", "STRUCTURE_EXIT", "TIMEOUT"],
+    "operational_overrides": ["RISK_KILL", "DATA_EXECUTION_HALT", "MANUAL_EMERGENCY"]
+  },
+  "label_policy": {
+    "barrier_rules": "BUY and SELL candidates use symmetric 20 bps take-profit, 12 bps stop-loss and 300-second timeout; structure failure exits earlier",
+    "same_timestamp_rule": "when TP and SL cannot be ordered within one timestamp, assign SL as the conservative result",
+    "operational_override_rule": "data/risk/operational interruption censors the path; never rewrite it as TIMEOUT"
+  },
+  "execution_priors": {
+    "latency_ms": 250,
+    "fee_rate": 0.0005,
+    "funding_policy": "use only ACTUAL markPrice fundingRate available at decision time and accrue by held duration; missing funding censors cost evaluation",
+    "cost_scenarios": [
+      "BASE_5BPS_PER_SIDE_PLUS_OBSERVED_TAKER_SLIPPAGE",
+      "STRESS_10BPS_PER_SIDE_PLUS_2X_OBSERVED_TAKER_SLIPPAGE"
+    ]
+  },
+  "evaluation_policy": {
+    "primary_metrics": ["multiclass_log_loss", "multiclass_brier", "net_utility_after_cost"],
+    "min_effective_episodes": 600,
+    "calibration_rule": "report reliability by predicted-probability decile; no decile may be merged after outcomes are inspected",
+    "cost_after_utility_rule": "base-cost lower 95% block-bootstrap bound must exceed zero and stress-cost point estimate must be non-negative",
+    "confidence_interval_rule": "95% UTC-day block bootstrap with at least seven distinct blocks; otherwise INCONCLUSIVE/WAIT_DATA",
+    "concentration_limits": "no UTC day, direction or declared liquidity state may contribute more than 40% of effective episodes"
+  },
+  "state_coverage_policy": {
+    "classifier_id": "btc-usdt-visible-liquidity-state-v1",
+    "classifier_digest": "f6176cd40f75e20d94caf87c47ee8ff0af3f986ec921580ecea368dd7b6ff2d0",
+    "required_state_ids": ["THIN_BOOK", "NORMAL_BOOK", "DEEP_BOOK"],
+    "min_effective_episodes_per_state": 100,
+    "insufficient_coverage_result": "INCONCLUSIVE/WAIT_DATA"
+  },
+  "split_policy": {
+    "folds": 5,
+    "embargo_seconds": 300,
+    "training_calibration_policy": "purged expanding-window walk-forward; fit on past only, calibrate thresholds inside each training fold, never on its test fold",
+    "final_holdout": {
+      "holdout_id": "btc-usdt-final-holdout-20260901-v1",
+      "start": "2026-09-01T00:00:00Z",
+      "end": "2026-09-08T00:00:00Z",
+      "opened_at": null,
+      "reuse_policy": "ONE_TIME_ONLY"
+    }
+  },
+  "hypotheses": [
+    {
+      "hypothesis_id": "H-001",
+      "pass_condition": "relative to an empirical-class-frequency baseline, mean out-of-sample log loss improves at least 2% and Brier improves at least 1% in at least four of five folds",
+      "failure_condition": "after sample and state gates pass, both improvements are non-positive in at least four of five folds"
+    },
+    {
+      "hypothesis_id": "H-002",
+      "pass_condition": "base-cost net utility lower 95% UTC-day block-bootstrap bound is above zero",
+      "failure_condition": "after precision and concentration gates pass, base-cost upper 95% bound is at or below zero"
+    },
+    {
+      "hypothesis_id": "H-003",
+      "pass_condition": "stress-cost net utility point estimate is non-negative and no declared liquidity state has a negative upper 95% bound",
+      "failure_condition": "stress-cost aggregate upper 95% bound is below zero"
+    },
+    {
+      "hypothesis_id": "H-004",
+      "pass_condition": "one-time final holdout preserves positive base-cost utility and does not worsen log loss by more than 10% versus walk-forward mean",
+      "failure_condition": "one-time final holdout base-cost utility is non-positive or log loss worsens by more than 10%"
+    }
+  ],
+  "live_trading_authorization": "DENIED_BY_PROTOCOL"
+}

@@ -1,0 +1,404 @@
+{
+  "schema_version": "sol-research-system-pit-authority-replay-sd0-client-p0-r7-gate-rebinding-decision.v1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R7_GATE_REBINDING.v1",
+  "issued_at": "2026-07-28T15:59:19Z",
+  "issued_by": "GPT-5.6-SOL_ULTRA_R7_GATE_REBINDING_AUTHORIZATION",
+  "decision_state": "AUTHORIZE_TWO_FILE_R7_GATE_REBINDING_KEEP_PRODUCTION_UNCONDITIONALLY_SUSPENDED_PENDING_FUTURE_SOL_FINAL_DECISION",
+  "decision_class": "P0_R7_OFFLINE_GATE_CHAIN_REBINDING_AUTHORIZATION_NO_EXECUTION_PERMISSION",
+  "evidence_level": "LOCAL_SOURCE_AND_CONTENT_ADDRESS_AUDIT_ONLY_NO_TEST_NO_PREFLIGHT_NO_NETWORK",
+  "authorization_scope": {
+    "issue_id": "PITAR1-SD0-CLIENT-P0-R7-GATE-REBINDING",
+    "stage": "SD0",
+    "authorized": true,
+    "implementation_agent": "GPT-5.6-TERRA_HIGH",
+    "purpose": "Mechanically extend the existing production suspension gate so it authenticates the accepted R6 completion decision and this R7 authorization after the existing R3-through-R6-repair chain, while still unconditionally suspending every production entrypoint pending a separate future Sol final decision.",
+    "input_state": "EXACT_R6_ACCEPTED_CLIENT_AND_TEST_BASELINE_WITH_R3_THROUGH_R6_REPAIR_HARD_PIN_AND_UNCONDITIONAL_PRODUCTION_SUSPENSION",
+    "required_output_state": "R3_THROUGH_R6_REPAIR_PLUS_R6_COMPLETION_PLUS_R7_AUTHENTICATED_AND_PRODUCTION_STILL_UNCONDITIONALLY_SUSPENDED",
+    "automatic_resume": false,
+    "production_preflight_permission": false,
+    "production_runtime_permission": false,
+    "network_permission": false,
+    "active_g1_permission": false,
+    "data_or_trading_permission": false,
+    "maximum_positive_effect": "Terra may modify and offline-test only the exact existing client and test. This decision creates an auditable gate-rebound candidate for a future Sol review; it does not create an executable production capability."
+  },
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "audited_at": "2026-07-28T15:59:19Z"
+  },
+  "authority_bindings": {
+    "r6_repair_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r6-repair.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R6_REPAIR.v1",
+      "decision_state": "REJECT_R5_CANDIDATE_CONTINUE_R3_R4_R5_SUSPENSION_AUTHORIZE_TWO_FILE_R6_REPAIR",
+      "size_bytes": 35592,
+      "physical_sha256": "8c736c54273075065fa56757614e95554666ec6dadae831a57652f5bfbdb7b50",
+      "canonical_sha256": "a15e4e51c2f3a1f7a643d72865cecaaa691d8218b3f28d0cec2bfdeffe3fad44",
+      "binding_result": "MATCH",
+      "effect": "The rejecting R6 repair decision remains an authenticated predecessor and is not rewritten. Its repair requirements are closed only by the separately authenticated R6 completion decision."
+    },
+    "r6_completion_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r6-completion.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R6_COMPLETION.v1",
+      "decision_state": "ACCEPT_R6_REPAIR_KEEP_NETWORK_SUSPENDED_PENDING_SEPARATE_RESUME_BINDING",
+      "size_bytes": 18769,
+      "physical_sha256": "fee4bbae7410ba29dd58b253885c19682834520085a5a8cdfdcbc58007f0266b",
+      "canonical_sha256": "65477842be4b90700f08b7e217f9c798815c4ad4ec6780cb5cdffcbc4556ec0b",
+      "binding_result": "MATCH",
+      "required_completion_fields": {
+        "completion_result": "ACCEPT",
+        "precheck_safe": "YES_OFFLINE_ONLY",
+        "network_resume": false,
+        "workspace_preflight_resume": false,
+        "workspace_runtime_resume": false,
+        "automatic_resume": false,
+        "production_preflight": "SUSPENDED",
+        "production_seven_request_route": "SUSPENDED",
+        "automatic_effect_on_client_gate": "NONE"
+      },
+      "effect": "The exact R6 candidate pair is accepted as the offline-safe input baseline. The completion decision itself grants no execution permission."
+    },
+    "phased_route": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-d0-phased-route.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_D0_PHASED_ROUTE.v1",
+      "decision_state": "AUTHORIZED_METERED_SD0_CLOSURE_ROUTE_NETWORK_WAIT_D0_AND_LATER_GATES_LOCKED",
+      "size_bytes": 39834,
+      "physical_sha256": "776a7b69c2655dd76eb84ccab12b3fbac30aef6a81b0f6ebad27ab391b129ec0",
+      "canonical_sha256": "a777dc9411f638f1d3728f7f98f4ccbb64673f06b8f344dd3489efcdc5b79eeb",
+      "binding_result": "MATCH",
+      "effect": "FROZEN_STRUCTURALLY_VALID_NOT_EXECUTABLE_BY_R7"
+    },
+    "measurement_contract": {
+      "path": "config/pit_authority_replay.sd0_measurement_contract.v1.json",
+      "size_bytes": 17452,
+      "physical_sha256": "e2cd42a3930e0ede4d5d003742c2abdc76faa755ae86d20074c9d1f60f79e681",
+      "canonical_sha256": "4ed9f22451ede5c834c20e4f1786d344847166b646f9a1b17d2948e16c617a5b",
+      "binding_result": "MATCH",
+      "effect": "FROZEN_NO_CHANGE"
+    },
+    "request_plan": {
+      "path": "config/pit_authority_replay.sd0_request_plan.v1.json",
+      "size_bytes": 4942,
+      "physical_sha256": "3f2f487f824643d870bb9d023e6d883e4c7d28bc9fb0bc769cb5d21253a7079c",
+      "canonical_sha256": "a334816cca1cbdf676e1b935a3404f5803d4ee892c25d2e1d7d34d3a02ea6fe7",
+      "binding_result": "MATCH",
+      "effect": "FROZEN_NO_CHANGE"
+    }
+  },
+  "authorized_input_pair": {
+    "client": {
+      "path": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 54422,
+      "physical_sha256": "664ba9fcae87324df281adaa40df8c979664d1ccea61cba258a1a762bf2f665f",
+      "input_disposition": "EXACT_ACCEPTED_R6_OFFLINE_SAFE_BASELINE"
+    },
+    "test": {
+      "path": "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 91675,
+      "physical_sha256": "d544c80f6e3bb341777cb1215bef1400f59339674872adb8dfa988577e57c038",
+      "input_disposition": "EXACT_ACCEPTED_R6_REGRESSION_BASELINE"
+    },
+    "exact_input_pair_sha256": "bbbb62ba717cf96a87242b7ef74fee82b6f608d9b28d8d1a3b8e171060755657",
+    "pair_formula": "sha256(client_path_utf8 || 0x00 || client_physical_sha256_ascii || 0x00 || test_path_utf8 || 0x00 || test_physical_sha256_ascii)",
+    "binding_result": "MATCH",
+    "hard_rule": "Terra must stop without editing if either input file path, size, physical hash, branch, or HEAD differs from this exact authorization."
+  },
+  "minimal_two_file_authorization": {
+    "authorized": true,
+    "exact_mutable_file_allowlist": [
+      "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py"
+    ],
+    "maximum_mutable_files": 2,
+    "existing_files_only": true,
+    "new_production_files": 0,
+    "new_test_files": 0,
+    "new_marker_files": 0,
+    "new_resume_files": 0,
+    "new_runtime_files": 0,
+    "client_changes_allowed": [
+      "Add exact constants and strict authentication for the existing R6 completion decision.",
+      "Add exact constants and strict authentication for this R7 gate-rebinding authorization after R7 has been issued and its physical and canonical identities can be measured.",
+      "Extend the current R3-through-R6-repair production gate chain to authenticate R6 completion and R7.",
+      "Replace only the current terminal explanation that stops at the rejecting R6 repair decision; after the longer chain authenticates, still unconditionally raise the same fail-closed production suspension state.",
+      "Make only local mechanical formatting or helper changes necessary to keep this validation auditable and deterministic."
+    ],
+    "test_changes_allowed": [
+      "Retain or strictly strengthen all 59 accepted R6 scoped tests.",
+      "Add the minimum offline regression cases required by this decision for the R6-completion and R7 gate chain.",
+      "Use temporary roots, copied authority documents, mocks, or injected local readers for negative cases; never mutate the workspace authority decisions."
+    ],
+    "forbidden_mutations": [
+      "Any R2, R3, R4, R5, R6 repair, R6 completion, or R7 decision",
+      "The phased route decision",
+      "The measurement contract",
+      "The request plan",
+      "Any schema or specification",
+      "Any dependency or lock file",
+      "Any artifact, marker, resume, preflight, runtime, receipt, closure, or inventory file",
+      "Any Active G1 path or data",
+      "Any file outside the exact two-file allowlist"
+    ],
+    "install_dependencies": false,
+    "scope_stop_rule": "If the gate rebinding requires a third mutable file, a new file, a marker, a resume artifact, a call-layer capability, a schema change, a dependency, preflight, runtime, network, data access, or any weakening of the existing R2-through-R6 safety invariants, stop and return to Sol."
+  },
+  "mandatory_gate_rebinding_contract": {
+    "validation_order": [
+      "Preserve exact authentication of the existing R3, R4, R5, and R6 repair decision chain.",
+      "Read R6 completion as strict JSON from its exact path and authenticate its exact physical SHA-256 before relying on parsed content.",
+      "Authenticate R6 completion decision_sha256 and independently recompute its domain-separated canonical digest.",
+      "Authenticate R6 completion decision id, decision state, workspace identity, accepted input pair, suspension fields, and exact R6 repair predecessor binding.",
+      "Read R7 as strict JSON from its exact path and authenticate its exact physical SHA-256 before relying on parsed content.",
+      "Authenticate R7 decision_sha256 and independently recompute its domain-separated canonical digest.",
+      "Authenticate R7 decision id, decision state, workspace identity, exact authorized input pair, exact two-file allowlist, and zero-execution permission boundary.",
+      "After every predecessor and R7 check succeeds, unconditionally raise WAIT_DATA_NO_FALLBACK before any downstream input processing, TCP probe, opener construction, output creation, or runtime action."
+    ],
+    "r6_completion_domain_prefix_utf8": "msta-hed/sol-research-system-pit-authority-replay-sd0-client-p0-r6-completion/v1",
+    "r7_domain_prefix_utf8": "msta-hed/sol-research-system-pit-authority-replay-sd0-client-p0-r7-gate-rebinding/v1",
+    "required_production_entrypoints": [
+      "main",
+      "preflight",
+      "persist_ready",
+      "execute"
+    ],
+    "required_terminal_state": "WAIT_DATA_NO_FALLBACK",
+    "required_terminal_meaning": "R7 gate chain authenticated but no separate future Sol final authorization exists.",
+    "successful_validation_return_allowed": false,
+    "capability_return_allowed": false,
+    "local_pass_override_allowed": false,
+    "environment_override_allowed": false,
+    "dynamic_decision_discovery_allowed": false,
+    "marker_or_resume_file_lookup_allowed": false,
+    "call_layer_authorization_added_now": false,
+    "automatic_resume_after_client_change": false,
+    "automatic_resume_after_tests_pass": false,
+    "automatic_resume_after_completion_review": false
+  },
+  "anti_circular_hash_contract": {
+    "r7_contains_future_client_hash": false,
+    "r7_contains_future_test_hash": false,
+    "r7_predicts_post_patch_pair_hash": false,
+    "r7_binds_only_pre_change_inputs": true,
+    "post_patch_client_may_bind_r7": "The revised client must hard-pin the exact issued R7 path, physical SHA-256, canonical SHA-256, decision id, and decision state. R7 does not need and must not contain the resulting client or test hash.",
+    "post_patch_output_authority": "NONE",
+    "future_final_sol_requirement": "A separate future Sol decision must review and bind the actual post-patch client and test physical hashes before it can consider any production permission.",
+    "future_mechanism_choice": "The future Sol final gate may choose call-layer authorization or another separately reviewed fail-closed mechanism. R7 neither selects nor pre-authorizes that mechanism.",
+    "hard_rule": "No repair code, passing test, candidate hash report, or completion review can make the revised client resume automatically."
+  },
+  "mandatory_invariants": [
+    {
+      "invariant_id": "R7-I01",
+      "name": "EXACT_R6_COMPLETION_AND_R7_CHAIN_AUTHENTICATION",
+      "requirements": [
+        "The rejecting R6 repair decision remains immutable and authenticated as a predecessor.",
+        "Only the exact physical and canonical R6 completion decision closes the repair result for gate-chain purposes.",
+        "Only the exact physical and canonical R7 decision authorizes this two-file mechanical transformation.",
+        "Missing, unreadable, symlinked, nonregular, malformed, duplicate-key, physically drifted, canonically drifted, wrong-id, wrong-state, wrong-workspace, or wrong-binding completion/R7 input fails closed."
+      ]
+    },
+    {
+      "invariant_id": "R7-I02",
+      "name": "UNCONDITIONAL_PRODUCTION_SUSPENSION_AFTER_SUCCESSFUL_REBINDING",
+      "requirements": [
+        "Every production entrypoint invokes the gate before any user-supplied evidence read, TCP probe, socket, opener, output, or runtime action.",
+        "A fully valid R3-through-R7 chain still terminates in WAIT_DATA_NO_FALLBACK.",
+        "No valid chain returns a boolean, token, capability, marker path, ready object, or other positive authorization.",
+        "No environment variable, local file, test flag, callback, or caller choice can bypass the suspension."
+      ]
+    },
+    {
+      "invariant_id": "R7-I03",
+      "name": "NO_CIRCULAR_OR_SPECULATIVE_OUTPUT_BINDING",
+      "requirements": [
+        "R7 binds the exact accepted pre-change client and test inputs.",
+        "R7 contains no future client hash, future test hash, future pair hash, resume marker identity, or invented final decision identity.",
+        "The post-patch identities are facts for a later Sol review, not values to be predicted or self-certified by Terra.",
+        "The revised client may authenticate R7 because R7 is issued first; that one-way binding does not authorize execution."
+      ]
+    },
+    {
+      "invariant_id": "R7-I04",
+      "name": "TWO_FILE_SCOPE_AND_FROZEN_ROUTE",
+      "requirements": [
+        "Only the existing client and existing test are mutable.",
+        "No route, contract, plan, schema, specification, dependency, helper file, marker, resume file, or runtime artifact is created or changed.",
+        "All R2-through-R6 client safety invariants remain in force.",
+        "D0 and every later research, data, scoring, trading, deployment, account, order, credential, and funds permission remain denied."
+      ]
+    }
+  ],
+  "offline_test_authorization": {
+    "terra_may_run_after_two_file_edit": true,
+    "sol_runs_tests_in_this_issuance_turn": false,
+    "network_in_tests": false,
+    "workspace_preflight_in_tests": false,
+    "workspace_runtime_in_tests": false,
+    "active_g1_in_tests": false,
+    "real_data_in_tests": false,
+    "minimum_commands": [
+      {
+        "purpose": "SYNTAX",
+        "command": "PYTHONPYCACHEPREFIX=/tmp/pitar1-sd0-r7-pycache python3 -m py_compile trade_system/pit_authority_replay_sd0_metered_fetch_v1.py tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+        "required_result": "PASS_EXIT_0"
+      },
+      {
+        "purpose": "SCOPED",
+        "command": "python3 -m unittest -v tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+        "minimum_tests_run": 61,
+        "required_result": "PASS_ZERO_FAILURE_ZERO_ERROR"
+      },
+      {
+        "purpose": "COMBINED_REGRESSION",
+        "command": "python3 -m unittest -v tests.test_pit_authority_replay_contract_v1 tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+        "minimum_tests_run": 130,
+        "required_result": "PASS_ZERO_FAILURE_ZERO_ERROR"
+      }
+    ],
+    "baseline_counts": {
+      "accepted_r6_scoped_tests": 59,
+      "accepted_r6_combined_tests": 128,
+      "minimum_new_r7_scoped_methods": 2
+    },
+    "required_new_cases": [
+      {
+        "test_id": "R7-T41",
+        "subject": "An exact authentic R3-through-R6-repair, R6-completion, and R7 chain reaches the final gate branch but all four production entrypoints still raise WAIT_DATA_NO_FALLBACK before callbacks or outputs.",
+        "minimum_assertions": [
+          "tcp_probe_calls equals zero",
+          "opener_calls equals zero",
+          "no workspace preflight path exists",
+          "no workspace runtime path exists",
+          "no positive return or capability exists"
+        ]
+      },
+      {
+        "test_id": "R7-T42",
+        "subject": "For each of R6 completion and R7, missing, malformed, and one-byte-drifted temporary authority copies fail closed before callbacks or outputs, while the workspace authority files remain untouched.",
+        "minimum_assertions": [
+          "terminal state is WAIT_DATA_NO_FALLBACK",
+          "tcp_probe_calls equals zero",
+          "opener_calls equals zero",
+          "no preflight or runtime output exists"
+        ]
+      }
+    ],
+    "test_integrity_rules": [
+      "The R7 production-gate cases must exercise the real gate validation path; patching the gate to a no-op is not evidence.",
+      "Negative cases must use temporary copies or injected local reads and must not mutate workspace decisions.",
+      "Existing nonproduction fixture bypasses may remain for unrelated offline client behavior tests.",
+      "No test may open a real socket, invoke a real TCP probe, access the configured proxy, read Active G1, persist the workspace preflight, or create workspace runtime outputs."
+    ]
+  },
+  "completion_review_requirement": {
+    "r7_is_completion_acceptance": false,
+    "review_owner": "GPT-5.6-SOL_ULTRA",
+    "required_terra_fact_package": [
+      "Exact before and after physical SHA-256 and byte size for the client and test.",
+      "A diff/path audit proving that only the exact two allowlisted existing files changed and that no new file was created.",
+      "Source evidence that R3 through R6 repair, R6 completion, and R7 are authenticated and that the valid-chain branch still unconditionally raises before side effects.",
+      "Exact syntax, scoped, and combined commands, exit codes, tests-run counts, failures, errors, and skips.",
+      "Evidence that all nine workspace preflight/runtime paths remain absent before and after testing.",
+      "Network requests zero, workspace preflight runs zero, workspace runtime runs zero, Active G1 access zero, market-data access zero, backtest/paper/live actions zero, and funds at risk zero.",
+      "Confirmation that route, contract, plan, schema, specification, dependency files, authority decisions, marker files, and resume files were not changed or created.",
+      "A concise PRECHECK_SAFE assessment limited to the offline gate-rebinding candidate."
+    ],
+    "required_sol_review": [
+      "Recompute both post-patch file identities and verify the exact two-file diff.",
+      "Recompute and authenticate R6 completion and R7 physical and canonical identities.",
+      "Audit the valid-chain path and failure matrix for unconditional pre-side-effect suspension.",
+      "Confirm that R7 contains no future client/test hash and that the client has no automatic resume path.",
+      "Review the reported minimum offline test evidence without invoking preflight or network.",
+      "Issue a separate final decision; R7 alone and the completion review facts alone have no production effect."
+    ],
+    "possible_results": [
+      "ACCEPT_GATE_REBOUND_CANDIDATE_KEEP_PRODUCTION_SUSPENDED",
+      "REJECT_GATE_REBOUND_CANDIDATE_CONTINUE_PRODUCTION_SUSPENSION"
+    ],
+    "automatic_next_permission": "NONE",
+    "final_activation_mechanism_selected_now": false
+  },
+  "no_permission_gap_proof": {
+    "before_r7": "The exact accepted R6 client authenticates R3 through the rejecting R6 repair decision and then unconditionally suspends production.",
+    "during_authorized_edit": "R7 grants only two-file source/test mutation and offline tests. It explicitly grants zero preflight, runtime, network, Active G1, data, trading, deployment, credential, order, and funds permission.",
+    "after_candidate_edit_before_future_sol": "The required revised gate authenticates R6 completion and R7 and then still unconditionally suspends every production entrypoint before side effects.",
+    "after_tests_or_fact_report": "Passing tests and a Terra fact package create evidence only and cannot change the suspension.",
+    "future_boundary": "No final Sol decision or activation mechanism exists in R7. A future exact decision must bind the actual post-patch hashes and separately choose any authorization mechanism.",
+    "conclusion": "At no phase does the old gate stop blocking before the revised gate is required to block, and no artifact issued here is consumable as production permission."
+  },
+  "permission_matrix": {
+    "create_this_r7_decision": true,
+    "terra_read_exact_authorities_for_verification": true,
+    "terra_modify_exact_client": true,
+    "terra_modify_exact_test": true,
+    "terra_run_minimum_offline_tests": true,
+    "modify_r2_r3_r4_r5_r6_or_r7_decision": false,
+    "modify_route_contract_plan_schema_or_spec": false,
+    "modify_dependency_or_lock_file": false,
+    "create_helper_marker_resume_or_authorization_file": false,
+    "create_workspace_preflight": false,
+    "create_workspace_runtime": false,
+    "tcp_probe_or_network_request": false,
+    "proxy_access_change_or_bypass": false,
+    "active_g1_read_copy_or_modify": false,
+    "archive_zip_or_market_row_access": false,
+    "d0_adapter_replay_dataset": false,
+    "backtest_calibration_holdout": false,
+    "shadow_paper_testnet_deploy": false,
+    "credentials_account_orders_funds": false,
+    "production_preflight": false,
+    "production_seven_request_route": false,
+    "automatic_resume": false,
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "stage_disposition": {
+    "pitar1_sd0_r6_repair": "ACCEPTED_OFFLINE_BY_BOUND_R6_COMPLETION",
+    "pitar1_sd0_r7_gate_rebinding": "AUTHORIZED_TWO_FILE_OFFLINE_REPAIR_NOT_COMPLETED",
+    "pitar1_sd0_route": "FROZEN_STRUCTURALLY_VALID_NOT_EXECUTABLE",
+    "pitar1_sd0_contract": "FROZEN_VALID",
+    "pitar1_sd0_plan": "FROZEN_VALID",
+    "pitar1_sd0_production_gate": "SUSPENDED_BEFORE_DURING_AND_AFTER_R7_REPAIR",
+    "pitar1_sd0_production_preflight": "DENIED",
+    "pitar1_sd0_production_requests": "DENIED",
+    "pitar1_d0_and_later": "DENIED_UNCHANGED",
+    "active_g1": "ISOLATED_NO_ACCESS",
+    "paper_testnet_deployment_live": "DENIED_UNCHANGED",
+    "next_action": "TERRA_MODIFIES_ONLY_EXACT_CLIENT_AND_TEST_RUNS_ONLY_MINIMUM_OFFLINE_TESTS_AND_RETURNS_FACT_PACKAGE_TO_FUTURE_SOL_FINAL_REVIEW",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "claim_boundary": {
+    "r6_offline_completion": "ACCEPTED_FOR_EXACT_BOUND_INPUT_PAIR",
+    "r7_gate_rebinding_authority": "AUTHORIZED_TWO_FILE_MECHANICAL_EDIT_ONLY",
+    "r7_gate_rebinding_completion": "NOT_YET_EVALUATED",
+    "network_transport_success": "NOT_TESTED_NOT_AUTHORIZED",
+    "source_authority_or_terms": "NOT_EVALUATED",
+    "market_data_or_pit_validity": "NOT_EVALUATED",
+    "d0_adapter_or_replay": "NOT_AUTHORIZED",
+    "predictive_or_profitability_validity": "NOT_EVALUATED",
+    "paper_or_live_readiness": "NOT_AUTHORIZED",
+    "maximum_positive_claim": "The exact accepted R6 client and test may be mechanically revised so the production gate authenticates R6 completion and R7 before continuing to suspend unconditionally. R7 contains no future output hash, creates no marker or resume file, selects no final activation mechanism, and grants no preflight, runtime, network, Active G1, data, adapter, replay, backtest, paper, deployment, credential, order, or funds permission."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-research-system-pit-authority-replay-sd0-client-p0-r7-gate-rebinding/v1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "c36327f4e67aee112b07e985ab71a49c40095cfe0a7ee32efd6a944abf10196f"
+}

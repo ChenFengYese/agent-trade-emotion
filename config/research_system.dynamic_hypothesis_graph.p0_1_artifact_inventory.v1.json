@@ -1,0 +1,204 @@
+{
+  "inventory_id": "MSTA_HED_RESEARCH_SYSTEM_DYNAMIC_HYPOTHESIS_GRAPH_P0_1_ARTIFACT_INVENTORY.v1",
+  "schema_version": "research-system-dynamic-hypothesis-graph-p0_1-artifact-inventory.v1",
+  "created_at": "2026-07-27T12:02:35Z",
+  "revised_at": "2026-07-27T12:16:38Z",
+  "revision": 2,
+  "status": "LOCAL_REVIEW_READY_E0_CANDIDATE_AWAITING_EXTERNAL_SOL_P0_1_GATE",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "route_id": "RSR-P0.1-DYNAMIC-HYPOTHESIS-GRAPH-v1",
+    "route_stage": "P0_1_AUTHORIZED_WORK_NOT_ACCEPTED"
+  },
+  "authority_binding": {
+    "route_decision": {
+      "path": "config/sol_decision.research-system-dynamic-hypothesis-graph-p0_1-route.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_DYNAMIC_HYPOTHESIS_GRAPH_P0_1_ROUTE.v1",
+      "decision_state": "AUTHORIZED_P0_1_E0_DYNAMIC_HYPOTHESIS_GRAPH_CHALLENGER",
+      "size_bytes": 21898,
+      "physical_sha256": "eb1ded24b8cb2792135422bc2cc28c52344e0a299354449fecfce43a83614e17",
+      "canonical_sha256": "d2550e5eacd6a304eda141977eefec280d478c86bd3a13189277cc7c9ecfc1d2"
+    },
+    "accepted_p0_foundation": {
+      "path": "config/sol_decision.research-system-reconstruction-p0-gate.v1_1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION_P0_GATE.v1_1",
+      "decision_state": "ACCEPT_P0",
+      "size_bytes": 17299,
+      "physical_sha256": "ff9f2b608fe387b953e5d18e1a3cd0a246fcc43bf209f694ffab53f867a8f4cf",
+      "canonical_sha256": "d0968a40d33cea693cd2ad979a656b7897c30fe58b3cd94d85b6f1ce5afd6a58"
+    },
+    "current_core_theory": {
+      "path": "CORE_TRADING_THEORY_v2_1.md",
+      "authority_id": "CORE_TRADING_THEORY.v2.1",
+      "status": "CURRENT_IMMUTABLE_AUTHORITY",
+      "size_bytes": 140126,
+      "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d"
+    },
+    "core_authority_manifest": {
+      "path": "config/core_trading_theory.authority.v2_1.json",
+      "size_bytes": 299,
+      "physical_sha256": "a3e174c616b176253f4aef2ce267a932d43f7e64db3490db815a27f007df12d4",
+      "recorded_core_physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d",
+      "recorded_status": "CURRENT_IMMUTABLE_AUTHORITY"
+    },
+    "accepted_v1_1_inventory": {
+      "path": "config/research_system.p0_artifact_inventory.v1_1.json",
+      "size_bytes": 5823,
+      "physical_sha256": "dc78634eb373aef988cc7a13a5bfdb87d03303b452b22b896d95c02d88a2ee26",
+      "canonical_sha256": "c6cb8e84e37d858b971d02b2cf4aed7878804327922482460701ea4ef214cbc1"
+    },
+    "accepted_v1_1_bundle": {
+      "bundle_digest": "8a607d9d472f5a26d05e4e74ddca27876621a52ec102a6088f723687c52950fe",
+      "status": "FROZEN_ACCEPTED_FOUNDATION_NOT_MODIFIED"
+    },
+    "identity_recheck": "PASS_5_OF_5"
+  },
+  "candidate_artifact_count": 8,
+  "candidate_artifacts_with_embedded_exact_physical_identity": 7,
+  "candidate_artifacts": [
+    {
+      "role": "versioned_theory_challenger",
+      "path": "RESEARCH_SYSTEM_DYNAMIC_HYPOTHESIS_GRAPH_CHALLENGER_v1_2.md",
+      "size_bytes": 25251,
+      "physical_sha256": "cc8062d11df351d3bb19ab48c70d3f2f931b817d1d60de8314c085e4d171720a",
+      "canonical_sha256": "NOT_APPLICABLE_MARKDOWN_PHYSICAL_IDENTITY_ONLY"
+    },
+    {
+      "role": "runtime_graph_contract",
+      "path": "config/research_system.runtime_hypothesis_graph_contract.v1_2.json",
+      "size_bytes": 21434,
+      "physical_sha256": "dcf57d5dec327f0284444cf29dbeb193b95607355b5063b788dccf4ddad201a4",
+      "canonical_sha256": "ecffaef260232b2e16eac8f2d80e49c44f97006a8cf8a1ca948a588f3ca1672b"
+    },
+    {
+      "role": "runtime_template_registry",
+      "path": "config/research_system.runtime_hypothesis_template_registry.v1_2.json",
+      "size_bytes": 47493,
+      "physical_sha256": "da722709bbc48c204e836ec48d258b8578b52b53f77315284779013b2866af13",
+      "canonical_sha256": "11b9f1e85cbc7d0e8a1c4ad4b8cc90b8878eb335bd26d098503bbc1b44b02f6c"
+    },
+    {
+      "role": "runtime_evidence_and_evaluation_contract",
+      "path": "config/research_system.runtime_evidence_evaluation_contract.v1_2.json",
+      "size_bytes": 54063,
+      "physical_sha256": "b7bbb684bbeba2b191b4c47acb7a1bede07c8a2022b6a66e00149a7e066a9b8d",
+      "canonical_sha256": "7005944011f19ebde8f60f3fe481e7922890eb167c1eb3a062c0ebdf747a1932"
+    },
+    {
+      "role": "pure_total_validator",
+      "path": "trade_system/research_system_contract_v1_2.py",
+      "size_bytes": 112378,
+      "physical_sha256": "94b9050cbdae66050cf3281e099fff84c6921eb79de53e4e7bd6372e8f5f3928",
+      "canonical_sha256": "NOT_APPLICABLE_PYTHON_PHYSICAL_IDENTITY_ONLY"
+    },
+    {
+      "role": "synthetic_and_adversarial_tests",
+      "path": "tests/test_research_system_contract_v1_2.py",
+      "size_bytes": 47312,
+      "physical_sha256": "c4711c94ed86490d21a011c7a297891f446d8dac38e20d17bfbe3f0368cf9f89",
+      "canonical_sha256": "NOT_APPLICABLE_PYTHON_PHYSICAL_IDENTITY_ONLY"
+    },
+    {
+      "role": "integrated_independent_evidence_report",
+      "path": "artifacts/research_system_dynamic_hypothesis_graph_p0_1_evidence_report.v1.json",
+      "size_bytes": 22753,
+      "physical_sha256": "67881c47cd39edd51462b8d085255ccfef4038a8ab4f5802cec3eb93ce6f8e27",
+      "canonical_sha256": "77a9b52b886fac8ba31a7c3c6bd0a140591aadf1fe6c935d3628de01d2f54bd9"
+    }
+  ],
+  "self_identity_rule": {
+    "role": "exact_candidate_inventory",
+    "path": "config/research_system.dynamic_hypothesis_graph.p0_1_artifact_inventory.v1.json",
+    "canonical_identity_rule": "The inventory_sha256 below is the domain-separated canonical identity after excluding only inventory_sha256.",
+    "physical_identity_rule": "The inventory physical SHA-256 and byte length must be pinned externally by the Sol P0.1 gate because a file cannot embed its own exact physical hash and byte length without a self-reference cycle."
+  },
+  "candidate_validation_summary": {
+    "clean_status": "ACCEPTED_OK",
+    "composed_dynamic_policy_bundle_digest": "f730d9f712001ec603a33e26977efaadf8db1a7492cba2e4d24acaee7ba10625",
+    "frozen_v1_1_predecessor_bundle_digest": "8a607d9d472f5a26d05e4e74ddca27876621a52ec102a6088f723687c52950fe",
+    "public_raw_document_count": 11,
+    "predecessor_document_count": 8,
+    "v1_2_contract_document_count": 3,
+    "superseded_three_contract_only_bundle_digest": "c01978c3268cf109400ed57af6e138308fc61450788220430143b3d794db2e55",
+    "superseded_three_contract_only_bundle_status": "REJECTED_AS_INCOMPLETE_COMPOSITION_NOT_THIS_CANDIDATE",
+    "superseded_intermediate_bundle_prefix": "72c091",
+    "superseded_intermediate_bundle_status": "INTERMEDIATE_NOT_THIS_CANDIDATE",
+    "v1_2_tests": "PASS_122_OF_122",
+    "predecessor_v1_v1_1_tests": "PASS_140_OF_140",
+    "combined_tests": "PASS_262_OF_262",
+    "independent_helper_free_dynamic_mutations": "PASS_39_OF_39",
+    "independent_helper_free_predecessor_composition_mutations": "PASS_13_OF_13",
+    "independent_helper_free_total_mutations": "PASS_52_OF_52",
+    "predecessor_byte_drifts": "PASS_8_OF_8_REJECTED",
+    "combined_manifest_recomputation": "PASS",
+    "independent_contract_digest_rechecks": "PASS_3_OF_3",
+    "terminal_partition_mutation": "PASS_E_TERMINAL_PARTITION",
+    "machine_predicates": 30,
+    "fixture_sets": 11,
+    "fixture_cases": 66,
+    "predicate_input_assertions": 104,
+    "pairwise_path_discriminators": 6,
+    "local_p0_top_001_status": "CLOSED_LOCAL_CONTRACT_ONLY",
+    "local_p0_composition_001_status": "CLOSED_LOCAL_CONTRACT_ONLY",
+    "local_p1_reason_order_status": "CLOSED",
+    "f005_dsp022_status": "OPEN_DEFERRED_BLOCKING"
+  },
+  "dynamic_policy_boundary": {
+    "status": "E0_INTERFACE_ONLY_NOT_IMPLEMENTED_NOT_AUTHORIZED",
+    "real_permission": "DENIED_P0_1",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0,
+    "runtime_implementation": "NOT_IMPLEMENTED",
+    "event_driven_replay_implementation": "NOT_IMPLEMENTED",
+    "backtest_implementation": "NOT_IMPLEMENTED",
+    "future_evaluation_thresholds": "UNSET_BLOCKS_E2"
+  },
+  "scope_confirmation": {
+    "exact_allowlisted_paths_present": 8,
+    "new_or_modified_artifact_outside_allowlist": false,
+    "existing_allowlisted_or_frozen_artifact_modified": false,
+    "dependency_installation": false,
+    "market_data_acquisition": false,
+    "adapter_or_dataset_work": false,
+    "replay_backtest_calibration_or_holdout": false,
+    "paper_deployment_or_trading": false,
+    "worktree_global_cleanliness_claimed": false,
+    "worktree_note": "The workspace contained pre-existing unrelated dirty paths. This candidate inventory is scoped only to the exact eight new allowlisted paths."
+  },
+  "claim_boundary": {
+    "maximum_positive_claim": "This inventory binds the exact eight-file P0.1 E0 candidate artifact package to the immutable route, accepted P0 foundation, current core-theory and accepted v1.1 identities. Its public validator requires the exact eight-document frozen v1.1 raw predecessor plus three v1.2 contracts and composes bundle f730d9f712001ec603a33e26977efaadf8db1a7492cba2e4d24acaee7ba10625 from the accepted v1.1 bundle and three contract canonical identities. A total of 39 dynamic and 13 predecessor-composition independent adversarial mutations pass, as do 262 combined tests. It remains a local review-ready E0 candidate awaiting an external Sol P0.1 gate.",
+    "p0_1_complete": false,
+    "candidate_may_accept_itself": false,
+    "current_core_theory_promoted_or_replaced": false,
+    "source_data_validity": "NOT_EVALUATED",
+    "market_validity": "NOT_EVALUATED",
+    "predictive_validity": "NOT_EVALUATED",
+    "probability_calibration": "NOT_PERFORMED",
+    "profitability": "NOT_EVALUATED",
+    "runtime_or_replay": "NOT_IMPLEMENTED_NOT_AUTHORIZED",
+    "backtest": "NOT_RUN_NOT_AUTHORIZED",
+    "paper": "NOT_RUN_NOT_AUTHORIZED",
+    "deployment": "DENIED",
+    "trading": "DENIED"
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "domain": "msta-hed/research-system-dynamic-hypothesis-graph-p0_1-artifact-inventory/v1",
+    "formula": "SHA256(domain_prefix_utf8 || HEX(domain_separator_hex) || canonical_json_utf8)",
+    "domain_prefix_utf8": "msta-hed/research-system-dynamic-hypothesis-graph-p0_1-artifact-inventory/v1",
+    "domain_separator_hex": "00",
+    "exclude_fields": [
+      "inventory_sha256"
+    ],
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "encoding": "UTF-8"
+  },
+  "inventory_sha256": "272af1db76be3dbab2bfffe016c17d072fac01fe6d7732e42daab9c62e4781bb"
+}

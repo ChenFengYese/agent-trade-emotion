@@ -1,0 +1,275 @@
+{
+  "schema_version": "sol-har1-btcusdt-source-preflight-r2-route.v1",
+  "decision_id": "SOL_HAR1_BTCUSDT_SOURCE_PREFLIGHT_R2_ROUTE.v1",
+  "decision_state": "AUTHORIZE_R2_BASELINE_AND_STATIC_CLIENT_NO_NETWORK",
+  "issued_by": "GPT-5.6-SOL_ULTRA_BLOCKER_RECOVERY_PLANNER",
+  "issued_at": "2026-07-29T08:49:00Z",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "failed_v1_binding": {
+    "blocker_decision_path": "config/sol_decision.har1-btcusdt-source-preflight-v1-blocked.v1.json",
+    "blocker_decision_physical_sha256": "8d4de5557009af75c880de7c8718c4bdbf529a16fc8b6075c75b8d228400aba5",
+    "blocker_decision_canonical_sha256": "8cf923b01dfcf2172d64401b6aeaed40064fbc64900bb2dfc76ee3af20babe16",
+    "v1_outputs_immutable": {
+      "har1/baseline.json": "61b36e229466a88fb85259f089c1b4fe606ec4c9c7ee3f8a29d8179e9c10eb12",
+      "har1/source_contract.json": "16087fa87ea1c55027bc8e64bd793ac76b17b75616f4c932bb41f8bba9b174bf",
+      "har1/purge_plan.json": "8dbd22281844300e9c6432f32ce3a94a0ef94f58bb583b2c6222d8648be6d2d8"
+    },
+    "overwrite_delete_rename_reuse_or_retry": "DENIED"
+  },
+  "run_identity": {
+    "route_id": "HAR1R2_SOURCE_PREFLIGHT_STATIC_v1",
+    "run_id": "har1r2-source-preflight-20260729-v1",
+    "namespace": "har1r2",
+    "automatic_promotion": false
+  },
+  "exact_new_file_allowlist_in_creation_order": [
+    "har1r2/baseline.json",
+    "har1r2/source_contract.json",
+    "har1r2/purge_plan.json",
+    "har1r2/preflight_client.py",
+    "har1r2/test_preflight_client.py",
+    "har1r2/evidence.jsonl"
+  ],
+  "initial_state": {
+    "all_six_paths_absent_at_route_issue": true,
+    "parent_namespace_absent_at_route_issue": true,
+    "parent_symlink_allowed": false,
+    "existing_or_nonregular_target_action": "FAIL_CLOSED"
+  },
+  "phase_permissions": [
+    {
+      "phase": "R2A_BASELINE",
+      "may_create": [
+        "har1r2/baseline.json"
+      ],
+      "network": false,
+      "successor_condition": "BASELINE_REOPEN_AND_FULL_OFFLINE_ROUNDTRIP_VALIDATION_PASS"
+    },
+    {
+      "phase": "R2B_STATIC",
+      "may_create": [
+        "har1r2/source_contract.json",
+        "har1r2/purge_plan.json",
+        "har1r2/preflight_client.py",
+        "har1r2/test_preflight_client.py"
+      ],
+      "network": false,
+      "successor_condition": "OFFLINE_TESTS_AND_INDEPENDENT_HASH_REVIEW_PASS"
+    },
+    {
+      "phase": "R2C_FUTURE_ACTIVATION",
+      "may_create": [
+        "har1r2/evidence.jsonl"
+      ],
+      "network": "DENIED_UNTIL_NEW_SOL_ACTIVATION_DECISION",
+      "successor_condition": "NEW_SOL_ACTIVATION_BINDS_FINAL_CLIENT_TEST_CONTRACT_PURGE_BASELINE_AND_ROUTE_HASHES"
+    }
+  ],
+  "baseline_contract": {
+    "must_be_first_and_only_file_before_validation": true,
+    "exact_argv": [
+      "git",
+      "status",
+      "--porcelain=v2",
+      "--branch",
+      "-z",
+      "-uall"
+    ],
+    "required_fields": [
+      "schema_version",
+      "route_id",
+      "run_id",
+      "cwd",
+      "command_argv",
+      "capture_started_at_utc",
+      "capture_finished_at_utc",
+      "branch",
+      "head",
+      "route_physical_sha256",
+      "route_canonical_sha256",
+      "raw_status_base64",
+      "raw_status_sha256",
+      "raw_status_byte_count",
+      "nul_delimiter_count",
+      "raw_record_count",
+      "raw_records_base64_in_order",
+      "path_projection",
+      "baseline_sha256"
+    ],
+    "raw_preservation": {
+      "base64_variant": "RFC4648_STANDARD_WITH_PADDING",
+      "lossy_utf8_decode": false,
+      "truncation": false,
+      "record_order_preserved": true,
+      "rename_copy_two_paths_preserved": true,
+      "path_raw_bytes_base64_required": true
+    },
+    "path_projection_item_fields": [
+      "record_index",
+      "record_kind",
+      "path_ordinal",
+      "path_bytes_base64"
+    ],
+    "self_digest": {
+      "domain_prefix_utf8": "msta-hed/har1r2-baseline/v1",
+      "excluded_field": "baseline_sha256",
+      "algorithm": "SHA-256_CANONICAL_JSON"
+    },
+    "write_rule": "CREATE_ONCE_NO_OVERWRITE_THEN_FLUSH_FSYNC",
+    "failure_rule": "TERMINATE_R2_KEEP_OTHER_FIVE_PATHS_ABSENT_NO_RETRY"
+  },
+  "baseline_offline_revalidation": [
+    "STRICT_JSON_NO_DUPLICATE_KEYS_OR_NONFINITE_VALUES",
+    "STRICT_BASE64_DECODE_AND_CANONICAL_REENCODE_EQUALITY",
+    "DECODED_BYTE_COUNT_AND_SHA256_EQUALITY",
+    "PORCELAIN_V2_Z_TOTAL_GRAMMAR_PARSE",
+    "NUL_COUNT_RECORD_COUNT_ORDER_AND_DUPLICATE_PRESERVATION",
+    "RENAME_OR_COPY_SECOND_PATH_PRESERVATION",
+    "RAW_RECORDS_REASSEMBLE_TO_EXACT_RAW_STATUS_BYTES",
+    "PATH_PROJECTION_BIDIRECTIONAL_MATCH",
+    "BRANCH_AND_HEAD_MATCH_RAW_BRANCH_HEADERS_AND_ROUTE",
+    "CAPTURE_TIMES_CANONICAL_UTC_AND_MONOTONIC",
+    "BASELINE_CANONICAL_SELF_HASH_MATCH"
+  ],
+  "static_contract_scope": {
+    "actor": "NATURAL_PERSON",
+    "jurisdiction": "JP",
+    "purpose": "INTERNAL_RESEARCH_AND_DERIVED_ANALYSIS",
+    "redistribution": "NOT_REQUESTED",
+    "instrument_id": "BTCUSDT",
+    "venue": "BINANCE",
+    "product_family": "USD_M_FUTURES",
+    "source_terms_state": "PREFLIGHT_PENDING_NO_LEGAL_CONCLUSION",
+    "research_parameters": {
+      "maximum_lookback_days": 90,
+      "maximum_holding_days": 7,
+      "status": "UNVALIDATED_INITIAL_BOUNDARIES",
+      "feature_history_policy": "PAST_ONLY_EARLIER_ROLE_CARRY_IN",
+      "role_end_purge_days": 7
+    },
+    "object_manifest": {
+      "one_minute_months": 15,
+      "one_minute_start": "2025-04",
+      "one_minute_end_inclusive": "2026-06",
+      "four_hour_months": 57,
+      "four_hour_start": "2020-07",
+      "four_hour_end_inclusive": "2025-03",
+      "zip_objects": 72,
+      "checksum_objects": 72,
+      "all_download_authorized": false
+    }
+  },
+  "future_five_request_plan": {
+    "proxy": "http://127.0.0.1:7897",
+    "redirects": 0,
+    "retries": 0,
+    "concurrency": 1,
+    "request_timeout_seconds": 20,
+    "total_elapsed_cap_seconds": 90,
+    "requests": [
+      {
+        "sequence": 1,
+        "method": "GET",
+        "url": "https://www.binance.com/ja",
+        "body_cap_bytes": 2097152
+      },
+      {
+        "sequence": 2,
+        "method": "GET",
+        "url": "https://www.binance.com/ja/terms",
+        "body_cap_bytes": 2097152
+      },
+      {
+        "sequence": 3,
+        "method": "GET",
+        "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/README.md",
+        "body_cap_bytes": 1048576
+      },
+      {
+        "sequence": 4,
+        "method": "HEAD",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-07.zip",
+        "body_cap_bytes": 0
+      },
+      {
+        "sequence": 5,
+        "method": "GET",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-07.zip.CHECKSUM",
+        "body_cap_bytes": 512
+      }
+    ],
+    "zip_get_or_body": false,
+    "market_row_read": false,
+    "current_execution_permission": false
+  },
+  "client_activation_contract": {
+    "default_behavior": "WAIT_SOL_R2_ACTIVATION_BEFORE_ANY_NETWORK_OR_EVIDENCE_FILE",
+    "future_decision_id": "SOL_HAR1R2_SOURCE_PREFLIGHT_ACTIVATION.v1",
+    "future_decision_must_bind": [
+      "THIS_ROUTE_PHYSICAL_AND_CANONICAL_HASH",
+      "BASELINE_PHYSICAL_AND_CANONICAL_HASH",
+      "SOURCE_PURGE_CLIENT_AND_TEST_PHYSICAL_HASHES",
+      "EXACT_FIVE_REQUEST_PLAN",
+      "ONE_TIME_RUN_ID_AND_EXPIRY",
+      "EVIDENCE_JSONL_PATH_AND_APPEND_ONLY_HASH_CHAIN"
+    ],
+    "environment_flag_cli_boolean_or_marker_activation": false
+  },
+  "offline_test_requirements": [
+    "V1_THREE_FILES_BYTE_FOR_BYTE_UNCHANGED_AND_REUSE_REJECTED",
+    "BASELINE_IS_FIRST_FILE_AND_OTHER_FIVE_ARE_ABSENT_BEFORE_VALIDATION",
+    "MISSING_OR_INVALID_TIME_SCHEMA_MANIFEST_BASE64_HASH_BYTE_COUNT_OR_SELF_HASH_REJECTED",
+    "TRUNCATED_FINAL_RECORD_EMBEDDED_NUL_NONUTF8_SPACE_NEWLINE_PATHS_REJECT_OR_PRESERVE_PER_GRAMMAR",
+    "RENAME_COPY_TWO_PATHS_DUPLICATE_AND_ORDER_DRIFT_TESTS",
+    "BRANCH_HEAD_ROUTE_RUN_ID_DRIFT_REJECTED",
+    "EXISTING_SYMLINK_OR_NONREGULAR_OUTPUT_REJECTED",
+    "DECODE_REENCODE_AND_RAW_RECORD_REASSEMBLY_ROUNDTRIP",
+    "STATIC_SOURCE_CONTRACT_HAS_EXACT_72_ZIP_AND_72_CHECKSUM_URLS_ALL_UNAUTHORIZED",
+    "PURGE_WINDOWS_AND_UNVALIDATED_PARAMETER_STATUS_EXACT",
+    "CLIENT_HAS_NO_DEFAULT_NETWORK_PATH_AND_REQUIRES_FUTURE_SOL_ACTIVATION",
+    "FIVE_REQUEST_HOST_METHOD_ORDER_CAP_NO_REDIRECT_RETRY_AND_NO_ZIP_BODY_BOUNDARIES"
+  ],
+  "explicit_prohibitions": [
+    "NETWORK_IN_THIS_ROUTE",
+    "CREATE_HAR1R2_EVIDENCE_JSONL_IN_THIS_ROUTE",
+    "READ_JANUARY_OR_FEBRUARY_DATA_CONFIG_REPORT_OR_ARTIFACT",
+    "READ_RUNTIME_OR_OLD_ARTIFACTS",
+    "ACCESS_ACTIVE_G1",
+    "BROAD_RG_FIND_OR_GLOB",
+    "ZIP_GET_BODY_OR_MARKET_ROW",
+    "BACKTEST_TRAIN_CALIBRATE_SCORE_OR_HOLDOUT_OPEN",
+    "PAPER_TESTNET_ORDER_ACCOUNT_CREDENTIAL_FUND_OR_LIVE",
+    "MODIFY_ANY_PREEXISTING_FILE",
+    "MODIFY_DELETE_RENAME_OR_REUSE_HAR1_V1"
+  ],
+  "completion_gate": {
+    "required_reviewer": "GPT-5.6-SOL_ULTRA",
+    "stage": "R2B_STATIC_COMPLETE",
+    "automatic_permission": "NONE",
+    "maximum_next_permission": "ONE_BOUNDED_FIVE_REQUEST_SOURCE_PREFLIGHT_NO_ZIP_BODY"
+  },
+  "claim_boundary": "This route can establish only a lossless dirty-worktree baseline plus static source, purge, manifest and client behavior. It grants no network, source permission, data, backtest or trading claim.",
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-har1-btcusdt-source-preflight-r2-route/v1",
+    "domain_separator_hex": "00",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "excluded_fields": [
+      "/decision_sha256"
+    ]
+  },
+  "decision_sha256": "6979a3ec4b2df46d81d48533ed3ed2147d78f68ec9595fe7bbb7a9a1d3beafa0"
+}

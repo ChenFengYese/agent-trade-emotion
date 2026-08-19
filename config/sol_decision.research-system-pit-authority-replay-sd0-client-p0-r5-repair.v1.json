@@ -1,0 +1,638 @@
+{
+  "schema_version": "sol-research-system-pit-authority-replay-sd0-client-p0-r5-repair-decision.v1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R5_REPAIR.v1",
+  "issued_at": "2026-07-28T11:01:42Z",
+  "issued_by": "GPT-5.6-SOL_ULTRA_P0_R5_INDEPENDENT_BLOCKER_GATE",
+  "decision_state": "CONTINUE_R3_R4_PRODUCTION_SUSPENSION_AUTHORIZE_TWO_FILE_R5_REPAIR",
+  "decision_class": "P0_R5_EXTERNALLY_ANCHORED_CONTEXT_AND_POST_RESPONSE_EVIDENCE_REPAIR",
+  "evidence_level": "LOCAL_SOURCE_AUDIT_AND_ROOT_TERRA_OFFLINE_COUNTEREXAMPLE_EVIDENCE_ONLY",
+  "issue": {
+    "issue_id": "PITAR1-SD0-CLIENT-P0-R5",
+    "stage": "SD0",
+    "severity": "P0",
+    "trigger": "R4_CANDIDATE_PASSES_39_SCOPED_108_COMBINED_BUT_R4_I01_AND_R4_I05_REMAIN_REPRODUCIBLY_OPEN",
+    "same_root_causes_not_closed": [
+      "READY context self-hash and shape checks are mistaken for external authority checks.",
+      "The actual phased-route decision file is never loaded or authenticated by the issuing context.",
+      "Post-response ordinary exceptions are caught only after authentic status, TLS, and header evidence have already been discarded."
+    ],
+    "workspace_only": true,
+    "network_requests": 0,
+    "workspace_preflight_outputs": 0,
+    "workspace_runtime_outputs": 0,
+    "active_g1_access": 0,
+    "market_data_access": 0,
+    "backtest_runs": 0,
+    "paper_or_live_actions": 0,
+    "holdout_at_risk": false,
+    "funds_at_risk": false,
+    "repair_owner": "GPT-5.6-TERRA_HIGH",
+    "completion_gate_owner": "GPT-5.6-SOL_ULTRA"
+  },
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "audited_at": "2026-07-28T11:01:42Z"
+  },
+  "authority_bindings": {
+    "r4_blocker_and_repair_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r4-repair.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R4_REPAIR.v1",
+      "decision_state": "CONTINUE_R3_PRODUCTION_SUSPENSION_AUTHORIZE_TWO_FILE_R4_REPAIR",
+      "size_bytes": 38029,
+      "physical_sha256": "09581d04f9b7e8ca9dd32185d5efe8d2872ec311048cbdf7be546121660b643d",
+      "canonical_sha256": "f427f93794c7db76a3cf9090f2cdd10e080a6c786e6d1de6c7f73fa2d7d0c283",
+      "binding_result": "MATCH",
+      "effect": "R4-I01 through R4-I07 remain mandatory. This R5 narrows and operationalizes the still-open R4-I01, R4-I05, and R4-I06 requirements."
+    },
+    "r3_blocker_and_repair_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r3-repair.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R3_REPAIR.v1",
+      "decision_state": "CONTINUE_SD0_SUSPENSION_AUTHORIZE_TWO_FILE_R3_REPAIR",
+      "size_bytes": 30654,
+      "physical_sha256": "51c4e532c451472dbf0dbf02e1fae08fd994c1c92797b2f39ff1b1e68b699faf",
+      "canonical_sha256": "1e77ed08350f998ad4bc4c7fa9ced261373fb824b7cd3cb537c3eecb5177aeb7",
+      "binding_result": "MATCH",
+      "effect": "The production suspension remains authoritative and cannot be replaced or relaxed by R4, R5, local tests, or a dynamically discovered file."
+    },
+    "phased_route": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-d0-phased-route.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_D0_PHASED_ROUTE.v1",
+      "decision_state": "AUTHORIZED_METERED_SD0_CLOSURE_ROUTE_NETWORK_WAIT_D0_AND_LATER_GATES_LOCKED",
+      "size_bytes": 39834,
+      "physical_sha256": "776a7b69c2655dd76eb84ccab12b3fbac30aef6a81b0f6ebad27ab391b129ec0",
+      "canonical_sha256": "a777dc9411f638f1d3728f7f98f4ccbb64673f06b8f344dd3489efcdc5b79eeb",
+      "route_id": "RSR-PITAR1-SD0-DUAL-LANE-PHASED-v1",
+      "route_workspace": "/Users/wt/Documents/agent-trade-emotion",
+      "route_branch": "codex/s0-research-foundation",
+      "route_head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+      "binding_result": "MATCH"
+    },
+    "measurement_contract": {
+      "path": "config/pit_authority_replay.sd0_measurement_contract.v1.json",
+      "contract_id": "PITAR1_SD0_MEASUREMENT_CONTRACT.v1",
+      "size_bytes": 17452,
+      "physical_sha256": "e2cd42a3930e0ede4d5d003742c2abdc76faa755ae86d20074c9d1f60f79e681",
+      "canonical_sha256": "4ed9f22451ede5c834c20e4f1786d344847166b646f9a1b17d2948e16c617a5b",
+      "binding_result": "MATCH_CANONICAL_SELF_DIGEST"
+    },
+    "request_plan": {
+      "path": "config/pit_authority_replay.sd0_request_plan.v1.json",
+      "plan_id": "PITAR1_SD0_EXACT_REQUEST_PLAN.v1",
+      "size_bytes": 4942,
+      "physical_sha256": "3f2f487f824643d870bb9d023e6d883e4c7d28bc9fb0bc769cb5d21253a7079c",
+      "canonical_sha256": "a334816cca1cbdf676e1b935a3404f5803d4ee892c25d2e1d7d34d3a02ea6fe7",
+      "binding_result": "MATCH_CANONICAL_SELF_DIGEST"
+    },
+    "r4_client_candidate": {
+      "path": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 44801,
+      "physical_sha256": "fed742766f544b04b66ac81a49503c1b269393c7599167ec10b5850ad5f99473",
+      "candidate_disposition": "REJECT_PRECHECK_SAFE_R5_REPAIR_ALLOWED"
+    },
+    "r4_test_candidate": {
+      "path": "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 46634,
+      "physical_sha256": "9e9b4666b95c89e3d296b8bc6ac480b685516bcf5a4d2201f36edda607eb40de",
+      "candidate_disposition": "PASS_CURRENT_CASES_INCOMPLETE_R5_ADVERSARIAL_COVERAGE_REPAIR_ALLOWED"
+    }
+  },
+  "reported_test_facts": {
+    "source": "ROOT_AND_TERRA_FACT_PACKAGE",
+    "syntax_command": "PYTHONPYCACHEPREFIX=/tmp/pitar1-sd0-r4-pycache python3 -m py_compile trade_system/pit_authority_replay_sd0_metered_fetch_v1.py tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+    "syntax_result": "PASS",
+    "scoped_command": "python3 -m unittest -v tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+    "scoped_result": {
+      "tests_run": 39,
+      "passed": 39,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "combined_command": "python3 -m unittest -v tests.test_pit_authority_replay_contract_v1 tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+    "combined_result": {
+      "tests_run": 108,
+      "passed": 108,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "sol_rerun": false,
+    "sol_rerun_reason": "The R5 audit was explicitly prohibited from invoking preflight. The current suite invokes preflight in temporary roots, so Sol relied on the supplied exact counts and independently audited the source and frozen artifacts.",
+    "interpretation": "Passing syntax, 39 scoped, and 108 combined checks is insufficient because the checked-in tests do not exercise an externally re-anchored context or post-response extraction and cleanup failures.",
+    "precheck_safe": "NO"
+  },
+  "offline_counterevidence": {
+    "stable_unauthorized_git_context": {
+      "network": false,
+      "method": "Initial preflight git calls returned the frozen branch and HEAD; all first, second, and final issuing-context captures then stably returned branch codex/not-authorized and forty zeroes for HEAD.",
+      "ready_issued": true,
+      "persist_ready_succeeded": true,
+      "mock_opener_calls": 7,
+      "terminal_disposition": "WAIT_DATA_TERMS_D0_DENIED",
+      "result": "CONFIRMED_STABLE_BUT_UNAUTHORIZED_CONTEXT_IS_ACCEPTED"
+    },
+    "missing_actual_phased_route": {
+      "network": false,
+      "method": "Run the current temporary-root READY and execute path without materializing the phased-route decision file named in plan.route_binding.",
+      "ready_issued": true,
+      "mock_execution_succeeded": true,
+      "result": "CONFIRMED_DECLARED_ROUTE_BINDING_IS_TRUSTED_WITHOUT_READING_ACTUAL_ROUTE_AUTHORITY"
+    },
+    "rehashable_context_authority": {
+      "network": false,
+      "method": "Individually change resolved_root, root device/inode, branch, HEAD, same-key route-binding values, contract/plan physical or canonical digest, or static physical digest, then recompute context_sha256.",
+      "all_mutations_context_is_ready": true,
+      "result": "CONFIRMED_CONTEXT_SELF_DIGEST_PROVES_ONLY_INTERNAL_INTEGRITY_NOT_EXTERNAL_AUTHORITY"
+    },
+    "status_then_header_extraction_exception": {
+      "network": false,
+      "method": "A mock HTTPConnection.getresponse returned an object with status 200; getheaders then raised RuntimeError.",
+      "actual_status_received": 200,
+      "sealed_terminal_disposition": "STOP_AND_ESCALATE_TO_SOL_WITH_PROBLEM_BUNDLE",
+      "sealed_request_status": null,
+      "sealed_tls_result": "UNAVAILABLE",
+      "response_header_records": 0,
+      "closure_and_inventory_exist": true,
+      "result": "CONFIRMED_AUTHENTIC_POST_RESPONSE_EVIDENCE_REWRITTEN_AS_PRE_RESPONSE_FAILURE"
+    },
+    "status_headers_then_malformed_body_carrier": {
+      "network": false,
+      "method": "A custom opener returned HttpResponse(status=200, safe Content-Length and Content-Type, body=object()); len(body) raised TypeError before the request record was assigned.",
+      "actual_status_received": 200,
+      "safe_headers_received": true,
+      "sealed_request_status": null,
+      "sealed_header_evidence": "EMPTY_OR_ABSENT",
+      "result": "CONFIRMED_OBSERVATION_BUILD_IS_NOT_RESPONSE_FIRST"
+    },
+    "cleanup_exception_overwrites_response": {
+      "network": false,
+      "method": "A HEAD response supplied status 200 and valid Content-Length/Content-Type, read was not called, and response.close or connection.close raised RuntimeError.",
+      "actual_status_received": 200,
+      "sealed_request_status": null,
+      "response_header_records": 0,
+      "result": "CONFIRMED_FINALLY_CLEANUP_CAN_ERASE_COMPLETED_RESPONSE_EVIDENCE"
+    },
+    "workspace_effect": {
+      "workspace_preflight_created": false,
+      "workspace_runtime_created": false,
+      "network_requests": 0,
+      "active_g1_access": 0,
+      "real_data_access": 0
+    }
+  },
+  "finding_decisions": [
+    {
+      "finding_id": "R5-P0-1",
+      "reported_finding": "Issuing-context validation accepts any nonempty or hex-shaped identity whose context self-digest is recomputed.",
+      "decision": "CONFIRMED_P0",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:320-402",
+      "facts": [
+        "_issuing_context records actual root and git values but does not compare them with WORKSPACE, BRANCH, HEAD, plan.route_binding, or the phased-route authority.",
+        "_context_is_ready validates types, route key set, hex syntax, list paths, matched booleans, output absence, and the context's own recomputable digest.",
+        "It does not compare values with independent frozen expectations or the currently opened SafeRoot.",
+        "The initial preflight root/git checks are earlier and separate, so a later stable unauthorized context can be signed, registered, persisted, and executed.",
+        "A context_sha256 is an integrity checksum over caller-supplied values, not an authority signature."
+      ],
+      "risk": "READY can authorize a root, branch, HEAD, route, contract, plan, or static identity that was never authorized by the frozen route.",
+      "repairability": "CLIENT_AND_TEST_ONLY"
+    },
+    {
+      "finding_id": "R5-P0-2",
+      "reported_finding": "The actual phased-route decision named and hashed by route_binding is never loaded by the READY context.",
+      "decision": "CONFIRMED_P0",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:34-65,320-402",
+      "facts": [
+        "The route decision path is not in STATIC_PATHS and no separate route-authority read exists.",
+        "_issuing_context copies plan.route_binding into the context.",
+        "Temporary-root tests omit the phased-route file and still issue READY and complete all seven mock requests.",
+        "The plan's declaration of route physical and canonical hashes is not evidence that those route bytes exist or authenticate."
+      ],
+      "risk": "The route of authority is declarative rather than measured at issuance, persistence, and execution.",
+      "repairability": "CLIENT_AND_TEST_ONLY_WITH_SEPARATE_READ_ONLY_ROUTE_AUTHORITY_BINDING"
+    },
+    {
+      "finding_id": "R5-P0-3",
+      "reported_finding": "Post-response ordinary exceptions lose authentic status, TLS, and header evidence.",
+      "decision": "CONFIRMED_P0",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:423-445,447-456,485-519",
+      "facts": [
+        "StdlibProxyOpener stores response only locally and can raise during getheaders or finally cleanup before returning HttpResponse.",
+        "execute then sees record=None and seals status null, empty response/header digests, and TLS UNAVAILABLE.",
+        "_make_observation calls len(response.body) before a base response record exists, so a malformed body carrier also loses already safe status and headers.",
+        "The current T20 covers a pre-response custom-opener RuntimeError and isolated malformed header normalization, not integrated post-response extraction, malformed body, or cleanup failures."
+      ],
+      "risk": "The audit trail can falsely classify a received response as no response, defeating response-first evidence accounting.",
+      "repairability": "CLIENT_AND_TEST_ONLY_WITH_INTERNAL_PARTIAL_EVIDENCE_CARRIER"
+    },
+    {
+      "finding_id": "R5-P1-4",
+      "reported_finding": "The R4 gate omits explicit checks for R4 branch/HEAD and the full R3 authority-binding tuple required by R4-I06.",
+      "decision": "CONFIRMED_MANDATORY_CONFORMANCE_GAP_NOT_AN_INDEPENDENT_HASH_BYPASS",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:118-154",
+      "facts": [
+        "The client hard-pins and recomputes the complete R4 canonical digest, so changing an authentic R4 field without changing the code pin fails.",
+        "The authentic pinned R4 document already contains the correct branch, HEAD, and full R3 binding.",
+        "Therefore the omission is not independently exploitable under the current exact canonical pin.",
+        "R4-I06 nevertheless expressly requires explicit verification of branch, HEAD, and exact R3 binding, so the completion gate cannot accept the candidate."
+      ],
+      "risk": "Implementation and declared gate contract diverge, weakening reviewability and future gate-chain maintenance.",
+      "repairability": "CLIENT_AND_TEST_ONLY_LOW_COST_SAME_BATCH"
+    }
+  ],
+  "route_contract_plan_schema_decision": {
+    "structural_route": "REMAINS_VALID",
+    "measurement_contract": "REMAINS_VALID_AND_FROZEN",
+    "request_plan": "REMAINS_VALID_AND_FROZEN",
+    "artifact_schemas": "REMAIN_VALID_AND_FROZEN",
+    "new_route_required_now": false,
+    "contract_change_required_now": false,
+    "plan_change_required_now": false,
+    "schema_change_required_now": false,
+    "reason": [
+      "The existing preflight route_binding already carries cwd, branch, HEAD, route decision path, physical SHA-256, and canonical SHA-256.",
+      "The actual route can be read and authenticated as a separate internal authority input without adding it to exact_static_build_paths or changing an output.",
+      "Root device/inode and complete accepted-context identity remain internal READY capability state and are revalidated before persistence and execution.",
+      "The existing request ledger already has status_code, response_body_bytes, response_body_sha256, response_headers_sha256, tls_validation_result, error_class, and terminal_disposition.",
+      "The existing header ledger can represent a fully extracted safe header set. An incomplete extraction can be represented by request-ledger-only partial-evidence digest plus error_class and STOP without falsely creating a complete header record."
+    ],
+    "forbidden_interpretation": "Terra may not add a schema field, output, helper file, route, or transport. If the exact existing fields cannot implement the R5 captured-evidence semantics, stop and return to Sol rather than inventing a schema.",
+    "network_permission": "SUSPENDED_BY_R3_R4_AND_R5",
+    "workspace_preflight_permission": "SUSPENDED_BY_R3_R4_AND_R5",
+    "workspace_runtime_permission": "SUSPENDED_BY_R3_R4_AND_R5",
+    "automatic_resume": false,
+    "completion_gate_required": true
+  },
+  "captured_evidence_semantics": {
+    "scope": "APPLICATION_LAYER_CAPTURED_EVIDENCE_ONLY",
+    "not_wire_level": true,
+    "body_rule": [
+      "response_body_bytes and response_body_sha256 describe bytes safely returned to and captured by the application.",
+      "For HEAD, or for a failure before any body read begins, zero bytes and SHA-256 of empty bytes are authentic application-capture facts even if server wire-body behavior is unknown.",
+      "For an invalid non-bytes custom body carrier, zero captured bytes plus TypeError and STOP means no byte sequence was safely accepted; it does not claim the arbitrary object represented an empty server body.",
+      "For IncompleteRead or another path with actual partial bytes, preserve those exact partial bytes and digest."
+    ],
+    "header_rule": [
+      "response_headers_sha256 describes the canonical safely captured ordered header pairs, which may be a strict prefix or empty when extraction fails.",
+      "If header extraction does not complete, the request ledger must carry actual status, TLS, captured-header digest, concrete error_class, and STOP. Do not create a header-ledger record that could imply a complete normalized header set.",
+      "If full safe header extraction completes and a later body or cleanup error occurs, persist the full header-ledger record with the same terminal disposition.",
+      "Forbidden secret values are never persisted; existing R4 digest-only handling remains in force."
+    ],
+    "claim_limit": "A STOP record after partial extraction proves only which application evidence was safely captured before failure. It does not prove complete server headers, complete wire bytes, or absence of unobserved data."
+  },
+  "minimal_repair_authorization": {
+    "authorized": true,
+    "implementation_agent": "GPT-5.6-TERRA_HIGH",
+    "exact_mutable_file_allowlist": [
+      "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py"
+    ],
+    "maximum_mutable_files": 2,
+    "new_production_files": 0,
+    "new_test_files": 0,
+    "modify_r2_decision": false,
+    "modify_r3_decision": false,
+    "modify_r4_decision": false,
+    "modify_this_r5_decision": false,
+    "modify_route": false,
+    "modify_contract": false,
+    "modify_plan": false,
+    "modify_schema_or_specification": false,
+    "install_dependencies": false,
+    "run_offline_tests": true,
+    "network": false,
+    "workspace_preflight_or_runtime": false,
+    "active_g1": false,
+    "data_backtest_paper_live_funds": false,
+    "scope_stop_rule": "If repair requires a new field, output, failure state, URL, request, cap, transport, production helper, wire-level claim, or mutation outside the exact two files, stop and return to Sol. No such expansion is presently necessary."
+  },
+  "mandatory_repair_invariants": [
+    {
+      "invariant_id": "R5-I01",
+      "name": "EXTERNALLY_ANCHORED_CONTEXT_PREDICATE",
+      "requirements": [
+        "A context self-digest is used only to detect accidental or untrusted in-memory mutation. It is never accepted as proof that the contained values are authorized.",
+        "Replace the value-less _context_is_ready shape check with an exact validator that receives or independently recomputes the expected frozen identities and current SafeRoot identity.",
+        "The resolved root must equal the resolved WORKSPACE and the cwd in exact ROUTE_BINDING; branch must equal BRANCH and route branch; HEAD must equal HEAD and route HEAD.",
+        "The SafeRoot dirfd device/inode must equal the current stat of the exact resolved root. At persistence and execution they must also equal the values captured at issuance.",
+        "route_binding must equal ROUTE_BINDING as a complete mapping, not merely have the same keys.",
+        "Contract and request-plan physical and canonical digests must equal their independently pinned frozen values, not merely match hex syntax.",
+        "Authority results must exactly preserve contract order, path, expected physical digest, actual digest, and matched=true.",
+        "Static results must exactly preserve STATIC_PATHS order and the accepted physical digests. Frozen contract/plan values must also equal their independent pins.",
+        "Output results must exactly preserve the NETWORK_PATHS order and phase-appropriate absence state.",
+        "Any changed value remains invalid even if context_sha256 is recomputed."
+      ]
+    },
+    {
+      "invariant_id": "R5-I02",
+      "name": "ACTUAL_PHASED_ROUTE_AUTHORITY_BINDING",
+      "requirements": [
+        "Read plan.route_binding.decision_path through the existing SafeRoot as a separate read-only authority document. Do not add it to STATIC_PATHS or modify exact_static_build_paths.",
+        "Require exact physical SHA-256 776a7b69c2655dd76eb84ccab12b3fbac30aef6a81b0f6ebad27ab391b129ec0.",
+        "Parse strict JSON and require canonical self-digest a777dc9411f638f1d3728f7f98f4ccbb64673f06b8f344dd3489efcdc5b79eeb under its declared domain.",
+        "Require exact decision_id, decision_state, route_identity.route_id, route_identity.workspace, route_identity.branch, and route_identity.head_at_issue bound by this decision.",
+        "Require the plan route_binding path, decision id, physical digest, canonical digest, route id, cwd, branch, and HEAD to agree with both the actual route document and fixed ROUTE_BINDING.",
+        "Capture actual route physical and canonical identities in the internal issuing context and re-read them at issuance finalization, persistence, and execution.",
+        "Missing, symlinked, nonregular, malformed, physically changed, canonically changed, wrong-id, wrong-state, or wrong route-identity files fail before READY registry insertion, preflight persistence, runtime output, opener construction, or request."
+      ]
+    },
+    {
+      "invariant_id": "R5-I03",
+      "name": "ONE_ACCEPTED_CONTEXT_AND_EXACT_DOCUMENT_PROJECTION",
+      "requirements": [
+        "The final first, second, and final issuance captures must each pass R5-I01 and R5-I02 independently and be canonically identical.",
+        "Delete or demote any earlier root/git scan as non-authoritative; a later stable unauthorized context must still fail.",
+        "The READY document route_binding is copied from the accepted context, never independently from plan.",
+        "Document route_binding.cwd, branch, and head equal the accepted actual resolved workspace, git branch, and git HEAD.",
+        "Document authority_binding_results, static_path_results, output_path_results, and request_plan_sha256 are exact deterministic projections of the same accepted context.",
+        "The closed preflight schema remains unchanged; workspace, branch, HEAD, and route decision identities are represented by its existing route_binding object.",
+        "No READY token or _READY registry entry is created unless all projections match exactly."
+      ]
+    },
+    {
+      "invariant_id": "R5-I04",
+      "name": "PERSIST_AND_EXECUTE_REVALIDATE_EXTERNAL_REALITY",
+      "requirements": [
+        "persist_ready reopens and reauthenticates root, git, actual route, contract, plan, authorities, static files, and output state against the issued accepted context before creating the preflight.",
+        "execute performs the same reauthentication, allowing only the exact persisted preflight transition while requiring all runtime outputs absent.",
+        "The validation uses newly read external reality and independent pins; comparing two equally wrong self-consistent contexts is insufficient.",
+        "A drift at any single identity yields WAIT_DATA_NO_FALLBACK or HALT_ROUTE_DRIFT_NEW_SOL_REVIEW according to the existing route semantics, with zero new runtime outputs and zero opener construction/calls.",
+        "A temporary-root success test must materialize and authenticate a coherent synthetic route authority under test-only patched pins; it may not bypass the actual-route validator."
+      ]
+    },
+    {
+      "invariant_id": "R5-I05",
+      "name": "PHASED_RESPONSE_FIRST_PARTIAL_EVIDENCE_CARRIER",
+      "requirements": [
+        "Use one internal response lifecycle carrier or equivalent staged state that survives ordinary exceptions after connection, TLS, status, header-prefix, full-header, body-prefix, full-body, and cleanup phases.",
+        "Capture status immediately after getresponse and TLS validation result before invoking getheaders.",
+        "Extract headers incrementally into an ordered safe prefix so an iterator failure cannot erase earlier safe pairs.",
+        "Create the base request observation from captured status, TLS, and normalized safe-header evidence before body type, length, digest, checksum, or semantic operations that may fail.",
+        "Validate custom-opener response fields defensively. A non-bytes body must preserve status, TLS, and complete safe headers and produce TypeError plus STOP without calling len or hashing the arbitrary object.",
+        "No ordinary Exception after status acquisition may be reclassified as status null or TLS UNAVAILABLE.",
+        "No later request occurs after an unexpected post-response failure."
+      ]
+    },
+    {
+      "invariant_id": "R5-I06",
+      "name": "CLEANUP_CANNOT_OVERWRITE_ACQUIRED_EVIDENCE",
+      "requirements": [
+        "Refactor StdlibProxyOpener so response.close and connection.close are attempted independently and ordinary cleanup exceptions cannot escape a finally block that discards a prepared response carrier.",
+        "If no earlier terminal failure exists, an unexpected cleanup exception yields STOP_AND_ESCALATE_TO_SOL_WITH_PROBLEM_BUNDLE while preserving all status, TLS, full safe headers, and captured body evidence.",
+        "If an earlier specific terminal state already exists, cleanup does not overwrite that state or any evidence. The first substantive failure remains authoritative.",
+        "A HEAD cleanup failure retains application response_body_bytes=0 and SHA-256 of empty bytes because no read is performed; this is not a wire-body claim.",
+        "A cleanup error after a completed GET retains the exact captured body bytes and digest.",
+        "Both cleanup attempts occur even if the first raises; BaseException and MemoryError behavior remains unchanged."
+      ]
+    },
+    {
+      "invariant_id": "R5-I07",
+      "name": "CONTRACT_COMPATIBLE_PARTIAL_EVIDENCE_SEALING",
+      "requirements": [
+        "For a failure before any response exists, retain the existing status null, TLS UNAVAILABLE, empty application bytes, no header record semantics.",
+        "For a failure after status but before complete header extraction, write a request record with actual status and TLS, zero or actual captured application bytes, digest of the exact safely captured header prefix, concrete error_class, and STOP.",
+        "Do not write a response-header ledger record when extraction did not complete, because the closed record would otherwise imply a complete normalized header set.",
+        "For a failure after complete safe header extraction, write the authentic header record and request record with the same terminal disposition.",
+        "For malformed non-bytes body carriers, response_body_bytes=0 and SHA-256 of empty bytes mean zero safely captured application bytes; error_class and STOP forbid interpreting this as an empty server body.",
+        "For partial byte reads, retain exact partial bytes and digest under existing R3 semantics.",
+        "Closure and inventory remain sealed within cap; no schema or claim is extended."
+      ]
+    },
+    {
+      "invariant_id": "R5-I08",
+      "name": "EXPLICIT_R3_R4_R5_PRODUCTION_GATE_CHAIN",
+      "requirements": [
+        "Preserve all existing explicit R3 checks and suspension behavior.",
+        "Strengthen R4 verification to explicitly check workspace cwd, branch, HEAD, and the complete R3 binding path, decision_id, decision_state, physical SHA-256, canonical SHA-256, and binding_result.",
+        "Hard-pin this exact R5 path and externally reported canonical SHA-256 and verify strict JSON, canonical self-digest, decision_id, decision_state, workspace cwd, branch, HEAD, issue id, complete R4 binding, and continued R3 suspension.",
+        "The complete canonical pins remain mandatory; explicit field checks supplement rather than replace them.",
+        "main, preflight, persist_ready, and execute remain blocked at production root before tests evidence, TCP, filesystem output, opener construction, or network.",
+        "No local PASS, environment variable, CLI flag, dynamic file discovery, or future decision automatically resumes execution."
+      ]
+    },
+    {
+      "invariant_id": "R5-I09",
+      "name": "ALL_PRIOR_SAFETY_INVARIANTS_PRESERVED",
+      "requirements": [
+        "R2-I01 through R2-I09, R3-I01 through R3-I06, and R4-I01 through R4-I07 remain satisfied with the R5 clarifications.",
+        "The confirmed R4 exact-cap, strict critical-header, shared normalizer, no-lossy-encoding, exception-totalization, and HEAD no-read repairs remain intact.",
+        "Exact seven-request order, proxy-only transport, zero redirects/retries, no ZIP GET, no market rows, create-once artifacts, cap accounting, complete closure/inventory, no active G1, and zero funds remain unchanged.",
+        "No existing adversarial assertion is removed or weakened."
+      ]
+    }
+  ],
+  "required_test_expansion": {
+    "same_test_file_only": "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+    "all_existing_39_tests_retained_or_strictly_strengthened": true,
+    "one_discovered_test_method_per_test_id": true,
+    "required_new_offline_cases": [
+      {
+        "test_id": "R5-T21",
+        "case": "Initial git checks are authorized but all three final context captures are stably unauthorized",
+        "assertions": "No ReadyPreflight, no _READY entry, no persisted preflight, no runtime output, and zero opener calls."
+      },
+      {
+        "test_id": "R5-T22",
+        "case": "Resolved root or SafeRoot device/inode differs from the independently expected current root",
+        "assertions": "Each mismatch fails even after recomputing context_sha256 and produces zero output/calls."
+      },
+      {
+        "test_id": "R5-T23",
+        "case": "Actual phased-route file is absent, symlinked, nonregular, or unreadable",
+        "assertions": "READY issuance fails before registry insertion and no mock TCP/opener/runtime action can authorize continuation."
+      },
+      {
+        "test_id": "R5-T24",
+        "case": "Actual phased-route bytes have wrong physical digest, canonical digest, decision id/state, or route identity",
+        "assertions": "Every variant fails independently; a merely matching plan declaration cannot substitute for actual route bytes."
+      },
+      {
+        "test_id": "R5-T25",
+        "case": "Each context identity is changed individually and context_sha256 is recomputed",
+        "assertions": "resolved root, device, inode, branch, HEAD, complete route binding, actual route digests, contract/plan digests, authority result, static digest, and output state each remain invalid."
+      },
+      {
+        "test_id": "R5-T26",
+        "case": "READY document is an exact projection of one externally valid accepted context",
+        "assertions": "route_binding including cwd/branch/head, authority/static/output results, and request_plan_sha256 exactly match; changing either document or stored context rejects."
+      },
+      {
+        "test_id": "R5-T27",
+        "case": "One root, git, route, contract, plan, authority, static, or output identity changes after issuance",
+        "assertions": "persist_ready and execute each re-read reality and fail before new output or opener construction/call."
+      },
+      {
+        "test_id": "R5-T28",
+        "case": "Unpatched production R3/R4/R5 gate chain and explicit R4 fields/full R3 binding",
+        "assertions": "All exact fields are verified; main/preflight/persist_ready/execute remain suspended with zero TCP/socket/opener/output."
+      },
+      {
+        "test_id": "R5-T29",
+        "case": "getresponse exposes status 200 and getheaders immediately raises ordinary Exception",
+        "assertions": "Request ledger status=200, TLS remains actual, captured body bytes=0, concrete error_class and STOP; header ledger has zero records; no later request; closure/inventory exist within cap."
+      },
+      {
+        "test_id": "R5-T30",
+        "case": "Header iteration yields safe ordered pairs and then raises ordinary Exception",
+        "assertions": "Request digest equals the canonical captured prefix, status/TLS remain actual, no complete-header ledger record is fabricated, STOP is sealed, and no later request occurs."
+      },
+      {
+        "test_id": "R5-T31",
+        "case": "Custom opener returns status 200, complete safe headers, and a non-bytes body object",
+        "assertions": "Status/TLS and complete header ledger are retained; captured body bytes=0 and empty digest are qualified by TypeError plus STOP; no raw exception or later request."
+      },
+      {
+        "test_id": "R5-T32",
+        "case": "response.close and connection.close independently raise after valid HEAD and valid GET observations",
+        "assertions": "Each cleanup path is tested separately and together; evidence remains authentic, HEAD read calls=0, GET body digest remains exact, first substantive state is not overwritten, both closes are attempted, STOP applies only when no earlier state exists, and no later request occurs."
+      }
+    ],
+    "minimum_scoped_tests_after_expansion": 51,
+    "minimum_combined_tests_after_expansion": 120,
+    "required_result": "ALL_DISCOVERED_TESTS_PASS_ZERO_FAIL_ERROR_SKIP",
+    "network_in_tests": false,
+    "workspace_preflight_in_tests": false,
+    "workspace_runtime_in_tests": false,
+    "active_g1_in_tests": false,
+    "temporary_root_preflight_in_tests": true,
+    "temporary_route_rule": "Offline success tests must build a coherent synthetic route decision and patched external pins in the temporary root. They may patch the production suspension verifier but may not patch away actual-route or external-context validation.",
+    "forbidden_test_actions": [
+      "Remove or weaken any R2, R3, or R4 test.",
+      "Test only context self-digest drift without recomputing the digest.",
+      "Patch _context_is_ready, actual-route validation, response carrier, observation construction, or cleanup handling out of the success/failure path.",
+      "Treat a plan route declaration as the actual route document.",
+      "Use a real socket, TLS connection, HTTP endpoint, browser, curl, proxy, workspace preflight, or workspace runtime.",
+      "Treat local PASS evidence as a Sol execution gate.",
+      "Modify route, contract, plan, schema, specification, R2, R3, R4, or this R5 decision."
+    ]
+  },
+  "repair_completion_gate": {
+    "current_state": "BLOCKED_R5_REPAIR_NOT_IMPLEMENTED",
+    "network_resume": false,
+    "required_commands": [
+      {
+        "command": "PYTHONPYCACHEPREFIX=/tmp/pitar1-sd0-r5-pycache python3 -m py_compile trade_system/pit_authority_replay_sd0_metered_fetch_v1.py tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+        "required_exit_code": 0
+      },
+      {
+        "command": "python3 -m unittest -v tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+        "required_exit_code": 0,
+        "required_result": "AT_LEAST_51_PASS_ZERO_FAIL_ERROR_SKIP"
+      },
+      {
+        "command": "python3 -m unittest -v tests.test_pit_authority_replay_contract_v1 tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+        "required_exit_code": 0,
+        "required_result": "AT_LEAST_120_PASS_ZERO_FAIL_ERROR_SKIP"
+      }
+    ],
+    "required_static_checks": [
+      "R2, R3, R4, route, measurement-contract, and request-plan physical/canonical hashes remain unchanged.",
+      "Only the exact client and test paths differ from the R4 candidate hashes bound in this decision.",
+      "The client reads and authenticates the actual phased-route document separately without changing STATIC_PATHS or the plan.",
+      "Context validation contains exact value comparisons to independent pins/current root, not only type, key-set, hex, and self-digest checks.",
+      "The client preserves R3/R4 suspension and additionally hard-pins this R5 canonical hash.",
+      "No new production, test, helper, route, schema, transport, or gate file exists.",
+      "No workspace preflight or NETWORK_PATHS output exists.",
+      "No network request, active G1 access, real data, backtest, paper, deployment, credential, order, or fund action occurred."
+    ],
+    "required_terra_report": [
+      "Before/after physical SHA-256 and sizes for the exact client and test.",
+      "Exact syntax, scoped, and combined command outputs and counts.",
+      "Code/test mapping for R5-I01 through R5-I09 and R5-T21 through R5-T32 plus preservation mapping for prior invariants.",
+      "Offline closure evidence for stable unauthorized git, missing/tampered actual route, every rehashed identity mutation, and document projection.",
+      "Integrated request/header ledger evidence for getheaders immediate failure, partial iteration failure, malformed body carrier, response.close failure, and connection.close failure.",
+      "Explicit explanation of captured application bytes/header-prefix semantics and proof no schema was changed or overclaimed.",
+      "Explicit proof that unpatched production R3/R4/R5 gates block all public entrypoints.",
+      "Explicit zero network, zero workspace preflight/runtime, zero active G1, zero data/backtest/paper/live, and zero funds statement."
+    ],
+    "sol_completion_review": {
+      "required": true,
+      "possible_results": [
+        "ACCEPT_R5_REPAIR_KEEP_NETWORK_SUSPENDED_PENDING_SEPARATE_RESUME_BINDING",
+        "REJECT_R5_REPAIR_CONTINUE_R3_R4_R5_SUSPENSION",
+        "STOP_REQUIRE_CONTRACT_SCHEMA_OR_TRANSPORT_ROUTE_CHANGE"
+      ],
+      "automatic_resume": false,
+      "reason": "Only an independent Sol review can determine whether exact external identity and post-response evidence preservation are closed. Even acceptance keeps production suspended until a separately authorized gate-binding revision."
+    }
+  },
+  "permission_matrix": {
+    "create_this_r5_decision": true,
+    "terra_modify_exact_client": true,
+    "terra_modify_exact_test": true,
+    "terra_run_offline_tests": true,
+    "modify_r2_r3_or_r4_decision": false,
+    "modify_this_r5_decision": false,
+    "modify_route_contract_plan_schema_or_spec": false,
+    "create_new_helper_transport_test_or_gate_file": false,
+    "install_dependency": false,
+    "read_exact_r3_r4_r5_and_route_decisions_for_verification": true,
+    "persist_workspace_preflight": false,
+    "create_workspace_runtime": false,
+    "tcp_probe_or_socket_outside_mock": false,
+    "network_request": false,
+    "proxy_change_or_bypass": false,
+    "archive_zip_or_market_row_access": false,
+    "active_g1_access": false,
+    "adapter_dataset_backtest_holdout": false,
+    "paper_testnet_deploy": false,
+    "credentials_account_orders_funds": false,
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "stage_disposition": {
+    "pitar1_e0": "ACCEPTED_PREDECESSOR_SCOPE_UNCHANGED",
+    "pitar1_sd0_route": "STRUCTURALLY_VALID_BUT_CLIENT_NOT_AUTHENTICATING_ACTUAL_FILE",
+    "pitar1_sd0_contract": "FROZEN_VALID",
+    "pitar1_sd0_plan": "FROZEN_VALID",
+    "pitar1_sd0_schemas": "FROZEN_VALID_WITH_CAPTURED_EVIDENCE_INTERPRETATION",
+    "pitar1_sd0_r4_tests": "39_SCOPED_AND_108_COMBINED_REPORTED_PASS_BUT_INSUFFICIENT",
+    "pitar1_sd0_r4_client": "REJECT_PRECHECK_SAFE",
+    "pitar1_sd0_r5_repair": "AUTHORIZED_EXACT_TWO_FILES_OFFLINE_ONLY",
+    "pitar1_sd0_network": "SUSPENDED",
+    "pitar1_sd0_preflight_runtime": "SUSPENDED",
+    "pitar1_d0_and_later": "DENIED_UNCHANGED",
+    "paper_testnet_deployment_live": "DENIED_UNCHANGED",
+    "next_action": "GPT-5.6-TERRA_HIGH_REPAIRS_ONLY_CLIENT_AND_TEST_THEN_RETURNS_R5_FACT_PACKAGE_TO_SOL",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "claim_boundary": {
+    "r4_test_result": "ROOT_TERRA_REPORT_39_OF_39_AND_108_OF_108_PASS_NOT_SOL_RERUN",
+    "r4_runtime_precheck": "REJECTED",
+    "externally_anchored_ready_context": "NOT_YET_ESTABLISHED",
+    "actual_phased_route_authentication": "NOT_YET_ESTABLISHED",
+    "post_response_partial_evidence": "NOT_YET_ESTABLISHED",
+    "cleanup_evidence_preservation": "NOT_YET_ESTABLISHED",
+    "r4_gate_explicit_conformance": "INCOMPLETE_BUT_CANONICAL_PIN_INTACT",
+    "r3_r4_production_suspension": "REMAINS_REQUIRED",
+    "sd0_source_authority": "NOT_EVALUATED",
+    "market_data_or_pit_validity": "NOT_EVALUATED",
+    "backtest_predictive_or_profitability": "NOT_AUTHORIZED",
+    "paper_or_live_readiness": "NOT_AUTHORIZED",
+    "maximum_positive_claim": "The R4 candidate reportedly passes syntax, 39 scoped, and 108 combined offline tests and closes its exact-cap and strict-header cases. It remains rejected because stable unauthorized git identities and a missing actual phased-route file can still reach seven mock requests, self-rehashed context mutations are accepted, and post-response header, malformed-body, or cleanup exceptions erase authentic status/TLS/header evidence. The existing contract and schemas can represent a client-only repair using captured application bytes, captured header-prefix digests, error_class, and terminal disposition without any schema change. Terra high may modify only the exact client and test files. Network, workspace preflight/runtime, active G1, real data, backtest, paper, deployment, credentials, orders, and funds remain prohibited. No passing test can automatically resume execution."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-research-system-pit-authority-replay-sd0-client-p0-r5-repair/v1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "9389912b333bbec965a7efb4e1368e03cc7ea2b83843908553693cf2e609e112"
+}

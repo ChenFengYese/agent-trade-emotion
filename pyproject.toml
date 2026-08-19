@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-trade-emotion"
+version = "0.1.0"
+description = "Point-in-time, paper-only research runtime for the BTCUSDT absorption system"
+requires-python = ">=3.11,<3.14"
+dependencies = []
+
+[project.optional-dependencies]
+market = ["websockets>=12,<16"]
+
+[project.scripts]
+trade-system = "trade_system.cli:main"
+market-cycle = "trade_system.theory_paper_v2.presentation.market_cycle:main"
+v332-market-workbench = "trade_system.theory_paper_v2.presentation.market_workbench:main"
+v332-paper-agent = "trade_system.theory_paper_v2.presentation.paper_agent:main"
+v34-forecast = "trade_system.theory_paper_v2.presentation.v34_forecast:main"
+
+[tool.setuptools.packages.find]
+include = ["trade_system*"]

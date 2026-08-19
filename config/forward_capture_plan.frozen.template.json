@@ -1,0 +1,19 @@
+{
+  "plan_id": "REPLACE_WITH_VERSIONED_CAPTURE_PLAN_ID",
+  "status": "DRAFT_TEMPLATE",
+  "frozen_at": "REQUIRED: ISO-8601 UTC timestamp before collection",
+  "instrument": "BTCUSDT",
+  "source_registry": {
+    "registry_id": "REQUIRED: frozen source registry ID",
+    "sha256": "REQUIRED: lowercase SHA-256 of the frozen source registry"
+  },
+  "slots": [
+    {
+      "slot_id": "REQUIRED: unique predeclared slot ID",
+      "start": "REQUIRED: UTC slot start",
+      "end": "REQUIRED: UTC slot end",
+      "min_duration_seconds": "REQUIRED: positive capture duration that fits the slot",
+      "coverage_intent": ["REQUIRED: planned calendar/session descriptor, not an asserted market state"]
+    }
+  ]
+}

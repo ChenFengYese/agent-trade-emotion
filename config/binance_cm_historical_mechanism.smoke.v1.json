@@ -1,0 +1,12 @@
+{
+  "experiment_id": "binance-coinm-btcusd-perp-historical-mechanism-smoke-2025-01-01-v1",
+  "status": "FROZEN_BINANCE_CM_HISTORICAL_MECHANISM_SMOKE_PLAN_V1",
+  "venue": "BINANCE_COINM",
+  "instrument": "BTCUSD_PERP",
+  "dates": ["2025-01-01"],
+  "development_dates": ["2025-01-01"],
+  "evaluation_dates": [],
+  "min_rows_per_side": 30,
+  "liquidity_state_thresholds": {"thin_max_depth": 1200000, "deep_min_depth": 1600000},
+  "notice": "One-day input/schema/point-in-time smoke only. D uses the fixed percentage-point displayed-depth definition from v1. It cannot generate a locked evaluation or support any hypothesis. eligible_for_binance_g2=false and trading remains denied."
+}

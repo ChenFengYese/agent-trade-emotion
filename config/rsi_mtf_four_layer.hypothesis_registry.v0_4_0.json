@@ -1,0 +1,228 @@
+{
+  "registry_id": "RSI_MTF_FOUR_LAYER_HYPOTHESES.v0.4.0",
+  "status": "E0/OUTCOME_FREE_THEORY_DRAFT",
+  "created_at": "2026-07-26",
+  "method_contract": "config/rsi_mtf_four_layer.method_contract.v0_4_0.json",
+  "evidence_level": "E0",
+  "champion_dependency": {
+    "theory_id": "RSI_MTF_DRL_PM.v0.2.2",
+    "mutation_allowed": false,
+    "sha256": {
+      "semantic_source": "43eedbee0a10cf0254721052c1aca23baf027a90f879739ec33b48180cfd87a6",
+      "authority_spec": "9b2446de9e0549579d52bc8ce2bc3bd124885203a52855f0dbf0f1324f9f1295",
+      "route_decision": "631f8187e9eb81465718156736045c3ca5cc7ec5e33bbba7b063354cefeb792c",
+      "strategy_contract": "26ab29e08968518a758a45ce872dd748543e59b93e2909b19e35052d2bdd4cdc"
+    }
+  },
+  "v0_3_dependency": {
+    "theory_id": "RSI_MTF_DRL_PM_THEORY_CHALLENGER.v0.3.0",
+    "mutation_allowed": false
+  },
+  "capabilities": {
+    "outcome_free_theory_design": "ALLOWED",
+    "synthetic_method_contract_test": "ALLOWED_AT_E0_CURRENT_STAGE",
+    "source_schema_feasibility": "REQUIRES_V4_M00_SOL_PASS_AND_EXPLICIT_B4_AUTHORIZATION",
+    "historical_outcome_access": "FORBIDDEN_UNTIL_POST_B4_INDEPENDENT_DEVELOPMENT_AUTHORIZATION",
+    "backtest": "FORBIDDEN_UNTIL_POST_B4_INDEPENDENT_DEVELOPMENT_AUTHORIZATION",
+    "calibration": "FORBIDDEN_UNTIL_POST_DEVELOPMENT_FREEZE",
+    "holdout": "FORBIDDEN_UNTIL_POST_CALIBRATION_FREEZE",
+    "paper": "FORBIDDEN",
+    "live": "FORBIDDEN"
+  },
+  "common_rules": {
+    "visibility_invariant": "A bar is visible at decision_time if and only if is_closed is the exact JSON boolean true; source_timestamp, close_time, available_at, and decision_time are present, valid, timezone-aware, mutually comparable timestamps; and source_timestamp <= decision_time, close_time <= decision_time, and available_at <= decision_time. Any missing, malformed, incomparable timestamp or pseudo-boolean is_closed fails closed to DATA_INVALID and UNKNOWN_OR_ABSTAIN.",
+    "event_visibility_invariant": "An event is visible at decision_time if and only if source_timestamp, published_at, available_at, and decision_time are present, valid, timezone-aware, mutually comparable timestamps; and source_timestamp <= decision_time, published_at <= decision_time, and available_at <= decision_time. source_timestamp records source provenance and is distinct from published_at, the public event publication time. Any missing, malformed, incomparable or future timestamp fails closed to DATA_INVALID and UNKNOWN_OR_ABSTAIN.",
+    "availability": "Every field must be point-in-time available. Bar fields require the full visibility_invariant; source_sequence is comparable only within the same source_id and generation_id_or_stream_id. Cross-source equal-available-at batch has no economic order.",
+    "record_identity_required_fields": ["source_id", "generation_id_or_stream_id", "source_sequence", "stable_input_id", "source_timestamp", "available_at", "record_version"],
+    "record_identity_rule": "Missing, duplicate or conflicting identity fails closed. Different generation/stream sequences are incomparable; stable_input_id is canonical replay only and has no economic ordering meaning.",
+    "required_tfstate_quality": "Every required TFState must have DataQuality=VALID. STALE, GAP, CONFLICT, DATA_INVALID or UNKNOWN forces UNKNOWN_OR_ABSTAIN and cannot produce EVALUATE_REVERSAL or EXECUTION_READY.",
+    "exact_cohort_key_set": ["asset_class", "venue", "market_type", "instrument_id", "contract_specification", "session_timezone", "daily_boundary", "volume_unit", "price_adjustment_policy"],
+    "parent_child_gate_priority": "Parent-child CONFLICT/UNKNOWN blocks only new EVALUATE_REVERSAL/EXECUTION_READY and never suppresses higher-priority HALT/EXIT/MANAGE_ONLY.",
+    "comparison": "One predeclared independent comparison edge per hypothesis on the same opportunity universe, time split, cost, latency and fill assumptions.",
+    "coverage": "Insufficient eligible episodes produces INCONCLUSIVE_COVERAGE, never a relaxed threshold.",
+    "calibration": "Probability-bearing hypotheses require Brier, log loss, calibration slope/intercept and reliability-bin reporting.",
+    "post_fill_scoring": "Immutable five-branch submission prediction; P(fill), joint terminal and filled-cohort scores each report their own denominator/count. DataDisposition never rewrites prediction or fabricates labels.",
+    "execution": "OHLC-only barrier ambiguity resolves STOP_FIRST and cannot claim a limit fill.",
+    "promotion": "No result automatically mutates v0.2.2, v0.3, active G1, or any trading permission."
+  },
+  "milestones": [
+    {
+      "id": "V4-M00-OUTCOME_FREE_CONTRACT",
+      "priority": "P0",
+      "purpose": "Freeze enums, chronology, parent-child authority, action priority, failure behavior, synthetic causality cases and prohibited shortcuts before any new data outcome access.",
+      "depends_on": ["V4_DOCUMENT_AND_JSON_REVIEW"],
+      "comparator": "NOT_APPLICABLE_OUTCOME_FREE",
+      "falsification": "Any synthetic case permits unclosed/future/revised data, contradictory action priority, stop widening, parent override, or non-exclusive structural regime.",
+      "test_execution_status": "TESTS_PASS_AWAITING_SOL_STAGE_GATE",
+      "result_status": "NOT_RUN",
+      "next_stage": "SOL_V4_M00_STAGE_GATE_THEN_EXPLICIT_B4_DATA_FEASIBILITY_APPLICATION"
+    }
+  ],
+  "hypothesis_order": [
+    "V4-H01-MTF_PARENT_VETO",
+    "V4-H02-PARENT_CHILD_RELATION",
+    "V4-H03-CURRENT_PRESSURE_CONFIRMATION",
+    "V4-H04-CAUSAL_LEVEL_RESPONSE",
+    "V4-H05-VOL_LIQ_GEOMETRY",
+    "V4-H06-REMAINING_EV_EXIT",
+    "V4-H07-PAST_ONLY_ANALOG",
+    "V4-H08-MACRO_RISK_CONDITION",
+    "V4-H09-FOUR_LAYER_INTEGRATION",
+    "V4-H10-D2_D3_UPWARD_EXPANSION_PRICE_SEQUENCE",
+    "V4-H11-D6_D7_DOWNSIDE_BREAKDOWN_PRICE_SEQUENCE",
+    "V4-H12-EVENT_ARRIVAL_ASSOCIATION"
+  ],
+  "hypotheses": [
+    {
+      "hypothesis_id": "V4-H01-MTF_PARENT_VETO",
+      "priority": "P0",
+      "layer": "L2_CYCLE_STATE",
+      "depends_on": ["V4-M00-OUTCOME_FREE_CONTRACT"],
+      "claim": "A causal 4h parent StructuralRegime used only as a countertrend RSI reversal veto improves bounded opportunity utility relative to the frozen champion without creating continuation orders.",
+      "required_inputs": ["eligible_4h_bars", "available_at", "source_sequence", "frozen_measurement_tuple", "champion_opportunity_id"],
+      "comparator": "V3-CMP-CHAMPION_ON_SAME_OPPORTUNITY_UNIVERSE",
+      "falsification": "No stable incremental benefit after costs and block bootstrap, abstention opportunity cost exceeds tail-risk improvement, causal measurement failure, or any continuation order is created.",
+      "result_status": "WAIT_DATA",
+      "next_allowed_stage": "POST_B4_INDEPENDENT_DEVELOPMENT_ONLY"
+    },
+    {
+      "hypothesis_id": "V4-H02-PARENT_CHILD_RELATION",
+      "priority": "P0",
+      "layer": "L2_CYCLE_STATE",
+      "depends_on": ["V4-H01-MTF_PARENT_VETO_DISPOSITION_RECORDED"],
+      "claim": "Frozen adjacent parent-child relations improve calibration or bounded utility of permitted reversal evaluation relative to parent-only state, without child override of parent risk veto.",
+      "comparator": "PARENT_ONLY_VETO_ON_SAME_OPPORTUNITY_UNIVERSE",
+      "falsification": "No incremental calibration/utility, child overwrites parent veto, relation is noncausal, or support is insufficient.",
+      "result_status": "WAIT_DATA",
+      "next_allowed_stage": "POST_B4_INDEPENDENT_DEVELOPMENT_ONLY"
+    },
+    {
+      "hypothesis_id": "V4-H03-CURRENT_PRESSURE_CONFIRMATION",
+      "priority": "P0",
+      "layer": "L1_CURRENT_PRESSURE",
+      "depends_on": ["V4-H02-PARENT_CHILD_RELATION_DISPOSITION_RECORDED"],
+      "claim": "A frozen CurrentPressureContext field family confirms or vetoes an already permitted L2 reversal candidate more safely than the same L2 candidate without L1 confirmation; it never creates standalone direction.",
+      "comparator": "L2_ONLY_PERMITTED_REVERSAL_CANDIDATE_ON_SAME_OPPORTUNITY_UNIVERSE",
+      "falsification": "Any required L1 family is imputed as neutral, no incremental bounded utility/calibration after cost and latency, standalone direction is created, or branch support is insufficient.",
+      "result_status": "WAIT_DATA",
+      "next_allowed_stage": "POST_B4_INDEPENDENT_DEVELOPMENT_ONLY"
+    },
+    {
+      "hypothesis_id": "V4-H04-CAUSAL_LEVEL_RESPONSE",
+      "priority": "P0",
+      "layer": "L2_CYCLE_STATE",
+      "depends_on": ["V4-H03-CURRENT_PRESSURE_CONFIRMATION_DISPOSITION_RECORDED", "V3-H04-LEVEL_RESPONSE_DISPOSITION_RECORDED"],
+      "claim": "A frozen causal structural zone plus predeclared response classification adds value over a simple causal prior-high/prior-low level for permitted reversal evaluation.",
+      "comparator": "SIMPLE_CAUSAL_PRIOR_HIGH_LOW_LEVEL_ON_SAME_OPPORTUNITY_UNIVERSE",
+      "falsification": "Post-outcome zone, no increment over comparator, effect disappears under random/shifted-zone placebo, or a level is hand drawn.",
+      "result_status": "WAIT_DATA",
+      "next_allowed_stage": "POST_B4_INDEPENDENT_DEVELOPMENT_ONLY"
+    },
+    {
+      "hypothesis_id": "V4-H05-VOL_LIQ_GEOMETRY",
+      "priority": "P0",
+      "layer": "L1_PLUS_L2",
+      "depends_on": ["V4-H04-CAUSAL_LEVEL_RESPONSE_DISPOSITION_RECORDED", "V3-H05-VOL_LIQ_GEOMETRY_DISPOSITION_RECORDED"],
+      "claim": "Frozen volatility/liquidity geometry for EntryZone, stop distance, horizon and capacity is safer or more stable than fixed-bps geometry under identical hard-risk limits.",
+      "comparator": "PREDECLARED_FIXED_BPS_GEOMETRY_ON_SAME_RISK_AND_COST_MODEL",
+      "falsification": "Cost-after utility and tail risk do not improve, finite candidate neighborhood collapses, required L1 field missingness is treated as neutral, or depth is treated as guaranteed fill.",
+      "result_status": "WAIT_DATA",
+      "next_allowed_stage": "POST_B4_INDEPENDENT_DEVELOPMENT_ONLY"
+    },
+    {
+      "hypothesis_id": "V4-H06-REMAINING_EV_EXIT",
+      "priority": "P0",
+      "layer": "EXIT_POLICY",
+      "depends_on": ["V4-H05-VOL_LIQ_GEOMETRY_DISPOSITION_RECORDED", "V3-H06-REMAINING_EV_EXIT_DISPOSITION_RECORDED"],
+      "claim": "Within an identical submission/fill cohort, a frozen one-way-risk remaining-EV exit policy improves bounded cost-after utility without worsening expected shortfall.",
+      "comparator": "FROZEN_INITIAL_EXIT_POLICY_ON_EXACT_SAME_FILL_COHORT",
+      "falsification": "Changed entry/fill cohort, stop widening, horizon extension, tail worsening, no incremental utility, or intrabar path assumption is required.",
+      "result_status": "WAIT_DATA",
+      "next_allowed_stage": "POST_B4_INDEPENDENT_DEVELOPMENT_ONLY"
+    },
+    {
+      "hypothesis_id": "V4-H07-PAST_ONLY_ANALOG",
+      "priority": "P1",
+      "layer": "L3_HISTORICAL_ANALOG",
+      "depends_on": ["V4-H06-REMAINING_EV_EXIT_DISPOSITION_RECORDED"],
+      "claim": "Past-only, embargoed analog episodes add calibrated incremental information beyond a no-analog baseline for the same eligible candidate set.",
+      "comparator": "NO_ANALOG_BASELINE_ON_SAME_OPPORTUNITY_UNIVERSE",
+      "falsification": "Future/overlap/outcome-selected neighbor, no incremental calibration or utility, unstable effect, or insufficient isolated historical support.",
+      "result_status": "WAIT_DATA",
+      "next_allowed_stage": "POST_B4_INDEPENDENT_DEVELOPMENT_ONLY"
+    },
+    {
+      "hypothesis_id": "V4-H08-MACRO_RISK_CONDITION",
+      "priority": "P1",
+      "layer": "L4_MACRO_EVENT",
+      "depends_on": ["V4-H06-REMAINING_EV_EXIT_DISPOSITION_RECORDED"],
+      "claim": "Point-in-time macro event risk states reduce harmful exposure or improve calibration relative to the same eligible candidate set without a macro risk gate, without using revised values as past inputs.",
+      "comparator": "NO_MACRO_RISK_GATE_ON_SAME_TIME_WINDOWS",
+      "falsification": "Vintage leakage, publication-time ambiguity, no incremental bounded benefit, excessive opportunity cost, or directional narrative substitutes for observed fields.",
+      "result_status": "WAIT_DATA",
+      "next_allowed_stage": "POST_B4_INDEPENDENT_DEVELOPMENT_ONLY"
+    },
+    {
+      "hypothesis_id": "V4-H09-FOUR_LAYER_INTEGRATION",
+      "priority": "P2",
+      "layer": "ALL_LAYERS",
+      "depends_on": ["V4-H01-MTF_PARENT_VETO_SUPPORTED_DISPOSITION_RECORDED", "V4-H02-PARENT_CHILD_RELATION_SUPPORTED_DISPOSITION_RECORDED", "V4-H03-CURRENT_PRESSURE_CONFIRMATION_SUPPORTED_DISPOSITION_RECORDED", "V4-H04-CAUSAL_LEVEL_RESPONSE_SUPPORTED_DISPOSITION_RECORDED", "V4-H05-VOL_LIQ_GEOMETRY_SUPPORTED_DISPOSITION_RECORDED", "V4-H06-REMAINING_EV_EXIT_SUPPORTED_DISPOSITION_RECORDED", "V4-H07-PAST_ONLY_ANALOG_SUPPORTED_DISPOSITION_RECORDED", "V4-H08-MACRO_RISK_CONDITION_SUPPORTED_DISPOSITION_RECORDED"],
+      "claim": "Only independently supported layer components jointly improve bounded utility and calibration on wholly new chronology relative to the strongest predeclared lower-complexity comparator.",
+      "comparator": "STRONGEST_PREDECLARED_SUPPORTED_LOWER_COMPLEXITY_ARM_ON_NEW_CHRONOLOGY",
+      "falsification": "Any unsupported predecessor, reused chronology, comparator replacement after results, complexity without incremental value, worse tail behavior, or holdout failure.",
+      "result_status": "WAIT_DATA",
+      "next_allowed_stage": "POST_CALIBRATION_ONE_SHOT_HOLDOUT_ONLY"
+    },
+    {
+      "hypothesis_id": "V4-H10-D2_D3_UPWARD_EXPANSION_PRICE_SEQUENCE",
+      "priority": "P1",
+      "layer": "DAILY_EVENT_SEQUENCE_CHALLENGER",
+      "depends_on": ["V4-H04-CAUSAL_LEVEL_RESPONSE_DISPOSITION_RECORDED", "V4-H05-VOL_LIQ_GEOMETRY_DISPOSITION_RECORDED"],
+      "claim": "A frozen D2/D3 point-in-time daily OHLCV prefix adds calibrated information about subsequent 1-3 day UPWARD_EXPANSION price outcome over a simple OHLCV shock baseline and time/regime-matched controls, without treating institutional intent, sentiment or news narratives as facts.",
+      "required_inputs": ["eligible_daily_ohlcv", "causal_atr_and_volume_windows", "trailing_high_low", "available_at", "source_id", "generation_id_or_stream_id", "exact_cohort_key_set"],
+      "prefix_anchor_protocol": "At D2/D3 close/available_at, freeze only the observed prefix state/probability/action; reveal 1-3 day price outcome only after availability. Full D1..D8 can never filter early-prefix samples.",
+      "primary_outcome": "D2_D3_PREFIX_TO_1_3_DAY_UPWARD_EXPANSION_PRICE",
+      "cluster_rule": "Nested prefixes are one episode cluster for split, bootstrap and multiple-comparison accounting.",
+      "comparator": "SIMPLE_OHLCV_SHOCK_BASELINE_WITH_TIME_AND_REGIME_MATCHED_CONTROLS",
+      "falsification": "Any full-episode selection for the early prefix, future/new-high lookahead, retrospective state rewrite, no increment over the single comparator family, effect disappears under time/regime controls, or event expansion creates an automatic order.",
+      "result_status": "WAIT_DATA",
+      "next_allowed_stage": "POST_B4_INDEPENDENT_DEVELOPMENT_ONLY",
+      "separate_from": "V4-H03-CURRENT_PRESSURE_CONFIRMATION"
+    },
+    {
+      "hypothesis_id": "V4-H11-D6_D7_DOWNSIDE_BREAKDOWN_PRICE_SEQUENCE",
+      "priority": "P1",
+      "layer": "DAILY_EVENT_SEQUENCE_CHALLENGER",
+      "depends_on": ["V4-H04-CAUSAL_LEVEL_RESPONSE_DISPOSITION_RECORDED", "V4-H05-VOL_LIQ_GEOMETRY_DISPOSITION_RECORDED"],
+      "claim": "A frozen D6/D7 failed-continuation prefix adds calibrated information about next-day DOWNSIDE/BREAKDOWN price outcome over a simple OHLCV shock baseline and time/regime-matched controls.",
+      "required_inputs": ["eligible_daily_ohlcv", "causal_atr_and_volume_windows", "trailing_high_low", "available_at", "source_id", "generation_id_or_stream_id", "exact_cohort_key_set"],
+      "primary_outcome": "D6_D7_PREFIX_TO_NEXT_DAY_DOWNSIDE_BREAKDOWN_PRICE",
+      "comparator": "SIMPLE_OHLCV_SHOCK_BASELINE_WITH_TIME_AND_REGIME_MATCHED_CONTROLS",
+      "falsification": "Any full-episode selection for the prefix, future/new-low lookahead, retrospective state rewrite, no increment over comparator, or automatic short creation.",
+      "result_status": "WAIT_DATA",
+      "next_allowed_stage": "POST_B4_INDEPENDENT_DEVELOPMENT_ONLY"
+    },
+    {
+      "hypothesis_id": "V4-H12-EVENT_ARRIVAL_ASSOCIATION",
+      "priority": "P2",
+      "layer": "EVENT_DIAGNOSTIC_ONLY",
+      "depends_on": ["V4-H10-D2_D3_UPWARD_EXPANSION_PRICE_SEQUENCE_DISPOSITION_RECORDED", "V4-H11-D6_D7_DOWNSIDE_BREAKDOWN_PRICE_SEQUENCE_DISPOSITION_RECORDED"],
+      "claim": "Point-in-time event arrival association may be described only as an independent diagnostic after the full event_visibility_invariant holds; it cannot make H10/H11 price outcomes pass.",
+      "required_inputs": ["source_timestamp", "published_at", "available_at", "vintage_id", "revision_status", "exact_cohort_key_set"],
+      "comparator": "TIME_AND_REGIME_MATCHED_NON_EVENT_WINDOWS",
+      "falsification": "Using an event source_timestamp, published_at or available_at before it is visible at decision_time, outcome-selected events, event association treated as price alpha, or no association relative to comparator.",
+      "result_status": "WAIT_DATA",
+      "next_allowed_stage": "POST_B4_INDEPENDENT_DEVELOPMENT_ONLY"
+    }
+  ],
+  "route": [
+    "V4-M00_OUTCOME_FREE_SYNTHETIC_CONTRACT",
+    "SOL_V4_M00_STAGE_GATE",
+    "EXPLICIT_B4_DATA_FEASIBILITY_AUTHORIZATION",
+    "INDEPENDENT_DEVELOPMENT_AUTHORIZATION_WITH_FROZEN_DATES_COST_AND_ADAPTER",
+    "CHRONOLOGICAL_WALK_FORWARD_DEVELOPMENT",
+    "CALIBRATION_FREEZE",
+    "ONE_SHOT_HOLDOUT",
+    "SEPARATE_PROMOTION_DECISION_OR_RETIRE"
+  ]
+}

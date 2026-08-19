@@ -1,0 +1,160 @@
+{
+  "action_ids": [
+    "WAIT_WITH_REVIEW",
+    "HOLD_CORE",
+    "HOLD_CORE_TRAIL",
+    "OPEN_CORE",
+    "ADD_CONFIRMATION",
+    "ADD_TREND",
+    "REDUCE_TACTICAL",
+    "PARTIAL_TAKE_PROFIT",
+    "EXIT_WITH_REENTRY",
+    "REENTER_CORE",
+    "INVALIDATE_AND_EXIT"
+  ],
+  "account_policy": {
+    "adverse_slippage_rate": "0.0002",
+    "core_fraction": "0.0625",
+    "funding_status": "UNKNOWN_EXCLUDED",
+    "initial_equity": "10000",
+    "maximum_gross_fraction": "0.125",
+    "maximum_stop_risk_fraction": "0.0125",
+    "minimum_net_reward_risk": "1.5",
+    "stage_fraction": "0.03125",
+    "tail_gap_fraction": "0.01",
+    "taker_fee_rate": "0.0005"
+  },
+  "action_transition_policy": {
+    "failure_terminal_policy": "EACH_POST_ACTION_LOT_AT_REGISTERED_STOP",
+    "partial_close_fraction_each_existing_lot": "0.5",
+    "reentry_is_separate_future_obligation": true,
+    "review_obligation_policy": "WAIT_OR_EXIT_CREATES_NEXT_CLOSED_1H_REVIEW_OBLIGATION",
+    "same_bar_new_trail_stop_execution": false,
+    "stop_fill_policy": "MIN_REGISTERED_STOP_AND_BAR_OPEN_PLUS_FROZEN_EXIT_COST",
+    "trailing_policy": "OHLC_ORDER_UNKNOWN_TRAIL_EFFECTIVE_NEXT_BAR"
+  },
+  "agent_autonomy": {
+    "agent_owned": [
+      "PATH_INTERPRETATION",
+      "ORDINAL_TRADEOFF",
+      "BOUNDED_SELECTION"
+    ],
+    "kernel_owned": [
+      "PIT",
+      "STATE",
+      "RISK",
+      "SUPERVISION",
+      "PERMISSION",
+      "ACTION_TRANSITION",
+      "OUTCOME_ACCOUNTING"
+    ],
+    "selector_policy_id": "BOUNDED_SELECTOR_POLICY_E0B_V2"
+  },
+  "config_digest": "6729f1c3626fe9a155625f3a5ad11e428815274128bbc92588428122f05c7425",
+  "decision_indices_inclusive": [
+    160,
+    191
+  ],
+  "evidence_class": "PRACTICAL_CODEX_ACTION_DISCRIMINATION_EXPERIMENT",
+  "executable": false,
+  "external_execution_authority": "NONE_E0",
+  "financial_contract_version": "ACTION_E0B_FINANCIAL_CONTRACT_V2",
+  "geometry_policy": {
+    "normal_target_r_multiple": "2.00",
+    "stop_atr_multiple": "1.50",
+    "stop_floor_fraction_of_mark": "0.90",
+    "stop_low24_atr_offset": "0.25",
+    "trend_target_r_multiple": "3.50"
+  },
+  "outcome_policy": {
+    "economic_metrics_are_descriptive": true,
+    "horizons_hours": [
+      1,
+      4,
+      8,
+      24
+    ],
+    "maximum_drawdown_guardrail_delta_fraction": "0.0025",
+    "drawdown_method": "CONSERVATIVE_OHLC_GAP_AT_OPEN_THEN_HIGH_BEFORE_INTRABAR_LOW",
+    "net_vector_dominance_required": true,
+    "one_hour_cannot_independently_promote": true,
+    "opportunity_loss_is_algebraic_mirror_not_independent_gate": true,
+    "opportunity_loss_is_actual_loss": false,
+    "outcome_authorization": "EVALUATE_AFTER_ALL_ROLE_OUTPUTS_FROZEN",
+    "overlapping_windows_no_iid_claim": true,
+    "review_dependent_actions_after_one_hour_are_not_contract_comparable": true
+  },
+  "profile_order": [
+    "FLAT_ACTIVE",
+    "CORE_ACTIVE",
+    "CORE_CONFIRMATION_ELIGIBLE",
+    "CORE_PLUS_TACTICAL",
+    "TARGET_REVIEW_ACTIVE",
+    "REENTRY_PENDING",
+    "RISK_BUDGET_PRESSURE",
+    "HARD_INVALIDATED_CONTROL"
+  ],
+  "quality_policy": {
+    "action_benefit_from_language_checklist": false,
+    "challenge_coverage_status": "DIAGNOSTIC_ONLY",
+    "dedicated_review_roles": [
+      "SELF_REVIEW",
+      "CHALLENGE_BLIND"
+    ],
+    "proposal_material_challenge_required": false,
+    "topology_symmetric": true
+  },
+  "role_contract": {
+    "arm_ids": [
+      "SINGLE_STRONG",
+      "BLIND_THREE_ROLE_CLUSTER"
+    ],
+    "clean_fork_turns": "none",
+    "delivery_protocol": "INITIAL_MESSAGE_DIRECT_INLINE_CANONICAL_PACKET_V1",
+    "expected_outputs_per_sample": 6,
+    "invocation_receipt_required": true,
+    "model_identity_attestation": "UNAVAILABLE_PRACTICAL_EVIDENCE",
+    "role_keys": [
+      "single-proposal",
+      "single-self-review",
+      "single-selection",
+      "cluster-proposal",
+      "cluster-challenge",
+      "cluster-selection"
+    ],
+    "token_budget_attestation": "UNAVAILABLE_PRACTICAL_EVIDENCE",
+    "transport": "CODEX_NATIVE_SUBAGENT_COLLABORATION",
+    "transport_preflight": {
+      "formal_role_output": false,
+      "child_task": "/root/e0b_transport_preflight_v2",
+      "context_digest": "336a1c627d15b5f5fa49b8a43740e12d87d113a2e96b5851c532747446ca638d",
+      "packet_byte_length": 20698,
+      "packet_digest": "7636f323a7fea9f57b7418228b4dfd72b85c8fae22bdd4a8113f145f4239dd74",
+      "packet_physical_sha256": "1e3c796d5e3f0e6868d60c2bdbb48c81fc28963efcc72f28abc15e68dbe3f245",
+      "received_complete": true,
+      "result": "PASS_DIRECT_INLINE_NO_TRUNCATION",
+      "sample_index": 160,
+      "selector_choice_set_count": 2,
+      "tool_use_status": "NO_TOOL_CALL_OBSERVED",
+      "used_as_formal_role_output": false
+    }
+  },
+  "sample_count": 32,
+  "schema_id": "action_discrimination_experiment_config",
+  "schema_version": "2.0.0",
+  "supervision_order": [
+    "ATTENDED",
+    "UNATTENDED_PROTECTED",
+    "UNATTENDED_NO_NEW_RISK",
+    "ATTENDED"
+  ],
+  "system_mode": "E0_OFFLINE_COUNTERFACTUAL",
+  "terminal_verdict_order": [
+    "INCOMPLETE_NO_DECISION",
+    "NO_ACTION_DISCRIMINATION",
+    "INCONCLUSIVE_SEQUENTIAL_CONTRACT_NOT_PROVEN",
+    "INCONCLUSIVE_ACTION_TRADEOFF",
+    "DESCRIPTIVE_CLUSTER_SELECTION_ADVANTAGE",
+    "DESCRIPTIVE_SINGLE_SELECTION_ADVANTAGE"
+  ]
+}

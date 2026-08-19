@@ -1,0 +1,370 @@
+{
+  "schema_version": "sol-research-system-dynamic-hypothesis-graph-p0_1-route-decision.v1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_DYNAMIC_HYPOTHESIS_GRAPH_P0_1_ROUTE.v1",
+  "issued_at": "2026-07-27T10:50:34Z",
+  "issued_by": "GPT-5.6-SOL_ULTRA_PROGRAM_ROUTE",
+  "decision_state": "AUTHORIZED_P0_1_E0_DYNAMIC_HYPOTHESIS_GRAPH_CHALLENGER",
+  "decision_class": "INITIAL_ROUTE_AUTHORIZATION_NOT_STAGE_ACCEPTANCE",
+  "evidence_level": "E0_THEORY_CONTRACT_AND_SYNTHETIC_VALIDATION_ONLY",
+  "route_identity": {
+    "route_id": "RSR-P0.1-DYNAMIC-HYPOTHESIS-GRAPH-v1",
+    "route_version": "1.0.0",
+    "priority": "P0",
+    "current_stage": "P0_1_AUTHORIZED_WORK_NOT_ACCEPTED",
+    "rework_or_successor_relation": "SEPARATELY_VERSIONED_SUCCESSOR_CHALLENGER_OVER_ACCEPTED_EXACT_V1_1_FOUNDATION",
+    "workspace": {
+      "cwd": "/Users/wt/Documents/agent-trade-emotion",
+      "branch": "codex/s0-research-foundation",
+      "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+    }
+  },
+  "authority_binding": {
+    "accepted_p0_foundation": {
+      "path": "config/sol_decision.research-system-reconstruction-p0-gate.v1_1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION_P0_GATE.v1_1",
+      "decision_state": "ACCEPT_P0",
+      "size_bytes": 17299,
+      "physical_sha256": "ff9f2b608fe387b953e5d18e1a3cd0a246fcc43bf209f694ffab53f867a8f4cf",
+      "canonical_sha256": "d0968a40d33cea693cd2ad979a656b7897c30fe58b3cd94d85b6f1ce5afd6a58",
+      "interpretation": "Exact accepted E0 contract foundation only; no later-stage permission is inherited."
+    },
+    "current_core_theory": {
+      "path": "CORE_TRADING_THEORY_v2_1.md",
+      "authority_id": "CORE_TRADING_THEORY.v2.1",
+      "version": "2.1",
+      "status": "CURRENT_IMMUTABLE_AUTHORITY",
+      "size_bytes": 140126,
+      "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d",
+      "interpretation": "Read-only authority. This route may create a challenger but may not alter, replace or promote the current core."
+    },
+    "core_authority_manifest": {
+      "path": "config/core_trading_theory.authority.v2_1.json",
+      "size_bytes": 299,
+      "physical_sha256": "a3e174c616b176253f4aef2ce267a932d43f7e64db3490db815a27f007df12d4",
+      "recorded_core_physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d",
+      "recorded_status": "CURRENT_IMMUTABLE_AUTHORITY"
+    },
+    "binding_effect": "Authorization applies only while the exact cwd, branch, HEAD, accepted P0 decision and current core-theory identities above remain the declared baselines. Drift does not inherit authority and must stop for a new Sol decision."
+  },
+  "authorized_objective": {
+    "program_question": "Can a versioned, state-conditioned runtime graph preserve distinct PathHypothesis, MechanismHypothesis and TradeHypothesis instances while updating only with discriminating point-in-time evidence and remaining non-self-authorizing?",
+    "deliverable_goal": "Produce a review-ready E0 challenger and executable contract package for deterministic runtime hypothesis generation, graph updates, machine predicates, identifiability, conflict, residual semantics, ordinal-to-calibrated boundaries and future out-of-sample acceptance design.",
+    "maximum_current_result": "A locally validated, exact E0 contract candidate awaiting a separate external Sol P0.1 completion gate.",
+    "not_a_goal": [
+      "Prove that any mechanism is a market fact or participant-intent truth.",
+      "Prove market validity, predictive value, positive expected value, profitability or execution readiness.",
+      "Acquire data, implement an adapter, build a dataset, run a backtest, calibrate probabilities, open a holdout, paper trade, deploy or trade.",
+      "Modify or promote CORE_TRADING_THEORY.v2.1 or any frozen v1/v1.1 artifact."
+    ]
+  },
+  "authorized_artifact_allowlist": [
+    {
+      "role": "versioned_theory_challenger",
+      "path": "RESEARCH_SYSTEM_DYNAMIC_HYPOTHESIS_GRAPH_CHALLENGER_v1_2.md",
+      "content_scope": "Auditable theory delta, definitions, mathematical invariants, claim boundaries and future evaluation design only."
+    },
+    {
+      "role": "runtime_graph_contract",
+      "path": "config/research_system.runtime_hypothesis_graph_contract.v1_2.json",
+      "content_scope": "Three-layer specifications and instances, typed graph edges, deterministic generator and revision receipts, path non-merge, direction coverage and residual semantics."
+    },
+    {
+      "role": "runtime_template_registry",
+      "path": "config/research_system.runtime_hypothesis_template_registry.v1_2.json",
+      "content_scope": "Finite state-conditioned mechanism, path and trade templates with executable activation, signatures, terminal matchers, hard invalidation, expiry and exact template identities."
+    },
+    {
+      "role": "runtime_evidence_and_evaluation_contract",
+      "path": "config/research_system.runtime_evidence_evaluation_contract.v1_2.json",
+      "content_scope": "Atomic target-effect evidence, lineage and dependency handling, conflicts, identifiability, discrimination plans, probability modes and future out-of-sample gate fields."
+    },
+    {
+      "role": "pure_total_validator",
+      "path": "trade_system/research_system_contract_v1_2.py",
+      "content_scope": "Pure total public validator over caller-supplied raw candidate mappings with authority roots and semantic ceilings pinned outside candidate content."
+    },
+    {
+      "role": "synthetic_and_adversarial_tests",
+      "path": "tests/test_research_system_contract_v1_2.py",
+      "content_scope": "Deterministic positive, malformed, mutation, authority, graph, non-merge, evidence, conflict, predicate, residual and probability-boundary fixtures only."
+    },
+    {
+      "role": "integrated_independent_evidence_report",
+      "path": "artifacts/research_system_dynamic_hypothesis_graph_p0_1_evidence_report.v1.json",
+      "content_scope": "Exact commands, identities, test results, independent helper-free mutations, unresolved findings and bounded claim statement."
+    },
+    {
+      "role": "exact_candidate_inventory",
+      "path": "config/research_system.dynamic_hypothesis_graph.p0_1_artifact_inventory.v1.json",
+      "content_scope": "Exact route authority, immutable baselines, artifact paths, roles, byte lengths, physical digests, canonical digests where applicable and candidate claim boundary."
+    }
+  ],
+  "artifact_scope_rules": {
+    "new_artifact_count": 8,
+    "three_contract_json_count": 3,
+    "existing_artifact_modification_allowed": false,
+    "artifact_outside_allowlist_allowed": false,
+    "dependency_installation_allowed": false,
+    "generated_market_or_runtime_data_allowed": false,
+    "candidate_may_accept_itself": false,
+    "inventory_must_bind_this_route_decision": true,
+    "inventory_must_bind_accepted_p0_foundation": true,
+    "inventory_must_bind_current_core_theory": true,
+    "any_scope_expansion_action": "STOP_AND_REQUEST_NEW_SOL_DECISION"
+  },
+  "minimum_theory_contract": {
+    "research_and_runtime_plane_separation": [
+      "Static ResearchHypothesis objects test whether a method adds out-of-sample value.",
+      "Runtime MechanismHypothesis, PathHypothesis and TradeHypothesis instances are opportunity-specific decision objects in separate namespaces.",
+      "A runtime result cannot rewrite the static research hypothesis or a prior graph revision."
+    ],
+    "deterministic_generation": [
+      "Runtime generation is a pure function of a point-in-time state, structural-position, data-quality and clock snapshot plus a frozen finite template registry.",
+      "Runtime or LLM free-form template creation, Cartesian-product path creation and outcome-conditioned generation are forbidden.",
+      "Only preregistered refresh triggers may create a new graph revision; all prior revisions and receipts remain immutable."
+    ],
+    "path_contract": [
+      "Path identity is determined by its observable partial-order evolution, terminal matcher, horizon, invalidation and expiry, not by mechanism identity or trade side.",
+      "Different verifiable paths remain distinct even when they map to the same strategy side; their score, invalidation, expiry, calibration and result history cannot be merged.",
+      "Exact duplicate specifications are rejected before instantiation and do not become two runtime paths.",
+      "Named terminal path cells are pairwise disjoint; observable unmatched outcomes route to OTHER_PATH."
+    ],
+    "mechanism_contract": [
+      "Mechanism hypotheses are non-exclusive observational explanations and can map many-to-many to paths.",
+      "Mechanism-to-path edges have NO_SCORE_TRANSFER at E0.",
+      "Without authoritative truth or an identification design, a mechanism can be observationally compatible or non-identifiable but cannot be promoted to fact, participant intent or causal truth."
+    ],
+    "trade_contract": [
+      "Each TradeHypothesis has exactly one parent PathHypothesis instance in the minimal v1.2 contract.",
+      "Mechanism references are context-only and cannot authorize, size or strengthen a trade.",
+      "A path may generate zero or more path-specific trade hypotheses; a multi-path composite trade is outside this route.",
+      "Only a separately governed Permission object could authorize a future action, and every such permission remains unavailable in P0.1."
+    ],
+    "direction_and_residual_contract": [
+      "The active pool preserves every eligible market path direction and every eligible trade side while allowing more than one distinct path for the same side.",
+      "A finite-capacity conflict returns POOL_OVERFLOW, UNKNOWN and ABSTAIN rather than silently pruning an opposing direction.",
+      "OTHER_PATH is an observable market-outcome residual.",
+      "UNKNOWN_PATH is an explicit epistemic meta-node with not_outcome, not_probability and not_tradeable semantics.",
+      "CENSORED is an outcome-labeling state and ABSTAIN is an action; neither is a market path."
+    ],
+    "evidence_and_conflict_contract": [
+      "Each evidence item binds source or measurement identity, available_at, quality, lineage root, dependency group, expiry and an atomic per-target effect vector.",
+      "Only evidence with different preregistered implications across unresolved competitors is discriminating evidence.",
+      "One underlying lineage may contribute at most once per target and update; copied aliases cannot create independent evidence.",
+      "Equal-strength opposing evidence produces an explicit conflict or unknown state rather than selecting a semantic winner by identifier.",
+      "Hard invalidation dominates ordinal score; invalidated or expired instances cannot be revived."
+    ],
+    "identifiability_and_next_observation_contract": [
+      "Each pair of named paths must be terminal-identifiable; any pair used to prefer a trade before its deadline must also be decision-identifiable.",
+      "Observationally equivalent mechanisms remain in a declared equivalence class and cannot be forced into a unique causal choice.",
+      "Before probability calibration, the next-observation plan is a deterministic discrimination ranking, not Shannon information gain.",
+      "Numeric information gain is forbidden unless both path probabilities and conditional observation distributions are independently calibrated within the supported domain."
+    ],
+    "probability_and_oos_contract": [
+      "Ordinal support cannot be converted to probability by softmax, normalization or candidate assertion.",
+      "Only named observable path outcomes plus OTHER_PATH may enter a future calibrated probability simplex; UNKNOWN_PATH cannot.",
+      "Trade-success probability is separately conditional on an exact trigger and parent path; mechanism probability remains forbidden without a truth label.",
+      "All future sample, coverage, effect, non-inferiority, calibration, multiplicity and stability thresholds remain UNSET_BLOCKS_E2 until a later authorized preregistration.",
+      "Same-side paths must be reported and accepted separately; pooled directional performance cannot rescue a failed path."
+    ]
+  },
+  "required_machine_predicate_shape": {
+    "fields": [
+      "predicate_id",
+      "predicate_version",
+      "observable_id",
+      "operator",
+      "threshold_or_interval",
+      "clock",
+      "window",
+      "minimum_persistence",
+      "quality_requirement",
+      "gap_and_censoring_rule",
+      "terminal_reason",
+      "precedence"
+    ],
+    "applies_to": [
+      "activation",
+      "support",
+      "soft_contradiction",
+      "hard_invalidation",
+      "resolution",
+      "expiry",
+      "trade_trigger",
+      "trade_invalidation"
+    ],
+    "text_is_not_execution": "Natural-language descriptions may explain a predicate but cannot substitute for the typed fields or independent fixtures."
+  },
+  "acceptance_contract": {
+    "stage_result_options": [
+      "ACCEPT_P0_1",
+      "REWORK_LOCAL"
+    ],
+    "acceptance_owner": "GPT-5.6-SOL_ULTRA_EXTERNAL_STAGE_GATE",
+    "builder_may_accept_own_candidate": false,
+    "required_clean_checks": [
+      "Exact cwd, branch, HEAD and immutable authority identities match this route.",
+      "Only the eight allowlisted artifacts are newly created and no existing artifact is modified.",
+      "Every artifact has an exact physical identity and every JSON contract or report has an independently recomputable domain-separated canonical identity.",
+      "The public validator is pure, total, fail-closed and pins authority, type, semantic and permission ceilings outside candidate content.",
+      "The exact clean bundle is accepted deterministically and repeated or reordered input cannot change its identity.",
+      "All active templates bind complete machine predicates and independent positive, boundary, clock, gap, hard-invalidation and expiry fixtures.",
+      "The graph is deterministic, finite, typed and preserves same-side distinct paths, opposing directions, OTHER_PATH, UNKNOWN_PATH and ABSTAIN semantics.",
+      "The evidence ledger is atomic, lineage-aware, idempotent, conflict-preserving and unable to convert ordinal or mechanism support into probability, utility or permission.",
+      "The independent reviewer reproduces every critical mutation without importing the builder's fixture constructor.",
+      "The evidence report and inventory state every unresolved blocker and make no market or later-stage claim."
+    ],
+    "mandatory_adversarial_families": [
+      "Candidate self-authority or semantic-ceiling escalation.",
+      "Runtime template or LLM story injection.",
+      "Outcome-conditioned generation, graph backdating or prior-revision rewrite.",
+      "Same-side path merge, opposing-direction pruning or finite-pool overflow suppression.",
+      "Duplicate path identity used for repeated support.",
+      "Path identity contaminated by mechanism identity or trade side.",
+      "Trade hypothesis with zero or multiple parent paths.",
+      "Mechanism score transferred into path, trade, utility, size or permission.",
+      "Evidence alias or dependency-group duplication.",
+      "Equal opposing evidence silently erased by tie-breaking.",
+      "Hard invalidation overridden by a score or expired instance revived.",
+      "OTHER_PATH, UNKNOWN_PATH, CENSORED and ABSTAIN interchanged.",
+      "Ordinal score, uncalibrated map or mechanism support represented as probability, expected value or numeric information gain.",
+      "Next observation available only after expiry or decision deadline.",
+      "Same-side out-of-sample results pooled to hide a failing parent path.",
+      "Unknown, abstained or censored opportunities removed from the declared denominator.",
+      "D0 through E3 or any market, adapter, evaluation, paper, deployment or trading permission enabled."
+    ],
+    "acceptance_effect": "Acceptance would establish only the exact E0 P0.1 runtime-graph theory and contract candidate. It would not promote CORE v2.1, authorize D0 or validate any market behavior."
+  },
+  "role_and_escalation_contract": {
+    "builder": {
+      "model": "gpt-5.6-terra",
+      "reasoning_effort": "high",
+      "scope": "Implement only the eight exact allowlisted E0 artifacts and run local synthetic checks.",
+      "can_accept_own_candidate": false
+    },
+    "independent_reviewer": {
+      "model": "gpt-5.6-terra",
+      "reasoning_effort": "high",
+      "scope": "Independently reproduce identities, validators and adversarial mutations without builder helpers.",
+      "can_accept_own_candidate": false
+    },
+    "stage_gate_reviewer": {
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "ultra",
+      "scope": "Called only after a complete exact candidate or a genuine route blocker; issues ACCEPT_P0_1 or REWORK_LOCAL.",
+      "can_accept_builder_candidate": true
+    },
+    "immediate_stop_conditions": [
+      "A required change targets an existing or non-allowlisted artifact.",
+      "An authority identity, cwd, branch or HEAD differs from this decision.",
+      "Any data, adapter, dataset, backtest, calibration, holdout, paper, deployment or trading action becomes necessary.",
+      "A subjective mechanism explanation is required to satisfy a typed path, trade or evidence contract.",
+      "The finite path pool cannot preserve required direction and residual coverage.",
+      "A requested claim exceeds E0 contract validity."
+    ]
+  },
+  "open_findings": [
+    {
+      "finding_id": "F-005",
+      "dispute_id": "DSP-022",
+      "status": "DEFERRED_BLOCKING",
+      "condition": "Natural-language hard falsifier and expiry descriptions are not executable predicates.",
+      "blocks": [
+        "D3",
+        "E2"
+      ],
+      "this_decision_effect": "REMAINS_OPEN. This route authorization and any theory prose do not close the finding. Only exact machine predicates, independent fixtures and a later external Sol finding disposition could do so."
+    }
+  ],
+  "permission_matrix": {
+    "read_existing_workspace_artifacts": true,
+    "create_exact_allowlisted_e0_artifacts": true,
+    "write_versioned_theory_challenger": true,
+    "write_three_contract_json_files": true,
+    "write_pure_validator": true,
+    "write_synthetic_and_adversarial_tests": true,
+    "write_evidence_report_and_inventory": true,
+    "modify_existing_artifacts": false,
+    "modify_core_theory_authority": false,
+    "promote_challenger_to_core": false,
+    "access_active_application_support_root": false,
+    "install_dependencies": false,
+    "use_authenticated_or_paid_sources": false,
+    "acquire_market_rows_or_historical_data": false,
+    "admit_raw_runtime_data": false,
+    "implement_or_execute_adapter_or_replay": false,
+    "build_dataset_features_or_labels": false,
+    "run_backtest_or_evaluation": false,
+    "run_calibration_or_holdout": false,
+    "run_paper_or_testnet": false,
+    "deploy": false,
+    "trade_or_use_live_funds": false
+  },
+  "stage_denials": {
+    "D0": "DENIED_REQUIRES_SEPARATE_EXPLICIT_SOL_DECISION",
+    "D1": "DENIED_REQUIRES_SEPARATE_EXPLICIT_SOL_DECISION",
+    "D2": "DENIED_REQUIRES_SEPARATE_EXPLICIT_SOL_DECISION",
+    "D3": "DENIED_REQUIRES_SEPARATE_EXPLICIT_SOL_DECISION",
+    "E2": "DENIED_REQUIRES_SEPARATE_EXPLICIT_SOL_DECISION",
+    "E3": "DENIED_REQUIRES_SEPARATE_EXPLICIT_SOL_DECISION"
+  },
+  "stage_disposition": {
+    "p0_1_route_authorized": true,
+    "p0_1_candidate_accepted": false,
+    "p0_1_work_status": "AUTHORIZED_NOT_STARTED_BY_THIS_DECISION",
+    "d0_authorized": false,
+    "d1_authorized": false,
+    "d2_authorized": false,
+    "d3_authorized": false,
+    "e2_authorized": false,
+    "e3_authorized": false,
+    "market_data_authorized": false,
+    "adapter_authorized": false,
+    "backtest_authorized": false,
+    "calibration_authorized": false,
+    "holdout_authorized": false,
+    "paper_authorized": false,
+    "deployment_authorized": false,
+    "trading_authorized": false,
+    "permission_effect": "ONLY_EXACT_E0_P0_1_CANDIDATE_CONSTRUCTION",
+    "next_stage": "EXTERNAL_SOL_P0_1_COMPLETION_GATE_AFTER_EXACT_CANDIDATE_AND_INDEPENDENT_EVIDENCE"
+  },
+  "claim_boundary": {
+    "route_authority": "AUTHORIZED_FOR_EXACT_E0_P0_1_CONSTRUCTION_ONLY",
+    "candidate_acceptance": "NOT_EVALUATED",
+    "current_core_theory": "CORE_TRADING_THEORY_V2_1_REMAINS_CURRENT_AND_UNCHANGED",
+    "dynamic_graph_market_validity": "NOT_EVALUATED",
+    "mechanism_truth": "NOT_ESTABLISHED",
+    "source_data_validity": "NOT_EVALUATED",
+    "predictive_validity": "NOT_EVALUATED",
+    "probability_calibration": "NOT_AUTHORIZED",
+    "profitability": "NOT_EVALUATED",
+    "historical_data_acquisition": "NOT_AUTHORIZED",
+    "adapter_or_replay": "NOT_AUTHORIZED",
+    "backtest": "NOT_AUTHORIZED",
+    "paper": "NOT_AUTHORIZED",
+    "deployment": "DENIED",
+    "trading": "DENIED",
+    "maximum_positive_claim": "This decision authorizes construction of exactly eight new E0 artifacts for a state-conditioned, three-layer runtime hypothesis-graph challenger and its pure synthetic validation package. It accepts no candidate, closes no empirical question, does not close F-005/DSP-022, does not change CORE_TRADING_THEORY.v2.1 and grants no D0 or later-stage permission."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-research-system-dynamic-hypothesis-graph-p0_1-route-decision/v1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "d2550e5eacd6a304eda141977eefec280d478c86bd3a13189277cc7c9ecfc1d2"
+}

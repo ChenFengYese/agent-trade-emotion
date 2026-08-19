@@ -1,0 +1,546 @@
+{
+  "schema_version": "sol-research-system-pit-authority-replay-e0-gate-decision.v1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_E0_GATE.v1",
+  "issued_at": "2026-07-27T15:28:40Z",
+  "issued_by": "GPT-5.6-SOL_ULTRA_EXTERNAL_STAGE_GATE",
+  "decision_state": "ACCEPT_PITAR1_E0_CONTRACT_SD0_WAIT_DATA_D0_DENIED",
+  "decision_class": "PARTITIONED_E0_CONTRACT_ACCEPTANCE_WITH_SOURCE_DISCOVERY_NON_ACCEPTANCE",
+  "evidence_level": "E0_LOCAL_CONTRACT_AND_SYNTHETIC_FAIL_CLOSED_EVIDENCE_ONLY",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "candidate_paths_absent_from_head_count": 13,
+    "candidate_paths_regular_non_symlink_count": 13,
+    "candidate_paths_outside_allowlist_count": 0,
+    "global_workspace_dirty_state_excluded_from_candidate_scope": true
+  },
+  "route_authority": {
+    "path": "config/sol_decision.research-system-pit-authority-replay-route.v1.json",
+    "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_ROUTE.v1",
+    "decision_state": "AUTHORIZED_PITAR1_E0_AND_BOUNDED_SOURCE_DISCOVERY_PHASED_SUCCESSOR_ROUTE",
+    "route_id": "RSR-PITAR1-POINT_IN_TIME-AUTHORITY-REPLAY-v1",
+    "namespace": "PITAR1",
+    "size_bytes": 52048,
+    "physical_sha256": "a3dcb124477ac4f54189d659b7438431ea62ba6785f4c248fe2448e55f28035f",
+    "canonical_sha256": "7e141bd47a728078c3a4dca02d231eae2bcbe6a3f12ff39c6e01c37e92556932",
+    "independent_recomputation": "MATCH"
+  },
+  "partitioned_stage_interpretation": {
+    "pitar1_e0": {
+      "route_phase": "PITAR1-E0",
+      "decision": "ACCEPT_EXACT_CONTRACT_AND_SYNTHETIC_VALIDATION_PACKAGE",
+      "accepted_scope": "Exact local contracts, theory specification, pure total validator, synthetic and adversarial fixtures, reports and identities only.",
+      "source_artifact_treatment": "Source inventory and discovery artifacts are accepted only as exact fail-closed records whose disposition is WAIT_DATA; their underlying external discovery compliance is not accepted.",
+      "automatic_next_stage_permission": "NONE"
+    },
+    "pitar1_sd0": {
+      "route_phase": "PITAR1-SD0",
+      "decision": "WAIT_DATA_NOT_ACCEPTED",
+      "reason": "The complete request, byte, status, content-type, elapsed, internal-concurrency, redirect-chain and physical-document evidence is unavailable, and additional gate-review searches widen the unmeasured discovery activity.",
+      "positive_compliance_claim_allowed": false
+    },
+    "pitar1_d0": {
+      "route_phase": "PITAR1-D0",
+      "decision": "WAIT_DATA_AND_DENIED",
+      "reason": "Nine of nine sources remain WAIT_DATA and the Binance plan candidate retains six blocking unknowns.",
+      "actual_acquisition_authorized": false
+    },
+    "interpretive_rule": "This is not an unqualified ACCEPT_PITAR1_E0 decision. The route declares PITAR1-E0 and PITAR1-SD0 as distinct authorized phases. This gate accepts only the pure E0 contract package and binds the SD0 artifacts as honest WAIT_DATA records. It does not assert that the route requirement for discovery-cap compliance has been satisfied."
+  },
+  "authority_bindings": {
+    "program_governance": {
+      "path": "PROGRAM_GOVERNANCE.md",
+      "physical_sha256": "69125790fa36c0c4f72ebdecea4f5415be73a9e4fba78c6c1aa53b9639ef6f09",
+      "result": "MATCH_UNCHANGED"
+    },
+    "data_authority_standard": {
+      "path": "DATA_AUTHORITY_STANDARD_v1_0.md",
+      "physical_sha256": "03a38e2e4fa5f299b9ed698b0e0d185addf67984bb5e4712d9cc2bd742fd9f72",
+      "result": "MATCH_UNCHANGED"
+    },
+    "stage_contract": {
+      "path": "config/research_system.stage_contract.v1.json",
+      "physical_sha256": "ab81251c0ea70e945d9ea7176e9cb59e7353477212dcf36a2d9e4424f944674b",
+      "canonical_sha256": "d84c8ba50d828688020a5197202a58985079cdc64938c58fe9c54e3cb69b6fba",
+      "result": "MATCH_UNCHANGED"
+    },
+    "source_registry": {
+      "path": "config/research_system.source_authority_registry.v1.json",
+      "physical_sha256": "693cc7361c16fb154df97bf2c58a1e68807f990dc976df949658e7ce635abb12",
+      "canonical_sha256": "faa6f33577d71275939b7bdf56fa850aecb3b75eed8df5ee175fb9340a3d4324",
+      "result": "MATCH_DOCUMENT_DISCOVERY_ONLY"
+    },
+    "accepted_p0_foundation": {
+      "path": "config/sol_decision.research-system-reconstruction-p0-gate.v1_1.json",
+      "decision_state": "ACCEPT_P0",
+      "physical_sha256": "ff9f2b608fe387b953e5d18e1a3cd0a246fcc43bf209f694ffab53f867a8f4cf",
+      "canonical_sha256": "d0968a40d33cea693cd2ad979a656b7897c30fe58b3cd94d85b6f1ce5afd6a58",
+      "result": "MATCH_UNCHANGED"
+    },
+    "accepted_p0_1_dynamic_policy": {
+      "path": "config/sol_decision.research-system-dynamic-hypothesis-graph-p0_1-gate.v1.json",
+      "decision_state": "ACCEPT_P0_1",
+      "physical_sha256": "c5a8e2a99d81c9b6729e5eb6c696e669c44fdba7af8c84ae9e743ff089edf446",
+      "canonical_sha256": "adcc574e67c70eae33fc9c56cc4285566646c07c44fef2ccfb56d8a4959f21f2",
+      "composed_bundle_sha256": "f730d9f712001ec603a33e26977efaadf8db1a7492cba2e4d24acaee7ba10625",
+      "result": "MATCH_UNCHANGED_READ_ONLY_COMPARISON_BINDING"
+    },
+    "current_core_theory": {
+      "path": "CORE_TRADING_THEORY_v2_1.md",
+      "authority_id": "CORE_TRADING_THEORY.v2.1",
+      "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d",
+      "result": "MATCH_CURRENT_IMMUTABLE_AUTHORITY_UNCHANGED"
+    },
+    "old_p1a_terminal_block": {
+      "path": "config/sol_decision.p1a-authority-chain-block.v1.json",
+      "decision_state": "TERMINAL_P1A_AUTHORITY_CHAIN_BLOCK",
+      "physical_sha256": "26355176199bde8cc20e73e2183b43a14bf6210b3a3c41c9480c51b204b9d759",
+      "canonical_sha256": "ceda54e7a7f6c37fc691096ce851b7ae9e079336e525db5d9da16e023772478f",
+      "use": "NEGATIVE_AUTHORITY_ONLY"
+    },
+    "active_g1_terminal_isolation": {
+      "path": "config/sol_decision.active-g1-plan-unreachable.v2.json",
+      "decision_state": "TERMINAL_WAIT_DATA_PLAN_UNREACHABLE",
+      "physical_sha256": "3417205afc38247bc8463ddd6e18cf54dffe51724571100a974f9572309127c8",
+      "canonical_sha256": "e143fae7d8c8094298f65bc6724de35f368f25e739e6fe2a35cfdf69fd1d6272",
+      "use": "ISOLATION_AUTHORITY_ONLY"
+    },
+    "chronology_isolation": {
+      "s0_009_route_physical_sha256": "9ef2ca7d75ca714cb85a8afa76f1115c7ff37e0b520a6bc983736441c895095d",
+      "february_guard_physical_sha256": "5cdc23c6d0db3c84c89016920835265faba5c70f0c8520a1328b652029bd5e8a",
+      "january_2025": "SEEN_AND_EXCLUDED",
+      "february_2025": "SEEN_WAIT_DATA_ROLE_CONSUMED",
+      "active_g1_window": "ISOLATED_NO_PITAR1_ACCESS"
+    }
+  },
+  "candidate_inventory_binding": {
+    "path": "config/pit_authority_replay.e0_artifact_inventory.v1.json",
+    "size_bytes": 12724,
+    "physical_sha256": "05b6cd284a4f4b2d5d411a91187966a9197ded1ca5fe05f9d770d6457adddad6",
+    "canonical_sha256": "8c29edcf40f9ba603e495f0fa109f3cc1ee770d4af432dfc62641684f0a455e3",
+    "embedded_artifact_identity_count": 12,
+    "embedded_artifact_identity_match_count": 12,
+    "json_canonical_identity_count_including_inventory": 10,
+    "json_canonical_identity_match_count_including_inventory": 10,
+    "external_self_physical_identity_result": "MATCH"
+  },
+  "exact_candidate_artifacts": [
+    {
+      "role": "successor_theory_and_technical_specification",
+      "path": "PIT_AUTHORITY_REPLAY_SUCCESSOR_SPEC_v1_0.md",
+      "size_bytes": 19550,
+      "physical_sha256": "11295b12f5bb67ade5ef954977f15f48d5293ba8d5f0e0c79ca930f94eed966e",
+      "canonical_sha256": null,
+      "gate_disposition": "ACCEPT_E0_SPECIFICATION"
+    },
+    {
+      "role": "bundle_authority_contract",
+      "path": "config/pit_authority_replay.authority_bundle_contract.v1.json",
+      "size_bytes": 5826,
+      "physical_sha256": "f567f29cbf5b4ed91ca916927d802314da6dc81acf1f45b64a303fdd44a35215",
+      "canonical_sha256": "5352ece7122480723cfc069b987663ccb089a5887688e30f52204e3179c3f722",
+      "gate_disposition": "ACCEPT_E0_CONTRACT"
+    },
+    {
+      "role": "point_in_time_admission_contract",
+      "path": "config/pit_authority_replay.pit_admission_contract.v1.json",
+      "size_bytes": 5620,
+      "physical_sha256": "90b97b90473c10042cca981ee1aebde726b18f67f282cc2d6245f3c8b42fb04f",
+      "canonical_sha256": "4a0e5715b0fcb97917149a0fabfd489318f31c0580e5896ee90e71d51cbaa3e5",
+      "gate_disposition": "ACCEPT_E0_CONTRACT"
+    },
+    {
+      "role": "source_inventory_and_d0_plan_candidate",
+      "path": "config/pit_authority_replay.source_inventory.v1.json",
+      "size_bytes": 7202,
+      "physical_sha256": "dd9cddb650764c7aec038d4c489158ab020e3f6d1de05b5939222ff05a432835",
+      "canonical_sha256": "32764ee39297ddcb9f64ef32f0a5734a34f085045f14087e3cc886e597f6f9b8",
+      "gate_disposition": "ACCEPT_E0_FAIL_CLOSED_WAIT_DATA_CONTRACT_ONLY_SD0_AND_D0_NOT_ACCEPTED"
+    },
+    {
+      "role": "chronology_contract",
+      "path": "config/pit_authority_replay.chronology_contract.v1.json",
+      "size_bytes": 3505,
+      "physical_sha256": "d267e6f7dd089c897a6d127a330328357b7c9a42d01072ef6b8e488760889e73",
+      "canonical_sha256": "40338cbac39e4a25ebdab9e710fcb11370c95e929acfc0ea62a9ec292a7ca913",
+      "gate_disposition": "ACCEPT_E0_CONTRACT"
+    },
+    {
+      "role": "adapter_and_replay_interface_contract",
+      "path": "config/pit_authority_replay.adapter_replay_contract.v1.json",
+      "size_bytes": 5127,
+      "physical_sha256": "aa82005f4a55334641d1f562c369a037d3e11d89b4df88b11ea6c92bf8cd9370",
+      "canonical_sha256": "2da2595895f27029d970217b5d34e91285159b74aaf7fd0c77c15ce84f0e3550",
+      "gate_disposition": "ACCEPT_E0_INTERFACE_CONTRACT_NO_RUNTIME"
+    },
+    {
+      "role": "future_development_comparison_contract",
+      "path": "config/pit_authority_replay.development_comparison_contract.v1.json",
+      "size_bytes": 4713,
+      "physical_sha256": "e2284000ddde3a51912cef1709f46a81f9c939c429b3d46af292a82336bbdf2d",
+      "canonical_sha256": "bb4046b84f18ab5fd368e3cec658aae6c197abaac34ca1871206972aab2998c3",
+      "gate_disposition": "ACCEPT_E0_PREREGISTRATION_NO_D3_NO_SCORING"
+    },
+    {
+      "role": "pure_total_e0_validator",
+      "path": "trade_system/pit_authority_replay_contract_v1.py",
+      "size_bytes": 65471,
+      "physical_sha256": "b53779ac12bdb01bb085b5b79da1a1e17b1b3bddc4eab0c1e20e07fa7f8c0166",
+      "canonical_sha256": null,
+      "gate_disposition": "ACCEPT_E0_PURE_SYNTHETIC_VALIDATOR"
+    },
+    {
+      "role": "synthetic_and_adversarial_tests",
+      "path": "tests/test_pit_authority_replay_contract_v1.py",
+      "size_bytes": 51845,
+      "physical_sha256": "677d2dba8363c472a1b7bb121f5dde69553a6f3d25976b3025e593401cb30384",
+      "canonical_sha256": null,
+      "gate_disposition": "ACCEPT_E0_SYNTHETIC_TEST_EVIDENCE"
+    },
+    {
+      "role": "bounded_official_source_discovery_record",
+      "path": "artifacts/pit_authority_replay_source_discovery.v1.json",
+      "size_bytes": 11268,
+      "physical_sha256": "69650257dc90dd8c9a6c2ebcd86c7d98e121f6b49120061a89ee91fb76b63278",
+      "canonical_sha256": "7aecbf426befa8efae10e55e4998fb5431d172b7a7b4a27372971af2119f2d10",
+      "gate_disposition": "BOUND_AS_WAIT_DATA_RECORD_NOT_ACCEPTED_AS_RESOURCE_CAP_OR_GLOBAL_NO_ROW_PROOF"
+    },
+    {
+      "role": "independent_adversarial_review",
+      "path": "artifacts/pit_authority_replay_e0_adversarial_review.v1.json",
+      "size_bytes": 8594,
+      "physical_sha256": "969b0d8900b3e5872eb5392dc8da81d31427a61dee73c23fcb2ff027cfe94cd4",
+      "canonical_sha256": "ed932ead749a3f5300dfbe73cf2ddc2ab2171aecfb6ddc2df11bb7f3132c6012",
+      "gate_disposition": "ACCEPT_AS_LOCAL_TERRA_E0_EVIDENCE_NOT_GATE_AUTHORITY"
+    },
+    {
+      "role": "integrated_validation_report",
+      "path": "artifacts/pit_authority_replay_e0_validation_report.v1.json",
+      "size_bytes": 14610,
+      "physical_sha256": "09a3da03faf6d7edd1273e6dca453334cd61eacb83a2dc775a9627b98ada5a8c",
+      "canonical_sha256": "1ff7fb9d2cd0408559c1e10073462a3bcc987a252ddb4e8f8701345ed9516cb0",
+      "gate_disposition": "ACCEPT_AS_EXACT_LOCAL_REPORT_WITH_GATE_SOURCE_DISCLOSURE_SUPERSEDING_ANY_BROADER_INTERPRETATION"
+    },
+    {
+      "role": "exact_e0_inventory",
+      "path": "config/pit_authority_replay.e0_artifact_inventory.v1.json",
+      "size_bytes": 12724,
+      "physical_sha256": "05b6cd284a4f4b2d5d411a91187966a9197ded1ca5fe05f9d770d6457adddad6",
+      "canonical_sha256": "8c29edcf40f9ba603e495f0fa109f3cc1ee770d4af432dfc62641684f0a455e3",
+      "gate_disposition": "ACCEPT_EXACT_IDENTITY_INVENTORY"
+    }
+  ],
+  "independent_gate_execution": {
+    "commands": [
+      {
+        "command": "PYTHONPYCACHEPREFIX=/private/tmp/pitar1-sol-gate-pycache python3 -m py_compile trade_system/pit_authority_replay_contract_v1.py tests/test_pit_authority_replay_contract_v1.py",
+        "exit_code": 0,
+        "result": "PASS"
+      },
+      {
+        "command": "PYTHONPYCACHEPREFIX=/private/tmp/pitar1-sol-gate-pycache python3 -m unittest -q tests.test_pit_authority_replay_contract_v1",
+        "exit_code": 0,
+        "result": "69_OF_69_PASS",
+        "elapsed_seconds": 0.363
+      },
+      {
+        "command": "PYTHONPYCACHEPREFIX=/private/tmp/pitar1-sol-gate-pycache python3 -m unittest -q tests.test_research_system_contract_v1 tests.test_research_system_contract_v1_1 tests.test_research_system_contract_v1_2 tests.test_pit_authority_replay_contract_v1",
+        "exit_code": 0,
+        "result": "331_OF_331_PASS",
+        "elapsed_seconds": 2.480
+      },
+      {
+        "command": "INDEPENDENT_IN_MEMORY_SOL_CONSTRUCTION_WITH_NO_TEST_MODULE_OR_TEST_HELPER_IMPORT",
+        "exit_code": 0,
+        "result": "CLEAN_NONEMPTY_AND_ZERO_PASS_11_OF_11_HISTORICAL_ATTACKS_REJECTED_18_OF_18_ADDITIONAL_CORE_MUTATIONS_PASS"
+      },
+      {
+        "command": "INDEPENDENT_AST_AND_WRONG_SHAPE_TOTALITY_AUDIT",
+        "exit_code": 0,
+        "result": "FORBIDDEN_IMPORTS_0_FORBIDDEN_IO_OR_CLOCK_CALLS_0_WRONG_SHAPES_99_OF_99_STRUCTURED_FAIL_CLOSED"
+      },
+      {
+        "command": "INDEPENDENT_INVENTORY_PHYSICAL_AND_DOMAIN_SEPARATED_CANONICAL_RECOMPUTATION",
+        "exit_code": 0,
+        "result": "12_OF_12_EMBEDDED_IDENTITIES_MATCH_10_OF_10_JSON_CANONICAL_IDENTITIES_MATCH"
+      }
+    ],
+    "six_contract_public_validation": {
+      "status": "VALID_E0_CANDIDATE",
+      "reason_code": "LOCAL_REVIEW_READY_NOT_ACCEPTED",
+      "permission": "DENIED",
+      "action": "ABSTAIN",
+      "max_risk": 0
+    },
+    "source_discovery_public_validation": {
+      "status": "WAIT_DATA",
+      "reason_code": "DOCUMENT_DISCOVERY_VALID_NO_D0_PERMISSION",
+      "permission": "DENIED",
+      "action": "ABSTAIN",
+      "max_risk": 0
+    },
+    "d0_public_validation": {
+      "status": "WAIT_DATA",
+      "reason_code": "D0_UNKNOWNS_RETAINED_NO_ACQUISITION_PERMISSION",
+      "permission": "DENIED",
+      "action": "ABSTAIN",
+      "max_risk": 0
+    }
+  },
+  "helper_free_historical_attack_audit": {
+    "construction": "Independent Sol in-memory mappings, independent canonical digest function and independently reconstructed synthetic external pins; validator module imported, test module and every builder fixture or mutation helper not imported.",
+    "clean_nonempty": "VALID_E0_SYNTHETIC_FIXTURE",
+    "clean_zero_byte": "VALID_E0_SYNTHETIC_FIXTURE_WITH_CORRECT_EMPTY_SHA256",
+    "attack_count": 11,
+    "rejected_count": 11,
+    "false_admission_count": 0,
+    "attacks": [
+      {
+        "attack_id": "H01_ARBITRARY_TRANSFORM",
+        "reason_code": "BUNDLE_EXTERNAL_AUTHORITY_MISMATCH"
+      },
+      {
+        "attack_id": "H02_ARBITRARY_PROOF",
+        "reason_code": "PROOF_AUTHORITY_MISMATCH"
+      },
+      {
+        "attack_id": "H03_ARBITRARY_TIP",
+        "reason_code": "BUNDLE_EXTERNAL_AUTHORITY_MISMATCH"
+      },
+      {
+        "attack_id": "H04_FUTURE_EVIDENCE",
+        "reason_code": "FUTURE_EVIDENCE"
+      },
+      {
+        "attack_id": "H05_NON_STRING_PAYLOAD_HASH",
+        "reason_code": "ROW_PAYLOAD_HASH_INVALID"
+      },
+      {
+        "attack_id": "H06_PAYLOAD_INPUT_MISMATCH",
+        "reason_code": "RAW_EXTERNAL_IDENTITY_MISMATCH"
+      },
+      {
+        "attack_id": "H07_ZERO_BYTE_WRONG_HASH",
+        "reason_code": "RAW_OR_PAYLOAD_HASH_MISMATCH"
+      },
+      {
+        "attack_id": "H08_EMPTY_RECEIPT_ID",
+        "reason_code": "RECEIPT_IDENTIFIER_INVALID"
+      },
+      {
+        "attack_id": "H09_INTEGER_ADMISSION_ID",
+        "reason_code": "ADMISSION_IDENTIFIER_INVALID"
+      },
+      {
+        "attack_id": "H10_ACTIVE_G1_ALIAS",
+        "reason_code": "FORBIDDEN_ALIAS"
+      },
+      {
+        "attack_id": "H11_APPLICATION_SUPPORT_ALIAS",
+        "reason_code": "FORBIDDEN_ALIAS"
+      }
+    ]
+  },
+  "independently_confirmed_semantics": {
+    "external_authority_pin_and_candidate_non_self_acceptance": "PASS_SYNTHETIC",
+    "candidate_and_caller_colluding_authority_rewrite": "REJECT_EXTERNAL_AUTHORITY_NOT_PINNED",
+    "raw_bytes_and_zero_byte_identity": "PASS_SYNTHETIC",
+    "payload_and_receipt_binding": "PASS_SYNTHETIC",
+    "five_clocks_and_conservative_available_at": "PASS_SYNTHETIC",
+    "event_time_cannot_replace_available_at": "PASS_SYNTHETIC",
+    "future_evidence_bundle_and_row": "PASS_SYNTHETIC",
+    "revision_append_only_and_point_in_time_visibility": "PASS_SYNTHETIC",
+    "exact_duplicate_idempotency": "PASS_SYNTHETIC",
+    "identity_payload_conflict": "SUSPEND_AND_QUARANTINE",
+    "revision_fork": "SUSPEND_AND_QUARANTINE",
+    "gap_unknown_censor_and_quarantine_denominator_retention": "PASS_SYNTHETIC",
+    "january_february_and_active_g1_chronology_isolation": "PASS_SYNTHETIC",
+    "adapter_pure_interface_and_no_runtime": "PASS_SYNTHETIC_INTERFACE_ONLY",
+    "event_order": "AVAILABLE_AT_SOURCE_SEQUENCE_EVENT_ID",
+    "replay_idempotency_and_domain_separated_receipt_chain": "PASS_SYNTHETIC_NOT_RUNTIME",
+    "full_bar_before_close_or_admission": "REJECT",
+    "aggregate_double_barrier_without_admitted_fine_sequence": "AMBIGUOUS_OR_CENSORED",
+    "four_policy_equal_information_cost_risk_and_denominator": "PASS_SYNTHETIC_NO_SCORING",
+    "no_trade_denominator_retention": "PASS_SYNTHETIC",
+    "mfe_mae_as_policy_input": "REJECT_POST_OUTCOME_LEAKAGE",
+    "d3_trajectory_schema": "PASS_SYNTHETIC_NO_REAL_DATASET_NO_SCORING",
+    "permission_action_risk": "DENIED_ABSTAIN_0"
+  },
+  "source_discovery_gate_disclosure": {
+    "candidate_record_scope": {
+      "independent_source_auditor_document_open_count": 34,
+      "known_redirect_hop_count": 1,
+      "builder_network_requests": 0,
+      "eligible_official_source_count": 9,
+      "candidate_record_status": "WAIT_DATA",
+      "candidate_resource_cap_compliance": "NOT_FULLY_PROVEN"
+    },
+    "additional_root_gate_review_activity": {
+      "web_search_tool_call_count": 3,
+      "queries_per_tool_call": 4,
+      "total_search_query_count": 12,
+      "query_scope": "OFFICIAL_DOMAINS_AND_DOCUMENT_TOPICS",
+      "actual_internal_http_request_count": "UNKNOWN_NOT_EXPOSED",
+      "actual_total_response_bytes": "UNKNOWN_NOT_EXPOSED",
+      "actual_largest_response_bytes": "UNKNOWN_NOT_EXPOSED",
+      "complete_http_statuses": "UNKNOWN_NOT_EXPOSED",
+      "per_request_elapsed": "UNKNOWN_NOT_EXPOSED",
+      "internal_concurrency": "UNKNOWN_NOT_EXPOSED",
+      "physical_response_digests": "UNKNOWN_NOT_CAPTURED",
+      "direct_archive_or_bulk_open_or_download": false,
+      "direct_market_or_macro_observation_api_request": false,
+      "external_payload_saved_or_admitted": false,
+      "external_payload_used_by_validator_or_model": false
+    },
+    "search_result_numeric_snippet_exposure": {
+      "bybit_and_okx_numeric_response_schema_examples_displayed": true,
+      "bls_seasonal_factor_numeric_table_excerpt_displayed": true,
+      "classification": "SEARCH_RESULT_SNIPPET_EXPOSURE_NOT_AN_ADMITTED_D0_OBSERVATION_ARTIFACT",
+      "strict_global_no_numeric_row_exposure_claim": "NOT_ESTABLISHED",
+      "effect": "SD0 discovery evidence is not accepted and cannot establish cap compliance, exact no-row compliance, source completeness or D0 readiness."
+    },
+    "request_accounting_total": {
+      "known_high_level_operations": "34_DOCUMENT_OPENS_PLUS_12_SEARCH_QUERIES",
+      "actual_internal_request_total": "UNKNOWN",
+      "resource_cap_compliance": "NOT_PROVEN",
+      "route_breach_decision": "NO_TERMINAL_ROUTE_BREACH_FOUND_BECAUSE_NO_DATA_OBJECT_WAS_OPENED_SAVED_ADMITTED_OR_USED_BUT_SD0_REMAINS_WAIT_DATA"
+    }
+  },
+  "gate_findings": [
+    {
+      "finding_id": "PITAR1-E0-GATE-001",
+      "status": "CLOSED_ACCEPT_E0_CONTRACT",
+      "fact": "The exact six-contract public bundle validates, the validator is pure and total, 69 of 69 scoped tests and 331 of 331 combined P0/P0.1/PITAR1 tests pass, and independent helper-free attacks find no false admission.",
+      "effect": "Exact local E0 contract and synthetic fail-closed semantics are accepted."
+    },
+    {
+      "finding_id": "PITAR1-SD0-GATE-001",
+      "status": "WAIT_DATA_BLOCKING_SD0_AND_D0",
+      "fact": "Discovery request-level receipts, bytes, statuses, timings, concurrency, redirect chain and physical document identities are unavailable; additional root search activity is not represented by the candidate's 34-open count.",
+      "effect": "SD0 is not accepted and no source can enter an executable D0 plan."
+    },
+    {
+      "finding_id": "PITAR1-SD0-GATE-002",
+      "status": "NOT_ESTABLISHED",
+      "fact": "Search results exposed numerical API schema examples and a BLS seasonal-factor excerpt without saving, admitting or using an observation artifact.",
+      "effect": "No D0 acquisition is declared, but an absolute global no-row-exposure or discovery-cap-compliance claim is unavailable."
+    },
+    {
+      "finding_id": "PITAR1-E0-GATE-OBS-001",
+      "status": "DEFERRED_HARDENING_BEFORE_D1_OR_D2",
+      "fact": "The exact pinned source record is substitution-resistant as a package, but standalone route-field matching is partial and synthetic barrier resolution represents fine-grained admission as an assertion rather than a D1 receipt.",
+      "effect": "No current E0 false admission was reproduced. A later D1 or D2 validator must bind complete workspace route identity and exact admitted finer-grained receipt evidence."
+    },
+    {
+      "finding_id": "F-005",
+      "dispute_id": "DSP-022",
+      "status": "OPEN_DEFERRED_BLOCKING",
+      "fact": "Natural-language hard falsifier and expiry descriptions are not executable predicates.",
+      "blocks": [
+        "D3",
+        "E2"
+      ],
+      "effect": "This E0 gate neither closes nor weakens the finding."
+    }
+  ],
+  "acceptance_effect": {
+    "exact_pitar1_e0_contract_package": "ACCEPTED",
+    "candidate_identity": "FROZEN_TO_THE_EXACT_THIRTEEN_ARTIFACTS_IN_THIS_DECISION",
+    "source_discovery_external_compliance": "WAIT_DATA_NOT_ACCEPTED",
+    "d0_plan": "WAIT_DATA_NON_EXECUTING_NOT_ACCEPTED",
+    "current_core_theory": "CORE_TRADING_THEORY_V2_1_REMAINS_CURRENT_AND_UNCHANGED",
+    "accepted_p0_1_dynamic_policy": "UNCHANGED_READ_ONLY_FUTURE_COMPARISON_SUBJECT",
+    "old_p1a": "TERMINALLY_BLOCKED_NEGATIVE_EVIDENCE_ONLY",
+    "automatic_authority_inheritance": "NONE",
+    "next_action": "WAIT_DATA_FOR_A_NEW_EXACT_SD0_OR_D0_EVIDENCE_ROUTE; DO_NOT_DOWNLOAD_FOR_PROGRESS"
+  },
+  "permission_matrix": {
+    "read_exact_accepted_e0_contract_package": true,
+    "use_exact_e0_contracts_as_future_stage_prerequisites": true,
+    "perform_additional_unmetered_source_discovery": false,
+    "treat_source_discovery_as_cap_compliant": false,
+    "treat_any_source_as_d0_ready": false,
+    "modify_any_accepted_candidate_artifact": false,
+    "modify_core_theory": false,
+    "modify_p0_or_p0_1": false,
+    "reuse_old_p1a_as_code_or_authority": false,
+    "access_application_support_or_active_g1": false,
+    "access_january_or_february_2025_market_data": false,
+    "acquire_market_or_macro_rows": false,
+    "download_archive_or_bulk_objects": false,
+    "admit_raw_runtime_data": false,
+    "implement_or_execute_adapter_or_replay": false,
+    "build_real_d3_dataset": false,
+    "score_four_policy_comparison": false,
+    "run_backtest_or_evaluation": false,
+    "run_calibration_or_holdout": false,
+    "run_paper_or_testnet": false,
+    "deploy": false,
+    "trade_or_use_live_funds": false,
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "stage_disposition": {
+    "pitar1_e0_contract_accepted": true,
+    "pitar1_sd0_accepted": false,
+    "pitar1_sd0_status": "WAIT_DATA",
+    "d0_authorized": false,
+    "d1_authorized": false,
+    "d2_authorized": false,
+    "d3_authorized": false,
+    "e2_authorized": false,
+    "e3_authorized": false,
+    "adapter_or_replay_runtime_authorized": false,
+    "real_dataset_authorized": false,
+    "four_policy_scoring_authorized": false,
+    "backtest_authorized": false,
+    "calibration_authorized": false,
+    "holdout_authorized": false,
+    "paper_authorized": false,
+    "deployment_authorized": false,
+    "trading_authorized": false,
+    "market_data_authorized": false,
+    "real_permission": "DENIED",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0,
+    "next_stage": "WAIT_DATA_FOR_EXACT_METERED_SD0_EVIDENCE_OR_NEW_SOL_D0_ROUTE_DECISION"
+  },
+  "claim_boundary": {
+    "e0_contract_validity": "ACCEPTED_FOR_EXACT_LOCAL_CONTRACT_AND_SYNTHETIC_FAIL_CLOSED_SEMANTICS",
+    "source_discovery_compliance": "NOT_ACCEPTED_WAIT_DATA",
+    "source_data_validity": "NOT_EVALUATED",
+    "real_point_in_time_validity": "NOT_EVALUATED",
+    "adapter_or_replay_runtime_validity": "NOT_EVALUATED",
+    "real_dataset_validity": "NOT_EVALUATED",
+    "dynamic_policy_market_validity": "NOT_EVALUATED",
+    "predictive_validity": "NOT_EVALUATED",
+    "probability_calibration": "NOT_AUTHORIZED",
+    "positive_expected_value": "NOT_EVALUATED",
+    "profitability": "NOT_EVALUATED",
+    "paper": "NOT_AUTHORIZED",
+    "deployment": "DENIED",
+    "trading": "DENIED",
+    "maximum_positive_claim": "The exact thirteen-artifact PITAR1 package is accepted only as a local E0 contract and synthetic fail-closed semantics package: its six contracts validate, 69 of 69 scoped tests and 331 of 331 combined P0/P0.1/PITAR1 tests pass, and an independent helper-free audit rejects all eleven historical false-admission attacks. Source-discovery compliance is not accepted, all nine sources and the non-executing D0 candidate remain WAIT_DATA, and no real data, raw admission, adapter, replay, dataset, scoring, market, predictive, profitability, paper, deployment or trading validity or permission is established."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-research-system-pit-authority-replay-e0-gate/v1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "5adb8079bef7fc62fc092b32823a5cb058427b355ae6d6119b9436c898b3003c"
+}

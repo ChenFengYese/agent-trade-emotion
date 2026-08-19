@@ -1,0 +1,63 @@
+{
+  "schema_id": "theory_paper_v2_seen_v1_diagnostic_amendment",
+  "schema_version": "1.1.0",
+  "amendment_id": "THEORY_AGENT_V2_SEEN_V1_DIAGNOSTIC_PIT_BAR_FIX_20260802",
+  "evidence_class": "SEEN_V1_DIAGNOSTIC_REPLAY",
+  "parent_contract": {
+    "path": "config/theory_paper_v2.seen_v1_diagnostic.v1.json",
+    "canonical_digest": "186caa897597c6a853fa5165dc2700e6a60c1c60549b1e2a8265dd5ad5c52499",
+    "physical_sha256": "e8efcf5acaf5bd6005c3363f51a19e65bd9a4378ebf26603352964cf12673625",
+    "freeze_commit": "76e8c3c6bf8e9101de4e2422bf3aff09cf9f496b"
+  },
+  "parent_stop": {
+    "triggered_condition": "SHARED_MARKET_BAR_REVISION",
+    "terminal_verdict": "PARENT_DIAGNOSTIC_STOPPED_BEFORE_CANDIDATE_RUN",
+    "cause": "Raw Binance kline responses retain the provider's then-active bar, whose OHLCV legitimately matures in later snapshots; the parent rule incorrectly applied immutability to both closed and active bars.",
+    "observed_revision_counts_across_six_symbols": {
+      "15m": 1800,
+      "1h": 1800,
+      "4h": 570,
+      "1d": 270,
+      "1w": 144
+    },
+    "closed_bar_revision_counts": {
+      "15m": 0,
+      "1h": 0,
+      "4h": 0,
+      "1d": 0,
+      "1w": 0
+    },
+    "stored_last_closed_bar_recomputation_mismatches": {
+      "15m": 0,
+      "1h": 0,
+      "4h": 0,
+      "1d": 0,
+      "1w": 0
+    }
+  },
+  "only_override": {
+    "point_in_time_contract.overlap_revision_policy": "FOR_EACH_SNAPSHOT_PAIR_ONLY_A_BAR_WITH_CLOSE_TIME_LTE_THE_EARLIER_SNAPSHOT_OBSERVED_AT_IS_IMMUTABLE; A_THEN_ACTIVE_BAR_IS_EXCLUDED_FROM_ALL_FEATURES_AND_MAY_MATURE_IN_LATER_RAW_RESPONSES",
+    "point_in_time_contract.candidate_bar_filter": "ROW_CLOSE_TIME_LTE_CURRENT_CYCLE_MARKET_OBSERVED_AT",
+    "point_in_time_contract.feature_recomputation_gate": "THE_FILTERED_LAST_CLOSED_BAR_MUST_EQUAL_THE_STORED_MEASURES_TIMEFRAME_LAST_CLOSED_BAR_FOR_EVERY_SYMBOL_TIMEFRAME_CYCLE",
+    "stop_conditions.SHARED_MARKET_BAR_REVISION": "ONLY_A_REVISION_TO_A_BAR_ALREADY_CLOSED_AT_ITS_FIRST_OBSERVATION_STOPS_THE_SUCCESSOR"
+  },
+  "unchanged_parent_sections": [
+    "baseline_code_identity",
+    "source_run",
+    "arms",
+    "initial_account_contract",
+    "risk_and_cost_contract",
+    "known_problem_hypotheses",
+    "evaluation",
+    "claims_forbidden",
+    "research_authority"
+  ],
+  "scope_boundary": {
+    "market_values_opened_for_policy_or_outcome_analysis_before_this_amendment": true,
+    "recorded_v1_decisions_opened_before_this_amendment": true,
+    "reason_amendment_remains_valid": "The defect and correction concern timestamp eligibility and raw-bar maturity only; no price direction, action outcome, score threshold or policy rule changes.",
+    "new_data_or_source_added": false,
+    "risk_cost_or_evaluation_changed": false
+  },
+  "successor_status": "FROZEN_BEFORE_CANDIDATE_POLICY_RUN"
+}

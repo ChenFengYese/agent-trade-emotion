@@ -1,0 +1,94 @@
+{
+  "schema_version": "sol-har1r4-source-terms-raw-route.v1",
+  "decision_id": "SOL_HAR1R4_SOURCE_TERMS_RAW_EVIDENCE.v1",
+  "decision_state": "AUTHORIZE_HAR1R4_STATIC_GATE_ONLY_NO_NETWORK",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "r3_sealed_binding": {
+    "route": {
+      "path": "config/sol_decision.har1r3-dual-lane-successor-route.v1.json",
+      "physical_sha256": "6b23ca9248233929023b29c606466af7063929e23fe70e89d01e0f1b2fca8c8d",
+      "canonical_sha256": "a21411873c7a793dc9d51983c4717ac3afad422bfe0d4f744679e9a51673b604"
+    },
+    "technical_activation": {
+      "path": "config/sol_activation.har1r3-tech-reachability.v1.json",
+      "physical_sha256": "e0c260b7cc01c0f3e837c7ed67bbc39d0286606a5fae2b391bb129e4c626ed5f",
+      "canonical_sha256": "71f85475cb6c2ec99da27b5f22f3dbb152e93506e3ca6d76d84059ad97fb893e"
+    },
+    "technical_evidence": {
+      "path": "har1r3/technical_evidence.jsonl",
+      "physical_sha256": "37ee748b04a412df58815da7421e51193878d3deb3ba3b8d02b0f6544d1c944f",
+      "bytes": 13101,
+      "record_count": 5,
+      "successful_probes": 3,
+      "failed_probes": 0,
+      "cumulative_elapsed_ms": 2270,
+      "total_response_body_bytes": 5233
+    },
+    "technical_client": {
+      "path": "har1r3/technical_client.py",
+      "physical_sha256": "8a79d8c7f6a46c40d7e0fe5c016579e732209e013c9ad95f7165a4f11a50b73b"
+    },
+    "terms_activation": {
+      "path": "config/sol_activation.har1r3-terms-evidence.v1.json",
+      "physical_sha256": "7aff484e8d3138fe6af0c56cae849b8f8fa4eca82711edcaf76ec61dee0ebe14",
+      "canonical_sha256": "f0051d8797572dfff835c3e2506ede3907d3d2342a4a40bd53f9babf4d2cc729"
+    },
+    "terms_contract": {
+      "path": "har1r3/terms_evidence_contract.json",
+      "physical_sha256": "0809b031cc722b3f3e1fab54f4f88a29c1a53609872270fb476c65f1ff7cec02",
+      "canonical_sha256": "71a8592d35f01c4667a0eaff555cfb43dd5e2b6c245f206f3ca76c0a2fd082af"
+    },
+    "terms_manifest": {
+      "path": "har1r3/terms_evidence/manifest.json",
+      "physical_sha256": "43416222cd7188d7012740836ef2ac6d3029d19b461ea873abc4391f7546e0c2",
+      "canonical_sha256": "607fce0bb36f05151e5eccb804ec7d9f4194c3929c801fc8b679138e467aeb38",
+      "aggregate_status": "SEALED_UNRESOLVED"
+    },
+    "readme_derived_from_probe_1": {
+      "body_bytes": 5144,
+      "body_sha256": "085ab91377aa9325d44f4c7ad27cce4ab381e158403e1d7df2bad39d1a66f7c6",
+      "git_blob_sha1": "311354cd82a76bcaaec588e6818e6c12644abef0"
+    }
+  },
+  "static_creation_allowlist": [
+    "config/sol_decision.har1r4-source-terms-raw-route.v1.json",
+    "har1r4/source_terms_request_plan.json",
+    "har1r4/source_terms_contract.json",
+    "har1r4/source_terms_client.py",
+    "har1r4/test_source_terms_client.py"
+  ],
+  "future_output_allowlist": [
+    "config/sol_activation.har1r4-source-terms-raw.v1.json",
+    "har1r4/evidence/requests.jsonl",
+    "har1r4/evidence/raw/github-repository-metadata.json",
+    "har1r4/evidence/raw/github-master-commit.json",
+    "har1r4/evidence/raw/github-master-tree.json",
+    "har1r4/evidence/raw/binance-ja-terms.raw",
+    "har1r4/evidence/manifest.json"
+  ],
+  "permission_matrix": {
+    "static_creation": true,
+    "offline_tests": true,
+    "network_now": false,
+    "activation_or_evidence_creation_now": false,
+    "data_acquisition_backtest_training_or_trading": false
+  },
+  "next_gate": {
+    "required_state": "HAR1R4_STATIC_COMPLETE",
+    "maximum_permission": "ONE_FOUR_GET_RAW_DOCUMENT_BATCH",
+    "maximum_ttl_seconds": 900,
+    "automatic_permission": "NONE",
+    "readback_requirement": "FROZEN_PLAN_RAW_RECOMPUTATION_AND_SAME_RUN_TRANSPORT_OBSERVATION_BINDING"
+  },
+  "maximum_claim": "Static protocol definition only. R3 terms remain SEALED_UNRESOLVED. No legal, license, data-acquisition, research, training, or trading conclusion is established.",
+  "canonical_self_digest": {
+    "algorithm": "SHA-256_CANONICAL_JSON",
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-har1r4-source-terms-raw-route/v1"
+  },
+  "decision_sha256": "df0f06c41da124d84974f4ca911c889290598f17573f716000fcec2647a4f511"
+}

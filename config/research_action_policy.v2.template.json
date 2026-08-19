@@ -1,0 +1,55 @@
+{
+  "schema_version": "research-action-policy-v2",
+  "policy_id": "REPLACE_WITH_VERSIONED_PROBE_ONLY_POLICY_ID",
+  "status": "DRAFT_TEMPLATE",
+  "frozen_at": "REQUIRED: ISO-8601 UTC timestamp after exact feature bundle exists and before labels/outcomes",
+  "research_scope": "PROBE_ONLY",
+  "feature_bundle_manifest_sha256": "REQUIRED: exact PASS-G1 feature-bundle manifest SHA-256",
+  "min_seconds_between_actions": 30,
+  "episode_binding": {
+    "policy_id": "btc-usdt-absorption-episode-v2",
+    "sha256": "REQUIRED: exact episode_policy.v2 SHA-256",
+    "feature_version": "five-factor-proxy-v2-decision-clock",
+    "derived_semantics_version": "episode-feature-decision-clock-v2",
+    "decision_frequency_seconds": 1
+  },
+  "rules": [
+    {
+      "rule_id": "probe-buy-responding-v2",
+      "side": "BUY",
+      "stage": "ENTER_PROBE",
+      "eligible_episode_states": ["RESPONDING"],
+      "feature": "REQUIRED: predeclared feature",
+      "operator": "LTE",
+      "threshold": "REQUIRED: predeclared numeric threshold",
+      "entry_policy": "COUNTERFACTUAL_ENTRY_FOR_LABEL_ONLY",
+      "take_profit_bps": 20,
+      "stop_loss_bps": 12,
+      "horizon_seconds": 300,
+      "structure_exit_rule": {
+        "episode_states": ["FAILED"],
+        "require_decision_eligible": true,
+        "unknown_or_data_failure": "OPERATIONAL_CENSOR"
+      }
+    },
+    {
+      "rule_id": "probe-sell-responding-v2",
+      "side": "SELL",
+      "stage": "ENTER_PROBE",
+      "eligible_episode_states": ["RESPONDING"],
+      "feature": "REQUIRED: predeclared feature",
+      "operator": "GTE",
+      "threshold": "REQUIRED: predeclared numeric threshold",
+      "entry_policy": "COUNTERFACTUAL_ENTRY_FOR_LABEL_ONLY",
+      "take_profit_bps": 20,
+      "stop_loss_bps": 12,
+      "horizon_seconds": 300,
+      "structure_exit_rule": {
+        "episode_states": ["FAILED"],
+        "require_decision_eligible": true,
+        "unknown_or_data_failure": "OPERATIONAL_CENSOR"
+      }
+    }
+  ],
+  "notice": "PROBE-only counterfactual market-path research. This policy is not execution evidence and does not authorize ADD_POSITION_CONFIRMED, paper, testnet or live trading."
+}

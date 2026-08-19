@@ -1,0 +1,28 @@
+{
+  "schema_id": "theory_paper_v2_current_research_authority",
+  "schema_version": "1.0.0",
+  "authority_id": "v3-1-frozen-qualification-pending-20260806t154026z",
+  "recorded_at": "2026-08-06T15:40:26Z",
+  "status": "FROZEN_V3_1_QUALIFICATION_PENDING",
+  "reason": "The user explicitly approved and froze V3.1 at SHA-256 ceee2b5fdb6962e4ae42ba32cdf980e44830b69a2c833289e472593cf3d92553 and authorized the single fresh BTC-USDT public-data non-executable prospective experiment defined by the V3.1 readiness handoff. The durable approval receipt is config/theory_paper_v31.theory_approval.20260806.json. Experiment start remains mechanically suspended until Q0-Q8 are closed and one exact run id, frozen manifest digest, and authorization receipt are bound. No paper, live, account, order, credential, funds, legacy-run resume, or external execution authority is granted.",
+  "current_theory": {
+    "path": "CURRENT_RESEARCH_THEORY_v3_1_DRAFT_FOR_REVIEW.md",
+    "version": "3.1",
+    "review_status": "FROZEN_APPROVED",
+    "physical_sha256": "ceee2b5fdb6962e4ae42ba32cdf980e44830b69a2c833289e472593cf3d92553"
+  },
+  "candidate_theory": {
+    "path": "CURRENT_RESEARCH_THEORY_v3_1_DRAFT_FOR_REVIEW.md",
+    "version": "3.1",
+    "review_status": "FROZEN_APPROVED_CURRENT",
+    "physical_sha256": "ceee2b5fdb6962e4ae42ba32cdf980e44830b69a2c833289e472593cf3d92553"
+  },
+  "experiment_start_authorized": false,
+  "authorized_operations": [],
+  "authorized_run_ids": [],
+  "authorized_template_sha256s": [],
+  "authorization_receipt_path": null,
+  "authorization_receipt_digest": null,
+  "external_execution_authority": "NONE_LOCAL_SIMULATION",
+  "executable": false
+}

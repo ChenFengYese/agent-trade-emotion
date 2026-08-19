@@ -1,0 +1,287 @@
+{
+  "framework_id": "THEORY_PAPER_MULTI_TIMESCALE_DECISION_GOVERNANCE.v2",
+  "schema_version": "theory-paper-decision-governance-framework.v2",
+  "status": "SHADOW_CANDIDATE_NOT_ACTIVATED",
+  "execution_scope": "PUBLIC_DATA_LOCAL_PAPER_GOVERNANCE_ONLY",
+  "decision_layers": [
+    "STRATEGIC_HYPOTHESIS",
+    "STRUCTURAL_EVIDENCE",
+    "RISK_CONTROL",
+    "TACTICAL_EXECUTION",
+    "REVIEW_UPDATE"
+  ],
+  "timeframe_role_profile": {
+    "profile_id": "CURRENT_SIX_MARKET_SHADOW_PROFILE.v2",
+    "status": "SHADOW_DEFAULT_REQUIRES_OUT_OF_SAMPLE_CALIBRATION_BEFORE_ACTIVATION",
+    "strategic_context_timeframe": "1d",
+    "strategic_operational_owner_timeframe": "4h",
+    "roles": [
+      {
+        "timeframe": "1w",
+        "role": "BACKGROUND_RISK",
+        "maximum_permission": "RISK_CONTEXT_ONLY"
+      },
+      {
+        "timeframe": "1d",
+        "role": "STRATEGIC_CONTEXT",
+        "maximum_permission": "STRUCTURAL_EVIDENCE"
+      },
+      {
+        "timeframe": "4h",
+        "role": "STRATEGIC_OPERATIONAL_OWNER",
+        "maximum_permission": "STRUCTURAL_EVIDENCE"
+      },
+      {
+        "timeframe": "1h",
+        "role": "SETUP_AND_CONFIRMATION",
+        "maximum_permission": "CONFIDENCE_OR_RISK_ONLY_WITHOUT_PROMOTION"
+      },
+      {
+        "timeframe": "15m",
+        "role": "TACTICAL_EXECUTION",
+        "maximum_permission": "EXECUTION_ONLY_WITHOUT_PROMOTION"
+      }
+    ],
+    "information_flow": "HIGHER_TO_LOWER_BY_DEFAULT_LOWER_TO_HIGHER_ONLY_WITH_PROMOTION_RECEIPT",
+    "timeframe_voting": "FORBIDDEN"
+  },
+  "signal_class_registry": [
+    "STRUCTURAL",
+    "CONFIRMATORY",
+    "TACTICAL",
+    "NOISE",
+    "RISK_ONLY"
+  ],
+  "observable_permission_registry": {
+    "REFERENCE_PRICE": {
+      "default_timeframe": "realtime",
+      "default_signal_class": "TACTICAL",
+      "maximum_permission": "TACTICAL_EXECUTION"
+    },
+    "D_SIGNED_TAKER_IMBALANCE": {
+      "default_timeframe": "15m",
+      "default_signal_class": "TACTICAL",
+      "maximum_permission": "TACTICAL_EXECUTION"
+    },
+    "D_HOURLY_TAKER_BUY_SELL_RATIO": {
+      "default_timeframe": "1h",
+      "default_signal_class": "CONFIRMATORY",
+      "maximum_permission": "CONFIDENCE_OR_RISK"
+    },
+    "L_OI_VALUE_1H_CHANGE_PCT": {
+      "default_timeframe": "1h",
+      "default_signal_class": "CONFIRMATORY",
+      "maximum_permission": "CONFIDENCE_OR_RISK"
+    },
+    "C_FUNDING_RATE": {
+      "default_timeframe": "8h",
+      "default_signal_class": "CONFIRMATORY",
+      "maximum_permission": "CONFIDENCE_OR_RISK"
+    },
+    "15M_DIRECTION": {
+      "default_timeframe": "15m",
+      "default_signal_class": "TACTICAL",
+      "maximum_permission": "TACTICAL_EXECUTION"
+    },
+    "1H_DIRECTION": {
+      "default_timeframe": "1h",
+      "default_signal_class": "CONFIRMATORY",
+      "maximum_permission": "CONFIDENCE_OR_RISK"
+    },
+    "4H_DIRECTION": {
+      "default_timeframe": "4h",
+      "default_signal_class": "STRUCTURAL",
+      "maximum_permission": "STRUCTURAL_EVIDENCE"
+    },
+    "1D_DIRECTION": {
+      "default_timeframe": "1d",
+      "default_signal_class": "STRUCTURAL",
+      "maximum_permission": "STRUCTURAL_EVIDENCE"
+    },
+    "OPERATIONAL_PHASE": {
+      "default_timeframe": "4h",
+      "default_signal_class": "STRUCTURAL",
+      "maximum_permission": "STRUCTURAL_EVIDENCE"
+    },
+    "LOCATION_STAGE": {
+      "default_timeframe": "4h",
+      "default_signal_class": "STRUCTURAL",
+      "maximum_permission": "STRUCTURAL_EVIDENCE"
+    }
+  },
+  "phi_direction_registry": {
+    "PHI_UPWARD_CONTINUATION": "LONG",
+    "PHI_DOWNWARD_CONTINUATION": "SHORT",
+    "PHI_ABSORPTION_REVERSAL": "CONDITIONAL",
+    "PHI_BREAKOUT": "CONDITIONAL",
+    "PHI_RANGE": "NEUTRAL",
+    "PHI_OTHER_UNKNOWN": "UNKNOWN"
+  },
+  "promotion_contract": {
+    "promotion_owner": "STRUCTURAL_EVIDENCE",
+    "minimum_distinct_observation_windows": 2,
+    "minimum_independent_confirmation_groups": 2,
+    "all_conditions_required": [
+      "OUTSIDE_PREDECLARED_NORMAL_RANGE",
+      "PERSISTENT_ACROSS_DISTINCT_CLOSED_WINDOWS",
+      "INDEPENDENT_DATA_TYPE_CONFIRMATION",
+      "CHANGES_REGISTERED_CORE_PREMISE",
+      "NOT_PURE_LIQUIDITY_RANDOM_OR_UNKNOWN_CAUSE",
+      "AVAILABLE_AT_NOT_AFTER_DECISION_AT"
+    ],
+    "promotion_is_automatic_state_transition": false,
+    "missing_condition_disposition": "REJECT_PROMOTION"
+  },
+  "strategic_state_machine": {
+    "state_registry": [
+      "A_VALID",
+      "B_TACTICAL_DISTURBANCE",
+      "C_CHALLENGED",
+      "D_INVALIDATED"
+    ],
+    "initial_state": "A_VALID",
+    "terminal_state": "D_INVALIDATED",
+    "same_hypothesis_may_leave_terminal_state": false,
+    "legal_transitions": {
+      "A_VALID": [
+        "A_VALID",
+        "B_TACTICAL_DISTURBANCE",
+        "C_CHALLENGED",
+        "D_INVALIDATED"
+      ],
+      "B_TACTICAL_DISTURBANCE": [
+        "A_VALID",
+        "B_TACTICAL_DISTURBANCE",
+        "C_CHALLENGED",
+        "D_INVALIDATED"
+      ],
+      "C_CHALLENGED": [
+        "A_VALID",
+        "B_TACTICAL_DISTURBANCE",
+        "C_CHALLENGED",
+        "D_INVALIDATED"
+      ],
+      "D_INVALIDATED": [
+        "D_INVALIDATED"
+      ]
+    },
+    "challenge_or_invalidation_requires": [
+      "SCHEDULED_REVIEW_OR_QUALIFIED_EVENT",
+      "STRUCTURAL_EVIDENCE_OR_VALID_PROMOTION_RECEIPT",
+      "REGISTERED_CORE_PREMISE_OR_HARD_INVALIDATOR_REFERENCE"
+    ],
+    "tactical_state_may_change_strategic_direction": false
+  },
+  "direct_strategic_transition_forbidden_inputs": [
+    "CURRENT_PNL",
+    "UNREALIZED_PNL",
+    "RECENT_ACTION_OUTCOME",
+    "EMOTIONAL_PRESSURE",
+    "SALIENCE",
+    "SINGLE_LOWER_TIMEFRAME_BAR",
+    "UNCONFIRMED_HEADLINE",
+    "FREE_TEXT_NARRATIVE_ONLY"
+  ],
+  "action_intent_registry": [
+    "STRATEGIC_ENTRY",
+    "STRATEGIC_ADD",
+    "RISK_REDUCTION",
+    "RISK_EXIT",
+    "TACTICAL_EXIT",
+    "STRATEGIC_INVALIDATION_EXIT",
+    "PROTECTION_UPDATE",
+    "EXECUTION_ONLY",
+    "HOLD"
+  ],
+  "action_contract": {
+    "risk_or_tactical_action_changes_hypothesis_state": false,
+    "new_risk_allowed_states": [
+      "A_VALID"
+    ],
+    "strategic_invalidation_exit_requires_state": "D_INVALIDATED",
+    "reentry_required_intents_when_hypothesis_not_invalidated": [
+      "RISK_REDUCTION",
+      "RISK_EXIT",
+      "TACTICAL_EXIT"
+    ],
+    "unknown_action_intent_disposition": "REJECT"
+  },
+  "reentry_contract": {
+    "default_policy": "SEEK_REENTRY_WHILE_HYPOTHESIS_REMAINS_NOT_INVALIDATED",
+    "required_fields": [
+      "reentry_contract_id",
+      "hypothesis_instance_id",
+      "created_at",
+      "default_policy",
+      "minimum_condition_ids",
+      "restoration_stages",
+      "price_condition",
+      "time_condition",
+      "review_by",
+      "cancel_on_state"
+    ],
+    "restoration_stages": [
+      "MINIMUM_VERIFICATION_POSITION",
+      "STRUCTURAL_RECONFIRMATION_POSITION",
+      "PLANNED_POSITION_COMPLETION"
+    ],
+    "stage_sizing_owner": "SEPARATE_PORTFOLIO_RISK_POLICY",
+    "cancel_on_state": "D_INVALIDATED",
+    "missing_contract_disposition": "REJECT_ACTION"
+  },
+  "review_clock_contract": {
+    "strategic_review_triggers": [
+      "SCHEDULED_4H_CLOSE",
+      "SCHEDULED_1D_CLOSE",
+      "HYPOTHESIS_EXPIRY",
+      "QUALIFIED_MAJOR_EVENT"
+    ],
+    "tactical_review_may_rewrite_strategy": false,
+    "risk_review_may_rewrite_strategy": false,
+    "qualified_event_requires_typed_evidence": true,
+    "free_text_event_exception": "FORBIDDEN"
+  },
+  "evaluation_contract": {
+    "horizon_classes": [
+      "TACTICAL",
+      "OPERATIONAL",
+      "STRATEGIC"
+    ],
+    "required_fields": [
+      "horizon_class",
+      "starts_at",
+      "ends_at",
+      "evaluation_timeframe",
+      "minimum_complete_windows"
+    ],
+    "before_horizon_end_status": "INTERIM_PATH_OBSERVATION_NOT_CORRECTNESS",
+    "short_horizon_result_may_validate_long_horizon_decision": false,
+    "pnl_may_validate_strategy_hypothesis": false,
+    "evaluate_against_frozen_rules": true
+  },
+  "ledger_owners": {
+    "hypothesis_ledger": "STRATEGIC_HYPOTHESIS",
+    "signal_ledger": "STRUCTURAL_EVIDENCE",
+    "behavior_ledger": "TACTICAL_EXECUTION",
+    "cross_ledger_rewrite": "FORBIDDEN",
+    "append_only": true
+  },
+  "invariants": {
+    "available_at_not_after_decision_at": true,
+    "low_timeframe_direct_strategic_override": "FORBIDDEN",
+    "risk_action_implies_thesis_invalidation": false,
+    "short_result_implies_long_decision_correct": false,
+    "tactical_exit_without_reentry_contract": "FORBIDDEN",
+    "same_invalidated_hypothesis_reactivation": "FORBIDDEN",
+    "numeric_probability_or_unvalidated_weight": "FORBIDDEN",
+    "participant_psychology_inference_as_fact": "FORBIDDEN",
+    "paper_action_authority": "NONE_SHADOW_ONLY",
+    "v1_artifact_mutation": "FORBIDDEN"
+  },
+  "legacy_audit": {
+    "mode": "HISTORICAL_SHADOW_AUDIT",
+    "undeclared_strategic_state": "UNKNOWN_LEGACY_UNDECLARED",
+    "do_not_invent_missing_intent_or_reentry_contract": true,
+    "legacy_violation_does_not_rewrite_source": true
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "policy_id": "g1-binance-usdm-btcusdt-forward-v1",
+  "status": "FROZEN_G1_DATA_ACCEPTANCE",
+  "instrument": "BTCUSDT",
+  "required_streams": [
+    "btcusdt@depth@100ms",
+    "snapshot",
+    "btcusdt@aggTrade",
+    "btcusdt@markPrice@1s",
+    "openInterest",
+    "exchangeInfo"
+  ],
+  "required_configured_streams": [
+    "btcusdt@forceOrder"
+  ],
+  "required_source_registry_id": "source-registry.v3",
+  "required_source_registry_sha256": "3aa28782ff3c0af5be5ad0bc98e690af87dbe2c57687d6ab61b1549bae74ec4b",
+  "required_capture_plan_id": "btc-usdt-g1-forward-20260723-v1",
+  "required_capture_plan_sha256": "bfc2f96d8432135c81e04b8c50227dce81280cb5cc941fbdd052b979c7ba973d",
+  "min_total_observed_seconds": 86400,
+  "min_qualified_collections": 24,
+  "min_distinct_utc_days": 7,
+  "min_distinct_utc_hour_buckets": 12,
+  "min_exchange_info_observations": 10,
+  "max_exchange_info_gap_seconds": 390,
+  "min_stream_observations": {
+    "btcusdt@depth@100ms": 12000,
+    "snapshot": 1,
+    "btcusdt@aggTrade": 1000,
+    "btcusdt@markPrice@1s": 3000,
+    "openInterest": 600
+  },
+  "max_stream_gap_seconds": {
+    "btcusdt@depth@100ms": 10,
+    "btcusdt@aggTrade": 120,
+    "btcusdt@markPrice@1s": 5,
+    "openInterest": 15
+  },
+  "require_exchange_info_trading": true,
+  "max_parse_errors": 0,
+  "max_book_gaps": 0,
+  "require_actual_only": true,
+  "require_sealed_raw_segments": true,
+  "allow_reconnects": false,
+  "notice": "Frozen before all eligible plan slots and before any label or outcome inspection. Twenty-eight 61-minute slots provide operational slack for a 24-collection, 24-hour, seven-day gate. The aggTrade gap is an observed-activity eligibility rule, not proof of transport completeness. forceOrder remains configuration-only because silence is unknown, not zero."
+}

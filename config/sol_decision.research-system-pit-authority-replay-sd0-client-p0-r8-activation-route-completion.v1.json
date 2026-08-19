@@ -1,0 +1,286 @@
+{
+  "schema_version": "sol-research-system-pit-authority-replay-sd0-client-p0-r8-activation-route-completion-decision.v1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R8_ACTIVATION_ROUTE_COMPLETION.v1",
+  "decision_state": "ACCEPT_R8_EXACT_POST_PATCH_CALL_LAYER_ROUTE_AUTHORIZE_CAPABILITY_SCOPED_SD0_PREFLIGHT_AND_SEVEN_REQUESTS",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "authority_bindings": {
+    "r8_authorization": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r8-activation-route.v1.json",
+      "physical_sha256": "6e99a086e7b03b0762beae26d586c4854b0d58591cc76a291c68dd703f6ed593",
+      "canonical_sha256": "6b6c7605a19e464de16db2507fb9389a2bd8a3da083ce79728f643985b7c813c",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R8_ACTIVATION_ROUTE.v1",
+      "decision_state": "AUTHORIZE_TWO_FILE_R8_CALL_LAYER_ACTIVATION_ROUTE_KEEP_PRODUCTION_SUSPENDED_PENDING_EXTERNAL_SOL_COMPLETION"
+    }
+  },
+  "post_patch_pair": {
+    "client": {
+      "path": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 91557,
+      "physical_sha256": "1c3ce4b875a5f448c5b62e0f0549ca4ebf714dedbcca3d72a1f69d1a16c9007a"
+    },
+    "test": {
+      "path": "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 147292,
+      "physical_sha256": "222dede4df732569ada692ff2b7d338e2c314b5e34265b8fc86f4ae65f876e06"
+    },
+    "exact_input_pair_sha256": "818d27e9f95fe7ecb7f1c2e05cbf480053ac513f0dc27e3c48ad876de7bd1e3a",
+    "pair_formula": "sha256(client_path_utf8 || 0x00 || client_physical_sha256_ascii || 0x00 || test_path_utf8 || 0x00 || test_physical_sha256_ascii)"
+  },
+  "activation": {
+    "unique_activation_id": "PITAR1-SD0-R8-ACT-5b86f6c05ee834ad3ec3de58628aa9ce",
+    "not_before_utc": "2026-07-28T18:21:36Z",
+    "expires_at_utc": "2026-07-29T17:21:36Z"
+  },
+  "permission_matrix": {
+    "production_sd0_preflight_via_exact_capability": true,
+    "production_sd0_exact_seven_request_route_via_same_capability": true,
+    "automatic_resume": false,
+    "permission_without_capability": false,
+    "permission_from_completion_path_alone": false,
+    "permission_from_self_reported_completion_digest_alone": false,
+    "dynamic_completion_discovery": false,
+    "environment_or_cli_token": false,
+    "marker_resume_or_capability_file": false,
+    "exact_existing_output_allowlist_only": true,
+    "overwrite_or_alternate_output": false,
+    "production_alternate_root": false,
+    "production_injected_tcp_probe_opener_or_callback": false,
+    "zip_get": false,
+    "market_row_body": false,
+    "d0": false,
+    "adapter_replay_dataset": false,
+    "backtest_paper_testnet_deployment_trading": false,
+    "active_g1": false,
+    "credentials_account_orders_funds": false
+  },
+  "frozen_bindings": {
+    "route": {
+      "physical_sha256": "776a7b69c2655dd76eb84ccab12b3fbac30aef6a81b0f6ebad27ab391b129ec0",
+      "canonical_sha256": "a777dc9411f638f1d3728f7f98f4ccbb64673f06b8f344dd3489efcdc5b79eeb"
+    },
+    "contract": {
+      "physical_sha256": "e2cd42a3930e0ede4d5d003742c2abdc76faa755ae86d20074c9d1f60f79e681",
+      "canonical_sha256": "4ed9f22451ede5c834c20e4f1786d344847166b646f9a1b17d2948e16c617a5b"
+    },
+    "plan": {
+      "physical_sha256": "3f2f487f824643d870bb9d023e6d883e4c7d28bc9fb0bc769cb5d21253a7079c",
+      "canonical_sha256": "a334816cca1cbdf676e1b935a3404f5803d4ee892c25d2e1d7d34d3a02ea6fe7"
+    }
+  },
+  "implementation_review": {
+    "independent_reviews": [
+      {
+        "role": "SOURCE_MAP_REVIEW",
+        "reviewer": "TERRA_R9_SOURCE_MAP_REVIEW",
+        "decision": "ACCEPT"
+      },
+      {
+        "role": "EXECUTED_PROBE_REVIEW",
+        "reviewer": "TERRA_R9_EXECUTED_PROBE_REVIEW",
+        "decision": "ACCEPT"
+      }
+    ]
+  },
+  "tests": {
+    "syntax": {
+      "command": "PYTHONPYCACHEPREFIX=/tmp/pitar1-sd0-r8-pycache python3 -m py_compile trade_system/pit_authority_replay_sd0_metered_fetch_v1.py tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    "scoped": {
+      "command": "python3 -m unittest -v tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+      "tests_run": 68,
+      "passed": 68,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "combined": {
+      "command": "python3 -m unittest -v tests.test_pit_authority_replay_contract_v1 tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+      "tests_run": 137,
+      "passed": 137,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0
+    }
+  },
+  "r8_cases": {
+    "R8-T43": "PASS",
+    "R8-T44": "PASS",
+    "R8-T45": "PASS",
+    "R8-T46": "PASS",
+    "R8-T47": "PASS",
+    "R8-T48": "PASS",
+    "R8-T49": "PASS"
+  },
+  "workspace_output_absence": {
+    "artifacts/pit_authority_replay_sd0_preflight.v1.json": {
+      "before_absent": true,
+      "after_absent": true
+    },
+    ".runtime/pitar1-sd0-v1/receipts/requests.ndjson": {
+      "before_absent": true,
+      "after_absent": true
+    },
+    ".runtime/pitar1-sd0-v1/receipts/response_headers.ndjson": {
+      "before_absent": true,
+      "after_absent": true
+    },
+    ".runtime/pitar1-sd0-v1/documents/binance-public-data-readme.md": {
+      "before_absent": true,
+      "after_absent": true
+    },
+    ".runtime/pitar1-sd0-v1/documents/binance-public-data-license.txt": {
+      "before_absent": true,
+      "after_absent": true
+    },
+    ".runtime/pitar1-sd0-v1/documents/btcusdt-1m-2024-03.zip.checksum.txt": {
+      "before_absent": true,
+      "after_absent": true
+    },
+    ".runtime/pitar1-sd0-v1/receipts/btcusdt-1m-2024-03-zip-head.v1.json": {
+      "before_absent": true,
+      "after_absent": true
+    },
+    "artifacts/pit_authority_replay_sd0_closure_report.v1.json": {
+      "before_absent": true,
+      "after_absent": true
+    },
+    "config/pit_authority_replay.sd0_artifact_inventory.v1.json": {
+      "before_absent": true,
+      "after_absent": true
+    }
+  },
+  "external_actions": {
+    "network_requests": 0,
+    "real_tcp_probes": 0,
+    "configured_proxy_access": 0,
+    "workspace_preflight_runs": 0,
+    "workspace_runtime_runs": 0,
+    "active_g1_access": 0,
+    "market_or_archive_access": 0,
+    "backtest_paper_live_actions": 0,
+    "credentials_orders_funds_actions": 0
+  },
+  "mutation_audit": {
+    "modified_existing_files": [
+      "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py"
+    ],
+    "new_files": 0,
+    "route_changes": 0,
+    "contract_changes": 0,
+    "plan_changes": 0,
+    "schema_changes": 0,
+    "spec_changes": 0,
+    "dependency_changes": 0,
+    "authority_changes": 0,
+    "marker_changes": 0,
+    "resume_changes": 0,
+    "capability_changes": 0,
+    "completion_changes": 0,
+    "runtime_changes": 0,
+    "active_g1_changes": 0
+  },
+  "precheck_safe": "YES_OFFLINE_R8_ACCIDENTAL_ACTIVATION_ONLY",
+  "execution_contract": {
+    "output_paths": [
+      "artifacts/pit_authority_replay_sd0_preflight.v1.json",
+      ".runtime/pitar1-sd0-v1/receipts/requests.ndjson",
+      ".runtime/pitar1-sd0-v1/receipts/response_headers.ndjson",
+      ".runtime/pitar1-sd0-v1/documents/binance-public-data-readme.md",
+      ".runtime/pitar1-sd0-v1/documents/binance-public-data-license.txt",
+      ".runtime/pitar1-sd0-v1/documents/btcusdt-1m-2024-03.zip.checksum.txt",
+      ".runtime/pitar1-sd0-v1/receipts/btcusdt-1m-2024-03-zip-head.v1.json",
+      "artifacts/pit_authority_replay_sd0_closure_report.v1.json",
+      "config/pit_authority_replay.sd0_artifact_inventory.v1.json"
+    ],
+    "create_once": true,
+    "no_overwrite": true,
+    "no_alternate_output": true,
+    "entrypoints": [
+      "main",
+      "preflight",
+      "persist_ready",
+      "execute"
+    ],
+    "opaque_capability_required": true,
+    "same_capability_required": true,
+    "requests": [
+      {
+        "request_id": "SD0-001",
+        "method": "HEAD",
+        "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/README.md",
+        "body_cap_bytes": 0
+      },
+      {
+        "request_id": "SD0-002",
+        "method": "GET",
+        "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/README.md",
+        "body_cap_bytes": 1048576
+      },
+      {
+        "request_id": "SD0-003",
+        "method": "HEAD",
+        "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/LICENSE",
+        "body_cap_bytes": 0
+      },
+      {
+        "request_id": "SD0-004",
+        "method": "GET",
+        "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/LICENSE",
+        "body_cap_bytes": 1048576
+      },
+      {
+        "request_id": "SD0-005",
+        "method": "HEAD",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2024-03.zip.CHECKSUM",
+        "body_cap_bytes": 0
+      },
+      {
+        "request_id": "SD0-006",
+        "method": "GET",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2024-03.zip.CHECKSUM",
+        "body_cap_bytes": 65536
+      },
+      {
+        "request_id": "SD0-007",
+        "method": "HEAD",
+        "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2024-03.zip",
+        "body_cap_bytes": 0
+      }
+    ],
+    "retry_count": 0,
+    "redirect_count": 0,
+    "concurrency": 1,
+    "permission_ceiling": {
+      "production_sd0_preflight_via_exact_capability": true,
+      "production_sd0_exact_seven_request_route_via_same_capability": true,
+      "automatic_resume": false,
+      "permission_without_capability": false,
+      "permission_from_completion_path_alone": false,
+      "permission_from_self_reported_completion_digest_alone": false,
+      "dynamic_completion_discovery": false,
+      "environment_or_cli_token": false,
+      "marker_resume_or_capability_file": false,
+      "exact_existing_output_allowlist_only": true,
+      "overwrite_or_alternate_output": false,
+      "production_alternate_root": false,
+      "production_injected_tcp_probe_opener_or_callback": false,
+      "zip_get": false,
+      "market_row_body": false,
+      "d0": false,
+      "adapter_replay_dataset": false,
+      "backtest_paper_testnet_deployment_trading": false,
+      "active_g1": false,
+      "credentials_account_orders_funds": false
+    }
+  },
+  "decision_sha256": "3610d17cc11aa4e79c8f86bd48216b42ac272a485c355dddaed16f9ca968997e"
+}

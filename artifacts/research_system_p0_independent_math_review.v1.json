@@ -1,0 +1,216 @@
+{
+  "review_identity": {
+    "review_id": "RESEARCH_SYSTEM_P0_INDEPENDENT_MATH_REVIEW.v1",
+    "reviewer_role": "independent_mathematics_and_theory_reviewer",
+    "review_mode": "read_only_artifact_review",
+    "reviewed_at": "2026-07-27T00:00:00Z",
+    "independence_statement": "This review did not read RESEARCH_SYSTEM_AUDIT_v1_0.md, any dispute registry, changelog, prior agent conclusion, market data, adapter, backtest, or Library/Application Support artifact."
+  },
+  "review_scope": {
+    "required_topics": [
+      "concept_uniqueness",
+      "variable_domain_and_unit",
+      "formula_direction_and_boundary",
+      "causal_clock_point_in_time_and_leakage",
+      "hypothesis_falsifiability_and_expiry",
+      "parameter_source_type_and_sensitivity",
+      "module_input_output",
+      "competing_hypothesis_coverage",
+      "score_probability_separation",
+      "non_self_authorizing_permission",
+      "simplified_model_alternatives"
+    ],
+    "prohibited_actions_not_taken": [
+      "market_data_access",
+      "adapter_execution",
+      "backtest_execution",
+      "Library/Application Support access"
+    ]
+  },
+  "input_artifacts": [
+    {
+      "path": "CORE_TRADING_THEORY_v2_1.md",
+      "sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d"
+    },
+    {
+      "path": "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md",
+      "sha256": "24f6a67d8502d6632c07af01505d8b5e3b82145079144b5123da2e52fb5afddc"
+    },
+    {
+      "path": "config/research_system.object_dictionary.v1.json",
+      "sha256": "d01a1fe0a806d7b105d2184479509f0d96d5f5c8d9ac2f7bfbc56e60964a57c4"
+    },
+    {
+      "path": "config/research_system.hypothesis_validation_queue.v1.json",
+      "sha256": "fa4cffb14c09ce03b7fb92b1481adee873f5e501acf4243fa780cc3fcc7ed244"
+    },
+    {
+      "path": "config/research_system.measurement_contract.v1.json",
+      "sha256": "f89dc1334f014523138eeccea1989dd9daa7f821b881109e7218b25d03b6025e"
+    },
+    {
+      "path": "config/research_system.parameter_registry.v1.json",
+      "sha256": "65ed77fc5a7a580fb81f79f13bf23709e1eccc285f8436d105f381da61bb6d0f"
+    },
+    {
+      "path": "config/research_system.source_authority_registry.v1.json",
+      "sha256": "644df69bf97bdc10f107a86d6bd35784b7fb01ce5dee30ecaa8c100442b12db3"
+    },
+    {
+      "path": "config/research_system.stage_contract.v1.json",
+      "sha256": "305c039b585c9b0d759318c88973276d080334c3f40552f3885bbefc867b3742"
+    },
+    {
+      "path": "config/sol_decision.research-system-reconstruction.v1.json",
+      "sha256": "2cf37e54989d3fd09846cacdbe622de26a4c0bd60e46cb0650f67b2827bf5586"
+    }
+  ],
+  "checks": [
+    {
+      "check_id": "C-01",
+      "topic": "concept_uniqueness",
+      "status": "FAIL",
+      "evidence": "CORE_TRADING_THEORY_v2_1.md:1237-1246 defines the current q geometry with worst cost and tail per unit, while RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:570-581 independently defines PositionSize without those terms and with untyped caps."
+    },
+    {
+      "check_id": "C-02",
+      "topic": "variable_domain_and_unit",
+      "status": "FAIL",
+      "evidence": "The object dictionary gives domains and units for all listed variables, but RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:206-238 leaves ER and RVOL zero-denominator behavior unspecified; its PositionSize operands at :573-577 have no declared common unit."
+    },
+    {
+      "check_id": "C-03",
+      "topic": "formula_direction_and_boundary",
+      "status": "FAIL",
+      "evidence": "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:240-250 correctly specifies CLV and BodyEfficiency zero-range handling, demonstrating the missing equivalent boundaries for ER and RVOL at :206-238."
+    },
+    {
+      "check_id": "C-04",
+      "topic": "causal_clock_point_in_time_and_leakage",
+      "status": "PASS",
+      "evidence": "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:100-130 requires versioned availability and abstention; measurement-contract global_rules requires pure pre-cutoff observables and no antecedent/outcome overlap; CORE_TRADING_THEORY_v2_1.md:1180 and :1197-1219 enforce ordered path/evidence events and fail-closed unknowns."
+    },
+    {
+      "check_id": "C-05",
+      "topic": "hypothesis_falsifiability_and_expiry",
+      "status": "OPEN",
+      "evidence": "Queue cross-reference closure is complete: every hypothesis has a measurement contract and every contract resolves to a queue hypothesis. However, hard falsifiers and expiry rules are prose fields, for example H-SHOCK-SQUEEZE-FAIL-01 and H-DYNAMIC-RISK-01, so their numeric/window predicates are not yet independently executable."
+    },
+    {
+      "check_id": "C-06",
+      "topic": "parameter_source_type_and_sensitivity",
+      "status": "FAIL",
+      "evidence": "Parameter registry records source type and low/base/high sensitivity for all registry rows, but RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:402-420 introduces PriorOrdinal_h, w_h_g and tau_g as score/decay controls without a complete ID-bound registry mapping for the first two. Core v2.1 instead requires a frozen group aggregator at :1201-1207."
+    },
+    {
+      "check_id": "C-07",
+      "topic": "module_input_output",
+      "status": "PASS",
+      "evidence": "The object dictionary separates FACT through ACTION/RESULT and imposes no direct order authorization below PERMISSION; RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:732-749 defines module inputs, outputs and fail states."
+    },
+    {
+      "check_id": "C-08",
+      "topic": "competing_hypothesis_coverage",
+      "status": "PASS",
+      "evidence": "The challenger requires a finite path pool with OTHER/UNKNOWN at :350-386; CORE_TRADING_THEORY_v2_1.md:1217-1219 further requires a proof-bound mutually exclusive and exhaustive normalized set with OTHER_PATH residual, otherwise UNKNOWN_NO_VALID_COMPETITION_SET."
+    },
+    {
+      "check_id": "C-09",
+      "topic": "score_probability_separation",
+      "status": "PASS",
+      "evidence": "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:388-433 limits E0 score to ordinal ranking and requires calibration before probability; CORE_TRADING_THEORY_v2_1.md:1197-1233 separately forbids primitive-score normalization and restricts numeric scenarios to synthetic counterfactual arithmetic."
+    },
+    {
+      "check_id": "C-10",
+      "topic": "non_self_authorizing_permission",
+      "status": "PASS",
+      "evidence": "The object dictionary grants order authority only to separately governed PERMISSION; stage contract closes D0 through E3 pending a new Sol decision; CORE_TRADING_THEORY_v2_1.md:1235 restricts V5-M00 to DENY/UNKNOWN, ABSTAIN and max_risk=0."
+    },
+    {
+      "check_id": "C-11",
+      "topic": "simplified_model_alternatives",
+      "status": "PASS",
+      "evidence": "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:717-728 requires a staged simple-to-complex order; :751-766 includes trend, range and no-trade baselines; the measurement contracts provide named comparators."
+    },
+    {
+      "check_id": "C-12",
+      "topic": "canonical_identity_and_cross_binding",
+      "status": "FAIL",
+      "evidence": "For object_dictionary, hypothesis_queue, measurement_contract, parameter_registry, source_authority_registry and stage_contract, the declared canonicalization lists a domain but omits the domain-prefix-plus-0x00 formula. Direct SHA-256(canonical JSON) fails; SHA-256(domain || 0x00 || canonical JSON) matches all six stored digests. The Sol decision declares this formula explicitly and passes direct reproduction."
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "F-001",
+      "severity": "P0_HIGH",
+      "title": "Registry and stage digest specifications are under-specified",
+      "evidence_location": [
+        "config/research_system.object_dictionary.v1.json:canonicalization",
+        "config/research_system.hypothesis_validation_queue.v1.json:canonicalization",
+        "config/research_system.measurement_contract.v1.json:canonicalization",
+        "config/research_system.parameter_registry.v1.json:canonicalization",
+        "config/research_system.source_authority_registry.v1.json:canonicalization",
+        "config/research_system.stage_contract.v1.json:canonicalization"
+      ],
+      "impact": "An independent validator following only the stated fields cannot reproduce any of the six protected identities. This breaks the P0 acceptance requirement that canonical serialization and self-digest rules be independently recomputable, even though the intended inferred formula reproduces the stored hashes.",
+      "minimal_fix": "Add an explicit formula, domain_prefix_utf8 and domain_separator_hex=00 to each canonicalization record, then require validators to use that declared formula; do not change content merely to conceal the present mismatch.",
+      "discriminating_test": "For each artifact, recompute after blanking/excluding its digest using exactly the declared formula; mutate the domain, separator, an array order and one non-digest field, and require rejection in all four cases."
+    },
+    {
+      "finding_id": "F-002",
+      "severity": "P0_HIGH",
+      "title": "Core direction and relative-volume measures lack total arithmetic boundaries",
+      "evidence_location": [
+        "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:206-238",
+        "config/research_system.object_dictionary.v1.json:OBJ-MEASUREMENT"
+      ],
+      "impact": "A flat close path makes ER 0/0; a zero-median volume window makes RVOL undefined or infinite. Different implementations can emit NaN, zero, infinity or an exception, changing state and hypothesis eligibility despite the object dictionary's UNKNOWN requirement.",
+      "minimal_fix": "State in the measurement contract that ER denominator=0 and RVOL median<=0 return UNKNOWN (and that any non-finite input returns UNKNOWN); bind the exact affected data-quality reason code.",
+      "discriminating_test": "Use synthetic all-equal closes, all-zero prior volume, one zero-volume bar and non-finite/missing inputs. Every case must produce the same typed UNKNOWN and must not update a score, state, path or permission."
+    },
+    {
+      "finding_id": "F-003",
+      "severity": "P1_HIGH",
+      "title": "Two action-size formulas create an unresolved authority and unit conflict",
+      "evidence_location": [
+        "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:562-581",
+        "CORE_TRADING_THEORY_v2_1.md:1237-1248"
+      ],
+      "impact": "The challenger formula omits worst cost and tail from the risk denominator and compares unlabeled cap quantities. The core formula includes cost/tail per unit and named quantity caps. A future implementer could select either formula or compare incompatible quantities.",
+      "minimal_fix": "Mark the challenger formula as superseded/non-authoritative for action geometry and reference the core q contract, or version a single replacement with every operand dimensioned as currency, R, price per unit or quantity.",
+      "discriminating_test": "A static dimensional checker must reject any min operand not expressed in executable quantity units and must prove that increasing cost_worst_per_unit or tail_per_unit never increases q."
+    },
+    {
+      "finding_id": "F-004",
+      "severity": "P1_HIGH",
+      "title": "Ordinal-score controls are not fully registry-bound",
+      "evidence_location": [
+        "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:402-420",
+        "config/research_system.parameter_registry.v1.json:parameters",
+        "CORE_TRADING_THEORY_v2_1.md:1201-1207"
+      ],
+      "impact": "PriorOrdinal_h and w_h_g may be chosen outside source-type, range, sensitivity and chronology controls. This permits hidden tuning even when the listed parameter registry is frozen.",
+      "minimal_fix": "Either prohibit weighted ranking in the challenger until a versioned aggregator contract exists, or register every prior/weight/decay control with domain, source type, low/base/high plan, update condition and dependency-group semantics; bind the score formula to those IDs.",
+      "discriminating_test": "Reject an evidence update when its prior, weight, aggregator or decay parameter is absent from the frozen parameter registry, outside its declared domain, or changed after chronology freeze."
+    },
+    {
+      "finding_id": "F-005",
+      "severity": "P1_MEDIUM",
+      "title": "Falsifiers and expiries are present but not yet machine-distinguishable",
+      "evidence_location": [
+        "config/research_system.hypothesis_validation_queue.v1.json:hypotheses",
+        "config/research_system.measurement_contract.v1.json:contracts"
+      ],
+      "impact": "The queue is conceptually falsifiable, but prose such as accepted transition, stable increment and maximum duration does not bind a feature version, threshold, window, label or censoring rule. Independent implementations can reach different terminal states from identical facts.",
+      "minimal_fix": "Before D3/E2, replace each testable hard_falsifier and expiry prose rule with a referenced predicate schema containing observable IDs, comparator, threshold/interval, clock, horizon, censoring and terminal enum; retain prose only as explanation.",
+      "discriminating_test": "For every active hypothesis, evaluate positive, soft-contradiction, hard-falsifier, expiry and gap fixtures twice through independent predicate implementations and require identical terminal labels."
+    }
+  ],
+  "unresolved_risks": [
+    "No market, replay, calibration or holdout evidence was reviewed; this review cannot assess predictive validity, economic value, execution realism or source coverage.",
+    "The LCB_U expression in CORE_TRADING_THEORY_v2_1.md:1225-1233 is a deterministic conservative utility adjustment, not a statistical lower confidence bound until an estimator, confidence level and sampling procedure are separately specified.",
+    "Future normalized path probabilities remain conditional on a valid partition proof and independent calibration; no such empirical proof was assessed here."
+  ],
+  "maximum_positive_conclusion": "The reviewed package has a coherent E0 research architecture: it separates facts, measurements, beliefs, paths, scenarios, utility, permission and action; it fails closed on PIT/quality uncertainty; it retains competing alternatives and simple baselines; and its current permission route cannot self-authorize data acquisition, backtesting, paper trading or live risk. These are design and contract strengths only, not evidence of market validity, calibrated probabilities, profitability or operational readiness.",
+  "canonical_self_digest": "9b431667ee60bd7f3f282ab72879a118d2d3a2a3a71f602945054f09b9eae574"
+}

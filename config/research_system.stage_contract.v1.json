@@ -1,0 +1,142 @@
+{
+  "stage_contract_id": "MSTA_HED_RESEARCH_STAGE_CONTRACT.v1",
+  "schema_version": "research-stage-contract.v1",
+  "created_at": "2026-07-27T07:54:42Z",
+  "status": "EXTERNAL_AUTHORITY_BOUND_P0_CANDIDATE",
+  "route_id": "RSR-P0-NEW-PROGRAM-ROUTE-v1",
+  "current_stage": "RSR-P0",
+  "authority_binding": {
+    "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION.v1",
+    "decision_state": "AUTHORIZED_P0_E0_RESEARCH_SYSTEM_RECONSTRUCTION",
+    "decision_physical_sha256": "2cf37e54989d3fd09846cacdbe622de26a4c0bd60e46cb0650f67b2827bf5586",
+    "decision_canonical_sha256": "2a434f542f58c6d43798e1562b7f203336eae7e5db4b6745095e3c9e7633ddb6",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "immutable_baseline": [
+    {"role": "CURRENT_CORE_THEORY", "path": "CORE_TRADING_THEORY_v2_1.md", "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d", "state": "READ_ONLY_NOT_PROMOTED"},
+    {"role": "CURRENT_CORE_THEORY_MIRROR", "path": "CORE_TRADING_THEORY.md", "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d", "state": "READ_ONLY_NOT_PROMOTED"},
+    {"role": "PROGRAM_GOVERNANCE_SNAPSHOT", "path": "PROGRAM_GOVERNANCE.md", "physical_sha256": "69125790fa36c0c4f72ebdecea4f5415be73a9e4fba78c6c1aa53b9639ef6f09", "state": "READ_ONLY_HISTORICAL_STAGE_NARRATIVE"},
+    {"role": "OLD_ACTIVE_ROUTE_TERMINAL_DECISION", "path": "config/sol_decision.active-g1-plan-unreachable.v2.json", "physical_sha256": "3417205afc38247bc8463ddd6e18cf54dffe51724571100a974f9572309127c8", "state": "TERMINAL_IMMUTABLE_NOT_RECOVERED"},
+    {"role": "OLD_RAW_AUTHORITY_ROUTE_TERMINAL_DECISION", "path": "config/sol_decision.p1a-authority-chain-block.v1.json", "physical_sha256": "26355176199bde8cc20e73e2183b43a14bf6210b3a3c41c9480c51b204b9d759", "state": "TERMINAL_IMMUTABLE_NOT_REPAIRED"}
+  ],
+  "permission_matrix": {
+    "read_only_workspace_audit": true,
+    "authoritative_document_discovery": true,
+    "new_versioned_theory_candidates": true,
+    "registries_and_measurement_contracts": true,
+    "pure_validators_and_synthetic_tests": true,
+    "market_row_download": false,
+    "historical_data_acquisition": false,
+    "active_application_support_root_access": false,
+    "raw_admission_runtime": false,
+    "adapter_implementation_or_execution": false,
+    "dataset_or_feature_build": false,
+    "backtest": false,
+    "calibration": false,
+    "holdout": false,
+    "paper_or_testnet": false,
+    "deployment": false,
+    "live_or_trading": false
+  },
+  "gates": [
+    {
+      "gate_id": "RSR-P0",
+      "status": "EXTERNALLY_AUTHORIZED_WORK_IN_PROGRESS",
+      "acceptance_owner": "GPT-5.6-SOL-ULTRA_PROGRAM_ROUTE",
+      "prerequisites": ["External reconstruction decision already bound"],
+      "deliverables": ["immutable inventory", "theory object map", "hypothesis queue", "source registry", "measurement and parameter contracts", "pure total validator", "independent adversarial report", "integrated roadmap"],
+      "permission_on_acceptance": "NONE_AUTOMATIC"
+    },
+    {
+      "gate_id": "D0",
+      "status": "CLOSED_REQUIRES_NEW_SOL_DECISION",
+      "acceptance_owner": "GPT-5.6-SOL-ULTRA_STAGE_GATE",
+      "prerequisites": ["RSR-P0 Sol PASS", "exact source/license/schema/date/cost/storage/resource plan", "frozen chronology roles", "new non-aliasing identities"],
+      "deliverables": ["exact acquisition authorization only"],
+      "permission_on_acceptance": "ONLY_EXACT_ACQUISITION_PLAN"
+    },
+    {
+      "gate_id": "D1",
+      "status": "CLOSED_REQUIRES_NEW_SOL_DECISION",
+      "acceptance_owner": "GPT-5.6-SOL-ULTRA_STAGE_GATE",
+      "prerequisites": ["D0 receipt or explicitly supplied raw artifact", "external authority values", "byte digest and coverage/revision/PIT facts", "independent mutation closure"],
+      "deliverables": ["exact raw artifact admission receipt"],
+      "permission_on_acceptance": "ONLY_EXACT_RAW_ARTIFACT_ADMISSION"
+    },
+    {
+      "gate_id": "D2",
+      "status": "CLOSED_REQUIRES_NEW_SOL_DECISION",
+      "acceptance_owner": "GPT-5.6-SOL-ULTRA_STAGE_GATE",
+      "prerequisites": ["D1 PASS", "frozen source schema and units", "sequence/gap/clock/revision rules", "supplied-fixture tests", "deterministic replay identity"],
+      "deliverables": ["exact offline adapter and replay scope"],
+      "permission_on_acceptance": "ONLY_EXACT_OFFLINE_ADAPTER_AND_REPLAY"
+    },
+    {
+      "gate_id": "D3",
+      "status": "CLOSED_REQUIRES_NEW_SOL_DECISION",
+      "acceptance_owner": "GPT-5.6-SOL-ULTRA_STAGE_GATE",
+      "prerequisites": ["D2 PASS", "PIT replay", "frozen features/states/zones/paths/labels/censoring", "chronology and coverage proof"],
+      "deliverables": ["exact preregistered research dataset"],
+      "permission_on_acceptance": "ONLY_EXACT_DATASET_GENERATION_NO_SCORING"
+    },
+    {
+      "gate_id": "E2",
+      "status": "CLOSED_REQUIRES_NEW_SOL_DECISION",
+      "acceptance_owner": "GPT-5.6-SOL-ULTRA_STAGE_GATE",
+      "prerequisites": ["D3 PASS", "sufficient support", "frozen candidate/baselines/cost/splits/metrics", "one-time unseen holdout", "trial registry"],
+      "deliverables": ["exact backtest/calibration/one-time holdout evaluation"],
+      "permission_on_acceptance": "ONLY_EXACT_EVALUATION_NO_PAPER"
+    },
+    {
+      "gate_id": "E3",
+      "status": "CLOSED_REQUIRES_NEW_SOL_DECISION",
+      "acceptance_owner": "GPT-5.6-SOL-ULTRA_STAGE_GATE",
+      "prerequisites": ["E2 evidence decision", "independent risk engine", "OMS invariants", "failure injection", "account/legal/operator boundaries"],
+      "deliverables": ["exact paper or testnet validation scope"],
+      "permission_on_acceptance": "ONLY_EXACT_PAPER_OR_TESTNET_NO_FUNDS"
+    }
+  ],
+  "dynamic_roles": [
+    {"role_id": "PROGRAM_ROUTE_GOVERNOR", "model": "gpt-5.6-sol-ultra", "state": "ON_DEMAND_STAGE_GATE", "can_accept_own_candidate": false},
+    {"role_id": "RESEARCH_PROGRAM_LEAD", "model": "gpt-5.6-terra-high", "state": "ACTIVE_P0", "can_accept_own_candidate": false},
+    {"role_id": "THEORY_MECHANISM_CHALLENGER", "model": "gpt-5.6-terra-high", "state": "DYNAMIC_P0", "can_accept_own_candidate": false},
+    {"role_id": "SOURCE_AUTHORITY_AUDITOR", "model": "gpt-5.6-terra-high", "state": "DYNAMIC_P0", "can_accept_own_candidate": false},
+    {"role_id": "CONTRACT_SCHEMA_BUILDER", "model": "gpt-5.6-terra-high", "state": "DYNAMIC_P0", "can_accept_own_candidate": false},
+    {"role_id": "INDEPENDENT_ADVERSARIAL_VALIDATOR", "model": "gpt-5.6-terra-high", "state": "REQUIRED_FOR_P0_REVIEW", "can_accept_own_candidate": false},
+    {"role_id": "DATA_ACQUISITION_OPERATOR", "model": "gpt-5.6-terra-high", "state": "DORMANT_UNTIL_D0", "can_accept_own_candidate": false},
+    {"role_id": "BACKTEST_CALIBRATION_ENGINEER", "model": "gpt-5.6-terra-high", "state": "DORMANT_UNTIL_E2", "can_accept_own_candidate": false},
+    {"role_id": "PAPER_RISK_EXECUTION_ENGINEER", "model": "gpt-5.6-terra-high", "state": "DORMANT_UNTIL_E3", "can_accept_own_candidate": false}
+  ],
+  "escalation_rules": {
+    "sol_when": ["complete P0 package is REVIEW_READY", "same root cause remains after two Terra-high rounds", "frozen authority/data/holdout/funds/trading boundary changes", "sufficient evidence requires theory simplification or denial"],
+    "no_sol_for": ["ordinary schema/type/naming defects", "routine deterministic local test repair"],
+    "immediate_stop": ["candidate self-authorization", "market data or authenticated/paid access in P0", "old terminal route mutation", "seen holdout reuse"]
+  },
+  "claim_boundary": {
+    "research_reconstruction": "AUTHORIZED_E0_P0_WORK_ONLY",
+    "theory_authority": "CURRENT_CORE_V2_1_UNCHANGED",
+    "new_theory_validity": "NOT_EVALUATED",
+    "source_data_validity": "NOT_EVALUATED",
+    "market_validity": "NOT_EVALUATED",
+    "profitability": "NOT_EVALUATED",
+    "data_acquisition": "NOT_AUTHORIZED",
+    "backtest": "NOT_AUTHORIZED",
+    "paper": "NOT_AUTHORIZED",
+    "deployment": "DENIED",
+    "trading": "DENIED"
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "domain": "msta-hed/research-stage-contract/v1",
+    "formula": "SHA256(domain_prefix_utf8 || HEX(domain_separator_hex) || canonical_json_utf8)",
+    "domain_prefix_utf8": "msta-hed/research-stage-contract/v1",
+    "domain_separator_hex": "00",
+    "exclude_fields": ["contract_sha256"],
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [",", ":"],
+    "encoding": "UTF-8"
+  },
+  "contract_sha256": "d84c8ba50d828688020a5197202a58985079cdc64938c58fe9c54e3cb69b6fba"
+}

@@ -1,0 +1,197 @@
+{
+  "schema_version": "pitar1-source-inventory-contract.v1",
+  "contract_id": "pitar1.source-inventory-contract.v1",
+  "namespace": "pitar1",
+  "artifact_role": "source_inventory_and_d0_plan_candidate",
+  "stage": "SD0_DOCUMENT_DISCOVERY_AND_NON_EXECUTING_PLAN_ONLY",
+  "route_binding": {
+    "route_id": "RSR-PITAR1-POINT_IN_TIME-AUTHORITY-REPLAY-v1",
+    "route_version": "1.0.0",
+    "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_ROUTE.v1",
+    "decision_physical_sha256": "a3dcb124477ac4f54189d659b7438431ea62ba6785f4c248fe2448e55f28035f",
+    "decision_canonical_sha256": "7e141bd47a728078c3a4dca02d231eae2bcbe6a3f12ff39c6e01c37e92556932",
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "source_discovery_binding": {
+    "path": "artifacts/pit_authority_replay_source_discovery.v1.json",
+    "record_id": "pitar1.source-discovery-record.v1",
+    "record_sha256": "7aecbf426befa8efae10e55e4998fb5431d172b7a7b4a27372971af2119f2d10",
+    "status": "WAIT_DATA"
+  },
+  "discovery_policy": {
+    "eligible_source_ids": [
+      "SRC-BINANCE-PUBLIC-DATA-README",
+      "SRC-BINANCE-USDM-MARKET-DOCS",
+      "SRC-OKX-API-ORDERBOOK-DOCS",
+      "SRC-OKX-HISTORICAL-DATA-PAGE",
+      "SRC-BYBIT-V5-ORDERBOOK-DOCS",
+      "SRC-CFTC-COT-OFFICIAL",
+      "SRC-FRED-ALFRED-API",
+      "SRC-BLS-OFFICIAL",
+      "SRC-BEA-OFFICIAL"
+    ],
+    "allowed_content": [
+      "OFFICIAL_HTML",
+      "OFFICIAL_PLAIN_TEXT",
+      "PUBLIC_SCHEMA_EXAMPLE_WITHOUT_MARKET_ROWS",
+      "PUBLIC_LICENSE_OR_TERMS_PAGE",
+      "PUBLIC_CHANGE_LOG",
+      "PUBLIC_CATALOG_METADATA",
+      "CHECKSUM_MANIFEST_WITHOUT_MARKET_ROWS"
+    ],
+    "forbidden_content": [
+      "MARKET_OR_MACRO_ROWS",
+      "ARCHIVE_OR_BULK_OBJECT",
+      "WEBSOCKET_STREAM",
+      "REST_MARKET_RESPONSE",
+      "CREDENTIAL_OR_COOKIE",
+      "AUTHENTICATED_OR_PAID_DATA",
+      "REGIONAL_OR_TERMS_BYPASS"
+    ],
+    "unknown_rule": "WAIT_DATA_NEVER_ASSUMPTION",
+    "resource_caps": {
+      "maximum_requests": 64,
+      "maximum_total_bytes": 33554432,
+      "maximum_single_response_bytes": 4194304,
+      "maximum_concurrency": 1,
+      "maximum_elapsed_seconds_per_request": 30,
+      "maximum_cost_usd": 0
+    }
+  },
+  "source_dispositions": [
+    {
+      "source_id": "SRC-BINANCE-PUBLIC-DATA-README",
+      "authority_grade": "A",
+      "canonical_document_url": "https://github.com/binance/binance-public-data/blob/master/README.md",
+      "status": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-BINANCE-USDM-MARKET-DOCS",
+      "authority_grade": "A",
+      "canonical_document_url": "https://developers.binance.com/en/docs/catalog/core-trading-derivatives-trading-usd-s-m-futures/api/ws-api/market-data",
+      "status": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-OKX-API-ORDERBOOK-DOCS",
+      "authority_grade": "A",
+      "canonical_document_url": "https://www.okx.com/docs-v5/en/",
+      "status": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-OKX-HISTORICAL-DATA-PAGE",
+      "authority_grade": "A",
+      "canonical_document_url": "https://www.okx.com/en-gb/historical-data",
+      "status": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-BYBIT-V5-ORDERBOOK-DOCS",
+      "authority_grade": "A",
+      "canonical_document_url": "https://bybit-exchange.github.io/docs/v5/market/orderbook",
+      "status": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-CFTC-COT-OFFICIAL",
+      "authority_grade": "A",
+      "canonical_document_url": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm",
+      "status": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-FRED-ALFRED-API",
+      "authority_grade": "A",
+      "canonical_document_url": "https://fred.stlouisfed.org/docs/api/fred/series_observations.html",
+      "status": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-BLS-OFFICIAL",
+      "authority_grade": "A",
+      "canonical_document_url": "https://www.bls.gov/developers/home.htm",
+      "status": "WAIT_DATA"
+    },
+    {
+      "source_id": "SRC-BEA-OFFICIAL",
+      "authority_grade": "A",
+      "canonical_document_url": "https://apps.bea.gov/api/signup/",
+      "status": "WAIT_DATA"
+    }
+  ],
+  "d0_plan_candidate": {
+    "plan_id": "pitar1-binance-usdm-archive-candidate-v1",
+    "status": "WAIT_DATA",
+    "non_executing": true,
+    "source_id": "SRC-BINANCE-PUBLIC-DATA-README",
+    "authority_grade": "A",
+    "authority_owner": "Binance",
+    "canonical_source_url": "https://github.com/binance/binance-public-data/blob/master/README.md",
+    "terms_url": "UNKNOWN_WAIT_DATA",
+    "public_free_no_auth_evidence": "PUBLIC_CATALOG_DOCUMENTED_BUT_MARKET_DATA_REUSE_AND_JURISDICTION_NOT_CLOSED",
+    "venue": "BINANCE",
+    "product_family": "USD_M_FUTURES",
+    "instrument_id": "UNKNOWN_WAIT_DATA",
+    "contract_metadata_identity": "UNKNOWN_WAIT_DATA",
+    "schema_identity": "UNKNOWN_WAIT_DATA",
+    "exact_object_urls": [],
+    "per_object_checksum_expectations": [],
+    "start_inclusive": "UNKNOWN_WAIT_DATA_PRE_2025_01_REQUIRED",
+    "end_exclusive": "UNKNOWN_WAIT_DATA_PRE_2025_01_REQUIRED",
+    "event_clock_semantics": "UNKNOWN_WAIT_DATA",
+    "publication_clock_semantics": "BATCH_ARCHIVE_TIMING_DOCUMENTED_EXACT_OBJECT_AVAILABLE_AT_UNKNOWN",
+    "revision_semantics": "ARCHIVES_MAY_BE_REPLACED_EXACT_REVISION_CHAIN_NOT_FROZEN",
+    "gap_semantics": "UNKNOWN_WAIT_DATA",
+    "maximum_objects": 64,
+    "maximum_single_object_bytes": 67108864,
+    "maximum_total_bytes": 268435456,
+    "maximum_requests": 128,
+    "maximum_concurrency": 1,
+    "minimum_free_disk_after_bytes": 16106127360,
+    "maximum_cost_usd": 0,
+    "output_root": ".runtime/pitar1/pitar1-binance-usdm-archive-candidate-v1/raw",
+    "chronology_role": "ENGINEERING_REPLAY_QA_ONLY",
+    "abort_and_quarantine_rules": [
+      "ABORT_ON_UNKNOWN_OR_CHANGED_TERMS",
+      "ABORT_ON_UNKNOWN_COST_OR_SIZE",
+      "ABORT_ON_OBJECT_OR_CHECKSUM_DRIFT",
+      "ABORT_ON_SCHEMA_OR_PRODUCT_MAPPING_DRIFT",
+      "ABORT_ON_CHRONOLOGY_OVERLAP",
+      "QUARANTINE_PARTIAL_OR_CONFLICTING_OBJECT"
+    ],
+    "blocking_unknowns": [
+      "MARKET_DATA_REUSE_AND_JURISDICTION_TERMS",
+      "EXACT_INSTRUMENT_AND_PRE_2025_WINDOW",
+      "EXACT_OBJECT_URLS_AND_SIZES",
+      "PER_OBJECT_CHECKSUM_EXPECTATIONS",
+      "HISTORICAL_AVAILABLE_AT",
+      "GAP_AND_REPLACEMENT_SEMANTICS"
+    ],
+    "acquisition_permission": "DENIED_REQUIRES_NEW_SOL_D0_DECISION"
+  },
+  "global_disposition": {
+    "source_count": 9,
+    "ready_count": 0,
+    "wait_data_count": 9,
+    "d0_plan_status": "WAIT_DATA",
+    "d0_activation": "DENIED",
+    "candidate_may_accept_itself": false,
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0,
+    "trading": "DENIED"
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "encoding": "UTF-8",
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "domain_prefix_utf8": "pitar1/source-inventory-contract/v1",
+    "domain_separator_hex": "00",
+    "digest_field": "contract_sha256",
+    "excluded_fields": [
+      "contract_sha256"
+    ]
+  },
+  "contract_sha256": "32764ee39297ddcb9f64ef32f0a5734a34f085045f14087e3cc886e597f6f9b8"
+}

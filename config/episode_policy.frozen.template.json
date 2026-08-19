@@ -1,0 +1,17 @@
+{
+  "policy_id": "REPLACE_WITH_VERSIONED_EPISODE_POLICY_ID",
+  "status": "FROZEN_EPISODE_POLICY",
+  "frozen_at": "REQUIRED: ISO-8601 UTC timestamp before feature construction",
+  "feature_version": "five-factor-proxy-v1",
+  "trigger_feature": "D_directional_pressure",
+  "trigger_threshold": "REQUIRED: positive predeclared directional-pressure magnitude",
+  "min_seconds_between_episodes": "REQUIRED: non-negative cooldown after a terminal episode",
+  "state_machine": {
+    "pressure_threshold": "REQUIRED: positive predeclared continuation pressure magnitude",
+    "resilience_threshold": "REQUIRED: numeric threshold",
+    "response_fraction": "REQUIRED: positive predeclared response fraction",
+    "max_observation_seconds": "REQUIRED: positive observation limit",
+    "confirmation_updates": "REQUIRED: positive integer"
+  },
+  "notice": "Template only. A frozen episode policy turns extrema into OBSERVE episodes; it is not a trading policy and must be bound to feature artifacts before research."
+}

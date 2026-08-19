@@ -1,0 +1,98 @@
+{
+  "schema_id": "agent_trade_emotion_theory_manifest",
+  "schema_version": "1.0.0",
+  "theory_version": "3.3.0",
+  "theory_revision": "3.3.0-modular-cognition-position-candidate.1",
+  "status": "FROZEN_CURRENT_CANDIDATE",
+  "frozen_date": "2026-08-11",
+  "entrypoint": "README.md",
+  "digest_algorithm": "SHA-256",
+  "encoding": "UTF-8_STRICT_NO_BOM",
+  "line_endings": "LF",
+  "document_count": 8,
+  "documents": [
+    {
+      "order": 0,
+      "path": "README.md",
+      "role": "contract_root",
+      "size_bytes": 10758,
+      "sha256": "90ed65419379930f1035a5c13c4992936b79c429aff6deba3e236cd0ae6139cc"
+    },
+    {
+      "order": 1,
+      "path": "01_MARKET_COGNITION.md",
+      "role": "runtime_core",
+      "size_bytes": 44887,
+      "sha256": "3fe4992bcee8015063a947f5c82c328bc718df6102dac8e893d171b531c1ff14"
+    },
+    {
+      "order": 2,
+      "path": "02_DYNAMIC_POSITION_MANAGEMENT.md",
+      "role": "runtime_core",
+      "size_bytes": 26931,
+      "sha256": "11c4e780ff066c481821dc48335eed7c29f9aec4fe69e0031d2ca5a13122f961"
+    },
+    {
+      "order": 3,
+      "path": "03_HYPOTHESIS_SYSTEM.md",
+      "role": "runtime_core",
+      "size_bytes": 12417,
+      "sha256": "0662fd6cd2e10a36223f517d0f7489829ac755fa5ad35690c9703fde677a563f"
+    },
+    {
+      "order": 4,
+      "path": "04_EXECUTION_AND_AGENT.md",
+      "role": "orchestration_contract",
+      "size_bytes": 13675,
+      "sha256": "33c479455e6c959439e8c5179249d6cebe5f0ef58aa3e375fdf244eb8fe37a00"
+    },
+    {
+      "order": 5,
+      "path": "05_RISK_AND_BOUNDARIES.md",
+      "role": "runtime_boundary",
+      "size_bytes": 8755,
+      "sha256": "7f5bfe67c61dc59c333a1a3ae1fb52e21d9d71d491bcb3c712f484b8475f36b3"
+    },
+    {
+      "order": 6,
+      "path": "06_HISTORY_FAILURES_AND_CHANGES.md",
+      "role": "maintenance_only",
+      "size_bytes": 11236,
+      "sha256": "a6b8ce687d7dc25bcca31c664a5726a8ac7f13eeead578963f917682cd73b5b8"
+    },
+    {
+      "order": 7,
+      "path": "07_NEW_MECHANISMS_AND_RESOLVED_ISSUES.md",
+      "role": "maintenance_only",
+      "size_bytes": 11863,
+      "sha256": "8cf1c026543bb7472e50446820784e101c891dd8dc4438cd8bf5ecbcb1538252"
+    }
+  ],
+  "path_policy": {
+    "scope": "documents[].path",
+    "base_directory": "MANIFEST_PARENT",
+    "allow_absolute_paths": false,
+    "allow_dot_segments": false,
+    "allow_symlinks": false,
+    "allow_unlisted_markdown": false,
+    "verify_raw_bytes_without_normalization": true
+  },
+  "manifest_digest_policy": {
+    "scope": "EXACT_MANIFEST_JSON_BYTES",
+    "self_digest_embedded": false,
+    "binding_location": "theory/CURRENT.md"
+  },
+  "authority_boundary": {
+    "runtime_implemented": false,
+    "market_evaluated": false,
+    "executable": false,
+    "paper_authority": false,
+    "live_authority": false
+  },
+  "legacy_runtime_compatibility": {
+    "status": "READ_ONLY_COMPATIBILITY_SNAPSHOT",
+    "path": "theory/current/V3_2_DYNAMIC_AGGRESSIVE.md",
+    "size_bytes": 99647,
+    "sha256": "eea31863e8e32f0999d91d587113be227be32b705c799455c386660fadb01061"
+  }
+}

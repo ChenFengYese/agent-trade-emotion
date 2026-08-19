@@ -1,0 +1,104 @@
+{
+  "schema_version": "pitar1-chronology-contract.v1",
+  "contract_id": "pitar1.chronology-contract.v1",
+  "namespace": "pitar1",
+  "artifact_role": "chronology_contract",
+  "stage": "E0_CONTRACT_ONLY_NOT_RUNTIME",
+  "route_binding": {
+    "route_id": "RSR-PITAR1-POINT_IN_TIME-AUTHORITY-REPLAY-v1",
+    "route_version": "1.0.0",
+    "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_ROUTE.v1",
+    "decision_physical_sha256": "a3dcb124477ac4f54189d659b7438431ea62ba6785f4c248fe2448e55f28035f",
+    "decision_canonical_sha256": "7e141bd47a728078c3a4dca02d231eae2bcbe6a3f12ff39c6e01c37e92556932",
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "current_route_role": "ENGINEERING_REPLAY_QA_ONLY",
+  "permanently_seen_or_excluded": [
+    {
+      "start_inclusive": "2025-01-01T00:00:00Z",
+      "end_exclusive": "2025-02-01T00:00:00Z",
+      "role": "SEEN_DEVELOPMENT_AND_NEGATIVE_EVIDENCE_CONSUMED",
+      "allowed_future_use": "READ_ONLY_NEGATIVE_AUDIT_ONLY"
+    },
+    {
+      "start_inclusive": "2025-02-01T00:00:00Z",
+      "end_exclusive": "2025-03-01T00:00:00Z",
+      "role": "SEEN_WAIT_DATA_NOT_SCORED_ROLE_CONSUMED",
+      "allowed_future_use": "READ_ONLY_TERMINAL_CHRONOLOGY_EVIDENCE_ONLY"
+    },
+    {
+      "start_inclusive": "2026-07-23T00:00:00Z",
+      "end_exclusive": "2026-07-30T00:00:00Z",
+      "role": "ISOLATED_ACTIVE_PACKAGE_SCOPE",
+      "allowed_future_use": "NONE_FROM_PITAR1"
+    }
+  ],
+  "role_values": [
+    "ENGINEERING_REPLAY_QA_ONLY",
+    "DEVELOPMENT_SEEN",
+    "CALIBRATION_RESERVED_UNSEEN",
+    "ONE_TIME_HOLDOUT_RESERVED_UNSEEN",
+    "READ_ONLY_NEGATIVE_AUDIT_ONLY",
+    "EXCLUDED"
+  ],
+  "first_access_contract": {
+    "events_that_consume_role": [
+      "REQUEST_ATTEMPT",
+      "OBJECT_LISTING",
+      "BYTE_ACCESS",
+      "DOWNLOAD_ATTEMPT",
+      "SUPPLIED_ARTIFACT_INSPECTION",
+      "PRESENCE_OR_ABSENCE_DISCOVERY",
+      "SIZE_SCHEMA_COVERAGE_OR_CONTENT_METADATA_DISCOVERY"
+    ],
+    "failed_or_partial_access_consumes_role": true,
+    "first_access_makes_window_seen": true
+  },
+  "role_lock_contract": {
+    "seen_to_calibration": "FORBIDDEN",
+    "seen_to_holdout": "FORBIDDEN",
+    "development_to_holdout": "FORBIDDEN",
+    "calibration_to_holdout": "FORBIDDEN",
+    "overlapping_roles": "FORBIDDEN",
+    "role_relabeling_after_first_access": "FORBIDDEN",
+    "future_roles_must_be_frozen_before_access": true
+  },
+  "window_contract": {
+    "interval_kind": "UTC_HALF_OPEN",
+    "start_before_end": true,
+    "exact_nonoverlap_required": true,
+    "open_ended_window": "FORBIDDEN",
+    "active_package_alias": "FORBIDDEN",
+    "application_support_alias": "FORBIDDEN"
+  },
+  "permission_ceiling": {
+    "market_or_macro_access": "DENIED",
+    "window_relabeling": "DENIED",
+    "adapter_or_replay_execution": "DENIED",
+    "dataset": "DENIED",
+    "evaluation": "DENIED",
+    "paper": "DENIED",
+    "trading": "DENIED",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "encoding": "UTF-8",
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "domain_prefix_utf8": "pitar1/chronology-contract/v1",
+    "domain_separator_hex": "00",
+    "digest_field": "contract_sha256",
+    "excluded_fields": [
+      "contract_sha256"
+    ]
+  },
+  "contract_sha256": "40338cbac39e4a25ebdab9e710fcb11370c95e929acfc0ea62a9ec292a7ca913"
+}

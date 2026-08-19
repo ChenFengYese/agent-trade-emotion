@@ -1,0 +1,516 @@
+{
+  "report_id": "MSTA_HED_RESEARCH_SYSTEM_DYNAMIC_HYPOTHESIS_GRAPH_P0_1_EVIDENCE_REPORT.v1",
+  "schema_version": "research-system-dynamic-hypothesis-graph-p0_1-evidence-report.v1",
+  "generated_at": "2026-07-27T11:59:49Z",
+  "revised_at": "2026-07-27T12:16:38Z",
+  "revision": 2,
+  "status": "LOCAL_REVIEW_READY_E0_CANDIDATE_AWAITING_EXTERNAL_SOL_P0_1_GATE",
+  "scope": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "route_id": "RSR-P0.1-DYNAMIC-HYPOTHESIS-GRAPH-v1",
+    "stage": "P0_1_AUTHORIZED_WORK_NOT_ACCEPTED",
+    "allowlisted_new_artifact_count": 8,
+    "result_class": "E0_THEORY_CONTRACT_AND_SYNTHETIC_VALIDATION_ONLY",
+    "candidate_self_acceptance": "FORBIDDEN",
+    "existing_artifact_modification_allowed": false
+  },
+  "authority_binding": {
+    "route_decision": {
+      "path": "config/sol_decision.research-system-dynamic-hypothesis-graph-p0_1-route.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_DYNAMIC_HYPOTHESIS_GRAPH_P0_1_ROUTE.v1",
+      "decision_state": "AUTHORIZED_P0_1_E0_DYNAMIC_HYPOTHESIS_GRAPH_CHALLENGER",
+      "physical_sha256": "eb1ded24b8cb2792135422bc2cc28c52344e0a299354449fecfce43a83614e17",
+      "canonical_sha256": "d2550e5eacd6a304eda141977eefec280d478c86bd3a13189277cc7c9ecfc1d2"
+    },
+    "accepted_p0_foundation": {
+      "path": "config/sol_decision.research-system-reconstruction-p0-gate.v1_1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_RECONSTRUCTION_P0_GATE.v1_1",
+      "decision_state": "ACCEPT_P0",
+      "physical_sha256": "ff9f2b608fe387b953e5d18e1a3cd0a246fcc43bf209f694ffab53f867a8f4cf",
+      "canonical_sha256": "d0968a40d33cea693cd2ad979a656b7897c30fe58b3cd94d85b6f1ce5afd6a58"
+    },
+    "current_core_theory": {
+      "path": "CORE_TRADING_THEORY_v2_1.md",
+      "authority_id": "CORE_TRADING_THEORY.v2.1",
+      "status": "CURRENT_IMMUTABLE_AUTHORITY",
+      "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d"
+    },
+    "core_authority_manifest": {
+      "path": "config/core_trading_theory.authority.v2_1.json",
+      "physical_sha256": "a3e174c616b176253f4aef2ce267a932d43f7e64db3490db815a27f007df12d4"
+    },
+    "accepted_v1_1_inventory": {
+      "path": "config/research_system.p0_artifact_inventory.v1_1.json",
+      "physical_sha256": "dc78634eb373aef988cc7a13a5bfdb87d03303b452b22b896d95c02d88a2ee26",
+      "canonical_sha256": "c6cb8e84e37d858b971d02b2cf4aed7878804327922482460701ea4ef214cbc1"
+    },
+    "accepted_v1_1_bundle_digest": "8a607d9d472f5a26d05e4e74ddca27876621a52ec102a6088f723687c52950fe",
+    "authority_identity_recheck": "PASS"
+  },
+  "candidate_contract_identities": [
+    {
+      "role": "runtime_graph_contract",
+      "path": "config/research_system.runtime_hypothesis_graph_contract.v1_2.json",
+      "canonical_sha256": "ecffaef260232b2e16eac8f2d80e49c44f97006a8cf8a1ca948a588f3ca1672b"
+    },
+    {
+      "role": "runtime_template_registry",
+      "path": "config/research_system.runtime_hypothesis_template_registry.v1_2.json",
+      "canonical_sha256": "11b9f1e85cbc7d0e8a1c4ad4b8cc90b8878eb335bd26d098503bbc1b44b02f6c"
+    },
+    {
+      "role": "runtime_evidence_and_evaluation_contract",
+      "path": "config/research_system.runtime_evidence_evaluation_contract.v1_2.json",
+      "canonical_sha256": "7005944011f19ebde8f60f3fe481e7922890eb167c1eb3a062c0ebdf747a1932"
+    }
+  ],
+  "clean_candidate_result": {
+    "status": "ACCEPTED",
+    "reason_code": "OK",
+    "bundle_digest": "f730d9f712001ec603a33e26977efaadf8db1a7492cba2e4d24acaee7ba10625",
+    "document_count": 11,
+    "predecessor_document_count": 8,
+    "v1_2_contract_document_count": 3,
+    "predecessor_bundle_digest": "8a607d9d472f5a26d05e4e74ddca27876621a52ec102a6088f723687c52950fe",
+    "maximum_claim": "E0_CONTRACT_AND_SYNTHETIC_VALIDATION_ONLY",
+    "stage_denials": {
+      "D0": "DENIED",
+      "D1": "DENIED",
+      "D2": "DENIED",
+      "D3": "DENIED",
+      "E2": "DENIED",
+      "E3": "DENIED"
+    }
+  },
+  "candidate_shape": {
+    "machine_predicates": 30,
+    "mechanism_templates": 4,
+    "path_templates": 4,
+    "trade_templates": 3,
+    "mechanism_to_path_edges": 8,
+    "path_to_trade_edges": 3,
+    "fixture_sets": 11,
+    "fixture_cases": 66,
+    "predicate_input_assertions": 104,
+    "pairwise_path_discriminators": 6,
+    "same_side_distinct_path_examples": 2
+  },
+  "public_validator_composition": {
+    "exact_raw_document_count": 11,
+    "predecessor_paths": [
+      "config/research_system.object_dictionary.v1.json",
+      "config/research_system.hypothesis_validation_queue.v1.json",
+      "config/research_system.measurement_contract.v1.json",
+      "config/research_system.parameter_registry.v1.json",
+      "config/research_system.source_authority_registry.v1.json",
+      "config/research_system.dispute_registry.v1.json",
+      "config/research_system.stage_contract.v1.json",
+      "config/research_system.semantic_claim_boundary.v1_1.json"
+    ],
+    "v1_2_contract_paths": [
+      "config/research_system.runtime_hypothesis_graph_contract.v1_2.json",
+      "config/research_system.runtime_hypothesis_template_registry.v1_2.json",
+      "config/research_system.runtime_evidence_evaluation_contract.v1_2.json"
+    ],
+    "validation_order": [
+      "exact outer file set",
+      "public v1.1 validation over predecessor eight",
+      "v1.1 ACCEPTED and OK",
+      "exact frozen v1.1 bundle digest",
+      "exact eight predecessor raw-byte identities",
+      "three v1.2 contract canonical and semantic checks",
+      "combined successor bundle identity"
+    ],
+    "wrapped_predecessor_failure_reason": "E_V1_1_PREDECESSOR_WITH_V1_1_REASON_AND_AVAILABLE_NESTED_DETAILS",
+    "combined_bundle_manifest": "FROZEN_V1_1_BUNDLE_PLUS_SORTED_THREE_V1_2_CONTRACT_CANONICAL_IDENTITIES",
+    "combined_bundle_digest": "f730d9f712001ec603a33e26977efaadf8db1a7492cba2e4d24acaee7ba10625"
+  },
+  "verification_results": [
+    {
+      "check_id": "P0_1-VAL-001",
+      "method": "PYTHONPYCACHEPREFIX=/private/tmp/agent-trade-emotion-v12-composed-final-pyc python3 -m unittest -q tests.test_research_system_contract_v1_2",
+      "result": "PASS_122_OF_122",
+      "exit_code": 0
+    },
+    {
+      "check_id": "P0_1-VAL-002",
+      "method": "PYTHONPYCACHEPREFIX=/private/tmp/agent-trade-emotion-v12-composed-final-pyc python3 -m unittest -q tests.test_research_system_contract_v1 tests.test_research_system_contract_v1_1",
+      "result": "PASS_140_OF_140",
+      "exit_code": 0
+    },
+    {
+      "check_id": "P0_1-VAL-003",
+      "method": "PYTHONPYCACHEPREFIX=/private/tmp/agent-trade-emotion-v12-composed-final-pyc python3 -m unittest -q tests.test_research_system_contract_v1 tests.test_research_system_contract_v1_1 tests.test_research_system_contract_v1_2",
+      "result": "PASS_262_OF_262",
+      "exit_code": 0
+    },
+    {
+      "check_id": "P0_1-VAL-004",
+      "method": "PYTHONPYCACHEPREFIX=/private/tmp/agent-trade-emotion-v12-composed-final-pyc python3 -m py_compile trade_system/research_system_contract_v1_2.py tests/test_research_system_contract_v1_2.py",
+      "result": "PASS_NO_OUTPUT",
+      "exit_code": 0
+    },
+    {
+      "check_id": "P0_1-VAL-005",
+      "method": "Read the exact eight frozen v1.1 raw documents plus three v1.2 contract JSON texts and call only the public validate_research_system_bundle_v1_2 API.",
+      "result": "ACCEPTED_OK",
+      "document_count": 11,
+      "predecessor_bundle_digest": "8a607d9d472f5a26d05e4e74ddca27876621a52ec102a6088f723687c52950fe",
+      "bundle_digest": "f730d9f712001ec603a33e26977efaadf8db1a7492cba2e4d24acaee7ba10625",
+      "exit_code": 0
+    },
+    {
+      "check_id": "P0_1-VAL-006",
+      "method": "Independent helper-free 11-document composition, canonical re-sign and adversarial mutation review over fresh disk reads and in-memory copies.",
+      "result": "PASS_52_OF_52",
+      "dynamic_contract_mutations": "PASS_39_OF_39",
+      "predecessor_composition_mutations": "PASS_13_OF_13",
+      "file_edits": 0,
+      "exit_code": 0
+    },
+    {
+      "check_id": "P0_1-VAL-007",
+      "method": "Independent terminal partition inspection and identifier-tie-break mutation.",
+      "result": "PASS",
+      "expected_reason_code": "E_TERMINAL_PARTITION",
+      "observed_reason_code": "E_TERMINAL_PARTITION",
+      "exit_code": 0
+    },
+    {
+      "check_id": "P0_1-VAL-008",
+      "method": "Recompute route, accepted P0 foundation, current core theory, core manifest and accepted v1.1 inventory physical identities.",
+      "result": "PASS_5_OF_5",
+      "exit_code": 0
+    },
+    {
+      "check_id": "P0_1-VAL-009",
+      "method": "Independently append one LF to each of the eight predecessor raw documents through the public v1.2 entry.",
+      "result": "PASS_8_OF_8",
+      "v1_base_documents": "E_V1_1_PREDECESSOR_WRAPPING_E_PREDECESSOR_BYTES_7_OF_7",
+      "v1_1_overlay": "E_V1_1_PREDECESSOR_BYTES_1_OF_1",
+      "exit_code": 0
+    },
+    {
+      "check_id": "P0_1-VAL-010",
+      "method": "Independently recompute the successor bundle from frozen v1.1 bundle identity plus the three sorted v1.2 contract canonical identities.",
+      "result": "PASS",
+      "bundle_digest": "f730d9f712001ec603a33e26977efaadf8db1a7492cba2e4d24acaee7ba10625",
+      "exit_code": 0
+    }
+  ],
+  "independent_helper_free_review": {
+    "review_mode": "READ_ONLY_HELPER_FREE",
+    "validator_apis_used": [
+      "trade_system.research_system_contract_v1_1.validate_research_system_bundle_v1_1",
+      "trade_system.research_system_contract_v1_2.validate_research_system_bundle_v1_2"
+    ],
+    "builder_fixture_constructor_used": false,
+    "builder_resign_helper_used": false,
+    "validator_private_helper_used": false,
+    "candidate_read_method": "All eight frozen v1.1 raw documents and three v1.2 contract JSON texts were freshly read from disk. Mutated v1.2 candidates were copied in memory and re-signed with an independently implemented declared domain-separated canonical formula.",
+    "predecessor_public_result": "ACCEPTED_OK",
+    "predecessor_document_count": 8,
+    "predecessor_bundle_digest": "8a607d9d472f5a26d05e4e74ddca27876621a52ec102a6088f723687c52950fe",
+    "contract_digest_recheck": "PASS_3_OF_3",
+    "clean_bundle_recheck": "ACCEPTED_OK",
+    "clean_document_count": 11,
+    "combined_manifest_recheck": "PASS_FROZEN_V1_1_BUNDLE_PLUS_SORTED_THREE_V1_2_CONTRACT_IDENTITIES",
+    "combined_bundle_digest": "f730d9f712001ec603a33e26977efaadf8db1a7492cba2e4d24acaee7ba10625",
+    "dynamic_mutation_count": 39,
+    "dynamic_mutations_passed": 39,
+    "predecessor_composition_mutation_count": 13,
+    "predecessor_composition_mutations_passed": 13,
+    "total_mutation_count": 52,
+    "total_mutations_passed": 52,
+    "mutation_families": [
+      {
+        "reason_code": "E_DYNAMIC_POLICY",
+        "attacks": [
+          "policy event order drift",
+          "non-pure transition function",
+          "same-input nondeterminism",
+          "duplicate event causing a second state change or receipt"
+        ],
+        "result": "ALL_REJECTED_AS_EXPECTED"
+      },
+      {
+        "reason_code": "E_REPLAY_CONTRACT",
+        "attacks": [
+          "full-bar backfill",
+          "future high low close MFE or MAE leakage",
+          "favorable-first same-bar ordering",
+          "late revision overwrite",
+          "unclosed higher-timeframe bar admission",
+          "gap labeled as normal ENTER or KEEP",
+          "E2 proxy represented as execution proof"
+        ],
+        "result": "ALL_REJECTED_AS_EXPECTED"
+      },
+      {
+        "reason_code": "E_POSITION_LOCK",
+        "attacks": [
+          "position lock rewrite"
+        ],
+        "result": "ALL_REJECTED_AS_EXPECTED"
+      },
+      {
+        "reason_code": "E_PATH_SWITCH",
+        "attacks": [
+          "automatic reversal",
+          "opposite order creation",
+          "add or rescue risk",
+          "automatic re-entry"
+        ],
+        "result": "ALL_REJECTED_AS_EXPECTED"
+      },
+      {
+        "reason_code": "E_RISK_MONOTONICITY",
+        "attacks": [
+          "absolute quantity increase",
+          "position sign change",
+          "LONG stop loosening",
+          "SHORT stop loosening",
+          "horizon extension",
+          "LONG target expansion",
+          "SHORT target expansion",
+          "omission of realized loss used, open worst, pending worst, fees, funding or tail reserve"
+        ],
+        "result": "ALL_REJECTED_AS_EXPECTED"
+      },
+      {
+        "reason_code": "E_PERMISSION_ESCALATION",
+        "attacks": [
+          "real permission enabled",
+          "real action changed from ABSTAIN",
+          "real max risk made nonzero"
+        ],
+        "result": "ALL_REJECTED_AS_EXPECTED"
+      },
+      {
+        "reason_code": "E_POLICY_EVALUATION",
+        "attacks": [
+          "unequal point-in-time information or cost assumptions",
+          "missing FROZEN_ENTRY_STATIC_EXIT baseline",
+          "missing SINGLE_PATH baseline",
+          "missing NO_TRADE baseline",
+          "endpoint PnL allowed to rescue an intratrajectory risk breach",
+          "metric threshold prematurely set"
+        ],
+        "result": "ALL_REJECTED_AS_EXPECTED"
+      },
+      {
+        "reason_code": "E_DENOMINATOR",
+        "attacks": [
+          "admitted event or opportunity removed from denominator",
+          "endpoint result allowed to hide a risk breach"
+        ],
+        "result": "ALL_REJECTED_AS_EXPECTED"
+      },
+      {
+        "reason_code": "E_FUTURE_GATE",
+        "attacks": [
+          "future gate threshold prematurely set"
+        ],
+        "result": "ALL_REJECTED_AS_EXPECTED"
+      },
+      {
+        "reason_code": "E_TERMINAL_PARTITION",
+        "attacks": [
+          "identifier tie-break enabled"
+        ],
+        "result": "ALL_REJECTED_AS_EXPECTED"
+      }
+    ],
+    "predecessor_composition_attacks": {
+      "seven_v1_raw_byte_drifts": "E_V1_1_PREDECESSOR_WITH_NESTED_E_PREDECESSOR_BYTES_AND_EXACT_PATH",
+      "v1_1_overlay_raw_byte_drift": "E_V1_1_PREDECESSOR_BYTES_WITH_EXACT_PATH",
+      "missing_predecessor": "E_FILE_SET_WITH_EXACT_MISSING_PATH",
+      "missing_v1_2_contract": "E_FILE_SET_WITH_EXACT_MISSING_PATH",
+      "extra_document": "E_FILE_SET_WITH_EXACT_EXTRA_PATH",
+      "malformed_predecessor": "E_V1_1_PREDECESSOR_WRAPPING_E_V1_BASE_CONTRACT_AND_E_JSON_MALFORMED",
+      "predecessor_failure_precedence": "PASS_PREDECESSOR_REJECTION_PRECEDES_V1_2_PARSE"
+    },
+    "market_data_accessed": false,
+    "adapter_or_replay_run": false,
+    "backtest_run": false,
+    "paper_or_trading_run": false,
+    "file_edits": 0,
+    "unclosed_p0_or_p1_findings": []
+  },
+  "terminal_partition_proof": {
+    "partition_observable": "OBS-FIRST-UNIQUE-TERMINAL-CELL-ID",
+    "candidate_evaluation_order": "ASCENDING_AVAILABLE_AT",
+    "named_assignment": "EARLIEST_TIMESTAMP_WITH_EXACTLY_ONE_CANDIDATE_MATCH",
+    "simultaneous_multiple_match_disposition": "OTHER_PATH_AMBIGUOUS_SIMULTANEOUS_TERMINAL_MATCH",
+    "no_named_match_disposition": "OTHER_PATH",
+    "identifier_tie_break": "FORBIDDEN",
+    "later_match_relabels_terminal_assignment": false,
+    "named_matchers": "EQ_SINGLETON_ON_ONE_PARTITION_OBSERVABLE_WITH_PAIRWISE_DISTINCT_VALUES",
+    "independent_mutation_result": "PASS_E_TERMINAL_PARTITION"
+  },
+  "repair_history": [
+    {
+      "finding_id": "P0-TOP-001",
+      "severity": "P0",
+      "initial_status": "OPEN",
+      "root_cause": "Different matcher identifiers did not prove that two same-side DOWNSIDE or SHORT raw resolution predicates were logically disjoint and both could be true.",
+      "repair": "Introduced one explicit first-unique terminal-cell partition observable, earliest-unique assignment, ambiguous simultaneous routing to OTHER_PATH, forbidden identifier tie-break and pairwise-distinct singleton terminal matchers.",
+      "verification": "Independent re-review plus terminal tie-break mutation.",
+      "current_status": "CLOSED_LOCAL_CONTRACT_ONLY"
+    },
+    {
+      "finding_id": "P0-COMPOSITION-001",
+      "severity": "P0",
+      "initial_status": "OPEN",
+      "root_cause": "The first public v1.2 entry accepted only the three new contract JSON texts and therefore could not detect caller-supplied frozen v1 or v1.1 raw-byte drift through that public entry.",
+      "repair": "Expanded the exact public raw set to the eight v1.1 predecessor documents plus three v1.2 contracts; delegated the predecessor subset to the public v1.1 validator before parsing new contracts; required ACCEPTED/OK and exact v1.1 bundle identity; pinned all eight predecessor raw-byte identities; and composed the successor digest from the frozen v1.1 bundle plus three contract canonical identities.",
+      "verification": "Eight independent predecessor byte drifts, missing predecessor, missing new contract, extra document, wrapped nested reason, predecessor-first precedence, independently recomputed combined manifest and the full 262-test suite.",
+      "current_status": "CLOSED_LOCAL_CONTRACT_ONLY"
+    },
+    {
+      "finding_id": "P1-DETERMINISTIC-REASON-ORDER",
+      "severity": "P1",
+      "initial_status": "OPEN",
+      "root_cause": "Iteration over an unordered frozenset could return E_PATH_IDENTITY or E_DUPLICATE_PATH nondeterministically for one mutation.",
+      "repair": "Sorted path and trade iteration before validation.",
+      "verification": "Combined v1, v1.1 and v1.2 suite passes in one process with stable expected reasons.",
+      "current_status": "CLOSED"
+    }
+  ],
+  "dynamic_policy_interface": {
+    "status": "E0_INTERFACE_ONLY_NOT_IMPLEMENTED_NOT_AUTHORIZED",
+    "policy_event_order": [
+      "available_at",
+      "source_sequence",
+      "event_id"
+    ],
+    "state_vector": [
+      "information_set",
+      "graph_revision",
+      "policy_state",
+      "position_lock",
+      "position",
+      "risk_envelope",
+      "permission",
+      "receipt_chain"
+    ],
+    "transition_function": "PURE_DETERMINISTIC_IDEMPOTENT_F",
+    "counterfactual_lane": [
+      "FLAT",
+      "WATCH",
+      "PREPARE",
+      "CF_ENTRY_ELIGIBLE",
+      "CF_OPEN_LOCKED",
+      "CF_MANAGE",
+      "CF_EXITED"
+    ],
+    "real_permission": "DENIED_P0_1",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0,
+    "runtime_implementation": "NOT_IMPLEMENTED",
+    "event_driven_replay_implementation": "NOT_IMPLEMENTED",
+    "backtest_implementation": "NOT_IMPLEMENTED",
+    "evaluation_run": "NOT_RUN"
+  },
+  "future_evaluation_interface": {
+    "status": "UNSET_BLOCKS_E2",
+    "required_baselines": [
+      "FROZEN_ENTRY_STATIC_EXIT",
+      "SINGLE_PATH",
+      "NO_TRADE"
+    ],
+    "comparison_requires_same": [
+      "policy events",
+      "point-in-time information set",
+      "opportunity denominator",
+      "permission",
+      "risk budget",
+      "cost model",
+      "fill model",
+      "ambiguity rules"
+    ],
+    "all_numeric_acceptance_thresholds": "UNSET_BLOCKS_E2",
+    "same_side_path_results": "MUST_BE_REPORTED_SEPARATELY",
+    "pooled_directional_rescue": "FORBIDDEN"
+  },
+  "unresolved_blockers": [
+    {
+      "blocker_id": "F-005/DSP-022",
+      "status": "OPEN_DEFERRED_BLOCKING",
+      "condition": "Machine predicates and synthetic fixtures establish only local contract structure. Market-data lineage, point-in-time runtime evaluation and independent market validity have not been established.",
+      "blocks": [
+        "D2",
+        "D3",
+        "E2",
+        "market validity",
+        "predictive validity",
+        "probability calibration",
+        "profitability claims"
+      ],
+      "does_not_block": "External review of the exact P0.1 E0 contract candidate"
+    },
+    {
+      "blocker_id": "SEPARATE_LATER_STAGE_AUTHORITY",
+      "status": "NOT_AUTHORIZED",
+      "condition": "Data acquisition, adapter, dataset, replay, backtest, calibration, holdout, paper, deployment and trading each require a later exact route or stage authority.",
+      "blocks": [
+        "D0",
+        "D1",
+        "D2",
+        "D3",
+        "E2",
+        "E3"
+      ],
+      "does_not_block": "External review of the exact P0.1 E0 contract candidate"
+    }
+  ],
+  "forbidden_actions_confirmation": {
+    "existing_or_frozen_artifact_modified": false,
+    "artifact_outside_exact_allowlist_created": false,
+    "dependency_installed": false,
+    "market_rows_or_datasets_acquired": false,
+    "authenticated_or_paid_source_used": false,
+    "adapter_or_runtime_admission_performed": false,
+    "feature_dataset_or_label_built": false,
+    "event_replay_or_backtest_run": false,
+    "probability_calibration_or_holdout_opened": false,
+    "paper_testnet_deployment_or_trading_run": false,
+    "active_application_support_package_overwritten": false
+  },
+  "claim_boundary": {
+    "maximum_positive_claim": "At the recorded workspace identity and immutable authority roots, the exact 11-document public v1.2 candidate first validates and byte-pins the accepted eight-document v1.1 predecessor, then validates the three v1.2 contracts and composes bundle f730d9f712001ec603a33e26977efaadf8db1a7492cba2e4d24acaee7ba10625. The candidate is locally ACCEPTED/OK, 122 v1.2 tests and 262 combined predecessor-plus-candidate tests pass, and an independent helper-free review reproduces the predecessor and three contract identities, combined manifest, 39 dynamic mutations and 13 predecessor-composition mutations. This establishes only the tested E0 theory, contract and synthetic-fixture behavior and does not accept P0.1 or establish market, predictive, probability, profitability or execution validity.",
+    "p0_1_complete": false,
+    "external_sol_gate_required": true,
+    "current_core_theory_promoted_or_replaced": false,
+    "source_data_validity": "NOT_EVALUATED",
+    "market_validity": "NOT_EVALUATED",
+    "predictive_validity": "NOT_EVALUATED",
+    "probability_calibration": "NOT_PERFORMED",
+    "profitability": "NOT_EVALUATED",
+    "runtime_or_replay": "NOT_IMPLEMENTED_NOT_AUTHORIZED",
+    "backtest": "NOT_RUN_NOT_AUTHORIZED",
+    "paper": "NOT_RUN_NOT_AUTHORIZED",
+    "deployment": "DENIED",
+    "trading": "DENIED"
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "domain": "msta-hed/research-system-dynamic-hypothesis-graph-p0_1-evidence-report/v1",
+    "formula": "SHA256(domain_prefix_utf8 || HEX(domain_separator_hex) || canonical_json_utf8)",
+    "domain_prefix_utf8": "msta-hed/research-system-dynamic-hypothesis-graph-p0_1-evidence-report/v1",
+    "domain_separator_hex": "00",
+    "exclude_fields": [
+      "report_sha256"
+    ],
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "encoding": "UTF-8"
+  },
+  "report_sha256": "77a9b52b886fac8ba31a7c3c6bd0a140591aadf1fe6c935d3628de01d2f54bd9"
+}

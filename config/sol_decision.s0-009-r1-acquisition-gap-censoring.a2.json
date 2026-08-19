@@ -1,0 +1,87 @@
+{
+  "record_type": "sol_stage_decision.v1",
+  "decision_id": "SOL-S0-009-R1-ACQUISITION-GAP-CENSORING-A2",
+  "issued_at": "2026-07-22T20:41:59.740Z",
+  "issued_by": "gpt-5.6-sol-ultra",
+  "stage": "S0-009",
+  "evidence_stage": "E0-X",
+  "execution_state": "FEB2025_TERMINAL_WAIT_DATA_NOT_SCORED",
+  "execution_gate": "HOLD_BEFORE_ANY_NEW_ACQUISITION_OR_SCORING",
+  "decision": "CONDITIONAL_AUTHORIZE_VALIDATOR_SEMANTIC_REPAIR_FOR_FUTURE_UNSEEN_INPUTS_ONLY",
+  "decision_meaning": "February 2025 is terminal, SEEN, and not scored. The independent-role consumption is permanent; no February builder replay, retry, new acquisition, or scoring is permitted. A generic validator semantic repair may be designed only for future, unseen inputs and does not authorize any future month.",
+  "authority_provenance": {
+    "source": "/Users/wt/.codex/sessions/2026/07/22/rollout-2026-07-22T17-21-39-019f8921-769e-75c0-8fcb-05d0affabd6f.jsonl",
+    "source_sha256": "60c94ef535d786259e0c50a3b6d14e1b71bc330679777af5c295f4e994f93ebb",
+    "message_id": "msg_0516e76605a35cbf016a612afcf9dc8191bf5a68b65e8339ee"
+  },
+  "supersedes_for_current_state": [
+    "SOL-S0-009-FEB2025-FRESH-FALSIFICATION-85A95D08-R1",
+    "SOL-S0-009-R1-RESOURCE-ATTENUATION-A1"
+  ],
+  "exact_bindings": {
+    "r1_decision": {
+      "path": "config/sol_decision.s0-009-feb-falsification.v1.json",
+      "sha256": "d9e11df2e533266568b642409e15db566035f8126152a4b5c70992440d8210f3"
+    },
+    "a1_addendum": {
+      "path": ".runtime/historical-diagnostic-s0-009-subordinate-resource-guard-v1/final-sol-resource-attenuation-addendum.a1.json",
+      "sha256": "66e30feaa971abdd2d1452420102527bc7318ebf13c2a46bd2e40ed82ac20f50"
+    },
+    "guarded_production_manifest": {
+      "path": ".runtime/historical-diagnostic-s0-009-subordinate-resource-guard-v1/guarded-download-manifest.a1.json",
+      "sha256": "4ffd62d9eaeaa468fb836b3a767c063e518f545cb17fd5f001f6fefbd78e0522"
+    },
+    "read_only_gap_diagnostic": {
+      "path": ".runtime/historical-diagnostic-s0-009-subordinate-resource-guard-v1/read-only-acquisition-gap-diagnostic.a1.json",
+      "sha256": "cbec50a19de1607a19f5740dd21ceb86c47ead9cad1ef2c2d21a78862448eb0c"
+    }
+  },
+  "february_terminal_facts": {
+    "status": "WAIT_DATA_NOT_SCORED",
+    "input_role": "SEEN",
+    "independent_evaluation_role": "PERMANENTLY_CONSUMED",
+    "score_executed": false,
+    "same_month_builder_replay": "FORBIDDEN",
+    "same_month_scoring": "FORBIDDEN",
+    "same_month_new_acquisition": "FORBIDDEN",
+    "trigger": {
+      "kind": "bookDepth",
+      "date": "2025-02-26",
+      "gap_ms": 1380000,
+      "gap_human": "23 minutes",
+      "left_at": "2025-02-26T06:26:30+00:00",
+      "right_at": "2025-02-26T06:49:30+00:00",
+      "frozen_max_gap_ms": 60000,
+      "classification": "OFFICIAL_SNAPSHOT_OR_METRIC_CADENCE"
+    }
+  },
+  "future_only_repair_boundary": {
+    "permitted": true,
+    "scope": "FUTURE_UNSEEN_INPUTS_ONLY",
+    "required_observation": "OBSERVED_CADENCE_GAP_CENSOR_REQUIRED",
+    "validator_hard_failures_retained": [
+      "schema",
+      "checksum",
+      "symbol",
+      "date",
+      "ordering",
+      "book_depth_level"
+    ],
+    "forbidden": [
+      "February recomputation",
+      "special February branch",
+      "changing frozen 60s or 300s thresholds",
+      "fake coverage claims",
+      "future-month acquisition or scoring without a separate authorization"
+    ],
+    "future_receipt_requirement": "Record observed cadence-gap intervals and censoring facts."
+  },
+  "g2_eligibility": false,
+  "trading_authorization": "DENIED",
+  "forbidden_claims": [
+    "February score result",
+    "G2 eligibility",
+    "paper, deployment, or trading authorization",
+    "March authorization or validation"
+  ]
+}

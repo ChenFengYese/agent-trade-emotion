@@ -1,0 +1,133 @@
+{
+  "schema_id": "theory_paper_v2_single_agent_market_research_successor",
+  "schema_version": "1.2.0",
+  "contract_id": "SINGLE_AGENT_SEEN_V1_DIAGNOSTIC_POST_RESULT_SUCCESSOR_20260802",
+  "evidence_class": "SEEN_V1_DIAGNOSTIC_REPLAY",
+  "source_run_id": "msta-paper-20260729T212716Z-87cc29bb",
+  "source_tree_digest": "aba02e17eca90ab4b4ae652c485940523e6c0f0ae2f78eae485c8a5019264085",
+  "predecessor_contract": {
+    "path": "config/theory_paper_v2.single_agent_market_research.v1_1.json",
+    "canonical_digest": "50c26e15f72d5999941c08aa360834280787aa8c4d36135fadf043d49b7011f1",
+    "status": "SUPERSEDED_ONLY_FOR_POST_RESULT_MINIMUM_FIX"
+  },
+  "predecessor_raw_result": {
+    "run_id": "single-agent-seen-v1-20260802-v11",
+    "evaluation_digest": "fd4ec5cfaf257882c2cefcdad960560015eb2de5ef9ca6efd82cbd6992d0d84e",
+    "physical_sha256": "d787557a38cab9e05056a8b760e050daef51ef952afeeab54b8a1e034b8d9a84",
+    "result_status": "MARKET_VALUE_NOT_SUPPORTED",
+    "immutable": true
+  },
+  "post_result_audit": {
+    "path": "artifacts/theory-agent-v2-single-agent/single-agent-seen-v1-20260802-v11/post-result-audit.json",
+    "audit_digest": "8185ef1ea8b573f0fea6e05490aadf50290276857ade41278f9053363d1cf9e2",
+    "physical_sha256": "9bca5a14082704b52ee9a25a95ece90934a94fe2d1a40ffce82999efe8f10293",
+    "completed_before_successor_freeze": true
+  },
+  "root_causes": [
+    {
+      "code": "RFC_NEWS_TIMESTAMP_DISCARDED",
+      "fact": "All 841 V1 public-news items used parseable RFC dates, while the predecessor accepted only canonical Z timestamps and exposed zero news items to the Strategy Agent.",
+      "fix": "Parse RFC public-news dates, normalize to UTC, and retain the unchanged published_at less-than-or-equal-to decision_at PIT cutoff."
+    },
+    {
+      "code": "EVALUATION_GENESIS_OMITTED",
+      "fact": "Candidate and V1 maximum-drawdown reporting did not use the same genesis-inclusive definition.",
+      "fix": "Start both drawdown curves at frozen initial equity."
+    },
+    {
+      "code": "OPPORTUNITY_AND_REENTRY_REPORTING_INCOMPLETE",
+      "fact": "The predecessor raw report omitted terminal flat time, historical reentry resolutions, neutral or flat missed moves, symbol attribution, and multiple descriptive horizons.",
+      "fix": "Add reporting only; do not add or tune a trading rule."
+    }
+  ],
+  "authorized_changes": [
+    "PARSE_RFC_PUBLIC_NEWS_TIMESTAMPS_WITH_THE_SAME_PIT_CUTOFF",
+    "PREPEND_GENESIS_TO_CANDIDATE_AND_V1_MAXIMUM_DRAWDOWN",
+    "REPORT_CANDIDATE_STRATEGY_EXOGENOUS_AND_SYMBOL_ATTRIBUTION",
+    "INCLUDE_TERMINAL_STATE_IN_FLAT_DURATION_AND_FULL_REENTRY_HISTORY",
+    "COUNT_NEUTRAL_OR_FLAT_POSITIVE_AND_NEGATIVE_MARKET_MOVES",
+    "ADD_DESCRIPTIVE_OVERLAPPING_1H_4H_8H_24H_OUTCOMES",
+    "DISCLOSE_SLIPPAGE_EMBEDDED_IN_FILL_PRICE_FUNDING_UNKNOWN_AND_V1_CHAOS_CONTENT_DIFFERENCE",
+    "SHOW_STATIC_HOLD_BEFORE_COST_AND_AFTER_FROZEN_TERMINAL_LIQUIDATION_COST"
+  ],
+  "forbidden_changes": [
+    "SNDK_OR_MU_OUTCOME_DERIVED_DIRECTION_RULE",
+    "STOP_ENTRY_REWARD_OR_REENTRY_THRESHOLD_TUNING",
+    "FIXED_CORE_RETENTION_FRACTION_SELECTION",
+    "RISK_COST_OR_MATCHING_POLICY_CHANGE",
+    "PATH_CLASS_ACTION_SCHEMA_OR_STRATEGIC_STATE_CHANGE",
+    "PREDECESSOR_RAW_ARTIFACT_REWRITE",
+    "PREDECESSOR_DECISION_REPLAY",
+    "CRITIC_OR_AGENT_CLUSTER_ENABLEMENT"
+  ],
+  "unchanged_from_predecessor": [
+    "ONE_STRATEGY_AGENT_NO_CRITIC_NO_CLUSTER",
+    "OPEN_AGENT_MARKET_ANALYSIS_AND_SENTIMENT_SPACE",
+    "FOUR_COMPETING_PATH_CLASSES",
+    "SIX_ACTION_COMPARISON_CLASSES",
+    "PIT_CONTEXTS_AND_SOURCE_TREE",
+    "CORE_AND_TACTICAL_SEMANTICS",
+    "CORE_CHECKPOINT_NOT_AUTOMATIC_EXIT",
+    "REENTRY_OBLIGATION",
+    "RISK_LIMITS",
+    "COST_AND_SLIPPAGE_RATES",
+    "ALL_NEW_15M_BAR_MATCHING",
+    "NO_EXTERNAL_EXECUTION_AUTHORITY"
+  ],
+  "fresh_strategy_agent_run": {
+    "run_id": "single-agent-seen-v1-20260802-v12",
+    "agent_identity": "SAME_SINGLE_STRATEGY_AGENT",
+    "cycles": "1_THROUGH_24",
+    "terminal_observation_cycle": 25,
+    "start_state": "FRESH_GENESIS",
+    "predecessor_decision_replay": false,
+    "future_context_access": false,
+    "recorded_v1_decision_or_outcome_access_before_terminal": false,
+    "post_result_audit_access_by_strategy_agent": false,
+    "critic_enabled": false,
+    "cluster_enabled": false
+  },
+  "evaluation_boundaries": {
+    "multi_horizon_rows": "OVERLAPPING_DESCRIPTIVE_ACTUAL_POLICY_SEQUENCE_NOT_INDEPENDENT_SAMPLES",
+    "public_news": "HEADLINE_METADATA_NOT_CAUSAL_OR_SENTIMENT_TRUTH",
+    "flat_and_neutral_moves": "OPPORTUNITY_ACCOUNTING_NOT_HINDSIGHT_ACTION_CORRECTION",
+    "hold_benchmark": "STATIC_INITIAL_POSITIONS_NO_REBALANCING_WITH_SEPARATE_TERMINAL_LIQUIDATION_COST_VIEW",
+    "funding": "UNKNOWN_NOT_IN_V1_OR_CANDIDATE_PNL",
+    "v1_comparator": "INCLUDES_CHAOS_AUTO_EXOGENOUS_INJECTION_NOT_PRESENT_IN_CANDIDATE"
+  },
+  "claims_boundary": {
+    "evidence": "SEEN_V1_DIAGNOSTIC_ONLY",
+    "predictive_validity": "NOT_ESTABLISHED",
+    "profitability": "NOT_ESTABLISHED",
+    "latest_market_validity": "NOT_ESTABLISHED",
+    "system_mode": "LOCAL_PAPER_RESEARCH_NON_EXECUTABLE",
+    "external_execution_authority": "NONE_LOCAL_SIMULATION",
+    "automation_authority": false,
+    "account_or_credential_authority": false,
+    "paper_or_live_order_authority": false,
+    "executable": false
+  },
+  "implementation_bindings": [
+    {
+      "path": "trade_system/theory_paper_v2/application/single_agent_research.py",
+      "physical_sha256": "aaf7f078b08d4a644691adb5dcc179bafcb042d3a89c30b419215bebc9aa300d"
+    },
+    {
+      "path": "trade_system/theory_paper_v2/presentation/single_agent_research_cli.py",
+      "physical_sha256": "afe00e5426623ba938aa2646640d8f9aaa2a8b3195ffd97152a3a5222dc6a74e"
+    },
+    {
+      "path": "tests/test_theory_paper_v2_single_agent_research.py",
+      "physical_sha256": "57c7c8620150fc62e9885b29224a4715119bb3180b7ca03eaf75d750eb389b9e"
+    }
+  ],
+  "pre_freeze_attestation": {
+    "successor_candidate_cycles_before_freeze": 0,
+    "successor_run_root_absent": true,
+    "recorded_v1_decisions_opened_for_successor": false,
+    "recorded_v1_outcomes_opened_for_successor": false,
+    "trading_policy_changed_to_fit_results": false,
+    "risk_cost_or_matching_changed": false,
+    "active_main_task": "FULL_SINGLE_AGENT_POST_RESULT_SUCCESSOR_RERUN"
+  }
+}

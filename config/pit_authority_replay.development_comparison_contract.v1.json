@@ -1,0 +1,149 @@
+{
+  "schema_version": "pitar1-development-comparison-contract.v1",
+  "contract_id": "pitar1.development-comparison-contract.v1",
+  "namespace": "pitar1",
+  "artifact_role": "future_development_comparison_contract",
+  "stage": "E0_PREREGISTRATION_ONLY_NO_SCORING",
+  "route_binding": {
+    "route_id": "RSR-PITAR1-POINT_IN_TIME-AUTHORITY-REPLAY-v1",
+    "route_version": "1.0.0",
+    "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_ROUTE.v1",
+    "decision_physical_sha256": "a3dcb124477ac4f54189d659b7438431ea62ba6785f4c248fe2448e55f28035f",
+    "decision_canonical_sha256": "7e141bd47a728078c3a4dca02d231eae2bcbe6a3f12ff39c6e01c37e92556932",
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "d3_boundary": {
+    "allowed_future_output": "POINT_IN_TIME_DEVELOPMENT_TRAJECTORY_DATASET_AND_RECEIPTS_ONLY",
+    "policy_scoring": "FORBIDDEN",
+    "policy_ranking": "FORBIDDEN",
+    "policy_selection": "FORBIDDEN",
+    "real_dataset_generation_now": "DENIED"
+  },
+  "policy_ids": [
+    "DYNAMIC_MULTI_PATH",
+    "FROZEN_ENTRY_STATIC_EXIT",
+    "SINGLE_PATH",
+    "NO_TRADE"
+  ],
+  "dynamic_policy_binding": {
+    "accepted_bundle_sha256": "f730d9f712001ec603a33e26977efaadf8db1a7492cba2e4d24acaee7ba10625",
+    "event_order": [
+      "available_at",
+      "source_sequence",
+      "event_id"
+    ],
+    "idempotent": true,
+    "position_lock_required": true,
+    "management_actions_non_expansive": true,
+    "gap_or_future_semantics": "FAIL_CLOSED"
+  },
+  "common_information_contract": {
+    "same_admitted_point_in_time_events": true,
+    "same_opportunity_denominator": true,
+    "same_chronology": true,
+    "same_fees": true,
+    "same_slippage": true,
+    "same_funding": true,
+    "same_risk_budget": true,
+    "same_liquidity_constraints": true,
+    "same_barrier_ambiguity_rule": true,
+    "post_outcome_information_as_input": "FORBIDDEN",
+    "latest_revision_backfill": "FORBIDDEN",
+    "cross_policy_future_decisions": "FORBIDDEN"
+  },
+  "opportunity_denominator_contract": {
+    "membership_frozen_before_outcome": true,
+    "unknown_retained": true,
+    "abstain_retained": true,
+    "quarantine_retained": true,
+    "censor_retained": true,
+    "no_trade_retains_every_eligible_opportunity": true,
+    "dropped_opportunity": "FORBIDDEN"
+  },
+  "trajectory_schema": {
+    "exact_fields": [
+      "opportunity_id",
+      "policy_id",
+      "graph_revision_count",
+      "path_revision_count",
+      "leader_switch_count",
+      "graph_update_latency",
+      "decision_latency",
+      "entry_count",
+      "cancel_count",
+      "replace_count",
+      "fill_count",
+      "partial_fill_count",
+      "stop_revision_count",
+      "target_revision_count",
+      "horizon_revision_count",
+      "fees",
+      "slippage",
+      "funding",
+      "tail_loss",
+      "risk_breach_count",
+      "coverage_state",
+      "abstain_state",
+      "unknown_state",
+      "censor_state",
+      "mfe_post_outcome_only",
+      "mae_post_outcome_only"
+    ],
+    "count_fields_nonnegative_integer": [
+      "graph_revision_count",
+      "path_revision_count",
+      "leader_switch_count",
+      "entry_count",
+      "cancel_count",
+      "replace_count",
+      "fill_count",
+      "partial_fill_count",
+      "stop_revision_count",
+      "target_revision_count",
+      "horizon_revision_count",
+      "risk_breach_count"
+    ],
+    "outcome_only_fields": [
+      "mfe_post_outcome_only",
+      "mae_post_outcome_only"
+    ],
+    "outcome_only_fields_as_policy_inputs": "FORBIDDEN"
+  },
+  "evaluation_boundary": {
+    "real_four_policy_score": "E2_REQUIRES_NEW_SOL_DECISION",
+    "statistical_comparison": "E2_REQUIRES_NEW_SOL_DECISION",
+    "calibration": "E2_REQUIRES_NEW_SOL_DECISION",
+    "backtest": "E2_REQUIRES_NEW_SOL_DECISION",
+    "holdout": "E2_REQUIRES_NEW_SOL_DECISION",
+    "profitability_assessment": "E2_REQUIRES_NEW_SOL_DECISION",
+    "renaming_evaluation_as_qa": "DOES_NOT_CHANGE_STAGE"
+  },
+  "permission_ceiling": {
+    "d3_real_dataset": "DENIED",
+    "e2_scoring": "DENIED",
+    "e3_paper": "DENIED",
+    "deployment": "DENIED",
+    "trading": "DENIED",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "encoding": "UTF-8",
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "domain_prefix_utf8": "pitar1/development-comparison-contract/v1",
+    "domain_separator_hex": "00",
+    "digest_field": "contract_sha256",
+    "excluded_fields": [
+      "contract_sha256"
+    ]
+  },
+  "contract_sha256": "bb4046b84f18ab5fd368e3cec658aae6c197abaac34ca1871206972aab2998c3"
+}

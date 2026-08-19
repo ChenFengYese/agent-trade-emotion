@@ -1,0 +1,4 @@
+interface:
+  display_name: "Run Theory Agent Action E0A"
+  short_description: "Run the frozen offline Agent action experiment"
+  default_prompt: "Use $run-theory-agent-action-discrimination-experiment to resume the frozen Theory Agent V2 action-discrimination experiment from its digest-verified checkpoint without paper, live, automation, account, or order authority."

@@ -1,0 +1,119 @@
+{
+  "schema_id": "agent_trade_emotion_theory_manifest",
+  "schema_version": "1.0.0",
+  "theory_version": "3.4.0",
+  "theory_revision": "3.4.0-low-frequency-strategic-agent-candidate.2",
+  "status": "FROZEN_THEORY_REVIEW_CANDIDATE_FORECAST_RUNTIME_IMPLEMENTED_NON_EXECUTABLE_MARKET_NOT_EVALUATED",
+  "frozen_date": "2026-08-17",
+  "entrypoint": "README.md",
+  "digest_algorithm": "SHA-256",
+  "encoding": "UTF-8_STRICT_NO_BOM",
+  "line_endings": "LF",
+  "document_count": 7,
+  "documents": [
+    {
+      "order": 0,
+      "path": "README.md",
+      "role": "contract_root",
+      "size_bytes": 4664,
+      "sha256": "e1c73622324fdd9ee1b15cf6335eea7fb8ec125e2016ce6b56dc36f1db6df969"
+    },
+    {
+      "order": 1,
+      "path": "00_REVISION_SCOPE.md",
+      "role": "revision_scope_and_cohort_boundary",
+      "size_bytes": 3234,
+      "sha256": "3c1ea84f081fa0cd190a94b65fbd8da44459dfe2616b8bf358cd32bc6c6967c1"
+    },
+    {
+      "order": 2,
+      "path": "01_STRATEGIC_MARKET_COGNITION.md",
+      "role": "low_frequency_strategic_market_cognition",
+      "size_bytes": 3670,
+      "sha256": "9a0c8de94fdf7d8054885412154e9bca653c1fd4d67f2aaa96590d4884c3d268"
+    },
+    {
+      "order": 3,
+      "path": "02_MULTI_TIMEFRAME_POSITION_CONTROL.md",
+      "role": "multi_timeframe_dynamic_position_control",
+      "size_bytes": 3653,
+      "sha256": "a21b01623c2409ffdc05bb92c767a793d9053859d52f15e27171fe4ced22de23"
+    },
+    {
+      "order": 4,
+      "path": "03_EXPOSURE_ADMISSION_AND_AGENT_CONTROL.md",
+      "role": "exposure_admission_and_agent_control",
+      "size_bytes": 3576,
+      "sha256": "521d70bee96ea5a5a80587541f737cd4784282bd97a59a0e8452fe1b7413ff58"
+    },
+    {
+      "order": 5,
+      "path": "04_VALIDATION_PROGRAM.md",
+      "role": "staged_validation_program",
+      "size_bytes": 2449,
+      "sha256": "dc3641764706470afc9f90bf56e4183c1d42886a5cf2ccfcc4e68f49c01f1b11"
+    },
+    {
+      "order": 6,
+      "path": "05_SCHEDULED_COGNITION_AND_TOKEN_EFFICIENCY.md",
+      "role": "scheduled_cognition_and_token_efficiency",
+      "size_bytes": 4889,
+      "sha256": "f244e38dee39594f0c235be7ba323688adae7d801d3c7e73c92bc630bfc8dde9"
+    }
+  ],
+  "path_policy": {
+    "scope": "documents[].path",
+    "base_directory": "MANIFEST_PARENT",
+    "allow_absolute_paths": false,
+    "allow_dot_segments": false,
+    "allow_symlinks": false,
+    "allow_unlisted_markdown": false,
+    "verify_raw_bytes_without_normalization": true
+  },
+  "manifest_digest_policy": {
+    "scope": "EXACT_MANIFEST_JSON_BYTES",
+    "self_digest_embedded": false,
+    "binding_location": "theory/CURRENT.md"
+  },
+  "frozen_predecessor": {
+    "theory_version": "3.3.2",
+    "theory_revision": "3.3.2-complete-market-analysis-candidate.3",
+    "status": "READ_ONLY_NOT_MODIFIED",
+    "manifest_path": "../v3.3.2/MANIFEST.json",
+    "manifest_sha256": "a6487a1bcad4a06c9d0c26d82f925da1754f36c435bcc2c504907967e0efdd24"
+  },
+  "revision_contract": {
+    "primary_agent_horizon_min_hours": 4,
+    "fixed_4h_utc_scheduler": true,
+    "lower_timeframes_evidence_only": true,
+    "intra_window_llm_market_revisions_denied": true,
+    "preauthorized_intra_window_executor_actions": true,
+    "four_timeframe_zone_contract": true,
+    "realized_unrealized_pnl_separated": true,
+    "action_comparison_wait_hold_add_reduce_harvest_exit": true,
+    "participant_event_sentiment_conflict_analysis": true,
+    "decision_sealing_separate_from_exposure_admission": true,
+    "durable_strategic_state": true,
+    "low_token_context_budget": true,
+    "context_asset_slot_digest_binding": true,
+    "provider_usage_observation_supported": true,
+    "staged_forecast_frozen_dynamic_validation": true,
+    "e025_r3_samples_not_mergeable": true,
+    "dynamic_activity_profile_is_evidence_not_wake_authority": true,
+    "conditional_tranche_plan_required": true,
+    "data_quality_and_future_space_explicit": true,
+    "post_v34_multi_model_management_not_active": true
+  },
+  "authority_boundary": {
+    "forecast_runtime_implemented": true,
+    "paper_runtime_implemented": false,
+    "market_evaluated": false,
+    "executable": false,
+    "paper_authority": false,
+    "testnet_authority": false,
+    "live_authority": false,
+    "private_account_read_authority": false,
+    "credential_authority": false,
+    "account_or_funds_authority": false
+  }
+}

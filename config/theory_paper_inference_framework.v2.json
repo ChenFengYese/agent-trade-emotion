@@ -1,0 +1,329 @@
+{
+  "framework_id": "THEORY_PAPER_MISSING_DATA_COMPETING_PATH_FRAMEWORK.v2",
+  "schema_version": "theory-paper-inference-framework.v2",
+  "status": "SHADOW_CANDIDATE_NOT_ACTIVATED",
+  "execution_scope": "PUBLIC_DATA_PAPER_CONTEXT_ONLY",
+  "mode": "DETERMINISTIC_ORDINAL_NON_PROBABILISTIC",
+  "source_contracts": {
+    "market": "theory-paper-market-snapshot.v1",
+    "analysis": "theory-paper-cycle-analysis.v1",
+    "legacy_hypothesis_graph_reference": "research-system-runtime-hypothesis-graph-contract.v1_2",
+    "legacy_reference_boundary": "CONCEPTUAL_PATTERN_ONLY_NOT_RUNTIME_AUTHORITY"
+  },
+  "invariants": {
+    "available_at_not_after_decision_at": true,
+    "missing_is_never_zero": true,
+    "imputation_of_unobserved_truth": "FORBIDDEN",
+    "minimum_named_competing_paths": 2,
+    "required_residual_nodes": [
+      "OTHER_PATH",
+      "UNKNOWN_PATH"
+    ],
+    "reader_union_label": "OTHER_OR_UNKNOWN",
+    "correlated_evidence_double_counting": "FORBIDDEN",
+    "numeric_probability": "FORBIDDEN",
+    "single_causal_winner": "FORBIDDEN",
+    "participant_identity_claim": "FORBIDDEN",
+    "psychological_truth_claim": "FORBIDDEN",
+    "paper_action_authority": "NONE",
+    "v1_artifact_mutation": "FORBIDDEN"
+  },
+  "missing_kind_registry": [
+    "INTERFACE_FAILURE",
+    "NOT_COLLECTED",
+    "INSUFFICIENT_HISTORY",
+    "PUBLICLY_UNIDENTIFIABLE"
+  ],
+  "ordinal_support_registry": [
+    "STRONG",
+    "MODERATE",
+    "WEAK",
+    "MIXED",
+    "CONTRADICTED",
+    "UNKNOWN"
+  ],
+  "revision_state_registry": [
+    "NEW",
+    "STRENGTHENED",
+    "WEAKENED",
+    "FALSIFIED",
+    "EXPIRED",
+    "UNCHANGED"
+  ],
+  "dependency_group_registry": [
+    "D_SHORT_WINDOW_FLOW",
+    "L_OPEN_INTEREST",
+    "C_CROWDING_VECTOR",
+    "R_VISIBLE_BOOK_SNAPSHOT",
+    "K_15M_PRICE_RESPONSE",
+    "K_1H_STRUCTURE",
+    "K_4H_STRUCTURE",
+    "K_1D_STRUCTURE",
+    "NEWS_DISCOVERY_METADATA"
+  ],
+  "targets": [
+    {
+      "target_id": "FORCED_DELEVERAGING_EXPLANATION",
+      "activation": "F_AXIS_UNKNOWN_OR_PARTIAL",
+      "target_boundary": "INFER_COMPATIBLE_MARKET_PATHS_ONLY_NEVER_IMPUTE_LIQUIDATION_EVENTS",
+      "named_paths": [
+        {
+          "path_template_id": "F_FORCED_DELEVERAGING_COMPATIBLE",
+          "label_zh": "强制去杠杆参与当前波动的相容路径",
+          "evaluation_strategy": "F_FORCED_COMPATIBILITY_V1",
+          "causal_steps": [
+            "观察价格与主动成交压力",
+            "观察持仓量是否收缩",
+            "检验价格响应是否与压力同向放大",
+            "仅判断与强制去杠杆相容，不声称已观察到强平"
+          ],
+          "falsifiers": [
+            "完整且权威的同窗口强平流确认零事件，并满足完整性证明",
+            "持仓量、成交压力和价格响应持续与该路径的事前条件相反"
+          ],
+          "next_observables": [
+            "前向保存的官方 forceOrder 事件下界与流缺口状态",
+            "下一闭合周期的持仓量变化、主动流和价格响应"
+          ],
+          "expiry_hours": 8,
+          "ordinal_cap": "STRONG"
+        },
+        {
+          "path_template_id": "F_VOLUNTARY_REPOSITIONING_COMPATIBLE",
+          "label_zh": "自愿增减仓、对冲或换仓主导的相容路径",
+          "evaluation_strategy": "F_VOLUNTARY_COMPATIBILITY_V1",
+          "causal_steps": [
+            "观察持仓量变化和主动成交压力",
+            "比较价格响应与拥挤代理是否一致",
+            "保留对冲、套利、换仓和价格分母变化等替代解释",
+            "不恢复逐笔开多、开空、平多、平空角色"
+          ],
+          "falsifiers": [
+            "完整强平流显示与波动同步的强制平仓簇且替代解释被独立证据排除",
+            "后续闭合数据持续不支持自愿仓位变化的观测条件"
+          ],
+          "next_observables": [
+            "下一周期持仓量、主动流、资金费和价格响应的联合变化",
+            "合规前向强平流是否出现可区分事件"
+          ],
+          "expiry_hours": 8,
+          "ordinal_cap": "STRONG"
+        }
+      ]
+    },
+    {
+      "target_id": "VISIBLE_LIQUIDITY_RESPONSE",
+      "activation": "STRICT_R_UNAVAILABLE",
+      "target_boundary": "VISIBLE_BOOK_COMPATIBILITY_ONLY_NOT_HIDDEN_LIQUIDITY_OR_MARKET_MAKER_INTENT",
+      "named_paths": [
+        {
+          "path_template_id": "R_VISIBLE_ABSORPTION_COMPATIBLE",
+          "label_zh": "可见流动性吸收压力的相容路径",
+          "evaluation_strategy": "R_ABSORPTION_COMPATIBILITY_V1",
+          "causal_steps": [
+            "确认短窗主动流压力",
+            "比较同期价格响应是否减弱或反向",
+            "审视单帧价差和模拟冲击是否较低",
+            "等待连续深度序列验证补单和恢复"
+          ],
+          "falsifiers": [
+            "连续深度序列显示压力后可见深度持续流失且没有恢复",
+            "价格持续与压力同向高效扩张"
+          ],
+          "next_observables": [
+            "depth 增量序列中的补单率、恢复时间和序列缺口",
+            "下一周期主动流与边际价格冲击的联合变化"
+          ],
+          "expiry_hours": 8,
+          "ordinal_cap": "WEAK"
+        },
+        {
+          "path_template_id": "R_VISIBLE_LIQUIDITY_CONSUMPTION_COMPATIBLE",
+          "label_zh": "可见流动性被消耗并放大价格响应的相容路径",
+          "evaluation_strategy": "R_CONSUMPTION_COMPATIBILITY_V1",
+          "causal_steps": [
+            "确认短窗主动流压力",
+            "比较价格是否同向且有效移动",
+            "审视单帧价差和模拟冲击是否偏高",
+            "等待连续深度序列验证深度消耗和恢复不足"
+          ],
+          "falsifiers": [
+            "连续深度序列显示快速补单和价格响应衰减",
+            "主动流持续但价格长期无同向响应"
+          ],
+          "next_observables": [
+            "depth 与 RPI depth 的压力前后变化",
+            "下一周期价差、模拟冲击、主动流和价格效率"
+          ],
+          "expiry_hours": 8,
+          "ordinal_cap": "WEAK"
+        }
+      ]
+    },
+    {
+      "target_id": "MISSING_HIGHER_TIMEFRAME_BACKGROUND",
+      "activation": "ANY_K_FIELD_MISSING",
+      "target_boundary": "DO_NOT_IMPUTE_MISSING_INDICATOR_VALUES_ONLY_REVIEW_CONDITIONAL_MARKET_PATHS",
+      "named_paths": [
+        {
+          "path_template_id": "K_OBSERVED_STRUCTURE_CONTINUATION",
+          "label_zh": "已观察周期结构继续延伸的条件路径",
+          "evaluation_strategy": "K_CONTINUATION_COMPATIBILITY_V1",
+          "causal_steps": [
+            "按 1D、4H、1H、15M 固定角色读取已闭合结构",
+            "检查相邻周期方向是否一致",
+            "用参与度和价格变化检验延伸条件",
+            "不补写缺失周线或 EMA 数值"
+          ],
+          "falsifiers": [
+            "父级闭合结构确认反向",
+            "下级延伸在确认窗口内回到原结构内部"
+          ],
+          "next_observables": [
+            "下一闭合 1H 与 4H 结构",
+            "缺失长周期指标是否由新增历史自然形成"
+          ],
+          "expiry_hours": 8,
+          "ordinal_cap": "STRONG"
+        },
+        {
+          "path_template_id": "K_SHORTER_FRAME_TRANSIENT_OR_REVERSAL",
+          "label_zh": "短周期变化属于暂态或反转的条件路径",
+          "evaluation_strategy": "K_TRANSIENT_COMPATIBILITY_V1",
+          "causal_steps": [
+            "识别父子周期方向冲突或过渡状态",
+            "检查价格变化是否缺少持续参与度",
+            "等待父级结构确认反向或下级回撤",
+            "保持缺失背景为未知"
+          ],
+          "falsifiers": [
+            "父子周期形成持续同向闭合结构",
+            "突破后参与度与结构在确认窗口内保持"
+          ],
+          "next_observables": [
+            "下一闭合 1H 与 4H 的方向和参与度",
+            "现有结构边界的回收、失守或持续"
+          ],
+          "expiry_hours": 8,
+          "ordinal_cap": "STRONG"
+        }
+      ]
+    },
+    {
+      "target_id": "NEWS_BODY_AND_CAUSALITY",
+      "activation": "OFFICIAL_PRIMARY_BODY_NOT_BOUND",
+      "target_boundary": "HEADLINE_METADATA_CANNOT_ESTABLISH_ARTICLE_FACTS_SENTIMENT_OR_CAUSAL_DIRECTION",
+      "named_paths": [
+        {
+          "path_template_id": "NEWS_EVENT_FOLLOWTHROUGH_COMPATIBLE",
+          "label_zh": "标题所指事件与市场跟随反应相容的路径",
+          "evaluation_strategy": "NEWS_FOLLOWTHROUGH_COMPATIBILITY_V1",
+          "causal_steps": [
+            "只确认标题元数据在决策时点已取得",
+            "观察同期价格和参与度是否异常",
+            "把二者关系限制为时间相容",
+            "等待官方正文核实事件事实和发布时间"
+          ],
+          "falsifiers": [
+            "官方正文否认或不支持标题所指事实",
+            "后续窗口没有独立市场响应且标题为重复或陈旧内容"
+          ],
+          "next_observables": [
+            "决策时点前可取得的发行人、监管机构或交易所正文",
+            "后续价格、成交量与结构是否持续"
+          ],
+          "expiry_hours": 8,
+          "ordinal_cap": "WEAK"
+        },
+        {
+          "path_template_id": "NEWS_METADATA_NOISE_OR_STALE_COMPATIBLE",
+          "label_zh": "标题属于噪声、重复或陈旧发现的相容路径",
+          "evaluation_strategy": "NEWS_NOISE_COMPATIBILITY_V1",
+          "causal_steps": [
+            "检查是否没有标题或标题发布时间较旧",
+            "检查市场是否缺少异常价格和参与度响应",
+            "保留正文未知与其他事件解释",
+            "不根据标题直接给出方向"
+          ],
+          "falsifiers": [
+            "官方正文确认重大新事实且后续出现独立持续响应",
+            "多个独立一手来源在决策时点前完成交叉确认"
+          ],
+          "next_observables": [
+            "官方正文、修订记录和独立一手来源",
+            "标题出现后的持续结构与相对成交量"
+          ],
+          "expiry_hours": 8,
+          "ordinal_cap": "WEAK"
+        }
+      ]
+    },
+    {
+      "target_id": "PUBLIC_BEHAVIOR_EXPLANATION_WITH_IDENTITY_UNKNOWN",
+      "activation": "PARTICIPANT_IDENTITY_PUBLICLY_UNIDENTIFIABLE",
+      "target_boundary": "BEHAVIOR_COMPATIBILITY_ONLY_NEVER_PERSON_INSTITUTION_ACCOUNT_INTENT_OR_PSYCHOLOGY",
+      "named_paths": [
+        {
+          "path_template_id": "BEHAVIOR_DIRECTIONAL_POSITIONING_COMPATIBLE",
+          "label_zh": "方向性仓位建立与观测相容的行为路径",
+          "evaluation_strategy": "BEHAVIOR_DIRECTIONAL_COMPATIBILITY_V1",
+          "causal_steps": [
+            "观察主动流方向",
+            "观察持仓量是否增加",
+            "检查价格是否获得同向响应",
+            "仅描述公开行为相容性，不识别参与者"
+          ],
+          "falsifiers": [
+            "持仓量持续减少或价格持续反向响应",
+            "独立账户级权威数据证明该窗口主要为非方向性用途"
+          ],
+          "next_observables": [
+            "下一周期主动流、持仓量和价格响应",
+            "仅在合法授权下取得的本人账户级开平仓记录"
+          ],
+          "expiry_hours": 8,
+          "ordinal_cap": "MODERATE"
+        },
+        {
+          "path_template_id": "BEHAVIOR_HEDGE_ARBITRAGE_ROLL_COMPATIBLE",
+          "label_zh": "对冲、套利、换仓或价格分母变化与观测相容的行为路径",
+          "evaluation_strategy": "BEHAVIOR_NON_DIRECTIONAL_COMPATIBILITY_V1",
+          "causal_steps": [
+            "比较资金费、基差和拥挤代理",
+            "检查主动流、持仓量和价格响应是否不一致",
+            "保留对冲、套利、换仓等替代解释",
+            "不把公开聚合量升级为真实意图"
+          ],
+          "falsifiers": [
+            "合法账户级证据显示窗口内主要是明确方向性新开仓",
+            "主动流、持仓量和价格持续同向且替代解释被独立排除"
+          ],
+          "next_observables": [
+            "下一周期基差、资金费、主动流、持仓量和价格响应",
+            "仅在合法授权下取得的账户级用途记录"
+          ],
+          "expiry_hours": 8,
+          "ordinal_cap": "MODERATE"
+        }
+      ]
+    }
+  ],
+  "artifact_policy": {
+    "write_once": true,
+    "existing_identical_is_success": true,
+    "source_v1_tree_write": "FORBIDDEN",
+    "default_shadow_root": ".runtime/theory-paper-successor-v2",
+    "historical_mode": "HISTORICAL_SHADOW_RECONSTRUCTION",
+    "live_mode": "LIVE_PENDING_ANALYSIS",
+    "historical_physical_existence_at_source_time": "NOT_CLAIMED"
+  },
+  "activation_policy": {
+    "shadow_write_enabled": true,
+    "shadow_consume_enabled": false,
+    "may_change_v1_decision": false,
+    "may_bypass_v1_risk_gate": false,
+    "switch_existing_automation": false,
+    "activation_requires_current_run_end": true,
+    "activation_requires_explicit_user_authorization": true
+  }
+}

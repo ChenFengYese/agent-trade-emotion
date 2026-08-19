@@ -1,0 +1,83 @@
+{
+  "review_identity": {
+    "review_id": "RESEARCH_SYSTEM_P0_INDEPENDENT_MATH_RECHECK.v1",
+    "reviewer_role": "independent_mathematics_and_theory_reviewer",
+    "review_mode": "read_only_local_remediation_recheck",
+    "reviewed_at": "2026-07-27T00:00:00Z",
+    "base_review_path": "artifacts/research_system_p0_independent_math_review.v1.json",
+    "base_review_sha256": "907d967f684e873166ec9477c40634ebadccfccbd3be47006b23c07eb6e10d92",
+    "independence_statement": "The original failure report was preserved. This recheck did not read any audit, dispute registry, changelog, market data, adapter/backtest result, or Library/Application Support artifact."
+  },
+  "current_input_artifacts": [
+    {"path": "CORE_TRADING_THEORY_v2_1.md", "sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d"},
+    {"path": "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md", "sha256": "c1a3ed4f146a702799cdbe6d36240dcab856e5a430551004b62e60d0835b4b73"},
+    {"path": "config/research_system.object_dictionary.v1.json", "sha256": "9a167daea7bf05d1022e65da40be5b87786139a9e0f74d52994cbc2fd4915fff"},
+    {"path": "config/research_system.hypothesis_validation_queue.v1.json", "sha256": "e76ab11983326ab53d209b6efd362deb91a00215a0c47b14d5930457c614b4cb"},
+    {"path": "config/research_system.measurement_contract.v1.json", "sha256": "4ffc8d7a06c852b67805345f9f3bfc442202c4b319d5b790cd6cc1385ae609c4"},
+    {"path": "config/research_system.parameter_registry.v1.json", "sha256": "a5321385626f2acd67063fed1cf8138b400c5911265ad333aed4da3958ca2a26"},
+    {"path": "config/research_system.source_authority_registry.v1.json", "sha256": "693cc7361c16fb154df97bf2c58a1e68807f990dc976df949658e7ce635abb12"},
+    {"path": "config/research_system.stage_contract.v1.json", "sha256": "ab81251c0ea70e945d9ea7176e9cb59e7353477212dcf36a2d9e4424f944674b"},
+    {"path": "config/sol_decision.research-system-reconstruction.v1.json", "sha256": "2cf37e54989d3fd09846cacdbe622de26a4c0bd60e46cb0650f67b2827bf5586"}
+  ],
+  "canonicalization_recomputation": {
+    "formula_checked": "SHA-256(domain_prefix_utf8 || byte(0x00) || canonical_json_utf8(document_without_declared_digest))",
+    "results": [
+      {"path": "config/research_system.object_dictionary.v1.json", "digest_field": "registry_sha256", "status": "PASS", "recomputed_sha256": "6f69d94c81f81d174f9d39a8fdfeb0cdf5d52cc753a0dc20b3847cbb5adb8f8e"},
+      {"path": "config/research_system.hypothesis_validation_queue.v1.json", "digest_field": "registry_sha256", "status": "PASS", "recomputed_sha256": "a4675f506a617fc9b871088f2926a3a5f204c37cc7230222459e999bd3f57704"},
+      {"path": "config/research_system.measurement_contract.v1.json", "digest_field": "registry_sha256", "status": "PASS", "recomputed_sha256": "4fcdcc76ea030256a4a60d47745feee7ecd9cc500fd011cbf1815d63e73cc10c"},
+      {"path": "config/research_system.parameter_registry.v1.json", "digest_field": "registry_sha256", "status": "PASS", "recomputed_sha256": "ef537b706599b22a10a385c43632435c763f9a9db4e6143670862c391989af39"},
+      {"path": "config/research_system.source_authority_registry.v1.json", "digest_field": "registry_sha256", "status": "PASS", "recomputed_sha256": "faa6f33577d71275939b7bdf56fa850aecb3b75eed8df5ee175fb9340a3d4324"},
+      {"path": "config/research_system.stage_contract.v1.json", "digest_field": "contract_sha256", "status": "PASS", "recomputed_sha256": "d84c8ba50d828688020a5197202a58985079cdc64938c58fe9c54e3cb69b6fba"},
+      {"path": "config/sol_decision.research-system-reconstruction.v1.json", "digest_field": "decision_sha256", "status": "PASS", "recomputed_sha256": "2a434f542f58c6d43798e1562b7f203336eae7e5db4b6745095e3c9e7633ddb6"}
+    ]
+  },
+  "finding_recheck": [
+    {
+      "finding_id": "F-001",
+      "status": "CLOSED",
+      "evidence": "All six registry/stage canonicalization declarations now state formula, domain_prefix_utf8 and domain_separator_hex=00. The Sol decision already stated the equivalent rule. All seven stored hashes reproduce exactly.",
+      "remaining_condition": "Future validators must reject a domain, separator, order or content mutation; this recheck verified declared-formula reproduction but did not execute a validator suite."
+    },
+    {
+      "finding_id": "F-002",
+      "status": "CLOSED",
+      "evidence": "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:221-223 makes zero ER denominator/non-finite input typed UNKNOWN and blocks downstream updates; :244-246 does the same for RVOL median<=0, non-finite inputs, incomparable units and insufficient history. Measurement-contract global_rules.measurement_totality duplicates this contract.",
+      "remaining_condition": "A future pure-validator fixture suite must exercise these declared reasons, but the mathematical and failure semantics are now specified."
+    },
+    {
+      "finding_id": "F-003",
+      "status": "CLOSED",
+      "evidence": "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:547-559 defines R_j as pre-execution-cost result, so C_fill is not silently double-counted. Its :589-608 replaces the old PositionSize formula with the core v2.1 q expression, declares denominator and cap units, returns UNKNOWN on unresolved unit conversion, and preserves max_risk=0 at P0. CORE_TRADING_THEORY_v2_1.md:1237-1248 is identical in geometry and constraints.",
+      "remaining_condition": "The formula remains a research candidate and does not constitute account, execution or trading authorization."
+    },
+    {
+      "finding_id": "F-004",
+      "status": "CLOSED",
+      "evidence": "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:414-439 forbids unregistered PriorOrdinal and w_h_g, starts E0 instances at zero, specifies frozen A_g max-absolute deterministic tie-breaking, binds group and total caps, and gives the half-life formula. Parameter registry now declares PAR-EVIDENCE-AGGREGATOR, PAR-EVIDENCE-GROUP-CAP, PAR-EVIDENCE-TOTAL-CAP and PAR-EVIDENCE-HALF-LIFE with source types, units, ranges/boundaries, sensitivity and update conditions. Measurement-contract global_rules.ordinal_aggregation binds their use.",
+      "remaining_condition": "The parameter registry is still E0 design-only; no calibrated aggregation claim follows."
+    },
+    {
+      "finding_id": "F-005",
+      "status": "DEFERRED_BLOCKING",
+      "evidence": "RESEARCH_SYSTEM_THEORY_CHALLENGER_v1_0.md:395-398 and measurement-contract global_rules.machine_predicate_readiness explicitly state that natural-language hard falsifier/expiry rules are design inputs only and have status NOT_YET_EXECUTABLE_BLOCKS_D3_E2 until replaced by versioned observable/operator/threshold/clock/window/censoring/terminal predicates.",
+      "blocking_condition": "No per-hypothesis machine predicate schema or independent fixture execution was reviewed; D3/E2 must remain blocked until those exact predicates exist and pass independent tests.",
+      "minimum_next_test": "For each active hypothesis, require deterministic support, soft contradiction, hard falsifier, expiry and gap/censoring fixtures against its versioned predicate before D3/E2 eligibility."
+    }
+  ],
+  "open_observations": [
+    {
+      "observation_id": "O-001",
+      "status": "OPEN",
+      "scope": "future E2 probability contract",
+      "evidence": "The EV expression names p_j as conditional probabilities but the challenger section does not itself state a nonnegative, mutually exclusive/exhaustive outcome set with sum_j p_j=1. Core v2.1 separately defines ActionOutcome categories, but the challenger should reference that binding before numeric EV becomes eligible.",
+      "effect_now": "No current action consequence: E0/E2 prohibits pseudo-precise probability and current permission remains max_risk=0/ABSTAIN."
+    }
+  ],
+  "commands_and_exit_codes": [
+    {"command": "python3 canonical digest recomputation for six registries/stage contract plus Sol decision", "exit_code": 0, "result": "7/7 PASS"},
+    {"command": "nl -ba targeted challenger sections and rg targeted contract/parameter/hypothesis terms", "exit_code": 0, "result": "remediation evidence located"},
+    {"command": "jq targeted parameter and measurement-contract extraction", "exit_code": 0, "result": "registry bindings and D3/E2 blocker located"}
+  ],
+  "maximum_positive_conclusion": "All four directly remediable mathematical/contract defects from F-001 through F-004 are closed in the current artifacts: canonical identity is independently reproducible, ER/RVOL totality is fail-closed, EV cost terms and action geometry are made dimensionally explicit and aligned to core v2.1, and ordinal aggregation controls are frozen and registered. F-005 is correctly represented as a real D3/E2 blocker rather than executable logic. This is still E0 contract closure only; it establishes no market validity, calibration, execution performance, profitability or trading permission.",
+  "canonical_self_digest": "e02a90396bddf7ec006b4d33be616b58fa1af1daa8281fd3c073daacc9920fb3"
+}

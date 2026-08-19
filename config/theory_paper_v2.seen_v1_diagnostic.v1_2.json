@@ -1,0 +1,125 @@
+{
+  "schema_id": "theory_paper_v2_seen_v1_diagnostic_execution_amendment",
+  "schema_version": "1.2.0",
+  "amendment_id": "THEORY_AGENT_V2_SEEN_V1_DIAGNOSTIC_SEQUENTIAL_EXECUTION_20260802",
+  "evidence_class": "SEEN_V1_DIAGNOSTIC_REPLAY",
+  "parent_contracts": [
+    {
+      "path": "config/theory_paper_v2.seen_v1_diagnostic.v1.json",
+      "canonical_digest": "186caa897597c6a853fa5165dc2700e6a60c1c60549b1e2a8265dd5ad5c52499",
+      "freeze_commit": "76e8c3c6bf8e9101de4e2422bf3aff09cf9f496b"
+    },
+    {
+      "path": "config/theory_paper_v2.seen_v1_diagnostic.v1_1.json",
+      "canonical_digest": "edd29908d2996b51ce537fd43e5c75659ef7d890ccc23c992ab14e96fb9c3f31",
+      "physical_sha256": "5bee4b41c39ed5a4be9f725cb50bce861696e1eb30e376570cb5da61a439ed57",
+      "freeze_commit": "38d0836e9b76f39733f6883fa1ab3285647da903"
+    }
+  ],
+  "new_problem_audit": {
+    "problem_id": "N1_SKIPPED_INTERMEDIATE_CLOSED_BARS",
+    "cause": "The V1 process_market_bars reducer consumes only each snapshot's latest closed 1h bar, so a source-cycle gap longer than one hour does not replay the intermediate closed bars.",
+    "observed_source_gaps": [
+      {
+        "from_cycle": 10,
+        "to_cycle": 11,
+        "skipped_closed_1h_bars_per_symbol": 1
+      },
+      {
+        "from_cycle": 20,
+        "to_cycle": 21,
+        "skipped_closed_1h_bars_per_symbol": 1
+      }
+    ],
+    "total_skipped_symbol_bars": 12,
+    "recorded_v1_fill_impact": "NO_CHANGE_ON_THIS_SOURCE",
+    "impact_check": "The only protected open SNDK lot spanning the first skipped bar hit neither stop nor target; the portfolio was flat before the second skipped bar. The recorded V1 ledger remains factual and unmodified.",
+    "general_risk": "A different open-lot path could miss a protective barrier, MFE or MAE update. Candidate arms therefore use the corrected sequential matcher."
+  },
+  "candidate_clock_and_bar_sequence": {
+    "logical_decision_at": "SOURCE_ANALYSIS_DECISION_AT",
+    "market_cutoff": "SOURCE_MARKET_OBSERVED_AT_LTE_LOGICAL_DECISION_AT",
+    "feature_input": "ONLY_RAW_ROWS_WITH_CLOSE_TIME_LTE_SOURCE_MARKET_OBSERVED_AT",
+    "protective_replay": "BEFORE_EACH_DECISION_PROCESS_EVERY_NOT_PREVIOUSLY_PROCESSED_CLOSED_1H_BAR_IN_STRICT_CLOSE_TIME_ORDER",
+    "cross_symbol_order": "FOR_EACH_CLOSE_TIME_PROCESS_ALL_SIX_SYMBOLS_IN_LEXICOGRAPHIC_SYMBOL_ORDER_BEFORE_THE_NEXT_CLOSE_TIME",
+    "barrier_precedence": "STOP_FIRST_IF_MULTIPLE_PROTECTIVE_ENDPOINTS_MATCH",
+    "action_activation": "ACCEPTED_ACTION_BECOMES_EFFECTIVE_AT_LOGICAL_DECISION_AT_AND_MUST_NOT_MATCH_A_BAR_ALREADY_CLOSED_AT_OR_BEFORE_THAT_TIME",
+    "decision_mark": "SOURCE_SYMBOL_MEASURES_PRICE_OBSERVED_AT_SOURCE_MARKET_OBSERVED_AT",
+    "terminal_observation": "PROCESS_ALL_NEW_CLOSED_1H_BARS_THROUGH_CYCLE_25_MARKET_OBSERVED_AT_THEN_MARK_AT_CYCLE_25_SOURCE_PRICE"
+  },
+  "initial_state_mapping": {
+    "cash_positions_and_cost_basis": "EXACT_SOURCE_CONFIG_INITIAL_PORTFOLIO",
+    "initial_position_attribution": "EXOGENOUS",
+    "initial_position_role": "CORE",
+    "initial_order_policy": "CANCEL_ALL_REVIEW_REQUIRED_SOURCE_ORDERS_AT_CYCLE_1_BECAUSE_THE_CURRENT_POLICY_HAS_NO_AUTHORITY_TO_INHERIT_UNLABELED_LEGACY_ENTRY_INTENT",
+    "initial_order_comparability_note": "The recorded V1 policy also canceled all eleven source orders at cycle 1.",
+    "genesis_protection": "BEFORE_DISCRETIONARY_CYCLE_1_SELECTION_ATTACH_THE_CURRENT_PIT_LONG_STOP_TO_EACH_UNPROTECTED_EXOGENOUS_LOT; FAILURE_TO_DERIVE_VALID_GEOMETRY_STOPS_THE_ARM",
+    "position_direction": "CURRENT_CANDIDATE_ARMS_ARE_LONG_ONLY; NO_SHORT_RULE_IS_INVENTED_FROM_V1_OUTCOMES"
+  },
+  "action_execution": {
+    "registered_actions": "INHERIT_CONFIG_THEORY_PAPER_V2_CONTINUOUS_P0_V1",
+    "new_risk_notional_usdt": {
+      "OPEN_CORE": "625",
+      "REENTER_CORE": "625",
+      "ADD_CONFIRMATION": "312.5",
+      "ADD_TREND": "312.5"
+    },
+    "dynamic_target_policy": "NO_AUTOMATIC_FULL_TARGET; CANDIDATE_LOTS_HAVE_A_STOP_AND_TARGET_NULL",
+    "market_entry_and_exit": "SOURCE_MARK_WITH_2_BPS_ADVERSE_SLIPPAGE_AND_0.0005_TAKER_FEE",
+    "protective_stop": "ADVERSE_OF_STOP_AND_BAR_OPEN_WITH_3_BPS_ADVERSE_SLIPPAGE_AND_0.0005_TAKER_FEE",
+    "partial_take_profit": "CLOSE_ONE_HALF_OF_EACH_OPEN_LOT_AT_THE_CURRENT_MARK_SUBJECT_TO_POSITIVE_REMAINDER",
+    "reduce_tactical": "CLOSE_THE_MOST_RECENT_OPEN_TACTICAL_LOT_ONLY",
+    "trail": "STOP_MAY_ONLY_TIGHTEN_TO_THE_MAXIMUM_OF_PRIOR_STOP_CURRENT_GEOMETRY_STOP_AND_BOLLINGER_MIDDLE_WHILE_REMAINING_BELOW_MARK",
+    "exit_with_reentry": "CLOSE_ALL_SYMBOL_LOTS_AND_ATOMICALLY_OPEN_A_DURABLE_REENTRY_REVIEW_CONTRACT",
+    "invalidation": "CLOSE_ALL_SYMBOL_LOTS_AND_CANCEL_ANY_PENDING_REENTRY_CONTRACT",
+    "hard_risk_veto": "A_SELECTED_NEW_RISK_ACTION_IS_RECHECKED_IN_RECORDED_PORTFOLIO_EXECUTION_ORDER; A_VETO_IS_EXPLICIT_AND_COUNTS_AS_ACTION_FIDELITY_FAILURE_NEVER_A_SILENT_WAIT"
+  },
+  "portfolio_risk_order": {
+    "deterministic_arm": "RISK_REDUCING_ACTIONS_THEN_PROTECTION_OR_HOLD_THEN_NEW_RISK; WITHIN_CLASS_LEXICOGRAPHIC_SYMBOL",
+    "strategy_agent_arm": "AGENT_MUST_RANK_ALL_SIX_SYMBOLS_IN_ONE EXECUTION_ORDER; HARD_RISK_RECHECKS_THAT_ORDER",
+    "risk_limits": "INHERIT_SOURCE_V1_RISK_POLICY_WITH_CURRENT_FIXED_CORE_AND_TACTICAL_NOTIONALS",
+    "feasible_set_disclosure": "EVERY_REGISTERED_ACTION_REMAINS_LISTED_WITH_HARD_FEASIBLE_AND_REJECTION_REASON_CODES"
+  },
+  "single_strategy_agent_output": {
+    "one_call_per_cycle": true,
+    "portfolio_level": true,
+    "critic": "DISABLED",
+    "required_fields": [
+      "prior_state_digest",
+      "execution_order",
+      "symbol_decisions",
+      "portfolio_reason",
+      "requested_features"
+    ],
+    "per_symbol_required_fields": [
+      "symbol",
+      "selected_action",
+      "ranked_actions",
+      "path_updates",
+      "decision_reason",
+      "risk_cost_reason",
+      "wait_reason",
+      "exit_reason"
+    ],
+    "failure_policy": "FAIL_CLOSED_WITHOUT_RETRY_OR_RULE_CHANGE"
+  },
+  "implementation_freeze_gate": {
+    "candidate_policy_must_not_run_before_runner_code_and_tests_are_committed": true,
+    "successor_binding_must_record_runner_physical_sha256_and_freeze_commit": true,
+    "synthetic_fixture_testing_before_binding": true,
+    "source_v1_candidate_cycles_before_binding": 0
+  },
+  "unchanged": [
+    "SOURCE_V1_MARKET_VALUES",
+    "THREE_ARM_IDENTITIES",
+    "CURRENT_DETERMINISTIC_PRECEDENCE",
+    "CURRENT_SINGLE_STRATEGY_AGENT_MODEL_AND_BUDGET",
+    "V1_RISK_LIMITS",
+    "FEES_AND_SLIPPAGE",
+    "KNOWN_PROBLEM_HYPOTHESES_K1_THROUGH_K8",
+    "EVALUATION_HORIZONS_AND_METRICS",
+    "CLAIMS_FORBIDDEN",
+    "NO_ACCOUNT_CREDENTIAL_ORDER_OR_FUNDS_AUTHORITY"
+  ],
+  "status": "FROZEN_BEFORE_RUNNER_IMPLEMENTATION_AND_BEFORE_CANDIDATE_POLICY_RUN"
+}

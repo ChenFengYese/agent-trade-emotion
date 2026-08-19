@@ -1,0 +1,17 @@
+{
+  "policy_id": "btc-usdt-absorption-episode-v1",
+  "status": "FROZEN_EPISODE_POLICY",
+  "frozen_at": "2026-07-22T08:35:00Z",
+  "feature_version": "five-factor-proxy-v1",
+  "trigger_feature": "D_directional_pressure",
+  "trigger_threshold": 1.5,
+  "min_seconds_between_episodes": 30,
+  "state_machine": {
+    "pressure_threshold": 0.5,
+    "resilience_threshold": 0,
+    "response_fraction": 0.0003,
+    "max_observation_seconds": 300,
+    "confirmation_updates": 3
+  },
+  "notice": "Frozen after outcome-free descriptive feature inspection and before G1 feature construction. The symmetric absolute trigger is a candidate episode definition, not evidence of predictive value or a trading rule."
+}

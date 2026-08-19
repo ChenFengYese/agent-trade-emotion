@@ -1,0 +1,330 @@
+{
+  "schema_version": "pitar1-e0-validation-report.v1",
+  "report_id": "pitar1.e0-validation-report.v1",
+  "namespace": "pitar1",
+  "artifact_role": "integrated_validation_report",
+  "stage": "E0_LOCAL_CONTRACT_AND_SYNTHETIC_VALIDATION_ONLY",
+  "validation_state": "LOCAL_REVIEW_READY_AWAITING_EXTERNAL_SOL",
+  "route_binding": {
+    "route_id": "RSR-PITAR1-POINT_IN_TIME-AUTHORITY-REPLAY-v1",
+    "route_version": "1.0.0",
+    "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_ROUTE.v1",
+    "decision_physical_sha256": "a3dcb124477ac4f54189d659b7438431ea62ba6785f4c248fe2448e55f28035f",
+    "decision_canonical_sha256": "7e141bd47a728078c3a4dca02d231eae2bcbe6a3f12ff39c6e01c37e92556932",
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "baseline_identity_audit": {
+    "checked_count": 12,
+    "match_count": 12,
+    "mismatch_count": 0,
+    "bindings": [
+      {
+        "binding_id": "route_decision",
+        "physical_sha256": "a3dcb124477ac4f54189d659b7438431ea62ba6785f4c248fe2448e55f28035f",
+        "canonical_sha256": "7e141bd47a728078c3a4dca02d231eae2bcbe6a3f12ff39c6e01c37e92556932",
+        "result": "MATCH"
+      },
+      {
+        "binding_id": "program_governance",
+        "physical_sha256": "69125790fa36c0c4f72ebdecea4f5415be73a9e4fba78c6c1aa53b9639ef6f09",
+        "result": "MATCH"
+      },
+      {
+        "binding_id": "data_authority_standard",
+        "physical_sha256": "03a38e2e4fa5f299b9ed698b0e0d185addf67984bb5e4712d9cc2bd742fd9f72",
+        "result": "MATCH"
+      },
+      {
+        "binding_id": "research_stage_contract",
+        "physical_sha256": "ab81251c0ea70e945d9ea7176e9cb59e7353477212dcf36a2d9e4424f944674b",
+        "canonical_sha256": "d84c8ba50d828688020a5197202a58985079cdc64938c58fe9c54e3cb69b6fba",
+        "result": "MATCH"
+      },
+      {
+        "binding_id": "source_authority_registry",
+        "physical_sha256": "693cc7361c16fb154df97bf2c58a1e68807f990dc976df949658e7ce635abb12",
+        "canonical_sha256": "faa6f33577d71275939b7bdf56fa850aecb3b75eed8df5ee175fb9340a3d4324",
+        "result": "MATCH"
+      },
+      {
+        "binding_id": "accepted_research_foundation",
+        "physical_sha256": "ff9f2b608fe387b953e5d18e1a3cd0a246fcc43bf209f694ffab53f867a8f4cf",
+        "canonical_sha256": "d0968a40d33cea693cd2ad979a656b7897c30fe58b3cd94d85b6f1ce5afd6a58",
+        "result": "MATCH"
+      },
+      {
+        "binding_id": "accepted_dynamic_policy",
+        "physical_sha256": "c5a8e2a99d81c9b6729e5eb6c696e669c44fdba7af8c84ae9e743ff089edf446",
+        "canonical_sha256": "adcc574e67c70eae33fc9c56cc4285566646c07c44fef2ccfb56d8a4959f21f2",
+        "result": "MATCH"
+      },
+      {
+        "binding_id": "current_core_theory",
+        "physical_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d",
+        "result": "MATCH"
+      },
+      {
+        "binding_id": "current_core_manifest",
+        "physical_sha256": "a3e174c616b176253f4aef2ce267a932d43f7e64db3490db815a27f007df12d4",
+        "result": "MATCH"
+      },
+      {
+        "binding_id": "terminal_negative_authority",
+        "physical_sha256": "26355176199bde8cc20e73e2183b43a14bf6210b3a3c41c9480c51b204b9d759",
+        "canonical_sha256": "ceda54e7a7f6c37fc691096ce851b7ae9e079336e525db5d9da16e023772478f",
+        "result": "MATCH_AS_ROUTE_BOUND_NEGATIVE_AUTHORITY_ONLY"
+      },
+      {
+        "binding_id": "isolated_active_package_decision",
+        "physical_sha256": "3417205afc38247bc8463ddd6e18cf54dffe51724571100a974f9572309127c8",
+        "canonical_sha256": "e143fae7d8c8094298f65bc6724de35f368f25e739e6fe2a35cfdf69fd1d6272",
+        "result": "MATCH_AS_ISOLATION_AUTHORITY_ONLY"
+      },
+      {
+        "binding_id": "terminal_chronology_route_and_guard",
+        "route_physical_sha256": "9ef2ca7d75ca714cb85a8afa76f1115c7ff37e0b520a6bc983736441c895095d",
+        "guard_physical_sha256": "5cdc23c6d0db3c84c89016920835265faba5c70f0c8520a1328b652029bd5e8a",
+        "result": "MATCH_AS_CHRONOLOGY_ISOLATION_AUTHORITY_ONLY"
+      }
+    ]
+  },
+  "candidate_scope": {
+    "declared_artifact_count": 13,
+    "allowlist_artifact_count": 13,
+    "candidate_path_outside_allowlist_count": 0,
+    "existing_allowlist_artifact_modified_count": 0,
+    "all_candidate_paths_absent_from_head": true,
+    "final_inventory_path": "config/pit_authority_replay.e0_artifact_inventory.v1.json",
+    "inventory_is_last_materialized_artifact": true,
+    "global_workspace_preexisting_or_concurrent_dirty_state": true,
+    "global_dirty_state_attributed_to_this_candidate": false,
+    "scope_claim": "Only the exact thirteen PITAR1 allowlist paths are attributed to this candidate; unrelated workspace modifications and untracked files are excluded and preserved."
+  },
+  "artifact_self_digest_audit": {
+    "contract_count": 6,
+    "source_record_count": 1,
+    "checked_count": 7,
+    "match_count": 7,
+    "mismatch_count": 0,
+    "digests": {
+      "authority_bundle_contract": "5352ece7122480723cfc069b987663ccb089a5887688e30f52204e3179c3f722",
+      "pit_admission_contract": "4a0e5715b0fcb97917149a0fabfd489318f31c0580e5896ee90e71d51cbaa3e5",
+      "source_inventory_contract": "32764ee39297ddcb9f64ef32f0a5734a34f085045f14087e3cc886e597f6f9b8",
+      "chronology_contract": "40338cbac39e4a25ebdab9e710fcb11370c95e929acfc0ea62a9ec292a7ca913",
+      "adapter_replay_contract": "2da2595895f27029d970217b5d34e91285159b74aaf7fd0c77c15ce84f0e3550",
+      "development_comparison_contract": "bb4046b84f18ab5fd368e3cec658aae6c197abaac34ca1871206972aab2998c3",
+      "source_discovery_record": "7aecbf426befa8efae10e55e4998fb5431d172b7a7b4a27372971af2119f2d10"
+    }
+  },
+  "builder_validation": {
+    "commands": [
+      {
+        "command": "PYTHONPYCACHEPREFIX=/private/tmp/pitar1-pycache python3 -m unittest -q tests.test_pit_authority_replay_contract_v1",
+        "exit_code": 0,
+        "result": "69_TESTS_PASS",
+        "elapsed_seconds": 0.358
+      },
+      {
+        "command": "PYTHONPYCACHEPREFIX=/private/tmp/pitar1-pycache python3 -m py_compile trade_system/pit_authority_replay_contract_v1.py tests/test_pit_authority_replay_contract_v1.py",
+        "exit_code": 0,
+        "result": "PASS"
+      },
+      {
+        "command": "INDEPENDENT_DOMAIN_SEPARATED_DIGEST_RECOMPUTATION_FOR_SIX_CONTRACTS_AND_SOURCE_RECORD",
+        "exit_code": 0,
+        "result": "7_OF_7_MATCH"
+      },
+      {
+        "command": "ROUTE_FORBIDDEN_TOKEN_SCAN_OVER_CANDIDATE_FILES",
+        "exit_code": 0,
+        "result": "NO_HITS"
+      }
+    ],
+    "unit_test_count": 69,
+    "unit_test_pass_count": 69,
+    "unit_test_failure_count": 0,
+    "contract_leaf_mutation_count": 752,
+    "source_record_leaf_mutation_count": 163,
+    "total_leaf_mutation_count": 915,
+    "compile_result": "PASS",
+    "validator_purity_ast_result": "PASS",
+    "totality_wrong_shape_result": "PASS"
+  },
+  "repair_history": [
+    {
+      "round": 1,
+      "observed_result": "55_TESTS_RUN_20_FAILURES",
+      "root_cause": "The source inventory uses a global disposition rather than a permission-ceiling object, so the generic permission check rejected the clean six-document bundle before admission attacks were reached.",
+      "repair": "Validate the source inventory global DENIED, candidate non-self-acceptance, ABSTAIN and zero-risk fields separately.",
+      "disposition": "CLOSED"
+    },
+    {
+      "round": 2,
+      "observed_result": "55_TESTS_RUN_1_FAILURE",
+      "root_cause": "A future-row negative fixture also made its evidence future, so the earlier hard failure correctly returned FUTURE_EVIDENCE.",
+      "repair": "Make each negative fixture trigger only its intended boundary.",
+      "disposition": "CLOSED"
+    },
+    {
+      "round": 3,
+      "observed_result": "ADDITIONAL_P0_HARDENING",
+      "root_cause": "Receipt-chain, aggregate-bar ambiguity, trajectory denominator, boolean-as-integer, future bundle and event-after-availability semantics required explicit executable assertions.",
+      "repair": "Add pure synthetic validators and targeted positive and negative fixtures.",
+      "disposition": "CLOSED_WITH_69_OF_69_PASS"
+    }
+  ],
+  "independent_review_binding": {
+    "path": "artifacts/pit_authority_replay_e0_adversarial_review.v1.json",
+    "physical_sha256": "969b0d8900b3e5872eb5392dc8da81d31427a61dee73c23fcb2ff027cfe94cd4",
+    "canonical_sha256": "ed932ead749a3f5300dfbe73cf2ddc2ab2171aecfb6ddc2df11bb7f3132c6012",
+    "reviewer_result": "INDEPENDENT_ATTACK_REPRODUCTION_PASS_NOT_EXTERNAL_ACCEPTANCE",
+    "clean_candidate": "VALID_E0_SYNTHETIC_FIXTURE",
+    "historical_attack_rejection_count": 11,
+    "historical_attack_false_admission_count": 0,
+    "independent_unit_test_count": 69,
+    "independent_unit_test_pass_count": 69,
+    "independent_compile_result": "PASS"
+  },
+  "semantic_validation": {
+    "raw_bytes_and_zero_byte_identity": "PASS_SYNTHETIC",
+    "external_authority_pinning": "PASS_SYNTHETIC",
+    "five_clocks_and_conservative_available_at": "PASS_SYNTHETIC",
+    "future_tip_evidence_bundle_row_rejection": "PASS_SYNTHETIC",
+    "revision_append_only_gap_fork_and_visibility": "PASS_SYNTHETIC",
+    "exact_duplicate_idempotency": "PASS_SYNTHETIC",
+    "identity_payload_conflict_quarantine": "PASS_SYNTHETIC",
+    "typed_gap_unknown_censor_and_denominator": "PASS_SYNTHETIC",
+    "chronology_role_lock_and_isolation": "PASS_SYNTHETIC",
+    "adapter_interface_only_and_forbidden_operations": "PASS_SYNTHETIC_NOT_EXECUTED",
+    "deterministic_sort_and_receipt_chain": "PASS_SYNTHETIC_NOT_RUNTIME",
+    "bar_close_and_double_barrier_ambiguity": "PASS_SYNTHETIC",
+    "four_policy_equal_information_cost_risk_and_denominator": "PASS_SYNTHETIC_NO_SCORING",
+    "trajectory_schema_and_post_outcome_boundary": "PASS_SYNTHETIC_NO_DATASET",
+    "d0_unknown_cap_and_alias_fail_closed": "PASS_DOCUMENT_PLAN_ONLY"
+  },
+  "source_discovery_result": {
+    "record_status": "WAIT_DATA",
+    "eligible_source_count": 9,
+    "ready_count": 0,
+    "wait_data_count": 9,
+    "lowest_cost_conditional_candidate": "SRC-BINANCE-PUBLIC-DATA-README",
+    "lowest_cost_candidate_status": "WAIT_DATA",
+    "builder_network_requests": 0,
+    "document_open_request_count_reported_by_independent_source_auditor": 34,
+    "redirect_hop_count_reported": 1,
+    "total_response_bytes": "UNKNOWN_NOT_CAPTURED",
+    "largest_response_bytes": "UNKNOWN_NOT_CAPTURED",
+    "complete_http_statuses": "UNKNOWN_NOT_CAPTURED",
+    "per_request_elapsed_and_internal_concurrency": "UNKNOWN_NOT_EXPOSED",
+    "physical_document_digests": "UNKNOWN_NOT_CAPTURED",
+    "resource_cap_compliance": "NOT_FULLY_PROVEN",
+    "market_or_macro_rows_accessed": false,
+    "archive_or_bulk_objects_accessed": false,
+    "authenticated_or_paid_access_used": false
+  },
+  "d0_plan_result": {
+    "plan_id": "pitar1-binance-usdm-archive-candidate-v1",
+    "status": "WAIT_DATA",
+    "non_executing": true,
+    "blocking_unknown_count": 6,
+    "blocking_unknowns": [
+      "MARKET_DATA_REUSE_AND_JURISDICTION_TERMS",
+      "EXACT_INSTRUMENT_AND_PRE_2025_WINDOW",
+      "EXACT_OBJECT_URLS_AND_SIZES",
+      "PER_OBJECT_CHECKSUM_EXPECTATIONS",
+      "HISTORICAL_AVAILABLE_AT",
+      "GAP_AND_REPLACEMENT_SEMANTICS"
+    ],
+    "acquisition_permission": "DENIED_REQUIRES_NEW_SOL_D0_DECISION"
+  },
+  "explicitly_not_executed": [
+    "MARKET_OR_MACRO_ROW_ACQUISITION",
+    "ARCHIVE_OR_BULK_OBJECT_DOWNLOAD",
+    "RAW_RUNTIME_ADMISSION",
+    "ADAPTER_RUNTIME",
+    "REPLAY_RUNTIME",
+    "REAL_DATASET_BUILD",
+    "FEATURE_OR_LABEL_BUILD",
+    "POLICY_SCORING",
+    "BACKTEST",
+    "CALIBRATION",
+    "HOLDOUT",
+    "PAPER_OR_TESTNET",
+    "DEPLOYMENT",
+    "TRADING"
+  ],
+  "open_facts_and_risks": [
+    {
+      "finding_id": "PITAR1-E0-OPEN-001",
+      "status": "WAIT_DATA",
+      "fact": "No source has an exact terms, object, checksum, point-in-time clock, revision, gap, size and cost closure for a D0 activation decision.",
+      "effect": "D0 acquisition remains denied."
+    },
+    {
+      "finding_id": "PITAR1-E0-OPEN-002",
+      "status": "NOT_EVALUATED",
+      "fact": "Synthetic contract closure does not establish correctness on admitted real bytes or real revisions.",
+      "effect": "D1 and D2 remain denied."
+    },
+    {
+      "finding_id": "PITAR1-E0-OPEN-003",
+      "status": "NOT_AUTHORIZED",
+      "fact": "No real trajectory dataset or four-policy score exists.",
+      "effect": "D3, E2 and every market-effect claim remain unavailable."
+    },
+    {
+      "finding_id": "PITAR1-E0-OPEN-004",
+      "status": "EXTERNAL_GATE_REQUIRED",
+      "fact": "The builder and independent Terra reviewer cannot accept the candidate.",
+      "effect": "External Sol must decide ACCEPT, REWORK_LOCAL, WAIT_DATA or REWORK_ROUTE."
+    }
+  ],
+  "permission_matrix": {
+    "candidate_may_accept_itself": false,
+    "d0_acquisition": "DENIED",
+    "d1_runtime_admission": "DENIED",
+    "d2_adapter_or_replay": "DENIED",
+    "d3_dataset": "DENIED",
+    "e2_evaluation": "DENIED",
+    "e3_paper": "DENIED",
+    "deployment": "DENIED",
+    "trading": "DENIED",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "claim_boundary": {
+    "e0_contract_candidate": "LOCAL_REVIEW_READY_AWAITING_EXTERNAL_SOL",
+    "source_document_discovery": "BOUNDED_FACT_SUMMARY_WITH_INCOMPLETE_RESOURCE_ACCOUNTING",
+    "source_data_validity": "NOT_EVALUATED",
+    "point_in_time_real_data_validity": "NOT_EVALUATED",
+    "adapter_or_replay_runtime_validity": "NOT_EVALUATED",
+    "market_validity": "NOT_EVALUATED",
+    "predictive_validity": "NOT_EVALUATED",
+    "probability_calibration": "NOT_AUTHORIZED",
+    "positive_expected_value": "NOT_EVALUATED",
+    "profitability": "NOT_EVALUATED",
+    "paper": "NOT_AUTHORIZED",
+    "deployment": "DENIED",
+    "trading": "DENIED",
+    "maximum_positive_claim": "The exact PITAR1 E0 contracts and synthetic fail-closed semantics form a locally review-ready candidate with 69 of 69 builder and independent tests passing; all nine official-source candidates remain WAIT_DATA, no market or macro rows were acquired, and external Sol acceptance is still required."
+  },
+  "canonicalization": {
+    "algorithm": "SHA-256",
+    "encoding": "UTF-8",
+    "ensure_ascii": true,
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "domain_prefix_utf8": "pitar1/e0-validation-report/v1",
+    "domain_separator_hex": "00",
+    "digest_field": "report_sha256",
+    "excluded_fields": [
+      "report_sha256"
+    ]
+  },
+  "report_sha256": "1ff7fb9d2cd0408559c1e10073462a3bcc987a252ddb4e8f8701345ed9516cb0"
+}

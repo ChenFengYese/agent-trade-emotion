@@ -1,0 +1,588 @@
+{
+  "schema_version": "sol-research-system-pit-authority-replay-sd0-client-p0-r6-repair-decision.v1",
+  "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R6_REPAIR.v1",
+  "issued_at": "2026-07-28T14:21:57Z",
+  "issued_by": "GPT-5.6-SOL_ULTRA_R5_COMPLETION_REJECTION_GATE",
+  "decision_state": "REJECT_R5_CANDIDATE_CONTINUE_R3_R4_R5_SUSPENSION_AUTHORIZE_TWO_FILE_R6_REPAIR",
+  "decision_class": "P0_R6_EXACT_NESTED_CONTEXT_PROJECTION_ORDER_AND_CLEANUP_REPAIR",
+  "evidence_level": "LOCAL_SOURCE_AUDIT_AND_ROOT_TERRA_OFFLINE_COUNTEREXAMPLE_EVIDENCE_ONLY",
+  "issue": {
+    "issue_id": "PITAR1-SD0-CLIENT-P0-R6",
+    "stage": "SD0",
+    "severity": "P0",
+    "completion_review_of": "PITAR1-SD0-CLIENT-P0-R5",
+    "completion_result": "REJECT_R5_REPAIR_CONTINUE_R3_R4_R5_SUSPENSION",
+    "trigger": "R5_CANDIDATE_PASSES_NOMINAL_51_SCOPED_120_COMBINED_BUT_INTEGRATED_COUNTEREXAMPLES_REMAIN_OPEN",
+    "open_root_causes": [
+      "Nested authority and static results are validated by shape rather than exact equality to an independently captured expected context.",
+      "Local TCP precheck occurs before actual phased-route authority validation.",
+      "READY document and accepted context are not revalidated as one exact projection by persist_ready and execute.",
+      "A BaseException from the first cleanup prevents the second cleanup attempt."
+    ],
+    "workspace_only": true,
+    "network_requests": 0,
+    "workspace_preflight_outputs": 0,
+    "workspace_runtime_outputs": 0,
+    "active_g1_access": 0,
+    "market_data_access": 0,
+    "backtest_runs": 0,
+    "paper_or_live_actions": 0,
+    "holdout_at_risk": false,
+    "funds_at_risk": false,
+    "repair_owner": "GPT-5.6-TERRA_HIGH",
+    "completion_gate_owner": "GPT-5.6-SOL_ULTRA"
+  },
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e",
+    "audited_at": "2026-07-28T14:21:57Z"
+  },
+  "authority_bindings": {
+    "r5_blocker_and_repair_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r5-repair.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R5_REPAIR.v1",
+      "decision_state": "CONTINUE_R3_R4_PRODUCTION_SUSPENSION_AUTHORIZE_TWO_FILE_R5_REPAIR",
+      "size_bytes": 42892,
+      "physical_sha256": "9701d528322cf85795405069b5aa0b10160d4db2923096c5fdd10ac5c60a46a9",
+      "canonical_sha256": "9389912b333bbec965a7efb4e1368e03cc7ea2b83843908553693cf2e609e112",
+      "binding_result": "MATCH",
+      "disposition": "IMMUTABLE_REPAIR_AUTHORITY_PRESERVED_CANDIDATE_REJECTED"
+    },
+    "r4_blocker_and_repair_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r4-repair.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R4_REPAIR.v1",
+      "decision_state": "CONTINUE_R3_PRODUCTION_SUSPENSION_AUTHORIZE_TWO_FILE_R4_REPAIR",
+      "size_bytes": 38029,
+      "physical_sha256": "09581d04f9b7e8ca9dd32185d5efe8d2872ec311048cbdf7be546121660b643d",
+      "canonical_sha256": "f427f93794c7db76a3cf9090f2cdd10e080a6c786e6d1de6c7f73fa2d7d0c283",
+      "binding_result": "MATCH"
+    },
+    "r3_suspension_decision": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-client-p0-r3-repair.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_CLIENT_P0_R3_REPAIR.v1",
+      "decision_state": "CONTINUE_SD0_SUSPENSION_AUTHORIZE_TWO_FILE_R3_REPAIR",
+      "size_bytes": 30654,
+      "physical_sha256": "51c4e532c451472dbf0dbf02e1fae08fd994c1c92797b2f39ff1b1e68b699faf",
+      "canonical_sha256": "1e77ed08350f998ad4bc4c7fa9ced261373fb824b7cd3cb537c3eecb5177aeb7",
+      "binding_result": "MATCH",
+      "effect": "The production suspension remains authoritative and is continued by R4, R5, and R6."
+    },
+    "phased_route": {
+      "path": "config/sol_decision.research-system-pit-authority-replay-sd0-d0-phased-route.v1.json",
+      "decision_id": "SOL_RESEARCH_SYSTEM_PIT_AUTHORITY_REPLAY_SD0_D0_PHASED_ROUTE.v1",
+      "decision_state": "AUTHORIZED_METERED_SD0_CLOSURE_ROUTE_NETWORK_WAIT_D0_AND_LATER_GATES_LOCKED",
+      "size_bytes": 39834,
+      "physical_sha256": "776a7b69c2655dd76eb84ccab12b3fbac30aef6a81b0f6ebad27ab391b129ec0",
+      "canonical_sha256": "a777dc9411f638f1d3728f7f98f4ccbb64673f06b8f344dd3489efcdc5b79eeb",
+      "binding_result": "MATCH"
+    },
+    "measurement_contract": {
+      "path": "config/pit_authority_replay.sd0_measurement_contract.v1.json",
+      "contract_id": "PITAR1_SD0_MEASUREMENT_CONTRACT.v1",
+      "size_bytes": 17452,
+      "physical_sha256": "e2cd42a3930e0ede4d5d003742c2abdc76faa755ae86d20074c9d1f60f79e681",
+      "canonical_sha256": "4ed9f22451ede5c834c20e4f1786d344847166b646f9a1b17d2948e16c617a5b",
+      "binding_result": "MATCH_CANONICAL_SELF_DIGEST"
+    },
+    "request_plan": {
+      "path": "config/pit_authority_replay.sd0_request_plan.v1.json",
+      "plan_id": "PITAR1_SD0_EXACT_REQUEST_PLAN.v1",
+      "size_bytes": 4942,
+      "physical_sha256": "3f2f487f824643d870bb9d023e6d883e4c7d28bc9fb0bc769cb5d21253a7079c",
+      "canonical_sha256": "a334816cca1cbdf676e1b935a3404f5803d4ee892c25d2e1d7d34d3a02ea6fe7",
+      "binding_result": "MATCH_CANONICAL_SELF_DIGEST"
+    },
+    "rejected_r5_client_candidate": {
+      "path": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 51644,
+      "physical_sha256": "7a741beea650a300b942879f1a0a02739495622c496a3e2f32fa9cc18a9c6e6a",
+      "candidate_disposition": "REJECT_PRECHECK_SAFE_R6_REPAIR_ALLOWED"
+    },
+    "insufficient_r5_test_candidate": {
+      "path": "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+      "size_bytes": 54227,
+      "physical_sha256": "5936bcb9490b2d43df63f0e18e243f75e56af136b05fa4e9e1abea116086005d",
+      "candidate_disposition": "PASS_NOMINAL_COUNTS_BUT_INTEGRATED_ASSERTIONS_INCOMPLETE_R6_REPAIR_ALLOWED"
+    }
+  },
+  "reported_test_facts": {
+    "source": "ROOT_AND_TERRA_INDEPENDENT_FACT_PACKAGES",
+    "syntax_result": "PASS",
+    "scoped_result": {
+      "tests_run": 51,
+      "passed": 51,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "combined_result": {
+      "tests_run": 120,
+      "passed": 120,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "diff_check": "PASS",
+    "sol_rerun": false,
+    "sol_rerun_reason": "This completion review was explicitly prohibited from invoking preflight. The test suite invokes temporary-root preflight, so Sol used the independent root/Terra counts and performed source and artifact audit only.",
+    "interpretation": "Test names and counts do not establish invariant closure. The exact integrated counterexamples supersede the nominal PASS.",
+    "precheck_safe": "NO"
+  },
+  "offline_counterevidence": {
+    "rehashable_nested_static_result": {
+      "network": false,
+      "method": "Starting from a valid context, replace static_path_results[0].physical_sha256 with sixty-four zeroes and recompute context_sha256.",
+      "context_is_ready": true,
+      "result": "CONFIRMED_R5_I01_AND_R5_T25_NOT_CLOSED"
+    },
+    "rehashable_malicious_authority_result": {
+      "network": false,
+      "method": "Replace authority_binding_results with one matched=true entry whose path is evil and whose expected and actual digests are sixty-four zeroes, then recompute context_sha256.",
+      "context_is_ready": true,
+      "result": "CONFIRMED_EXTERNAL_EXPECTED_AUTHORITY_NOT_COMPARED"
+    },
+    "route_validation_after_tcp": {
+      "network": false,
+      "method": "Delete the temporary-root actual phased-route decision, count tcp_probe calls, then invoke temporary-root preflight.",
+      "tcp_probe_calls": 1,
+      "terminal_result": "WAIT_DATA",
+      "result": "CONFIRMED_LOCAL_ROUTE_AUTHORITY_FAILURE_OCCURS_AFTER_NETWORK_PRECHECK_BOUNDARY"
+    },
+    "forged_ready_document_projection": {
+      "network": false,
+      "method": "Change a valid READY document route_binding.branch to forged-branch, recompute preflight_sha256, and register the forged snapshot with the unchanged accepted context.",
+      "persist_ready": "SUCCEEDED",
+      "mock_opener_calls": 7,
+      "execute_terminal_disposition": "WAIT_DATA_TERMS_D0_DENIED",
+      "result": "CONFIRMED_DOCUMENT_AND_CONTEXT_PAIR_IS_NOT_REVALIDATED"
+    },
+    "cleanup_memory_error": {
+      "network": false,
+      "method": "A valid mock HEAD response raises MemoryError from response.close while connection.close records whether it is called.",
+      "cleanup_order": [
+        "response.close"
+      ],
+      "connection_close_attempted": false,
+      "result": "CONFIRMED_FIRST_BASEEXCEPTION_PREVENTS_SECOND_CLEANUP"
+    },
+    "nominal_test_coverage_gaps": [
+      "R5-T21 uses bad git for the whole call rather than initial-good then final-stable-bad.",
+      "R5-T22 mutates only inode.",
+      "R5-T23 does not assert tcp_probe_calls=0.",
+      "R5-T24 tests only empty JSON physical drift.",
+      "R5-T25 omits nested authority and static mutations and therefore passes despite the reproduced failures.",
+      "R5-T26 tests only a positive projection.",
+      "R5-T27 tests only route drift and persistence.",
+      "R5-T28 invokes only preflight and main.",
+      "R5-T29 and R5-T30 bypass StdlibProxyOpener.",
+      "R5-T32 does not invoke cleanup."
+    ],
+    "workspace_effect": {
+      "workspace_preflight_created": false,
+      "workspace_runtime_created": false,
+      "network_requests": 0,
+      "active_g1_access": 0,
+      "real_data_access": 0
+    }
+  },
+  "finding_decisions": [
+    {
+      "finding_id": "R6-P0-1",
+      "reported_finding": "Nested static and authority values remain replaceable if their shapes and recomputed context digest look valid.",
+      "decision": "CONFIRMED_P0",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:388-406",
+      "facts": [
+        "Static validation checks path order, present=true, and hex syntax but not exact equality with an independently captured expected static result.",
+        "Authority validation checks matched=true and hex syntax but not path/order/equality with contract authority bindings.",
+        "context_sha256 is recomputable by the same party changing nested values.",
+        "R5-T25 does not mutate either reproduced nested structure."
+      ],
+      "repairability": "CLIENT_AND_TEST_ONLY"
+    },
+    {
+      "finding_id": "R6-P0-2",
+      "reported_finding": "Actual phased-route authentication is positioned after tcp_probe.",
+      "decision": "CONFIRMED_P0",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:408-446",
+      "facts": [
+        "preflight invokes tcp_probe at lines 430-431.",
+        "_route_authority is reached only through _issuing_context at lines 433-434.",
+        "A missing route therefore produces one TCP-precheck call before failing.",
+        "R5-I02 expressly requires failure before mock TCP or network precheck."
+      ],
+      "repairability": "CLIENT_AND_TEST_ONLY_LOCAL_VALIDATION_REORDER"
+    },
+    {
+      "finding_id": "R6-P0-3",
+      "reported_finding": "READY document self-validation does not verify its exact projection onto the paired accepted context.",
+      "decision": "CONFIRMED_P0",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:439-459,535-545",
+      "facts": [
+        "_ready_snapshot validates registry membership, snapshot bytes, self-digest, READY state, and external_requests_sent.",
+        "It does not compare route_binding, authority results, static results, output results, or request plan digest with the paired accepted context.",
+        "persist_ready and execute recapture external context but compare only that recapture with the stored context.",
+        "A forged self-consistent READY document paired with the unchanged valid context therefore persists and executes."
+      ],
+      "repairability": "CLIENT_AND_TEST_ONLY_EXACT_PROJECTION_VALIDATOR"
+    },
+    {
+      "finding_id": "R6-P0-4",
+      "reported_finding": "MemoryError from response.close prevents connection.close.",
+      "decision": "CONFIRMED_P0_RESOURCE_CLEANUP_INVARIANT",
+      "source_lines": "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py:467-505",
+      "facts": [
+        "The cleanup loop immediately re-raises MemoryError from the first closer.",
+        "The second closer is never attempted.",
+        "R5-I06 requires both cleanup attempts while preserving BaseException semantics.",
+        "R5-T32 constructs a finished HttpResponse directly and never invokes StdlibProxyOpener cleanup."
+      ],
+      "repairability": "CLIENT_AND_TEST_ONLY"
+    }
+  ],
+  "route_contract_plan_schema_decision": {
+    "structural_route": "REMAINS_VALID",
+    "measurement_contract": "REMAINS_VALID_AND_FROZEN",
+    "request_plan": "REMAINS_VALID_AND_FROZEN",
+    "artifact_schemas": "REMAIN_VALID_AND_FROZEN",
+    "new_route_required_now": false,
+    "contract_change_required_now": false,
+    "plan_change_required_now": false,
+    "schema_change_required_now": false,
+    "reason": "All four defects concern comparison, operation ordering, internal document-context validation, and cleanup control flow. No output field, failure state, request, cap, transport, or claim must change.",
+    "network_permission": "SUSPENDED_BY_R3_R4_R5_AND_R6",
+    "workspace_preflight_permission": "SUSPENDED_BY_R3_R4_R5_AND_R6",
+    "workspace_runtime_permission": "SUSPENDED_BY_R3_R4_R5_AND_R6",
+    "automatic_resume": false,
+    "completion_gate_required": true
+  },
+  "minimal_repair_authorization": {
+    "authorized": true,
+    "implementation_agent": "GPT-5.6-TERRA_HIGH",
+    "exact_mutable_file_allowlist": [
+      "trade_system/pit_authority_replay_sd0_metered_fetch_v1.py",
+      "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py"
+    ],
+    "maximum_mutable_files": 2,
+    "new_production_files": 0,
+    "new_test_files": 0,
+    "modify_r2_r3_r4_or_r5_decision": false,
+    "modify_this_r6_decision": false,
+    "modify_route": false,
+    "modify_contract": false,
+    "modify_plan": false,
+    "modify_schema_or_specification": false,
+    "install_dependencies": false,
+    "run_offline_tests": true,
+    "network": false,
+    "workspace_preflight_or_runtime": false,
+    "active_g1": false,
+    "data_backtest_paper_live_funds": false,
+    "scope_stop_rule": "If repair requires any mutation beyond the exact client and test or any new schema, output, route, helper, dependency, transport, or failure state, stop and return to Sol."
+  },
+  "mandatory_repair_invariants": [
+    {
+      "invariant_id": "R6-I01",
+      "name": "EXACT_CONTEXT_EQUALS_INDEPENDENT_EXPECTED_SNAPSHOT",
+      "requirements": [
+        "_context_is_ready must not accept a context without an independently produced expected/current snapshot argument or equivalent direct SafeRoot recapture.",
+        "After validating both self-digests, compare the complete canonical context value with the independent expected/current context, including every nested list, mapping, field, order, path, boolean, and digest.",
+        "The equality comparison includes resolved_root, device, inode, branch, HEAD, complete route binding, actual route physical/canonical identities, contract/plan physical/canonical identities, authority_binding_results, static_path_results, network_output_absence, and preflight phase.",
+        "Authority results must exactly equal the contract-derived ordered list. A path not present in contract, changed order, changed expected hash, changed actual hash, changed matched flag, missing entry, or extra entry is invalid.",
+        "Static results must exactly equal the independent current capture in STATIC_PATHS order. Any nested physical digest, present flag, path, missing entry, or extra entry is invalid.",
+        "Recomputing context_sha256 after any nested or top-level mutation never converts it into authority.",
+        "At issuance, independently captured contexts must be exact equals and each must pass frozen-policy checks. At persistence and execution, a fresh external capture must exactly equal the stored accepted context."
+      ]
+    },
+    {
+      "invariant_id": "R6-I02",
+      "name": "ALL_LOCAL_AUTHORITY_BEFORE_TCP_PRECHECK",
+      "requirements": [
+        "Before tcp_probe or _tcp can be called, perform one complete local authority capture covering root, device/inode, git, actual phased route, contract, plan, all authority files, all static files, and output absence.",
+        "The pre-TCP capture must pass R6-I01, all frozen pins, and the actual route strict physical/canonical/id/state/identity checks.",
+        "Missing, symlinked, nonregular, unreadable, malformed, or drifted actual route fails with tcp_probe_calls=0, no READY registry insertion, no preflight persistence, no runtime output, and no opener construction/call.",
+        "Invalid authority/static/root/git/contract/plan/output state also fails before TCP.",
+        "Only after local authority and test-evidence checks pass may the bounded TCP precheck occur.",
+        "After TCP returns, retain the R5-required repeated/final fresh context captures so a change during TCP cannot authorize READY."
+      ]
+    },
+    {
+      "invariant_id": "R6-I03",
+      "name": "READY_DOCUMENT_CONTEXT_PROJECTION_IS_CAPABILITY_INVARIANT",
+      "requirements": [
+        "Create one deterministic projection helper from accepted context to existing READY document fields.",
+        "The exact projection includes route_binding, authority_binding_results, static_path_results, output_path_results, and request_plan_sha256.",
+        "output_path_results must equal accepted network-output absence in exact order plus the exact absent preflight entry.",
+        "The READY route binding carries the accepted actual workspace, branch, HEAD, route path, route physical digest, and route canonical digest.",
+        "_ready_snapshot validates document self-digest and then exact projection equality with the context paired in _READY.",
+        "persist_ready and execute each invoke this projection validation before reading or creating phase outputs and before opener construction/call.",
+        "Private registry mutation is not trusted. A forged self-consistent document paired with a valid context, or a valid document paired with a changed context, fails closed.",
+        "No schema change is permitted; only existing document fields are used."
+      ]
+    },
+    {
+      "invariant_id": "R6-I04",
+      "name": "PERSIST_AND_EXECUTE_USE_BOTH_PROJECTION_AND_REALITY",
+      "requirements": [
+        "persist_ready requires, in order: authentic issued capability, exact document-context projection, absent preflight, and fresh exact external-context equality before create.",
+        "execute requires, in order: authentic issued capability, exact document-context projection, exact persisted bytes, absent runtime outputs, and fresh exact external-context equality before ledgers or opener.",
+        "Document projection validation and external recapture are independent checks; neither substitutes for the other.",
+        "For each projected field, a recomputed READY self-digest plus manual registry entry still fails before output or opener.",
+        "For each external identity, post-issuance drift still fails before output or opener."
+      ]
+    },
+    {
+      "invariant_id": "R6-I05",
+      "name": "BASEEXCEPTION_SAFE_TWO_CLOSER_PROTOCOL",
+      "requirements": [
+        "Attempt response.close and connection.close independently exactly once whenever each closer exists.",
+        "Temporarily capture BaseException from a closer solely to guarantee that the other closer is attempted; do not convert it into SD0Error or an ordinary terminal disposition.",
+        "After both cleanup attempts, re-raise the original first BaseException with its identity preserved.",
+        "If both closers raise BaseException, re-raise the first after both attempts.",
+        "If one closer raises ordinary Exception and the other raises BaseException, the BaseException is re-raised after both attempts; no STOP sealing is claimed to have completed safely.",
+        "If only ordinary cleanup exceptions occur, preserve the first ordinary cleanup error class and existing R5 evidence/state precedence.",
+        "If no BaseException occurs, an earlier substantive response state is never overwritten by cleanup.",
+        "MemoryError, KeyboardInterrupt, SystemExit, and GeneratorExit receive the same two-attempt then re-raise behavior."
+      ]
+    },
+    {
+      "invariant_id": "R6-I06",
+      "name": "INTEGRATED_TESTS_MUST_CROSS_REAL_BOUNDARIES",
+      "requirements": [
+        "A test claiming preflight ordering must invoke real preflight with a counting tcp_probe and actual temporary route file state.",
+        "A test claiming document projection must forge and self-sign real READY bytes, pair them with a context in _READY, and invoke real persist_ready or execute.",
+        "A test claiming StdlibProxyOpener evidence must invoke StdlibProxyOpener through execute with patched HTTPConnection and TLS objects; constructing the final HttpResponse directly is insufficient.",
+        "A test claiming cleanup must execute the actual cleanup loop and assert both closer call order and exception/state/evidence behavior.",
+        "A context mutation test must recompute context_sha256 and keep an independent original expected snapshot for comparison.",
+        "Patching the production suspension gate in a temporary root is permitted; patching the invariant under test is prohibited."
+      ]
+    },
+    {
+      "invariant_id": "R6-I07",
+      "name": "R5_NOMINAL_CASES_STRENGTHENED_NOT_MERELY_RENAMED",
+      "requirements": [
+        "R5-T21 must use initial authorized git results followed by stable unauthorized final captures and assert no TCP, READY, output, or opener.",
+        "R5-T22 and R5-T25 together must mutate every top-level and nested context identity, including both reproduced malicious authority and static digest cases, while recomputing context_sha256.",
+        "R5-T23 must assert tcp_probe_calls=0 for missing, symlink, nonregular, and unreadable route cases.",
+        "R5-T24 must cover physical, canonical, id, state, route id, workspace, branch, and HEAD drift.",
+        "R5-T26 must include negative document-projection cases, not only positive equality.",
+        "R5-T27 must cover both persist_ready and execute and more than route-only drift.",
+        "R5-T28 must invoke main, preflight, persist_ready, and execute at the unpatched production gate.",
+        "R5-T29 and R5-T30 must cross StdlibProxyOpener and execute.",
+        "R5-T32 must execute actual response and connection cleanup, including ordinary and BaseException variants."
+      ]
+    },
+    {
+      "invariant_id": "R6-I08",
+      "name": "R3_R4_R5_R6_PRODUCTION_SUSPENSION_CHAIN",
+      "requirements": [
+        "Preserve exact R3, R4, and R5 canonical pins and explicit identity checks.",
+        "Hard-pin this exact R6 decision path and externally reported canonical digest and verify strict JSON, self-digest, decision id/state, issue id, workspace cwd/branch/HEAD, and exact R5 binding.",
+        "Because this R6 state rejects the R5 candidate and authorizes offline two-file repair only, production main, preflight, persist_ready, and execute remain blocked before tests evidence, TCP, filesystem output, opener construction, or network.",
+        "No local test result, CLI flag, environment variable, dynamic decision file, or completion claim automatically resumes execution.",
+        "A future Sol acceptance still requires a separately authorized exact client/test gate-binding revision before any production preflight or request."
+      ]
+    },
+    {
+      "invariant_id": "R6-I09",
+      "name": "ALL_PRIOR_CLOSED_SAFETY_PROPERTIES_PRESERVED",
+      "requirements": [
+        "R2-I01 through R2-I09, R3-I01 through R3-I06, R4-I01 through R4-I07, and R5-I01 through R5-I09 remain mandatory with R6 clarifications.",
+        "Do not regress exact-cap rejection, critical-header cardinality, lossless header evidence, response-first captured evidence, HEAD no-read, partial reads, first substantive failure precedence, create-once evidence, or closure/inventory sealing.",
+        "Exact seven mock requests remain only a success-path test; no network, ZIP GET, market rows, active G1, deployment, credentials, orders, or funds are authorized."
+      ]
+    }
+  ],
+  "required_test_changes": {
+    "same_test_file_only": "tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+    "all_existing_51_tests_retained_or_strictly_strengthened": true,
+    "existing_r5_tests_must_meet_r6_i07": true,
+    "method_name_or_comment_alone_is_not_evidence": true,
+    "required_new_integrated_cases": [
+      {
+        "test_id": "R6-T33",
+        "case": "Full top-level and nested context mutation matrix with recomputed context digest",
+        "assertions": "Independent original expected snapshot remains fixed; malicious matched authority path/digests and nested static digest are included; every mutation returns false."
+      },
+      {
+        "test_id": "R6-T34",
+        "case": "Initial authorized git followed by stable unauthorized complete pre-TCP capture",
+        "assertions": "Real temporary-root preflight returns no ReadyPreflight; tcp_probe_calls=0; _READY empty; no output/opener."
+      },
+      {
+        "test_id": "R6-T35",
+        "case": "Actual route local-failure matrix before TCP",
+        "assertions": "Missing, symlinked, nonregular, unreadable, malformed, physical drift, canonical drift, id/state/identity drift each have tcp_probe_calls=0 and no READY/output."
+      },
+      {
+        "test_id": "R6-T36",
+        "case": "Forged READY projection matrix through real persist_ready",
+        "assertions": "Each existing projected field is changed, READY self-digest recomputed, registry paired with unchanged valid context, and persistence rejects before file creation."
+      },
+      {
+        "test_id": "R6-T37",
+        "case": "Forged READY projection matrix through real execute",
+        "assertions": "Exact forged bytes are persisted only by test setup, then execute rejects before runtime ledgers and opener construction/calls."
+      },
+      {
+        "test_id": "R6-T38",
+        "case": "Integrated immediate and partial getheaders failures",
+        "assertions": "Patched HTTPConnection flows through StdlibProxyOpener and execute; authentic status/TLS and prefix digest persist, complete header ledger is absent, STOP seals, and no later request occurs."
+      },
+      {
+        "test_id": "R6-T39",
+        "case": "Integrated ordinary cleanup failures",
+        "assertions": "response.close, connection.close, and both-fail variants invoke both closers exactly once; authentic HEAD/GET evidence remains; first substantive state precedence is preserved."
+      },
+      {
+        "test_id": "R6-T40",
+        "case": "Integrated BaseException cleanup matrix",
+        "assertions": "MemoryError, KeyboardInterrupt, SystemExit, and GeneratorExit from either closer still cause both closer attempts and then re-raise the original first BaseException; no false STOP completion claim is made."
+      }
+    ],
+    "minimum_scoped_tests_after_expansion": 59,
+    "minimum_combined_tests_after_expansion": 128,
+    "required_result": "ALL_DISCOVERED_TESTS_PASS_ZERO_FAIL_ERROR_SKIP",
+    "network_in_tests": false,
+    "workspace_preflight_in_tests": false,
+    "workspace_runtime_in_tests": false,
+    "temporary_root_preflight_in_tests": true,
+    "active_g1_in_tests": false,
+    "forbidden_test_actions": [
+      "Patch _context_is_ready, route authority, projection validator, StdlibProxyOpener response lifecycle, or cleanup loop in a test claiming those paths.",
+      "Call only _make_observation for an opener or cleanup claim.",
+      "Assert only that a self-digest changed without recomputing it.",
+      "Omit tcp_probe count from a pre-TCP ordering claim.",
+      "Test only positive projection equality.",
+      "Use real TCP, TLS, HTTP, proxy, browser, curl, workspace preflight/runtime, active G1, or real data.",
+      "Modify route, contract, plan, schema, R2, R3, R4, R5, or this R6 decision."
+    ]
+  },
+  "repair_completion_gate": {
+    "current_state": "BLOCKED_R6_REPAIR_NOT_IMPLEMENTED",
+    "network_resume": false,
+    "required_commands": [
+      {
+        "command": "PYTHONPYCACHEPREFIX=/tmp/pitar1-sd0-r6-pycache python3 -m py_compile trade_system/pit_authority_replay_sd0_metered_fetch_v1.py tests/test_pit_authority_replay_sd0_metered_fetch_v1.py",
+        "required_exit_code": 0
+      },
+      {
+        "command": "python3 -m unittest -v tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+        "required_exit_code": 0,
+        "required_result": "AT_LEAST_59_PASS_ZERO_FAIL_ERROR_SKIP"
+      },
+      {
+        "command": "python3 -m unittest -v tests.test_pit_authority_replay_contract_v1 tests.test_pit_authority_replay_sd0_metered_fetch_v1",
+        "required_exit_code": 0,
+        "required_result": "AT_LEAST_128_PASS_ZERO_FAIL_ERROR_SKIP"
+      }
+    ],
+    "required_static_checks": [
+      "R2, R3, R4, R5, phased-route, measurement-contract, and request-plan physical/canonical hashes remain unchanged.",
+      "Only the exact client and test paths differ from the rejected R5 candidate hashes.",
+      "No new production, test, helper, route, contract, plan, schema, transport, or gate file exists.",
+      "Actual route and every local authority are validated before any TCP precheck call.",
+      "Context validation uses exact independent expected equality over all nested values.",
+      "READY projection is checked by issuance, persist_ready, and execute.",
+      "The cleanup implementation attempts both closers before re-raising any BaseException.",
+      "The client hard-pins this R6 canonical digest while preserving R3/R4/R5 suspension.",
+      "No workspace preflight or runtime output exists and no network, active G1, data, backtest, paper, deployment, credential, order, or fund action occurred."
+    ],
+    "required_terra_report": [
+      "Before/after physical SHA-256 and sizes for the exact client and test.",
+      "Exact syntax, scoped, combined, and two-file diff-check results.",
+      "Code/test mapping for R6-I01 through R6-I09 and R6-T33 through R6-T40.",
+      "A requirement-by-requirement strengthened mapping for R5-T21 through R5-T32, with actual assertions and called production functions.",
+      "Raw offline result summaries for nested context mutation, tcp_probe ordering, forged projection persist/execute, integrated header extraction, ordinary cleanup, and BaseException cleanup.",
+      "Explicit proof that production main/preflight/persist_ready/execute remain blocked by R3/R4/R5/R6.",
+      "Explicit zero network, zero workspace preflight/runtime, zero active G1, zero real data/backtest/paper/live, and zero funds statement."
+    ],
+    "sol_completion_review": {
+      "required": true,
+      "possible_results": [
+        "ACCEPT_R6_REPAIR_KEEP_NETWORK_SUSPENDED_PENDING_SEPARATE_RESUME_BINDING",
+        "REJECT_R6_REPAIR_CONTINUE_R3_R4_R5_R6_SUSPENSION",
+        "STOP_REQUIRE_CONTRACT_SCHEMA_OR_ROUTE_CHANGE"
+      ],
+      "automatic_resume": false,
+      "reason": "Nominal test counts have repeatedly failed to expose integrated gaps. R6 completion requires independent counterexample closure and keeps production suspended even if accepted."
+    }
+  },
+  "permission_matrix": {
+    "create_this_r6_decision": true,
+    "terra_modify_exact_client": true,
+    "terra_modify_exact_test": true,
+    "terra_run_offline_tests": true,
+    "modify_r2_r3_r4_or_r5_decision": false,
+    "modify_this_r6_decision": false,
+    "modify_route_contract_plan_schema_or_spec": false,
+    "create_new_helper_transport_test_or_gate_file": false,
+    "install_dependency": false,
+    "read_exact_r3_r4_r5_r6_and_route_decisions_for_verification": true,
+    "persist_workspace_preflight": false,
+    "create_workspace_runtime": false,
+    "tcp_probe_or_socket_outside_mock": false,
+    "network_request": false,
+    "proxy_change_or_bypass": false,
+    "archive_zip_or_market_row_access": false,
+    "active_g1_access": false,
+    "adapter_dataset_backtest_holdout": false,
+    "paper_testnet_deploy": false,
+    "credentials_account_orders_funds": false,
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "stage_disposition": {
+    "pitar1_e0": "ACCEPTED_PREDECESSOR_SCOPE_UNCHANGED",
+    "pitar1_sd0_route": "STRUCTURALLY_VALID",
+    "pitar1_sd0_contract": "FROZEN_VALID",
+    "pitar1_sd0_plan": "FROZEN_VALID",
+    "pitar1_sd0_schema": "FROZEN_VALID",
+    "pitar1_sd0_r5_tests": "51_SCOPED_AND_120_COMBINED_REPORTED_PASS_BUT_INTEGRATED_COVERAGE_INSUFFICIENT",
+    "pitar1_sd0_r5_client": "REJECTED",
+    "pitar1_sd0_r6_repair": "AUTHORIZED_EXACT_TWO_FILES_OFFLINE_ONLY",
+    "pitar1_sd0_network": "SUSPENDED",
+    "pitar1_sd0_preflight_runtime": "SUSPENDED",
+    "pitar1_d0_and_later": "DENIED_UNCHANGED",
+    "paper_testnet_deployment_live": "DENIED_UNCHANGED",
+    "next_action": "GPT-5.6-TERRA_HIGH_REPAIRS_ONLY_CLIENT_AND_TEST_THEN_RETURNS_R6_INTEGRATED_FACT_PACKAGE_TO_SOL",
+    "real_action": "ABSTAIN",
+    "real_max_risk": 0
+  },
+  "claim_boundary": {
+    "r5_test_result": "ROOT_TERRA_REPORT_51_OF_51_AND_120_OF_120_PASS_NOT_SOL_RERUN",
+    "r5_completion_review": "REJECTED",
+    "exact_nested_context_authority": "NOT_ESTABLISHED",
+    "pre_tcp_route_authority": "NOT_ESTABLISHED",
+    "ready_document_context_projection": "NOT_ESTABLISHED",
+    "baseexception_two_closer_cleanup": "NOT_ESTABLISHED",
+    "r3_r4_r5_production_suspension": "REMAINS_REQUIRED",
+    "sd0_source_authority": "NOT_EVALUATED",
+    "market_data_or_pit_validity": "NOT_EVALUATED",
+    "backtest_predictive_or_profitability": "NOT_AUTHORIZED",
+    "paper_or_live_readiness": "NOT_AUTHORIZED",
+    "maximum_positive_claim": "The R5 candidate reportedly passes syntax, 51 scoped, 120 combined, and a two-file diff check, but is rejected by exact no-network counterexamples. Rehashed nested static and malicious authority values remain accepted, actual route failure occurs after one TCP precheck, a forged self-signed READY document can persist and execute seven mock requests, and MemoryError from response.close prevents connection.close. The defects remain repairable in the exact client and test files without route, contract, plan, or schema changes. Production network, workspace preflight/runtime, active G1, real data, backtest, paper, deployment, credentials, orders, and funds remain prohibited. R6 test counts alone will not establish acceptance; the integrated counterexamples must close."
+  },
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-research-system-pit-authority-replay-sd0-client-p0-r6-repair/v1",
+    "domain_separator_hex": "00",
+    "excluded_fields": [
+      "/decision_sha256"
+    ],
+    "formula": "sha256(domain_prefix_utf8 || 0x00 || canonical_json(document_without_decision_sha256))"
+  },
+  "decision_sha256": "a15e4e51c2f3a1f7a643d72865cecaaa691d8218b3f28d0cec2bfdeffe3fad44"
+}

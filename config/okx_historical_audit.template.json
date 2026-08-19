@@ -1,0 +1,20 @@
+{
+  "audit_id": "REPLACE_WITH_VERSIONED_OKX_AUDIT_ID",
+  "status": "DRAFT_TEMPLATE",
+  "source_id": "SRC-OKX-HIST",
+  "venue": "OKX",
+  "purpose": "REPLAY_AND_EXTERNAL_MECHANISM_ONLY",
+  "files": [
+    {
+      "date": "YYYY-MM-DD",
+      "path": "relative/path/to/official-okx-btc-l2-file.jsonl.gz",
+      "instrument": "BTC-USDT-SWAP",
+      "stream": "ORDER_BOOK_L2",
+      "format": "JSONL",
+      "timestamp_path": "ts",
+      "bids_path": "bids",
+      "asks_path": "asks"
+    }
+  ],
+  "notice": "Create a versioned plan from this template only after downloading a small official file. Record exactly one declared date per file. This audit may support replay/external-mechanism engineering only; it is never Binance G2 or execution evidence."
+}

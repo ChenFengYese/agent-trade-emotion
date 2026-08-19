@@ -1,0 +1,19 @@
+{
+  "policy_id": "REPLACE_WITH_VERSIONED_ACTION_POLICY_ID",
+  "status": "DRAFT_TEMPLATE",
+  "frozen_at": "REQUIRED: ISO-8601 UTC timestamp after feature bundle is available and before action generation",
+  "feature_bundle_manifest_sha256": "REQUIRED: exact PASS-G1 feature-bundle manifest SHA-256",
+  "min_seconds_between_actions": "REQUIRED: positive cooldown fixed before labels/results",
+  "rules": [
+    {
+      "rule_id": "REQUIRED: unique candidate-action rule ID",
+      "side": "BUY",
+      "feature": "REQUIRED: feature field present in the frozen bundle",
+      "operator": "LTE",
+      "threshold": "REQUIRED: predeclared numeric threshold",
+      "take_profit_bps": "REQUIRED: positive predeclared target distance",
+      "stop_loss_bps": "REQUIRED: positive predeclared stop distance",
+      "horizon_seconds": "REQUIRED: positive predeclared holding horizon"
+    }
+  ]
+}

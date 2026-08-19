@@ -1,0 +1,147 @@
+{
+  "schema_version": "sol-har1-btcusdt-source-preflight-r2d-route-amendment.v1",
+  "decision_id": "SOL_HAR1_BTCUSDT_SOURCE_PREFLIGHT_R2D_ROUTE_AMENDMENT.v1",
+  "decision_state": "REJECT_R2C_ACTIVATION_BLOCKED_AUTHORIZE_R2D_TWO_FILE_REPAIR_AND_ROUTE_AMENDMENT_NO_NETWORK",
+  "issued_by": "GPT-5.6-SOL_ULTRA_STAGE_GATE",
+  "issued_at": "2026-07-29T09:43:39Z",
+  "workspace_identity": {
+    "cwd": "/Users/wt/Documents/agent-trade-emotion",
+    "branch": "codex/s0-research-foundation",
+    "head": "7ca3fc4f99a57f98217e703f222b295653ace87e"
+  },
+  "predecessor_bindings": {
+    "r2_route": {
+      "path": "config/sol_decision.har1-btcusdt-source-preflight-r2-route.v1.json",
+      "physical_sha256": "1512149ca8f2f9df3fa66490636db9f0f3e340873087a8c989c5093eea1f2057",
+      "canonical_sha256": "6979a3ec4b2df46d81d48533ed3ed2147d78f68ec9595fe7bbb7a9a1d3beafa0"
+    },
+    "r2c_route": {
+      "path": "config/sol_decision.har1-btcusdt-source-preflight-r2c-route.v1.json",
+      "physical_sha256": "0096fcf54777ecdf611bf5459e06afb2e6909c13c342733ac7d7db594ec329be",
+      "canonical_sha256": "8029157f453ba8f6bf91b980f066f02723ff14e25f2b5c19f5f9a8d85b3002df"
+    },
+    "r2c_client_physical_sha256": "94856f1c8b47f3330a015f3cb8a764b267f57932dea0a4689141b57c86f2cdab",
+    "r2c_test_physical_sha256": "b6a3568ae260bd05edb3226097aa1af390b2c43af0bdd11461fffa9ae4443a4a",
+    "baseline_physical_sha256": "8e4c9c7ad50eaa9061bbca6cd2c4e691628974da322faac3803222184df340d6",
+    "source_physical_sha256": "87f23ab76b243341f26844f17ae582c502a3322943a241f2c94b3c110179df4b",
+    "purge_physical_sha256": "caeb09d8b756980fdcc9fca5998da978d26cbbafaa100ae186178962b6b09031"
+  },
+  "r2c_verification": {
+    "main_and_independent_terra_result": "35_OF_35_PASS",
+    "independent_terra_gate": "ACCEPT_FOR_SOL_GATE_TRUSTED_PROCESS_SCOPE",
+    "evidence_jsonl_absent": true,
+    "network_requests": 0,
+    "accepted_closures": [
+      "FIXED_FIVE_REQUESTS_AND_FORCED_PROXY",
+      "NORMAL_API_ACTIVATION_AND_SINGLE_USE_CAPABILITY",
+      "PRE_TCP_PHYSICAL_AND_CANONICAL_RECHECK",
+      "POSIX_ABSOLUTE_NETWORK_AND_READ_DEADLINE",
+      "PROTOCOL_FAILURE_TERMINAL_RECORD",
+      "EVIDENCE_O_EXCL_NOFOLLOW_FSYNC_HASH_CHAIN",
+      "ACTIVATION_BINDING_FIRST_RECORD"
+    ]
+  },
+  "activation_rejection_reasons": [
+    {
+      "id": "R2D_P0_STRICT_RAW_ACTIVATION",
+      "finding": "The issuer accepts an already parsed dict, so duplicate keys, non-finite values, invalid UTF-8 and the exact raw activation identity are not enforced by the production issuer API.",
+      "required_fix": "Accept raw bytes or a strictly inspected regular path only, perform strict UTF-8 JSON parsing internally, and bind both physical raw-byte and canonical activation digests into the capability and first evidence record."
+    },
+    {
+      "id": "R2D_P0_DURABILITY_SEMANTICS",
+      "finding": "The predecessor route required a durable terminal record even when the evidence write or fsync mechanism itself had failed, which cannot be guaranteed without fabricating durability.",
+      "required_fix": "Split protocol failures from evidence durability failures and never claim a terminal record or sealed evidence after an unproven write, fsync or close."
+    }
+  ],
+  "r2d_patch_scope": {
+    "required_implementer": "GPT-5.6-TERRA_HIGH",
+    "only_modifiable_paths": [
+      "har1r2/preflight_client.py",
+      "har1r2/test_preflight_client.py"
+    ],
+    "all_other_existing_paths_immutable": true,
+    "har1r2_evidence_jsonl_must_remain_absent": true,
+    "network": false,
+    "runtime_execution": false
+  },
+  "strict_raw_activation_contract": {
+    "production_input": "RAW_BYTES_OR_STRICTLY_INSPECTED_REGULAR_PATH",
+    "already_parsed_dict": "DENIED",
+    "utf8": "STRICT_NO_BOM",
+    "duplicate_json_keys": "DENIED",
+    "nonfinite_json_values": "DENIED",
+    "schema_extra_or_missing_fields": "DENIED",
+    "raw_physical_sha256": "REQUIRED",
+    "canonical_self_hash": "REQUIRED",
+    "raw_physical_and_canonical_digest_in_capability_and_activation_evidence": true
+  },
+  "durability_semantic_amendment": {
+    "transport_http_protocol_or_timeout_failure": {
+      "required_result": "EXACTLY_ONE_FSYNCED_TERMINAL_RECORD_THEN_STOP",
+      "retry": false,
+      "sealed_claim": "ALLOWED_ONLY_AFTER_TERMINAL_FSYNC_SUCCEEDS"
+    },
+    "evidence_write_fsync_or_close_failure": {
+      "required_exception": "EVIDENCE_DURABILITY_FAILURE",
+      "capability_and_run_consumed": true,
+      "further_transport": 0,
+      "evidence_state": "UNSEALED_OR_PARTIAL",
+      "retry_same_run": false,
+      "terminal_or_sealed_claim": "DENIED",
+      "best_effort_second_write_may_upgrade_evidence": false,
+      "successor": "NEW_SOL_REVIEW_REQUIRED"
+    },
+    "network_deadline_scope": "THE_20_SECOND_PER_REQUEST_AND_90_SECOND TOTAL LIMITS APPLY TO NETWORK_AND_RESPONSE_READ_WINDOWS; THEY DO NOT CLAIM TO BOUND LOCAL EVIDENCE_FSYNC_TIME."
+  },
+  "offline_acceptance": [
+    "RAW_DUPLICATE_KEY_REJECTED",
+    "RAW_NONFINITE_VALUE_REJECTED",
+    "RAW_INVALID_UTF8_AND_BOM_REJECTED",
+    "RAW_PHYSICAL_AND_CANONICAL_DIGEST_BOUND_TO_CAPABILITY_AND_FIRST_EVIDENCE_RECORD",
+    "ALREADY_PARSED_DICT_REJECTED",
+    "ACTIVATION_WRITE_OR_FSYNC_FAILURE_CAUSES_ZERO_TRANSPORT_AND_UNSEALED_OR_PARTIAL_STATE",
+    "REQUEST_RECORD_WRITE_OR_FSYNC_FAILURE_CAUSES_ZERO_FURTHER_TRANSPORT",
+    "CLOSE_FAILURE_DOES_NOT_CLAIM_SEALED_EVIDENCE",
+    "TRANSPORT_HTTP_PROTOCOL_AND_TIMEOUT_FAILURES_HAVE_EXACTLY_ONE_DURABLE_TERMINAL",
+    "SOCKET_GLOBAL_TRIPWIRE_PROVES_ZERO_REAL_NETWORK_DURING_TESTS",
+    "PREDECESSOR_35_OFFLINE_BEHAVIORS_REMAIN_PASSING"
+  ],
+  "permission_matrix": {
+    "modify_two_r2d_files": true,
+    "offline_tests": true,
+    "network": false,
+    "create_evidence_jsonl": false,
+    "create_activation_document": false,
+    "zip_body_or_market_row": false,
+    "backtest_training_score_or_holdout": false,
+    "paper_order_account_or_live": false,
+    "active_g1_access": false
+  },
+  "next_gate": {
+    "required_reviewer": "GPT-5.6-SOL_ULTRA",
+    "required_state": "R2D_IMPLEMENTATION_AND_OFFLINE_TESTS_COMPLETE",
+    "must_bind_full_final_hashes": true,
+    "maximum_permission": "ONE_BOUNDED_FIVE_REQUEST_PREFLIGHT_EXECUTION_NO_ZIP_BODY",
+    "automatic_permission": "NONE"
+  },
+  "maximum_claim": "R2C established substantial local behavior but did not close strict raw activation ingestion or physically honest evidence durability semantics. R2D may repair only those boundaries and may not perform network, download market data, backtest or trade.",
+  "canonical_self_digest": {
+    "algorithm": "SHA-256",
+    "digest_field": "decision_sha256",
+    "domain_prefix_utf8": "msta-hed/sol-har1-btcusdt-source-preflight-r2d-route-amendment/v1",
+    "domain_separator_hex": "00",
+    "canonical_json": {
+      "encoding": "UTF-8",
+      "ensure_ascii": true,
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "excluded_fields": [
+      "/decision_sha256"
+    ]
+  },
+  "decision_sha256": "4099f69788265afda3cd98baf3ce2f02850269f8a7468c3270b1e37d5a982814"
+}

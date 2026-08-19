@@ -1,0 +1,85 @@
+{
+  "fixture_id": "MSTA_HED_RAW_AUTHORITY_BUNDLE_P1A_SYNTHETIC_CONTRACT.v0.1.0",
+  "stage": "V5-P1A",
+  "status": "DRAFT_AWAITING_SOL_P1A_GATE",
+  "implementation_authorized": false,
+  "io_authorized": false,
+  "market_or_outcome_access_authorized": false,
+  "lane": "SYNTHETIC_CONTRACT",
+  "fixture_clock": "2026-07-26T00:00:00Z",
+  "fixture_scope": "SYNTHETIC_ONLY_NO_MARKET_ROWS_NO_OUTCOMES",
+  "counterexamples": [
+    {
+      "case_id": "P1A-C01-DUPLICATE-JSON",
+      "class": "DUPLICATE_KEY",
+      "expected_reason": "MSTA_P1A_E_SCHEMA_EXACT"
+    },
+    {
+      "case_id": "P1A-C02-EXACT-SCHEMA-ORDER",
+      "class": "EXACT_FIELDS_AND_CANONICAL_ORDER",
+      "expected_reason": "MSTA_P1A_E_SCHEMA_EXACT"
+    },
+    {
+      "case_id": "P1A-C03-DIGEST-SELF-CYCLE",
+      "class": "MUTATION_SELF_SIGN_OR_REFERENCE_CYCLE",
+      "expected_reason": "MSTA_P1A_E_DIGEST_CYCLE"
+    },
+    {
+      "case_id": "P1A-C04-UNSAFE-PATH",
+      "class": "PATH_TRAVERSAL_OR_ABSOLUTE_PATH",
+      "expected_reason": "MSTA_P1A_E_UNSAFE_PATH"
+    },
+    {
+      "case_id": "P1A-C05-PIT-CLOCK",
+      "class": "NAIVE_FUTURE_PUBLICATION_SUBSTITUTION_OR_RECONSTRUCTED_AS_ACTUAL",
+      "expected_reason": "MSTA_P1A_E_PIT_FUTURE"
+    },
+    {
+      "case_id": "P1A-C06-REVISION",
+      "class": "DUPLICATE_CORRECTION_FORK_OR_GENERATION_RESET",
+      "expected_reason": "MSTA_P1A_E_REVISION_INVALID"
+    },
+    {
+      "case_id": "P1A-C07-COVERAGE",
+      "class": "SILENCE_INFERENCE_OR_IMPUTATION_FOR_NINE_GAP_CLASSES",
+      "expected_reason": "MSTA_P1A_E_COVERAGE_UNRESOLVED"
+    },
+    {
+      "case_id": "P1A-C08-CURSOR-IDEMPOTENCY",
+      "class": "CURSOR_REGRESSION_OR_IDEMPOTENCY_CONTENT_DRIFT",
+      "expected_reason": "MSTA_P1A_E_IDEMPOTENCY_CONFLICT"
+    },
+    {
+      "case_id": "P1A-C09-PURE-CAPABILITY",
+      "class": "FORBIDDEN_IO_ENV_CLOCK_RANDOM_RETRY_OR_GLOBAL_CAPABILITY",
+      "expected_reason": "MSTA_P1A_E_CAPABILITY_NOT_ALLOWLISTED"
+    },
+    {
+      "case_id": "P1A-C10-SOURCE-AUTHORITY",
+      "class": "SOURCE_SNAPSHOT_OR_ARTIFACT_AUTHORITY_MISMATCH",
+      "expected_reason": "MSTA_P1A_E_SOURCE_AUTHORITY_MISMATCH"
+    },
+    {
+      "case_id": "P1A-C11-SEAL-ADMISSION",
+      "class": "MISSING_SELF_ISSUED_EXPIRED_OR_MISMATCHED_EXTERNAL_SEAL",
+      "expected_reason": "MSTA_P1A_E_EXTERNAL_SEAL_REQUIRED"
+    },
+    {
+      "case_id": "P1A-C12-LANE-ISOLATION",
+      "class": "SEEN_RELABEL_OR_ACTIVE_G1_BINDING",
+      "expected_reason": "MSTA_P1A_E_LANE_ISOLATION"
+    }
+  ],
+  "expected_object_order": [
+    "SourceAuthoritySnapshotV1",
+    "RawArtifactDescriptorV1",
+    "RawRecordEnvelopeV1",
+    "CoverageEventV1",
+    "AdapterCursorV1",
+    "AdapterReceiptV1",
+    "RawAuthorityBundleManifestV1",
+    "RawAuthoritySealV1",
+    "EvidenceAdmissionContextV1"
+  ],
+  "fixture_sha256": "bdbf4649d0fbe3fecf583aa75b7989b3493713e89117e4b7b42e948a6f059ae2"
+}

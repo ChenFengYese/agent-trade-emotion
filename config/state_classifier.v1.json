@@ -1,0 +1,29 @@
+{
+  "classifier_id": "btc-usdt-visible-liquidity-state-v1",
+  "status": "FROZEN_STATE_CLASSIFIER",
+  "frozen_at": "2026-07-22T08:35:00Z",
+  "fallback_state_id": "NORMAL_BOOK",
+  "rules": [
+    {
+      "state_id": "THIN_BOOK",
+      "all": [
+        {
+          "feature": "visible_depth_notional",
+          "max": 750000,
+          "absolute": false
+        }
+      ]
+    },
+    {
+      "state_id": "DEEP_BOOK",
+      "all": [
+        {
+          "feature": "visible_depth_notional",
+          "min": 1500000,
+          "absolute": false
+        }
+      ]
+    }
+  ],
+  "notice": "Outcome-free liquidity stratification fixed before labels/results. Thresholds are coarse anchors between observed distribution regions; states are descriptive and not causal claims."
+}

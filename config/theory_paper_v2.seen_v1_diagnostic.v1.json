@@ -1,0 +1,211 @@
+{
+  "schema_id": "theory_paper_v2_seen_v1_diagnostic_contract",
+  "schema_version": "1.0.0",
+  "diagnostic_id": "THEORY_AGENT_V2_SEEN_V1_DIAGNOSTIC_20260802",
+  "evidence_class": "SEEN_V1_DIAGNOSTIC_REPLAY",
+  "purpose": "Determine whether the current continuous theory and policy resolve known V1 paper-experiment failures and expose additional problems before any new unseen paper window.",
+  "baseline_code_identity": {
+    "git_commit": "9955617d1ec6c03d49e3ea788577e5d02fa169b4",
+    "core_theory_path": "CORE_TRADING_THEORY_v2_1.md",
+    "core_theory_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d",
+    "continuous_contract_path": "config/theory_paper_v2.continuous_p0.v1.json",
+    "continuous_contract_physical_sha256": "2beb06d8e528540e4b8196a124f4c8c1c9736e0dafe5c087e3e0551de59a98c6",
+    "continuous_application_path": "trade_system/theory_paper_v2/application/continuous_experiment.py",
+    "continuous_application_sha256": "21e3246752bbceb99070d060d68058ea27c622a0bc5d33805e8176399831e3b1"
+  },
+  "source_run": {
+    "runtime_root": ".runtime/theory-paper-v1/current",
+    "run_id": "msta-paper-20260729T212716Z-87cc29bb",
+    "source_status": "FAILED_PAPER_EXPERIMENT_SEEN_DIAGNOSTIC_ONLY",
+    "first_observed_at": "2026-07-29T21:27:21.221368Z",
+    "last_observed_at": "2026-07-30T23:03:34.408776Z",
+    "complete_decision_cycles": 24,
+    "terminal_analysis_only_cycle": 25,
+    "advertised_duration_hours": 72,
+    "actually_observed_duration_hours_approx": "25.60",
+    "symbols": [
+      "SNDKUSDT",
+      "MUUSDT",
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT",
+      "HYPEUSDT"
+    ],
+    "source_bindings": {
+      "config_sha256": "9d4737f098474471d57373536af4c708f49ebc0d2927efe6837bdf382e37b07f",
+      "manifest_sha256": "4fe843046bf45e19aad8bb74eb7d11d731d58200e16cab82902de1657e519e49",
+      "ledger_sha256": "7210b77ce75f88cd34e4356700bc45a523d4c6cbc324d85e9488ad3a88442da6",
+      "state_sha256": "8226729b5771c5b7c3d5a2dfcd182259cc5dfc04898d75ef50090a1702667322",
+      "market_file_count": 25,
+      "market_file_set_sha256": "f4f33373a1680e201c02c75f130ea28e735d12d868bea5eecb2ef5a6c0ccd815",
+      "analysis_file_count": 25,
+      "analysis_file_set_sha256": "e6ac7f73caccbdba0f2f90a876ae5bd87bf1fab510c1d3b15044e32bd0f6fe1d",
+      "decision_file_count": 24,
+      "decision_file_set_sha256": "d2ca5defbfe761aa7d38f60ca3eda61214cee8ccfe2d3483b79a208c1eb59d2e",
+      "market_execution_file_count": 25,
+      "market_execution_file_set_sha256": "d548df6f7107f583d32989a1cfeaf8344bcfe430ac495ae6298bae1971f341c8",
+      "news_file_count": 25,
+      "news_file_set_sha256": "6b6b4085c594e58f346f26dc50587e5e7043c67df0d9f003a6853f7bc8bd9728",
+      "zh_audit_v2_file_count": 24,
+      "zh_audit_v2_file_set_sha256": "a0a0af1c37c9eadbb1d6dd25f5daee4d119ad1561e81992d239f2f8fd6852166"
+    }
+  },
+  "point_in_time_contract": {
+    "decision_cycles": {
+      "first": 1,
+      "last": 24
+    },
+    "terminal_observation_cycle": 25,
+    "candidate_visibility": "ONLY_THE_CURRENT_CYCLE_MARKET_AND_NEWS_SNAPSHOT_PLUS_PRIOR_ACCEPTED_CANDIDATE_STATE",
+    "recorded_v1_decision_visibility_to_candidate_arms": "SEALED_UNTIL_CANDIDATE_TERMINAL",
+    "later_cycle_market_visibility": "SEALED_UNTIL_ITS_OWN_DECISION_STEP",
+    "available_at_rule": "SOURCE_FIELD_OR_PROVIDER_CLOSED_BAR_BOUNDARY_MUST_BE_LTE_DECISION_AT",
+    "overlap_revision_policy": "ANY_SHARED_BAR_VALUE_REVISION_FAILS_THE_DIAGNOSTIC",
+    "missing_policy": "UNKNOWN_NEVER_ZERO_OR_INFERRED_FILL",
+    "seen_data_disclosure": "THE_SOURCE_RESULTS_ARE_ALREADY_KNOWN_TO_THE_RESEARCH_PRINCIPAL_SO_THIS_IS_NOT_BLIND_OR_OUT_OF_SAMPLE"
+  },
+  "arms": [
+    {
+      "arm_id": "V1_RECORDED_ACTUAL",
+      "policy": "REPLAY_THE_WRITE_ONCE_V1_DECISIONS_FILLS_AND_LEDGER_WITHOUT_MODIFICATION",
+      "role": "FACTUAL_BASELINE"
+    },
+    {
+      "arm_id": "CURRENT_DETERMINISTIC_CONTINUOUS",
+      "policy": "PORTFOLIO_STATEFUL_MULTI_SYMBOL_APPLICATION_OF_THE_FROZEN_CURRENT_DETERMINISTIC_PRECEDENCE",
+      "role": "NON_GENERATIVE_CURRENT_POLICY"
+    },
+    {
+      "arm_id": "CURRENT_SINGLE_STRATEGY_AGENT",
+      "policy": "ONE_TOOL_FREE_PORTFOLIO_LEVEL_STRATEGY_AGENT_UPDATES_PERSISTENT_PATH_AND_POSITION_STATE_AND_SELECTS_ONLY_FROM_THE_HARD_FEASIBLE_SET",
+      "critic": "DISABLED",
+      "role": "CURRENT_DYNAMIC_POLICY"
+    }
+  ],
+  "initial_account_contract": {
+    "source": ".runtime/theory-paper-v1/current/config.json#initial_portfolio",
+    "cash_usdt": "10000",
+    "positions_and_orders": "EXACT_V1_EXOGENOUS_INITIAL_STATE",
+    "position_attribution": "EXOGENOUS_INITIAL_POSITION_NOT_STRATEGY_PERFORMANCE",
+    "portfolio_netting": "ONE_WAY_CLOSE_THEN_EXCESS_REVERSE_WITH_NEW_PERMISSION"
+  },
+  "risk_and_cost_contract": {
+    "source": ".runtime/theory-paper-v1/current/config.json#risk_policy",
+    "default_maker_fee_rate": "0.0002",
+    "default_taker_fee_rate": "0.0005",
+    "default_market_slippage_bps": "2",
+    "default_stop_slippage_bps": "3",
+    "same_bar_stop_target_policy": "STOP_FIRST_AND_MARK_AMBIGUOUS",
+    "minimum_reward_risk": "1.5",
+    "per_instrument_open_pending_risk_fraction": "0.01",
+    "portfolio_open_pending_risk_fraction": "0.03",
+    "gross_notional_equity_multiple": "1.5",
+    "funding_policy": "USE_ONLY_RECORDED_SETTLEMENTS_IF_ACCRUAL_IS_RECONSTRUCTABLE_OTHERWISE_UNKNOWN_AND_BLOCK_COST_COMPLETE_CLAIM",
+    "hard_risk_may_veto": true,
+    "hard_risk_may_not_silently_remove_feasible_hold_add_or_reentry": true
+  },
+  "known_problem_hypotheses": [
+    {
+      "problem_id": "K1_FIXED_FULL_TARGET_EXIT",
+      "claim": "Fixed full-target exits can realize a small gain while forfeiting a larger continuation path.",
+      "resolved_if": "The current policy preserves a core or reenters without increasing drawdown beyond the frozen guardrails and improves post-cost path capture."
+    },
+    {
+      "problem_id": "K2_CONTINUATION_AND_TRAILING_CAPTURE",
+      "claim": "The V1 policy did not represent a core-plus-tactical continuation or usable trailing state.",
+      "resolved_if": "Core and tactical roles, trailing protection and their state transitions persist and are actually exercised when feasible."
+    },
+    {
+      "problem_id": "K3_EXIT_REENTRY_OBLIGATION",
+      "claim": "Exit reasons did not create a durable and enforceable reentry obligation.",
+      "resolved_if": "Every eligible exit opens, advances, executes, expires or explicitly cancels a reentry contract with measured delay and missed-opportunity cost."
+    },
+    {
+      "problem_id": "K4_STRATEGIC_STATE_RESET",
+      "claim": "Each V1 cycle could regenerate a view without consuming an accepted prior strategic state.",
+      "resolved_if": "Every candidate cycle consumes the exact prior accepted state digest and preserves paths, lot roles, risk budget and review obligations."
+    },
+    {
+      "problem_id": "K5_FLAT_AND_WAIT_OPPORTUNITY_COST",
+      "claim": "Flat exposure and waiting were treated as low-cost defaults without an explicit relative-utility comparison.",
+      "resolved_if": "Every WAIT cites a data gap, risk veto or relative-utility reason and its realized opportunity difference is recorded."
+    },
+    {
+      "problem_id": "K6_FUNDING_AND_COST_COMPLETENESS",
+      "claim": "V1 PnL did not accrue funding and could therefore overstate cost completeness.",
+      "resolved_if": "Funding is reconstructed from recorded settlements or remains UNKNOWN and blocks a cost-complete result claim."
+    },
+    {
+      "problem_id": "K7_ACTION_FIDELITY",
+      "claim": "A selected label may not faithfully correspond to the executed lot-level state transition.",
+      "resolved_if": "Selected action, feasible candidate, lot transition, fill, risk update and resulting state reconcile exactly for every cycle."
+    },
+    {
+      "problem_id": "K8_PATH_AND_PORTFOLIO_COMPETITION",
+      "claim": "Per-symbol analysis may omit portfolio-level competition for scarce risk and gross capacity.",
+      "resolved_if": "The accepted action set records rejected alternatives and portfolio-level risk opportunity cost across all six symbols."
+    }
+  ],
+  "evaluation": {
+    "forward_observation_steps": [
+      1,
+      4,
+      8
+    ],
+    "terminal_evaluation": true,
+    "twenty_four_hour_evaluation": "ONLY_WHERE_A_FULL_SOURCE_HORIZON_EXISTS_NEVER_IMPUTED",
+    "sequential_metrics": [
+      "realized_pnl_before_cost",
+      "unrealized_pnl",
+      "fees",
+      "slippage",
+      "funding_or_unknown",
+      "net_pnl_or_cost_incomplete_range",
+      "maximum_drawdown",
+      "minimum_one_step_equity_change",
+      "flat_duration",
+      "reentry_delay",
+      "add_utilization",
+      "core_hold_benchmark",
+      "opportunity_difference",
+      "path_capture",
+      "action_fidelity_failures"
+    ],
+    "problem_verdicts": [
+      "RESOLVED_ON_SEEN_V1",
+      "UNRESOLVED",
+      "DATA_INSUFFICIENT",
+      "REPLACED_BY_NEW_PROBLEM"
+    ]
+  },
+  "stop_conditions": [
+    "SOURCE_BINDING_DRIFT",
+    "V1_LEDGER_OR_TRANSACTION_CHAIN_INVALID",
+    "SHARED_MARKET_BAR_REVISION",
+    "PIT_AVAILABLE_AT_VIOLATION",
+    "CANDIDATE_ARM_READS_RECORDED_V1_DECISION_BEFORE_TERMINAL",
+    "PRIOR_ACCEPTED_STATE_DIGEST_MISMATCH",
+    "ACTION_TO_LOT_TRANSITION_MISMATCH",
+    "RISK_OR_PROTECTION_STATE_UNKNOWN",
+    "TWO_REASONABLE_MINIMAL_IMPLEMENTATIONS_FAIL",
+    "NEW_UNSEEN_DATA_USED_BEFORE_SEEN_DIAGNOSTIC_VERDICT"
+  ],
+  "claims_forbidden": [
+    "BLIND_BACKTEST",
+    "OUT_OF_SAMPLE_VALIDATION",
+    "PREDICTIVE_VALIDITY_PROVEN",
+    "PROFITABILITY_PROVEN",
+    "PRODUCTION_READY",
+    "LIVE_TRADING_AUTHORIZED"
+  ],
+  "research_authority": {
+    "public_data_search_and_collection_after_diagnostic_gate": true,
+    "local_paper_simulation_after_diagnostic_gate": true,
+    "automation_2_resume": false,
+    "private_account_access": false,
+    "credential_use": false,
+    "real_order_submission": false,
+    "funds_access": false,
+    "e0_or_e0b_resume": false
+  }
+}

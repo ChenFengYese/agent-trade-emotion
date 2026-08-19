@@ -1,0 +1,19 @@
+{
+  "schema_id": "theory_paper_v2_research_authorization_receipt",
+  "schema_version": "1.0.0",
+  "authority_id": "native-market-pilot-s2-authority-20260806t0928z",
+  "issued_at": "2026-08-06T09:28:00Z",
+  "current_theory_sha256": "2c9673127f85f587651130997d1454d7d0862bdc8677f5132e322d7da5ae0d3d",
+  "authorized_operations": [
+    "RUN_NATIVE_MARKET_PILOT"
+  ],
+  "authorized_run_ids": [
+    "native-codex-btc-pilot-s2-20260806t0928z"
+  ],
+  "authorized_template_sha256s": [
+    "4bdebb0b450b7364c8cdc9fa28fff8e3596136cb82660afda034e967e7486332"
+  ],
+  "external_execution_authority": "NONE_LOCAL_SIMULATION",
+  "executable": false,
+  "authorization_receipt_digest": "05b1b5999b852651b3aaa89f3c912fd6f7c94a44b51e1e7126f16c66d59c3311"
+}

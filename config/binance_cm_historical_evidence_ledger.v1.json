@@ -1,0 +1,41 @@
+{
+  "ledger_id": "binance-coinm-btcusd-perp-historical-e0x-v1",
+  "status": "FROZEN_BINANCE_CM_HISTORICAL_EVIDENCE_LEDGER_V1",
+  "evidence_stage": "E0-X",
+  "current_action": "STOP_CURRENT_V1_ACTION",
+  "plan": {
+    "path": "config/binance_cm_historical_mechanism.v1.json",
+    "file_sha256": "de41554435c012ee689643c6cedca69b6ad5238647f0c2836458f3124f4622ee",
+    "report_plan_sha256": "dd4909586e4b8db9a9b9af0e07dd98517911f4911656c95c13af778ac6bc2218"
+  },
+  "report": {
+    "path": ".runtime/historical-experiments/binance-cm-2025-01-report.v3.json",
+    "file_sha256": "4b347579ada4395fef8b583b68d4b4c0f0f30951b6634c47840606db2c0cebd7",
+    "input_manifest_sha256": "b7f03c60f06e118b6f302c893ea6b9cc56881b79542c8ce04ba957779d2a38ab"
+  },
+  "expected_report": {
+    "rows": {"all":2070,"development":1551,"locked_evaluation":519,"by_side":{"BUY":1115,"SELL":955},"by_state":{"THIN_BOOK":38,"NORMAL_BOOK":1678,"DEEP_BOOK":354}},
+    "locked_evaluation_cost": {"status":"DESCRIPTIVE","observations":519,"mean_gross_return_bps":0.9024209574860447,"BASE_10BPS":-9.097579042513955,"STRESS_20BPS":-19.097579042513956}
+  },
+  "software_bindings": {
+    "entrypoint": "trade_system.binance_cm_historical_mechanism.run_historical_mechanism_experiment",
+    "experiment_module": {
+      "path": "/Users/wt/Documents/agent-trade-emotion/trade_system/binance_cm_historical_mechanism.py",
+      "workspace_path": "trade_system/binance_cm_historical_mechanism.py",
+      "sha256": "ba3d54f481f905f4ff3beefb5d4a78c9c812f3beec36bf89fc75b6b956702eea"
+    },
+    "model": {
+      "class": "trade_system.research.RegularizedMultinomialLogistic",
+      "module_path": "/Users/wt/Documents/agent-trade-emotion/trade_system/research.py",
+      "workspace_path": "trade_system/research.py",
+      "module_sha256": "10a6b72ff165d320ae72390fd1904ffa0412ec4d3151b07aac09316317ab12d4"
+    }
+  },
+  "date_evidence": [
+    {"date":"2025-01-01","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-02","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-03","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-04","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-05","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-06","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-07","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-08","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-09","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-10","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-11","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-12","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-13","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-14","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-15","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-16","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-17","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-18","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-19","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-20","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-21","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-22","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-23","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-24","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-25","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-26","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-27","status":"SEEN_DEVELOPMENT"},{"date":"2025-01-28","status":"SEEN_DEVELOPMENT"}
+  ],
+  "hypothesis_adjudications": {"H-001":"NOT_ADJUDICATED","H-002":"NOT_ADJUDICATED","H-003":"WAIT_DATA","H-004":"NOT_TESTED"},
+  "eligible_for_binance_g2": false,
+  "trading_authorization": "DENIED",
+  "notice": "All January historical observations are development-only evidence. This ledger stops current v1 action; it does not grant G2 eligibility, theory adjudication, or trading authorization."
+}

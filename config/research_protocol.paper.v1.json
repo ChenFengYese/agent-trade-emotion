@@ -1,0 +1,23 @@
+{
+  "protocol_id": "btc-usdt-absorption-paper-v1",
+  "status": "SYNTHETIC_DEVELOPMENT_PROFILE",
+  "instrument": "BTCUSDT",
+  "venue": "BINANCE_USDM",
+  "availability_policy": {
+    "allow_actual": true,
+    "allow_reconstructed_for_g2": false,
+    "require_actual_shadow_before_e3": true
+  },
+  "action_contract": {
+    "stages": ["ENTER_PROBE", "ADD_POSITION_CONFIRMED"],
+    "entry_policy": "MARKETABLE_LIMIT_IOC",
+    "labels": ["TP", "SL", "STRUCTURE_EXIT", "TIMEOUT"],
+    "operational_overrides": ["RISK_KILL", "DATA_EXECUTION_HALT", "MANUAL_EMERGENCY"]
+  },
+  "execution_priors": {
+    "latency_ms": 150,
+    "fee_rate": 0.0005,
+    "tail_cost_per_unit": 2.0
+  },
+  "notice": "Synthetic development defaults only. They are not pre-registered research thresholds or live risk values."
+}
